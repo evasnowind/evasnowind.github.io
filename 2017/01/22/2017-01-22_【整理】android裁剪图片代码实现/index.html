@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【整理】android裁剪图片代码实现 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="【整理】android裁剪图片代码实现android系统中已经存在一个用于裁剪图片的控件，基本参数如下（取自：Android中com.android.camera.action.CROP（图片裁剪）所有属性）：附加选项 数据类型 描述crop String 发送裁剪信号aspectX int X方向上的比例aspectY int Y方向上的比例outputX int 裁剪区的宽outputY in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【整理】android裁剪图片代码实现">
+<meta property="og:url" content="https://evasnowind.github.io/2017/01/22/2017-01-22_%E3%80%90%E6%95%B4%E7%90%86%E3%80%91android%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="【整理】android裁剪图片代码实现android系统中已经存在一个用于裁剪图片的控件，基本参数如下（取自：Android中com.android.camera.action.CROP（图片裁剪）所有属性）：附加选项 数据类型 描述crop String 发送裁剪信号aspectX int X方向上的比例aspectY int Y方向上的比例outputX int 裁剪区的宽outputY in">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-01-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-08T07:45:59.477Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://evasnowind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2017-01-22_【整理】android裁剪图片代码实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/01/22/2017-01-22_%E3%80%90%E6%95%B4%E7%90%86%E3%80%91android%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time class="dt-published" datetime="2017-01-22T00:00:00.000Z" itemprop="datePublished">2017-01-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>►<a class="article-category-link" href="/categories/android/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【整理】android裁剪图片代码实现
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="【整理】android裁剪图片代码实现"><a href="#【整理】android裁剪图片代码实现" class="headerlink" title="【整理】android裁剪图片代码实现"></a>【整理】android裁剪图片代码实现</h1><p>android系统中已经存在一个用于裁剪图片的控件，基本参数如下（取自：Android中com.android.camera.action.CROP（图片裁剪）所有属性）：<br>附加选项 数据类型 描述<br>crop String 发送裁剪信号<br>aspectX int X方向上的比例<br>aspectY int Y方向上的比例<br>outputX int 裁剪区的宽<br>outputY int 裁剪区的高<br>scale boolean 是否保留比例<br>return-data boolean 是否将数据保留在Bitmap中返回<br>data Parcelable 相应的Bitmap数据<br>circleCrop String 圆形裁剪区域？<br>MediaStore.EXTRA_OUTPUT (“output”) URI 将URI指向相应的file:&#x2F;&#x2F;&#x2F;…，<br>以下3个属性比较重要：data、MediaStore.EXTRA_OUTPUT以及return-data。<br>data和MediaStore.EXTRA_OUTPUT都是可选的传入数据选项，你可以选择设置data为Bitmap，或者将相应的数据与URI关联起来，你也可以选择是否返回数据（return-data: true）。<br>为什么还有不用返回数据的选项？如果对URI足够了解的话，应该知道URI与File相似，你所有的操作如裁剪将数据都保存在了URI中，你已经持有了相应的URI，也就无需多此一举，再返回Bitmap了。<br>前面已经说到，可以设置data为Bitmap，但是这种操作的限制在于，你的Bitmap不能太大。因此，我们前进的思路似乎明确了：截大图用URI，小图用Bitmap。<br>用法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">intent.setType(&quot;image/*&quot;); //这个参数是确定要选择的内容为图片，</span><br><span class="line">intent.putExtra(&quot;crop&quot;, &quot;true&quot;); //设置了参数，就会调用裁剪，如果不设置，就会跳过裁剪的过程。</span><br><span class="line">intent.putExtra(&quot;aspectX&quot;, 1); //这个是裁剪时候的 裁剪框的 X 方向的比例。</span><br><span class="line">intent.putExtra(&quot;aspectY&quot;,1); //同上Y 方向的比例. (注意： aspectX, aspectY ，两个值都需要为 整数，如果有一个为浮点数，就会导致比例失效。)</span><br><span class="line">//设置aspectX 与 aspectY 后，裁剪框会按照所指定的比例出现，放大缩小都不会更改。如果不指定，那么 裁剪框就可以随意调整了。</span><br><span class="line">intent.putExtra(&quot;outputX&quot;, 100); //返回数据的时候的 X 像素大小。</span><br><span class="line">intent.putExtra(&quot;outputY&quot;, 100); //返回的时候 Y 的像素大小。</span><br><span class="line">//以上两个值，设置之后会按照两个值生成一个Bitmap, 两个值就是这个bitmap的横向和纵向的像素值，如果裁剪的图像和这个像素值不符合，那么空白部分以黑色填充。</span><br><span class="line">intent.putExtra(&quot;noFaceDetection&quot;, true); // 是否去除面部检测， 如果你需要特定的比例去裁剪图片，那么这个一定要去掉，因为它会破坏掉特定的比例。</span><br><span class="line">intent.putExtra(&quot;return-data&quot;, true); //是否要返回值。</span><br><span class="line">startActivityForResult(intent, 1);</span><br></pre></td></tr></table></figure>
+
+<p>有关该控件的用法还可以参考这些文章：<br><a target="_blank" rel="noopener" href="http://www.bitscn.com/Android/787938.html">Android调用系统拍照裁剪图片模糊的解决方法</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/w-y-f/p/4028379.html">Android 拍照或从相册取图片并裁剪</a><br><a target="_blank" rel="noopener" href="http://www.2cto.com/kf/201410/345874.html">[Android] 拍照、截图、保存并显示在ImageView控件中</a><br><a target="_blank" rel="noopener" href="http://www.sunnyang.com/594.html">Android 拍照或选择图片并剪裁</a><br><a target="_blank" rel="noopener" href="http://juhonggang.github.io/2016/05/09/Android%E4%B9%8B%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E4%B8%8E%E8%A3%81%E5%89%AA/">Android之图片选择与裁剪</a><br>但用这个控件有一个问题，那就是如果系统经过定制（比如我国众多的ROM，如MIUI&#x2F;Flyme&#x2F;EMUI），那么无法控制该控件在各种机型上的显示效果，笔者在EMUI上获得的截图框是圆形的（circleCrop参数基本无效，当然，也可能是我参数设置不合适，没深入探究），在MIUI上是矩形。一般情况下，我们都希望控件显示效果是一致的，因此只能自己动手实现了。幸好github上有现成代码，不用重复造轮子，直接拿来用就好，以下推荐我使用过的几个截图控件：<br><a target="_blank" rel="noopener" href="https://github.com/jdamcd/android-crop">https://github.com/jdamcd/android-crop</a> 代码比较简单，目前star数很高（3281），作者说是修改自从AOSP代码，简单的裁剪图片肯定是够用了（我就是用的这个）<br><a target="_blank" rel="noopener" href="https://github.com/ArthurHub/Android-Image-Cropper">https://github.com/ArthurHub/Android-Image-Cropper</a> 效果不错，可以旋转图片，并集成了其他多种功能，star数也很高（1897），不过我看代码略多，跑了下代码就没细看，不过github wiki上给出了比较详细的使用说明<br><a target="_blank" rel="noopener" href="https://github.com/IsseiAoki/SimpleCropView/">https://github.com/IsseiAoki/SimpleCropView\</a><br><a target="_blank" rel="noopener" href="https://github.com/lvillani/android-cropimage/">https://github.com/lvillani/android-cropimage\</a><br><a target="_blank" rel="noopener" href="https://github.com/biokys/cropimage/">https://github.com/biokys/cropimage\</a><br><a target="_blank" rel="noopener" href="https://github.com/edmodo/cropper/">https://github.com/edmodo/cropper\</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/zzxzhyt/article/details/51066269">Android图片裁剪实现(EnjoyCrop)</a> <a target="_blank" rel="noopener" href="https://github.com/Zhouztashin/EnjoyCrop/">https://github.com/Zhouztashin/EnjoyCrop\</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/lcore/article/details/8927748">Android实现图片的裁剪(不调用系统功能)</a><br>以及这些工程：<a target="_blank" rel="noopener" href="https://android-arsenal.com/tag/45">https://android-arsenal.com/tag/45</a> ，都可以参考一下：</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2017/01/22/2017-01-22_%E3%80%90%E6%95%B4%E7%90%86%E3%80%91android%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/" data-id="cuidDSfG4Zz8--QMVvxt0LjQT" data-title="【整理】android裁剪图片代码实现" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/24/2017-01-24_android%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%86%8C%E5%9B%BE%E7%89%87%E4%BB%A5%E5%8F%8A%E8%8E%B7%E5%8F%96%E6%8B%8D%E7%85%A7%E7%85%A7%E7%89%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          android获取相册图片以及获取拍照照片
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/20/2017-01-20_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93TreeSet/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【源码分析】java sdk篇–TreeSet</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/aop/">aop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/aop/spring/">spring</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/">excel</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/excel/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/">guava</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/">io</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/">Netty</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/java/">java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/">j2ee</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/spring-boot/">spring boot</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/">架构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/">shell</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%9E%B6%E6%9E%84/">架构</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/">分布式一致性</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC/">脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/%E8%B5%84%E6%BA%90/">资源</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/11/2021-01-11_%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2activemq%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">如何部署activemq以及部署时遇到的相关问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/">spring cloud gateway基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/10/2020-12-10_maven%E7%BC%96%E8%AF%91%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%97%B6%E7%AE%80%E5%8C%96%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/">maven编译大型项目时简化编译过程的命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/02/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/">centos下如何启动mysql多实例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

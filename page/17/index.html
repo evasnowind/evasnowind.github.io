@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://evasnowind.github.io/page/17/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://evasnowind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2011-08-04_ubuntu下Firefox_的安装【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/08/04/2011-08-04_ubuntu%E4%B8%8BFirefox_%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-08-04T00:00:00.000Z" itemprop="datePublished">2011-08-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/web/">web</a>►<a class="article-category-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/08/04/2011-08-04_ubuntu%E4%B8%8BFirefox_%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">ubuntu下Firefox 的安装【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ubuntu下Firefox-的安装【转载】"><a href="#ubuntu下Firefox-的安装【转载】" class="headerlink" title="ubuntu下Firefox 的安装【转载】"></a>ubuntu下Firefox 的安装【转载】</h1><p>转载地址：<a target="_blank" rel="noopener" href="http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=337166" title="http:&#x2F;&#x2F;forum.ubuntu.org.cn&#x2F;viewtopic.php?f&#x3D;73&amp;t&#x3D;337166">http://forum.ubuntu.org.cn/viewtopic.php?f=73&amp;t=337166</a><br>看到好多人在版上问怎么安装 firefox 5，有必要介绍一下了：<br>和 Chrome 与 Opera 不同，Mozilla 的官方网站提供的 Firefox for Linux 并不是 deb 或 rpm 这样的安装包，而是一个 tar.bz2 的压缩文档。许多人看到 tar.bz2或 tar.gz 这样结尾的文件，自然而然地会以为这又是什么“源代码编译安装”？太痛苦了！其实不是，把它下载下来，解压缩，你会在里面找到一个名字叫做 firefox 的文件（其实是一个可执行的 shell 脚本），没错，它就是真正的 firefox 可执行文件！直接双击它（一般情况下系统会弹出一个对话框问你：firefox 是一个可执行的文本文件，你是要运行 firefox 还是显示它的内容？那么你就选择“运行”），新版的 firefox 就启动了。<br>这很像以前常说的“绿色软件”：你可以直接把它拷在优盘里随身携带！ <br>如果你真的想把 Firefox “整合” 到系统里，这样双击桌面上的图标，或者点击一个链接能直接使用 firefox 打开，那也是很简单的，这么做就行了：<br>（1）把解压后的 firefox 目录重命名为 firefox5，移动到 &#x2F;opt 目录，这是为了安全起见，免得你无意中把它删除了。当然你需要有系统管理员权限才能移动。<br>（2）先删除 &#x2F;usr&#x2F;bin&#x2F;firefox 文件，再新建一个链接 &#x2F;usr&#x2F;bin&#x2F;firefox ，链接到 &#x2F;opt&#x2F;firefox5&#x2F;firefox 即可。这也是需要系统管理员权限的，你可以使用命令来操作：<br><strong>代码:</strong><br>sudo rm &#x2F;usr&#x2F;bin&#x2F;firefox<br>sudo ln -s &#x2F;opt&#x2F;firefox5&#x2F;firefox &#x2F;usr&#x2F;bin&#x2F;firefox<br>注意第二句话不要写反掉了，ln 的第一个参数是“目标”，第二个参数是“快捷方式的名称”。<br>如果你实在不想打命令，也可以手工操作：在 &#x2F;opt&#x2F;firefox5&#x2F; 这个文件夹里，右键点击 firefox ，选择“创建链接”，然后把新生成的链接移到 &#x2F;usr&#x2F;bin&#x2F; 里面，重命名为 firefox ，就 OK 了。当然所有这些操作都得以管理员身份进行，请千万小心。<br>网上提供的许多方法是添加 ppa 源：ppa:mozillateam&#x2F;firefox-stable<br>相比之下本文介绍的方法至少有三个优点：<br>（1）下载速度快。firefox 软件包大约有15M左右，ppa 蜗牛般的网速足以让你失去耐心。<br>（2）中文界面。通过 ppa 安装的 firefox 一定是英文的，你还得找中文语言包。<br>（3）不会覆盖老版本。通过 ppa 安装 firefox 肯定会把之前的版本覆盖掉。但本文的方法就没有这个问题，你可以在 &#x2F;opt 目录下同时放 firefox4 和 firefox5 等文件夹，唯一要做的就是更改 &#x2F;usr&#x2F;bin&#x2F;firefox 链接的目标。<br>最后提供 firefox 下载页面：<br>中文官方网站：<a target="_blank" rel="noopener" href="http://firefox.com.cn//">http://firefox.com.cn/\</a><br>英文官方网站：<a target="_blank" rel="noopener" href="http://www.mozilla.com/en-US/firefox/all.html/">http://www.mozilla.com/en-US/firefox/all.html\</a><br>两者区别在于：中文网站下载的 firefox 会打上 “北京谋智技术网络有限公司”的标签，还会预先安装一堆扩展（当然你可以拒绝安装），英文网站下载的应该不会有这个问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/08/04/2011-08-04_ubuntu%E4%B8%8BFirefox_%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidnHcMULqT5dRBJRlfxYBZY" data-title="ubuntu下Firefox 的安装【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-07-21_10_Programming_Proverbs_Every_Developer_Should_Know[转载]" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/07/21/2011-07-21_10_Programming_Proverbs_Every_Developer_Should_Know%5B%E8%BD%AC%E8%BD%BD%5D/" class="article-date">
+  <time class="dt-published" datetime="2011-07-21T00:00:00.000Z" itemprop="datePublished">2011-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/07/21/2011-07-21_10_Programming_Proverbs_Every_Developer_Should_Know%5B%E8%BD%AC%E8%BD%BD%5D/">10 Programming Proverbs Every Developer Should Know[转载]</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="10-Programming-Proverbs-Every-Developer-Should-Know-转载"><a href="#10-Programming-Proverbs-Every-Developer-Should-Know-转载" class="headerlink" title="10 Programming Proverbs Every Developer Should Know[转载]"></a>10 Programming Proverbs Every Developer Should Know[转载]</h1><p>转载地址：<a target="_blank" rel="noopener" href="http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/" title="http:&#x2F;&#x2F;www.kevinwilliampang.com&#x2F;2008&#x2F;10&#x2F;07&#x2F;10-programming-proverbs-every-developer-should-know&#x2F;">http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/</a><br>Proverbs are used to express universal truths or life lessons in a short and memorable fashion.  I find that they are a great way to keep things in perspective, both in life and in work.  Because of this, I have assembled 10 programming proverbs that every developer needs in their arsenal.</p>
+<h4 id="1-There-is-no-smoke-without-fire"><a href="#1-There-is-no-smoke-without-fire" class="headerlink" title="1. There is no smoke without fire"></a>1. There is no smoke without fire</h4><p><img src="http://www.kevinwilliampang.com/wp-content/uploads/Smoke.jpg"><br><em>Relax. It’s probably just another fire drill</em><br>Poorly designed code tends to manifest itself through some common tell-tale signs.  Some examples of these are:</p>
+<ul>
+<li>Giant classes and&#x2F;or functions</li>
+<li>Large blocks of commented out code</li>
+<li>Duplicated logic</li>
+<li>Deeply nested if&#x2F;else blocks</li>
+</ul>
+<p>Developers often refer to these as <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Code_smell">code smells</a>, but personally, I think the term “code smoke” or “code fumes” is more appropriate as it implies a higher sense of urgency.  If you don’t address the underlying problem it will come back to burn you later on.</p>
+<h4 id="2-An-ounce-of-prevention-is-worth-a-pound-of-cure"><a href="#2-An-ounce-of-prevention-is-worth-a-pound-of-cure" class="headerlink" title="2. An ounce of prevention is worth a pound of cure"></a>2. An ounce of prevention is worth a pound of cure</h4><p><img src="http://www.kevinwilliampang.com/wp-content/uploads/Nurse.jpg"><br><em>Ok, I’m convinced</em><br>Toyota’s assembly line of the 1980s was famously efficient due to its revolutionary approach towards defect prevention.  Each member of the assembly line was given the ability to halt production when they noticed a problem in their sector.  The idea was that it was better to halt production and fix the problem as early on as possible than to continue producing faulty units that would be tougher and more costly to fix&#x2F;replace&#x2F;recall later on.<br>Developers often make the faulty assumption that productivity &#x3D; cranking out code quickly.  Many programmers dive straight into coding without a second thought towards design.  Unfortunately, this <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Leeroy_Jenkins">Leeroy Jenkins</a> approach towards software development tends to lead to sloppy, fragile code that will need to be constantly monitored and patched — perhaps even replaced altogether down the line.  Ultimately, productivity must be measured not only in how much time is spent writing it, but also by how much time is spent debugging it.  A short term gain may prove to be a long term loss if one isn’t careful.</p>
+<h4 id="3-Don’t-put-all-your-eggs-in-one-basket"><a href="#3-Don’t-put-all-your-eggs-in-one-basket" class="headerlink" title="3. Don’t put all your eggs in one basket"></a>3. Don’t put all your eggs in one basket</h4><p>A software team’s <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Bus_factor">bus factor</a> is defined as “the total number of key developers who would if incapacitated, as by getting hit by a bus, send the project into such disarray that it would not be able to proceed”.<br>In other words, what happens if you suddenly lost a key member of your team?  Would business continue as usual or would it grind to a halt?<br>Unfortunately, most software teams fall into the latter category.  These are the teams that turn their programmers into “domain experts” who only deal with requests that fall into their area of expertise..  At first, this appears to be a fairly reasonable approach.  It works for the automaking assembly lines, why not for software development teams?  After all, it’s unreasonable to expect each member of the team to be intimately familiar with each and every nuance in the application, right?<br>The problem is that developers cannot be easily substituted and replaced.  And while the pidgeon-hole approach works fairly well when everybody is available and accounted for, it quickly falls apart when “domain experts” suddenly become unavailable due to turnover, sickness, or even freak bus accidents. It is imperative that software teams have some sort of redundancy built in.  Code reviews, pair programming, and communal code go a long way to foster an environment where each developer is at least superficially familiar with parts of the system outside their comfort zone.</p>
+<h4 id="4-As-you-sow-so-shall-you-reap"><a href="#4-As-you-sow-so-shall-you-reap" class="headerlink" title="4. As you sow, so shall you reap"></a>4. As you sow, so shall you reap</h4><p><img src="http://www.kevinwilliampang.com/wp-content/uploads/SowReap.jpg"><br><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Pragmatic_Programmer">The Pragmatic Programmer</a> has this to say about the <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Fixing_Broken_Windows">Broken Window theory</a>:</p>
+<blockquote>
+<p>Don’t leave “broken windows” (bad designs, wrong decisions, or poor code) unrepaired. Fix each one as soon as it is discovered. If there is insufficient time to fix it properly, then board it up. Perhaps you can comment out the offending code, or display a “Not Implemented” message, or substitute dummy data instead. Take some action to prevent further damage and to show that you’re on top of the situation.<br>We’ve seen clean, functional systems deteriorate pretty quickly once windows start breaking. There are other factors that can contribute to software rot, and we’ll touch on some of them elsewhere, but neglect accelerates the rot faster than any other factor.</p>
+</blockquote>
+<p>In short, good code begets good code and bad code begets bad code.  Do not underestimate the power of inertia.  No one wants to be the one who has to clean up sloppy code, but neither does anyone want to be the one that makes a mess out of beautiful code.  Write it right and your code will have a far better chance at standing the test of time.</p>
+<h4 id="5-Great-haste-makes-great-waste"><a href="#5-Great-haste-makes-great-waste" class="headerlink" title="5. Great haste makes great waste"></a>5. Great haste makes great waste</h4><p>Managers, clients, and programmers are getting more impatient by the day.  Everything needs to be done and it needs to be done <strong>now</strong>.  Because of this, the temptation to throw together hacks and quick-fixes becomes very tough to resist.<br>No time to properly unit test a new feature?  Oh well, it works for the one test run you put it through.  You can always come back to it later!<br>Mysterious object referencing error when you try to access property Y?  Whatever, just throw a try&#x2F;catch block around the code.  We’ve got bigger fish to fry!<br>Sound familiar?  It’s because we’ve all done it at some point in time.  And in certain instances, it is justifiable.  After all, we have deadlines to meet and clients&#x2F;managers to satisfy.  But do it too often and you’ll soon find yourself with a very unstable code base full of hotfixes, duplicated logic, untested solutions, and porous error handling.  In the end, you have to strike a balance between getting things done and getting things done right.</p>
+<h4 id="6-Look-before-you-leap"><a href="#6-Look-before-you-leap" class="headerlink" title="6. Look before you leap"></a>6. Look before you leap</h4><p><img src="http://www.kevinwilliampang.com/wp-content/uploads/Agile.gif"><br>The term “<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Agile_development">Agile Development</a>” is used and abused frequently these days, often as a way for programmers to justify ignoring the dreaded planning&#x2F;designing phase of software development.  We are creators, and as such we derive pleasure from seeing actual progress made towards a finished product.  Surprisingly, <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/UML_Diagram#Diagrams">UML diagrams</a> and <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Use_case">use case analysis</a> just don’t seem to satisfy that desire.  So, we developers often start off coding without any idea of what we are doing or where we are going.  It’s like heading out for dinner when you haven’t yet decided where you want to go.  You’re hungry so you don’t want to waste time finding a restaurant and booking a table.  Instead, you just hop in your car and figure you’ll think of something along the way.  Only, it ends up taking you longer because you have to make a bunch of U-turns and stops at restaurants that end up having too long of a wait.  True, you’ll probably find your way to food eventually, but you probably didn’t end up with the meal you wanted and it probably took a lot more time and hassle than it would have had you just called and booked a reservation at a restaurant you wanted to go to.</p>
+<h4 id="7-When-the-only-tool-you-have-is-a-hammer-everything-looks-like-a-nail"><a href="#7-When-the-only-tool-you-have-is-a-hammer-everything-looks-like-a-nail" class="headerlink" title="7. When the only tool you have is a hammer, everything looks like a nail"></a>7. When the only tool you have is a hammer, everything looks like a nail</h4><p><img src="http://www.kevinwilliampang.com/wp-content/uploads/SquarePegRoundHole.jpg"><br><em>See?  I *told* you Active Record would work for this project!</em><br>Programmers have a tendency to get tunnel vision when it comes to their tools.  Once something “just works” for us on one project, we tend to insist on using it for every project therafter.  It can be a pain to learn something new and, at times, highly unsettling.  The entire time we’re thinking “it would have been easier had I just done it the old way!”.  Enough of these moments and we will simply go with what we know, even if it isn’t a perfect fit for the task.<br>It’s easy to stick with what you know, but in the long run it’s much easier to pick the right tools for the job.  Otherwise you will be fitting square pegs into round holes for the rest of your career.</p>
+<h4 id="8-Silence-is-construed-as-approval"><a href="#8-Silence-is-construed-as-approval" class="headerlink" title="8. Silence is construed as approval"></a>8. Silence is construed as approval</h4><p><img src="http://www.kevinwilliampang.com/wp-content/uploads/Schultz.jpg"><br><em>I see nothing! Nuh-thing!</em><br>This ties in with the theory on broken windows and programming inertia, only on a larger scale.<br>The programming community is just that, a community.  Each programmer is a reflection on the craft.  The more bad code that is released into the wild, the more it becomes the status quo.  If you don’t make an effort to write good, clean, <a target="_blank" rel="noopener" href="http://codebetter.com/blogs/david_laribee/archive/2008/09/09/why-solid-gimme-an-s.aspx">SOLID</a> code, you will find yourself having to work with it on a day-to-day basis.<br>Likewise, if you see poorly designed code written by someone else, you should make the effort to bring it up with the creator. I should note, however, that tact ought to be employed in such a situation. In general, programmers are willing to admit that they do not know everything there is to know about software development and will appreciate the gesture.  We all benefit when we help each other out.  Turning a blind eye to problems only perpetuates them.</p>
+<h4 id="9-A-bird-in-the-hand-is-worth-two-in-the-bush"><a href="#9-A-bird-in-the-hand-is-worth-two-in-the-bush" class="headerlink" title="9. A bird in the hand is worth two in the bush"></a>9. A bird in the hand is worth two in the bush</h4><p>There is a time and place to discuss system architecture and refactoring opportunities, and a time to just get things done.  It is important to weigh the pros and cons of revamping something that already works just to make it cleaner.  It’s an admirable goal, of course, but there will always be code that you want to restructure.  The programming world simply changes too frequently for code to <em>not</em> get outdated.  But at some point you have to provide value to your customers.  The simple fact remains: you can’t do two things at once.  The more time you spend refactoring old code, the less time you spend creating new code.  Striking a balance is critical to enhancing as well as maintaining your application in a timely manner.</p>
+<h4 id="10-With-great-power-comes-great-responsibility"><a href="#10-With-great-power-comes-great-responsibility" class="headerlink" title="10. With great power comes great responsibility"></a>10. With great power comes great responsibility</h4><p><img src="http://www.kevinwilliampang.com/wp-content/uploads/Spiderman.jpg"><br>Software has undoubtedly become an integral and vital part of our lives.  Because of this, practicing good software development is more crucial than ever.  It’s one thing to have a bug in a game of Pong, it’s another to have one in the guidance system of a space shuttle or air traffic control system.  <a target="_blank" rel="noopener" href="http://slashdot.org/">Slashdot</a> recently posted an <a target="_blank" rel="noopener" href="http://tech.slashdot.org/article.pl?sid=08/09/10/203233&from=rss">article</a> describing how a minor glitch in <a target="_blank" rel="noopener" href="http://www.google.com/news">Google News</a> singlehandedly evaporated $1.14 billion in shareholder wealth.  Events such as these demonstrate how much power we wield.  It’s a little frightening to think that the code you write today, whether you intend it to or not, may one day be recycled and depended upon for mission-critical applications.  Write accordingly.<br>Do you have any proverbs you feel should be added to this list?  Feel free to let me know in the comments!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/07/21/2011-07-21_10_Programming_Proverbs_Every_Developer_Should_Know%5B%E8%BD%AC%E8%BD%BD%5D/" data-id="cuidnQwCLOFw3lmZwhSQZ2Slk" data-title="10 Programming Proverbs Every Developer Should Know[转载]" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-07-14_ubuntu_10.10如何开机直接进入命令行界面【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/07/14/2011-07-14_ubuntu_10.10%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-07-14T00:00:00.000Z" itemprop="datePublished">2011-07-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/07/14/2011-07-14_ubuntu_10.10%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">ubuntu 10.10如何开机直接进入命令行界面【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ubuntu-10-10如何开机直接进入命令行界面【转载】"><a href="#ubuntu-10-10如何开机直接进入命令行界面【转载】" class="headerlink" title="ubuntu 10.10如何开机直接进入命令行界面【转载】"></a>ubuntu 10.10如何开机直接进入命令行界面【转载】</h1><p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://www.ylmf.net/ubuntu/tips/2010122818544.html">http://www.ylmf.net/ubuntu/tips/2010122818544.html</a></p>
+<p><strong>注：此种方法我亲自测试，可行</strong><br> <br>Ubuntu 10.10启动进入命令行模式<br>1: 运行 sudo gedit &#x2F;etc&#x2F;default&#x2F;grub<br>2: 找到 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash”<br>3: 改为 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash text”<br>3: 运行 sudo update-grub<br>重启 over<br>根本不需要任何对GDM的操作<br>另外 中文locale下在命令行界面显示中文可以非常简单的安装zhcon即可 还自带命令行下的中文输入法<br>sudo aptitude install zhcon<br>zhcon –utf8<br>主意 一定要以 –utf8参数启动，zhcon默认是gb2312编码<br>如果控制台下没有输入中文的需要 ，那么可以使用jfbterm ，显示速度更快，也漂亮一点<br>sudo aptitude install jfbterm<br>jfbterm -q -c other,UTF-8,iconv,UTF-8<br>由于参数较长 可以写入文件并加上执行权限来运行<br>另外 ，为了开启framebuffer ，以提升zhcon或者jfbterm的性能，还需要修改 &#x2F;etc&#x2F;default&#x2F;grub 文件， 将GRUB_GFXMODE前面的注释(#号)去掉，后面的根据你的机器修改为 800×600或者1024×768，注意不要修改为宽屏分辨率，除非你用vbeinfo这个命令测试出显卡支持宽屏分辨率下的framebuffer<br>例如<br>GRUB_GFXMODE&#x3D;800x600x16</p>
+<p><br> <br> <br><strong>注：下面给出网上搜到的其他方法，仅供参考，我没有试验</strong> <br>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/man8848/article/details/4127302">http://blog.csdn.net/man8848/article/details/4127302</a></p>
+<p><br> <br>Linux默认启动后进入XWindow，但可以修改参数直接进入命令行界面。到底是进入XWindow还是进入命令行界面，是在系统初始化进行的。<br>对于大部分linux系统，初始化使用init进程， &#x2F;etc&#x2F;inittab 为其配置文件。例如\</p>
+<h1 id="The-default-runlevel"><a href="#The-default-runlevel" class="headerlink" title="The default runlevel\"></a>The default runlevel\</h1><p>id:2:initdefault\</p>
+<h1 id="Boot-time-system-configuration-initialization-script"><a href="#Boot-time-system-configuration-initialization-script" class="headerlink" title="Boot-time system configuration&#x2F;initialization script\"></a>Boot-time system configuration&#x2F;initialization script\</h1><p>si::sysinit:&#x2F;etc&#x2F;init.d&#x2F;rcS\</p>
+<h1 id="Runlevels"><a href="#Runlevels" class="headerlink" title="Runlevels\"></a>Runlevels\</h1><p>l0:0:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 0<br>l1:1:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 1<br>l2:2:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 2<br>l3:3:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 3<br>l4:4:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 4<br>l5:5:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 5<br>l6:6:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 6<br>z6:6:respawn:&#x2F;sbin&#x2F;sulogin\</p>
+<h1 id="How-to-react-to-ctrl-alt-del"><a href="#How-to-react-to-ctrl-alt-del" class="headerlink" title="How to react to ctrl-alt-del\"></a>How to react to ctrl-alt-del\</h1><p>ca:12345:ctrlaltdel:&#x2F;sbin&#x2F;shutdown -t1 -a -r now<br>这些内容的通用格式为 id:runlevels:action:process。id 是惟一标识该项的字符序列。runlevels 定义了操作所使用的运行级别。action 指定了要执行的特定操作。process 定义了要执行的进程。\</p>
+<h1 id="对各个运行级的详细解释："><a href="#对各个运行级的详细解释：" class="headerlink" title="对各个运行级的详细解释：\"></a>对各个运行级的详细解释：\</h1><p>0 为停机，机器关闭。<br>1 为单用户模式，就像Win9x下的安全模式类似。<br>2 为多用户模式，但是没有NFS支持。<br>3 为完整的多用户模式，是标准的运行级。<br>4 一般不用，在一些特殊情况下可以用它来做一些事情。例如在笔记本电脑的电池用尽时，可以切换到这个模式来做一些设置。<br>5 就是X11，进到X Window系统了。<br>6 为重启，运行init 6机器就会重启。<br>XWindow是init5，字符是init3。将id设置为runlevel设置为3，就可以直接在系统初始化的时候直接进入文本界面。<br>但 Ubuntu并没有采用init的方法，并没有 &#x2F;etc&#x2F;inittab这个文件。init使用的是串行的方式，引导很耗时。RedHat9启动时串行执行大量的脚本以启动各种需要的服务（启动时可以 看到）。Ubuntu采用了upstart，是一个基于事件的 init 的替代程序，用于 Ubuntu 发行版。<br>Ubuntu中没有 &#x2F;etc&#x2F;inittab这个文件，但用户可以自己添加。当系统中有 &#x2F;etc&#x2F;inittab 时Ubuntu会按照配置来启动。<br>所以要想直接进命令行，第一种方法是用户添加 &#x2F;etc&#x2F;inittab，不过Debian或是Ubuntu中默认run level是2，且2~5都是指X环境。（但命令行是几？不确定，尚未测试）<br>另外一种方法，可以考虑在对应的runlevel级别停止gdm服务：<br>$ sudo mv &#x2F;etc&#x2F;rc2.d&#x2F;S30gdm &#x2F;etc&#x2F;rc2.d&#x2F;K30gdm （有可能是S13gdm，不一定）<br>还可以把gdm删掉。先备份&#x2F;etc&#x2F;init.d&#x2F;gdm到其它位置:<br>$ sudo &#x2F;etc&#x2F;init.d&#x2F;gdm &#x2F;usr&#x2F;gdm<br>然后删除&#x2F;etc&#x2F;init.d&#x2F;gdm,删除后只是不启动XWindow,其它服务不变。需要直接进入XWindow到话，再复制回来。<br>其实如果仅仅是为了在命令行下的话，在xwindows界面下按Ctrl + Alt + F2 进入字符界面，按Ctrl + Alt + F7 回到图形界面。<br>还有一种方法：<br>$sudo apt-get rcconf<br>$sudo rcconf<br>在启动中将gdm去掉。<br> <br> <br> <br>””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>如果想Ubuntu在每次启动到commandprompt，可以输入以下指令:<br>$echo“false”|sudotee&#x2F;etc&#x2F;X11&#x2F;default-display-manager<br>当下次开机时，就会以指令模式启动，如果想变回启动xwindow，可以输入:<br>$echo“&#x2F;usr&#x2F;sbin&#x2F;gdm”|sudotee&#x2F;etc&#x2F;X11&#x2F;default-display-manager<br>在文本界面启动到图形命令是startx。\</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/07/14/2011-07-14_ubuntu_10.10%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidbXXUMKzGZjoRv-yYSnIK3" data-title="ubuntu 10.10如何开机直接进入命令行界面【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-06-29_VMware_Easy_Install模式详细介绍：如何启用和禁用Easy_Install模式（图文）-上【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/06/29/2011-06-29_VMware_Easy_Install%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8Easy_Install%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E6%96%87%EF%BC%89-%E4%B8%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-06-29T00:00:00.000Z" itemprop="datePublished">2011-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/06/29/2011-06-29_VMware_Easy_Install%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8Easy_Install%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E6%96%87%EF%BC%89-%E4%B8%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="VMware-Easy-Install模式详细介绍：如何启用和禁用Easy-Install模式（图文）-上【转载】"><a href="#VMware-Easy-Install模式详细介绍：如何启用和禁用Easy-Install模式（图文）-上【转载】" class="headerlink" title="VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上【转载】"></a>VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上【转载】</h1><p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://hi.baidu.com/i/_coolboy/blog/item/433149d3f33aa0d2a8ec9a69.html">http://hi.baidu.com/i\_coolboy/blog/item/433149d3f33aa0d2a8ec9a69.html</a></p>
+<p>Workstation的Easy Install模式让很多人费解，这个本来应该让安装虚拟系统简单化的功能却给大家带来了不少的麻烦。今天我就结合Vmware的用户手册详细介绍一下 Vmware的Easy Install模式，把自己的经验同大家分享一下。<br>The easy install features enable you to perform an unattended installation of the guest operating system after you complete the New Virtual Machine wizard.意思是easy install模式就是在设置新虚拟机向导之后你就不必参与到虚拟机的安装中，整个过程由软件自动完成。只要在向导中填入CDKey、用户名、系统密码等 信息，VMware在安装过程中自动进行分区格式化、注册系统、设置用户名密码、自动登录以及安装VMware Tools等操作，而不需人工干预，这自然能大大节省很多的时间和精力。但前提必须正确填写了各种信息，并且安装过程中不需要更换CD或镜像，否则安装同 样会中止！<br><br>WMware Easy Install模式的工作过程：<br>新建虚拟机File-&gt;New-&gt;Virtual Machine…出现虚拟新向导New Virtual Machine Wizard，选择典型推荐安装Typical，然后next，Install from:选择从物理光驱或者磁盘镜像文件安装都可以，如果选择了最后一项自定义安装I will install the operating system later，就不会启动Easy Install。<br>选择从物理光驱或者磁盘镜像文件安装之后VMware会自动侦测光盘的实际内容确定即将安装的系统及版本。目前一般只识别原版的系统，不会识别Ghost 版本的，并且光盘或镜像的名字不会影响识别的结果。Ghost版本的系统同样可以用Easy Install模式安装，因为一旦选择的光盘或镜像无法识别Next之后便会出现手工选择系统及版本的向导，选择对应的系统及版本，VMware同样根据 选择的结果进行相对应的Easy Install安装。如果是自动识别了则不需要这一步，值得注意的是不要选错了，因为不同的系统简易安装的要求的信息和步骤是不一样的。本人试验过用 DOS的ISO镜像而系统版本选择Windows XP Professional，结果出现不可预见的错误。<br>之后填写CDKey、用户名、系统密码、虚拟机名、虚拟机位置以及磁盘大小等信息Next之后便是Finish，在这里我们不选择Power on this virtual machine after creation，点击Finish。之后我们会发现在虚拟系统的设置中的FLoppy的connection选择Use floppy inage file并且已经自动加载了一个autoinst.flp的软盘镜像，这个镜像位于此虚拟系统的安装目录下，而之前若选择了I will install the operating system later，此时Floppy使用物理软驱Auto detect。<br><img src="/images/28cb6654fa3fb71ad00906f8_5a02abae.jpg"><br>上图使用Easy Install模式，完成向导后，软驱Floppy中自动加载了一个autoinst.flp软盘镜像。<br><img src="/images/46e1723db8be1e859e3d62f8_b4862152.jpg"><br>这个autoinst.flp镜像存在于这个虚拟机目录下。<br><img src="/images/a02382db528c7724d1164ef8_395dc32a.jpg"><br>对于自定义安装I will install the operating system later，完成向导后不自动加载任何镜像。<br>这个autoinst.flp至关重要，顾名思义它是VMware根据detect或者人工选择的结果自动生成的与系统版本对应的Easy Install文件，它包含了你刚刚在虚拟机向导中输入的安装过程中需要的信息，以及自动安装需要完成步骤和操作。Vmware用它控制着系统的安装过 程，不同系统版本的autoinst.flp自然也就不一样的，所以有上面安装DOS系统时出错的情况。<br>同时Vmware的Easy Install模式只支持部分的系统和版本，也就是说有些版本是无法使用Easy Install模式进行安装的，即使被识别出来，自然也不会生成autoinst.flp（如图，Win95）。<br><img src="/images/e7b4ab3819d2bdb3b311c7df_8af0f9df.jpg">      <img src="/images/1bc196f5606fdf64bd3109df_1615130b.jpg"><br>如上图安装向导识别出Windows 95，但是完成软驱Floppy没有加载autoinst.flp。<br>对于Windows只支持以下版本：<br>Windows Vista, Windows 7, Windows XP, and Windows 2000<br>Windows Server 2008, Windows Server 2003, and Windows 2000 Server<br>对于Linux支持以下版本：<br>Ubuntu Desktop 7.10 and later<br>Ubuntu Server 8.10 and later<br>Red Hat Enterprise Linux 3 through 5<br>Asianux Server 3<br>Fedora Core 4 through 12 with the exception of Fedora Core 8<br>SUSE Linux Enterprise Server 10 SP3<br>SUSE Linux Enterprise Desktop 10 SP3<br>SUSE Linux Enterprise Server 11 GA<br>SUSE Linux Enterprise Desktop 11 GA<br>openSUSE 11.3 GA<br>限于篇幅请继续阅读下篇!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/06/29/2011-06-29_VMware_Easy_Install%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8Easy_Install%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E6%96%87%EF%BC%89-%E4%B8%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidm1LjZJ93e2Nd5xsSfrxgm" data-title="VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-06-29_VMware_Easy_Install模式详细介绍：如何启用和禁用Easy_Install模式（图文）-下【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/06/29/2011-06-29_VMware_Easy_Install%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8Easy_Install%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E6%96%87%EF%BC%89-%E4%B8%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-06-29T00:00:00.000Z" itemprop="datePublished">2011-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/06/29/2011-06-29_VMware_Easy_Install%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8Easy_Install%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E6%96%87%EF%BC%89-%E4%B8%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-下【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="VMware-Easy-Install模式详细介绍：如何启用和禁用Easy-Install模式（图文）-下【转载】"><a href="#VMware-Easy-Install模式详细介绍：如何启用和禁用Easy-Install模式（图文）-下【转载】" class="headerlink" title="VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-下【转载】"></a>VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-下【转载】</h1><p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://hi.baidu.com/i/_coolboy/blog/item/4ccaf44a965cf42e08f7ef8b.html">http://hi.baidu.com/i\_coolboy/blog/item/4ccaf44a965cf42e08f7ef8b.html</a></p>
+<p>接上：<a target="_blank" rel="noopener" href="http://hi.baidu.com.sixxs.org/i_coolboy/blog/item/433149d3f33aa0d2a8ec9a69.html">VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上</a><br>到这里我们对Vmware的Easy Install模式已经有了认识，所以是否启用Easy Install模式完全取决于我们了。<br>所以禁用Easy Install模式的最好办法就是在进行虚拟机安装之前把Floppy设置成Use physical drive:Auto detect，或者Use floppy image file中加载一个不是名为autoinst.flp的镜像，启动后便开始自定义安装了，只是你之前在安装向导中填写的信息就白填了。<br><br>只要Use floppy image file中加载一个名为autoinst.flp的镜像，不管这个镜像是否匹配，都将进行Easy Install模式安装。如果不匹配将会出现上文中安装DOS时不可预知的错误；如果你加载了一个不是VMware生成的autoinst.flp即假 的，则会出现系统不能启动，安装不能进行的现象。<br>You must install an operating system manually if you did not specify the easy install feature or were unable to use it when you completed the New Virtual Machine wizard.所以说启用Easy Install模式只能在完成创建虚拟机向导之前，系统根据你指定光盘或镜像及输入的必要信息生成并加载autoinst.flp软盘镜像以便进行简易安 装。如果你选择I will install the operating system later，那么向导将不会收集Easy Install模式安装所需要的信息。在完成向导后，你放入光盘或镜像，VMware不会侦测系统及版本，也不会要求输入Easy Install所需要的信息，所以接下来只能手工进行安装。这就是网上最常见的禁用Easy Install模式的方法。当然如果你在这时复制并加载一个在相同版本虚拟系统下生成的autoinst.flp镜像，同样可以进行Easy Install模式的安装。<br>Easy install feature also installs VMware Tools in the guest operating system. After installation is finished, VMware Tools isautomatically installed.意思是 Easy Install 安装过程包括安装VMware Tools，但通常Vmware没有自动安装VMware Tools，并且手动进行安装VMware Tools时出错，提示：VMware Tools installation cannot be started manually while Easy Install is in progress。意思Easy Install模式安装正在进行中，不可以手动安装VMware Tools。这可能是由于镜像以及版本的原因，Easy Install没有成功安装VMware Tools，并且Easy Install还未完成。<br>所以手动安装VMware Tools，必须结束Easy Install模式。Easy Install由autoinst.flp控制，因此只要不加载autoinst.flp镜像，系统就可以结束Easy Install模式。这就是网上常用的VMware Tools安装失败的解决方案，即更改Floppy设置成Use physical drive:Auto detect。<br>希望这篇文章对大家的学习能够有所帮助。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/06/29/2011-06-29_VMware_Easy_Install%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8Easy_Install%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E6%96%87%EF%BC%89-%E4%B8%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuiduj7YGtQtt176757Xj-IPM" data-title="VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-下【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-06-29_could_not_find_the_main_class(eclipse不能运行类)_-解决方法【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/06/29/2011-06-29_could_not_find_the_main_class(eclipse%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%B1%BB)_-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-06-29T00:00:00.000Z" itemprop="datePublished">2011-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/06/29/2011-06-29_could_not_find_the_main_class(eclipse%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%B1%BB)_-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">could not find the main class(eclipse不能运行类) -解决方法【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="could-not-find-the-main-class-eclipse不能运行类-解决方法【转载】"><a href="#could-not-find-the-main-class-eclipse不能运行类-解决方法【转载】" class="headerlink" title="could not find the main class(eclipse不能运行类) -解决方法【转载】"></a>could not find the main class(eclipse不能运行类) -解决方法【转载】</h1><p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://wenku.baidu.com/view/fa749e737fd5360cba1adbdd.html">http://wenku.baidu.com/view/fa749e737fd5360cba1adbdd.html</a></p>
+<p>最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。<br>首先，在eclipse中启动Tomcat服务器，始终不能启动</p>
+<p><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg"></p>
+<p>java.lang.NoClassDefFoundError: jdk1&#x2F;6&#x2F;0&#x2F;10<br> <br><br>开始以为是版本不兼容，但是直接发布在Tomcat目录下，直接点击Tomcat的StartUp.bat是可以启动的，运行正常。<br>于是写了一个测试类，在eclipse中运行这个类，只是输出几个字符，居然也不可以，报错信息一样。<br>Google了些信息出来，无非是说设置path，classpath等，按照这个照做后，很遗憾，报错信息依旧，而且我原来用1.5版本时也没有配置这些变量。<br>整整一个下午的时间，头晕脑胀，却一无所获。<br> <br>其实是一个地方的配置写错了。大家注意了：<br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg"><br>红色框起来的地方，这里本来是输入vm参数的，结果我copy&#x2F;paste，当成了jre的名字，这个参数jre当然不会识别了，但是jre提示的信息也有点过，你要是说“vm参数错误”不就好找了，偏偏说java.lang.NoClassDefFoundError: jdk1&#x2F;6&#x2F;0&#x2F;10。<br>下面总结一下：<br>在用eclipse时无需在环境变量中配置path、classpath等。<br>在eclipse中配置jre<br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg"><br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg"><br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg"><br>配置编译选项<br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg"><br>再针对具体工程设置<br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg"><br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg"><br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg"><br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image018.jpg"><br>运行时类配置<br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg"><br><img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg"><br>好了，完结。<br>希望对大家有帮助。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/06/29/2011-06-29_could_not_find_the_main_class(eclipse%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%B1%BB)_-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid9o9hCGBNQRlfr9lbjBj0L" data-title="could not find the main class(eclipse不能运行类) -解决方法【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-06-29_仙剑3外传（问情篇）Win7（32_64位)不能运行的完全解决办法【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/06/29/2011-06-29_%E4%BB%99%E5%89%913%E5%A4%96%E4%BC%A0%EF%BC%88%E9%97%AE%E6%83%85%E7%AF%87%EF%BC%89Win7%EF%BC%8832_64%E4%BD%8D)%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AE%8C%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-06-29T00:00:00.000Z" itemprop="datePublished">2011-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/06/29/2011-06-29_%E4%BB%99%E5%89%913%E5%A4%96%E4%BC%A0%EF%BC%88%E9%97%AE%E6%83%85%E7%AF%87%EF%BC%89Win7%EF%BC%8832_64%E4%BD%8D)%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AE%8C%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">仙剑3外传（问情篇）Win7（32/64位)不能运行的完全解决办法【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="仙剑3外传（问情篇）Win7（32-64位-不能运行的完全解决办法【转载】"><a href="#仙剑3外传（问情篇）Win7（32-64位-不能运行的完全解决办法【转载】" class="headerlink" title="仙剑3外传（问情篇）Win7（32&#x2F;64位)不能运行的完全解决办法【转载】"></a>仙剑3外传（问情篇）Win7（32&#x2F;64位)不能运行的完全解决办法【转载】</h1><p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://hi.baidu.com/hhp001/blog/item/3539f011188adc5d21a4e9ee.html">http://hi.baidu.com/hhp001/blog/item/3539f011188adc5d21a4e9ee.html</a></p>
+<p>无论是更新Win7的SP1（32位），还是64位的Win7，运行问情篇时可能会有如下提示</p>
+<p><img src="/images/39cbd8641cf6463b0d33fa9c_08dd5698.jpg"><br>需要下载新的免cd补丁来解决问题。</p>
+<p>首先要下载升级补丁（1.20），地址：<a target="_blank" rel="noopener" href="http://u.115.com/file/cz9bofz0">http://u.115.com/file/cz9bofz0</a></p>
+<p>解压缩后执行patcher.exe，找到你的仙剑3外传目录后点确定即可升级</p>
+<p><img src="/images/dba287af1e66a0eaca130cba_6bfd45df.jpg"></p>
+<p>然后打免cd补丁，地址：<a target="_blank" rel="noopener" href="http://u.115.com/file/cz9bof1s">http://u.115.com/file/cz9bof1s</a></p>
+<p>解压缩后将其中的pal3a.exe，pal3a.dll复制到游戏目录下替换原文件</p>
+<p><img src="/images/eca14523816a22688644f954_7063c65a.jpg"><br>并导入注册表即可</p>
+<p><img src="/images/3f5b1a068c2b405d1c95832d_ad4af8e7.jpg"></p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>按照以上过程便可继续玩仙剑3外传–问情篇了。但也有人导入注册表后依然出现错误的提示</p>
+<p><img src="/images/610fc88e197e21e80e244430_7e720a77.jpg"></p>
+<p>这是因为注册表的内容仍然没有自动导入，需要手动更新注册表</p>
+<p>按Win+R，输入regedit回车打开注册表编辑器</p>
+<p><img src="/images/264934d19f36b07406088b0b_315c8fbf.jpg"></p>
+<p>依次展开左侧的HKEY_LOCAL_MACHINESoftwareSoftstarPal3a，双击右侧的CDriver项（如果没有就新建一个，类型为“字符串值”），输入“.basedata”（没有引号）确定后退出就可以了。</p>
+<p><img src="/images/cbcadd01dfe12420030881fe_7aa485d6.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/06/29/2011-06-29_%E4%BB%99%E5%89%913%E5%A4%96%E4%BC%A0%EF%BC%88%E9%97%AE%E6%83%85%E7%AF%87%EF%BC%89Win7%EF%BC%8832_64%E4%BD%8D)%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AE%8C%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidvb4Oaf7A9S4DyOtZu1AU9" data-title="仙剑3外传（问情篇）Win7（32/64位)不能运行的完全解决办法【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-06-29_国内外知名PT站点最全汇总，含各站内截图及站点链接【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/06/29/2011-06-29_%E5%9B%BD%E5%86%85%E5%A4%96%E7%9F%A5%E5%90%8DPT%E7%AB%99%E7%82%B9%E6%9C%80%E5%85%A8%E6%B1%87%E6%80%BB%EF%BC%8C%E5%90%AB%E5%90%84%E7%AB%99%E5%86%85%E6%88%AA%E5%9B%BE%E5%8F%8A%E7%AB%99%E7%82%B9%E9%93%BE%E6%8E%A5%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-06-29T00:00:00.000Z" itemprop="datePublished">2011-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/06/29/2011-06-29_%E5%9B%BD%E5%86%85%E5%A4%96%E7%9F%A5%E5%90%8DPT%E7%AB%99%E7%82%B9%E6%9C%80%E5%85%A8%E6%B1%87%E6%80%BB%EF%BC%8C%E5%90%AB%E5%90%84%E7%AB%99%E5%86%85%E6%88%AA%E5%9B%BE%E5%8F%8A%E7%AB%99%E7%82%B9%E9%93%BE%E6%8E%A5%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">国内外知名PT站点最全汇总，含各站内截图及站点链接【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="国内外知名PT站点最全汇总，含各站内截图及站点链接【转载】"><a href="#国内外知名PT站点最全汇总，含各站内截图及站点链接【转载】" class="headerlink" title="国内外知名PT站点最全汇总，含各站内截图及站点链接【转载】"></a>国内外知名PT站点最全汇总，含各站内截图及站点链接【转载】</h1><p>转自百度空间，转载请注明出处，谢谢。<br>原帖地址：<a target="_blank" rel="noopener" href="http://hi.baidu.com/aa23604303/blog/item/ed2b8d655a7012f9f636546b.html%EF%BC%88%E5%9B%BD%E5%86%85%EF%BC%89/">http://hi.baidu.com/aa23604303/blog/item/ed2b8d655a7012f9f636546b.html（国内）\</a><br><a target="_blank" rel="noopener" href="http://hi.baidu.com/aa23604303/blog/item/a249aa5567a59f173b29357f.html%EF%BC%88%E5%9B%BD%E5%A4%96%EF%BC%89/">http://hi.baidu.com/aa23604303/blog/item/a249aa5567a59f173b29357f.html（国外）\</a><br><strong>国内优秀站点 部分需要邀请注册.</strong><br><strong>HDC 中国大哥大 已經衰落了-……</strong><br><strong><a target="_blank" rel="noopener" href="http://hdchina.org/">http://hdchina.org</a></strong><br>比资源原盘全球第二，只要大哥上出种子1-2小时，HDC上就会有发布，加入说难不难，说容易不容易。需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241646a315b240c008f51d.jpg" alt="1.jpg"><br>HDC无论是小管还是毛管都很容易生存，单免费种子就有<strong>1486</strong>如果这样你还生存不下去，那么什么站你都不用混了，外站论坛 <a target="_blank" rel="noopener" href="http://bbs.hdchina.org/">http://bbs.hdchina.org/</a> 经常搞活动，多去几次参加活动就可以申请到。发种子还能得到2倍3倍的上传量<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062420159cfdbd2c6714667c.jpg" alt="hdchina.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://u2.dmhy.org/%E5%9B%BD%E5%86%85%E7%9A%84%E5%94%AF%E4%B8%80%E5%8A%A8%E6%BC%ABPT%EF%BC%8C%E5%96%9C%E6%AC%A2%E5%8A%A8%E6%BC%AB%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%B8%8D%E8%A6%81%E9%94%99%E8%BF%87%E4%BA%86%EF%BC%8C%E7%BB%8F%E5%B8%B8%E5%BC%80%E6%94%BE%E6%B3%A8%E5%86%8C%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%88%B0HDS%E5%8E%BB%E7%94%B3%E8%AF%B7%E9%82%80%E8%AF%B7%E3%80%82/">http://u2.dmhy.org/国内的唯一动漫PT，喜欢动漫的朋友不要错过了，经常开放注册，也可以到HDS去申请邀请。\</a><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624164899f22a3e543403f9.jpg" alt="3.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648871f43279ab4197f.jpg" alt="4.jpg"><br><strong><a target="_blank" rel="noopener" href="http://ccfbits.org/">http://ccfbits.org</a></strong> 精品高清<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062416487ebd7a39f803bbae.jpg" alt="5.jpg"><br><strong><a target="_blank" rel="noopener" href="http://chdbits.org/">http://chdbits.org</a></strong> CHD高清联盟 新星現在是中國最強的<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648b978d99bf8c26dd9.jpg" alt="6.jpg"><br><strong><a target="_blank" rel="noopener" href="http://www.hdstar.org/">http://www.hdstar.org</a></strong> <strong>思路高清</strong> 剧集永久免费，免费种子超多，挂种积分高很容易养活.这个站也是我第一个加入的PT站。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648eddf598c7f017656.jpg" alt="7.jpg"><br><strong><a target="_blank" rel="noopener" href="http://bt.ourdvd.net/">http://bt.ourdvd.net/</a> 国内DVD老大</strong><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062416487e6f85e9bfb93525.jpg" alt="8.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://gamegui.org/">http://gamegui.org/</a> HDC联盟游戏站，国内第一个游戏PT<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648d471fa1341382ef4.jpg" alt="9.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062416487ab1857df2302517.jpg" alt="10.jpg"><br>——————————————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://pt.ptshow.net/">http://pt.ptshow.net/</a> 游侠PT站，里面什么都有，资源可以说比较混乱，以游戏为主，现在开放注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648d2974c2e3272dd7f.jpg" alt="11.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624164847c22305fc4fb0cb.jpg" alt="12.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.hdmay.org/">http://www.hdmay.org/</a> 没什么人气<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648173b955bf09c53ae.jpg" alt="14.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648c667fcaaa0b76ebd.jpg" alt="15.jpg"><br>———————————————————————————————————————————–<br><strong><a target="_blank" rel="noopener" href="http://hdroad.org/">http://hdroad.org/</a></strong> 思路,目前还在测试阶段，还没什么内容，前景很看好。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062416483ff12568f1bd19bd.jpg" alt="16.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062416486391e904191a3675.jpg" alt="17.jpg"><br>———————————————————————————————————————————–<br>CCF 官方PT<br><a target="_blank" rel="noopener" href="http://et8.org/">http://et8.org/</a> 目前内测<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648078bc42aaf616658.jpg" alt="19.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648d503b3af7c82828f.jpg" alt="20.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648dc642b25dc396fde.jpg" alt="18.jpg"><br>———————————————————————————————————————————–<br>人人PT <a target="_blank" rel="noopener" href="http://www.tlfets.net/">http://www.tlfets.net/</a> 内测中<br>[attach]2557195[&#x2F;attach]<br>—————————————————————————————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://www.hdcity.org//">http://www.hdcity.org/\</a><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241813127cdbe29a487a34.jpg" alt="1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624181350991bf523aaa420.jpg" alt="2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624181392737a9d9c148e38.jpg" alt="3.jpg"><br>国外出名PT站点<br>汇总<br><a target="_blank" rel="noopener" href="http://awesome-hd.com/">http://awesome-hd.com\</a><br><strong><a target="_blank" rel="noopener" href="http://ccfbits.org/">http://ccfbits.org</a> (China)<br><a target="_blank" rel="noopener" href="http://chdbits.org/">http://chdbits.org</a> (China)</strong> <br><a target="_blank" rel="noopener" href="http://glorybits.org/">http://glorybits.org\</a><br><a target="_blank" rel="noopener" href="http://hdbits.org/">http://hdbits.org\</a><br><a target="_blank" rel="noopener" href="http://www.hd-bits.ro/">http://www.hd-bits.ro\</a><br><a target="_blank" rel="noopener" href="http://hdbt.pl/">http://hdbt.pl</a> (Pol)<br><a target="_blank" rel="noopener" href="http://hdbyte.org/">http://hdbyte.org\</a><br><strong><a target="_blank" rel="noopener" href="http://hdchina.org/">http://hdchina.org</a> (China)</strong> <br><a target="_blank" rel="noopener" href="http://hdcenter.ath.cx/">http://hdcenter.ath.cx\</a><br><a target="_blank" rel="noopener" href="http://www.hdcity.es/">http://www.hdcity.es</a> (Spa)<br><a target="_blank" rel="noopener" href="http://www.hd-corea.org/">http://www.hd-corea.org\</a><br><a target="_blank" rel="noopener" href="http://www.hdfrench.com/">http://www.hdfrench.com\</a><br><a target="_blank" rel="noopener" href="http://hdpre.ath.cx/">http://hdpre.ath.cx</a> (Hun)<br><a target="_blank" rel="noopener" href="http://www.hdsource.biz/">http://www.hdsource.biz\</a><br><a target="_blank" rel="noopener" href="http://www.hd-spain.com/">http://www.hd-spain.com\</a><br><strong><a target="_blank" rel="noopener" href="http://www.hdstar.org/">http://www.hdstar.org</a> (China)</strong> <br><a target="_blank" rel="noopener" href="http://hd-torrents.org/">http://hd-torrents.org\</a><br><a target="_blank" rel="noopener" href="http://hdtracker.su/">http://hdtracker.su</a> (Lat&#x2F;Eng)<br><a target="_blank" rel="noopener" href="http://hdtracker.ru/">http://hdtracker.ru\</a><br><a target="_blank" rel="noopener" href="http://www.hdtransmission.com/">http://www.hdtransmission.com</a> – down?<br><a target="_blank" rel="noopener" href="http://hq-films.ws/">http://hq-films.ws</a> (Rus)<br><a target="_blank" rel="noopener" href="http://high-def.virtualplace.ro/">http://high-def.virtualplace.ro</a> (Fre)<br><a target="_blank" rel="noopener" href="https://private.hidef-zone.com/">https://private.hidef-zone.com\</a><br><a target="_blank" rel="noopener" href="http://scenehd.org/">http://scenehd.org\</a><br><a target="_blank" rel="noopener" href="http://subtracker.net/">http://subtracker.net\</a><br><a target="_blank" rel="noopener" href="http://tracker.hdclub.com.ua/">http://tracker.hdclub.com.ua</a> – down?<br><a target="_blank" rel="noopener" href="http://x264.me/">http://x264.me\</a><br>在PT界大哥 <strong>狠人一族及多位兄弟</strong> 的帮助下终于完成这篇博文<br>下面向大家介绍些比较优秀站点<br>PT站大哥 HDB<br><a target="_blank" rel="noopener" href="http://hdbits.org/">http://hdbits.org/</a> 关闭注册，也不对中国开放邀请注册，所以大家不要去想了。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418155840216e6e094443.jpg" alt="hdb1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241815eba3f28c59f5a6dd.jpg" alt="hdb2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://sdbits.org/">http://sdbits.org/</a> HDB姐妹站.电影.dvd.x264<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624181697994948b6cf134e.jpg" alt="sdb.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.hd-corea.org/">http://www.hd-corea.org/</a> 韩国BtS，韩剧电影MV音乐，地址已经换了，还要修改hosts才能访问,<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624181745b821a1fcdf0658.jpg" alt="korea1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241817501ba7e077f730ab.jpg" alt="korea2.jpg"><br>———————————————————————————————————————————————————<br>Torrentleech<br><a target="_blank" rel="noopener" href="http://www.torrentleech.org/">http://www.torrentleech.org/</a> 综合0Day站有16万用户，资源覆盖面比较广，什么东西都有,需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241819f6c77d24138efe45.jpg" alt="torrentleach1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241819243d4e9e644dcaa1.jpg" alt="torrentleach2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241819817f130397d2cc29.jpg" alt="torrentleach3.jpg"><br>———————————————————————————————————————————————————<br>SceneTorrents<br><a target="_blank" rel="noopener" href="http://www.scenetorrents.org/%E7%BB%BC%E5%90%880Day%E7%AB%99,%E5%92%8C%E4%B8%8A%E7%AB%99%E4%B8%80%E6%A0%B7%EF%BC%8C%E8%B5%84%E6%BA%90%E8%A6%86%E7%9B%96%E9%9D%A2%E6%AF%94%E8%BE%83%E5%B9%BF%EF%BC%8C%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF%E9%83%BD%E6%9C%89,%E9%9C%80%E8%A6%81%E9%82%80%E8%AF%B7%E6%B3%A8%E5%86%8C%E3%80%82/">http://www.scenetorrents.org/综合0Day站,和上站一样，资源覆盖面比较广，什么东西都有,需要邀请注册。\</a><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624182114b4b79b316943c5.jpg" alt="scenettor1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624182158ec0fbcd198b011.jpg" alt="scenettor2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418213ef3a0876be2cd83.jpg" alt="scenettor3.jpg"><br>———————————————————————————————————————————————————<br>SceneLife<br><a target="_blank" rel="noopener" href="http://scenelife.net/">http://scenelife.net/</a> 综合0Day站,和上站一样广,什么东西都有,需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241822cb2443d14ec7c7ea.jpg" alt="scenelife1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241822bb7f35aa1c3224d7.jpg" alt="scenelife2.jpg"><br>———————————————————————————————————————————————————<br>scc<br><a target="_blank" rel="noopener" href="http://www.sceneaccess.org/">http://www.sceneaccess.org/</a> 0Day站,电影.音乐,电视剧分成三个版面,资源更新快，需要邀请注 册.  ———————————————————————————————————————————–<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241822b882f90cd68ec1f7.jpg" alt="scc1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418220fc3774a96d0105a.jpg" alt="scc2.jpg"><br>revtt<br><a target="_blank" rel="noopener" href="http://www.revolutiontt.net/">http://www.revolutiontt.net/</a> 综合0Day站,和上站一样广,什么东西都有,需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241824a4af7d4e63b8a42a.jpg" alt="revtt1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624182479c93a5c04cec0ea.jpg" alt="revtt2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624182493c5d790f229d11d.jpg" alt="revtt3.jpg"><br>———————————————————————————————————————————–<br>Torrent Damage<a target="_blank" rel="noopener" href="http://www.torrent-damage.net/">http://www.torrent-damage.net/</a> 0ADY小组站点，0day综合站，需要邀请注册<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241825c9abd525ebbf45b6.jpg" alt="tordam1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418255d391a1219b0b39f.jpg" alt="tordam2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241825ff4385d035a50d5f.jpg" alt="tordam3.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624182589b06bb569c181cf.jpg" alt="tordam4.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.bit-hdtv.com/">http://www.bit-hdtv.com/</a> 原盘数量已经达到501片，有点赶超HDC的意思，需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418275d132d42709a1431.jpg" alt="bithdtv1.jpg"><br>原盘数量页面<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624182785e008777767a9fe.jpg" alt="bithdtv2.jpg"><br>———————————————————————————————————————————————————<br>hd-bits 这个站兄弟们都说是HDB山寨版，有自己小组，作品不错免费种子多，现在开放注册<br>注册页面：<a target="_blank" rel="noopener" href="http://www.hd-bits.ro/signup.php">http://www.hd-bits.ro/signup.php</a> 每月必须10G流量，不然T了<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418284ec1ebe9b4aea639.jpg" alt="hd-b1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418280e77b8fc52304b69.jpg" alt="hd-b2.jpg"><br>———————————————————————————————————————————————————-<br><a target="_blank" rel="noopener" href="http://www.bitmetv.org/">http://www.bitmetv.org/</a> 电视剧下载站，这个站出连续剧比较快，需要邀请注册.<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624182989b1d10b91e2eee0.jpg" alt="bitme1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241829058be38fcef602fc.jpg" alt="bitme2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.tvtorrents.com/">http://www.tvtorrents.com/</a> 电视节目下载站,需要邀请注册，这个站打开超级慢，加入也不想要。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241830bd2cca0393071b7a.jpg" alt="tvtor1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418305fc8fee9826da102.jpg" alt="tvtor2.jpg"><br>———————————————————————————————————-<br><a target="_blank" rel="noopener" href="http://tv.torrents.ro/">http://tv.torrents.ro/</a> 电视节目下载站，各站点出片相差不过几分钟时间，这个站也是很快的.开放注册<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241831fd8d72ac0bc55d00.jpg" alt="tvtorro1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241831fc75b8d79037de89.jpg" alt="tvtorro2.jpg"><br>———————————————————————————————————————————————————<br>HD-Club 乌克兰第一高清<br><a target="_blank" rel="noopener" href="http://tracker.hdclub.com.ua/">http://tracker.hdclub.com.ua\</a><br>免费资源很多，有自己的制作小组。我主要下点演唱会香港片原盘等。现在还开放注册,很容易生存，可能人多关系3天就上传了64G。这个站推介大家混。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624183237fa0dd554958e2b.jpg" alt="hdclub1.jpg"><br>站点蓝种18*25&#x3D;450片免费种子<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624183273aa5fe3989d4c27.jpg" alt="hdclub2.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://hdtracker.ru/">http://hdtracker.ru/</a> 俄罗斯第一高清，原盘数量已经达到336，高清资源总体不错。经常开放注册….<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241835be620ce8668914c5.jpg" alt="hdtracker1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241835322fcb4c7e563d36.jpg" alt="hdtracker2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.hdsource.org/">http://www.hdsource.org/</a> 德国第一高清<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241836b18f95dcebbb2543.jpg" alt="hdsource1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241836ed3f7671ea0ac694.jpg" alt="hdsource2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624183642b5e07c9e761661.jpg" alt="hdsource3.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241836ef3850cf650c987a.jpg" alt="hdsource4.jpg"><br>———————————————————————————————————————————–<br>hdf 法国第一高清<br><a target="_blank" rel="noopener" href="http://www.hdfrench.com/">http://www.hdfrench.com/</a> 有制作小组，免费1080P高清电影原盘等都很多(720P几乎绝迹)。注册送10G流量.开放注册<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241837153fb04892de3e05.jpg" alt="hdf1.jpg"><br>免费种子<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624183847e0914a15c400ec.jpg" alt="hdf2.jpg"><br>———————————————————————————————————————————–<br>hd-torrents 这个不记得是罗马尼亚还是哪里的了 <a target="_blank" rel="noopener" href="http://www.hd-torrents.org//">http://www.hd-torrents.org/\</a><br>有制作小组，有很多几M的资源，小水管可以慢慢挂慢慢换流量，部分XXX资源下载按双倍计算下载要小心别下XXX，需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241840a309bb93b31e3042.jpg" alt="hd-tor1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624184035875d40ba31b011.jpg" alt="hd-tor2.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://awesome-hd.com/">http://awesome-hd.com/</a> 这个站以前还不错，由于数据丢失3次，账号又要第三次重练我对它已经失去信心了，需要邀请注册<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624184280d57b6c4c9304d9.jpg" alt="ahd1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062418422f5970168e403432.jpg" alt="ahd2.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://asiandvdclub.org/">http://asiandvdclub.org/</a> ADC 亚洲DVD俱乐部 这个是DVD老大 喜欢香港片朋友一定要加 开放注册<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419121cb8275ef9b11189.jpg" alt="adc1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241912e451196856fc8db8.jpg" alt="adc2.jpg"><br>需要修改hosts文件才能访问<br>C:WINDOWSsystem32driversetc 下hosts文件添加以下内容<br>127.0.0.1 localhost<br>85.11.25.78 asiandvdclub.org<br>85.11.25.78 <a target="_blank" rel="noopener" href="http://www.asiandvdclub.org/">www.asiandvdclub.org\</a><br>85.11.25.78 announce.asiandvdclub.org<br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.thedvdclub.org/">http://www.thedvdclub.org/</a> 老牌DVD站，有上站ADC加此站基本DVD无忧了，经常开放注册.<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241914761840cce55dccda.jpg" alt="tdc1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624191489baedaddda8125b.jpg" alt="tdc2.jpg"><br>———————————————————————————————————————————–<br>Norbits挪威站点独占的DVD资源 站点级别6<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419156eac5b81e131a0ac.jpg" alt="nb1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241915ec966eed3bd51b15.jpg" alt="nb2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241916bffb07be0bfd0f54.jpg" alt="nb3.jpg"><br>———————————————————————————————————————————–<br>韩国黑猫<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241917d7d0a2c0e752dd2f.jpg" alt="klatbit1.jpg"><br>需要邀请注册，邀请很容易拿到，在论坛 <a target="_blank" rel="noopener" href="http://bittalk.org/">http://bittalk.org/</a> 经常发邀请，也可以直接索取，这个站很怕事很低调，所以没什么人气，下载东西很慢，挂种子有积分。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419174a016d8b28d19c45.jpg" alt="klatbit2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.waffles.fm/%E8%BF%99%E4%B8%AA%E9%9F%B3%E4%B9%90%E7%AB%99%E7%A7%8D%E5%AD%90%E6%95%B0%E9%87%8F%E5%B7%B2%E7%BB%8F%E8%BE%BE%E5%88%B025W%EF%BC%8C%E8%B6%85%E7%BA%A7%E9%9A%BE%E6%B7%B7%EF%BC%8C%E6%B2%A1%E6%9C%89seedbox%E7%AD%89%E8%A2%ABBAN%E5%90%A7%E3%80%82/">http://www.waffles.fm/这个音乐站种子数量已经达到25W，超级难混，没有seedbox等被BAN吧。\</a><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624191879451425e0c54727.jpg" alt="waffles.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://what.cd/">http://what.cd/</a> 这个是音乐第一下载大站,里面的邀请区最强大的，可以索求各种邀请。混到PU有SCC邀请<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241919c72e4ba5fcf7f67a.jpg" alt="what1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419193ed74248fa7b5648.jpg" alt="what2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://vipmusic.org/">http://vipmusic.org/</a> 音乐下载站，种子接近2W，喜欢音乐加入这个站点不错.需要邀请注册.<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624192206ac59e05c0bf249.jpg" alt="vipmusic1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241922f0865590a8d62d2a.jpg" alt="vipmusic2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.music-vid.com/">http://www.music-vid.com/</a> MV下载站只要以欧美MV为主.日韩华语暂时没有发现.MV收集狂不错的选择,需要邀请注册，由于邀请有连坐牢，估计不是亲兄弟，都不发给你。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624192337965892e4e77b8e.jpg" alt="music vids1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241923d88ba286d9bd3080.jpg" alt="music vids2.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://btmusic.eu/">http://btmusic.eu/</a> 无损flac音乐站,不允许发表有损格式,需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419242b2dc04bcc356191.jpg" alt="btmusic1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624192400f98aa5a8aa6107.jpg" alt="btmusic2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://tracker.elektronik.ro/">http://tracker.elektronik.ro</a> 音乐好站<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241925a35672e910d837d6.jpg" alt="electronic1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419252b35224f9806c6eb.jpg" alt="electronic2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419257f8575fafe06c644.jpg" alt="electronic3.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.blackcats-games.net/">http://www.blackcats-games.net/</a> 黑猫全球最大的游戏综合站，LOLG上已经清晰著名了站点资源，需要邀请注册.<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241926ed76a8a1a6f434b7.jpg" alt="blackcat1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241926a805d8a876ecdd06.jpg" alt="blackcat2.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://www.bitme.org/">http://www.bitme.org/</a> 教育学习资料站，各种教学资料很全，需要邀请注册.<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241927b259f4f5885b103f.jpg" alt="bitmeorg1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241927a75d997853b6efd3.jpg" alt="bitmeorg2.jpg"><br>———————————————————————————————————————————————————<br><a target="_blank" rel="noopener" href="http://x264.me/">http://x264.me/</a> 资源高清电影.dvdRIP,站点特色很多DVDrip-x264,原盘没有发现。需要邀请注册。<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624192898a3d77235156c43.jpg" alt="x264 1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241928d117c1e773c28bc8.jpg" alt="x264 2.jpg"><br>———————————————————————————————————————————–<br>Thor’sLand <a target="_blank" rel="noopener" href="http://ethor.net/">http://ethor.net/</a> 0ADY综合站<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419296b11051270a31783.jpg" alt="ethor1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419299169bb1fa435331a.jpg" alt="ethor2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419299ca68030eb8d0144.jpg" alt="ethor3.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.iplay.ro/">http://www.iplay.ro/</a> 0ADY电影综合站，xvid.x264.HDTV.音乐，需要邀请注册.<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241930f9d6ffc8ee2f7cf9.jpg" alt="iplay1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419306dfd0933666f0372.jpg" alt="iplay2.jpg"><br>———————————————————————————————————————————————————<br>BithumenLevel 4 站 在邀请论坛混还没发现这个站的邀请，可能门路不对呵呵<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241932e4bbf6c3cb05a7ae.jpg" alt="bithumen1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241932d82a9eeaefe7f316.jpg" alt="bithumen2.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://www.cosmoneo.com/">http://www.cosmoneo.com/</a> 泰国站点06年开站,种子已经达到4W多,很有可能是泰国第一站,主要韩国,中国,日本,DVD为主,高清资源比较少只有200多种子,找了找泰国本国高 清竟然没看到一个,给人感觉泰国还没步入高清时代。咱们连接速度也很慢,试了几个种子最快10多K,我看这个环境我是没办法生存了……..<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241932398457f0c77f335d.jpg" alt="tai1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/110624193264afac4f3edc5200.jpg" alt="tai2.jpg"><br>————————————————————————————————————<br>TS-Tracker<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241934e8d00eb4c863adba.jpg" alt="ts1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419341dd512826cf1652a.jpg" alt="ts2.jpg"><br>————————————————————————————————————-<br>BWT <a target="_blank" rel="noopener" href="http://www.bwtorrents.com/%E5%8D%B0%E5%BA%A6%E5%AE%9D%E8%8E%B1%E5%9D%9E">http://www.bwtorrents.com/印度宝莱坞</a> 主要以印度及周边国家体育电影电视音乐MV等，论坛形式PT<br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241936f8a57765f5d4e3e0.jpg" alt="bwt1.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241936d9a46b7838494e6a.jpg" alt="bwt2.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419366494ddca9e5604dd.jpg" alt="bwt3.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241936b24fa3f372341b8a.jpg" alt="bwt4.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241936f1db66898510ca70.jpg" alt="bwt5.jpg"><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062419363c08c8b71fb68cd7.jpg" alt="bwt6.jpg"><br>———————————————————————————————————————————–<br><a target="_blank" rel="noopener" href="http://hdtporno.org//">http://hdtporno.org/\</a><br><img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241937c4f7633c3aad98fe.jpg" alt="hdt1.jpg"></p>
+<p>:   <a target="_blank" rel="noopener" href="http://bt.neu6.edu.cn/attachment.php?aid=MjU1NzE4NnwzNWQ3NDdhMXwxMzA5MzUzNDUzfDE3NDNuNlNMQU5DaDFzbDZCZE12N0orYWYyeHh0T2hhY05EcWk1SVpoVmg5VjNN&nothumb=yes">13.jpg</a> <em>(152.34 KB)</em><br>     <br>    <img src="http://assets1.edubt.cn:8080/attachments/day_110624/11062416480de1ef097affad73.jpg" alt="13.jpg"></p>
+<p>:   <a target="_blank" rel="noopener" href="http://bt.neu6.edu.cn/attachment.php?aid=MjU1NzE5NHxjMTRkMDg0NHwxMzA5MzUzNDUzfDE3NDNuNlNMQU5DaDFzbDZCZE12N0orYWYyeHh0T2hhY05EcWk1SVpoVmg5VjNN&nothumb=yes">21.jpg</a> <em>(147.32 KB)</em><br>     <br>    <img src="http://assets1.edubt.cn:8080/attachments/day_110624/1106241648f697539b46cd71b7.jpg" alt="21.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/06/29/2011-06-29_%E5%9B%BD%E5%86%85%E5%A4%96%E7%9F%A5%E5%90%8DPT%E7%AB%99%E7%82%B9%E6%9C%80%E5%85%A8%E6%B1%87%E6%80%BB%EF%BC%8C%E5%90%AB%E5%90%84%E7%AB%99%E5%86%85%E6%88%AA%E5%9B%BE%E5%8F%8A%E7%AB%99%E7%82%B9%E9%93%BE%E6%8E%A5%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid20V0OdNQBAM7WZ89Vno8b" data-title="国内外知名PT站点最全汇总，含各站内截图及站点链接【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-06-29_游侠更新仙剑全系列免CD补丁(支持WIN7_SP1)【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/06/29/2011-06-29_%E6%B8%B8%E4%BE%A0%E6%9B%B4%E6%96%B0%E4%BB%99%E5%89%91%E5%85%A8%E7%B3%BB%E5%88%97%E5%85%8DCD%E8%A1%A5%E4%B8%81(%E6%94%AF%E6%8C%81WIN7_SP1)%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-06-29T00:00:00.000Z" itemprop="datePublished">2011-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/06/29/2011-06-29_%E6%B8%B8%E4%BE%A0%E6%9B%B4%E6%96%B0%E4%BB%99%E5%89%91%E5%85%A8%E7%B3%BB%E5%88%97%E5%85%8DCD%E8%A1%A5%E4%B8%81(%E6%94%AF%E6%8C%81WIN7_SP1)%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">游侠更新仙剑全系列免CD补丁(支持WIN7 SP1)【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="游侠更新仙剑全系列免CD补丁-支持WIN7-SP1-【转载】"><a href="#游侠更新仙剑全系列免CD补丁-支持WIN7-SP1-【转载】" class="headerlink" title="游侠更新仙剑全系列免CD补丁(支持WIN7 SP1)【转载】"></a>游侠更新仙剑全系列免CD补丁(支持WIN7 SP1)【转载】</h1><p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://www.btsmth.com/show/_topic.php?en%5C_name=PalSword&gid=612462">http://www.btsmth.com/show\_topic.php?en\_name=PalSword&amp;gid=612462</a></p>
+<p>前两天装上了SP1，发现仙四报错。再一查是免CD补丁的问题，游侠已经更新了。打完新补丁完美运行～<br><br>仙剑奇侠传4简体中文DVD版<br><a target="_blank" rel="noopener" href="http://patch.ali213.net/showpatch/6494.html">http://patch.ali213.net/showpatch/6494.html</a><br>仙剑奇侠传4简体4CD版<br><a target="_blank" rel="noopener" href="http://patch.ali213.net/showpatch/5415.html">http://patch.ali213.net/showpatch/5415.html</a><br>仙剑奇侠传4繁体4CD版<br><a target="_blank" rel="noopener" href="http://patch.ali213.net/showpatch/5416.html">http://patch.ali213.net/showpatch/5416.html</a><br>仙剑奇侠传3外传问情篇简繁体通用版<br><a target="_blank" rel="noopener" href="http://patch.ali213.net/showpatch/6323.html">http://patch.ali213.net/showpatch/6323.html</a><br>仙剑奇侠传3简繁体通用版<br><a target="_blank" rel="noopener" href="http://patch.ali213.net/showpatch/6320.html">http://patch.ali213.net/showpatch/6320.html</a><br>仙剑奇侠传2简体版<br><a target="_blank" rel="noopener" href="http://patch.ali213.net/showpatch/6317.html">http://patch.ali213.net/showpatch/6317.html</a><br>仙剑奇侠传2繁体版<br><a target="_blank" rel="noopener" href="http://patch.ali213.net/showpatch/6316.html">http://patch.ali213.net/showpatch/6316.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/06/29/2011-06-29_%E6%B8%B8%E4%BE%A0%E6%9B%B4%E6%96%B0%E4%BB%99%E5%89%91%E5%85%A8%E7%B3%BB%E5%88%97%E5%85%8DCD%E8%A1%A5%E4%B8%81(%E6%94%AF%E6%8C%81WIN7_SP1)%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidCbxeGVw4V4htsc6fs4K_7" data-title="游侠更新仙剑全系列免CD补丁(支持WIN7 SP1)【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2011-06-29_学习_Linux_几点忠告【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2011/06/29/2011-06-29_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2011-06-29T00:00:00.000Z" itemprop="datePublished">2011-06-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2011/06/29/2011-06-29_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">学习 Linux 几点忠告【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="学习-Linux-几点忠告【转载】"><a href="#学习-Linux-几点忠告【转载】" class="headerlink" title="学习 Linux 几点忠告【转载】"></a>学习 Linux 几点忠告【转载】</h1><p>转载地址：</p>
+<p><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn">http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&amp;variant=zh-cn</a></p>
+<p>作者：王垠</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>目录 [隐藏]   - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8D.E8.A6.81.E7.95.B6.E2.80.9C.E5.82.B3.E6.95.99.E5.A3.AB.E2.80.9D">1 不要当“传教士”</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8D.E8.A6.81.E5.BC.B7.E8.BF.AB.E8.87.AA.E5.B7.B1.E2.80.9D">2 不要强迫自己”</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8D.E8.A6.81.E2.80.9C.E7.8E.A9Linux.E7.9A.84">3 不要“玩Linux的</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8D.E7.94.A8.E6.8C.91.E5.89.94.E7.99.BC.E8.A1.8C.E7.89.88.E6.9C.AC">4 不用挑剔发行版本</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.3D.3D.E4.B8.8D.E8.A6.81.E7.9B.B2.E7.9B.AE.E5.8D.87.E7.B4.9A_.3D.3D">5 &#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8D.E8.A6.81.E9.85.8D.E7.BD.AE.E4.BD.A0.E4.B8.8D.E9.9C.80.E8.A6.81.E7.9A.84.E6.9D.B1.E8.A5.BF">6 不要配置你不需要的东西</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8D.E8.A6.81.E7.BF.92.E6.85.A3.E7.9A.84.E4.BD.BF.E7.94.A8.E6.A0.B9.E5.B8.B3.E8.99.9F.E3.80.82.E5.9C.A8.E9.9C.80.E8.A6.81.E7.9A.84.E6.99.82.E5.80.99.E6.89.8D.E7.94.A8.EF.BC.81">7 不要习惯的使用根帐号。在需要的时候才用！</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8D.E8.A6.81.E7.94.A8.E5.95.86.E6.A5.AD.E7.9A.84.E7.9C.BC.E5.85.89.E4.BE.86.E7.9C.8B_Linux.E7.9A.84">8 不要用商业的眼光来看 Linux的</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E5.B9.B9.E4.BD.A0.E7.9A.84.E6.AD.A3.E4.BA.8B.E5.8E.BB">9 干你的正事去</a> - <a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn#.E4.B8.8A.E9.9D.A2.E5.B9.BE.E6.A2.9D.E5.83.85.E4.BE.9B.E5.8F.83.E8.80.83">10 上面几条仅供参考</a></td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="编辑-不要当“传教士”"><a href="#编辑-不要当“传教士”" class="headerlink" title="[编辑] 不要当“传教士”"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=1" title="编辑段落：不要当“传教士”">编辑</a>] 不要当“传教士”</h2><p><em><strong>(这点有一个重大弊端：开放软件没有商业软件那样的宣传，如果使用者都如此低调，用户群不会大幅扩展。)</strong></em> 为什么是繁体字？而且还翻译的乱起八糟 很多人在讨论区不断的引起的Linux对比视窗之类的讨论，甚至争的面红耳赤，这是没有必要的<br>这种争论是浪费时间而没有任何用处的。对，你花了一下午，用许多事实“捍卫”了Linux比Windows好这个说法。但是视窗的支持者并不会喜欢上Linux的，他们只是稍微退缩一下，然后找一些新的证据来跟你辩论。<br>世界上的人们都在利用Linux的研究最前沿的科学，我们还在这里讨论“要不要用Linux的这种无聊的问题，什么时候才能赶上时代前进的步伐？<br>什么叫做视窗支持者，什么叫做Linux的支持者？我们为什么要支持某一个而反对另外一个？你不需要为 Linux的护法，不需要成为 Linux的支持者“或者”的GNU传教士“ GNU &#x2F; Linux的已经用事实向世界证明了它们的威力，已经被大多数人接受。你只需要安安静静享受的GNU &#x2F; Linux的给你的乐趣和自由。<br>你需要关心的不是你的工具是什么，而是你用它做了什么。精通的Linux并不说明任何问题，因为它只是一个工具而已。如果你用的 Windows能很好的完成你的任务，那你就没有必要费时间去熟悉Linux操作系统。直到有一天你发现一项任务只有Linux操作系统才能完成的时候再 换也不迟，因为你身边的的Linux的爱好者一定会很乐意的帮助你。<br>如果你在使用Linux操作系统的过程中对它产生了感情，那么你应该明白那些习惯于使用视窗的人也会对视窗产生依赖。类似的争论还有很多： 微软 Office Word和TeX，Emacs和Vim，Wolfram Mathematica和Maple，侏儒，fvwm的和KDE的时候，狗派… …和冷静地对自己说：“我不站在它们任何一边。”尽管这有些不容易办到。<br>各人的需要不同，生活的环境不同。对你来说好的东西，对别人来说不一定好，我们需要尊重别人的选择。如果你当面说别人正在用的程序不好，没有必要。\</p>
+<h2 id="编辑-不要强迫自己”"><a href="#编辑-不要强迫自己”" class="headerlink" title="[编辑] 不要强迫自己”"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=2" title="编辑段落：不要强迫自己”">编辑</a>] 不要强迫自己”</h2><p>喜欢电脑的人总是有某些心理强迫倾向。有的人说：“键盘比鼠标快。我不要用鼠标。这样才有高效率。”所以他在编辑器里无论什么时候总是用20W的，大于 10J这样的命令到达目的点。他甚至觉得图形界面是多余的，干脆都不装 Xwindow。<br>全部用键盘看起来的确比让手离开键盘去拿鼠标，再回来“快”多了，但是快的击键频率不等于工作的高效率，对你的健康更没有什么好处。这只能把你变成打键盘的机器。<br>当你正在检查你的文章或者程序，思维正在随着字符的含义流动，突然为 20W，大于 10J这样的东西出现在你的脑子里，是不是会打断思路？不？那说明你当时思考的问题比较简单，这些干扰还不会起到副作用。<br>其实很多人用电脑的时候，思想都受到某种教学的束缚，上面这个只是教多数种类中的一种。某些人创造了很多这种数学，用他的工作方式来要求别 人，嘲笑方式跟他不一样的人。比如有的人嘲笑其它人写程序不按ç 8字符缩进，嘲笑别人在六里用方向键，嘲笑别人不知道是什么增值税，嘲笑其它人用在Java，C＃这种由地方选区回收内存语言 … …<br>你不用管各种各样的教学，电脑只是你的工具，你想怎么用就怎么用。没有人能够约束你，没有人可以嘲笑你的工作方式。电脑明天就不再是这个样子，所以今天你不用完全了解它。你没有必要知道别人创造的一切，因为你需要留点时间自己创造些东西。只要有乐趣！<br>当你下次修改文章的时候，不妨试试悠闲的用鼠标在你眼睛看到的地方轻轻点一下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果你發現自己有類似的強迫症，建議去諮詢一下心理醫生。</span><br></pre></td></tr></table></figure>
+
+<h2 id="编辑-不要“玩Linux的"><a href="#编辑-不要“玩Linux的" class="headerlink" title="[编辑] 不要“玩Linux的"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=3" title="编辑段落：不要“玩Linux的">编辑</a>] 不要“玩Linux的</h2><p>Linux的很多人用的时候会感觉很迷茫，该用哪个发行版本呢？是不是我少装了什么？怎么升级这么快啊！怎么这么不稳定！每当遇到新的软件他就想试用，每当新的版本出现，他就更新，然后用鼠标在新的菜单里选择从来没见过的程序来用用。<br>其实你是为了而使用Linux操作系统的Linux，而没有找到正确的理由来利用Linux操作系统。你首先要明确用电脑的目的，你用它是 为了解决你的实际问题，而不是为了学习安装操作系统，不是为了测试哪个版本好用，不是为了“赶上潮流，更不是因为你硬盘太大了，你想多占点空间。<br>如果你启动了电脑之后不知道应该干什么，那么最好先不要用电脑，因为你可能有更重要的事情需要做。这没什么说的。\</p>
+<h2 id="编辑-不用挑剔发行版本"><a href="#编辑-不用挑剔发行版本" class="headerlink" title="[编辑] 不用挑剔发行版本"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=4" title="编辑段落：不用挑剔发行版本">编辑</a>] 不用挑剔发行版本</h2><p>很多人刚开始用的linux的时候，总是在怀疑别的发行版本是否比自己正在用的这个好，总是怀疑自己以后时候会失去支持，不得不换用别的发行。所以 很多人今天是红色帽子，明天又换成了Debian的，巴布亚一会儿又是… …甚至有的人在一台机器上装了两个版本的Linux操作系统，然后比较哪一个好。<br>其实你完全没有必要这样做，任何发行，只要你熟悉了，你在上面的工作方式几乎是不会受到任何影响的。我以前一直用的红帽，当我有一天在我的 一台新机器上Debian的安装时，我发现使用红帽的经验完全没有浪费。我用了一个下午就配置好了Debian中，使它服服贴贴的听我的话，就跟没有换发 行版本一样。<br>Debian中，拓林思，的SuSE，红帽，Gentoo的，…任何一个版本都是不错的。很多人认为自己攒一个 LFS的是高水平黑客的象征，但是不是每个人都有精力去了解所有细节。\</p>
+<h2 id="编辑-不要盲目升级"><a href="#编辑-不要盲目升级" class="headerlink" title="[编辑] &#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=5" title="编辑段落：&#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;">编辑</a>] &#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;</h2><p>不知道这是心理作用还是什么，有的人看到比较大的版本号，就会很想换成那个。很多人的Redhat的本来配置的很舒服了，可是一旦Redhat的发 行新的版本，他们就会尽快下载过来，然后选择升级安装。结果很多时候把自己原来修改得很好的配置文件给冲掉了。新的软件又带来了新的问题，比如有一次我的 rxvt的就升级到2.7.8跟miniChinput冲突了，升级到Redhat的8.0，xmms的发现居然缺省不能放了MP3播放，XFree86 的是i810的模块在启动上有新的漏洞，Mozilla中，会导致突然退出。<br>如果你已经配置好了一切，千万别再整体升级了，这会浪费你很多很多时间的，不值得。有句话说得好：“如果没有打破，不解决它。”如果你的程序能够完成你需要做的事情，你何必升级呢？？？？\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是的，不論是從論壇還是其他的地方反映出來的大部分都是這個問題，要么比的SUSE Ubuntu的好，要么比Ubuntu的的Mandriva好等等的言論。很多人還是把Linux操作系統看成了一個表面的東西。並沒有塌下心來學習 Linux系統。</span><br></pre></td></tr></table></figure>
+
+<h2 id="编辑-不要配置你不需要的东西"><a href="#编辑-不要配置你不需要的东西" class="headerlink" title="[编辑] 不要配置你不需要的东西"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=6" title="编辑段落：不要配置你不需要的东西">编辑</a>] 不要配置你不需要的东西</h2><p>如果你只想做一个像我这样的普通用户，主要目的是用的Linux来完成自己的科研任务和日常工作，那就可以不用系统管理员或者网络管理员的标准来要 求自己，因为当一个系统和网络管理员确实很辛苦。普通用户学习那些不经常用到的复杂的维护系统的工具，其实是浪费时间，学了不用是会很快忘记的！<br>我不是一个合格的网络管理员，我的服务器都只设置了我自己需要的功能，设置好ssh连接的ftp已经足够了，那样可以省去我很多麻烦。我从 来不过度考虑“安全，因为 Linux操作系统缺省已经很安全了。我没有磁带机，就不用管焦油的那些稀奇古怪的参数了，czf，xzf，ztf已经可以满足我所有的需要。桑 达，awk的，…我也只会几种常用的命令行。\</p>
+<h2 id="编辑-不要习惯的使用根帐号。在需要的时候才用！"><a href="#编辑-不要习惯的使用根帐号。在需要的时候才用！" class="headerlink" title="[编辑] 不要习惯的使用根帐号。在需要的时候才用！"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=7" title="编辑段落：不要习惯的使用根帐号。在需要的时候才用！">编辑</a>] 不要习惯的使用根帐号。在需要的时候才用！</h2><p>这是很多刚接触的UNIX类操作系统的人常见的现象，他们不喜欢在管理系统的时候才用，而是一直用根帐号干所有事情，配置系统，安装程序，浏览网页，玩游戏，编程 … …<br>结果有一天，他不小心在某个系统目录使用了del * …后果不堪设想 … …\</p>
+<h2 id="编辑-不要用商业的眼光来看-Linux的"><a href="#编辑-不要用商业的眼光来看-Linux的" class="headerlink" title="[编辑] 不要用商业的眼光来看 Linux的"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=8" title="编辑段落：不要用商业的眼光来看 Linux的">编辑</a>] 不要用商业的眼光来看 Linux的</h2><p>Linux的不是商业软件，所以不要用要求Solaris操作系统，视窗那样的眼光来看 Linux操作系统。自由软件的作者们从来不拉拢用户，他们对用户不负有任何责任。实际上在自由软件的世界里，开发者“和”用户“并没有明确的界限，大家是朋友。<br>自由软件很可能只是满足作者和他的朋友的需要，甚至是为了好玩而创造的。自由软件不是完美的，自由软件承认自己有缺点，它不会自吹自擂，蒙 蔽“用户”的耳目。这种对作者责任的解脱激发了作者的创造力，他们不用过分考虑“向上兼容，他们往往比背上重重包袱的商业软件结构更合理，技术更先进。<br>所以当你用某个自由软件遇到困难的时候，不应该埋怨软件的作者，因为他们对你并没有义务。你不应该把自己当成一个挑剔的顾客，而要把自己作 为这个软件的顾问和一个和蔼的建议者，这样你才能理解作者写这个程序时的快乐，在遇到问题时向作者反映，帮助他完善这个软件，成为一个快乐的参与者。就像 你的哥哥送你一个他用旧了的自行车，你应该珍惜这份友情，而不要在车坏了，或者骑车摔了一跤的时候大骂你的哥哥。如果你真的不能使用这种合作的心态，那么 最好不要使用这个软件。<br>这是一种先进的文化，它包含了互相合作，科学创新的精神。理解这一点不是很容易，很多人往往是因为不能理解这种文化而离开自由软件。这对于作者来说并没有什么损失。\</p>
+<h2 id="编辑-干你的正事去"><a href="#编辑-干你的正事去" class="headerlink" title="[编辑] 干你的正事去"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=9" title="编辑段落：干你的正事去">编辑</a>] 干你的正事去</h2><p>很多人跟我说，你的网页浪费我好多时间来配置这配置那，一会儿是fvwm的，一会儿是Mutt中… …<br>嗯… …那些东西都是我有空的时候一点一点积累的，如果你想一次性搞定所有那些东西，恐怕得花你几个星期甚至几个月的时间！并不是一定要搞定所有这些东西你才能正常工作的。除非你真的非得利用某个程序，或者你闲著没事，否则你可以不管这些东西。\</p>
+<h2 id="编辑-上面几条仅供参考"><a href="#编辑-上面几条仅供参考" class="headerlink" title="[编辑] 上面几条仅供参考"></a>[<a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&action=edit&section=10" title="编辑段落：上面几条仅供参考">编辑</a>] 上面几条仅供参考</h2><p>以上只是个人意见，不一定适合所有人。取舍由你了！</p>
+<p>\</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2011/06/29/2011-06-29_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidvTrE37yiZAWsZolS5Gcaw" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/aop/">aop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/aop/spring/">spring</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/">excel</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/excel/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/">guava</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/">io</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/">Netty</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/java/">java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/">j2ee</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/spring-boot/">spring boot</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/">架构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/">shell</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%9E%B6%E6%9E%84/">架构</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/">分布式一致性</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC/">脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/%E8%B5%84%E6%BA%90/">资源</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/11/2021-01-11_%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2activemq%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">如何部署activemq以及部署时遇到的相关问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/">spring cloud gateway基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/10/2020-12-10_maven%E7%BC%96%E8%AF%91%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%97%B6%E7%AE%80%E5%8C%96%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/">maven编译大型项目时简化编译过程的命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/02/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/">centos下如何启动mysql多实例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

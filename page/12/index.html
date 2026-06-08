@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://evasnowind.github.io/page/12/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://evasnowind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2016-05-19_android常见问题收藏" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/05/19/2016-05-19_android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%94%B6%E8%97%8F/" class="article-date">
+  <time class="dt-published" datetime="2016-05-19T00:00:00.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>►<a class="article-category-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2016/05/19/2016-05-19_android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%94%B6%E8%97%8F/">android常见问题收藏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="android常见问题收藏"><a href="#android常见问题收藏" class="headerlink" title="android常见问题收藏"></a>android常见问题收藏</h1><p>最近解决的问题比较多，整理一下，方便后续自己查。<br>先送上我看过的几篇不错的文章：<br>传送门1：<a target="_blank" rel="noopener" href="http://blog.csdn.net/t12x3456/article/details/13769731">Android WebView常见问题及解决方案汇总</a><br>传送门2：<a target="_blank" rel="noopener" href="http://blog.csdn.net/liuhe688/article/details/6549263">浅谈WebView的使用</a><br>传送门3：<a target="_blank" rel="noopener" href="http://blog.csdn.net/moubenmao_jun/article/details/17078269">WebView Cache 缓存清除</a><br>传送门4：<a target="_blank" rel="noopener" href="http://blog.csdn.net/t12x3456/article/details/39134961">Android WebView 因重定向无法正常goBack()解决方案</a><br>传送门5：<a target="_blank" rel="noopener" href="http://blog.csdn.net/android_tutor/article/details/6165470">Android高手进阶教程(二十三)之—Android中的日历读写操作!!!</a>     <a target="_blank" rel="noopener" href="http://www.cnblogs.com/wblyuyang/p/4050377.html">Android 向系统日历中添加事件</a><br>自己遇到的一些问题：</p>
+<ol>
+<li>如何判断webview 已经完成load操作？<ol>
+<li>目前未找到合理的方式，webview的WebViewClient中有一个onPageFinished方法，但这个方法的行为很诡异，若访问的是一个正常、有效的站点，webview在load完页面后onPageFinished仅被调用一次；但如果站点无效、不可用（HTTP response的状态码不是200），onPageFinished可能调用两次或是多次（stackoverflow上有很多帖子讨论这问题，如下：<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/7670364/onpagestart-called-many-times-and-onpagefinished-not-called-for-single-page">http://stackoverflow.com/questions/7670364/onpagestart-called-many-times-and-onpagefinished-not-called-for-single-page</a>  <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/18282892/android-webview-onpagefinished-called-twice">http://stackoverflow.com/questions/18282892/android-webview-onpagefinished-called-twice</a>    <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/5049616/android-webviewclient-callbacks-called-too-often">http://stackoverflow.com/questions/5049616/android-webviewclient-callbacks-called-too-often</a> ，唉……接口设计不合理啊），因此不建议在此处加上load完毕时需要调用的回调。</li>
+<li>WebChromeClient中有一个onProgressChanged方法，传入参数中有一个int值表示当前页面载入百分比，但亲测也不好用，传入的int值并不稳定，有时的从0,15一下就到了90，有时只传0，20等，并且我记得当时测试的时候请求无效站点时int值也比较奇怪，记不清了。</li>
+<li>网上有种写法，覆盖loadUrl，使用HttpClient自己进行网络请求的收发操作，拿到返回报文后使用webview的loadData方法载入页面，但若一个页面中有很多资源需要在载入时下载，那就需要在拿到返回报文后进一步处理，否则页面显示肯定不正常（比如css文件没下载、js文件没下等）</li>
+</ol>
+</li>
+<li>PopupWindow显示后，立即调用软键盘，软键盘不显示<ol>
+<li>是否在UI线程？</li>
+<li>可能需要延时？若PopupWindow内部的内容是新创建的，可能需要延时几百毫秒、等内容（所有的View）全部创建后再调用ImputManager的showSoftInput方法，可以尝试用timer或是handler加上延时、等待</li>
+<li>PopupWindow弹出后其他地方变暗的效果<ol>
+<li>&#x2F;&#x2F;设置背景颜色变暗<br>WindowManager.LayoutParams lp&#x3D;getWindow().getAttributes();<br>lp.alpha&#x3D;0.3f;<br>getWindow().setAttributes(lp);  &#x2F;&#x2F;在弹出时设置透明度,0.7比较合适,然后在dismiss时重新设置回来,设置成1</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>webview控件访问https站点，直接显示错误或是空白页<ol>
+<li>https站点是否部署了有效的证书？如果没有就会报错，若需要尽快测试可以在webview中配置信任所有站点，需要设置新的WebViewClient，覆盖其中的onReceivedSslError方法，如下：</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void onReceivedSslError(WebView dview, SslErrorHandler handler, SslError error)&#123;</span><br><span class="line">handler.procced();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><br> <br>TO BE CONTINUED…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2016/05/19/2016-05-19_android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%94%B6%E8%97%8F/" data-id="cuiddAx_-i1UDOv_9oRqSb6OO" data-title="android常见问题收藏" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2016-01-20_Android中Handler使用postDelayed方法不生效" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/01/20/2016-01-20_Android%E4%B8%ADHandler%E4%BD%BF%E7%94%A8postDelayed%E6%96%B9%E6%B3%95%E4%B8%8D%E7%94%9F%E6%95%88/" class="article-date">
+  <time class="dt-published" datetime="2016-01-20T00:00:00.000Z" itemprop="datePublished">2016-01-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/android/">android</a>►<a class="article-category-link" href="/categories/android/java/">java</a>►<a class="article-category-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2016/01/20/2016-01-20_Android%E4%B8%ADHandler%E4%BD%BF%E7%94%A8postDelayed%E6%96%B9%E6%B3%95%E4%B8%8D%E7%94%9F%E6%95%88/">Android中Handler使用postDelayed方法不生效</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Android中Handler使用postDelayed方法不生效"><a href="#Android中Handler使用postDelayed方法不生效" class="headerlink" title="Android中Handler使用postDelayed方法不生效"></a>Android中Handler使用postDelayed方法不生效</h1><p>今天遇到一个比较奇怪的问题，在我们所用的客户端框架中，使用Handler执行一个任务，基本用法如下，但调试时发现并没有执行mRunnable。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private Handler mHandler = new Handler();</span><br><span class="line">……</span><br><span class="line">public boolean dispatchTouchEvent()&#123;</span><br><span class="line">……</span><br><span class="line">mHandler.postDelayed(mRunnable, 500);</span><br><span class="line">……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><br>但是，当我修改一下，将mHandler修改为局部变量，如下，却发现mRunnable正常执行了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line">public boolean  dispatchTouchEvent()&#123;</span><br><span class="line"> ……</span><br><span class="line"> Handler mHandler = new Handler();</span><br><span class="line"> mHandler.postDelayed(mRunnable, 500);</span><br><span class="line"> ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请教了下大牛，然后才发现我这个控件并没有运行在UI线程中，而查看Handler源代码，就会发现Handler能正常运行需要一个Looper，而Handler()这个构造方法通过Looper.myLooper()方法获取一个Looper对象，以便将消息传递给相应的目标。在上面的写法中，如果我将其作为类变量，Handler创建时<strong>并未在主线程中</strong>，没有合适的Looper对象，导致虽然我使用postDelayed方法发送了一个任务，但这个任务并未被执行。有关Handler和Looper的详细说明可以参考这篇文章：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/tt_mc/archive/2012/01/30/2331876.html">Android Looper和Handler</a> 。既然是Looper导致的，可以修改一下创建Handler对象的方式，传入一个Looper对象，如下，即传入主线程的Looper，即可解决该问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;private Handler mHandler = new Handler(Looper.getMainLooper());</span><br><span class="line">……</span><br><span class="line">public boolean dispatchTouchEvent()&#123;</span><br><span class="line">……</span><br><span class="line">mHandler.postDelayed(mRunnable, 500);</span><br><span class="line">……</span><br><span class="line">&#125;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2016/01/20/2016-01-20_Android%E4%B8%ADHandler%E4%BD%BF%E7%94%A8postDelayed%E6%96%B9%E6%B3%95%E4%B8%8D%E7%94%9F%E6%95%88/" data-id="cuidd2phlmssIo_lgrSH7hOEZ" data-title="Android中Handler使用postDelayed方法不生效" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-24_Windows环境下docker安装、使用mysql镜像" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/24/2015-12-24_Windows%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E5%AE%89%E8%A3%85%E3%80%81%E4%BD%BF%E7%94%A8mysql%E9%95%9C%E5%83%8F/" class="article-date">
+  <time class="dt-published" datetime="2015-12-24T00:00:00.000Z" itemprop="datePublished">2015-12-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>►<a class="article-category-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/24/2015-12-24_Windows%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E5%AE%89%E8%A3%85%E3%80%81%E4%BD%BF%E7%94%A8mysql%E9%95%9C%E5%83%8F/">Windows环境下docker安装、使用mysql镜像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Windows环境下docker安装、使用mysql镜像"><a href="#Windows环境下docker安装、使用mysql镜像" class="headerlink" title="Windows环境下docker安装、使用mysql镜像"></a>Windows环境下docker安装、使用mysql镜像</h1><p>这些天在研究docker的使用，平时开发用惯了windows，遂也尝试用windows下的Docker Toolbox，结果发现到底还是没Linux环境下便捷啊。<br>言归正传，安装好Docker Toolbox后，docker pull 各种镜像一般没啥问题（当然，天朝的墙可能会让你拉不下来，我个人感觉是，docker官网直接访问很慢……），但我在安装完毕、启动一个mysql容器时，注意一定要按照mysql镜像官方指导中给出的参数启动、设置好名称和root密码等信息，否则第一次没成功、可能导致后续再重新启动容器时会有问题，建议如果遇到我说的这种情况（此时用docker ps -a可以看到已经有mysql容器在运行），直接删掉docker中已经运行这些mysql容器。<br>mysql容器启动成功后，用navicat连接mysql容器，却遇到一个10038的问题，网上说一般是端口没打开或是没配置好（比如防火墙直接屏蔽该端口等），如果是linux环境下直接安装docker，估计方便很多，但windows有些蛋疼的地方在于：docker实际是运行在一个linux虚拟机中，各种容器又运行在docker中，如下图（来自官网）<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2015/12/win_docker_host.png"><img src="http://www.prayerlaputa.com/wp-content/uploads/2015/12/win_docker_host-236x300.png" alt="win_docker_host"></a><br>在window环境下，这就导致：如果在启动容器时，用docker run -p hostPort:port 的方式指定端口映射，那这个映射实际上只是指定了 <strong>linux虚拟机hostPort端口 -&gt; 该容器port端口</strong> 的映射，而我的连接是在windows中发出的，<strong>windows某端口 –&gt; linux虚拟机hostPort端口</strong> 也需要设置啊，否则必然连不通啊亲，o(╯□╰)o<br>这个设置也比较简单，直接启动virtual box虚拟机，设置default虚拟机的网络端口转发规则，这个就不截图了，很好找的，自己动手加上一个新的规则，将本地某端口（windows下的某端口）映射到linux的hostPort端口即可。\</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/24/2015-12-24_Windows%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E5%AE%89%E8%A3%85%E3%80%81%E4%BD%BF%E7%94%A8mysql%E9%95%9C%E5%83%8F/" data-id="cuidjCGKeHuWh5VY9qTq7Axbu" data-title="Windows环境下docker安装、使用mysql镜像" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-23_Docker的save和export命令的区别【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/23/2015-12-23_Docker%E7%9A%84save%E5%92%8Cexport%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-23T00:00:00.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/23/2015-12-23_Docker%E7%9A%84save%E5%92%8Cexport%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">Docker的save和export命令的区别【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Docker的save和export命令的区别【转载】"><a href="#Docker的save和export命令的区别【转载】" class="headerlink" title="Docker的save和export命令的区别【转载】"></a>Docker的save和export命令的区别【转载】</h1><p>中文帖子地址：<a target="_blank" rel="noopener" href="http://my.oschina.net/zjzhai/blog/225112">http://my.oschina.net/zjzhai/blog/225112</a><br>stackoverflow地址：<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker">http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker</a><br>我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。<br>在结束我一天的工作之前，我希望能保存下我的工作。但我在Docker的save和export命令之间，我凌乱了。我不知道它们之间有什么区别。所以，我上StackOverflow问了一个<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker">问题</a>，接着得到<a target="_blank" rel="noopener" href="http://stackoverflow.com/users/1014586/mbarthelemy">mbarthelemy</a>很棒的回复。以下是我发掘到的内容：</p>
+<h3 id="Docker是如何工作的（简单说明）"><a href="#Docker是如何工作的（简单说明）" class="headerlink" title="Docker是如何工作的（简单说明）"></a>Docker是如何工作的（简单说明）</h3><p>Docker是基于镜像的。镜像类似于已经包含了文件、配置和安装好的程序的虚拟机镜像。同样的，你可以像启动虚拟机一样启动多个镜像实例。运行中的镜像称为容器。你可以修改容器（比如删除一个文件），但这些修改不会影响到镜像。不过，你使用<code>docker commit &lt;container-id&gt; &lt;image-name&gt;</code>命令可以把一个正在运行的容器变成一个新的镜像。<br><strong>举个例子：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 像Docker官方的hello world例子一样，拉取一个叫busybox的镜像</span><br><span class="line">sudo docker pull busybox</span><br><span class="line"># 查看本地已经有哪些镜像</span><br><span class="line"># 我们可以看到busybox</span><br><span class="line">sudo docker images</span><br><span class="line"># 现在让我们来修改下busybox镜像的容器</span><br><span class="line"># 这次，我们创建一个文件夹</span><br><span class="line">sudo docker run busybox mkdir /home/test</span><br><span class="line"># 让我们再看看我们有哪些镜像了。</span><br><span class="line"># 注意每条命令执行后容器都会停止</span><br><span class="line"># 可以看到有一个busybox容器</span><br><span class="line">sudo docker ps -a</span><br><span class="line"># 现在，可以提交修改了。</span><br><span class="line"># 提交后会看到一个新的镜像busybox-1</span><br><span class="line">#  &lt;CONTAINER ID&gt; 是刚刚修改容器后得到的ID</span><br><span class="line">sudo docker commit &lt;CONTAINER ID&gt; busybox-1</span><br><span class="line"># 再看看我们有哪些镜像。</span><br><span class="line"># 我们现在同时有busybox和busybox-1镜像了。</span><br><span class="line">sudo docker images</span><br><span class="line"># 我们执行以下命令，看看这两个镜像有什么不同</span><br><span class="line">sudo docker run busybox [ -d /home/test ] &amp;&amp; echo &#x27;Directory found&#x27; || echo &#x27;Directory not found&#x27;</span><br><span class="line">sudo docker run busybox-1 [ -d /home/test ] &amp;&amp; echo &#x27;Directory found&#x27; || echo &#x27;Directory not found&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们有两个不同的镜像了（busybox和busybox-1），还有一个通过修改busybox容器得来的容器（多了一个&#x2F;home&#x2F;test文件夹）。下面来看看，是如何持久化这些修改的。</p>
+<h3 id="导出-Export"><a href="#导出-Export" class="headerlink" title="导出(Export)"></a>导出(Export)</h3><p>Export命令用于持久化容器（不是镜像）。所以，我们就需要通过以下方法得到容器ID：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker ps -a</span><br></pre></td></tr></table></figure>
+
+<p>接着执行导出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker export &lt;CONTAINER ID&gt; &gt; /home/export.tar</span><br></pre></td></tr></table></figure>
+
+<p>最后的结果是一个2.7MB大小的Tar文件（比使用save命令稍微小些）。</p>
+<h3 id="保存-Save"><a href="#保存-Save" class="headerlink" title="保存(Save)"></a>保存(Save)</h3><p>Save命令用于持久化镜像（不是容器）。所以，我们就需要通过以下方法得到镜像名称：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker images</span><br></pre></td></tr></table></figure>
+
+<p>接着执行保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker save busybox-1 &gt; /home/save.tar</span><br></pre></td></tr></table></figure>
+
+<p>最后的结果是一个2.8MB大小的Tar文件（比使用export命令稍微大些）。</p>
+<h3 id="它们之间的不同"><a href="#它们之间的不同" class="headerlink" title="它们之间的不同"></a>它们之间的不同</h3><p>现在我们创建了两个Tar文件，让我们来看看它们是什么。首先做一下小清理——把所有的容器和镜像都删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 查看所有的容器</span><br><span class="line">sudo docker ps -a</span><br><span class="line"># 删除它们</span><br><span class="line">sudo docker rm &lt;CONTAINER ID&gt;</span><br><span class="line"># 查看所有的镜像</span><br><span class="line">sudo docker images</span><br><span class="line"># 删除它们</span><br><span class="line">sudo docker rmi busybox-1</span><br><span class="line">sudo docker rmi busybox</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>译注：可以使用 docker rm $(docker ps -q -a) 一次性删除所有的容器，docker rmi $(docker images -q) 一次性删除所有的镜像。</p>
+</blockquote>
+<p>现在开始导入刚刚导出的容器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 导入export.tar文件</span><br><span class="line">cat /home/export.tar | sudo docker import - busybox-1-export:latest</span><br><span class="line"># 查看镜像</span><br><span class="line">sudo docker images</span><br><span class="line"># 检查是否导入成功，就是启动一个新容器，检查里面是否存在/home/test目录（是存在的）</span><br><span class="line">sudo docker run busybox-1-export [ -d /home/test ] &amp;&amp; echo &#x27;Directory found&#x27; || echo &#x27;Directory not found&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>使用类似的步骤导入镜像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 导入save.tar文件</span><br><span class="line">docker load &lt; /home/save.tar</span><br><span class="line"># 查看镜像</span><br><span class="line">sudo docker images</span><br><span class="line"># 检查是否导入成功，就是启动一个新容器，检查里面是否存在/home/test目录（是存在的）</span><br><span class="line">sudo docker run busybox-1 [ -d /home/test ] &amp;&amp; echo &#x27;Directory found&#x27; || echo &#x27;Directory not found&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>**那，它们之间到底存在什么不同呢？**我们发现导出后的版本会比原来的版本稍微小一些。那是因为导出后，会丢失历史和元数据。执行下面的命令就知道了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 显示镜像的所有层(layer)</span><br><span class="line">sudo docker images --tree</span><br></pre></td></tr></table></figure>
+
+<p>执行命令，显示下面的内容。正你看到的，导出后再导入(exported-imported)的镜像会丢失所有的历史，而保存后再加载（saveed-loaded）的镜像没有丢失历史和层(layer)。这意味着使用导出后再导入的方式，你将无法回滚到之前的层(layer)，同时，使用保存后再加载的方式持久化整个镜像，就可以做到层回滚（可以执行<code>docker tag &lt;LAYER ID&gt; &lt;IMAGE NAME&gt;</code>来回滚之前的层）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vagrant@ubuntu-13:~$ sudo docker images --tree</span><br><span class="line">├─f502877df6a1 Virtual Size: 2.489 MB Tags: busybox-1-export:latest</span><br><span class="line">└─511136ea3c5a Virtual Size: 0 B</span><br><span class="line">  └─bf747efa0e2f Virtual Size: 0 B</span><br><span class="line">    └─48e5f45168b9 Virtual Size: 2.489 MB</span><br><span class="line">      └─769b9341d937 Virtual Size: 2.489 MB</span><br><span class="line">        └─227516d93162 Virtual Size: 2.489 MB Tags: busybox-1:latest</span><br></pre></td></tr></table></figure>
+
+<p>祝好，<br>Thomas</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/23/2015-12-23_Docker%E7%9A%84save%E5%92%8Cexport%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidVfYW4oKGxBZfIsvdvdjrS" data-title="Docker的save和export命令的区别【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-22_spring源码分析笔记-（1）Bean解析、提取与注册" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/22/2015-12-22_spring%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0-%EF%BC%881%EF%BC%89Bean%E8%A7%A3%E6%9E%90%E3%80%81%E6%8F%90%E5%8F%96%E4%B8%8E%E6%B3%A8%E5%86%8C/" class="article-date">
+  <time class="dt-published" datetime="2015-12-22T00:00:00.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/j2ee/">j2ee</a>►<a class="article-category-link" href="/categories/j2ee/java/">java</a>►<a class="article-category-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a>►<a class="article-category-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/22/2015-12-22_spring%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0-%EF%BC%881%EF%BC%89Bean%E8%A7%A3%E6%9E%90%E3%80%81%E6%8F%90%E5%8F%96%E4%B8%8E%E6%B3%A8%E5%86%8C/">spring源码分析笔记-（1）Bean解析、提取与注册</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="spring源码分析笔记-（1）Bean解析、提取与注册"><a href="#spring源码分析笔记-（1）Bean解析、提取与注册" class="headerlink" title="spring源码分析笔记-（1）Bean解析、提取与注册"></a>spring源码分析笔记-（1）Bean解析、提取与注册</h1><p>大家都说，阅读spring的源代码是个不错的学习方式，现在开始学习一下，头一次阅读开源代码，不知道怎么看，先随便记些笔记，记录一下，希望也能帮助别人吧。<br>目前我看代码的方式是阅读《spring源码深度解析》，按照上面的例子一步步阅读源代码，感觉这样难度降低不少，有书、有实际例子带着终归要容易一些。我所阅读的是spring framework 4.2的代码，从github上拉取的，拉取时间2015年11月份。<br>闲话少说，开始！<br>首先看的部分是spring读取配置文件、实例化各种bean的流程，例如，要执行如下语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanFactory bf = new XmlBeanFactory(new ClassPathResource(&quot;beanFactoryTest.xml&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>该语句首先会创建一个Resource对象，Resource类属于spring中的类，而这个类可以取到InputStream（JDK中的类），因此实际应用中可以用spring的Resource类加载所有资源文件，这样可以利用Resource及其子类为我们封装好的诸多特性。如下例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Resource resource = new ClassPathResource(&quot;beanFactoryTest.xml&quot;);</span><br><span class="line">InputStream inputStream = resource.getInputStream();</span><br></pre></td></tr></table></figure>
+
+<p>获取Resource对象没啥特别的，重要的是后续跟进Resource对象读取xml文件、加载bean的过程。这个过程中用到了spring中非常核心的两个类：</p>
+<ul>
+<li>DefaultListableBeanFactory<ul>
+<li>该类是加载bean的核心部分，给出了spring注册、加载bean的默认实现。XmlBeanFactory继承了该类，但使用了自定义的XML读取器XmlBeanDefinitionReader</li>
+</ul>
+</li>
+<li>XmlBeanDefinitionReader<ul>
+<li>XML文件解析、读取</li>
+</ul>
+</li>
+</ul>
+<p>为了方便记录（主要是懒得画图）流程，直接通过文字描述出层级结构吧：</p>
+<ul>
+<li>XmlBeanFactory<ul>
+<li>XmlBeanDefinitionReader.loadBeanDefinitions(resource)<ul>
+<li>doLoadBeanDefinitions<ul>
+<li>Document doc &#x3D; doLoadDocument(inputSource, resource);&#x2F;&#x2F;获取Document对象<ul>
+<li>DefaultDocumentLoader.loadDocument(inputResource)<ul>
+<li>createDocumentBuilderFactory –&gt; createDocumentBuilder –&gt; DocumentBuilder.parse(inputResource) （返回Document对象）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>registerBeanDefinitions(doc, resource);&#x2F;&#x2F;解析、注册Bean<ul>
+<li>BeanDefinitionDocumentReader.registerBeanDefinitions<ul>
+<li>DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions<ul>
+<li>preProcessXml(root);<br>parseBeanDefinitions(root, this.delegate);&#x2F;&#x2F;解析XML<br>postProcessXml(root);&#x2F;&#x2F;模板方法模式，若想修改在XML解析前、后做些操作，继承DefaultBeanDefinitionDocumentReader、重写preProcessXml和postProcessXml即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/22/2015-12-22_spring%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0-%EF%BC%881%EF%BC%89Bean%E8%A7%A3%E6%9E%90%E3%80%81%E6%8F%90%E5%8F%96%E4%B8%8E%E6%B3%A8%E5%86%8C/" data-id="cuiduZwpBADidFx3OILug0Ici" data-title="spring源码分析笔记-（1）Bean解析、提取与注册" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-21_lnmp安装wordpress后不带www的域名无法访问" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/21/2015-12-21_lnmp%E5%AE%89%E8%A3%85wordpress%E5%90%8E%E4%B8%8D%E5%B8%A6www%E7%9A%84%E5%9F%9F%E5%90%8D%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" class="article-date">
+  <time class="dt-published" datetime="2015-12-21T00:00:00.000Z" itemprop="datePublished">2015-12-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/web/">web</a>►<a class="article-category-link" href="/categories/linux/web/wordpress/">wordpress</a>►<a class="article-category-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/21/2015-12-21_lnmp%E5%AE%89%E8%A3%85wordpress%E5%90%8E%E4%B8%8D%E5%B8%A6www%E7%9A%84%E5%9F%9F%E5%90%8D%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/">lnmp安装wordpress后不带www的域名无法访问</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="lnmp安装wordpress后不带www的域名无法访问"><a href="#lnmp安装wordpress后不带www的域名无法访问" class="headerlink" title="lnmp安装wordpress后不带www的域名无法访问"></a>lnmp安装wordpress后不带www的域名无法访问</h1><p>在VPS上装了wordpress有一段时间了，今天才发现有个小问题：尼玛用<a href="http://www.prayerlaputa.com完整域名访问没问题，用不带www的域名访问就会访问到lnmp的index页面，搜了一下发现是nginx中配置域名重定向有问题，原本内容大致如下：">www.prayerlaputa.com完整域名访问没问题，用不带www的域名访问就会访问到lnmp的index页面，搜了一下发现是nginx中配置域名重定向有问题，原本内容大致如下：</a></p>
+<blockquote>
+<p>server<br>{<br>listen 80;<br>#listen [::]:80;<br>server_name <a target="_blank" rel="noopener" href="http://www.prayerlaputa.com;/">www.prayerlaputa.com;\</a><br>index index.html index.htm index.php default.html default.htm default.php;<br>root &#x2F;home&#x2F;wwwroot&#x2F;<a target="_blank" rel="noopener" href="http://www.prayerlaputa.com;/">www.prayerlaputa.com;\</a><br>include wordpress.conf;<br>include other.conf;<br>#error_page 404 &#x2F;404.html;<br>location ~ [^&#x2F;].php(&#x2F;|$)<br>{\</p>
+<h1 id="comment-try-files-uri-404-to-enable-pathinfo"><a href="#comment-try-files-uri-404-to-enable-pathinfo" class="headerlink" title="comment try_files $uri &#x3D;404; to enable pathinfo\"></a>comment try_files $uri &#x3D;404; to enable pathinfo\</h1><p>try_files $uri &#x3D;404;<br>fastcgi_pass unix:&#x2F;tmp&#x2F;php-cgi.sock;<br>fastcgi_index index.php;<br>include fastcgi.conf;<br>#include pathinfo.conf;<br>}<br>location ~ .*.(gif|jpg|jpeg|png|bmp|swf)$<br>{<br>expires 30d;<br>}<br>location ~ .*.(js|css)?$<br>{<br>expires 12h;<br>}<br>access_log &#x2F;home&#x2F;wwwlogs&#x2F;<a target="_blank" rel="noopener" href="http://www.prayerlaputa.com.log/">www.prayerlaputa.com.log</a> access;<br>}</p>
+</blockquote>
+<p>我的问题主要出在server_name那一行，只写了一个<a target="_blank" rel="noopener" href="http://www.prayerlaputa.com,导致不带www的域名解析不正常,为此我修改为/">www.prayerlaputa.com，导致不带www的域名解析不正常，为此我修改为</a></p>
+<blockquote>
+<p>server_name <a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/">www.prayerlaputa.com</a> prayerlaputa.com;</p>
+</blockquote>
+<p>之后，重启lnmp（lnmp restart），试了试，ok了。不过网上也有很多人并非这么配置的，如下文：<a target="_blank" rel="noopener" href="http://ju.outofmemory.cn/entry/53830">VPS LNMP下带www与不带www的301重定向设置方法</a>  贴出来给大家参考一下</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/21/2015-12-21_lnmp%E5%AE%89%E8%A3%85wordpress%E5%90%8E%E4%B8%8D%E5%B8%A6www%E7%9A%84%E5%9F%9F%E5%90%8D%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" data-id="cuidXpFiDvRQj23jVfmSzRtDB" data-title="lnmp安装wordpress后不带www的域名无法访问" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-17_编译spring_framework_4源码时GroovyDynamicElementReader报错" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/17/2015-12-17_%E7%BC%96%E8%AF%91spring_framework_4%E6%BA%90%E7%A0%81%E6%97%B6GroovyDynamicElementReader%E6%8A%A5%E9%94%99/" class="article-date">
+  <time class="dt-published" datetime="2015-12-17T00:00:00.000Z" itemprop="datePublished">2015-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/j2ee/">j2ee</a>►<a class="article-category-link" href="/categories/j2ee/java/">java</a>►<a class="article-category-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/17/2015-12-17_%E7%BC%96%E8%AF%91spring_framework_4%E6%BA%90%E7%A0%81%E6%97%B6GroovyDynamicElementReader%E6%8A%A5%E9%94%99/">编译spring framework 4源码时GroovyDynamicElementReader报错</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="编译spring-framework-4源码时GroovyDynamicElementReader报错"><a href="#编译spring-framework-4源码时GroovyDynamicElementReader报错" class="headerlink" title="编译spring framework 4源码时GroovyDynamicElementReader报错"></a>编译spring framework 4源码时GroovyDynamicElementReader报错</h1><p>为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle cleanidea eclipse命令build后总是出问题，直接导入eclipse中也会报错，查了一下，在 <a target="_blank" rel="noopener" href="http://bbs.csdn.net/topics/390993197">http://bbs.csdn.net/topics/390993197</a> 发现问题原因：eclipse尚未安装Groovy插件，so，插件装起，eclipse Help –&gt; install new software，添加Groovy插件地址，<a target="_blank" rel="noopener" href="https://github.com/groovy/groovy-eclipse/wiki">https://github.com/groovy/groovy-eclipse/wiki</a>此处有各种eclipse版本对应的groovy插件下载地址（注意eclipse的版本），安装插件后重新clean一下spring-beans-groovy这个项目就可以了。<br>以上</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/17/2015-12-17_%E7%BC%96%E8%AF%91spring_framework_4%E6%BA%90%E7%A0%81%E6%97%B6GroovyDynamicElementReader%E6%8A%A5%E9%94%99/" data-id="cuidQe2DOmHmPTjHl2883UOE3" data-title="编译spring framework 4源码时GroovyDynamicElementReader报错" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-16_gradle编译spring源码时提示“Cannot_change_dependencies_of_configuration_&#39;_spr" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/16/2015-12-16_gradle%E7%BC%96%E8%AF%91spring%E6%BA%90%E7%A0%81%E6%97%B6%E6%8F%90%E7%A4%BA%E2%80%9CCannot_change_dependencies_of_configuration_'_spr/" class="article-date">
+  <time class="dt-published" datetime="2015-12-16T00:00:00.000Z" itemprop="datePublished">2015-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/web/">web</a>►<a class="article-category-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/16/2015-12-16_gradle%E7%BC%96%E8%AF%91spring%E6%BA%90%E7%A0%81%E6%97%B6%E6%8F%90%E7%A4%BA%E2%80%9CCannot_change_dependencies_of_configuration_'_spr/">gradle编译spring源码时提示“Cannot change dependencies of configuration &#39;:spring-orm-hibernate4…..”</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="gradle编译spring源码时提示“Cannot-change-dependencies-of-configuration-‘-spring-orm-hibernate4…-”"><a href="#gradle编译spring源码时提示“Cannot-change-dependencies-of-configuration-‘-spring-orm-hibernate4…-”" class="headerlink" title="gradle编译spring源码时提示“Cannot change dependencies of configuration ‘:spring-orm-hibernate4…..”"></a>gradle编译spring源码时提示“Cannot change dependencies of configuration ‘:spring-orm-hibernate4…..”</h1><p>闲来无事，想学习一下spring源代码，结果按照网上说的教程从git下载spring framework(版本：3.2.4)源码、用gradle（版本：2.9） 转换成eclipse项目时遇到一个诡异问题，提示信息如下：</p>
+<blockquote>
+<p>:buildSrc:test UP-TO-DATE<br>:buildSrc:check UP-TO-DATE<br>:buildSrc:build UP-TO-DATE<br>FAILURE: Build failed with an exception.<br>* What went wrong:<br>A problem occurred configuring project ‘:spring-orm-hibernate4’.\</p>
+<blockquote>
+<p>Cannot change dependencies of configuration ‘:spring-orm-hibernate4:runtimeMer<br>ge’ after it has been resolved.<br>* Try:<br>Run with –stacktrace option to get the stack trace. Run with –info or –debug<br>option to get more log output.<br>BUILD FAILED</p>
+</blockquote>
+</blockquote>
+<p><br>搜了一下，终于在<a target="_blank" rel="noopener" href="http://segmentfault.com/q/1010000002721774">http://segmentfault.com/q/1010000002721774</a> 看到了答案：是因为JDK版本与spring framework源码的版本不太匹配，一开始我用JDK 8去build，就出现上述异常，然后改用JDK 7,还是不行，索性换了<em><strong>最新版的spring framework</strong></em>（版本：4.x）,此时编译即可顺利通过。<br>PS：spring framework相关简介、依赖等内容可参考如下链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://projects.spring.io/spring-framework/">http://projects.spring.io/spring-framework/</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/overview.html#dependency-management">http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/overview.html#dependency-management</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/16/2015-12-16_gradle%E7%BC%96%E8%AF%91spring%E6%BA%90%E7%A0%81%E6%97%B6%E6%8F%90%E7%A4%BA%E2%80%9CCannot_change_dependencies_of_configuration_'_spr/" data-id="cuidwfObI1vobfuv8XCpSAlA4" data-title="gradle编译spring源码时提示“Cannot change dependencies of configuration &#39;:spring-orm-hibernate4…..”" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_C语言中time函数【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_C%E8%AF%AD%E8%A8%80%E4%B8%ADtime%E5%87%BD%E6%95%B0%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/c-c/">c/c++</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_C%E8%AF%AD%E8%A8%80%E4%B8%ADtime%E5%87%BD%E6%95%B0%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">C语言中time函数【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="C语言中time函数【转载】"><a href="#C语言中time函数【转载】" class="headerlink" title="C语言中time函数【转载】"></a>C语言中time函数【转载】</h1><p>转自：<a target="_blank" rel="noopener" href="http://www.examda.com/ncre2/C/jichu/20100825/08150493.html/">http://www.examda.com/ncre2/C/jichu/20100825/08150493.html\</a><br> <br>C&#x2F;C++中的日期和时间<br>头文件 time.h<br>函数用途 函数名<br>得到处理器时间 clock<br>得到时间差 difftime<br>设置时间 mktime<br>得到时间 time<br>得到以ASCII码表示的时间 asctime<br>得到字符串表示的时间 ctime<br>得到指定格式的时间 strftime<br>摘要：<br>本文从介绍基础概念入手，探讨了在C&#x2F;C++中对日期和时间操作所用到的数据结构和函数，并对计时、时间的获取、时间的计算和显示格式等方面进行了阐述。本文还通过大量的实例向你展示了time.h头文件中声明的各种函数和数据结构的详细使用方法。<br>关键字：<br>UTC（世界标准时间），Calendar Time（日历时间），epoch（时间点），clock tick（时钟计时单元）<br>1．概念<br>在C&#x2F;C++中，对字符串的操作有很多值得注意的问题，同样，C&#x2F;C++对时间的操作也有许多值得大家注意的地方。最近，在技术群中有很多网友 也多次问到 过C++语言中对时间的操作、获取和显示等等的问题。下面，在这篇文章中，笔者将主要介绍在C&#x2F;C++中时间和日期的使用方法.<br>通过学习许多C&#x2F;C++库，你可以有很多操作、使用时间的方法。但在这之前你需要了解一些“时间”和“日期”的概念，主要有以下几个：<br>Coordinated Universal Time（UTC）：协调世界时，又称为世界标准时间，也就是大家所熟知的格林威治标准时间 （Greenwich Mean Time，GMT）。比如，中国内地的时间与UTC的时差为+8，也就是UTC+8。美国是UTC-5。<br>Calendar Time：日历时间，是用“从一个标准时间点到此时的时间经过的秒数”来表示的时间。这个标准时间点对不同的编译器来说会有所不同，但 对一个编译系统来说，这个标准时间点是不变的，该编译系统中的时间对应的日历时间都通过该标准时间点来衡量，所以可以说日历时间是“相对时间”，但是无论 你在哪一个时区，在同一时刻对同一个标准时间点来说，日历时间都是一样的。<br>epoch：时间点。时间点在标准C&#x2F;C++中是一个整数，它用此时的时间和标准时间点相差的秒数（即日历时间）来表示。<br>clock tick：时钟计时单元（而不把它叫做时钟滴答次数），一个时钟计时单元的时间长短是由CPU控制的。一个clock tick不是CPU的一个时钟周期，而是C&#x2F;C++的一个基本计时单位。<br>我们可以使用ANSI标准库中的time.h头文件。这个头文件中定义的时间和日期所使用的方法，无论是在结构定义，还是命名，都具有明显的C语言风格。下面，我将说明在C&#x2F;C++中怎样使用日期的时间功能。<br>2． 计时<br>C&#x2F;C++中的计时函数是clock()，而与其相关的数据类型是clock_t。在MSDN中，查得对clock函数定义如下：<br>clock_t clock( void );<br>这个函数返回从“开启这个程序进程”到“程序中调用clock()函数”时之间的CPU时钟计时单元（clock tick）数，在MSDN中称之为挂钟 时间（wal-clock）。其中clock_t是用来保存时间的数据类型，在time.h文件中，我们可以找到对它的定义：<br>#ifndef _CLOCK_T_DEFINED<br>typedef long clock_t;<br>#define _CLOCK_T_DEFINED<br>#endif<br>很明显，clock_t是一个长整形数。在time.h文件中，还定义了一个常量CLOCKS_PER_SEC，它用来表示一秒钟会有多少个时钟计时单元，其定义如下：<br>#define CLOCKS_PER_SEC ((clock_t)1000)<br>可以看到每过千分之一秒（1毫秒），调用clock（）函数返回的值就加1。下面举个例子，你可以使用公式clock()&#x2F;CLOCKS_PER_SEC来计算一个进程自身的运行时间：<br>void elapsed_time()<br>{<br>printf(“Elapsed time:%u secs.\n”,clock()&#x2F;CLOCKS_PER_SEC);<br>}<br>当然，你也可以用clock函数来计算你的机器运行一个循环或者处理其它事件到底花了多少时间：<br>#include “stdio.h”<br>#include “stdlib.h”<br>#include “time.h”<br>int main( void )<br>{<br>long i &#x3D; 10000000L;<br>clock_t start, finish;<br>double duration;<br>&#x2F;* 测量一个事件持续的时间*&#x2F;<br>printf( “Time to do %ld empty loops is “, i );<br>start &#x3D; clock();<br>while( i– )<br>finish &#x3D; clock();<br>duration &#x3D; (double)(finish – start) &#x2F; CLOCKS_PER_SEC;<br>printf( “%f seconds\n”, duration );<br>system(“pause”);<br>}<br>在笔者的机器上，运行结果如下：<br>Time to do 10000000 empty loops is 0.03000 seconds<br>上面我们看到时钟计时单元的长度为1毫秒，那么计时的精度也为1毫秒，那么我们可不可以通过改变CLOCKS_PER_SEC的定义，通过把它定义的大一些，从而使计时精度更高呢？通过尝试，你会发现这样是不行的。在标准C&#x2F;C++中，最小的计时单位是一毫秒。<br>3．与日期和时间相关的数据结构<br>在标准C&#x2F;C++中，我们可通过tm结构来获得日期和时间，tm结构在time.h中的定义如下：<br>#ifndef _TM_DEFINED<br>struct tm {<br>int tm_sec; &#x2F;* 秒 – 取值区间为[0,59] *&#x2F;<br>int tm_min; &#x2F;* 分 – 取值区间为[0,59] *&#x2F;<br>int tm_hour; &#x2F;* 时 – 取值区间为[0,23] *&#x2F;<br>int tm_mday; &#x2F;* 一个月中的日期 – 取值区间为[1,31] *&#x2F;<br>int tm_mon; &#x2F;* 月份（从一月开始，0代表一月） – 取值区间为[0,11] *&#x2F;<br>int tm_year; &#x2F;* 年份，其值等于实际年份减去1900 *&#x2F;<br>int tm_wday; &#x2F;* 星期 – 取值区间为[0,6]，其中0代表星期天，1代表星期一，以此类推 *&#x2F;<br>int tm_yday; &#x2F;* 从每年的1月1日开始的天数 – 取值区间为[0,365]，其中0代表1月1日，1代表1月2日，以此类推 *&#x2F;<br>int tm_isdst; &#x2F;* 夏令时标识符，实行夏令时的时候，tm_isdst为正。不实行夏令时的进候，tm_isdst为0；不了解情况时，tm_isdst()为负。*&#x2F;<br>};<br>#define _TM_DEFINED<br>#endif<br>ANSI C标准称使用tm结构的这种时间表示为分解时间(broken-down time)。而日历时间（Calendar Time）是通过 time_t数据类型来表示的，用time_t表示的时间（日历时间）是从一个时间点（例如：1970年1月1日0时0分0秒）到此时的秒数。在 time.h中，我们也可以看到time_t是一个长整型数：<br>#ifndef _TIME_T_DEFINED<br>typedef long time_t; &#x2F;* 时间值 *&#x2F;<br>#define _TIME_T_DEFINED &#x2F;* 避免重复定义 time_t *&#x2F;<br>#endif<br> <br>大 家可能会产生疑问：既然time_t实际上是长整型，到未来的某一天，从一个时间点（一般是1970年1月1日0时0分0秒）到那时的秒数（即日 历时 间）超出了长整形所能表示的数的范围怎么办？对time_t数据类型的值来说，它所表示的时间不能晚于2038年1月18日19时14分07秒。为了能够 表示更久远的时间，一些编译器厂商引入了64位甚至更长的整形数来保存日历时间。比如微软在Visual C++中采用了__time64_t数据类型来 保存日历时间，并通过_time64()函数来获得日历时间（而不是通过使用32位字的time()函数），这样就可以通过该数据类型保存3001年1月 1日0时0分0秒（不包括该时间点）之前的时间。<br>在time.h头文件中，我们还可以看到一些函数，它们都是以time_t为参数类型或返回值类型的函数：<br>double difftime(time_t time1, time_t time0);<br>time_t mktime(struct tm * timeptr);<br>time_t time(time_t * timer);<br>char * asctime(const struct tm * timeptr);<br>char * ctime(const time_t *timer);<br>此外，time.h还提供了两种不同的函数将日历时间（一个用time_t表示的整数）转换为我们平时看到的把年月日时分秒分开显示的时间格式tm：<br>struct tm * gmtime(const time_t *timer);<br>struct tm * localtime(const time_t * timer);<br>通过查阅MSDN，我们可以知道Microsoft C&#x2F;C++ 7.0中时间点的值（time_t对象的值）是从1899年12月31日0时0分0秒到 该时间点所经过的秒数，而其它各种版本的Microsoft C&#x2F;C++和所有不同版本的Visual C++都是计算的从1970年1月1日0时0分0 秒到该时间点所经过的秒数。<br>4．与日期和时间相关的函数及应用<br>在本节，我将向大家展示怎样利用time.h中声明的函数对时间进行操作。这些操作包括取当前时间、计算时间间隔、以不同的形式显示时间等内容。<br>4.1 获得日历时间<br>我们可以通过time()函数来获得日历时间（Calendar Time），其原型为：time_t time(time_t * timer);<br>如果你已经声明了参数timer，你可以从参数timer返回现在的日历时间，同时也可以通过返回值返回现在的日历时间，即从一个时间点（例 如：1970 年1月1日0时0分0秒）到现在此时的秒数。如果参数为空（NUL），函数将只通过返回值返回现在的日历时间，比如下面这个例子用来显示当前的日历时间：<br>#include “time.h”<br>#include “stdio.h”<br>int main(void)<br>{<br>struct tm *ptr;<br>time_t lt;<br>lt &#x3D;time(NUL);<br>printf(“The Calendar Time now is %d\n”,lt);<br>return 0;<br>}<br>运行的结果与当时的时间有关，我当时运行的结果是：<br>The Calendar Time now is 1122707619<br>其中1122707619就是我运行程序时的日历时间。即从1970年1月1日0时0分0秒到此时的秒数。<br>4.2 获得日期和时间<br>这里说的日期和时间就是我们平时所说的年、月、日、时、分、秒等信息。从第2节我们已经知道这些信息都保存在一个名为tm的结构体中，那么如何将一个日历时间保存为一个tm结构的对象呢？<br>其中可以使用的函数是gmtime()和localtime()，这两个函数的原型为：<br>struct tm * gmtime(const time_t *timer);<br>struct tm * localtime(const time_t * timer);<br>其中gmtime()函数是将日历时间转化为世界标准时间（即格林尼治时间），并返回一个tm结构体来保存这个时间，而localtime() 函数是将日 历时间转化为本地时间。比如现在用gmtime()函数获得的世界标准时间是2005年7月30日7点18分20秒，那么我用localtime()函数 在中国地区获得的本地时间会比世界标准时间晚8个小时，即2005年7月30日15点18分20秒。下面是个例子：<br>#include “time.h”<br>#include “stdio.h”<br>int main(void)<br>{<br>struct tm *local;<br>time_t t;<br>t&#x3D;time(NUL);<br>local&#x3D;localtime(&amp;t);<br>printf(“Local hour is: %d\n”,local-&gt;tm_hour);<br>local&#x3D;gmtime(&amp;t);<br>printf(“UTC hour is: %d\n”,local-&gt;tm_hour);<br>return 0;<br>}<br>运行结果是：<br>Local hour is: 15<br>UTC hour is: 7<br>4.3 固定的时间格式<br>我们可以通过asctime()函数和ctime()函数将时间以固定的格式显示出来，两者的返回值都是char*型的字符串。返回的时间格式为：<br>星期几 月份 日期 时:分:秒 年\n\0<br>例如：Wed Jan 02 02:03:55 1980\n\0<br>其中\n是一个换行符，\0是一个空字符，表示字符串结束。下面是两个函数的原型：<br>char * asctime(const struct tm * timeptr);<br>char * ctime(const time_t *timer);<br>其中asctime()函数是通过tm结构来生成具有固定格式的保存时间信息的字符串，而ctime()是通过日历时间来生成时间字符串。这样 的话， asctime（）函数只是把tm结构对象中的各个域填到时间字符串的相应位置就行了，而ctime（）函数需要先参照本地的时间设置，把日历时间转化为 本地时间，然后再生成格式化后的字符串。在下面，如果t是一个非空的time_t变量的话，那么：<br>printf(ctime(&amp;t));<br>等价于：<br>struct tm *ptr;<br>ptr&#x3D;localtime(&amp;t);<br>printf(asctime(ptr));<br>那么，下面这个程序的两条printf语句输出的结果就是不同的了（除非你将本地时区设为世界标准时间所在的时区）：<br>#include “time.h”<br>#include “stdio.h”<br>int main(void)<br>{<br>struct tm *ptr;<br>time_t lt;<br>lt &#x3D;time(NUL);<br>ptr&#x3D;gmtime(&lt;);<br>printf(asctime(ptr));<br>printf(ctime(&lt;));<br>return 0;<br>}<br>运行结果：<br>Sat Jul 30 08:43:03 2005<br>Sat Jul 30 16:43:03 2005<br>4.4 自定义时间格式<br>我们可以使用strftime（）函数将时间格式化为我们想要的格式。它的原型如下：<br>size_t strftime(<br>char *strDest,<br>size_t maxsize,<br>const char *format,<br>const struct tm *timeptr<br>);<br>我们可以根据format指向字符串中格式命令把timeptr中保存的时间信息放在strDest指向的字符串中，最多向strDest中存放maxsize个字符。该函数返回向strDest指向的字符串中放置的字符数。<br>函数strftime()的操作有些类似于sprintf()：识别以百分号(%)开始的格式命令集合，格式化输出结果放在一个字符串中。格式 化命令说明 串strDest中各种日期和时间信息的确切表示方法。格式串中的其他字符原样放进串中。格式命令列在下面，它们是区分大小写的。<br>%a 星期几的简写<br>%A 星期几的全称<br>%b 月分的简写<br>%B 月份的全称<br>%c 标准的日期的时间串<br>%C 年份的后两位数字<br>%d 十进制表示的每月的第几天<br>%D 月&#x2F;天&#x2F;年<br>%e 在两字符域中，十进制表示的每月的第几天<br>%F 年-月-日<br>%g 年份的后两位数字，使用基于周的年<br>%G 年分，使用基于周的年<br>%h 简写的月份名<br>%H 24小时制的小时<br>%I 12小时制的小时<br>%j 十进制表示的每年的第几天<br>%m 十进制表示的月份<br>%M 十时制表示的分钟数<br>%n 新行符<br>%p 本地的AM或PM的等价显示<br>%r 12小时的时间<br>%R 显示小时和分钟：hh:mm<br>%S 十进制的秒数<br>%t 水平制表符<br>%T 显示时分秒：hh:mm:ss<br>%u 每周的第几天，星期一为第一天 （值从0到6，星期一为0）<br>%U 第年的第几周，把星期日做为第一天（值从0到53）<br>%V 每年的第几周，使用基于周的年<br>%w 十进制表示的星期几（值从0到6，星期天为0）<br>%W 每年的第几周，把星期一做为第一天（值从0到53）<br>%x 标准的日期串<br>%X 标准的时间串<br>%y 不带世纪的十进制年份（值从0到99）<br>%Y 带世纪部分的十进制年份<br>%z，%Z 时区名称，如果不能得到时区名称则返回空字符。<br>%% 百分号<br>如果想显示现在是几点了，并以12小时制显示，就象下面这段程序：<br>#include “time.h”<br>#include “stdio.h”<br>int main(void)<br>{<br>struct tm *ptr;<br>time_t lt;<br>char str[80];<br>lt&#x3D;time(NUL);<br>ptr&#x3D;localtime(&lt;);<br>strftime(str,100,”It is now %I %p”,ptr);<br>printf(str);<br>return 0;<br>}<br>其运行结果为：<br>It is now 4PM<br>而下面的程序则显示当前的完整日期：<br>#include<br>#include<br>void main( void )<br>{<br>struct tm *newtime;<br>char tmpbuf[128];<br>time_t lt1;<br>time( &lt;1 );<br>newtime&#x3D;localtime(&lt;1);<br>strftime( tmpbuf, 128, “Today is %A, day %d of %B in the year %Y.\n”, newtime);<br>printf(tmpbuf);<br>}<br>运行结果：<br>Today is Saturday, day 30 of July in the year 2005.<br>4.5 计算持续时间的长度<br>有时候在实际应用中要计算一个事件持续的时间长度，比如计算打字速度。在第1节计时部分中，我已经用clock函数举了一个例子。Clock()函数可以精确到毫秒级。同时，我们也可以使用difftime()函数，但它只能精确到秒。该函数的定义如下：<br>double difftime(time_t time1, time_t time0);<br>虽然该函数返回的以秒计算的时间间隔是double类型的，但这并不说明该时间具有同double一样的精确度，这是由它的参数觉得的（time_t是以秒为单位计算的）。比如下面一段程序：<br>#include “time.h”<br>#include “stdio.h”<br>#include “stdlib.h”<br>int main(void)<br>{<br>time_t start,end;<br>start &#x3D; time(NUL);<br>system(“pause”);<br>end &#x3D; time(NUL);<br>printf(“The pause used %f seconds.\n”,difftime(end,start));&#x2F;&#x2F;&lt;-<br>system(“pause”);<br>return 0;<br>}<br>运行结果为：<br>请按任意键继续. . .<br>The pause used 2.000000 seconds.<br>请按任意键继续. . .<br>可以想像，暂停的时间并不那么巧是整整2秒钟。其实，你将上面程序的带有“&#x2F;&#x2F;&lt;-”注释的一行用下面的一行代码替换：<br>printf(“The pause used %f seconds.\n”,end-start);<br>其运行结果是一样的。<br>4.6 分解时间转化为日历时间<br>这里说的分解时间就是以年、月、日、时、分、秒等分量保存的时间结构，在C&#x2F;C++中是tm结构。我们可以使用mktime（）函数将用tm结构表示的时间转化为日历时间。其函数原型如下：<br>time_t mktime(struct tm * timeptr);<br>其返回值就是转化后的日历时间。这样我们就可以先制定一个分解时间，然后对这个时间进行操作了，下面的例子可以计算出1997年7月1日是星期几：<br>#include “time.h”<br>#include “stdio.h”<br>#include “stdlib.h”<br>int main(void)<br>{<br>struct tm t;<br>time_t t_of_day;<br>t.tm_year&#x3D;1997-1900;<br>t.tm_mon&#x3D;6;<br>t.tm_mday&#x3D;1;<br>t.tm_hour&#x3D;0;<br>t.tm_min&#x3D;0;<br>t.tm_sec&#x3D;1;<br>t.tm_isdst&#x3D;0;<br>t_of_day&#x3D;mktime(&amp;t);<br>printf(ctime(&amp;t_of_day));<br>return 0;<br>}<br>运行结果：<br>Tue Jul 01 00:00:01 1997<br>现在注意了，有了mktime()函数，是不是我们可以操作现在之前的任何时间呢？你可以通过这种办法算出1945年8月15号是星期几吗？答 案是否定的。因为这个时间在1970年1月1日之前，所以在大多数编译器中，这样的程序虽然可以编译通过，但运行时会异常终止。<br>5．总结<br>本文介绍了标准C&#x2F;C++中的有关日期和时间的概念，并通过各种实例讲述了这些函数和数据结构的使用方法。笔者认为，和时间相关的一些概念是相当重要的，理解这些概念是理解各种时间格式的转换的基础，更是应用这些函数和数据结构的基础。\</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_C%E8%AF%AD%E8%A8%80%E4%B8%ADtime%E5%87%BD%E6%95%B0%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid2Xk0imXol0zyLOfGnUH6Z" data-title="C语言中time函数【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_GRASP设计模式_–_概要篇【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_GRASP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E2%80%93_%E6%A6%82%E8%A6%81%E7%AF%87%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_GRASP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E2%80%93_%E6%A6%82%E8%A6%81%E7%AF%87%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">GRASP设计模式 – 概要篇【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="GRASP设计模式-–-概要篇【转载】"><a href="#GRASP设计模式-–-概要篇【转载】" class="headerlink" title="GRASP设计模式 – 概要篇【转载】"></a>GRASP设计模式 – 概要篇【转载】</h1><p>转载地址：<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071211214255251.html/">http://www.lifevv.com/sysdesign/doc/20071211214255251.html\</a><br>GRASP 是General Responsibility Assignment Software patterns（通用职责分配软件模式）的简称，它的核心思想是“职责分配（Responsibility Assignment）”。GRASP提出了几个基本原则，用来解决面向对象设计的一些问题。<br>Craig Larman氏在《Applying UML and Patterns》一书中提出了GRASP设计模式的概念。作者称其为设计模式，其实，更好的理解应该为设计原则。因为，与GoF等设计模式不同的 是，GoF等设计模式是针对特定问题而提出的解决方法，而GRASP则是站在面向对象设计的角度，告诉我们怎么样设计问题空间中的类与它们的行为责任，以 及明确类之间的相互关系等等。GRASP可以说是GoF等设计模式的基础。<br> <br>GRASP概要<br>GRASP 是General Responsibility Assignment Software patterns（通用职责分配软件模式）的简称，它的核心思想是“职责分配（Responsibility Assignment）”，用职责设计对象：”Designing Objects with Responsibilities”。它包含了9个基本模式：<br>1，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071211215750856.html">信息专家 (Information expert)</a><br>2，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212222726771.html">创建者 （Creator)</a> <br>3，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223047743.html">高内聚 (High Cohesion)</a><br>4，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223253491.html">低耦合 (Low coupling)</a><br>5，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223450699.html">控制器 (Controller)</a><br>6，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071213202414192.html">多态性 (Polymorphism)</a><br>7，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071213202721964.html">纯虚构 (Pure Fabrication)</a><br>8，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223652851.html">间接性 (Indirection)</a><br>9，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071213203257320.html">变化预防 (Protected Variations)</a><br>GRASP的主要特征：<br>– 对象职责分配的基本原则。<br>– 主要应用在分析和建模上。<br>GRASP的核心思想的理解：<br>自己干自己的事（职责的分配）<br>自己干自己的能干的事（职责的分配）<br>自己只干自己的事（职责的内聚）</p>
+<p>面向对象设计</p>
+<p>所谓面向对象设计，就是在系统设计的过程中，通过把系统分成相对独立但又互相联系的对象组合的一种设计方法。<br>对象具有属性和 行为，对象间通过消息进行交互（协作）。</p>
+<h3 id="面向对象设计一般有以下几个关键步骤："><a href="#面向对象设计一般有以下几个关键步骤：" class="headerlink" title="面向对象设计一般有以下几个关键步骤："></a>面向对象设计一般有以下几个关键步骤：</h3><p>1，发现对象。找出系统应该由哪些对象构成。<br>2，对象的属性。对象具有哪些属性。<br>3，对象的行为。对象具有 哪些行为，或者说对象需要做什么，它的职责是什么。<br>4，对象的关系。对象与对象之间的关系是什么，怎样进行交互，协作等等。</p>
+<h4 id="发现对象"><a href="#发现对象" class="headerlink" title="发现对象"></a>发现对象</h4><p>对象的发现超出了本文的讨论范围。我们简单地介绍一下对象发现的过程与手段。<br>一般意义上的对象是现实世界上物体的抽 象。也就是说，现实世界里有什么物体，就有什么对象；物体存在什么属性，对象就有什么属性。<br>我们可以用“名词筛选法”来发现系统的对象。<br>比 如，一个学生考试成绩管理系统，有以下简单的用例：<br>– 管理员创建题库（把题条加入题库）<br>– 系统根据管理员输入的某些条件随机生成试题<br>– 学生成绩入库与管理<br>我们可以通过字面意思找出名词，就可以找出“管理员”，“题条”，“题库”，“试题”，“学生”，“学生成绩”等几个对象。<br>一 般通过这种方法（名词筛选法）就可以找出系统的绝大部分对象。</p>
+<h4 id="对象行为"><a href="#对象行为" class="headerlink" title="对象行为"></a>对象行为</h4><p>行为是对象应该执行的动作，也就是对象的职责。对象具有哪些职责呢？相对于上面所说的“名词筛选法”，可以简单地用“动词筛 选法”来发现“对象的行为”。<br>比如，上面的“学生考试成绩管理系统”一例中，有“创建题库”，“输入（条件）”，“生成试题”，“成绩入库”， “成绩管理”等动词，也就是说，系统的对象至少具有以上这些行为（或职责）。<br>有时，我们可能还会发现某些“行为”的粒度过大，这时，可以通过进一 步细化用例的描述，来发现更多更细的“行为”。这里不再详述。<br>问题1：找出对象的行为（职责）之后，怎么样分配这些行为呢？也就是说怎么 确认“行为”属于哪个对象呢？</p>
+<h4 id="对象关系"><a href="#对象关系" class="headerlink" title="对象关系"></a>对象关系</h4><p>系统的所有对象不可能是一个个单独存在毫无关系的个体，它们或多或少的有着各种联系（协作关系）。<br>问题2： 如果2个对象之间有协作关系，他们之间最好通过什么样的方式协作呢？<br>对象扩展特性<br>问题3：已经被抽象出来的对象，如何面对将来可 能发生的变化呢？<br>GRASP提出9个基本模式，用于解决以上设计过程中遇到的各种问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_GRASP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E2%80%93_%E6%A6%82%E8%A6%81%E7%AF%87%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidQziOVXG4wZxICyGdkvs5s" data-title="GRASP设计模式 – 概要篇【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/aop/">aop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/aop/spring/">spring</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/">excel</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/excel/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/">guava</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/">io</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/">Netty</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/java/">java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/">j2ee</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/spring-boot/">spring boot</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/">架构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/">shell</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%9E%B6%E6%9E%84/">架构</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/">分布式一致性</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC/">脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/%E8%B5%84%E6%BA%90/">资源</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/11/2021-01-11_%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2activemq%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">如何部署activemq以及部署时遇到的相关问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/">spring cloud gateway基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/10/2020-12-10_maven%E7%BC%96%E8%AF%91%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%97%B6%E7%AE%80%E5%8C%96%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/">maven编译大型项目时简化编译过程的命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/02/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/">centos下如何启动mysql多实例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

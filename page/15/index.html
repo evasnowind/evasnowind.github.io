@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://evasnowind.github.io/page/15/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://evasnowind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2015-12-09_在Ubuntu_10.10下安装JDK配置Eclipse及Tomcat【转载_+_订正】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/">在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="在Ubuntu-10-10下安装JDK配置Eclipse及Tomcat【转载-订正】"><a href="#在Ubuntu-10-10下安装JDK配置Eclipse及Tomcat【转载-订正】" class="headerlink" title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】"></a>在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】</h1><p>本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。<br>51CTO编者按：我们曾经介绍过在《Ubuntu JDK安装配置详解》，本文将介绍如何配置最新的Ubuntu、JDK以及Tomcat。<br>作者注：根据本人在实际操作中所遇到的问题，我在原文章基础之上做了补充说明，请注意。<br>1、安装JDK<br>1.1、到官网下载相关的JDK<br>这里下载的是 jdk-6u23-linux-i586.bin。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html/">http://www.oracle.com/technetwork/java/javase/downloads/index.html\</a><br>1.2、在“administrator个人文件夹”建立一个“Java文件夹”<br>即位置-&gt;主文件夹-&gt;administrator；<br>将下载的 jdk-6u23-linux-i586.bin放置这个Java的文件夹。<br>路径可以根据自己的实际情况进行修改，这里以administrator下的Java文件夹为例子<br>1.3、打开“终端”<br>即应用程序-&gt;附件-&gt;终端<br>输入：<br>sudo sh jdk-6u23-linux-i586.bin<br>（可能会遇到要输入的用户密码）<br>2、设置JAVA_HOME环境系统变量<br>2.1、这里Ctrl+H可以看到隐藏的文件，比较有用的快捷键。<br>输入：<br>sudo gedit &#x2F;etc&#x2F;environment<br>在文件中添加：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_Home&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>即如图：<br>设置JAVA_HOME环境系统变量<br>设置JAVA_HOME环境系统变量<br>2.2、同样，修改第二个文件<br>输入：<br>sudo gedit &#x2F;etc&#x2F;profile<br>在umask 022之前添加以下语句：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>export PATH&#x3D;$JAVA_HOME&#x2F;bin:$JAVA_HOME&#x2F;jre&#x2F;bin:$PATH:$HOME&#x2F;bin<br>即如图：<br>添加以上语句<br>2.3、注销用户，检测JDK版本。<br>输入：<br>java -version<br>即如图：<br>安装JRE、JDK成功<br>安装JRE、JDK成功<br>注：按照上面所说的配置环境变量的方法，编写一个helloworld程序，使用普通用户运行，会出问题，应该是CLASSPATH配置有些问题，我的配置方法如下：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:.:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>按照这种方法配置即可成功运行helloworld程序。参见：<br><a target="_blank" rel="noopener" href="http://javaangle.blog.163.com/blog/static/1079330652010111374551387//">http://javaangle.blog.163.com/blog/static/1079330652010111374551387/\</a><br>此外该文章还给出了另一种安装JDK的方法。<br>3、安装Eclipse。<br>3.1、到官网下载相关的Eclipse<br>这里下载的是 eclipse-jee-helios-SR1-linux-gtk.tar.gz（即Java EE）。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.eclipse.org/downloads//">http://www.eclipse.org/downloads/\</a><br>3.2、将下载的 eclipse-jee-helios-SR1-linux-gtk.tar.gz放在Java文件夹内，解压。<br>运行解压后的Eclipse，即如图：<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>4、安装Tomcat7.05<br>4.1、到官网下载相关的Tomcat<br>这里下载的是 apache-tomcat-7.0.5.tar.gz。<br>下载地址：<a target="_blank" rel="noopener" href="http://tomcat.apache.org//">http://tomcat.apache.org/\</a><br>4.2、将下载的 apache-tomcat-7.0.5.tar.gz放在Java文件夹，解压并命名为tomcat7<br>如果喜欢执行命令行的话，可以执行的命令<br>（解压）sudo tar zxvf apache-tomcat-7.0.5<br>（命名为tomcat7）sudo mv apache-tomcat-7.05 tomcat7<br>4.3、在终端进行tomcat7下的bin文件<br>（即cd Java&#x2F;tomcat7&#x2F;bin）<br>这里用的是vim编辑器打开，也可以用gedit打开，即输入：<br>sudo gedit catalina.sh<br>当你输入：<br>sudo vim catalina.sh<br>得到<br>cygwin&#x3D;false<br>os400&#x3D;false<br>darwin&#x3D;false<br>case “<code>uname</code>” in<br>CYGWIN*) cygwin&#x3D;true;;<br>OS400*) os400&#x3D;true;;<br>Darwin*) darwin&#x3D;true;;<br>上面添加：<br>JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>JAVA_OPTS&#x3D;”-server -Xms512m -Xmx1024m -XX:PermSize&#x3D;600M -XX:MaxPermSize&#x3D;600m -Dcom.sun.management.jmxremote”<br>4.4、tomcat7.0.5的端口（一般tomcat7.0.5的端口默认为8080），如果发生冲突，则可以在以下文件修改。<br>tomcat7&#x2F;conf&#x2F;server.xml 文件里的：<br>改成9090，或者其它均可（这里用9090吧）。<br>4.5、这里已经进入了Java&#x2F;tomcat7&#x2F;bin文件夹内了。<br>输入：<br>sudo .&#x2F;starup.sh<br>启动Tomcat 7。<br>若出现<br>Using CATALINA_BASE: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_TMPDIR: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;temp<br>Using JRE_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>Using CLASSPATH: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;bootstrap.jar:&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;tomcat-juli.jar<br>则成功。<br>即如图：<br>安装成功<br>运行<a target="_blank" rel="noopener" href="http://localhost:9090/%E5%BE%97%EF%BC%9A/">http://localhost:9090/得：\</a><br>4.6、若要关闭tomcat7，<br>则输入：<br>sudo .&#x2F;shutdown.sh<br>5、总结<br>配置还是需要一些耐心的。多练习，总会理解的。好了这边是我们给大家带来的Ubuntu JDK安装和配置，而Ubuntu JDK安装和配置是初学者的必由之路，希望各位喜欢。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" data-id="cuidTrSzqSjqne0NJnfHTK1De" data-title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_学习_Linux_几点忠告【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">学习 Linux 几点忠告【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="学习-Linux-几点忠告【转载】"><a href="#学习-Linux-几点忠告【转载】" class="headerlink" title="学习 Linux 几点忠告【转载】"></a>学习 Linux 几点忠告【转载】</h1><p>转载地址：<br><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn%5C">http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&amp;variant=zh-cn\</a><br>作者：王垠<br>1 不要当“传教士”<br>2 不要强迫自己”<br>3 不要“玩Linux的<br>4 不用挑剔发行版本<br>5 &#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;<br>6 不要配置你不需要的东西<br>7 不要习惯的使用根帐号。在需要的时候才用！<br>8 不要用商业的眼光来看 Linux的<br>9 干你的正事去<br>10 上面几条仅供参考<br>不要当“传教士”<br>(这点有一个重大弊端：开放软件没有商业软件那样的宣传，如果使用者都如此低调，用户群不会大幅扩展。) 为什么是繁体字？而且还翻译的乱起八糟 很多人在讨论区不断的引起的Linux对比视窗之类的讨论，甚至争的面红耳赤，这是没有必要的<br>这种争论是浪费时间而没有任何用处的。对，你花了一下午，用许多事实“捍卫”了Linux比Windows好这个说法。但是视窗的支持者并不会喜欢上Linux的，他们只是稍微退缩一下，然后找一些新的证据来跟你辩论。<br>世界上的人们都在利用Linux的研究最前沿的科学，我们还在这里讨论“要不要用Linux的这种无聊的问题，什么时候才能赶上时代前进的步伐？<br>什么叫做视窗支持者，什么叫做Linux的支持者？我们为什么要支持某一个而反对另外一个？你不需要为 Linux的护法，不需要成为 Linux的支持者“或者”的GNU传教士“ GNU &#x2F; Linux的已经用事实向世界证明了它们的威力，已经被大多数人接受。你只需要安安静静享受的GNU &#x2F; Linux的给你的乐趣和自由。<br>你需要关心的不是你的工具是什么，而是你用它做了什么。精通的Linux并不说明任何问题，因为它只是一个工具而已。如果你用的 Windows能很好的完成你的任务，那你就没有必要费时间去熟悉Linux操作系统。直到有一天你发现一项任务只有Linux操作系统才能完成的时候再 换也不迟，因为你身边的的Linux的爱好者一定会很乐意的帮助你。<br>如果你在使用Linux操作系统的过程中对它产生了感情，那么你应该明白那些习惯于使用视窗的人也会对视窗产生依赖。类似的争论还有很多： 微软 Office Word和TeX，Emacs和Vim，Wolfram Mathematica和Maple，侏儒，fvwm的和KDE的时候，狗派… …和冷静地对自己说：“我不站在它们任何一边。”尽管这有些不容易办到。<br>各人的需要不同，生活的环境不同。对你来说好的东西，对别人来说不一定好，我们需要尊重别人的选择。如果你当面说别人正在用的程序不好，没有必要。<br>不要强迫自己”<br>喜欢电脑的人总是有某些心理强迫倾向。有的人说：“键盘比鼠标快。我不要用鼠标。这样才有高效率。”所以他在编辑器里无论什么时候总是用20W的，大于 10J这样的命令到达目的点。他甚至觉得图形界面是多余的，干脆都不装 Xwindow。<br>全部用键盘看起来的确比让手离开键盘去拿鼠标，再回来“快”多了，但是快的击键频率不等于工作的高效率，对你的健康更没有什么好处。这只能把你变成打键盘的机器。<br>当你正在检查你的文章或者程序，思维正在随着字符的含义流动，突然为 20W，大于 10J这样的东西出现在你的脑子里，是不是会打断思路？不？那说明你当时思考的问题比较简单，这些干扰还不会起到副作用。<br>其实很多人用电脑的时候，思想都受到某种教学的束缚，上面这个只是教多数种类中的一种。某些人创造了很多这种数学，用他的工作方式来要求别 人，嘲笑方式跟他不一样的人。比如有的人嘲笑其它人写程序不按ç 8字符缩进，嘲笑别人在六里用方向键，嘲笑别人不知道是什么增值税，嘲笑其它人用在Java，C＃这种由地方选区回收内存语言 … …<br>你不用管各种各样的教学，电脑只是你的工具，你想怎么用就怎么用。没有人能够约束你，没有人可以嘲笑你的工作方式。电脑明天就不再是这个样子，所以今天你不用完全了解它。你没有必要知道别人创造的一切，因为你需要留点时间自己创造些东西。只要有乐趣！<br>当你下次修改文章的时候，不妨试试悠闲的用鼠标在你眼睛看到的地方轻轻点一下。<br>如果你發現自己有類似的強迫症，建議去諮詢一下心理醫生。<br>不要“玩Linux的<br>Linux的很多人用的时候会感觉很迷茫，该用哪个发行版本呢？是不是我少装了什么？怎么升级这么快啊！怎么这么不稳定！每当遇到新的软件他就想试用，每当新的版本出现，他就更新，然后用鼠标在新的菜单里选择从来没见过的程序来用用。<br>其实你是为了而使用Linux操作系统的Linux，而没有找到正确的理由来利用Linux操作系统。你首先要明确用电脑的目的，你用它是 为了解决你的实际问题，而不是为了学习安装操作系统，不是为了测试哪个版本好用，不是为了“赶上潮流，更不是因为你硬盘太大了，你想多占点空间。<br>如果你启动了电脑之后不知道应该干什么，那么最好先不要用电脑，因为你可能有更重要的事情需要做。这没什么说的。<br>不用挑剔发行版本<br>很多人刚开始用的linux的时候，总是在怀疑别的发行版本是否比自己正在用的这个好，总是怀疑自己以后时候会失去支持，不得不换用别的发行。所以 很多人今天是红色帽子，明天又换成了Debian的，巴布亚一会儿又是… …甚至有的人在一台机器上装了两个版本的Linux操作系统，然后比较哪一个好。<br>其实你完全没有必要这样做，任何发行，只要你熟悉了，你在上面的工作方式几乎是不会受到任何影响的。我以前一直用的红帽，当我有一天在我的 一台新机器上Debian的安装时，我发现使用红帽的经验完全没有浪费。我用了一个下午就配置好了Debian中，使它服服贴贴的听我的话，就跟没有换发 行版本一样。<br>Debian中，拓林思，的SuSE，红帽，Gentoo的，…任何一个版本都是不错的。很多人认为自己攒一个 LFS的是高水平黑客的象征，但是不是每个人都有精力去了解所有细节。<br>&#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;<br>不知道这是心理作用还是什么，有的人看到比较大的版本号，就会很想换成那个。很多人的Redhat的本来配置的很舒服了，可是一旦Redhat的发 行新的版本，他们就会尽快下载过来，然后选择升级安装。结果很多时候把自己原来修改得很好的配置文件给冲掉了。新的软件又带来了新的问题，比如有一次我的 rxvt的就升级到2.7.8跟miniChinput冲突了，升级到Redhat的8.0，xmms的发现居然缺省不能放了MP3播放，XFree86 的是i810的模块在启动上有新的漏洞，Mozilla中，会导致突然退出。<br>如果你已经配置好了一切，千万别再整体升级了，这会浪费你很多很多时间的，不值得。有句话说得好：“如果没有打破，不解决它。”如果你的程序能够完成你需要做的事情，你何必升级呢？？？？<br>是的，不論是從論壇還是其他的地方反映出來的大部分都是這個問題，要么比的SUSE Ubuntu的好，要么比Ubuntu的的Mandriva好等等的言論。很多人還是把Linux操作系統看成了一個表面的東西。並沒有塌下心來學習 Linux系統。<br>不要配置你不需要的东西<br>如果你只想做一个像我这样的普通用户，主要目的是用的Linux来完成自己的科研任务和日常工作，那就可以不用系统管理员或者网络管理员的标准来要 求自己，因为当一个系统和网络管理员确实很辛苦。普通用户学习那些不经常用到的复杂的维护系统的工具，其实是浪费时间，学了不用是会很快忘记的！<br>我不是一个合格的网络管理员，我的服务器都只设置了我自己需要的功能，设置好ssh连接的ftp已经足够了，那样可以省去我很多麻烦。我从 来不过度考虑“安全，因为 Linux操作系统缺省已经很安全了。我没有磁带机，就不用管焦油的那些稀奇古怪的参数了，czf，xzf，ztf已经可以满足我所有的需要。桑 达，awk的，…我也只会几种常用的命令行。<br>不要习惯的使用根帐号。在需要的时候才用！<br>这是很多刚接触的UNIX类操作系统的人常见的现象，他们不喜欢在管理系统的时候才用，而是一直用根帐号干所有事情，配置系统，安装程序，浏览网页，玩游戏，编程 … …<br>结果有一天，他不小心在某个系统目录使用了del * …后果不堪设想 … …<br>不要用商业的眼光来看 Linux的<br>Linux的不是商业软件，所以不要用要求Solaris操作系统，视窗那样的眼光来看 Linux操作系统。自由软件的作者们从来不拉拢用户，他们对用户不负有任何责任。实际上在自由软件的世界里，开发者“和”用户“并没有明确的界限，大家是朋友。<br>自由软件很可能只是满足作者和他的朋友的需要，甚至是为了好玩而创造的。自由软件不是完美的，自由软件承认自己有缺点，它不会自吹自擂，蒙 蔽“用户”的耳目。这种对作者责任的解脱激发了作者的创造力，他们不用过分考虑“向上兼容，他们往往比背上重重包袱的商业软件结构更合理，技术更先进。<br>所以当你用某个自由软件遇到困难的时候，不应该埋怨软件的作者，因为他们对你并没有义务。你不应该把自己当成一个挑剔的顾客，而要把自己作 为这个软件的顾问和一个和蔼的建议者，这样你才能理解作者写这个程序时的快乐，在遇到问题时向作者反映，帮助他完善这个软件，成为一个快乐的参与者。就像 你的哥哥送你一个他用旧了的自行车，你应该珍惜这份友情，而不要在车坏了，或者骑车摔了一跤的时候大骂你的哥哥。如果你真的不能使用这种合作的心态，那么 最好不要使用这个软件。<br>这是一种先进的文化，它包含了互相合作，科学创新的精神。理解这一点不是很容易，很多人往往是因为不能理解这种文化而离开自由软件。这对于作者来说并没有什么损失。<br>干你的正事去<br>很多人跟我说，你的网页浪费我好多时间来配置这配置那，一会儿是fvwm的，一会儿是Mutt中… …<br>嗯… …那些东西都是我有空的时候一点一点积累的，如果你想一次性搞定所有那些东西，恐怕得花你几个星期甚至几个月的时间！并不是一定要搞定所有这些东西你才能正常工作的。除非你真的非得利用某个程序，或者你闲著没事，否则你可以不管这些东西。<br>上面几条仅供参考<br>以上只是个人意见，不一定适合所有人。取舍由你了！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidUk4qkqDPmZG9YgOOOWEVS" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_安装JDK_+_Tomcat设置环境变量的方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/">安装JDK + Tomcat设置环境变量的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安装JDK-Tomcat设置环境变量的方法"><a href="#安装JDK-Tomcat设置环境变量的方法" class="headerlink" title="安装JDK + Tomcat设置环境变量的方法"></a>安装JDK + Tomcat设置环境变量的方法</h1><p>初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。<br>下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。<br>JDK安装完成之后我们来设置环境变量：<br>我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：<br>（1）设置好path变量，使得我们能够在系统中的任何地方运行java应用程序，比如 javac、java、javah等等,这就要找到我们安装JDK的目录，比如我们的JDK安装在C:\jdk1.6.0目录下,那么在C: \jdk1.6.0\bin目录下就是我们常用的java应用程序,我们就需要把C:\jdk1.6.0\bin这个目录加到path环境变量里面。<br>在系统变量里找到path变量,选择-&gt;编辑；(里面已经有很多的变量值,是在变量值的最前面加上C:\jdk1.6.0\bin;)<br>变量名: path<br>变量值: C:\jdk1.6.0\bin;<br>（2）classpath环境变量，是当我们在开发java程序时需要引用别人写好的类时，要让java解释器知道到哪里去找这个类。通常，sun为我们提供了一些额外的丰富的类包，一个是dt.jar，一个是tools.jar，这两个jar 包都位于C:\jdk1.6.0\lib目录下，所以通常我们都会把这两个jar包加到我们的classpath环境变量中set classpath&#x3D;.;C:\jdk1.6.0\lib\tools.jar;C:\jdk1.6.0\lib\dt.jar。<br>在系统环境变量那一栏中点-&gt;新建classpath<br>变量名: classpath<br>变量值: .;%JAVA_HOME%\lib\tools.jar;%JAVA_HOME%\lib\dt.jar;（注意，CLASSPATH最前面是有个 “.”的，表示当前目录，这样当我们运行java AClass的时候，系统就会先在当前目录寻找AClass文件了。）；<br>（3）设置JAVA_HOME:<br>一是为了方便引用，比如，JDK安装在C:\jdk1.6.0目录里，则设置 JAVA_HOME为该目录路径, 那么以后要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径串;<br>二则是归一原则, 当JDK路径改变的时候, 仅需更改JAVA_HOME的变量值即可, 否则,就要更改任何用绝对路径引用JDK目录的文档, 要是万一没有改全, 某个程序找不到JDK, 后果是可想而知的—-系统崩溃!<br>三则是第三方软件会引用约定好的JAVA_HOME变量, 不然, 你不能正常使用该软件.<br>在系统环境变量那一栏中点-&gt;新建JAVA_HOME （JAVA_HOME指向的是JDK的安装路径）<br>变量名： JAVA_HOME<br>变量值： C:\jdk1.6.0<br>配置完成下面写一个简单的java程式来测试J2SDK是否已安装成功：<br>public class HelloWorld{<br>public static void main(String[] args){<br>System.out.println(“Hello world!”);<br>}<br>}<br>将程式保存为文档名为HelloWorld.java的文档。<br>打开命令提示符窗口，进入到HelloWorld.java所在目录，键入下面的命令<br>javac HelloWorld.java<br>java HelloWorld<br>此时若打印出来HelloWorld则安装成功，若没有打印出这句话，仔细检查以上配置是否正确。<br>环境变量配置成功后你就可以着手学习java了。<br>安装Tomcat后，在我的电脑-&gt;属性-&gt;高级-&gt;环境变量-&gt;系统变量中添加以下环境变量(假定你的tomcat安装在c:\tomcat)：<br>CATALINA_HOME&#x3D;c:\tomcat<br>CATALINA_BASE&#x3D;c:\tomcat<br>然后修改环境变量中的classpath，把tomat安装目录下的common\lib下的(可以根据实际追加)servlet.jar追加到classpath中去，<br>修改后的classpath如下：<br>classpath&#x3D;.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%CATALINA_HOME%\common\lib\servlet.jar;<br>接着可以启动tomcat，在IE中访问<a href="http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。">http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidYwd-55J_uLiMCaxIGadai" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_用Visio画ER图的解决方案【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">用Visio画ER图的解决方案【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="用Visio画ER图的解决方案【转载】"><a href="#用Visio画ER图的解决方案【转载】" class="headerlink" title="用Visio画ER图的解决方案【转载】"></a>用Visio画ER图的解决方案【转载】</h1><p>转自：<a target="_blank" rel="noopener" href="http://hi.baidu.com/%BA%EC%C3%F1/blog/item/d013f603726e0c8ad53f7c78.html/">http://hi.baidu.com/%BA%EC%C3%F1/blog/item/d013f603726e0c8ad53f7c78.html\</a><br>今天刚刚装了Visio,但是郁闷地发现Visio中默认没有ER图的模型，绘图类型中的数据库模型中也没有ER图，根本没有菱形。对于第一次接触 Visio的我来说花了好大的力气也没有找到，想专业一把未遂。<br>后来问了其他人，答案更让当时郁闷的我有些火气：1）菱形在基本流程图里（晕，那也不是ER图中的啊，怎么能这么混用啊，不伦不类）2）你就将就一下嘛， 画出来就行，那么专业干嘛？（更晕，要是不想画的专业我就不花力气用Visio了）。其实想想，他们是比我懂得变通的，我怎么就这么死心眼儿呢？还是有点 儿完美主义？我不知道，但是我没有采纳他们的意见，继续找我自己的解决方式。记得好像有相关的模版或者模型可以下载的，但是没有找到。再后来，我对 Visio熟悉了一些，自己选择了这样一种解决方式：自定义。<br>先在“流程图”－〉“基本流程图”中找到菱形和方块， 分别右击选择“添加到我的形状”－〉“添加到新模具”。之后出现“另存 为”对话框，把新模具命名为“ER图”，这样我们就把菱形和方块添加到了新模具“ER图”中。用同样的思路，在“数据库”－〉“ORM图表”找到椭圆和直 线，添加到模具“ER图”中。<br>添加完成后，我们就可以在画ER图时打开该模具，ER图所有的元素都会在一个模具中显示出来了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidhGRV_xfxaujbdNr8Mf0Jn" data-title="用Visio画ER图的解决方案【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_BCEL简明教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/">BCEL简明教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="BCEL简明教程"><a href="#BCEL简明教程" class="headerlink" title="BCEL简明教程"></a>BCEL简明教程</h1><p>注意：本文章主要依据<a target="_blank" rel="noopener" href="http://commons.apache.org/bcel/manual.html">BCEL官方手册</a>进行阐述，大部分内容都是从该手册直接翻译过来的，并做了一定的简化，同时还参考了《深入理解Java虚拟机》（周志明著）。笔者在下面阐述的时候也会给出相应的章节，如果读者有不清楚的地方请参考<a target="_blank" rel="noopener" href="http://commons.apache.org/bcel/manual.html">BCEL官方手册</a>或是<a target="_blank" rel="noopener" href="http://commons.apache.org/bcel/apidocs/index.html">BCEL API</a>，以及《深入理解Java虚拟机》。</p>
+<h2 id="BCEL是什么？"><a href="#BCEL是什么？" class="headerlink" title="BCEL是什么？"></a><strong>BCEL是什么？</strong></h2><p>相信搜索到这篇文章的读者应该知道BCEL是啥，不过还是简要提一下吧：BCEL（Byte Code Engineering Library）原本是Apache Jakarta的一个子项目，目前已成为Apache Commons的一个子项目，主要用于分析、创建、操纵Java  class文件。<br>为了说明如何使用BCEL，需要简要介绍一下JVM结构和class文件的结构。</p>
+<h2 id="JVM结构"><a href="#JVM结构" class="headerlink" title="JVM结构"></a><strong>JVM结构</strong></h2><p><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2015/12/JVM.png"><img src="http://www.prayerlaputa.com/wp-content/uploads/2015/12/JVM-300x152.png" alt="JVM"></a><br>JVM是Java提供平台无关性的基础，它是一台抽象的机器，主要任务是装载class文件并且执行其中的字节码。Java虚拟机的体系结构如上图所示。这里仅给出JVM中比较重要的部分的说明，详细介绍请参考《深入理解Java虚拟机》（周志明著）和《Java Virtual Machiine Specification》（参见Oracle网站）。</p>
+<ul>
+<li><strong>类装载子系统</strong>：每个Java虚拟机都有一个类装载子系统，它根据给定的全限定名来装入类或接口。</li>
+<li><strong>运行时数据区</strong>：用于组织需要内存来存储的东西，如，字节码，程序创建的对象，传递给方法的参数，返回值，局部变量，运算的中间结果，……</li>
+<li><strong>Java堆</strong>：存放运行时创建的对象实例，以及对象间的引用关系</li>
+<li><strong>Java栈</strong>：其实更准确的称呼应该是“Java Virtual Machine Stack”，每当一个方法被执行的时候，都会创建一个Java栈帧（stack frame），栈帧中保存着该方法的操作数栈、局部变量表（local variable table）、动态链接、方法出口等信息，栈帧创建后就会放到Java栈上，执行完毕后抛弃该栈帧。我们平时所说的方法内的局部变量保存在“栈”上其实就是指Java栈。</li>
+<li><strong>方法区</strong>：保存被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。注意方法区中包含有一个<strong>运行区常量池</strong>，class文件中的<strong>常量池</strong>（将在后面讲解）中的内容将在类加载后存放到这个运行时常量池中。</li>
+<li><strong>程序计数器</strong>（PC计数器）：PC寄存器的值总是指示下一条将被执行的指令</li>
+<li><strong>本地方法栈</strong>：用于本地方法的执行，本地方法参考《Core Java》中有关JNI的阐述。</li>
+</ul>
+<h2 id="Java-class文件格式"><a href="#Java-class文件格式" class="headerlink" title="Java class文件格式"></a><strong>Java class文件格式</strong></h2><p>注：要完整的说明class文件的结构是个非常费劲的事情，JVM指令系统更是如此。限于篇幅这里不再详细阐述，仅给出简要的说明，详细说明请参考《深入理解Java虚拟机》和《Java Virtual Machiine Specification》<br>class文件的格式大体如下图所示<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2015/12/classfile.gif"><img src="http://www.prayerlaputa.com/wp-content/uploads/2015/12/classfile-300x265.gif" alt="classfile"></a>[](<a target="_blank" rel="noopener" href="http://www.prayer-laputa.com/blog/wp-content/uploads/2013/02/classfile.gif)class%E6%96%87%E4%BB%B6%E7%9A%84header%E9%83%A8%E5%88%86%E5%8C%85%E5%90%AB%E6%9C%89%E4%B8%80%E4%B8%AA%E2%80%9C%E9%AD%94%E6%95%B0%E2%80%9D%EF%BC%88magic">http://www.prayer-laputa.com/blog/wp-content/uploads/2013/02/classfile.gif)class文件的header部分包含有一个“魔数”（magic</a> number）0xCAFEBABE（其实是”cafe baby”，此乃当年Java开发团队的幽默），然后是版本号，再之后是常量池，访问权限标志位，当前类（注意，这里的类是指类和接口，是比较泛泛的概念，下文同）所实现的接口列表，当前类所包含的域、方法，最后是当前类的属性（可以包含用户自定义的数据）。<br>由于需要在运行时动态解析的类、域、方法的符号引用实际都是以字符串常量的形式保存在常量池中，所以常量池实际上占了class文件的很大比重，一般是60%，而byte code一般只占12%。<br>常量池中一般包含有如下类型的常量：References to methods, fields and classes, strings, integers, floats, longs, and doubles.（以上参考 2.1 java class file format）<br>注意，class文件中，非抽象方法包含有一个属性“Code”，包含有栈帧所需的最大深度、局部变量的个数、byte code指令的数组。当在方法执行过程中发生异常时，JVM会查找异常表（table of exception handlers），该表标记了handler，也就是哪些异常处理代码负责处理具体哪个部分代码所抛出的异常，如果没有合适的handler，异常将会传递给该方法（callee）的调用者（caller）。handler的信息保存在“Code”属性中。（2.3 Method Code）</p>
+<h2 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a><strong>实例分析</strong></h2><p>（这一部分参考2.6 Code Example）<br>首先结合上述的内容，分析以下Java代码编译后所得到的class文件。（将就着看吧，wordpress里一行行调代码缩进实在太麻烦，就没怎么调整~~）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">     import java.io.*;</span><br><span class="line">public class Factorial &#123;</span><br><span class="line">       private static BufferedReader in = new BufferedReader(new</span><br><span class="line">                                 InputStreamReader(System.in));</span><br><span class="line">public static final int fac(int n) &#123;</span><br><span class="line">         return (n == 0)? 1 : n * fac(n - 1);</span><br><span class="line">       &#125;</span><br><span class="line">public static final int readInt() &#123;</span><br><span class="line">         int n = 4711;</span><br><span class="line">         try &#123;</span><br><span class="line">         System.out.print(&amp;quot;Please enter a number&amp;gt; &amp;quot;);</span><br><span class="line">         n = Integer.parseInt(in.readLine());</span><br><span class="line">         &#125; catch(IOException e1) &#123; System.err.println(e1); &#125;</span><br><span class="line">         catch(NumberFormatException e2) &#123; System.err.println(e2); &#125;</span><br><span class="line">         return n;</span><br><span class="line">       &#125;</span><br><span class="line">public static void main(String[] argv) &#123;</span><br><span class="line">         int n = readInt();</span><br><span class="line">         System.out.println(&amp;quot;Factorial of &amp;quot; + n + &amp;quot; is &amp;quot; + fac(n));</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<p>fac()方法对应的字节码如下：\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">0:  iload_0</span><br><span class="line">1:  ifne            #8</span><br><span class="line">4:  iconst_1</span><br><span class="line">5:  goto            #16</span><br><span class="line">8:  iload_0</span><br><span class="line">9:  iload_0</span><br><span class="line">10: iconst_1</span><br><span class="line">11: isub</span><br><span class="line">12: invokestatic    Factorial.fac (I)I (12)</span><br><span class="line">15: imul</span><br><span class="line">16: ireturn</span><br><span class="line">LocalVariable(start_pc = 0, length = 16, index = 0:int n)</span><br></pre></td></tr></table></figure>
+
+<p>每条指令的功能这里就不细说，需要注意的是，JVM是一种基于栈的虚拟机，任何操作都需要先将操作数放入栈帧中的操作数栈，然后调用相关方法，操作的结果也会自动的压入操作数栈。在本例中，fac()方法采用了递归的方式计算n!，第12行体现了这一点，在JVM执行到底12行时，会创建一个新的栈帧，以执行新的fac()方法调用。此外，ireturn会将结果返回给当前方法（callee）的调用者（caller），压入到caller栈帧中操作数栈的栈顶。<br>readInt()方法的字节码如下：\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">    0:  sipush        4711</span><br><span class="line"> 3:  istore_0</span><br><span class="line"> 4:  getstatic     java.lang.System.out Ljava/io/PrintStream;</span><br><span class="line"> 7:  ldc           &amp;quot;Please enter a number&amp;gt; &amp;quot;</span><br><span class="line"> 9:  invokevirtual java.io.PrintStream.print (Ljava/lang/String;)V</span><br><span class="line"> 12: getstatic     Factorial.in Ljava/io/BufferedReader;</span><br><span class="line"> 15: invokevirtual java.io.BufferedReader.readLine ()Ljava/lang/String;</span><br><span class="line"> 18: invokestatic  java.lang.Integer.parseInt (Ljava/lang/String;)I</span><br><span class="line"> 21: istore_0</span><br><span class="line"> 22: goto          #44</span><br><span class="line"> 25: astore_1</span><br><span class="line"> 26: getstatic     java.lang.System.err Ljava/io/PrintStream;</span><br><span class="line"> 29: aload_1</span><br><span class="line"> 30: invokevirtual java.io.PrintStream.println (Ljava/lang/Object;)V</span><br><span class="line"> 33: goto          #44</span><br><span class="line"> 36: astore_1</span><br><span class="line"> 37: getstatic     java.lang.System.err Ljava/io/PrintStream;</span><br><span class="line"> 40: aload_1</span><br><span class="line"> 41: invokevirtual java.io.PrintStream.println (Ljava/lang/Object;)V</span><br><span class="line"> 44: iload_0</span><br><span class="line"> 45: ireturn</span><br><span class="line">Exception handler(s) =</span><br><span class="line"> From    To      Handler Type</span><br><span class="line"> 4       22      25      java.io.IOException(6)</span><br><span class="line"> 4       22      36      NumberFormatException(10)</span><br></pre></td></tr></table></figure>
+
+<p>这个例子需要说明的是，平时我们调用System.out.println()打印输出时，虽然只是传入要打印的内容，但在字节码层次上，首先需要将System类的静态变量out压入到栈顶，然后将需要打印的内容（这里是字符串“”Please enter a number&gt;”）压入栈，接着调用println()方法。之所以需要将out压入栈，是因为实例方法调用的时候，都会将该实力对象的引用隐式地作为第一个参数（Instance methods always implicitly take an instance reference as their first argument）。<br>另外，Java代码中的异常处理代码，try语句不会产生任何实际代码，只是规定了exception handler在哪些代码发生异常时会被调用。</p>
+<h2 id="BCEL-API"><a href="#BCEL-API" class="headerlink" title="BCEL API"></a>BCEL API</h2><p>BCEL API主要分为以下3个部分（3. The BCEL API）：</p>
+<ul>
+<li>bcel.classfile.*：主要用于查看class文件的结构（尤其是在没有源代码的情况下），一般不用作byte code的修改。</li>
+<li>bcel.generic.*：动态产生或是修改class文件，可以插入代码、从class文件中剔除无用代码、实现一个Java编译器的代码生成器后端。</li>
+<li>其他：代码示例，使用工具</li>
+</ul>
+<p>bcel.classfile.*的类设计如下图：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2015/12/javaclass.gif"><img src="http://www.prayerlaputa.com/wp-content/uploads/2015/12/javaclass-300x168.gif" alt="javaclass"></a><br>通过下面的代码，即可访问一个class文件的JavaClass对象，然后通过这个对象的get&#x2F;set方法，即可访问这个class文件的各个部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JavaClass clazz = Repository.lookupClass(&amp;quot;java.lang.String&amp;quot;);</span><br></pre></td></tr></table></figure>
+
+<p>比如说，下面的printCode()就能输出String类的所有方法：\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(clazz);</span><br><span class="line"> printCode(clazz.getMethods());</span><br><span class="line">...</span><br><span class="line">public static void printCode(Method[] methods) &#123;</span><br><span class="line">for(int i=0; i &amp;lt; methods.length; i++) &#123;</span><br><span class="line">System.out.println(methods[i]);</span><br><span class="line">Code code = methods[i].getCode();</span><br><span class="line">if(code != null) // Non-abstract method</span><br><span class="line">System.out.println(code);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3 ClassGen</strong><br>bcel.generic.*的类设计如下图：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2015/12/classgen.gif"><img src="http://www.prayerlaputa.com/wp-content/uploads/2015/12/classgen-300x191.gif" alt="classgen"></a><br>要创建一个类，需要使用ClassGen，而要给这个类添加其他部分，则需要使用上图中给出的其他类。在给出具体实例之前，还需要先确定如何表示类型——域需要指明其类型，方法则需要给出参数及其返回值的类型。<br><strong>3.3.1 Types</strong><br>使用BCEL的Type类用法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Type   return_type = Type.VOID;</span><br><span class="line">Type[] arg_types   = new Type[] &#123; new ArrayType(Type.STRING, 1) &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3.2 Generic fields and methods</strong><br>域需要使用FieldGen来创建，并且需要指定其访问权限。方法则需要添加可能需要的异常、local variables、exception handler。由于包含有byte code的地址的引用，这两者被称之为instruction targeter，这些targeter包含有updateTarget()方法，用于更新目标地址，这个地方是采用Observer模式实现的。一般方法（不是抽象方法）会指向一个instruction list（包含instruction对象），对byte code地址的引用由instruction对象处理，当instruction list更新时，instruction targeter也会被更新。<br>每个方法的maximum stack size和maximum number of local variables可以手动或是采用setMaxStack()和setMaxLocals()方法自动设置。<br><strong>3.3.3 Instructions</strong><br>instruction包含有 opcode(有时叫做tag)，字节长度，在byte code中的偏移量。有些指令是不可变的（比如operators），InstructionConstants用于提供预定义的常量供用户使用（flyweight模式）。<br>指令分类：按照type hierarchy of instruction classes（附录有）。也可以按照所实现的接口分类。<br>重要的指令：branch instructions，比如goto，使得这些指令也可以看做instruction targeter。<br>所有指令都可以通过accept(Visitor v)方法来访问（visitor模式）。（3.3.3 Instructions）<br><strong>3.3.4 Instruction lists</strong><br>instruction list：对instructions的引用不是由直接指向instruction的指针，而是指向instruction handle的指针。这使得添加、插入、删除byte code很方便，同时允许重用不可变的指令对象（flyweight object）。由于使用符号引用，具体的bytecode偏移量的计算直到finalization才计算即可，即用户停止操作bytecode的时候。下文将instruction handle和instruction视为同一概念。instruction handle通过addAttribute()方法可以包含有用户自定义数据。<br><strong>append操作</strong>：<br>instructionlist的append方法会返回一个instruction handle，用作branch instruction的目标地址。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InstructionList il = new InstructionList();</span><br><span class="line">...</span><br><span class="line">GOTO g = new GOTO(null);</span><br><span class="line">il.append(g);</span><br><span class="line">...</span><br><span class="line">// Use immutable fly-weight object</span><br><span class="line">InstructionHandle ih = il.append(InstructionConstants.ACONST_NULL);</span><br><span class="line">g.setTarget(ih);</span><br></pre></td></tr></table></figure>
+
+<p><strong>insert操作</strong>：<br>指令可以插入到现有list的任意位置，需要插入到给定instruction handle的前边，insert方法会返回一个instruction handle用于可能的异常处理的目标地址。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">InstructionHandle start = il.insert(insertion_point,</span><br><span class="line">InstructionConstants.NOP);</span><br><span class="line">...</span><br><span class="line">mg.addExceptionHandler(start, end, handler, &amp;quot;java.io.IOException&amp;quot;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>delete操作</strong>：<br>需要给出指定范围，该范围内的指令将被删除并释放资源（dispose）。但instruction targeter仍引用着将要被删除的指令时，delete方法可能抛出TargetLostException。用户需要自己处理这些异常。参见附录的窥孔优化的例子。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">il.delete(first, last);</span><br><span class="line">&#125; catch(TargetLostException e) &#123;</span><br><span class="line">InstructionHandle[] targets = e.getTargets();</span><br><span class="line">for(int i=0; i &amp;lt; targets.length; i++) &#123;</span><br><span class="line">InstructionTargeter[] targeters = targets[i].getTargeters();</span><br><span class="line">for(int j=0; j &amp;lt; targeters.length; j++)</span><br><span class="line">targeters[j].updateTarget(targets[i], new_target);</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>finalize操作</strong>：<br>当instruction list已经操作完毕、打算生成纯粹的字节码时，所有符号引用被映射为真实的byte code offset，这一操作由getByteCode()完成（默认由Method.getMethod()）。生成字节码后用户应该调用dispose()一遍使得这些instrution handle能别重用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">InstructionList il = new InstructionList();</span><br><span class="line">ClassGen  cg = new ClassGen(&quot;HelloWorld&quot;, &quot;java.lang.Object&quot;,</span><br><span class="line">&quot;&lt;generated&gt;&quot;, ACC_PUBLIC | ACC_SUPER,</span><br><span class="line">null);</span><br><span class="line">MethodGen mg = new MethodGen(ACC_STATIC | ACC_PUBLIC,</span><br><span class="line">Type.VOID, new Type[] &#123;</span><br><span class="line">new ArrayType(Type.STRING, 1)</span><br><span class="line">&#125;, new String[] &#123; &quot;argv&quot; &#125;,</span><br><span class="line">&quot;main&quot;, &quot;HelloWorld&quot;, il, cp);</span><br><span class="line">...</span><br><span class="line">cg.addMethod(mg.getMethod());</span><br><span class="line">il.dispose(); // Reuse instruction handles of list</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3.6 Instruction Factories</strong><br>为了简化某些指令的创建，用户可以使用InstructionFactory类创建指令（提供了很多有用的方法用于创建指令），也可以使用compound instruction：当产生byte code，某些“模式”出现的比较频繁，比如算术或是比较运算，可以用一个compound instruction（一个只有单一的一个getInstructionList()方法的接口），这可以用于任何位置，尤其是添加操作。<br>例子：将操作数压入栈，用PUSH可以自动产生合适的指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">InstructionFactory f  = new InstructionFactory(class_gen);</span><br><span class="line">InstructionList    il = new InstructionList();</span><br><span class="line">...</span><br><span class="line">il.append(new PUSH(cp, &quot;Hello, world&quot;));</span><br><span class="line">il.append(new PUSH(cp, 4711));</span><br><span class="line">...</span><br><span class="line">il.append(f.createPrintln(&quot;Hello World&quot;));</span><br><span class="line">...</span><br><span class="line">il.append(f.createReturn(type));</span><br></pre></td></tr></table></figure>
+
+<p>regular expressions<br>可以用正则表达式来搜索特定模式的代码。——org.apache.bcel.util.InstructionFinder的search()方法，找到后会返回一个迭代器，其他的约束条件可以通过code constraint对象来表达。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">CodeConstraint constraint = new CodeConstraint() &#123;</span><br><span class="line">public boolean checkCode(InstructionHandle[] match) &#123;</span><br><span class="line">IfInstruction if1 = (IfInstruction)match[0].getInstruction();</span><br><span class="line">GOTO          g   = (GOTO)match[2].getInstruction();</span><br><span class="line">return (if1.getTarget() == match[3]) &amp;&amp;</span><br><span class="line">(g.getTarget() == match[4]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line">InstructionFinder f    = new InstructionFinder(il);</span><br><span class="line">String            pat = &quot;IfInstruction ICONST_0 GOTO ICONST_1 NOP(IFEQ|IFNE)&quot;;</span><br><span class="line">for(Iterator e = f.search(pat, constraint); e.hasNext(); ) &#123;</span><br><span class="line">InstructionHandle[] match = (InstructionHandle[])e.next();;</span><br><span class="line">...</span><br><span class="line">match[0].setTarget(match[5].getTarget()); // Update target</span><br><span class="line">...</span><br><span class="line">try &#123;</span><br><span class="line">il.delete(match[1], match[5]);</span><br><span class="line">&#125; catch(TargetLostException ex) &#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例子：优化boolean表达式</p>
+<h2 id="用BCEL生成HelloWorld"><a href="#用BCEL生成HelloWorld" class="headerlink" title="用BCEL生成HelloWorld"></a><strong>用BCEL生成HelloWorld</strong></h2><p>最后，举个简单的例子，说明具体如何使用BCEL直接生成class文件。比如说，我们现在要使用BCEL生成一个HelloWorld.class文件，实现如下代码的功能：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line"> // BCEL Appendix A example</span><br><span class="line"> // ClassGen(String class_name, String super_class_name, String</span><br><span class="line"> // file_name, int access_flags, String[] interfaces)</span><br><span class="line"> ClassGen cg = new ClassGen(&quot;HelloWorld&quot;, &quot;java.lang.Object&quot;,</span><br><span class="line"> &quot;&lt;generated&gt;&quot;, ACC_PUBLIC | ACC_SUPER, null);</span><br><span class="line"> ConstantPoolGen cp = cg.getConstantPool();</span><br><span class="line"> InstructionList il = new InstructionList();</span><br><span class="line">// create main method</span><br><span class="line"> // MethodGen(int access_flags, Type return_type, Type[] arg_types,</span><br><span class="line"> // String[] arg_names, String method_name, String class_name,</span><br><span class="line"> // InstructionList il, ConstantPoolGen cp)</span><br><span class="line"> MethodGen mg = new MethodGen(ACC_STATIC | ACC_PUBLIC, Type.VOID,</span><br><span class="line"> new Type[] &#123; new ArrayType(Type.STRING, 1) &#125;,</span><br><span class="line"> new String[] &#123; &quot;argv&quot; &#125;, &quot;main&quot;, &quot;HelloWorld&quot;, il, cp);</span><br><span class="line">InstructionFactory factory = new InstructionFactory(cg);</span><br><span class="line">// define some often used types</span><br><span class="line"> ObjectType i_stream = new ObjectType(&quot;java.io.InputStream&quot;);</span><br><span class="line"> ObjectType p_stream = new ObjectType(&quot;java.io.PrintStream&quot;);</span><br><span class="line"> //%%</span><br><span class="line"> //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));</span><br><span class="line"> //%%</span><br><span class="line"> // create variables in and name</span><br><span class="line"> il.append(factory.createNew(&quot;java.io.BufferedReader&quot;));</span><br><span class="line"> il.append(InstructionConstants.DUP);</span><br><span class="line"> il.append(factory.createNew(&quot;java.io.InputStreamReader&quot;));</span><br><span class="line"> il.append(InstructionConstants.DUP);</span><br><span class="line"> //init input stream</span><br><span class="line"> il.append(factory.createFieldAccess(&quot;java.lang.System&quot;, &quot;in&quot;,</span><br><span class="line"> i_stream, Constants.GETSTATIC));</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.io.InputStreamReader&quot;,</span><br><span class="line"> &quot;&lt;init&gt;&quot;, Type.VOID, new Type[] &#123; i_stream &#125;,</span><br><span class="line"> Constants.INVOKESPECIAL));</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.io.BufferedReader&quot;, &quot;&lt;init&gt;&quot;,</span><br><span class="line"> Type.VOID, new Type[] &#123; new ObjectType(&quot;java.io.Reader&quot;) &#125;,</span><br><span class="line"> Constants.INVOKESPECIAL));</span><br><span class="line"> //add in into the local variable pool and get the index automatically</span><br><span class="line"> LocalVariableGen lg = mg.addLocalVariable(&quot;in&quot;, new ObjectType(</span><br><span class="line"> &quot;java.io.BufferedReader&quot;), null, null);</span><br><span class="line"> int in = lg.getIndex();//index of &quot;in&quot; var</span><br><span class="line"> lg.setStart(il.append(new ASTORE(in)));//store the reference into local variable</span><br><span class="line"> //首先创建对象，并初始化，操作结果在JVM的“堆”里，还需要在本地变量表中创建引用，因此在本地变量表中添加一个“in”比那辆，</span><br><span class="line"> //然后根据索引值调用“astore”指令，即可将对象引用赋值给本地变量</span><br><span class="line"> /*</span><br><span class="line"> 0: new #8; //class java/io/BufferedReader</span><br><span class="line"> 3: dup</span><br><span class="line"> 4: new #10; //class java/io/InputStreamReader</span><br><span class="line"> 7: dup</span><br><span class="line"> 8: getstatic #16; //Field java/lang/System.in:Ljava/io/InputStream;</span><br><span class="line"> 11: invokespecial #20; //Method java/io/InputStreamReader.&quot;&lt;init&gt;&quot;:(Ljava/io/InputStream;)V</span><br><span class="line"> 14: invokespecial #23; //Method java/io/BufferedReader.&quot;&lt;init&gt;&quot;:(Ljava/io/Reader;)V</span><br><span class="line"> 17: astore_1</span><br><span class="line"> * */</span><br><span class="line">//%%</span><br><span class="line"> //String name = null;</span><br><span class="line"> //%%</span><br><span class="line"> // create local variable name and init it to null</span><br><span class="line"> lg = mg.addLocalVariable(&quot;name&quot;, Type.STRING, null, null);</span><br><span class="line"> int name = lg.getIndex();</span><br><span class="line"> il.append(InstructionConstants.ACONST_NULL);//add &quot;null&quot; to the stack top</span><br><span class="line"> lg.setStart(il.append(new ASTORE(name)));//&quot;store&quot; the value of &quot;null&quot; into &quot;name&quot; var</span><br><span class="line">//%%</span><br><span class="line"> //System.out.print(&quot;Please enter your name&gt; &quot;)</span><br><span class="line"> //%%</span><br><span class="line"> // create try_catch block</span><br><span class="line"> InstructionHandle try_start = il.append(factory.createFieldAccess(</span><br><span class="line"> &quot;java.lang.System&quot;, &quot;out&quot;, p_stream, Constants.GETSTATIC));</span><br><span class="line"> //从常量池中取出“please .....”，压入栈顶：这里感觉有问题，这个字符串常量应该先压入常量池才可以（最好是在这之前加一句，</span><br><span class="line"> //加一句添加常量池操作其实并不影响实际运行的效率）</span><br><span class="line"> il.append(new PUSH(cp, &quot;Please enter your name&gt; &quot;));</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.io.PrintStream&quot;, &quot;print&quot;,</span><br><span class="line"> Type.VOID, new Type[] &#123; Type.STRING &#125;,</span><br><span class="line"> Constants.INVOKEVIRTUAL));</span><br><span class="line"> //%%</span><br><span class="line"> //name = in.readLine();</span><br><span class="line"> //%%</span><br><span class="line"> //将本地变量“in”推送至栈顶</span><br><span class="line"> il.append(new ALOAD(in));</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.io.BufferedReader&quot;,</span><br><span class="line"> &quot;readLine&quot;, Type.STRING, Type.NO_ARGS,</span><br><span class="line"> Constants.INVOKEVIRTUAL));//调用readLine()方法</span><br><span class="line"> il.append(new ASTORE(name));//接收的结果在栈顶，需要保存，因此加上保存到“name”slot的指令</span><br><span class="line">//%%</span><br><span class="line"> // &#125; catch(IOException e) &#123; return; &#125;</span><br><span class="line"> //%%</span><br><span class="line"> GOTO g = new GOTO(null);</span><br><span class="line"> InstructionHandle try_end = il.append(g);</span><br><span class="line"> //add return：如果出异常，才会走到这条“return”指令，并返回到caller中</span><br><span class="line"> InstructionHandle handler = il.append(InstructionConstants.RETURN);</span><br><span class="line"> // add exception handler which returns from the method</span><br><span class="line"> mg.addExceptionHandler(try_start, try_end, handler, null);</span><br><span class="line">//%%</span><br><span class="line"> //没有异常，继续执行：System.out.println(&quot;Hello, &quot; + name);</span><br><span class="line"> //%%</span><br><span class="line"> // &quot;normal&quot; code continues, set the branch target of the GOTO</span><br><span class="line"> InstructionHandle ih = il.append(factory.createFieldAccess(</span><br><span class="line"> &quot;java.lang.System&quot;, &quot;out&quot;, p_stream, Constants.GETSTATIC));</span><br><span class="line"> g.setTarget(ih);</span><br><span class="line">// print &quot;Hello&quot;：创建一个StringBuffer对象，通过调用StringBuffer的append操作，实现</span><br><span class="line"> //string1 + string2的操作，并且操作结果调用toString方法</span><br><span class="line"> il.append(factory.createNew(Type.STRINGBUFFER));</span><br><span class="line"> il.append(InstructionConstants.DUP);</span><br><span class="line"> il.append(new PUSH(cp, &quot;Hello, &quot;));</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.lang.StringBuffer&quot;, &quot;&lt;init&gt;&quot;,</span><br><span class="line"> Type.VOID, new Type[] &#123; Type.STRING &#125;,</span><br><span class="line"> Constants.INVOKESPECIAL));</span><br><span class="line"> il.append(new ALOAD(name));</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.lang.StringBuffer&quot;, &quot;append&quot;,</span><br><span class="line"> Type.STRINGBUFFER, new Type[] &#123; Type.STRING &#125;,</span><br><span class="line"> Constants.INVOKEVIRTUAL));</span><br><span class="line"> //</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.lang.StringBuffer&quot;,</span><br><span class="line"> &quot;toString&quot;, Type.STRING, Type.NO_ARGS,</span><br><span class="line"> Constants.INVOKEVIRTUAL));</span><br><span class="line"> il.append(factory.createInvoke(&quot;java.io.PrintStream&quot;, &quot;println&quot;,</span><br><span class="line"> Type.VOID, new Type[] &#123; Type.STRING &#125;,</span><br><span class="line"> Constants.INVOKEVIRTUAL));</span><br><span class="line"> il.append(InstructionConstants.RETURN);</span><br><span class="line">// finalization</span><br><span class="line"> mg.setMaxStack();</span><br><span class="line"> cg.addMethod(mg.getMethod());</span><br><span class="line"> il.dispose();</span><br><span class="line"> cg.addEmptyConstructor(ACC_PUBLIC);</span><br><span class="line">// dump the class</span><br><span class="line">cg.getJavaClass().dump(&quot;HelloWorld.class&quot;);</span><br><span class="line"> System.out.println(&quot;dump successly&quot;);</span><br><span class="line"> &#125; catch (java.io.IOException e) &#123;</span><br><span class="line"> System.err.println(e);</span><br><span class="line"> &#125; catch (Exception e1) &#123;</span><br><span class="line"> e1.printStackTrace();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" data-id="cuidZwSFl0Ck0KhxsL9Y11MEz" data-title="BCEL简明教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（0）——汇总篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/">Java核心技术读书笔记（0）——汇总篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（0）——汇总篇"><a href="#Java核心技术读书笔记（0）——汇总篇" class="headerlink" title="Java核心技术读书笔记（0）——汇总篇"></a>Java核心技术读书笔记（0）——汇总篇</h1><p>虽然用Java编程已经有几年了，但一直没好好看Java的各种语法细节，都是碰上问题就去网上搜，最近打算重新看一下Java核心技术（Core Java）这本书，毕竟很久之前看过，有不少东西都忘记了，顺便做一下读书笔记，摘录一下自己在书中看到的比较“新鲜”的Java语法。我觉得应该有不少人和我一样平时只是用Java，但没想到或是忘记Java还有这样那样的用法，于是贴在自己的博客上给大家分享一下。<br>下面给出链接（将会不断更新）：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=62">第3章 Java基本的程序设计结构</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=64">第4章 对象与类</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=69">第5章 继承</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" data-id="cuidNoTnrTeJjyMaaLeNTBQlo" data-title="Java核心技术读书笔记（0）——汇总篇" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（1）——第3章基本程序设计结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/">Java核心技术读书笔记（1）——第3章基本程序设计结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（1）——第3章基本程序设计结构"><a href="#Java核心技术读书笔记（1）——第3章基本程序设计结构" class="headerlink" title="Java核心技术读书笔记（1）——第3章基本程序设计结构"></a>Java核心技术读书笔记（1）——第3章基本程序设计结构</h1><p><strong>3.3 数据类型</strong><br>Java有一个能表示任意精度的算术包，通称“big number”，该包中的<strong>类</strong>用于表示大的数值。<br><strong>3.3.1 整型</strong><br>Java中整型的范围与运行Java代码的机器无关，已经规定了各种数据类型所使用的字节数和取值范围（int、short、long、byte依次占用4、2、8、1个字节）。Java中没有任何unsigned type。<br>PS：C&#x2F;C++中int表示的整型与目标机器有关。读《C和指针》的时候我记得读到过这么一句：C语言规范只规定了int的最小取值范围。<br><strong>3.3.2 浮点类型</strong><br>绝大部分应用程序都应采用double类型而不是float类型，只有很少情况适合使用float类型，例如快速地处理单精度数据，或是需要存储大量数据。<br>float类型的数值必须有一个后缀F（比如3.402F），没有后缀F的浮点数值（如3.402）默认为double类型（也可以加后缀D）。<br>JDK 1.5中可以使用十六进制表示浮点数值（具体表示方式请参见原书）。<br>常量Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NaN（float对应的常量一样）分别表示正无穷大、负无穷大、NaN，用于溢出和出错情况（如一个正数除以0得到正无穷大，0&#x2F;0或是负数平方根结果为NaN），实际应用中很少用到，注意不能检测一个特定值是否等于Double.NaN，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(x == Double.NaN)</span><br></pre></td></tr></table></figure>
+
+<p>因为所有“NaN”的值都认为是不相同的，此时可以用Double.isNaN方法来判别。<br>注意，浮点数值不适用于禁止出现舍入误差的金融计算中。<br>PS：这个语法点有时会被面试官考到，比如问你两个double值或是float值是否相同——浮点数一般是没法比较的，因为采用的是IEEE 754的表示方式，所保存的数值并不是精确的。<br><strong>3.3.3 char类型</strong><br>code point<br>建议不要在程序中使用char类型，除非确实需要对UTF-16代码但愿进行操作，最好将需要处理的字符串用抽象数据类型表示。<br><strong>3.3.4 boolean类型</strong><br>整型值和布尔值之间不能进行相互转换。这个和C&#x2F;C++明显不同（0可以表示false，非0值表示true）。<br><strong>3.4 变量</strong><br>声明一个变量之后必须用赋值语句对变量进行显式赋值。<br>变量名必须是一个以字母开头的由字母、数字构成的序列，但Java的“字母”“数字”范围比其他语言大，字母可以是任何在某语言中代表字母的Unicode字符（如德语或是希腊语π）,数字可以是在某种语言中代表数字的任何Unicode字符，但’+’、’圈C’、空格不能出现在变量名中。<br>Java中变量的声明尽可能地靠近变量第一次使用的地方。（PS：想知道缘由的话可以去看Effective Java）<br>C&#x2F;C++中区分变量的声明（如extern int i）和定义（如int i  &#x3D; 10），而Java中不区分这一点。<br><strong>3.5 运算符</strong><br><strong>3.5.3 位运算符</strong><br>“&gt;&gt;&gt;”将用0填充高位，”&gt;&gt;”用符号位填充高位。没有”&lt;&lt;&lt;“。注意：对移位运算符右侧的参数需要进行模32操作（除非左边的操作数是long类型，此时进行模64操作），如1&lt;&lt;35与1&lt;&lt;3的结果是相同的。而C&#x2F;C++中无法确定是算术移位（扩展符号位）还是逻辑移位（高位填0）。执行中将会选取效率较高的一种，这就意味着，在C&#x2F;C++中，&gt;&gt;实际上只是为非负数定义的，而Java则消除了这种模糊。<br><strong>3.5.4 数据函数与常量</strong><br>从JDK 1.5开始可以不必使用“Math.XXX()”的调用方式，在源文件头部引入Math包，然后就可以直接调用数学方法或是常量。<br><strong>3.5.5 数组类型之间的转换</strong><br>二元运算中，两个操作数中：</p>
+<ul>
+<li>若有一个是double类型，则另一个转换为double类型</li>
+<li>否则，若有一个是float类型，则另一个转换为float类型</li>
+<li>否则，若有一个是long类型，则另一个转换为long类型</li>
+<li>否则，两个操作数都将被转换为int类型。</li>
+</ul>
+<p><strong>3.5.6 强制类型转换</strong><br>Java中允许各种数值类型之间的强制类型转换，但可能会丢失一些信息。比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)x;</span><br></pre></td></tr></table></figure>
+
+<p>此时，nx的值为9。这是因为，**强制类型转换通过截断小数部分将浮点值转换为整型。**如果要对浮点数进行舍入运算，以便得到最接近的整数时，需要使用Math.round()方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)Math.round(x);</span><br></pre></td></tr></table></figure>
+
+<p>此时nx的值为10。而使用round()方法仍需要使用强制类型转换（int）则是因为该方法返回的结果是long类型。<br><strong>3.6 字符串</strong><br><strong>3.6.1 子串</strong><br>substring()方法实际创建了一个新的字符串。<br><strong>3.6.3 不可变字符串</strong><br>不能修改Java字符串中的字符，因此String类对象被称为<strong>不可变字符串</strong>。不可变字符串有一个优点：编译器可以让字符串共享。<br>PS：C++字符串是可修改的（可以修改单个字符）。<br><strong>3.6.4 检测字符串是否相等</strong><br>一定不能用&#x3D;&#x3D;来检测两个字符串是否相当，该操作符只能判断两个字符串是否放置在同一个位置上。<br><strong>3.6.8 构建字符串</strong><br>如果需要对字符串进行修改，应该使用StringBuilder类（JDK 1.5引入）。该类前身是StringBuffer，效率有些低，但允许多线程执行添加&#x2F;删除字符的操作。若在单线程环境下应该用StringBuilder。<br><strong>3.7 输入输出</strong><br><strong>3.7.1 读取输入</strong><br>Scanner in &#x3D; new Scanner(System.in);<br>Scanner的输入是可见的，不适合从控制台读取密码，Java SE 6引入了Console类实现该目的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Console cons  = System.console();</span><br><span class="line">String username = cons.readLine(&quot;user name:&quot;);</span><br><span class="line">char[] passwd = cons.readPasswd(&quot;Password:&quot;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.7.2 格式化输出</strong><br>Java SE 5沿用了C语言函数中的printf方法，可以用于格式化输出。<br>可以使用静态的String.format方法创建一个格式化的字符串，而不打印输出。<br><strong>3.7.3 文件的输入与输出</strong><br>读文件：<br>Scanner in &#x3D; new Scanner(new File(“myfile.txt”));<br>写文件：<br>PrintWriter out &#x3D; new PrintWriter(“myfile.txt”);<br>注意，如果用一个不存在的文件构造一个Scanner，或是用一个不能被创建的文件名构造一个PrintWriter，则会发生异常。<br><strong>3.8 控制流程</strong><br>循环中检测2个浮点数是否相当需要格外小心。如：<br>for(double x &#x3D; 0; x!&#x3D;10; x+&#x3D;0.1)<br>可能永远不会结束。由于舍入误差，最终可能得不到精确值。x会从9.99999…直接跳到10.09999…<br>for循环语句可以看做是while循环的一种简化形式。<br>当在switch语句中使用枚举常量时，不必在每个标签中指明枚举名，可以由switch表达式值确定，例如：<br>Size sz &#x3D; …;<br>switch(sz){<br>case SMALL:<br>…<br>}<br>可以利用break <em>label</em>;的方式实现goto的功能。<br><strong>3.10 数组</strong><br>for each循环——操作对象必须是一个数组或是一个实现了Iterator解耦的类对象。<br>数组初始化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = &#123;2,3,5,7,11,13&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>匿名的数组：new int[]{17,19,23}; ——这种语法可以在不创建新变量的情况下重新初始化一个数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = new int[]&#123;17,19,23&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Java中允许数组长度为0，数组长度为0与null不同。<br>数组变量直接赋值将会使得两个变量引用同一个数组，要想将数据拷贝到一个新数组，可以用Arrays类的copyOf方法。<br>数组排序可以使用Arrays类中 sort方法（内部实现采用了优化的快排）。<br><strong>3.10.6 多维数组</strong><br>多维数组声明：<br>double[][] balances;<br>初始化：<br>balances &#x3D; new double[NYEARS][NRATES];<br>简化形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int[][] magicSquare = &#123;</span><br><span class="line">&#123;16,3,2&#125;,</span><br><span class="line">&#123;12,1,5&#125;,</span><br><span class="line">&#123;9,8,6&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>for each循环语句不能自动处理二维数组的每一个元素，它是按照行，即一维数组处理的。想要访问二维数组所有元素，需要嵌套的循环：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(double[] row:a)</span><br><span class="line">for(double value:row)</span><br><span class="line">do sth</span><br></pre></td></tr></table></figure>
+
+<p>由于可以单独的存取一行，所以可以让二维数组中2行交换。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double[] tmp = balances[i];</span><br><span class="line">balances[i]= balances[i+1];</span><br><span class="line">balances[i+1] = tmp;</span><br></pre></td></tr></table></figure>
+
+<p>Java中可以创建不规则的数组。<br><br/><br><strong>3.10.4 命令行参数</strong><br>Java程序的main方法中，程序名并没有存储在args数组中，例如：java Message -h world 中，args[0]是“-h”，而不是”Message”或是“java”。<br><strong>有用的API：</strong><br>String类：</p>
+<ul>
+<li>String trim() 删除原始字符串头部和尾部的空格。</li>
+</ul>
+<p>Arrays类：</p>
+<ul>
+<li>copyOf 拷贝数组</li>
+<li>sort 对数组排序</li>
+<li>binarySearch 在数组中二分查找</li>
+<li>fill 填充所有数组元素为XXX</li>
+<li>equal 判断两个数组下标是否相等</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" data-id="cuidDOBS9_REdttw8VyDPzmbU" data-title="Java核心技术读书笔记（1）——第3章基本程序设计结构" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（3）——第5章继承" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/">Java核心技术读书笔记（3）——第5章继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（3）——第5章继承"><a href="#Java核心技术读书笔记（3）——第5章继承" class="headerlink" title="Java核心技术读书笔记（3）——第5章继承"></a>Java核心技术读书笔记（3）——第5章继承</h1><p><strong>5.1 类、超类和子类</strong><br>Java中，所有继承都是公有继承，没有C++中的私有继承、保护继承。<br>子类不能直接访问超类的私有域，应该用super.getXXX()的方式来获取。<br>子类中可以增加域、方法或是覆盖超类的方法，但绝不能删除继承的任何域与方法。<br>如果子类的构造器没有显式地调用超类的构造器，则将自动地调用超类默认（没有参数）的构造器。如果超类没有不带参数的构造器，并在子类的构造器中又没有显式地调用超类的其他构造器，则Java编译器将报告错误。<br>关键字this有2个用途：引用隐式参数、调用该类其他的构造器。<br>关键字super有2个用途：调用超类的方法、调用超类的构造器。<br>一个对象变量可以引用多种实际类型的现象被称为多态（polymorphism），在运行时那个自动选择调用哪个方法的现象称为动态绑定（dynamic binding）。<br><strong>5.1.1 继承层次</strong><br>由一个公共超类派生出来的所有类的集合被称为继承层次（inheritance hierarchy）。<br><strong>5.1.2 多态</strong><br>在Java程序设计语言中，对象变量是多态的。一个Employee变量既可以引用一个Employee类对象，也可以引用一个Employee类的任何一个子类的对象(例如，Manager, Executive等等)。<br>在Java中，子类数组的引用可以转换成超类数组的引用，而不需要采用强制类型转换。<br><strong>5.1.3 动态绑定</strong><br>调用对象方法的执行过程：<br>1)编译器查看对象的声明类型和方法名。<br>2)接下来，编译器将查看调用方法时提供的参数类型。如果在所有名为f的方法中存在一个与提供的参数类型完全匹配，就选择这个方法。这个过程被称为重载解析(overloading resolution)。</p>
+<ul>
+<li>两个具有相同名字，不同签名的方法。如果在子类中定义了一个与超类签名相同的方法，那么子类中的这个方法就度盖了超类中的这个相同签名的方法。不过，返回类型不是签名的一部分，因此，在覆盖方法时，一定要保证返回类型的兼容性。在Java SE 5.0以前的版本中，要求返回类型必须是一样的。现在允许子类将及盖方法的返回类型定义为原返回类型的子类型。</li>
+</ul>
+<p>3)如果是private方法、static方法、final方法或者构造器，那么编译器将可以准确地知道应该调用哪个方法，我们将这种调用方式称为静态绑定(static binding)。与此对应的是，调用的方法依赖于隐式参数的实际类型，并且在运行时实现动态绑定。在我们列举的示例中，编译器采用动态绑定的方式生成一条调用f (String)的指令。<br>4)当程序运行，并且采用动态绑定调用方法时，虚拟机一定调用与x所引用对象的实际类型最合适的那个类的方法。<br>动态绑定有一个非常重要的特性:无需对现存的代码进行修改，就可以对程序进行扩展。<br>警告:在度盖一个方法的时候，子类方法不能低于超类方法的可见性。特别是，如果超一类方法是public，子类方法一定要声明为public。经常会发生这类错误:在声明子类方法的时候，遗漏了public修饰符。此时，编译器将会把它解释为试图降低访问权限。<br><strong>5.1.4阻止继承:final类和方法</strong><br>有时候，可能希望阻止人们利用某个类定义子类。不允许扩展的类被称为final类。<br>类中的方法也可以被声明为final。如果这样做，子类就不能覆盖这个方法(final类中的所有方法自动地成为final方法)。<br><strong>5.1.5强制类型转换</strong><br>进行类型转换的惟一原因是:在暂时忽视对象的实际类型之后，使用对象的全部功能。<br>将一个值存入变量时，编译器将检查是否允许该操作。将一个子类的引用赋给一个超类变量，编译器是允许的。但将一个超类的引用赋给一个子类变量，必须进行类型转换，这样才能够通过运行时的检查。<br>应该养成这样一个良好的程序设计习惯:在进行类型转换之前，先查看一下是否能够成功地转换。这个过程简单地使用instanceo运算符就可以实现。<br>综上所述:<br>·只能在继承层次内进行类型转换。<br>·在将超类转换成子类之前，应该使用instanceof进行检查。<br>如果x为null，进行下列测试<br>x instanceof C<br>不会产生异常，只足返回false。之所以这样处理足因为null没有引用任何对象，当然也不会引用C类型的对象。<br><strong>5.1.6抽象类</strong><br>为了提高程序的清晰度，包含一个或多个抽象方法的类本身必须被声明为抽象的。除了抽象方法之外，抽象类还可以包含具体数据和具体方法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" data-id="cuidHvrVBZxNR2-_FOcE7ooXD" data-title="Java核心技术读书笔记（3）——第5章继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_ubuntu如何更新hostname" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/">ubuntu如何更新hostname</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ubuntu如何更新hostname"><a href="#ubuntu如何更新hostname" class="headerlink" title="ubuntu如何更新hostname"></a>ubuntu如何更新hostname</h1><p>新装的ubuntu server，安装的过程中没太留意hostname的设置，等到安完后才想起hostname是命令行中“用户名@”后面的那个东西，于是想重新换一个hostname，很简单，使用vim编辑&#x2F;etc&#x2F;hostname，将里面的内容修改你想要的新的hostname（我修改为ubuntu），重启，但此时还没完，这时如果使用sudo来执行某些特权指令，虽然也能执行，但会出现“sudo unable to solve host XXX”（我这里是我的hostname“ubuntu”），此时还需要编辑&#x2F;etc&#x2F;hosts文件，将“127.0.1.1 YYY”中的修改为新的hostname即可。\</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" data-id="cuidK8M9wcLqaoB1tbcIN0Xli" data-title="ubuntu如何更新hostname" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（2）——第4章对象与类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">Java核心技术读书笔记（2）——第4章对象与类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（2）——第4章对象与类"><a href="#Java核心技术读书笔记（2）——第4章对象与类" class="headerlink" title="Java核心技术读书笔记（2）——第4章对象与类"></a>Java核心技术读书笔记（2）——第4章对象与类</h1><p><strong>4.1 面向对象程序设计概述</strong><br><strong>4.1.3 识别类</strong><br>设计面向对象的系统时首先从设计类开始，然后每个类中添加方法。<br>识别类的简单规则是在分析问题的过程中寻找名词，而方法对应着动词。——“名词与动词”原则只是一种粗略的方法，还依赖于个人的开发经验。<br><strong>4.1.4 类之间的关系</strong><br>类之间常见的关系有：</p>
+<ul>
+<li>依赖（dependency）:”uses-a”关系。</li>
+<li>聚合（aggregation）:”has-a”关系。</li>
+<li>继承（inheritance）:”is-a”关系</li>
+</ul>
+<p><strong>4.2 使用现有类</strong><br><strong>4.2.1 对象与对象变量</strong><br>一个对象变量并没有实际包含一个对象，而仅仅引用一个对象。<br>在Java中，任何对象变量的值都是对存储在另外一个地方的一个对象的引用。new操作符的返回值也是一个引用。<br>Java中可以将对象变量设置为null，而C++中没有空引用，而且引用不能被赋值。可以将Java的对象看做C++的对象指针。例如：<br>Date birthday;&#x2F;&#x2F;Java<br>实际上等同于：<br>Date* birthday;&#x2F;&#x2F;C++<br>Java中必须使用clone()方法获得对象的完整拷贝。<br><strong>4.2.2 Java类库中的GregorianCalendar类</strong><br>Date类的时间是用距离一个固定时间点的毫秒数（可正可负）表示的，这个点即所谓的“纪元”（epoch），它是UTC时间1970年1月1日00:00:00（为何选择这个时间作为“原点”可以参考这里<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Unix_time">UNIX_Time</a>）。<br>类库设计者觉得将保存时间与给时间点命名分开，所以标准Java类库分别包含了2个类：一个用来表示时间点的Date类，另一个用来表示大家熟悉的日历表示法的GregorianCalendar类。<br><strong>4.2.3 更改器方法与访问器方法</strong><br>对实例域做出修改的方法称为更改器方法（mutator method），仅访问实例域而不进行修改的方法称为访问器方法（accessor method）。<br>PS: C++ 中带有const后缀的方法是访问器方法，默认为更改器方法。但Java中访问器方法与更改器方法在语法上没有明显的区别。<br>有关日历需要注意每个星期的第一天存在着不同的约定，美国第一天是周日，欧洲则是周一。<br>如果想看到不同地区程序的输出，应该在main方法的第一行添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Locale.setDefault(Locale.ITALY);</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.3 用户自定义类</strong><br><strong>4.3.2 多个源文件的使用</strong><br>有多个源文件时，有2种编译源程序的方式：</p>
+<ul>
+<li>使用通配符调用Java编译器：比如有2个类，分别是Employee.java, EmployeeTest.java，则javac Employee*.java</li>
+<li>利用javac自动搜索源文件：例子同上，直接javac EmployeeTest.java，当编译器发现该类调用了Employee.java，会自动搜索Employee.java并编译，而且已有Employee.class但Employee.java版本更新，Java编译器会自动重新编译Employee.java（相当于内置了“make”的功能）。</li>
+</ul>
+<p><strong>4.3.6 封装的优点</strong><br>注意不要编写返回引用可变对象的访问器方法。详细内容参见书P108。<br><strong>4.3.7 基于类的访问权限</strong><br>一个方法可以访问<strong>所属类的所有对象</strong>的私有数据。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Employee</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">boolean equals(Employee other)</span><br><span class="line">&#123;</span><br><span class="line">return name.equals(&lt;strong&gt;other.name&lt;/strong&gt;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.3.9 final实例域</strong><br>构建对象时必须初始化final域。即必须确保每个构造器执行后，这个域的值被设置，并且在之后的操作中，不能再对它进行修改。<br>final大都应用于基本数据类型域或是不可变类（类中的每个方法都不会改变其对象）的域。对于可变的类，final就可能会带来混淆，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private final Date hireDate;</span><br></pre></td></tr></table></figure>
+
+<p>，仅仅意味着hireDate变量的对象引用在对象构造后不能被改变，并不意味着hireDate对象是一个常量。<br><strong>4.4 静态域与静态方法</strong><br><strong>4.2 静态常量</strong><br>常见的常量：Math.PI, System.out<br><strong>4.3 静态方法</strong><br>可以认为静态方法是没有this参数的方法。由于静态方法不能操作对象，所以不能再静态方法中访问实例域。但静态方法可以访问自身类中的静态域。<br>使用静态方法的情况：</p>
+<ul>
+<li>一个方法不需要访问对象状态，其所需参数都是通过显式参数提供（如Math.pow）</li>
+<li>一个方法只需要访问类的静态域</li>
+</ul>
+<p>静态方法还有一种常见的用途：factory方法。<br><strong>4.5 方法参数</strong><br>Java总是采用值调用，方法得到的是所有参数值的一个拷贝，方法不能修改传递给它的任何参数变量的内容。Java中方法参数的使用情况：</p>
+<ul>
+<li>一个方法不能修改一个基本数据类型的参数</li>
+<li>一个方法可以改变一个对象参数的状态</li>
+<li>一个方法不能实现让对象参数引用一个新的对象</li>
+</ul>
+<p>PS：C++有值调用和引用调用，引用参数标有&amp;符号。<br><strong>4.6 对象构造</strong><br><strong>4.6.1 重载</strong><br>Java允许重载任何方法，但方法的签名（方法名以及参数类型，不包括返回类型）必须不同。即，不能有两个名字相同、参数类型相同、返回类型不同的方法。<br><strong>4.6.2 默认域初始化</strong><br>如果在构造器中没有显式地给域赋予初值，那么就会被自动地赋予默认值：数值为0、布尔值为false、对象引用为null。但一般都会明确地对域进行初始化，否则影响程序的可读性。<br>PS：这是域与局部变量的主要不同点。必须明确地初始化方法中的局部变量。但如果没有初始化类中的域，将会被初始化为默认值。<br><strong>4.6.3 默认构造器</strong><br>默认构造器指没有参数的构造器。<br>如果编写一个类时，没有编写构造器，则系统会提供一个默认构造器。这个默认构造器将所有的实例域设置为默认值。如果类中提供了至少一个构造器，但没有提供默认的构造器，则在构造对象时如果没有提供构造参数就会被视为不合法。即：**仅当类没有提供任何构造器时，系统才会提供一个默认构造器，如果编写类时给出了一个构造器，系统就不会提供默认构造器，必须手写。**如果想要给域赋默认值，则可以</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public ClassName()&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.6.6 调用另一个构造器</strong><br>如果构造器的第一条语句是this(…)，这个构造器将调用同一个类的另一个构造器。<br><strong>4.6.7 初始化块</strong><br>初始化数据域的方法：</p>
+<ul>
+<li>构造器中设置值</li>
+<li>声明中赋值</li>
+<li>初始化块</li>
+</ul>
+<p>一个类的声明中可以包含多个代码块，只要构造类的对象，这些块就会被执行。建议将初始化块放在域定义之后。<br>可以用静态的初始化块来对静态域进行初始化。<br><strong>4.6.8 对象析构与finalize方法</strong><br>一般不推荐使用finalize方法，但如果某些对象使用了内存之外的其他资源，例如，文件或使用了系统资源的另一个对象的句柄。在这种情况下，当资源不再需要时，将其回收和再利用就显得十分重要。<br>可以为任何一个类添加finalize方法，该方法将在垃圾回收器清楚对象之前调用。实际应用中不要依赖于使用finalize方法回收任何短缺的资源，因为很难知道这个方法什么时候用到。<br><strong>4.7 包</strong><br>为了保证包名的唯一，建议将公司的域名逆序作为包名，并且对于不同的项目使用不同的子包。<br><strong>4.7.2 静态导入</strong><br>Java SE 5开始，import语句不仅可以导入类，还增加导入静态方法和静态域的功能。如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import static java.lang.System.*;</span><br></pre></td></tr></table></figure>
+
+<p>就可以使用System类中的静态方法和静态域，而不用加类名前缀：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out.println(&quot;helllo&quot;);</span><br><span class="line">exit(0);</span><br></pre></td></tr></table></figure>
+
+<p>静态导入有两个实际应用：算术函数（静态导入Math的域和方法），笨重的常量<br><strong>4.7.3 将类放入包中</strong><br>注意如果类是某个包中，就必须将包的名字放在源文件开头，javac编译时也需要将注意加上包名（也要注意当前目录是什么）。<br><strong>4.7.4 包作用域</strong><br>如果没有指定public或是private，这个部分（类、方法或变量）可以被同一个包中的所有方法访问。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" data-id="cuidJezV0lznxp206dJlyqAmL" data-title="Java核心技术读书笔记（2）——第4章对象与类" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/aop/">aop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/aop/spring/">spring</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/">excel</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/excel/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/">guava</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/">io</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/">Netty</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/java/">java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/">j2ee</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/spring-boot/">spring boot</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/">架构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/">shell</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%9E%B6%E6%9E%84/">架构</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/">分布式一致性</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC/">脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/%E8%B5%84%E6%BA%90/">资源</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/11/2021-01-11_%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2activemq%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">如何部署activemq以及部署时遇到的相关问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/">spring cloud gateway基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/10/2020-12-10_maven%E7%BC%96%E8%AF%91%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%97%B6%E7%AE%80%E5%8C%96%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/">maven编译大型项目时简化编译过程的命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/02/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/">centos下如何启动mysql多实例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

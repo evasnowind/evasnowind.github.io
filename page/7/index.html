@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://evasnowind.github.io/page/7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://evasnowind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2019-08-11_Java三种方法将List转换为Map的实例【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/11/2019-08-11_Java%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%B0%86List%E8%BD%AC%E6%8D%A2%E4%B8%BAMap%E7%9A%84%E5%AE%9E%E4%BE%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2019-08-11T00:00:00.000Z" itemprop="datePublished">2019-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/08/11/2019-08-11_Java%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%B0%86List%E8%BD%AC%E6%8D%A2%E4%B8%BAMap%E7%9A%84%E5%AE%9E%E4%BE%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">Java三种方法将List转换为Map的实例【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java三种方法将List转换为Map的实例【转载】"><a href="#Java三种方法将List转换为Map的实例【转载】" class="headerlink" title="Java三种方法将List转换为Map的实例【转载】"></a>Java三种方法将List转换为Map的实例【转载】</h1><p>原文链接：<a target="_blank" rel="noopener" href="https://www.jb51.net/article/149605.htm">https://www.jb51.net/article/149605.htm</a></p>
+<h1 id="Java三种方法将List转换为Map的实例"><a href="#Java三种方法将List转换为Map的实例" class="headerlink" title="Java三种方法将List转换为Map的实例"></a>Java三种方法将List转换为Map的实例</h1><p>1.for循环</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;pre class=&quot;brush:java;&quot;&gt;import com.google.common.base.Function;</span><br><span class="line">import com.google.common.collect.Maps;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line">public class ListToMap &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    List&lt;User&gt; userList = new ArrayList&lt;&gt;();</span><br><span class="line">    User user1 = new User();</span><br><span class="line">    user1.setId(1L);</span><br><span class="line">    user1.setAge(&quot;12&quot;);</span><br><span class="line">    User user2 = new User();</span><br><span class="line">    user2.setId(2L);</span><br><span class="line">    user2.setAge(&quot;13&quot;);</span><br><span class="line">    userList.add(user1);</span><br><span class="line">    userList.add(user2);</span><br><span class="line">    Map&lt;Long, User&gt; maps = new HashMap&lt;&gt;();</span><br><span class="line">    for (User user : userList) &#123;</span><br><span class="line">      maps.put(user.getId(), user);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(maps);</span><br><span class="line">  &#125;</span><br><span class="line">  public static class User &#123;</span><br><span class="line">    private Long id;</span><br><span class="line">    private String age;</span><br><span class="line">    public Long getId() &#123;</span><br><span class="line">      return id;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setId(Long id) &#123;</span><br><span class="line">      this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getAge() &#123;</span><br><span class="line">      return age;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setAge(String age) &#123;</span><br><span class="line">      this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">      return &quot;User&#123;&quot; +</span><br><span class="line">          &quot;id=&quot; + id +</span><br><span class="line">          &quot;, age=&#x27;&quot; + age + &#x27;\&#x27;&#x27; +</span><br><span class="line">          &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.使用guava</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;pre class=&quot;brush:java;&quot;&gt;Map&lt;Long, User&gt; maps = Maps.uniqueIndex(userList, new Function&lt;User, Long&gt;() &#123;</span><br><span class="line">      @Override</span><br><span class="line">      public Long apply(User user) &#123;</span><br><span class="line">        return user.getId();</span><br><span class="line">      &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>3.使用JDK1.8 <strong>lambda表达式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;jb51code&quot;&gt;</span><br><span class="line">&lt;pre class=&quot;brush:java;&quot;&gt;Map&lt;Long, User&gt; maps = userList.stream().collect(Collectors.toMap(User::getId, user -&gt; user));&lt;/pre&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/08/11/2019-08-11_Java%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%B0%86List%E8%BD%AC%E6%8D%A2%E4%B8%BAMap%E7%9A%84%E5%AE%9E%E4%BE%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidrND0jzDTFXzDLuL1NfDb-" data-title="Java三种方法将List转换为Map的实例【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-08-06_shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/06/2019-08-06_shell%E4%B8%AD%E6%A0%B9%E6%8D%AE%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%86%E5%88%86%E6%88%90%E6%95%B0%E7%BB%84%EF%BC%8C%E7%84%B6%E5%90%8E%E9%81%8D%E5%8E%86%E8%AF%A5%E6%95%B0%E7%BB%84/" class="article-date">
+  <time class="dt-published" datetime="2019-08-06T00:00:00.000Z" itemprop="datePublished">2019-08-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/shell/">shell</a>►<a class="article-category-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/08/06/2019-08-06_shell%E4%B8%AD%E6%A0%B9%E6%8D%AE%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%86%E5%88%86%E6%88%90%E6%95%B0%E7%BB%84%EF%BC%8C%E7%84%B6%E5%90%8E%E9%81%8D%E5%8E%86%E8%AF%A5%E6%95%B0%E7%BB%84/">shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组"><a href="#shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组" class="headerlink" title="shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组"></a>shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组</h1><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="shell中的-IFS"><a href="#shell中的-IFS" class="headerlink" title="shell中的$IFS"></a>shell中的$IFS</h2><p>Shell 脚本中有个变量叫IFS(Internal Field Seprator) ，内部域分隔符。完整定义是The shell uses the value stored in IFS, which is the space, tab, and newline characters by default, to delimit words for the read and set commands, when parsing output from command substitution, and when performing variable substitution.<br>Shell 的环境变量分为set, env 两种，其中 set 变量可以通过 export 工具导入到 env 变量中。其中，set 是显示设置shell变量，仅在本 shell 中有效；env 是显示设置用户环境变量 ，仅在当前会话中有效。换句话说，set 变量里包含了env 变量，但set变量不一定都是env 变量。这两种变量不同之处在于变量的作用域不同。显然，env 变量的作用域要大些，它可以在 subshell 中使用。<br>IFS 是一种 set 变量，当 shell 处理”命令替换”和”参数替换”时，shell 根据 IFS 的值，默认是 space, tab, newline 来拆解读入的变量，然后对特殊字符进行处理，最后重新组合赋值给该变量。</p>
+<h3 id="IFS的使用"><a href="#IFS的使用" class="headerlink" title="$IFS的使用"></a>$IFS的使用</h3><ol>
+<li>查看$IFS的值</li>
+</ol>
+<ul>
+<li><p>echo “$IFS”<br>不会显示任何内容</p>
+</li>
+<li><p>echo “$IFS”|od -b<br>展示内容如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0000000 040 011 012 012</span><br><span class="line">0000004</span><br></pre></td></tr></table></figure>
+
+<p>直接输出IFS是看不到值的，转化为二进制就可以看到了，”040″是空格，”011″是Tab，”012″是换行符”\n” 。最后一个 012 是因为 echo 默认是会换行的。</p>
+</li>
+</ul>
+<ol start="2">
+<li>实际应用</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">OLD_IFS=$IFS #保存原始值</span><br><span class="line">IFS=&quot;&quot; #改变IFS的值</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">IFS=$OLD_IFS #还原IFS的原始值</span><br></pre></td></tr></table></figure>
+
+<h2 id="shell循环处理"><a href="#shell循环处理" class="headerlink" title="shell循环处理"></a>shell循环处理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">a=&quot;hello,world,nice,to,meet,you&quot;</span><br><span class="line">#要将$a分割开，先存储旧的分隔符</span><br><span class="line">OLD_IFS=&quot;$IFS&quot;</span><br><span class="line"></span><br><span class="line">#设置分隔符</span><br><span class="line">IFS=&quot;,&quot; </span><br><span class="line"></span><br><span class="line">#如下会自动分隔</span><br><span class="line">arr=($a)</span><br><span class="line"></span><br><span class="line">#恢复原来的分隔符</span><br><span class="line">IFS=&quot;$OLD_IFS&quot;</span><br><span class="line"></span><br><span class="line">#遍历数组</span><br><span class="line">for s in $&#123;arr[@]&#125;</span><br><span class="line">do</span><br><span class="line">echo &quot;$s&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>变量</p>
+<p>IFS存储着分隔符，这里我们将其设为逗号”,”OLDIFS用于备份默认的分隔符，使用完后将之恢复默认。arr&#x3D;(IFS存储着分隔符，这里我们将其设为逗号 “,” OLD_IFS用于备份默认的分隔符，使用完后将之恢复默认。<br>arr&#x3D;(IFS存储着分隔符，这里我们将其设为逗号“,“OLDI​FS用于备份默认的分隔符，使用完后将之恢复默认。arr&#x3D;(a)用于将字符串</p>
+<p>a按IFS分隔符分割到数组a按IFS分隔符分割到数组a按IFS分隔符分割到数组arr</p>
+<p>arr[0]{arr[0]}arr[0]{arr[1]} … 分别存储分割后的数组第1 2 … 项</p>
+<p>arr[@]存储整个数组。{arr[@]}存储整个数组。arr[@]存储整个数组。{!arr[@]}存储整个索引值：1 2 3 4 …<br>${#arr[@]} 获取数组的长度。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zejin2008/p/7683357.html">shell将字符串分隔成数组</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fjping0606/p/4573536.html">Shell中IFS用法</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/08/06/2019-08-06_shell%E4%B8%AD%E6%A0%B9%E6%8D%AE%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%86%E5%88%86%E6%88%90%E6%95%B0%E7%BB%84%EF%BC%8C%E7%84%B6%E5%90%8E%E9%81%8D%E5%8E%86%E8%AF%A5%E6%95%B0%E7%BB%84/" data-id="cuidLtGhG__091JAVSSQ5u3m2" data-title="shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-08-04_ElasticSearch集群配置方法与注意事项" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/04/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-date">
+  <time class="dt-published" datetime="2019-08-04T00:00:00.000Z" itemprop="datePublished">2019-08-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/08/04/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">ElasticSearch集群配置方法与注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ElasticSearch集群配置方法与注意事项"><a href="#ElasticSearch集群配置方法与注意事项" class="headerlink" title="ElasticSearch集群配置方法与注意事项"></a>ElasticSearch集群配置方法与注意事项</h1><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>一台主节点，一台从节点</p>
+<h1 id="ES安装与配置"><a href="#ES安装与配置" class="headerlink" title="ES安装与配置"></a>ES安装与配置</h1><p>注意，集群配置完成前建议不要启动单个ES实例。<br>原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。</p>
+<h1 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h1><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: tipdm-es #es集群名称</span><br><span class="line">node.name: es-node1    #es节点名称，每个节点的名称不能相同</span><br><span class="line">node.master: true      #指定该节点是否有资格被选举成为master，默认是true</span><br><span class="line">node.data: true        #指定该节点是否存储索引数据，默认为true。</span><br><span class="line"></span><br><span class="line">network.host: 192.168.111.76  #节点的ip地址</span><br><span class="line"></span><br><span class="line">## 下面这两个参数应该是旧版本配置参数，我安装的是7.2版本，对应参数是discovery.seed_hosts 和 cluster.initial_master_nodes </span><br><span class="line">#设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.111.75&quot;, &quot;192.168.111.76&quot;, &quot;192.168.111.77&quot;]</span><br><span class="line">#设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）</span><br><span class="line">discovery.zen.minimum_master_nodes: 2 </span><br><span class="line"></span><br><span class="line">#如果要使用head,那么需要设置下面2个参数,使head插件可以访问es</span><br><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br><span class="line"></span><br><span class="line">#这是Centos6不支持SecComp，而ES默认bootstrap.system_call_filter为true进行检测，所以导致检测失败，失败后直接导致ES不能启动。</span><br><span class="line">bootstrap.memory_lock: false</span><br><span class="line">bootstrap.system_call_filter: false</span><br></pre></td></tr></table></figure>
+
+<p>建议新建一个linux用户，用于管理elasticsearch</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd elasticsearch</span><br><span class="line">passwd elasticsearch</span><br><span class="line">chown -R elasticsearch:elasticsearch elasticsearch文件夹</span><br></pre></td></tr></table></figure>
+
+<p>此时即可启动ES</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su - elasticsearch</span><br><span class="line">cd elasticsearch文件夹</span><br><span class="line">./bin/elasticsearch</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>浏览器中输入<code>服务器:9200</code> ,显示ES参数，类似</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot; : &quot;节点名称&quot;,</span><br><span class="line">  &quot;cluster_name&quot; : &quot;集群名称&quot;,</span><br><span class="line">  &quot;cluster_uuid&quot; : &quot;YC13LOmlQna2k0okesNMxQ&quot;,</span><br><span class="line">  &quot;version&quot; : &#123;</span><br><span class="line">    &quot;number&quot; : &quot;7.2.0&quot;,</span><br><span class="line">    &quot;build_flavor&quot; : &quot;default&quot;,</span><br><span class="line">    &quot;build_type&quot; : &quot;tar&quot;,</span><br><span class="line">    &quot;build_hash&quot; : &quot;508c38a&quot;,</span><br><span class="line">    &quot;build_date&quot; : &quot;2019-06-20T15:54:18.811730Z&quot;,</span><br><span class="line">    &quot;build_snapshot&quot; : false,</span><br><span class="line">    &quot;lucene_version&quot; : &quot;8.0.0&quot;,</span><br><span class="line">    &quot;minimum_wire_compatibility_version&quot; : &quot;6.8.0&quot;,</span><br><span class="line">    &quot;minimum_index_compatibility_version&quot; : &quot;6.0.0-beta1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;tagline&quot; : &quot;You Know, for Search&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明配置成功。</p>
+<p>将配置好的ES文件夹拷贝到其他节点，修改：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://node.name/">node.name</a><br>必须与其他节点不一样</li>
+<li>network.host<br>与节点ip</li>
+</ul>
+<h2 id="配置head插件，图形化管理ES集群"><a href="#配置head插件，图形化管理ES集群" class="headerlink" title="配置head插件，图形化管理ES集群"></a>配置head插件，图形化管理ES集群</h2><h3 id="安装head前需要先安装nodejs和npm"><a href="#安装head前需要先安装nodejs和npm" class="headerlink" title="安装head前需要先安装nodejs和npm"></a>安装head前需要先安装nodejs和npm</h3><p>此处给出centos 6上yum安装方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@c6-23 ~]# curl --silent --location https://rpm.nodesource.com/setup_9.x | bash -</span><br><span class="line">[root@c6-23 ~]# yum install nodejs -y</span><br><span class="line">[root@c6-23 ~]# node -v</span><br><span class="line">v9.11.2</span><br><span class="line">[root@c6-23 ~]# npm -v</span><br><span class="line">5.6.0</span><br><span class="line">### npm 升级</span><br><span class="line">[root@c6-23 ~]# npm i -g npm</span><br><span class="line">/usr/bin/npm -&gt; /usr/lib/node_modules/npm/bin/npm-cli.js</span><br><span class="line">/usr/bin/npx -&gt; /usr/lib/node_modules/npm/bin/npx-cli.js</span><br><span class="line">+ npm@6.8.0</span><br><span class="line">added 314 packages, removed 364 packages and updated 52 packages in 22.254s</span><br></pre></td></tr></table></figure>
+
+<p>其他可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/73515a3a15e6">centos6.6 安装nodejs和npm</a></p>
+<p>分别执行<code>node -v</code>和“<code>npm -v</code>，显示nodejs版本和npm版本，则说明安装成功。</p>
+<h3 id="安装head插件"><a href="#安装head插件" class="headerlink" title="安装head插件"></a>安装head插件</h3><p>下载head插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/mobz/elasticsearch-head/archive/master.zip</span><br></pre></td></tr></table></figure>
+
+<p>解压</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip master.zip</span><br></pre></td></tr></table></figure>
+
+<p>安装grunt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br><span class="line">npm install phantomjs-prebuilt@2.1.14 --ignore-scripts</span><br><span class="line">cd elasticsearch-head-master</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>执行成功后会在当前目录（elasticsearch-head-master）下生成node_modules文件夹。</p>
+<p>修改Gruntfile.js文件：增加hostname属性，设置为*。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">connect: &#123;</span><br><span class="line">    server: &#123;</span><br><span class="line">        options: &#123;</span><br><span class="line">            port: 9100,</span><br><span class="line">            hostname: &#x27;*&#x27;,</span><br><span class="line">            base: &#x27;.&#x27;,</span><br><span class="line">            keepalive: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打开_site&#x2F;app.js 文件：修改head的连接地址，将<code>this.base_uri = this.config.base_uri || this.prefs.get(“app-base_uri”) || “http://localhost:9200”;</code>这条语句，修改为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(“app-base_uri”) || “http://ES节点IP:9200”;</span><br></pre></td></tr></table></figure>
+
+<p>启动head插件，在elasticsearch-head-master下启动服务。在启动前要确认es集群是正常启动了的，然后才能启动head<br>执行命令<code>grunt server &amp;</code>即可在后台启动head插件。<br>在浏览器访问“head部署服务器:9100”,即可看到管理界面,类似这样：</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="elasticsearch-head-无法连接ES集群"><a href="#elasticsearch-head-无法连接ES集群" class="headerlink" title="elasticsearch-head 无法连接ES集群"></a>elasticsearch-head 无法连接ES集群</h2><p>配置问题，修改elasticsearch.yml文件，添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure>
+
+<p>分析原因：<br>可能是因为elasticsearch-head发送请求的时候，跨域了，所以变成options，让options去发现有什么可以请求的方法，而options请求没有返回结果。</p>
+<h2 id="主从节点配置的区别"><a href="#主从节点配置的区别" class="headerlink" title="主从节点配置的区别"></a>主从节点配置的区别</h2><p>区别一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 节点角色  Master</span><br><span class="line"> node.master: true</span><br><span class="line"> node.data: false</span><br><span class="line"> node.ingest: false</span><br><span class="line"></span><br><span class="line"># 节点角色  Data</span><br><span class="line"> node.master: false</span><br><span class="line"> node.data: true</span><br><span class="line"> node.ingest: false</span><br></pre></td></tr></table></figure>
+
+<p>区别二：<br>Master 设置了HTTP 相关参数，如果不设置，将无法通过HEAD能插件来访问集群</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># ------------------------ HTTP ----------------------------</span><br><span class="line">#</span><br><span class="line"># 是否支持跨域访问资源</span><br><span class="line"> http.cors.enabled: true</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line">#允许访问资源的类型</span><br><span class="line"> http.cors.allow-origin: &quot;*&quot;</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line"># 允许HTTP请求的方法类型 </span><br><span class="line"> http.cors.allow-methods: OPTIONS,HEAD,GET,POST,PUT,DELETE</span><br><span class="line">#</span><br><span class="line"># 允许HTTP请求头返回类型</span><br><span class="line"> http.cors.allow-headers: X-Requested-With,Content-Type,Content-Length,Authorization,Content-Encoding,Accept-Encoding</span><br><span class="line">#</span><br><span class="line"># 支持HTTP访问API 总开关</span><br><span class="line"> http.enabled: true</span><br></pre></td></tr></table></figure>
+
+<p>参见<a target="_blank" rel="noopener" href="https://elasticsearch.cn/article/465">如何运行一个elasticsearch集群</a></p>
+<h2 id="failure-when-sending-a-validation-request-to-node"><a href="#failure-when-sending-a-validation-request-to-node" class="headerlink" title="failure when sending a validation request to node"></a>failure when sending a validation request to node</h2><p>启动从节点时无法加入到集群，报错信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalStateException: failure when sending a validation request to node</span><br><span class="line">        at org.elasticsearch.cluster.coordination.Coordinator$3.onFailure(Coordinator.java:500) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.cluster.coordination.JoinHelper$5.handleException(JoinHelper.java:359) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.transport.TransportService$ContextRestoreResponseHandler.handleException(TransportService.java:1111) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.transport.InboundHandler.lambda$handleException$2(InboundHandler.java:246) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingRunnable.run(ThreadContext.java:688) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[?:1.8.0_111]</span><br><span class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[?:1.8.0_111]</span><br><span class="line">        at java.lang.Thread.run(Thread.java:745) [?:1.8.0_111]</span><br><span class="line">Caused by: org.elasticsearch.transport.RemoteTransportException: [node-m162p235][192.168.162.235:9300][internal:cluster/coordination/join/validate]</span><br><span class="line">Caused by: org.elasticsearch.cluster.coordination.CoordinationStateRejectedException: join validation on cluster state with a different cluster uuid YC13LOmlQna2k0okesNMxQ than local cluster uuid 7eMjkdLIRjaC9XYU5GA2bg, rejecting</span><br><span class="line">        at org.elasticsearch.cluster.coordination.JoinHelper.lambda$new$4(JoinHelper.java:147) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.xpack.security.transport.SecurityServerTransportInterceptor$ProfileSecuredRequestHandler$1.doRun(SecurityServerTransportInterceptor.java:250) ~[?:?]</span><br><span class="line">        at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.xpack.security.transport.SecurityServerTransportInterceptor$ProfileSecuredRequestHandler.messageReceived(SecurityServerTransportInterceptor.java:308) ~[?:?]</span><br><span class="line">        at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:63) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.transport.InboundHandler$RequestHandler.doRun(InboundHandler.java:267) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingAbstractRunnable.doRun(ThreadContext.java:758) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37) ~[elasticsearch-7.2.0.jar:7.2.0]</span><br><span class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[?:1.8.0_111]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>原因：推测是因为该节点之前启动过ES，已经创建了data文件夹，与要加入的集群冲突。<br>解决：删除data文件夹</p>
+<p>参见该文章<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/HuoqilinHeiqiji/article/details/88402637">ElasticSearch 开发总结—— failed to send join request to master[…] reason RemoteTransportException</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dbf896746add">ElasticSearch集群节点扩容提示Failed to send join request to master</a></p>
+<h2 id="设置账号密码"><a href="#设置账号密码" class="headerlink" title="设置账号密码"></a>设置账号密码</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/abc_321a/article/details/82184344">elasticsearch集群搭建</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/fst438060684/article/details/80936201">elasticsearch-head 无法连接elasticsearch的原因和解决</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tianyiliang/p/10291305.html">https://www.cnblogs.com/tianyiliang/p/10291305.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/HuoqilinHeiqiji/article/details/88402637">ElasticSearch 开发总结—— failed to send join request to master[…] reason RemoteTransportException</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dbf896746add">ElasticSearch集群节点扩容提示Failed to send join request to master</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/08/04/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="cuidCamQlnOK3UJJ_zb67UgIt" data-title="ElasticSearch集群配置方法与注意事项" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-08-04_mysql_Truncated_incorrect_DOUBLE_value解决办法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/04/2019-08-04_mysql_Truncated_incorrect_DOUBLE_value%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2019-08-04T00:00:00.000Z" itemprop="datePublished">2019-08-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mysql/">mysql</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/08/04/2019-08-04_mysql_Truncated_incorrect_DOUBLE_value%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">mysql Truncated incorrect DOUBLE value解决办法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="mysql-Truncated-incorrect-DOUBLE-value解决办法"><a href="#mysql-Truncated-incorrect-DOUBLE-value解决办法" class="headerlink" title="mysql Truncated incorrect DOUBLE value解决办法"></a>mysql Truncated incorrect DOUBLE value解决办法</h1><p>出现该错误“Truncated incorrect DOUBLE value”时，极有可能是你写的mysql查询语句中所提供的字段，与表中字段类型不匹配。比如字段为字符型的，与数字进行比较，数字两侧没加引号；比如表中字段明明是字符串，但在where语句中偏偏直接写成了a&#x3D;23而不是a&#x3D;’23’。</p>
+<p>解决：字段改成对应类型即可。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/693223458186942564.html">https://zhidao.baidu.com/question/693223458186942564.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/08/04/2019-08-04_mysql_Truncated_incorrect_DOUBLE_value%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" data-id="cuidIF8kKvWNZ3fzJGn0IHmD8" data-title="mysql Truncated incorrect DOUBLE value解决办法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-07-27_mac_os_x上执行shell脚本时，如何隐藏终端窗口？" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/07/27/2019-07-27_mac_os_x%E4%B8%8A%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E6%97%B6%EF%BC%8C%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E7%BB%88%E7%AB%AF%E7%AA%97%E5%8F%A3%EF%BC%9F/" class="article-date">
+  <time class="dt-published" datetime="2019-07-27T00:00:00.000Z" itemprop="datePublished">2019-07-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/07/27/2019-07-27_mac_os_x%E4%B8%8A%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E6%97%B6%EF%BC%8C%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E7%BB%88%E7%AB%AF%E7%AA%97%E5%8F%A3%EF%BC%9F/">mac os x上执行shell脚本时，如何隐藏终端窗口？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="mac-os-x上执行shell脚本时，如何隐藏终端窗口？"><a href="#mac-os-x上执行shell脚本时，如何隐藏终端窗口？" class="headerlink" title="mac os x上执行shell脚本时，如何隐藏终端窗口？"></a>mac os x上执行shell脚本时，如何隐藏终端窗口？</h1><p>默认情况下，如果在mac终端中执行shell脚本，会弹出窗口展示脚本执行输出。</p>
+<p>工作中需求：执行shell脚本，不能展示输出。</p>
+<p>解决：</p>
+<p>问了下谷歌，搜索出如下答案，亲测可用。</p>
+<ul>
+<li>打开mac上的<strong>Automator</strong>程序，选择应用程序（application），选择shell脚本选项，将脚本放到界面中（用引号括起来），或是直接将文件拖拽到界面中</li>
+<li>执行，测试没问题即可保存。</li>
+</ul>
+<p>原文：</p>
+<blockquote>
+<p>Open Automator, choose Application, add a Run Shell Script action and put in your Shell command between quotes (if you have a file, you can just drag and drop it).</p>
+<p>Other than playing it, now you can save it (as an app anywhere) and even set the icon.</p>
+</blockquote>
+<p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://superuser.com/questions/360247/run-a-shell-script-on-os-x-without-having-a-terminal-window-appear">Run a shell script on OS X without having a terminal window appear?</a></p>
+<p>其他参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.v2ex.com/t/298494">mac 开机执行 shell 后，怎么能自动隐藏终端窗口？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/osx/comments/5xv7oj/how_do_i_hide_a_running_terminal_script_in_the/">How do I hide a running terminal script in the background?</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/07/27/2019-07-27_mac_os_x%E4%B8%8A%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E6%97%B6%EF%BC%8C%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E7%BB%88%E7%AB%AF%E7%AA%97%E5%8F%A3%EF%BC%9F/" data-id="cuidcCiwoxUVs1Lvu_u8LcS-r" data-title="mac os x上执行shell脚本时，如何隐藏终端窗口？" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-06-14_正在学习，以及未来想学（军令状）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/14/2019-06-14_%E6%AD%A3%E5%9C%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%9C%AA%E6%9D%A5%E6%83%B3%E5%AD%A6%EF%BC%88%E5%86%9B%E4%BB%A4%E7%8A%B6%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2019-06-14T00:00:00.000Z" itemprop="datePublished">2019-06-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/14/2019-06-14_%E6%AD%A3%E5%9C%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%9C%AA%E6%9D%A5%E6%83%B3%E5%AD%A6%EF%BC%88%E5%86%9B%E4%BB%A4%E7%8A%B6%EF%BC%89/">正在学习，以及未来想学（军令状）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="正在学习，以及未来想学（军令状）"><a href="#正在学习，以及未来想学（军令状）" class="headerlink" title="正在学习，以及未来想学（军令状）"></a>正在学习，以及未来想学（军令状）</h1><p>正在学习：</p>
+<ul>
+<li>spring cloud主要组件系统的过一遍，之后会开始源码分析</li>
+<li>zookeeper</li>
+<li>Java多线程、并发相关，系统的过一遍，会进行源码分析，会写一些文章记录下</li>
+<li>Kafka使用</li>
+<li>每日刷1-3题leetcode，数据结构与算法回炉重学中，感觉收获很大</li>
+</ul>
+<p>主要想读读源代码，并将源代码阅读所学的东西记录下来，目前想做这些：</p>
+<ul>
+<li>pagehelper</li>
+<li>spring cloud</li>
+<li>dubbo</li>
+<li>mybatis&#x2F;mybatis plus</li>
+<li>google guava</li>
+<li>kafka</li>
+<li>rocketmq</li>
+</ul>
+<p>希望有时间可以学习这些吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/06/14/2019-06-14_%E6%AD%A3%E5%9C%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%9C%AA%E6%9D%A5%E6%83%B3%E5%AD%A6%EF%BC%88%E5%86%9B%E4%BB%A4%E7%8A%B6%EF%BC%89/" data-id="cuid1-88JOK95KCOnvV8KMI0s" data-title="正在学习，以及未来想学（军令状）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-05-19_google_guava使用教程系列（2）-使用与避免使用null" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/19/2019-05-19_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%882%EF%BC%89-%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8null/" class="article-date">
+  <time class="dt-published" datetime="2019-05-19T00:00:00.000Z" itemprop="datePublished">2019-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/guava/">guava</a>►<a class="article-category-link" href="/categories/guava/java/">java</a>►<a class="article-category-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/19/2019-05-19_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%882%EF%BC%89-%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8null/">google guava使用教程系列（2）-使用与避免使用null</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="google-guava使用教程系列（2）-使用与避免使用null"><a href="#google-guava使用教程系列（2）-使用与避免使用null" class="headerlink" title="google guava使用教程系列（2）-使用与避免使用null"></a>google guava使用教程系列（2）-使用与避免使用null</h1><h1 id="有关null的使用"><a href="#有关null的使用" class="headerlink" title="有关null的使用"></a>有关null的使用</h1><p>不要在Set中使用null，或者把null作为map的键值。使用特殊值代表null会让查找操作的语义更清晰。</p>
+<p>如果你想把null作为map中某条目的值，更好的办法是 不把这一条目放到map中，而是单独维护一个”值为null的键集合” (null keys)。Map 中对应某个键的值是null，和map中没有对应某个键的值，是非常容易混淆的两种情况。因此，最好把值为null的键分离开，并且仔细想想，null值的键在你的项目中到底表达了什么语义。</p>
+<p>如果你需要在列表中使用null，并且这个列表的数据是稀疏的，使用Map&lt;Integer, E&gt;可能会更高效，并且更准确地符合你的潜在需求。</p>
+<p>此外，考虑一下使用自然的null对象——特殊值。举例来说，为某个enum类型增加特殊的枚举值表示null，比如java.math.RoundingMode就定义了一个枚举值UNNECESSARY，它表示一种不做任何舍入操作的模式，用这种模式做舍入操作会直接抛出异常。</p>
+<p>如果你真的需要使用null值，但是null值不能和Guava中的集合实现一起工作，你只能选择其他实现。比如，用JDK中的Collections.unmodifiableList替代Guava的ImmutableList</p>
+<h1 id="Optional的使用"><a href="#Optional的使用" class="headerlink" title="Optional的使用"></a>Optional的使用</h1><p>大多数情况下，开发人员使用null表明的是某种缺失情形：可能是已经有一个默认值，或没有值，或找不到值。例如，Map.get返回null就表示找不到给定键对应的值。<br><br>Guava用Optional表示可能为null的T类型引用。一个Optional实例可能包含非null的引用（<code>isPresent</code>），也可能什么也不包括（<code>absent</code>）。它从不说包含null值，而是用存在或缺失来表示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Integer&gt; possible = Optional.of(5);</span><br><span class="line">possible.isPresent(); // returns true</span><br><span class="line">possible.get(); // returns 5</span><br></pre></td></tr></table></figure>
+
+<p>Optional无意直接模拟其他编程环境中的”可选” or “可能”语义，但它们的确有相似之处。</p>
+<h2 id="创建Optional实例（以下都是静态方法）"><a href="#创建Optional实例（以下都是静态方法）" class="headerlink" title="创建Optional实例（以下都是静态方法）"></a>创建Optional实例（以下都是静态方法）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Optional.of(T)</td>
+<td>创建指定引用的Optional实例，若引用为null则快速失败</td>
+</tr>
+<tr>
+<td>Optional.absent()</td>
+<td>创建引用缺失的Optional实例</td>
+</tr>
+<tr>
+<td>Optional.fromNullable(T)</td>
+<td>创建指定引用的Optional实例，若引用为null则表示缺失</td>
+</tr>
+</tbody></table>
+<h2 id="用Optional实例查询（以下都是非静态方法）"><a href="#用Optional实例查询（以下都是非静态方法）" class="headerlink" title="用Optional实例查询（以下都是非静态方法）"></a>用Optional实例查询（以下都是非静态方法）</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean isPresent()</td>
+<td>如果Optional包含非null的引用（引用存在），返回true</td>
+</tr>
+<tr>
+<td>T get()</td>
+<td>返回Optional所包含的引用，若引用缺失，则抛出java.lang.IllegalStateException</td>
+</tr>
+<tr>
+<td>T or(T)</td>
+<td>返回Optional所包含的引用，若引用缺失，返回指定的值</td>
+</tr>
+<tr>
+<td>T orNull()</td>
+<td>返回Optional所包含的引用，若引用缺失，返回null</td>
+</tr>
+<tr>
+<td>Set  asSet()</td>
+<td>返回Optional所包含引用的单例不可变集，如果引用存在，返回一个只有单一元素的集合，如果引用缺失，返回一个空集合。</td>
+</tr>
+</tbody></table>
+<h2 id="使用Optional的意义"><a href="#使用Optional的意义" class="headerlink" title="使用Optional的意义"></a>使用Optional的意义</h2><p>使用Optional除了赋予null语义，增加了可读性，最大的优点在于它是一种傻瓜式的防护。Optional迫使你积极思考引用缺失的情况，因为你必须显式地从Optional获取引用。直接使用null很容易让人忘掉某些情形，尽管FindBugs可以帮助查找null相关的问题，但是我们还是认为它并不能准确地定位问题根源。</p>
+<p>如同输入参数，方法的返回值也可能是null。和其他人一样，你绝对很可能会忘记别人写的方法method(a,b)会返回一个null，就好像当你实现method(a,b)时，也很可能忘记输入参数a可以为null。将方法的返回类型指定为Optional，也可以迫使调用者思考返回的引用缺失的情形。</p>
+<h2 id="处理null的简便方法"><a href="#处理null的简便方法" class="headerlink" title="处理null的简便方法"></a>处理null的简便方法</h2><p>当你需要用一个默认值来替换可能的null，请使用Objects.firstNonNull(T, T) 方法。如果两个值都是null，该方法会抛出NullPointerException。Optional也是一个比较好的替代方案，例如：Optional.of(first).or(second).</p>
+<p>还有其它一些方法专门处理null或空字符串：emptyToNull(String)，nullToEmpty(String)，isNullOrEmpty(String)。我们想要强调的是，这些方法主要用来与混淆null&#x2F;空的API进行交互。当每次你写下混淆null&#x2F;空的代码时，Guava团队都泪流满面。（好的做法是积极地把null和空区分开，以表示不同的含义，在代码中把null和空同等对待是一种令人不安的坏味道。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://ifeve.com/google-guava-using-and-avoiding-null/">[Google Guava] 1.1-使用和避免null</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/05/19/2019-05-19_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%882%EF%BC%89-%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8null/" data-id="cuidLRULCwa9kgir0JX6wLLQK" data-title="google guava使用教程系列（2）-使用与避免使用null" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-04-14_google_guava使用教程系列（1）-String相关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/04/14/2019-04-14_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89-String%E7%9B%B8%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2019-04-14T00:00:00.000Z" itemprop="datePublished">2019-04-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/guava/">guava</a>►<a class="article-category-link" href="/categories/guava/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/04/14/2019-04-14_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89-String%E7%9B%B8%E5%85%B3/">google guava使用教程系列（1）-String相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="google-guava使用教程系列（1）-String相关"><a href="#google-guava使用教程系列（1）-String相关" class="headerlink" title="google guava使用教程系列（1）-String相关"></a>google guava使用教程系列（1）-String相关</h1><p><strong>注意：本文档基于google guava 28 wiki</strong></p>
+<h1 id="Joiner"><a href="#Joiner" class="headerlink" title="Joiner"></a>Joiner</h1><p>连接器</p>
+<h3 id="将字符串拼接"><a href="#将字符串拼接" class="headerlink" title="将字符串拼接"></a>将字符串拼接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Joiner joiner = Joiner.on(&quot;; &quot;).skipNulls();</span><br><span class="line">return joiner.join(&quot;Harry&quot;, null, &quot;Ron&quot;, &quot;Hermione&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>返回<code>Harry; Ron; Hermione</code><br>skipNulls()方法是直接忽略null，使用useForNull(String)方法可以给定某个字符串来替换null，即</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Joiner joiner = Joiner.on(&quot;; &quot;).useForNull(&quot;替换字符串&quot;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接对象类型"><a href="#连接对象类型" class="headerlink" title="连接对象类型"></a>连接对象类型</h3><p>Joiner也可以用来连接对象类型，在这种情况下，它会把对象的toString()值连接起来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Joiner.on(&quot;,&quot;).join(Arrays.asList(1, 5, 7)); // returns &quot;1,5,7&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>joiner实例总是不可变的。用来定义joiner目标语义的配置方法总会返回一个新的joiner实例。这使得joiner实例都是线程安全的，你可以将其定义为static final常量。</p>
+<h1 id="Splitter"><a href="#Splitter" class="headerlink" title="Splitter"></a>Splitter</h1><p>字符串拆分工具<br>JDK提供的String.split方法 一些奇怪的地方，例如：会丢弃掉尾部分隔符。<br>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;,a,,b,&quot;.split(&quot;,&quot;)  </span><br></pre></td></tr></table></figure>
+
+<p>返回结果是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;, &quot;a&quot;, &quot;&quot;, &quot;b&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Splitter则提供了更清晰的接口：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Splitter.on(&#x27;,&#x27;)</span><br><span class="line">    .trimResults()</span><br><span class="line">    .omitEmptyStrings()</span><br><span class="line">    .split(&quot;foo,bar,,   qux&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>返回结果为<code>&quot;foo&quot;, &quot;bar&quot;, &quot;qux&quot;</code></p>
+<h3 id="Splitter工厂"><a href="#Splitter工厂" class="headerlink" title="Splitter工厂"></a>Splitter工厂</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Splitter.on(char)</td>
+<td>按单个字符拆分</td>
+<td>Splitter.on(‘;’)</td>
+</tr>
+<tr>
+<td>Splitter.on(CharMatcher)</td>
+<td>按字符匹配器拆分</td>
+<td>Splitter.on(CharMatcher.BREAKING_WHITESPACE)</td>
+</tr>
+<tr>
+<td>Splitter.on(String)</td>
+<td>按字符串拆分</td>
+<td>Splitter.on(“, “)</td>
+</tr>
+<tr>
+<td>Splitter.on(Pattern)  Splitter.onPattern(String)</td>
+<td>按正则表达式拆分</td>
+<td>Splitter.onPattern(“\r?\n”)</td>
+</tr>
+<tr>
+<td>Splitter.fixedLength(int)</td>
+<td>按固定长度拆分；最后一段可能比给定长度短，但不会为空</td>
+<td>Splitter.fixedLength(3)</td>
+</tr>
+</tbody></table>
+<h3 id="Splitter修饰符"><a href="#Splitter修饰符" class="headerlink" title="Splitter修饰符"></a>Splitter修饰符</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>omitEmptyStrings()</td>
+<td>从结果中自动忽略空字符串</td>
+</tr>
+<tr>
+<td>trimResults()</td>
+<td>移除结果字符串的前导空白和尾部空白</td>
+</tr>
+<tr>
+<td>trimResults(CharMatcher)</td>
+<td>给定匹配器，移除结果字符串的前导匹配字符和尾部匹配字符</td>
+</tr>
+<tr>
+<td>limit(int)</td>
+<td>限制拆分出的字符串数量</td>
+</tr>
+</tbody></table>
+<p><strong>注：如果需要返回List而不是数组，则调用<code>splitToList()</code>、而不是<code>split()</code></strong></p>
+<h2 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h2><p>splitter实例总是不可变的。用来定义splitter目标语义的配置方法总会返回一个新的splitter实例。这使得splitter实例都是线程安全的，你可以将其定义为static final常量。</p>
+<h2 id="Map-Splitter"><a href="#Map-Splitter" class="headerlink" title="Map Splitter"></a>Map Splitter</h2><p>可以通过<code>withKeyValueSeparator()</code>指定第二个分隔符，用于从字符串中反序列出一个map，将会返回一个Map&lt;String, String&gt;<br>例如：<code>对url中的查询字符串&quot;id=123&amp;name=green&quot;进行分割</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final Map&lt;String, String&gt; join = Splitter.on(&quot;&amp;&quot;).withKeyValueSeparator(&quot;=&quot;).split(&quot;id=123&amp;name=green&quot;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Map-Joinner"><a href="#Map-Joinner" class="headerlink" title="Map Joinner"></a>Map Joinner</h2><p>例如：<code>生产一个查询id: 123,name: green的学生信息的url。</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Joiner.on(&quot;&amp;&quot;).withKeyValueSeparator(&quot;=&quot;).join(ImmutableMap.of(&quot;id&quot;, &quot;123&quot;, &quot;name&quot;, &quot;green&quot;));</span><br></pre></td></tr></table></figure>
+
+<h1 id="CharMatcher"><a href="#CharMatcher" class="headerlink" title="CharMatcher"></a>CharMatcher</h1><p>CharMatcher实例首先代表概念1：怎么才算匹配字符？然后它还提供了很多操作概念2：如何处理这些匹配字符？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String noControl = CharMatcher.JAVA_ISO_CONTROL.removeFrom(string); //移除control字符</span><br><span class="line">String theDigits = CharMatcher.DIGIT.retainFrom(string); //只保留数字字符</span><br><span class="line">String spaced = CharMatcher.WHITESPACE.trimAndCollapseFrom(string, &#x27; &#x27;);//去除两端的空格，并把中间的连续空格替换成单个空格</span><br><span class="line">String noDigits = CharMatcher.JAVA_DIGIT.replaceFrom(string, &quot;*&quot;); //用*号替换所有数字</span><br><span class="line">String lowerAndDigit = CharMatcher.JAVA_DIGIT.or(CharMatcher.JAVA_LOWER_CASE).retainFrom(string);// 只保留数字和小写字母</span><br></pre></td></tr></table></figure>
+
+<p>注意：CharMatcher只处理char类型代表的字符；它不能理解0x10000到0x10FFFF的Unicode 增补字符。这些逻辑字符以代理对[surrogate pairs]的形式编码进字符串，而CharMatcher只能将这种逻辑字符看待成两个独立的字符。</p>
+<h3 id="CharMatcher工厂方法"><a href="#CharMatcher工厂方法" class="headerlink" title="CharMatcher工厂方法"></a>CharMatcher工厂方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">any()</span><br><span class="line">none()</span><br><span class="line">whitespace()</span><br><span class="line">breakingWhitespace()</span><br><span class="line">invisible()</span><br><span class="line">digit()</span><br><span class="line">javaLetter()</span><br><span class="line">javaDigit()</span><br><span class="line">javaLetterOrDigit()</span><br><span class="line">javaIsoControl()</span><br><span class="line">javaLowerCase()</span><br><span class="line">javaUpperCase()</span><br><span class="line">ascii()</span><br><span class="line">singleWidth()</span><br></pre></td></tr></table></figure>
+
+<p>其他：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>anyOf(CharSequence)</td>
+<td>枚举匹配字符。如CharMatcher.anyOf(“aeiou”)匹配小写英语元音</td>
+</tr>
+<tr>
+<td>is(char)</td>
+<td>给定单一字符匹配。</td>
+</tr>
+<tr>
+<td>inRange(char, char)</td>
+<td>给定字符范围匹配，如CharMatcher.inRange(‘a’, ‘z’)</td>
+</tr>
+</tbody></table>
+<p>此外，CharMatcher还有negate()、and(CharMatcher)和or(CharMatcher)方法。</p>
+<h3 id="使用CharMatchers"><a href="#使用CharMatchers" class="headerlink" title="使用CharMatchers"></a>使用CharMatchers</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>collapseFrom(CharSequence, char)</td>
+<td>把每组连续的匹配字符替换为特定字符。如WHITESPACE.collapseFrom(string, ‘ ‘)</td>
+</tr>
+<tr>
+<td>matchesAllOf(CharSequence)</td>
+<td>测试是否字符序列中的所有字符都匹配。</td>
+</tr>
+<tr>
+<td>removeFrom(CharSequence)</td>
+<td>从字符序列中移除所有匹配字符。</td>
+</tr>
+<tr>
+<td>retainFrom(CharSequence)</td>
+<td>在字符序列中保留匹配字符，移除其他字符。</td>
+</tr>
+<tr>
+<td>trimFrom(CharSequence)</td>
+<td>移除字符序列的前导匹配字符和尾部匹配字符。</td>
+</tr>
+<tr>
+<td>replaceFrom(CharSequence, CharSequence)</td>
+<td>用特定字符序列替代匹配字符。</td>
+</tr>
+</tbody></table>
+<p>所有这些方法返回String，除了matchesAllOf返回的是boolean。</p>
+<h1 id="Charsets"><a href="#Charsets" class="headerlink" title="Charsets"></a>Charsets</h1><p>获取字符集时，不要这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  bytes = string.getBytes(&quot;UTF-8&quot;);</span><br><span class="line">&#125; catch (UnsupportedEncodingException e) &#123;</span><br><span class="line">  // how can this possibly happen?</span><br><span class="line">  throw new AssertionError(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而是应该：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bytes = string.getBytes(Charsets.UTF_8);</span><br></pre></td></tr></table></figure>
+
+<p>Charsets针对所有Java平台都要保证支持的六种字符集提供了常量引用。尝试使用这些常量，而不是通过名称获取字符集实例。</p>
+<h1 id="CaseFormat"><a href="#CaseFormat" class="headerlink" title="CaseFormat"></a>CaseFormat</h1><p>CaseFormat被用来方便地在各种ASCII大小写规范间转换字符串——比如，编程语言的命名规范。CaseFormat支持的格式如下：</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>范例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LOWER_CAMEL</td>
+<td>lowerCamel</td>
+</tr>
+<tr>
+<td>LOWER_HYPHEN</td>
+<td>lower-hyphen</td>
+</tr>
+<tr>
+<td>LOWER_UNDERSCORE</td>
+<td>lower_underscore</td>
+</tr>
+<tr>
+<td>UPPER_CAMEL</td>
+<td>UpperCamel</td>
+</tr>
+<tr>
+<td>UPPER_UNDERSCORE</td>
+<td>UPPER_UNDERSCORE</td>
+</tr>
+</tbody></table>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/whitewolf/p/4214749.html">guava之Joiner 和 Splitter</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/google/guava/wiki/StringsExplained">google guava wiki</a></li>
+<li><a target="_blank" rel="noopener" href="http://ifeve.com/google-guava-strings/">[Google Guava] 6-字符串处理：分割，连接，填充</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/04/14/2019-04-14_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89-String%E7%9B%B8%E5%85%B3/" data-id="cuidP6nhUVTBXq3hQB4YHup5b" data-title="google guava使用教程系列（1）-String相关" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-03-22_elasticsearch启动时报错：error=’Cannot_allocate_memory’_(errno=12)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/03/22/2019-03-22_elasticsearch%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9Aerror=%E2%80%99Cannot_allocate_memory%E2%80%99_(errno=12)/" class="article-date">
+  <time class="dt-published" datetime="2019-03-22T00:00:00.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>►<a class="article-category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/03/22/2019-03-22_elasticsearch%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9Aerror=%E2%80%99Cannot_allocate_memory%E2%80%99_(errno=12)/">elasticsearch启动时报错：error=’Cannot allocate memory’ (errno=12)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="elasticsearch启动时报错：error-’Cannot-allocate-memory’-errno-12"><a href="#elasticsearch启动时报错：error-’Cannot-allocate-memory’-errno-12" class="headerlink" title="elasticsearch启动时报错：error&#x3D;’Cannot allocate memory’ (errno&#x3D;12)"></a>elasticsearch启动时报错：error&#x3D;’Cannot allocate memory’ (errno&#x3D;12)</h1><p>elasticsearch启动时报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Java HotSpot™ 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000e5330000, 449642496, 0) failed; error=‘Cannot allocate memory’ (errno=12)</span><br><span class="line"></span><br><span class="line">There is insufficient memory for the Java Runtime Environment to continue.</span><br><span class="line">Native memory allocation (mmap) failed to map 449642496 bytes for committing reserved memory.</span><br><span class="line">An error report file with more information is saved as:</span><br><span class="line">/opt/elasticsearch/hs_err_pidxxx.log</span><br></pre></td></tr></table></figure>
+
+<p>原因：没有足够的内存供JRE运行<br>解决：修改es配置参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">vim config/jvm.options</span><br></pre></td></tr></table></figure>
+
+<p>修改JVM参数，将其改小即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">-Xms512m  </span><br><span class="line">-Xmx512m </span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/03/22/2019-03-22_elasticsearch%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9Aerror=%E2%80%99Cannot_allocate_memory%E2%80%99_(errno=12)/" data-id="cuidFvxvQof_KEPuQ6i8gFynT" data-title="elasticsearch启动时报错：error=’Cannot allocate memory’ (errno=12)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-02-24_git_tag及推送tag到远端服务器的命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/02/24/2019-02-24_git_tag%E5%8F%8A%E6%8E%A8%E9%80%81tag%E5%88%B0%E8%BF%9C%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2019-02-24T00:00:00.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/02/24/2019-02-24_git_tag%E5%8F%8A%E6%8E%A8%E9%80%81tag%E5%88%B0%E8%BF%9C%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">git tag及推送tag到远端服务器的命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="git-tag及推送tag到远端服务器的命令"><a href="#git-tag及推送tag到远端服务器的命令" class="headerlink" title="git tag及推送tag到远端服务器的命令"></a>git tag及推送tag到远端服务器的命令</h1><p>查看tag<br>git show<br>git tag -l “v1.5” &#x2F;&#x2F;加上筛选条件</p>
+<p>创建tag<br>git tag 版本号<br>git tag -a v1.5 -m “my version 1.5” &#x2F;&#x2F;加上备注信息<br>git tag -a v1.5 &#x2F;&#x2F;会打开默认文本编辑器<br>git tag -s v1.5 -m ‘my signed 1.5 tag’ &#x2F;&#x2F;用 GPG 来签署标签</p>
+<p>推送到远端<br>git push origin [tagname] &#x2F;&#x2F;push单个tag<br>git push [origin] –tags &#x2F;&#x2F;push所有tag</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/02/24/2019-02-24_git_tag%E5%8F%8A%E6%8E%A8%E9%80%81tag%E5%88%B0%E8%BF%9C%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4/" data-id="cuidKD6PpHSb4zwMY3m1qqJB3" data-title="git tag及推送tag到远端服务器的命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/aop/">aop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/aop/spring/">spring</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/">excel</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/excel/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/">guava</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/">io</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/">Netty</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/java/">java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/">j2ee</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/spring-boot/">spring boot</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/">架构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/">shell</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%9E%B6%E6%9E%84/">架构</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/">分布式一致性</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC/">脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/%E8%B5%84%E6%BA%90/">资源</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/11/2021-01-11_%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2activemq%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">如何部署activemq以及部署时遇到的相关问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/">spring cloud gateway基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/10/2020-12-10_maven%E7%BC%96%E8%AF%91%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%97%B6%E7%AE%80%E5%8C%96%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/">maven编译大型项目时简化编译过程的命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/02/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/">centos下如何启动mysql多实例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Java并发之深入解析volatile关键字 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Java并发之深入解析volatile关键字从一道面试题讲起：采用DCL实现单例模式时，是否需要加volatile关键字？为什么？ 有关单例模式我们在网上搜如何实现单例模式时，帖子往往给出多种实现：饿汉模式、懒汉模式、双重锁懒汉模式（双重锁检查，double check lock，经常简写做DCL）、静态内部类模式、枚举模式等。 此处可以参考 深入理解单例模式：静态内部类单例原理 这篇文章。 顺带">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java并发之深入解析volatile关键字">
+<meta property="og:url" content="https://evasnowind.github.io/2020/05/27/2020-05-27_Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90volatile%E5%85%B3%E9%94%AE%E5%AD%97/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java并发之深入解析volatile关键字从一道面试题讲起：采用DCL实现单例模式时，是否需要加volatile关键字？为什么？ 有关单例模式我们在网上搜如何实现单例模式时，帖子往往给出多种实现：饿汉模式、懒汉模式、双重锁懒汉模式（双重锁检查，double check lock，经常简写做DCL）、静态内部类模式、枚举模式等。 此处可以参考 深入理解单例模式：静态内部类单例原理 这篇文章。 顺带">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://evasnowind.github.io/images/Java%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C-300x46_d27ae705.png">
+<meta property="og:image" content="https://evasnowind.github.io/images/class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84-300x297_bb4aebf5.png">
+<meta property="og:image" content="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg">
+<meta property="og:image" content="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/class%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E8%A1%A8%E4%B8%8E%E5%AD%97%E6%AE%B5%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97.png">
+<meta property="og:image" content="https://evasnowind.github.io/images/class%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E8%AE%BF%E9%97%AE%E6%A0%87%E8%AE%B0-300x159_7c65ba27.png">
+<meta property="og:image" content="https://evasnowind.github.io/images/class%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E8%A1%A8%E4%B8%8E%E5%AD%97%E6%AE%B5%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97-300x221_60021e35.png">
+<meta property="og:image" content="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/volatile%E5%AF%B9%E5%BA%94%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4.png">
+<meta property="og:image" content="https://evasnowind.github.io/images/volatile%E5%AF%B9%E5%BA%94%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4-300x90_9540b546.png">
+<meta property="article:published_time" content="2020-05-27T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-08T07:45:59.480Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://evasnowind.github.io/images/Java%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C-300x46_d27ae705.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://evasnowind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2020-05-27_Java并发之深入解析volatile关键字" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/27/2020-05-27_Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90volatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
+  <time class="dt-published" datetime="2020-05-27T00:00:00.000Z" itemprop="datePublished">2020-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发</a>►<a class="article-category-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Java并发之深入解析volatile关键字
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java并发之深入解析volatile关键字"><a href="#Java并发之深入解析volatile关键字" class="headerlink" title="Java并发之深入解析volatile关键字"></a>Java并发之深入解析volatile关键字</h1><p>从一道面试题讲起：<strong>采用DCL实现单例模式时，是否需要加volatile关键字？为什么？</strong></p>
+<h2 id="有关单例模式"><a href="#有关单例模式" class="headerlink" title="有关单例模式"></a>有关单例模式</h2><p>我们在网上搜如何实现单例模式时，帖子往往给出多种实现：饿汉模式、懒汉模式、双重锁懒汉模式（双重锁检查，double check lock，经常简写做DCL）、静态内部类模式、枚举模式等。</p>
+<p>此处可以参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/mnb65482/article/details/80458571">深入理解单例模式：静态内部类单例原理</a> 这篇文章。</p>
+<p>顺带提一句，《Java并发编程的艺术》（方腾飞）第3章有讨论过DCL、静态内部类这两种实现方式，建议去读一读。</p>
+<p>先说结论：<strong>DCL实现单例，必须加volatile!</strong></p>
+<p>至于为何，首先我们需要理解volatile的语义。</p>
+<h2 id="volatile的语义"><a href="#volatile的语义" class="headerlink" title="volatile的语义"></a>volatile的语义</h2><p>目前我们正在使用的Java版本中，对于<code>volatile</code>语义的定义，主要采用 JSR-133中的定义。</p>
+<blockquote>
+<p>Oracle JSR-133文档：<a target="_blank" rel="noopener" href="https://download.oracle.com/otndocs/jcp/memory_model-1.0-pfd-spec-oth-JSpec/">英文原版</a> <a target="_blank" rel="noopener" href="http://ifeve.com/jsr133-cn/">中文翻译版</a></p>
+</blockquote>
+<p>JSR-133在对JLS原始规范的改变中，有两处最有可能要求JVM实现也做出相应的变动：</p>
+<blockquote>
+<p>加强了volatile变量的语义，需要有acquire和release语义。在原始的规范中，volatile变量的访问和非volatile变量的访问之间可以自由地重排序。<br>加强了final字段的语义，无需显式地同步，不可变对象也是线程安全的。这可能需要在给final字段赋值的那些构造器的末尾加上store-store屏障。</p>
+</blockquote>
+<h3 id="volatile的内存语义"><a href="#volatile的内存语义" class="headerlink" title="volatile的内存语义"></a>volatile的内存语义</h3><p>CPU缓存级别</p>
+<blockquote>
+<p>happens-before对volatile规则的定义 : volatile变量的写，先发生于后续对这个变量的读.<br>这句话的含义有两层:<br>volatile 的写操作, 需要将线程本地内存值,立马刷新到 主内存的共享变量中.<br>volatile 的读操作, 需要从主内存的共享变量中读取,更新本地内存变量的值.<br>由此引出 volatile 的内存语义.<br>当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量值刷新到主内存.<br>当读一个volatile变量时，JMM会把该线程对应的本地内存置为无效。线程接下来将从主内存中读取共享变量,并更新本地内存的值.</p>
+</blockquote>
+<p>注：引自<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9e467de97216">https://www.jianshu.com/p/9e467de97216</a></p>
+<h3 id="通俗一点"><a href="#通俗一点" class="headerlink" title="通俗一点"></a>通俗一点</h3><p>简单来讲，目前<code>volatile</code>关键字主要的作用是：</p>
+<ul>
+<li><ol>
+<li>在多线程访问，保证被volatile修饰变量的可见性</li>
+<li>禁止指令重排序</li>
+</ol>
+</li>
+</ul>
+<h3 id="分析DCL代码"><a href="#分析DCL代码" class="headerlink" title="分析DCL代码"></a>分析DCL代码</h3><p>一个典型的DCL代码如下（没加volatile、有问题的版本）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class SingleTon&#123;</span><br><span class="line">    //没加volatile、有问题的版本</span><br><span class="line">  private static SingleTon  INSTANCE = null;</span><br><span class="line">  private SingleTon()&#123;&#125;</span><br><span class="line">  public static SingleTon getInstance()&#123;</span><br><span class="line">      if(INSTANCE == null)&#123;</span><br><span class="line">          synchronized(SingleTon.class)&#123;</span><br><span class="line">             if(INSTANCE == null)&#123; </span><br><span class="line">               INSTANCE = new SingleTon();</span><br><span class="line">             &#125; </span><br><span class="line">          &#125;</span><br><span class="line">          return INSTANCE; </span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有问题地方是这里：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSTANCE = new SingleTon();</span><br></pre></td></tr></table></figure>
+
+<p>这条语句编译成字节码指令后，实际分下面3个步骤：</p>
+<ol>
+<li>在堆内存开辟内存空间。</li>
+<li>在堆内存中实例化SingleTon里面的各个参数。</li>
+<li>把对象指向堆内存空间。</li>
+</ol>
+<p>由于JVM存在乱序执行功能，所以可能线程A在2还没执行时就先执行了3，如果此时再被切换到线程B上，由于执行了3，INSTANCE 已经非空了，会被直接拿出来用，这样的话，就会出现异常。这个就是著名的DCL失效问题。</p>
+<p>在JSR-133（JDK 1.5中实现）之后，官方也发现了这个问题，增强了volatile，只要定义为<code>private volatile static SingleTon INSTANCE = null;</code>就可解决DCL失效问题。volatile确保INSTANCE每次均在主内存中读取，这样虽然会牺牲一点效率，但也无伤大雅。</p>
+<h2 id="volatile如何保证可见性并禁止指令重排序？"><a href="#volatile如何保证可见性并禁止指令重排序？" class="headerlink" title="volatile如何保证可见性并禁止指令重排序？"></a>volatile如何保证可见性并禁止指令重排序？</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>Java程序执行：</p>
+<p><img src="/images/Java%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C-300x46_d27ae705.png"></p>
+<p>JVM执行字节码时，可能发生指令重排序，乱序执行。上面不加volatile的DCL重排就是一个例子。</p>
+<p>需要分多个层次来理解：</p>
+<h4 id="1-在Java字节码层面"><a href="#1-在Java字节码层面" class="headerlink" title="1. 在Java字节码层面"></a>1. 在Java字节码层面</h4><p>字节码文件结构</p>
+<p><img src="/images/class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84-300x297_bb4aebf5.png"><img src="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg"></p>
+<p>在字段表中保存着类中各种字段的信息</p>
+<p><img src="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/class%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E8%A1%A8%E4%B8%8E%E5%AD%97%E6%AE%B5%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97.png"><img src="/images/class%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E8%AE%BF%E9%97%AE%E6%A0%87%E8%AE%B0-300x159_7c65ba27.png"></p>
+<p><img src="/images/class%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E8%A1%A8%E4%B8%8E%E5%AD%97%E6%AE%B5%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97-300x221_60021e35.png"></p>
+<p>当字段被volatile修饰时，字段表中对应字段的访问标志将会加上<code>ACC_VOLATILE</code>。</p>
+<h4 id="2-JVM的内存屏障"><a href="#2-JVM的内存屏障" class="headerlink" title="2. JVM的内存屏障"></a>2. JVM的内存屏障</h4><h4 id="as-if-serial与happen-before"><a href="#as-if-serial与happen-before" class="headerlink" title="as-if-serial与happen-before"></a>as-if-serial与happen-before</h4><p>虽然会乱序执行，但会遵循as-if-serial语义和happen-before原则。</p>
+<ul>
+<li>as-if-serial : 不管怎么重排序（编译器和处理器为了提高并行度），（单线程）程序的执行结果不会改变。</li>
+<li>happen-before :<ul>
+<li>与程序员密切相关的happens-before规则如下：<br>1、程序顺序规则：一个线程中的每个操作，happens-before于线程中的任意后续操作。<br>2、监视器锁规则：一个锁的解锁，happens-before于随后对这个锁的加锁。<br>3、volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。<br>4、传递性：如果A happens-before B，且B happens-before C，那么A happens-before C。</li>
+</ul>
+</li>
+</ul>
+<p>可以参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/u010571316/article/details/64906481">happens-before规则和as-if-serial语义</a> 。不用记各种规则，理解即可。</p>
+<p>编译器的重排序是指，在不改变单线程程序语义的前提下，可以重新安排语句的执行顺序来优化程序的性能.</p>
+<p>编译器的重排序和CPU的重排序的原则一样，会遵守数据依赖性原则，编译器和处理器不会改变存在数据依赖关系的两个操作的执行顺序</p>
+<p>编译器、处理器都必须遵守这个语义。JMM层面的内存屏障为了保证内存可见性，Java编译器在生成指令序列的适当位置会插入<strong>内存屏障</strong>来禁止特定类型的处理器的重排序。</p>
+<p>JVM中内存屏障有以下4种：</p>
+<ol>
+<li>LoadLoad屏障：对于这样的语句Load1; LoadLoad; Load2，<br>在Load2及后续读取操作要读取的数据被访问前，保证Load1要读取的数据被读取完毕。</li>
+<li>StoreStore屏障：对于这样的语句Store1; StoreStore; Store2，<br>在Store2及后续写入操作执行前，保证Store1的写入操作对其它处理器可见。</li>
+<li>LoadStore屏障：对于这样的语句Load1; LoadStore; Store2，<br>在Store2及后续写入操作被刷出前，保证Load1要读取的数据被读取完毕。</li>
+<li>StoreLoad屏障：对于这样的语句Store1; StoreLoad; Load2，<br>在Load2及后续所有读取操作执行前，保证Store1的写入对所有处理器可见。</li>
+</ol>
+<p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42008012/article/details/105910949">JVM系列(三)[计算机硬件的内存模型,数据一致性问题,CPU指令乱序执行,合并写]</a></p>
+<h4 id="3-Hotspot源码实现"><a href="#3-Hotspot源码实现" class="headerlink" title="3. Hotspot源码实现"></a>3. Hotspot源码实现</h4><p>JVM执行字节码的过程，最终会翻译成机器语言，在CPU上执行。</p>
+<p>对于JVM内存屏障的实现，不同CPU有不同的实现。以X86为例，下面是个栗子：</p>
+<p><img src="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/volatile%E5%AF%B9%E5%BA%94%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4.png"><img src="/images/volatile%E5%AF%B9%E5%BA%94%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4-300x90_9540b546.png"></p>
+<p>有volatile变量修饰的共享变量进行写操作的时候会多第二行汇编代码，通过查IA-32架构软件开发者手册可知，lock前缀的指令在多核处理器下会引发了两件事情：</p>
+<ul>
+<li>将当前处理器缓存行的数据会写回到系统内存。</li>
+<li>这个写回内存的操作会引起在其他CPU里缓存了该内存地址的数据无效。</li>
+</ul>
+<p>也就是说用<code>lock</code>指令来保证CPU中缓存的可见性。</p>
+<blockquote>
+<p>在多处理器环境中，LOCK# 信号确保在声言该信号期间，处理器可以独占使用任何共享内存。（因为它会锁住总线，导致其他CPU不能访问总线，不能访问总线就意味着不能访问系统内存），但是在最近的处理器里，LOCK＃信号一般不锁总线，而是锁缓存，毕竟锁总线开销比较大。</p>
+<p>对于Intel486和Pentium处理器，在锁操作时，总是在总线上声言LOCK#信号。但在P6和最近的处理器中，如果访问的内存区域已经缓存在处理器内部，则不会声言LOCK#信号。相反地，它会锁定这块内存区域的缓存并回写到内存，并使用缓存一致性机制来确保修改的原子性，此操作被称为“缓存锁定”，缓存一致性机制会阻止同时修改被两个以上处理器缓存的内存区域数据 。</p>
+<p>一个处理器的缓存回写到内存会导致其他处理器的缓存无效 。IA-32处理器和Intel 64处理器使用MESI（修改，独占，共享，无效）控制协议去维护内部缓存和其他处理器缓存的一致性。在多核处理器系统中进行操作的时候，IA-32 和Intel 64处理器能嗅探其他处理器访问系统内存和它们的内部缓存。它们使用嗅探技术保证它的内部缓存，系统内存和其他处理器的缓存的数据在总线上保持一致。例如在Pentium和P6 family处理器中，如果通过嗅探一个处理器来检测其他处理器打算写内存地址，而这个地址当前处理共享状态，那么正在嗅探的处理器将无效它的缓存行，在下次访问相同内存地址时，强制执行缓存行填充。</p>
+</blockquote>
+<p>上述内容参考自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/awkflf11/p/9218414.html">并发之volatile底层原理</a></p>
+<p>总结一下：<strong>LOCK 用于在多处理器中执行指令时对共享内存的独占使用。它的作用是能够将当前处理器对应缓存的内容刷新到内存，并使其他处理器对应的缓存失效。另外还提供了有序的指令无法越过这个内存屏障的作用。</strong></p>
+<p>Hotspot C++源码分析可以参考这篇文章<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/506c1e38a922">面试必问的volatile，你了解多少？</a></p>
+<h5 id="3-1-扩展1：缓存行（cache-line）"><a href="#3-1-扩展1：缓存行（cache-line）" class="headerlink" title="3.1 扩展1：缓存行（cache line）"></a>3.1 扩展1：缓存行（cache line）</h5><p>参考 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/awkflf11/p/9218414.html">并发之volatile底层原理</a></p>
+<h5 id="3-2-扩展2：缓存一致性协议"><a href="#3-2-扩展2：缓存一致性协议" class="headerlink" title="3.2 扩展2：缓存一致性协议"></a>3.2 扩展2：缓存一致性协议</h5><p>参考这篇文章 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/z00377750/p/9180644.html">【并发编程】MESI–CPU缓存一致性协议</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mnb65482/article/details/80458571">深入理解单例模式：静态内部类单例原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9e467de97216">java并发(4)深入理解volatile</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/awkflf11/p/9218414.html">并发之volatile底层原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/506c1e38a922">面试必问的volatile，你了解多少？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d2641fdf5d44">架构师五分钟带你读懂，Volatile的作用及原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010571316/article/details/64906481">happens-before规则和as-if-serial语义</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/awkflf11/p/9218414.html">并发之volatile底层原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/z00377750/p/9180644.html">【并发编程】MESI–CPU缓存一致性协议</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2020/05/27/2020-05-27_Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90volatile%E5%85%B3%E9%94%AE%E5%AD%97/" data-id="cuidt4AfKEliRBo33BrctgGyy" data-title="Java并发之深入解析volatile关键字" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/15/2020-07-15_%E5%86%99%E7%BB%99%E5%8D%B3%E5%B0%86%E6%88%96%E6%98%AF%E6%83%B3%E8%BF%9B%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%A4%A7%E5%8E%82%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%90%8E%E6%B5%AA%E4%BB%AC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          写给即将或是想进入互联网大厂工作的后浪们
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/18/2020-05-18_JDK%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E9%80%9F%E8%A7%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JDK各个版本特性速览</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/aop/">aop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/aop/spring/">spring</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/linux/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/excel/">excel</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/excel/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/">guava</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/guava/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/">io</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/">Netty</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/io/Netty/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/io/java/">java</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/">j2ee</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/web/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/spring/spring-boot/">spring boot</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring-boot/">spring boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/">架构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E8%AF%BB%E4%B9%A6/">读书</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/">shell</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/spring-boot/">spring boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring/spring-boot/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring cloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/%E5%B7%A5%E5%85%B7/">工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%9E%B6%E6%9E%84/">架构</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/">分布式一致性</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C/">网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC/">脚本</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/%E8%B5%84%E6%BA%90/">资源</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/11/2021-01-11_%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2activemq%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">如何部署activemq以及部署时遇到的相关问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/29/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/">spring cloud gateway基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/10/2020-12-10_maven%E7%BC%96%E8%AF%91%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%97%B6%E7%AE%80%E5%8C%96%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%91%BD%E4%BB%A4/">maven编译大型项目时简化编译过程的命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/02/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/">centos下如何启动mysql多实例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
