@@ -105,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Integer/" data-id="cuidsj7iSxzkIceWihCVTIOHS" data-title="【源码分析】java sdk篇–Integer" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Integer/" data-id="cuidoFn5dE9TSs05ZSefuQwE4" data-title="【源码分析】java sdk篇–Integer" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -151,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/01/05/2017-01-05_%E7%A7%BB%E9%99%A4UTF8%E6%96%87%E4%BB%B6%E7%9A%84BOM%E5%A4%B4/" data-id="cuid6WTpXaPOgcJ8-RSC3pOBy" data-title="移除UTF8文件的BOM头" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/01/05/2017-01-05_%E7%A7%BB%E9%99%A4UTF8%E6%96%87%E4%BB%B6%E7%9A%84BOM%E5%A4%B4/" data-id="cuidaJwVf50jO5a5O9W1z-d8P" data-title="移除UTF8文件的BOM头" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -202,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/01/04/2017-01-04_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91%5BVirtualBox%5D%E5%A6%82%E4%BD%95%E5%A4%8D%E5%88%B6%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="cuidc7WDgTYNMC9CIaKUQsLeo" data-title="【转发】[VirtualBox]如何复制一个虚拟机" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/01/04/2017-01-04_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91%5BVirtualBox%5D%E5%A6%82%E4%BD%95%E5%A4%8D%E5%88%B6%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="cuidIQe2-vfvUk-V6wxXepSiJ" data-title="【转发】[VirtualBox]如何复制一个虚拟机" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -240,7 +240,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="【源码分析】java-sdk篇–ConcurrentSkipListMap"><a href="#【源码分析】java-sdk篇–ConcurrentSkipListMap" class="headerlink" title="【源码分析】java sdk篇–ConcurrentSkipListMap"></a>【源码分析】java sdk篇–ConcurrentSkipListMap</h1><p>最近开始看jdk源代码，先分享一个挺好的博客：<a target="_blank" rel="noopener" href="http://blog.csdn.net/chenssy">http://blog.csdn.net/chenssy</a>  chenssy 有关JDK源码的博文写的很细，我就参考他的博文写写其他的内容，已经被chenssy写过的内容我就不再重复啦，估计也没他写的细。另外，如果网上已有相关分析，我可能直接给出链接、做做补充，毕竟本系列属于读书笔记性质，留下个记录免得自己忘记，并不打算写的特别全或是全部原创。下面就开始【源码分析】系列的第一篇：ConcurrentSkipListMap<br>声明：本博客内容一般采集自互联网，若引用了其他文章或是博客的内容，我会尽量注明出处。如果有转载、未注明出处，或是有侵权的情况，请及时与我沟通（<a href="mailto:&#x65;&#x76;&#x61;&#x73;&#x6e;&#x6f;&#x77;&#105;&#110;&#100;&#64;&#115;&#x69;&#110;&#97;&#46;&#99;&#111;&#x6d;">evasnowind@sina.com</a>），我会及时删除。转载请注明本文出处，谢谢。<br>在java中，<br>如果我们需要快速存取键值对，可以用HashMap；<br>如果要求多线程并发存取键值对，可以用ConcurrentHashMap；<br>如果要求快速存取键值对，并要求键值对按照某种顺序排序，可以用TreeMap；<br>如果，我们需要快速存取键值对，支持多线程并发存取，还要求数据有序，是否有现成的数据结构？<br>答案是肯定，那就是ConcurrentSkipListMap。</p>
+        <h1 id="【源码分析】java-sdk篇–ConcurrentSkipListMap"><a href="#【源码分析】java-sdk篇–ConcurrentSkipListMap" class="headerlink" title="【源码分析】java sdk篇–ConcurrentSkipListMap"></a>【源码分析】java sdk篇–ConcurrentSkipListMap</h1><p>最近开始看jdk源代码，先分享一个挺好的博客：<a target="_blank" rel="noopener" href="http://blog.csdn.net/chenssy">http://blog.csdn.net/chenssy</a>  chenssy 有关JDK源码的博文写的很细，我就参考他的博文写写其他的内容，已经被chenssy写过的内容我就不再重复啦，估计也没他写的细。另外，如果网上已有相关分析，我可能直接给出链接、做做补充，毕竟本系列属于读书笔记性质，留下个记录免得自己忘记，并不打算写的特别全或是全部原创。下面就开始【源码分析】系列的第一篇：ConcurrentSkipListMap<br>声明：本博客内容一般采集自互联网，若引用了其他文章或是博客的内容，我会尽量注明出处。如果有转载、未注明出处，或是有侵权的情况，请及时与我沟通（<a href="mailto:&#101;&#118;&#97;&#x73;&#x6e;&#111;&#119;&#x69;&#x6e;&#x64;&#x40;&#x73;&#105;&#110;&#97;&#46;&#x63;&#x6f;&#x6d;">evasnowind@sina.com</a>），我会及时删除。转载请注明本文出处，谢谢。<br>在java中，<br>如果我们需要快速存取键值对，可以用HashMap；<br>如果要求多线程并发存取键值对，可以用ConcurrentHashMap；<br>如果要求快速存取键值对，并要求键值对按照某种顺序排序，可以用TreeMap；<br>如果，我们需要快速存取键值对，支持多线程并发存取，还要求数据有序，是否有现成的数据结构？<br>答案是肯定，那就是ConcurrentSkipListMap。</p>
 <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p><strong>JDK 1.6</strong>中引入了ConcurrentSkipListMap这一数据结构，JDK文档描述如下：</p>
 <blockquote>
 <p>A scalable concurrent <code>ConcurrentNavigableMap</code> implementation. The map is sorted according to the <a href="eclipse-javadoc:%E2%98%82=HMSExample/D:%5C/DevTools%5C/android-sdk-windows%5C/platforms%5C/android-23%5C/android.jar%3Cjava.util.concurrent(ConcurrentSkipListMap.class%E2%98%83ConcurrentSkipListMap%E2%98%82Comparable">natural ordering</a> of its keys, or by a <code>Comparator</code> provided at map creation time, depending on which constructor is used.<br>This class implements a concurrent variant of <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Skip_list">SkipLists</a> providing expected average <em>log(n)</em> time cost for the <code>containsKey</code>, <code>get</code>, <code>put</code> and <code>remove</code> operations and their variants. Insertion, removal, update, and access operations safely execute concurrently by multiple threads. Iterators are <em>weakly consistent</em>, returning elements reflecting the state of the map at some point at or since the creation of the iterator. They do <em>not</em> throw <code>ConcurrentModificationException</code>, and may proceed concurrently with other operations. Ascending key ordered views and their iterators are faster than descending ones.<br>All <code>Map.Entry</code> pairs returned by methods in this class and its views represent snapshots of mappings at the time they were produced. They do <em>not</em> support the <code>Entry.setValue</code> method. (Note however that it is possible to change mappings in the associated map using <code>put</code>, <code>putIfAbsent</code>, or <code>replace</code>, depending on exactly which effect you need.)<br>Beware that, unlike in most collections, the <code>size</code> method is <em>not</em> a constant-time operation. Because of the asynchronous nature of these maps, determining the current number of elements requires a traversal of the elements, and so may report inaccurate results if this collection is modified during traversal. Additionally, the bulk operations <code>putAll</code>, <code>equals</code>, <code>toArray</code>, <code>containsValue</code>, and <code>clear</code> are <em>not</em> guaranteed to be performed atomically. For example, an iterator operating concurrently with a <code>putAll</code> operation might view only some of the added elements.<br>This class and its views and iterators implement all of the <em>optional</em> methods of the <code>Map</code> and <code>Iterator</code> interfaces. Like most other concurrent collections, this class does <em>not</em> permit the use of <code>null</code> keys or values because some null return values cannot be reliably distinguished from the absence of elements.</p>
@@ -263,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/12/26/2016-12-26_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93ConcurrentSkipListMap/" data-id="cuideo1IHpIwRHakNb3yZgPPx" data-title="【源码分析】java sdk篇–ConcurrentSkipListMap" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/12/26/2016-12-26_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93ConcurrentSkipListMap/" data-id="cuidHXghuK0j2gAjoG3ELUTR5" data-title="【源码分析】java sdk篇–ConcurrentSkipListMap" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -347,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/12/22/2016-12-22_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android%E4%B8%ADSQLite%E5%BA%94%E7%94%A8%E8%AF%A6%E8%A7%A3/" data-id="cuidyS7SBNcFdqVn_ojbuN30B" data-title="【转发】Android中SQLite应用详解" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/12/22/2016-12-22_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android%E4%B8%ADSQLite%E5%BA%94%E7%94%A8%E8%AF%A6%E8%A7%A3/" data-id="cuidS5m1t9hsTyn2dCjmC0iaT" data-title="【转发】Android中SQLite应用详解" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -393,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/12/20/2016-12-20_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android_%E7%B3%BB%E7%BB%9F%E6%98%AF%E4%B8%8D%E6%98%AFMIUI%E3%80%81Flyme%E3%80%81EMUI/" data-id="cuida7uWA5ue_QHkyjoX9QdgU" data-title="【转发】Android 系统是不是MIUI、Flyme、EMUI" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/12/20/2016-12-20_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android_%E7%B3%BB%E7%BB%9F%E6%98%AF%E4%B8%8D%E6%98%AFMIUI%E3%80%81Flyme%E3%80%81EMUI/" data-id="cuidvs_MYVHFRauAzbYfq214f" data-title="【转发】Android 系统是不是MIUI、Flyme、EMUI" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -446,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/08/25/2016-08-25_android_gridview%E4%B8%8D%E4%BD%BF%E7%94%A8viewholder%E7%9B%B4%E6%8E%A5%E6%B7%BB%E5%8A%A0view%E5%AF%BC%E8%87%B4%E4%B9%B1%E5%BA%8F%E3%80%81%E9%87%8D%E5%A4%8D%E5%93%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" data-id="cuid5IZgaPjpwh3Frkib7LJ2v" data-title="android gridview不使用viewholder直接添加view导致乱序、重复响应的解决方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/08/25/2016-08-25_android_gridview%E4%B8%8D%E4%BD%BF%E7%94%A8viewholder%E7%9B%B4%E6%8E%A5%E6%B7%BB%E5%8A%A0view%E5%AF%BC%E8%87%B4%E4%B9%B1%E5%BA%8F%E3%80%81%E9%87%8D%E5%A4%8D%E5%93%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" data-id="cuidJEY5xop2uSk7_J2QT_arR" data-title="android gridview不使用viewholder直接添加view导致乱序、重复响应的解决方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -492,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/08/24/2016-08-24_android%E5%BC%80%E5%90%AF%E8%BE%85%E5%8A%A9%E5%8A%9F%E8%83%BD%E5%90%8EGridView%E6%8E%A7%E4%BB%B6%E5%AF%BC%E8%87%B4app%E9%97%AA%E9%80%80/" data-id="cuidxPevXIwELHpENmLgC1Hiq" data-title="android开启辅助功能后GridView控件导致app闪退" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/08/24/2016-08-24_android%E5%BC%80%E5%90%AF%E8%BE%85%E5%8A%A9%E5%8A%9F%E8%83%BD%E5%90%8EGridView%E6%8E%A7%E4%BB%B6%E5%AF%BC%E8%87%B4app%E9%97%AA%E9%80%80/" data-id="cuidYDAmLbztKY7jIyaLzsXSU" data-title="android开启辅助功能后GridView控件导致app闪退" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -535,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/05/25/2016-05-25_android_webview%E6%8E%A7%E4%BB%B6%E4%B8%ADjavascript%E4%B8%8Ejava%E7%9A%84%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" data-id="cuidZjvYp4clKJdR1GVTDcWte" data-title="android webview控件中javascript与java的相互调用" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/05/25/2016-05-25_android_webview%E6%8E%A7%E4%BB%B6%E4%B8%ADjavascript%E4%B8%8Ejava%E7%9A%84%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" data-id="cuidbW5TKiduyyOto1gn65OL-" data-title="android webview控件中javascript与java的相互调用" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -587,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/05/19/2016-05-19_Android_4.4_WebView%E6%8E%A7%E4%BB%B6%E6%8F%90%E7%A4%BAERR_CACHE_MISS%E9%94%99%E8%AF%AF/" data-id="cuidKsX1Ji7HGeflmaKvi7U2N" data-title="Android 4.4 WebView控件提示ERR_CACHE_MISS错误" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/05/19/2016-05-19_Android_4.4_WebView%E6%8E%A7%E4%BB%B6%E6%8F%90%E7%A4%BAERR_CACHE_MISS%E9%94%99%E8%AF%AF/" data-id="cuidDXUbaEL6sbUiovGRAN58e" data-title="Android 4.4 WebView控件提示ERR_CACHE_MISS错误" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

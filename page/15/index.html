@@ -71,14 +71,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2015-12-09_在Ubuntu_10.10下安装JDK配置Eclipse及Tomcat【转载_+_订正】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-2015-12-09_windows下使用eclipse_for_C_C++【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" class="article-date">
+    <a href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
   <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/linux/">linux</a>
+    <a class="article-category-link" href="/categories/c-c/">c/c++</a>►<a class="article-category-link" href="/categories/c-c/java/">java</a>►<a class="article-category-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a>
   </div>
 
   </div>
@@ -89,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/">在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】</a>
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">windows下使用eclipse for C/C++【转载】</a>
     </h1>
   
 
@@ -97,98 +97,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="在Ubuntu-10-10下安装JDK配置Eclipse及Tomcat【转载-订正】"><a href="#在Ubuntu-10-10下安装JDK配置Eclipse及Tomcat【转载-订正】" class="headerlink" title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】"></a>在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】</h1><p>本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。<br>51CTO编者按：我们曾经介绍过在《Ubuntu JDK安装配置详解》，本文将介绍如何配置最新的Ubuntu、JDK以及Tomcat。<br>作者注：根据本人在实际操作中所遇到的问题，我在原文章基础之上做了补充说明，请注意。<br>1、安装JDK<br>1.1、到官网下载相关的JDK<br>这里下载的是 jdk-6u23-linux-i586.bin。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html/">http://www.oracle.com/technetwork/java/javase/downloads/index.html\</a><br>1.2、在“administrator个人文件夹”建立一个“Java文件夹”<br>即位置-&gt;主文件夹-&gt;administrator；<br>将下载的 jdk-6u23-linux-i586.bin放置这个Java的文件夹。<br>路径可以根据自己的实际情况进行修改，这里以administrator下的Java文件夹为例子<br>1.3、打开“终端”<br>即应用程序-&gt;附件-&gt;终端<br>输入：<br>sudo sh jdk-6u23-linux-i586.bin<br>（可能会遇到要输入的用户密码）<br>2、设置JAVA_HOME环境系统变量<br>2.1、这里Ctrl+H可以看到隐藏的文件，比较有用的快捷键。<br>输入：<br>sudo gedit &#x2F;etc&#x2F;environment<br>在文件中添加：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_Home&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>即如图：<br>设置JAVA_HOME环境系统变量<br>设置JAVA_HOME环境系统变量<br>2.2、同样，修改第二个文件<br>输入：<br>sudo gedit &#x2F;etc&#x2F;profile<br>在umask 022之前添加以下语句：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>export PATH&#x3D;$JAVA_HOME&#x2F;bin:$JAVA_HOME&#x2F;jre&#x2F;bin:$PATH:$HOME&#x2F;bin<br>即如图：<br>添加以上语句<br>2.3、注销用户，检测JDK版本。<br>输入：<br>java -version<br>即如图：<br>安装JRE、JDK成功<br>安装JRE、JDK成功<br>注：按照上面所说的配置环境变量的方法，编写一个helloworld程序，使用普通用户运行，会出问题，应该是CLASSPATH配置有些问题，我的配置方法如下：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:.:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>按照这种方法配置即可成功运行helloworld程序。参见：<br><a target="_blank" rel="noopener" href="http://javaangle.blog.163.com/blog/static/1079330652010111374551387//">http://javaangle.blog.163.com/blog/static/1079330652010111374551387/\</a><br>此外该文章还给出了另一种安装JDK的方法。<br>3、安装Eclipse。<br>3.1、到官网下载相关的Eclipse<br>这里下载的是 eclipse-jee-helios-SR1-linux-gtk.tar.gz（即Java EE）。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.eclipse.org/downloads//">http://www.eclipse.org/downloads/\</a><br>3.2、将下载的 eclipse-jee-helios-SR1-linux-gtk.tar.gz放在Java文件夹内，解压。<br>运行解压后的Eclipse，即如图：<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>4、安装Tomcat7.05<br>4.1、到官网下载相关的Tomcat<br>这里下载的是 apache-tomcat-7.0.5.tar.gz。<br>下载地址：<a target="_blank" rel="noopener" href="http://tomcat.apache.org//">http://tomcat.apache.org/\</a><br>4.2、将下载的 apache-tomcat-7.0.5.tar.gz放在Java文件夹，解压并命名为tomcat7<br>如果喜欢执行命令行的话，可以执行的命令<br>（解压）sudo tar zxvf apache-tomcat-7.0.5<br>（命名为tomcat7）sudo mv apache-tomcat-7.05 tomcat7<br>4.3、在终端进行tomcat7下的bin文件<br>（即cd Java&#x2F;tomcat7&#x2F;bin）<br>这里用的是vim编辑器打开，也可以用gedit打开，即输入：<br>sudo gedit catalina.sh<br>当你输入：<br>sudo vim catalina.sh<br>得到<br>cygwin&#x3D;false<br>os400&#x3D;false<br>darwin&#x3D;false<br>case “<code>uname</code>” in<br>CYGWIN*) cygwin&#x3D;true;;<br>OS400*) os400&#x3D;true;;<br>Darwin*) darwin&#x3D;true;;<br>上面添加：<br>JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>JAVA_OPTS&#x3D;”-server -Xms512m -Xmx1024m -XX:PermSize&#x3D;600M -XX:MaxPermSize&#x3D;600m -Dcom.sun.management.jmxremote”<br>4.4、tomcat7.0.5的端口（一般tomcat7.0.5的端口默认为8080），如果发生冲突，则可以在以下文件修改。<br>tomcat7&#x2F;conf&#x2F;server.xml 文件里的：<br>改成9090，或者其它均可（这里用9090吧）。<br>4.5、这里已经进入了Java&#x2F;tomcat7&#x2F;bin文件夹内了。<br>输入：<br>sudo .&#x2F;starup.sh<br>启动Tomcat 7。<br>若出现<br>Using CATALINA_BASE: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_TMPDIR: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;temp<br>Using JRE_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>Using CLASSPATH: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;bootstrap.jar:&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;tomcat-juli.jar<br>则成功。<br>即如图：<br>安装成功<br>运行<a target="_blank" rel="noopener" href="http://localhost:9090/%E5%BE%97%EF%BC%9A/">http://localhost:9090/得：\</a><br>4.6、若要关闭tomcat7，<br>则输入：<br>sudo .&#x2F;shutdown.sh<br>5、总结<br>配置还是需要一些耐心的。多练习，总会理解的。好了这边是我们给大家带来的Ubuntu JDK安装和配置，而Ubuntu JDK安装和配置是初学者的必由之路，希望各位喜欢。</p>
+        <h1 id="windows下使用eclipse-for-C-C-【转载】"><a href="#windows下使用eclipse-for-C-C-【转载】" class="headerlink" title="windows下使用eclipse for C&#x2F;C++【转载】"></a>windows下使用eclipse for C&#x2F;C++【转载】</h1><p>经过网上搜索资料加上本人测试，以下方法可行：<br>1，先装好JDK<br>2，装好Eclipse3.32+MinGW1<br>3，打开CDT包把plugins和features拷到Eclipse相应的目录里<br>4，把Eclipse的configuration目录下的org.eclipse.update删了<br>5，启动Eclipse，现在可以建立C&#x2F;C++工程了<br>6，现在建立你的C&#x2F;C++工程<br>7，编写好你的源代码<br>8，在Project的Properties新建一个Builder(Project→Properties选择Builder标签→New，双击Program)<br>9，在MAIN标签（不用点击，默认第一个就是）的LOCATION输入你MINGW的MAKE路径，如C:\MinGW\bin\mingw32-make.exe<br>在WORKING DIRECTORY输入你PROJECT的MAKEFILE文件所在的目录，如D:\workspace\test<br>点APPLY更新进去，一直点OK退回编辑界面<br>10，建立文件makefile，不用加后缀名，输入<br>all(你设置的标签名):<br>gcc -o 你的程序名 你的源代码名.c<br>注意：g++前面是用tab而不能用空格。上面编译的是C，编译C++要用g++ -o Hello Hello.cpp<br>设定Make Targets，Windows-&gt;Show View-&gt;Make Targets。在Make Targets视窗中按下右鍵，选择Add Build Target，Target Name输入：编译，Make Target输入:all(你设置的标签名)。双击编译即可完成编译。<br>11，现在Run你的工程吧！<br>8～10为重点所在，请大家注意！<br>PS：个人觉得，在你安装好MinGW后，写一个C程序，记得按住Ctrl+b先build一下，或者是直接ctrl+F11直接build并运行。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" data-id="cuidTrSzqSjqne0NJnfHTK1De" data-title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-09_学习_Linux_几点忠告【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">学习 Linux 几点忠告【转载】</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="学习-Linux-几点忠告【转载】"><a href="#学习-Linux-几点忠告【转载】" class="headerlink" title="学习 Linux 几点忠告【转载】"></a>学习 Linux 几点忠告【转载】</h1><p>转载地址：<br><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn%5C">http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&amp;variant=zh-cn\</a><br>作者：王垠<br>1 不要当“传教士”<br>2 不要强迫自己”<br>3 不要“玩Linux的<br>4 不用挑剔发行版本<br>5 &#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;<br>6 不要配置你不需要的东西<br>7 不要习惯的使用根帐号。在需要的时候才用！<br>8 不要用商业的眼光来看 Linux的<br>9 干你的正事去<br>10 上面几条仅供参考<br>不要当“传教士”<br>(这点有一个重大弊端：开放软件没有商业软件那样的宣传，如果使用者都如此低调，用户群不会大幅扩展。) 为什么是繁体字？而且还翻译的乱起八糟 很多人在讨论区不断的引起的Linux对比视窗之类的讨论，甚至争的面红耳赤，这是没有必要的<br>这种争论是浪费时间而没有任何用处的。对，你花了一下午，用许多事实“捍卫”了Linux比Windows好这个说法。但是视窗的支持者并不会喜欢上Linux的，他们只是稍微退缩一下，然后找一些新的证据来跟你辩论。<br>世界上的人们都在利用Linux的研究最前沿的科学，我们还在这里讨论“要不要用Linux的这种无聊的问题，什么时候才能赶上时代前进的步伐？<br>什么叫做视窗支持者，什么叫做Linux的支持者？我们为什么要支持某一个而反对另外一个？你不需要为 Linux的护法，不需要成为 Linux的支持者“或者”的GNU传教士“ GNU &#x2F; Linux的已经用事实向世界证明了它们的威力，已经被大多数人接受。你只需要安安静静享受的GNU &#x2F; Linux的给你的乐趣和自由。<br>你需要关心的不是你的工具是什么，而是你用它做了什么。精通的Linux并不说明任何问题，因为它只是一个工具而已。如果你用的 Windows能很好的完成你的任务，那你就没有必要费时间去熟悉Linux操作系统。直到有一天你发现一项任务只有Linux操作系统才能完成的时候再 换也不迟，因为你身边的的Linux的爱好者一定会很乐意的帮助你。<br>如果你在使用Linux操作系统的过程中对它产生了感情，那么你应该明白那些习惯于使用视窗的人也会对视窗产生依赖。类似的争论还有很多： 微软 Office Word和TeX，Emacs和Vim，Wolfram Mathematica和Maple，侏儒，fvwm的和KDE的时候，狗派… …和冷静地对自己说：“我不站在它们任何一边。”尽管这有些不容易办到。<br>各人的需要不同，生活的环境不同。对你来说好的东西，对别人来说不一定好，我们需要尊重别人的选择。如果你当面说别人正在用的程序不好，没有必要。<br>不要强迫自己”<br>喜欢电脑的人总是有某些心理强迫倾向。有的人说：“键盘比鼠标快。我不要用鼠标。这样才有高效率。”所以他在编辑器里无论什么时候总是用20W的，大于 10J这样的命令到达目的点。他甚至觉得图形界面是多余的，干脆都不装 Xwindow。<br>全部用键盘看起来的确比让手离开键盘去拿鼠标，再回来“快”多了，但是快的击键频率不等于工作的高效率，对你的健康更没有什么好处。这只能把你变成打键盘的机器。<br>当你正在检查你的文章或者程序，思维正在随着字符的含义流动，突然为 20W，大于 10J这样的东西出现在你的脑子里，是不是会打断思路？不？那说明你当时思考的问题比较简单，这些干扰还不会起到副作用。<br>其实很多人用电脑的时候，思想都受到某种教学的束缚，上面这个只是教多数种类中的一种。某些人创造了很多这种数学，用他的工作方式来要求别 人，嘲笑方式跟他不一样的人。比如有的人嘲笑其它人写程序不按ç 8字符缩进，嘲笑别人在六里用方向键，嘲笑别人不知道是什么增值税，嘲笑其它人用在Java，C＃这种由地方选区回收内存语言 … …<br>你不用管各种各样的教学，电脑只是你的工具，你想怎么用就怎么用。没有人能够约束你，没有人可以嘲笑你的工作方式。电脑明天就不再是这个样子，所以今天你不用完全了解它。你没有必要知道别人创造的一切，因为你需要留点时间自己创造些东西。只要有乐趣！<br>当你下次修改文章的时候，不妨试试悠闲的用鼠标在你眼睛看到的地方轻轻点一下。<br>如果你發現自己有類似的強迫症，建議去諮詢一下心理醫生。<br>不要“玩Linux的<br>Linux的很多人用的时候会感觉很迷茫，该用哪个发行版本呢？是不是我少装了什么？怎么升级这么快啊！怎么这么不稳定！每当遇到新的软件他就想试用，每当新的版本出现，他就更新，然后用鼠标在新的菜单里选择从来没见过的程序来用用。<br>其实你是为了而使用Linux操作系统的Linux，而没有找到正确的理由来利用Linux操作系统。你首先要明确用电脑的目的，你用它是 为了解决你的实际问题，而不是为了学习安装操作系统，不是为了测试哪个版本好用，不是为了“赶上潮流，更不是因为你硬盘太大了，你想多占点空间。<br>如果你启动了电脑之后不知道应该干什么，那么最好先不要用电脑，因为你可能有更重要的事情需要做。这没什么说的。<br>不用挑剔发行版本<br>很多人刚开始用的linux的时候，总是在怀疑别的发行版本是否比自己正在用的这个好，总是怀疑自己以后时候会失去支持，不得不换用别的发行。所以 很多人今天是红色帽子，明天又换成了Debian的，巴布亚一会儿又是… …甚至有的人在一台机器上装了两个版本的Linux操作系统，然后比较哪一个好。<br>其实你完全没有必要这样做，任何发行，只要你熟悉了，你在上面的工作方式几乎是不会受到任何影响的。我以前一直用的红帽，当我有一天在我的 一台新机器上Debian的安装时，我发现使用红帽的经验完全没有浪费。我用了一个下午就配置好了Debian中，使它服服贴贴的听我的话，就跟没有换发 行版本一样。<br>Debian中，拓林思，的SuSE，红帽，Gentoo的，…任何一个版本都是不错的。很多人认为自己攒一个 LFS的是高水平黑客的象征，但是不是每个人都有精力去了解所有细节。<br>&#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;<br>不知道这是心理作用还是什么，有的人看到比较大的版本号，就会很想换成那个。很多人的Redhat的本来配置的很舒服了，可是一旦Redhat的发 行新的版本，他们就会尽快下载过来，然后选择升级安装。结果很多时候把自己原来修改得很好的配置文件给冲掉了。新的软件又带来了新的问题，比如有一次我的 rxvt的就升级到2.7.8跟miniChinput冲突了，升级到Redhat的8.0，xmms的发现居然缺省不能放了MP3播放，XFree86 的是i810的模块在启动上有新的漏洞，Mozilla中，会导致突然退出。<br>如果你已经配置好了一切，千万别再整体升级了，这会浪费你很多很多时间的，不值得。有句话说得好：“如果没有打破，不解决它。”如果你的程序能够完成你需要做的事情，你何必升级呢？？？？<br>是的，不論是從論壇還是其他的地方反映出來的大部分都是這個問題，要么比的SUSE Ubuntu的好，要么比Ubuntu的的Mandriva好等等的言論。很多人還是把Linux操作系統看成了一個表面的東西。並沒有塌下心來學習 Linux系統。<br>不要配置你不需要的东西<br>如果你只想做一个像我这样的普通用户，主要目的是用的Linux来完成自己的科研任务和日常工作，那就可以不用系统管理员或者网络管理员的标准来要 求自己，因为当一个系统和网络管理员确实很辛苦。普通用户学习那些不经常用到的复杂的维护系统的工具，其实是浪费时间，学了不用是会很快忘记的！<br>我不是一个合格的网络管理员，我的服务器都只设置了我自己需要的功能，设置好ssh连接的ftp已经足够了，那样可以省去我很多麻烦。我从 来不过度考虑“安全，因为 Linux操作系统缺省已经很安全了。我没有磁带机，就不用管焦油的那些稀奇古怪的参数了，czf，xzf，ztf已经可以满足我所有的需要。桑 达，awk的，…我也只会几种常用的命令行。<br>不要习惯的使用根帐号。在需要的时候才用！<br>这是很多刚接触的UNIX类操作系统的人常见的现象，他们不喜欢在管理系统的时候才用，而是一直用根帐号干所有事情，配置系统，安装程序，浏览网页，玩游戏，编程 … …<br>结果有一天，他不小心在某个系统目录使用了del * …后果不堪设想 … …<br>不要用商业的眼光来看 Linux的<br>Linux的不是商业软件，所以不要用要求Solaris操作系统，视窗那样的眼光来看 Linux操作系统。自由软件的作者们从来不拉拢用户，他们对用户不负有任何责任。实际上在自由软件的世界里，开发者“和”用户“并没有明确的界限，大家是朋友。<br>自由软件很可能只是满足作者和他的朋友的需要，甚至是为了好玩而创造的。自由软件不是完美的，自由软件承认自己有缺点，它不会自吹自擂，蒙 蔽“用户”的耳目。这种对作者责任的解脱激发了作者的创造力，他们不用过分考虑“向上兼容，他们往往比背上重重包袱的商业软件结构更合理，技术更先进。<br>所以当你用某个自由软件遇到困难的时候，不应该埋怨软件的作者，因为他们对你并没有义务。你不应该把自己当成一个挑剔的顾客，而要把自己作 为这个软件的顾问和一个和蔼的建议者，这样你才能理解作者写这个程序时的快乐，在遇到问题时向作者反映，帮助他完善这个软件，成为一个快乐的参与者。就像 你的哥哥送你一个他用旧了的自行车，你应该珍惜这份友情，而不要在车坏了，或者骑车摔了一跤的时候大骂你的哥哥。如果你真的不能使用这种合作的心态，那么 最好不要使用这个软件。<br>这是一种先进的文化，它包含了互相合作，科学创新的精神。理解这一点不是很容易，很多人往往是因为不能理解这种文化而离开自由软件。这对于作者来说并没有什么损失。<br>干你的正事去<br>很多人跟我说，你的网页浪费我好多时间来配置这配置那，一会儿是fvwm的，一会儿是Mutt中… …<br>嗯… …那些东西都是我有空的时候一点一点积累的，如果你想一次性搞定所有那些东西，恐怕得花你几个星期甚至几个月的时间！并不是一定要搞定所有这些东西你才能正常工作的。除非你真的非得利用某个程序，或者你闲著没事，否则你可以不管这些东西。<br>上面几条仅供参考<br>以上只是个人意见，不一定适合所有人。取舍由你了！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidUk4qkqDPmZG9YgOOOWEVS" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-09_安装JDK_+_Tomcat设置环境变量的方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/">安装JDK + Tomcat设置环境变量的方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="安装JDK-Tomcat设置环境变量的方法"><a href="#安装JDK-Tomcat设置环境变量的方法" class="headerlink" title="安装JDK + Tomcat设置环境变量的方法"></a>安装JDK + Tomcat设置环境变量的方法</h1><p>初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。<br>下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。<br>JDK安装完成之后我们来设置环境变量：<br>我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：<br>（1）设置好path变量，使得我们能够在系统中的任何地方运行java应用程序，比如 javac、java、javah等等,这就要找到我们安装JDK的目录，比如我们的JDK安装在C:\jdk1.6.0目录下,那么在C: \jdk1.6.0\bin目录下就是我们常用的java应用程序,我们就需要把C:\jdk1.6.0\bin这个目录加到path环境变量里面。<br>在系统变量里找到path变量,选择-&gt;编辑；(里面已经有很多的变量值,是在变量值的最前面加上C:\jdk1.6.0\bin;)<br>变量名: path<br>变量值: C:\jdk1.6.0\bin;<br>（2）classpath环境变量，是当我们在开发java程序时需要引用别人写好的类时，要让java解释器知道到哪里去找这个类。通常，sun为我们提供了一些额外的丰富的类包，一个是dt.jar，一个是tools.jar，这两个jar 包都位于C:\jdk1.6.0\lib目录下，所以通常我们都会把这两个jar包加到我们的classpath环境变量中set classpath&#x3D;.;C:\jdk1.6.0\lib\tools.jar;C:\jdk1.6.0\lib\dt.jar。<br>在系统环境变量那一栏中点-&gt;新建classpath<br>变量名: classpath<br>变量值: .;%JAVA_HOME%\lib\tools.jar;%JAVA_HOME%\lib\dt.jar;（注意，CLASSPATH最前面是有个 “.”的，表示当前目录，这样当我们运行java AClass的时候，系统就会先在当前目录寻找AClass文件了。）；<br>（3）设置JAVA_HOME:<br>一是为了方便引用，比如，JDK安装在C:\jdk1.6.0目录里，则设置 JAVA_HOME为该目录路径, 那么以后要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径串;<br>二则是归一原则, 当JDK路径改变的时候, 仅需更改JAVA_HOME的变量值即可, 否则,就要更改任何用绝对路径引用JDK目录的文档, 要是万一没有改全, 某个程序找不到JDK, 后果是可想而知的—-系统崩溃!<br>三则是第三方软件会引用约定好的JAVA_HOME变量, 不然, 你不能正常使用该软件.<br>在系统环境变量那一栏中点-&gt;新建JAVA_HOME （JAVA_HOME指向的是JDK的安装路径）<br>变量名： JAVA_HOME<br>变量值： C:\jdk1.6.0<br>配置完成下面写一个简单的java程式来测试J2SDK是否已安装成功：<br>public class HelloWorld{<br>public static void main(String[] args){<br>System.out.println(“Hello world!”);<br>}<br>}<br>将程式保存为文档名为HelloWorld.java的文档。<br>打开命令提示符窗口，进入到HelloWorld.java所在目录，键入下面的命令<br>javac HelloWorld.java<br>java HelloWorld<br>此时若打印出来HelloWorld则安装成功，若没有打印出这句话，仔细检查以上配置是否正确。<br>环境变量配置成功后你就可以着手学习java了。<br>安装Tomcat后，在我的电脑-&gt;属性-&gt;高级-&gt;环境变量-&gt;系统变量中添加以下环境变量(假定你的tomcat安装在c:\tomcat)：<br>CATALINA_HOME&#x3D;c:\tomcat<br>CATALINA_BASE&#x3D;c:\tomcat<br>然后修改环境变量中的classpath，把tomat安装目录下的common\lib下的(可以根据实际追加)servlet.jar追加到classpath中去，<br>修改后的classpath如下：<br>classpath&#x3D;.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%CATALINA_HOME%\common\lib\servlet.jar;<br>接着可以启动tomcat，在IE中访问<a href="http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。">http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidYwd-55J_uLiMCaxIGadai" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidsU1cl7rGrtel94mnraDq0" data-title="windows下使用eclipse for C/C++【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -231,7 +145,93 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidhGRV_xfxaujbdNr8Mf0Jn" data-title="用Visio画ER图的解决方案【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid21nGmxgBeLsG2ucYXoHWR" data-title="用Visio画ER图的解决方案【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_学习_Linux_几点忠告【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">学习 Linux 几点忠告【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="学习-Linux-几点忠告【转载】"><a href="#学习-Linux-几点忠告【转载】" class="headerlink" title="学习 Linux 几点忠告【转载】"></a>学习 Linux 几点忠告【转载】</h1><p>转载地址：<br><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&variant=zh-cn%5C">http://wiki.ubuntu.org.cn/index.php?title=%E5%AD%A6%E4%B9%A0linux%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A&amp;variant=zh-cn\</a><br>作者：王垠<br>1 不要当“传教士”<br>2 不要强迫自己”<br>3 不要“玩Linux的<br>4 不用挑剔发行版本<br>5 &#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;<br>6 不要配置你不需要的东西<br>7 不要习惯的使用根帐号。在需要的时候才用！<br>8 不要用商业的眼光来看 Linux的<br>9 干你的正事去<br>10 上面几条仅供参考<br>不要当“传教士”<br>(这点有一个重大弊端：开放软件没有商业软件那样的宣传，如果使用者都如此低调，用户群不会大幅扩展。) 为什么是繁体字？而且还翻译的乱起八糟 很多人在讨论区不断的引起的Linux对比视窗之类的讨论，甚至争的面红耳赤，这是没有必要的<br>这种争论是浪费时间而没有任何用处的。对，你花了一下午，用许多事实“捍卫”了Linux比Windows好这个说法。但是视窗的支持者并不会喜欢上Linux的，他们只是稍微退缩一下，然后找一些新的证据来跟你辩论。<br>世界上的人们都在利用Linux的研究最前沿的科学，我们还在这里讨论“要不要用Linux的这种无聊的问题，什么时候才能赶上时代前进的步伐？<br>什么叫做视窗支持者，什么叫做Linux的支持者？我们为什么要支持某一个而反对另外一个？你不需要为 Linux的护法，不需要成为 Linux的支持者“或者”的GNU传教士“ GNU &#x2F; Linux的已经用事实向世界证明了它们的威力，已经被大多数人接受。你只需要安安静静享受的GNU &#x2F; Linux的给你的乐趣和自由。<br>你需要关心的不是你的工具是什么，而是你用它做了什么。精通的Linux并不说明任何问题，因为它只是一个工具而已。如果你用的 Windows能很好的完成你的任务，那你就没有必要费时间去熟悉Linux操作系统。直到有一天你发现一项任务只有Linux操作系统才能完成的时候再 换也不迟，因为你身边的的Linux的爱好者一定会很乐意的帮助你。<br>如果你在使用Linux操作系统的过程中对它产生了感情，那么你应该明白那些习惯于使用视窗的人也会对视窗产生依赖。类似的争论还有很多： 微软 Office Word和TeX，Emacs和Vim，Wolfram Mathematica和Maple，侏儒，fvwm的和KDE的时候，狗派… …和冷静地对自己说：“我不站在它们任何一边。”尽管这有些不容易办到。<br>各人的需要不同，生活的环境不同。对你来说好的东西，对别人来说不一定好，我们需要尊重别人的选择。如果你当面说别人正在用的程序不好，没有必要。<br>不要强迫自己”<br>喜欢电脑的人总是有某些心理强迫倾向。有的人说：“键盘比鼠标快。我不要用鼠标。这样才有高效率。”所以他在编辑器里无论什么时候总是用20W的，大于 10J这样的命令到达目的点。他甚至觉得图形界面是多余的，干脆都不装 Xwindow。<br>全部用键盘看起来的确比让手离开键盘去拿鼠标，再回来“快”多了，但是快的击键频率不等于工作的高效率，对你的健康更没有什么好处。这只能把你变成打键盘的机器。<br>当你正在检查你的文章或者程序，思维正在随着字符的含义流动，突然为 20W，大于 10J这样的东西出现在你的脑子里，是不是会打断思路？不？那说明你当时思考的问题比较简单，这些干扰还不会起到副作用。<br>其实很多人用电脑的时候，思想都受到某种教学的束缚，上面这个只是教多数种类中的一种。某些人创造了很多这种数学，用他的工作方式来要求别 人，嘲笑方式跟他不一样的人。比如有的人嘲笑其它人写程序不按ç 8字符缩进，嘲笑别人在六里用方向键，嘲笑别人不知道是什么增值税，嘲笑其它人用在Java，C＃这种由地方选区回收内存语言 … …<br>你不用管各种各样的教学，电脑只是你的工具，你想怎么用就怎么用。没有人能够约束你，没有人可以嘲笑你的工作方式。电脑明天就不再是这个样子，所以今天你不用完全了解它。你没有必要知道别人创造的一切，因为你需要留点时间自己创造些东西。只要有乐趣！<br>当你下次修改文章的时候，不妨试试悠闲的用鼠标在你眼睛看到的地方轻轻点一下。<br>如果你發現自己有類似的強迫症，建議去諮詢一下心理醫生。<br>不要“玩Linux的<br>Linux的很多人用的时候会感觉很迷茫，该用哪个发行版本呢？是不是我少装了什么？怎么升级这么快啊！怎么这么不稳定！每当遇到新的软件他就想试用，每当新的版本出现，他就更新，然后用鼠标在新的菜单里选择从来没见过的程序来用用。<br>其实你是为了而使用Linux操作系统的Linux，而没有找到正确的理由来利用Linux操作系统。你首先要明确用电脑的目的，你用它是 为了解决你的实际问题，而不是为了学习安装操作系统，不是为了测试哪个版本好用，不是为了“赶上潮流，更不是因为你硬盘太大了，你想多占点空间。<br>如果你启动了电脑之后不知道应该干什么，那么最好先不要用电脑，因为你可能有更重要的事情需要做。这没什么说的。<br>不用挑剔发行版本<br>很多人刚开始用的linux的时候，总是在怀疑别的发行版本是否比自己正在用的这个好，总是怀疑自己以后时候会失去支持，不得不换用别的发行。所以 很多人今天是红色帽子，明天又换成了Debian的，巴布亚一会儿又是… …甚至有的人在一台机器上装了两个版本的Linux操作系统，然后比较哪一个好。<br>其实你完全没有必要这样做，任何发行，只要你熟悉了，你在上面的工作方式几乎是不会受到任何影响的。我以前一直用的红帽，当我有一天在我的 一台新机器上Debian的安装时，我发现使用红帽的经验完全没有浪费。我用了一个下午就配置好了Debian中，使它服服贴贴的听我的话，就跟没有换发 行版本一样。<br>Debian中，拓林思，的SuSE，红帽，Gentoo的，…任何一个版本都是不错的。很多人认为自己攒一个 LFS的是高水平黑客的象征，但是不是每个人都有精力去了解所有细节。<br>&#x3D;&#x3D;不要盲目升级 &#x3D;&#x3D;<br>不知道这是心理作用还是什么，有的人看到比较大的版本号，就会很想换成那个。很多人的Redhat的本来配置的很舒服了，可是一旦Redhat的发 行新的版本，他们就会尽快下载过来，然后选择升级安装。结果很多时候把自己原来修改得很好的配置文件给冲掉了。新的软件又带来了新的问题，比如有一次我的 rxvt的就升级到2.7.8跟miniChinput冲突了，升级到Redhat的8.0，xmms的发现居然缺省不能放了MP3播放，XFree86 的是i810的模块在启动上有新的漏洞，Mozilla中，会导致突然退出。<br>如果你已经配置好了一切，千万别再整体升级了，这会浪费你很多很多时间的，不值得。有句话说得好：“如果没有打破，不解决它。”如果你的程序能够完成你需要做的事情，你何必升级呢？？？？<br>是的，不論是從論壇還是其他的地方反映出來的大部分都是這個問題，要么比的SUSE Ubuntu的好，要么比Ubuntu的的Mandriva好等等的言論。很多人還是把Linux操作系統看成了一個表面的東西。並沒有塌下心來學習 Linux系統。<br>不要配置你不需要的东西<br>如果你只想做一个像我这样的普通用户，主要目的是用的Linux来完成自己的科研任务和日常工作，那就可以不用系统管理员或者网络管理员的标准来要 求自己，因为当一个系统和网络管理员确实很辛苦。普通用户学习那些不经常用到的复杂的维护系统的工具，其实是浪费时间，学了不用是会很快忘记的！<br>我不是一个合格的网络管理员，我的服务器都只设置了我自己需要的功能，设置好ssh连接的ftp已经足够了，那样可以省去我很多麻烦。我从 来不过度考虑“安全，因为 Linux操作系统缺省已经很安全了。我没有磁带机，就不用管焦油的那些稀奇古怪的参数了，czf，xzf，ztf已经可以满足我所有的需要。桑 达，awk的，…我也只会几种常用的命令行。<br>不要习惯的使用根帐号。在需要的时候才用！<br>这是很多刚接触的UNIX类操作系统的人常见的现象，他们不喜欢在管理系统的时候才用，而是一直用根帐号干所有事情，配置系统，安装程序，浏览网页，玩游戏，编程 … …<br>结果有一天，他不小心在某个系统目录使用了del * …后果不堪设想 … …<br>不要用商业的眼光来看 Linux的<br>Linux的不是商业软件，所以不要用要求Solaris操作系统，视窗那样的眼光来看 Linux操作系统。自由软件的作者们从来不拉拢用户，他们对用户不负有任何责任。实际上在自由软件的世界里，开发者“和”用户“并没有明确的界限，大家是朋友。<br>自由软件很可能只是满足作者和他的朋友的需要，甚至是为了好玩而创造的。自由软件不是完美的，自由软件承认自己有缺点，它不会自吹自擂，蒙 蔽“用户”的耳目。这种对作者责任的解脱激发了作者的创造力，他们不用过分考虑“向上兼容，他们往往比背上重重包袱的商业软件结构更合理，技术更先进。<br>所以当你用某个自由软件遇到困难的时候，不应该埋怨软件的作者，因为他们对你并没有义务。你不应该把自己当成一个挑剔的顾客，而要把自己作 为这个软件的顾问和一个和蔼的建议者，这样你才能理解作者写这个程序时的快乐，在遇到问题时向作者反映，帮助他完善这个软件，成为一个快乐的参与者。就像 你的哥哥送你一个他用旧了的自行车，你应该珍惜这份友情，而不要在车坏了，或者骑车摔了一跤的时候大骂你的哥哥。如果你真的不能使用这种合作的心态，那么 最好不要使用这个软件。<br>这是一种先进的文化，它包含了互相合作，科学创新的精神。理解这一点不是很容易，很多人往往是因为不能理解这种文化而离开自由软件。这对于作者来说并没有什么损失。<br>干你的正事去<br>很多人跟我说，你的网页浪费我好多时间来配置这配置那，一会儿是fvwm的，一会儿是Mutt中… …<br>嗯… …那些东西都是我有空的时候一点一点积累的，如果你想一次性搞定所有那些东西，恐怕得花你几个星期甚至几个月的时间！并不是一定要搞定所有这些东西你才能正常工作的。除非你真的非得利用某个程序，或者你闲著没事，否则你可以不管这些东西。<br>上面几条仅供参考<br>以上只是个人意见，不一定适合所有人。取舍由你了！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid5EnvQ5-M6bNwoMK3aigpN" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_安装JDK_+_Tomcat设置环境变量的方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/">安装JDK + Tomcat设置环境变量的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安装JDK-Tomcat设置环境变量的方法"><a href="#安装JDK-Tomcat设置环境变量的方法" class="headerlink" title="安装JDK + Tomcat设置环境变量的方法"></a>安装JDK + Tomcat设置环境变量的方法</h1><p>初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。<br>下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。<br>JDK安装完成之后我们来设置环境变量：<br>我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：<br>（1）设置好path变量，使得我们能够在系统中的任何地方运行java应用程序，比如 javac、java、javah等等,这就要找到我们安装JDK的目录，比如我们的JDK安装在C:\jdk1.6.0目录下,那么在C: \jdk1.6.0\bin目录下就是我们常用的java应用程序,我们就需要把C:\jdk1.6.0\bin这个目录加到path环境变量里面。<br>在系统变量里找到path变量,选择-&gt;编辑；(里面已经有很多的变量值,是在变量值的最前面加上C:\jdk1.6.0\bin;)<br>变量名: path<br>变量值: C:\jdk1.6.0\bin;<br>（2）classpath环境变量，是当我们在开发java程序时需要引用别人写好的类时，要让java解释器知道到哪里去找这个类。通常，sun为我们提供了一些额外的丰富的类包，一个是dt.jar，一个是tools.jar，这两个jar 包都位于C:\jdk1.6.0\lib目录下，所以通常我们都会把这两个jar包加到我们的classpath环境变量中set classpath&#x3D;.;C:\jdk1.6.0\lib\tools.jar;C:\jdk1.6.0\lib\dt.jar。<br>在系统环境变量那一栏中点-&gt;新建classpath<br>变量名: classpath<br>变量值: .;%JAVA_HOME%\lib\tools.jar;%JAVA_HOME%\lib\dt.jar;（注意，CLASSPATH最前面是有个 “.”的，表示当前目录，这样当我们运行java AClass的时候，系统就会先在当前目录寻找AClass文件了。）；<br>（3）设置JAVA_HOME:<br>一是为了方便引用，比如，JDK安装在C:\jdk1.6.0目录里，则设置 JAVA_HOME为该目录路径, 那么以后要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径串;<br>二则是归一原则, 当JDK路径改变的时候, 仅需更改JAVA_HOME的变量值即可, 否则,就要更改任何用绝对路径引用JDK目录的文档, 要是万一没有改全, 某个程序找不到JDK, 后果是可想而知的—-系统崩溃!<br>三则是第三方软件会引用约定好的JAVA_HOME变量, 不然, 你不能正常使用该软件.<br>在系统环境变量那一栏中点-&gt;新建JAVA_HOME （JAVA_HOME指向的是JDK的安装路径）<br>变量名： JAVA_HOME<br>变量值： C:\jdk1.6.0<br>配置完成下面写一个简单的java程式来测试J2SDK是否已安装成功：<br>public class HelloWorld{<br>public static void main(String[] args){<br>System.out.println(“Hello world!”);<br>}<br>}<br>将程式保存为文档名为HelloWorld.java的文档。<br>打开命令提示符窗口，进入到HelloWorld.java所在目录，键入下面的命令<br>javac HelloWorld.java<br>java HelloWorld<br>此时若打印出来HelloWorld则安装成功，若没有打印出这句话，仔细检查以上配置是否正确。<br>环境变量配置成功后你就可以着手学习java了。<br>安装Tomcat后，在我的电脑-&gt;属性-&gt;高级-&gt;环境变量-&gt;系统变量中添加以下环境变量(假定你的tomcat安装在c:\tomcat)：<br>CATALINA_HOME&#x3D;c:\tomcat<br>CATALINA_BASE&#x3D;c:\tomcat<br>然后修改环境变量中的classpath，把tomat安装目录下的common\lib下的(可以根据实际追加)servlet.jar追加到classpath中去，<br>修改后的classpath如下：<br>classpath&#x3D;.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%CATALINA_HOME%\common\lib\servlet.jar;<br>接着可以启动tomcat，在IE中访问<a href="http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。">http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidUhb_bgyRDsYev9NXbAld3" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -331,228 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" data-id="cuidZwSFl0Ck0KhxsL9Y11MEz" data-title="BCEL简明教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-04_Java核心技术读书笔记（0）——汇总篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" class="article-date">
-  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/">Java核心技术读书笔记（0）——汇总篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Java核心技术读书笔记（0）——汇总篇"><a href="#Java核心技术读书笔记（0）——汇总篇" class="headerlink" title="Java核心技术读书笔记（0）——汇总篇"></a>Java核心技术读书笔记（0）——汇总篇</h1><p>虽然用Java编程已经有几年了，但一直没好好看Java的各种语法细节，都是碰上问题就去网上搜，最近打算重新看一下Java核心技术（Core Java）这本书，毕竟很久之前看过，有不少东西都忘记了，顺便做一下读书笔记，摘录一下自己在书中看到的比较“新鲜”的Java语法。我觉得应该有不少人和我一样平时只是用Java，但没想到或是忘记Java还有这样那样的用法，于是贴在自己的博客上给大家分享一下。<br>下面给出链接（将会不断更新）：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=62">第3章 Java基本的程序设计结构</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=64">第4章 对象与类</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=69">第5章 继承</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" data-id="cuidNoTnrTeJjyMaaLeNTBQlo" data-title="Java核心技术读书笔记（0）——汇总篇" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-04_Java核心技术读书笔记（1）——第3章基本程序设计结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" class="article-date">
-  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/">Java核心技术读书笔记（1）——第3章基本程序设计结构</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Java核心技术读书笔记（1）——第3章基本程序设计结构"><a href="#Java核心技术读书笔记（1）——第3章基本程序设计结构" class="headerlink" title="Java核心技术读书笔记（1）——第3章基本程序设计结构"></a>Java核心技术读书笔记（1）——第3章基本程序设计结构</h1><p><strong>3.3 数据类型</strong><br>Java有一个能表示任意精度的算术包，通称“big number”，该包中的<strong>类</strong>用于表示大的数值。<br><strong>3.3.1 整型</strong><br>Java中整型的范围与运行Java代码的机器无关，已经规定了各种数据类型所使用的字节数和取值范围（int、short、long、byte依次占用4、2、8、1个字节）。Java中没有任何unsigned type。<br>PS：C&#x2F;C++中int表示的整型与目标机器有关。读《C和指针》的时候我记得读到过这么一句：C语言规范只规定了int的最小取值范围。<br><strong>3.3.2 浮点类型</strong><br>绝大部分应用程序都应采用double类型而不是float类型，只有很少情况适合使用float类型，例如快速地处理单精度数据，或是需要存储大量数据。<br>float类型的数值必须有一个后缀F（比如3.402F），没有后缀F的浮点数值（如3.402）默认为double类型（也可以加后缀D）。<br>JDK 1.5中可以使用十六进制表示浮点数值（具体表示方式请参见原书）。<br>常量Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NaN（float对应的常量一样）分别表示正无穷大、负无穷大、NaN，用于溢出和出错情况（如一个正数除以0得到正无穷大，0&#x2F;0或是负数平方根结果为NaN），实际应用中很少用到，注意不能检测一个特定值是否等于Double.NaN，比如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(x == Double.NaN)</span><br></pre></td></tr></table></figure>
-
-<p>因为所有“NaN”的值都认为是不相同的，此时可以用Double.isNaN方法来判别。<br>注意，浮点数值不适用于禁止出现舍入误差的金融计算中。<br>PS：这个语法点有时会被面试官考到，比如问你两个double值或是float值是否相同——浮点数一般是没法比较的，因为采用的是IEEE 754的表示方式，所保存的数值并不是精确的。<br><strong>3.3.3 char类型</strong><br>code point<br>建议不要在程序中使用char类型，除非确实需要对UTF-16代码但愿进行操作，最好将需要处理的字符串用抽象数据类型表示。<br><strong>3.3.4 boolean类型</strong><br>整型值和布尔值之间不能进行相互转换。这个和C&#x2F;C++明显不同（0可以表示false，非0值表示true）。<br><strong>3.4 变量</strong><br>声明一个变量之后必须用赋值语句对变量进行显式赋值。<br>变量名必须是一个以字母开头的由字母、数字构成的序列，但Java的“字母”“数字”范围比其他语言大，字母可以是任何在某语言中代表字母的Unicode字符（如德语或是希腊语π）,数字可以是在某种语言中代表数字的任何Unicode字符，但’+’、’圈C’、空格不能出现在变量名中。<br>Java中变量的声明尽可能地靠近变量第一次使用的地方。（PS：想知道缘由的话可以去看Effective Java）<br>C&#x2F;C++中区分变量的声明（如extern int i）和定义（如int i  &#x3D; 10），而Java中不区分这一点。<br><strong>3.5 运算符</strong><br><strong>3.5.3 位运算符</strong><br>“&gt;&gt;&gt;”将用0填充高位，”&gt;&gt;”用符号位填充高位。没有”&lt;&lt;&lt;“。注意：对移位运算符右侧的参数需要进行模32操作（除非左边的操作数是long类型，此时进行模64操作），如1&lt;&lt;35与1&lt;&lt;3的结果是相同的。而C&#x2F;C++中无法确定是算术移位（扩展符号位）还是逻辑移位（高位填0）。执行中将会选取效率较高的一种，这就意味着，在C&#x2F;C++中，&gt;&gt;实际上只是为非负数定义的，而Java则消除了这种模糊。<br><strong>3.5.4 数据函数与常量</strong><br>从JDK 1.5开始可以不必使用“Math.XXX()”的调用方式，在源文件头部引入Math包，然后就可以直接调用数学方法或是常量。<br><strong>3.5.5 数组类型之间的转换</strong><br>二元运算中，两个操作数中：</p>
-<ul>
-<li>若有一个是double类型，则另一个转换为double类型</li>
-<li>否则，若有一个是float类型，则另一个转换为float类型</li>
-<li>否则，若有一个是long类型，则另一个转换为long类型</li>
-<li>否则，两个操作数都将被转换为int类型。</li>
-</ul>
-<p><strong>3.5.6 强制类型转换</strong><br>Java中允许各种数值类型之间的强制类型转换，但可能会丢失一些信息。比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)x;</span><br></pre></td></tr></table></figure>
-
-<p>此时，nx的值为9。这是因为，**强制类型转换通过截断小数部分将浮点值转换为整型。**如果要对浮点数进行舍入运算，以便得到最接近的整数时，需要使用Math.round()方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)Math.round(x);</span><br></pre></td></tr></table></figure>
-
-<p>此时nx的值为10。而使用round()方法仍需要使用强制类型转换（int）则是因为该方法返回的结果是long类型。<br><strong>3.6 字符串</strong><br><strong>3.6.1 子串</strong><br>substring()方法实际创建了一个新的字符串。<br><strong>3.6.3 不可变字符串</strong><br>不能修改Java字符串中的字符，因此String类对象被称为<strong>不可变字符串</strong>。不可变字符串有一个优点：编译器可以让字符串共享。<br>PS：C++字符串是可修改的（可以修改单个字符）。<br><strong>3.6.4 检测字符串是否相等</strong><br>一定不能用&#x3D;&#x3D;来检测两个字符串是否相当，该操作符只能判断两个字符串是否放置在同一个位置上。<br><strong>3.6.8 构建字符串</strong><br>如果需要对字符串进行修改，应该使用StringBuilder类（JDK 1.5引入）。该类前身是StringBuffer，效率有些低，但允许多线程执行添加&#x2F;删除字符的操作。若在单线程环境下应该用StringBuilder。<br><strong>3.7 输入输出</strong><br><strong>3.7.1 读取输入</strong><br>Scanner in &#x3D; new Scanner(System.in);<br>Scanner的输入是可见的，不适合从控制台读取密码，Java SE 6引入了Console类实现该目的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Console cons  = System.console();</span><br><span class="line">String username = cons.readLine(&quot;user name:&quot;);</span><br><span class="line">char[] passwd = cons.readPasswd(&quot;Password:&quot;);</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.7.2 格式化输出</strong><br>Java SE 5沿用了C语言函数中的printf方法，可以用于格式化输出。<br>可以使用静态的String.format方法创建一个格式化的字符串，而不打印输出。<br><strong>3.7.3 文件的输入与输出</strong><br>读文件：<br>Scanner in &#x3D; new Scanner(new File(“myfile.txt”));<br>写文件：<br>PrintWriter out &#x3D; new PrintWriter(“myfile.txt”);<br>注意，如果用一个不存在的文件构造一个Scanner，或是用一个不能被创建的文件名构造一个PrintWriter，则会发生异常。<br><strong>3.8 控制流程</strong><br>循环中检测2个浮点数是否相当需要格外小心。如：<br>for(double x &#x3D; 0; x!&#x3D;10; x+&#x3D;0.1)<br>可能永远不会结束。由于舍入误差，最终可能得不到精确值。x会从9.99999…直接跳到10.09999…<br>for循环语句可以看做是while循环的一种简化形式。<br>当在switch语句中使用枚举常量时，不必在每个标签中指明枚举名，可以由switch表达式值确定，例如：<br>Size sz &#x3D; …;<br>switch(sz){<br>case SMALL:<br>…<br>}<br>可以利用break <em>label</em>;的方式实现goto的功能。<br><strong>3.10 数组</strong><br>for each循环——操作对象必须是一个数组或是一个实现了Iterator解耦的类对象。<br>数组初始化：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = &#123;2,3,5,7,11,13&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>匿名的数组：new int[]{17,19,23}; ——这种语法可以在不创建新变量的情况下重新初始化一个数组。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = new int[]&#123;17,19,23&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>Java中允许数组长度为0，数组长度为0与null不同。<br>数组变量直接赋值将会使得两个变量引用同一个数组，要想将数据拷贝到一个新数组，可以用Arrays类的copyOf方法。<br>数组排序可以使用Arrays类中 sort方法（内部实现采用了优化的快排）。<br><strong>3.10.6 多维数组</strong><br>多维数组声明：<br>double[][] balances;<br>初始化：<br>balances &#x3D; new double[NYEARS][NRATES];<br>简化形式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int[][] magicSquare = &#123;</span><br><span class="line">&#123;16,3,2&#125;,</span><br><span class="line">&#123;12,1,5&#125;,</span><br><span class="line">&#123;9,8,6&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>for each循环语句不能自动处理二维数组的每一个元素，它是按照行，即一维数组处理的。想要访问二维数组所有元素，需要嵌套的循环：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(double[] row:a)</span><br><span class="line">for(double value:row)</span><br><span class="line">do sth</span><br></pre></td></tr></table></figure>
-
-<p>由于可以单独的存取一行，所以可以让二维数组中2行交换。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double[] tmp = balances[i];</span><br><span class="line">balances[i]= balances[i+1];</span><br><span class="line">balances[i+1] = tmp;</span><br></pre></td></tr></table></figure>
-
-<p>Java中可以创建不规则的数组。<br><br/><br><strong>3.10.4 命令行参数</strong><br>Java程序的main方法中，程序名并没有存储在args数组中，例如：java Message -h world 中，args[0]是“-h”，而不是”Message”或是“java”。<br><strong>有用的API：</strong><br>String类：</p>
-<ul>
-<li>String trim() 删除原始字符串头部和尾部的空格。</li>
-</ul>
-<p>Arrays类：</p>
-<ul>
-<li>copyOf 拷贝数组</li>
-<li>sort 对数组排序</li>
-<li>binarySearch 在数组中二分查找</li>
-<li>fill 填充所有数组元素为XXX</li>
-<li>equal 判断两个数组下标是否相等</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" data-id="cuidDOBS9_REdttw8VyDPzmbU" data-title="Java核心技术读书笔记（1）——第3章基本程序设计结构" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-04_Java核心技术读书笔记（3）——第5章继承" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" class="article-date">
-  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/">Java核心技术读书笔记（3）——第5章继承</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Java核心技术读书笔记（3）——第5章继承"><a href="#Java核心技术读书笔记（3）——第5章继承" class="headerlink" title="Java核心技术读书笔记（3）——第5章继承"></a>Java核心技术读书笔记（3）——第5章继承</h1><p><strong>5.1 类、超类和子类</strong><br>Java中，所有继承都是公有继承，没有C++中的私有继承、保护继承。<br>子类不能直接访问超类的私有域，应该用super.getXXX()的方式来获取。<br>子类中可以增加域、方法或是覆盖超类的方法，但绝不能删除继承的任何域与方法。<br>如果子类的构造器没有显式地调用超类的构造器，则将自动地调用超类默认（没有参数）的构造器。如果超类没有不带参数的构造器，并在子类的构造器中又没有显式地调用超类的其他构造器，则Java编译器将报告错误。<br>关键字this有2个用途：引用隐式参数、调用该类其他的构造器。<br>关键字super有2个用途：调用超类的方法、调用超类的构造器。<br>一个对象变量可以引用多种实际类型的现象被称为多态（polymorphism），在运行时那个自动选择调用哪个方法的现象称为动态绑定（dynamic binding）。<br><strong>5.1.1 继承层次</strong><br>由一个公共超类派生出来的所有类的集合被称为继承层次（inheritance hierarchy）。<br><strong>5.1.2 多态</strong><br>在Java程序设计语言中，对象变量是多态的。一个Employee变量既可以引用一个Employee类对象，也可以引用一个Employee类的任何一个子类的对象(例如，Manager, Executive等等)。<br>在Java中，子类数组的引用可以转换成超类数组的引用，而不需要采用强制类型转换。<br><strong>5.1.3 动态绑定</strong><br>调用对象方法的执行过程：<br>1)编译器查看对象的声明类型和方法名。<br>2)接下来，编译器将查看调用方法时提供的参数类型。如果在所有名为f的方法中存在一个与提供的参数类型完全匹配，就选择这个方法。这个过程被称为重载解析(overloading resolution)。</p>
-<ul>
-<li>两个具有相同名字，不同签名的方法。如果在子类中定义了一个与超类签名相同的方法，那么子类中的这个方法就度盖了超类中的这个相同签名的方法。不过，返回类型不是签名的一部分，因此，在覆盖方法时，一定要保证返回类型的兼容性。在Java SE 5.0以前的版本中，要求返回类型必须是一样的。现在允许子类将及盖方法的返回类型定义为原返回类型的子类型。</li>
-</ul>
-<p>3)如果是private方法、static方法、final方法或者构造器，那么编译器将可以准确地知道应该调用哪个方法，我们将这种调用方式称为静态绑定(static binding)。与此对应的是，调用的方法依赖于隐式参数的实际类型，并且在运行时实现动态绑定。在我们列举的示例中，编译器采用动态绑定的方式生成一条调用f (String)的指令。<br>4)当程序运行，并且采用动态绑定调用方法时，虚拟机一定调用与x所引用对象的实际类型最合适的那个类的方法。<br>动态绑定有一个非常重要的特性:无需对现存的代码进行修改，就可以对程序进行扩展。<br>警告:在度盖一个方法的时候，子类方法不能低于超类方法的可见性。特别是，如果超一类方法是public，子类方法一定要声明为public。经常会发生这类错误:在声明子类方法的时候，遗漏了public修饰符。此时，编译器将会把它解释为试图降低访问权限。<br><strong>5.1.4阻止继承:final类和方法</strong><br>有时候，可能希望阻止人们利用某个类定义子类。不允许扩展的类被称为final类。<br>类中的方法也可以被声明为final。如果这样做，子类就不能覆盖这个方法(final类中的所有方法自动地成为final方法)。<br><strong>5.1.5强制类型转换</strong><br>进行类型转换的惟一原因是:在暂时忽视对象的实际类型之后，使用对象的全部功能。<br>将一个值存入变量时，编译器将检查是否允许该操作。将一个子类的引用赋给一个超类变量，编译器是允许的。但将一个超类的引用赋给一个子类变量，必须进行类型转换，这样才能够通过运行时的检查。<br>应该养成这样一个良好的程序设计习惯:在进行类型转换之前，先查看一下是否能够成功地转换。这个过程简单地使用instanceo运算符就可以实现。<br>综上所述:<br>·只能在继承层次内进行类型转换。<br>·在将超类转换成子类之前，应该使用instanceof进行检查。<br>如果x为null，进行下列测试<br>x instanceof C<br>不会产生异常，只足返回false。之所以这样处理足因为null没有引用任何对象，当然也不会引用C类型的对象。<br><strong>5.1.6抽象类</strong><br>为了提高程序的清晰度，包含一个或多个抽象方法的类本身必须被声明为抽象的。除了抽象方法之外，抽象类还可以包含具体数据和具体方法。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" data-id="cuidHvrVBZxNR2-_FOcE7ooXD" data-title="Java核心技术读书笔记（3）——第5章继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-04_ubuntu如何更新hostname" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" class="article-date">
-  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/">ubuntu如何更新hostname</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="ubuntu如何更新hostname"><a href="#ubuntu如何更新hostname" class="headerlink" title="ubuntu如何更新hostname"></a>ubuntu如何更新hostname</h1><p>新装的ubuntu server，安装的过程中没太留意hostname的设置，等到安完后才想起hostname是命令行中“用户名@”后面的那个东西，于是想重新换一个hostname，很简单，使用vim编辑&#x2F;etc&#x2F;hostname，将里面的内容修改你想要的新的hostname（我修改为ubuntu），重启，但此时还没完，这时如果使用sudo来执行某些特权指令，虽然也能执行，但会出现“sudo unable to solve host XXX”（我这里是我的hostname“ubuntu”），此时还需要编辑&#x2F;etc&#x2F;hosts文件，将“127.0.1.1 YYY”中的修改为新的hostname即可。\</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" data-id="cuidK8M9wcLqaoB1tbcIN0Xli" data-title="ubuntu如何更新hostname" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" data-id="cuid3YS3FvztyAlzbexSBZPF_" data-title="BCEL简明教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -641,7 +420,228 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" data-id="cuidJezV0lznxp206dJlyqAmL" data-title="Java核心技术读书笔记（2）——第4章对象与类" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" data-id="cuidaczSH-o4xMiw-6dIn6F-L" data-title="Java核心技术读书笔记（2）——第4章对象与类" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（0）——汇总篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/">Java核心技术读书笔记（0）——汇总篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（0）——汇总篇"><a href="#Java核心技术读书笔记（0）——汇总篇" class="headerlink" title="Java核心技术读书笔记（0）——汇总篇"></a>Java核心技术读书笔记（0）——汇总篇</h1><p>虽然用Java编程已经有几年了，但一直没好好看Java的各种语法细节，都是碰上问题就去网上搜，最近打算重新看一下Java核心技术（Core Java）这本书，毕竟很久之前看过，有不少东西都忘记了，顺便做一下读书笔记，摘录一下自己在书中看到的比较“新鲜”的Java语法。我觉得应该有不少人和我一样平时只是用Java，但没想到或是忘记Java还有这样那样的用法，于是贴在自己的博客上给大家分享一下。<br>下面给出链接（将会不断更新）：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=62">第3章 Java基本的程序设计结构</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=64">第4章 对象与类</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=69">第5章 继承</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" data-id="cuidvVwCEn2tzkgfiFfB9QzMo" data-title="Java核心技术读书笔记（0）——汇总篇" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（1）——第3章基本程序设计结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/">Java核心技术读书笔记（1）——第3章基本程序设计结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（1）——第3章基本程序设计结构"><a href="#Java核心技术读书笔记（1）——第3章基本程序设计结构" class="headerlink" title="Java核心技术读书笔记（1）——第3章基本程序设计结构"></a>Java核心技术读书笔记（1）——第3章基本程序设计结构</h1><p><strong>3.3 数据类型</strong><br>Java有一个能表示任意精度的算术包，通称“big number”，该包中的<strong>类</strong>用于表示大的数值。<br><strong>3.3.1 整型</strong><br>Java中整型的范围与运行Java代码的机器无关，已经规定了各种数据类型所使用的字节数和取值范围（int、short、long、byte依次占用4、2、8、1个字节）。Java中没有任何unsigned type。<br>PS：C&#x2F;C++中int表示的整型与目标机器有关。读《C和指针》的时候我记得读到过这么一句：C语言规范只规定了int的最小取值范围。<br><strong>3.3.2 浮点类型</strong><br>绝大部分应用程序都应采用double类型而不是float类型，只有很少情况适合使用float类型，例如快速地处理单精度数据，或是需要存储大量数据。<br>float类型的数值必须有一个后缀F（比如3.402F），没有后缀F的浮点数值（如3.402）默认为double类型（也可以加后缀D）。<br>JDK 1.5中可以使用十六进制表示浮点数值（具体表示方式请参见原书）。<br>常量Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NaN（float对应的常量一样）分别表示正无穷大、负无穷大、NaN，用于溢出和出错情况（如一个正数除以0得到正无穷大，0&#x2F;0或是负数平方根结果为NaN），实际应用中很少用到，注意不能检测一个特定值是否等于Double.NaN，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(x == Double.NaN)</span><br></pre></td></tr></table></figure>
+
+<p>因为所有“NaN”的值都认为是不相同的，此时可以用Double.isNaN方法来判别。<br>注意，浮点数值不适用于禁止出现舍入误差的金融计算中。<br>PS：这个语法点有时会被面试官考到，比如问你两个double值或是float值是否相同——浮点数一般是没法比较的，因为采用的是IEEE 754的表示方式，所保存的数值并不是精确的。<br><strong>3.3.3 char类型</strong><br>code point<br>建议不要在程序中使用char类型，除非确实需要对UTF-16代码但愿进行操作，最好将需要处理的字符串用抽象数据类型表示。<br><strong>3.3.4 boolean类型</strong><br>整型值和布尔值之间不能进行相互转换。这个和C&#x2F;C++明显不同（0可以表示false，非0值表示true）。<br><strong>3.4 变量</strong><br>声明一个变量之后必须用赋值语句对变量进行显式赋值。<br>变量名必须是一个以字母开头的由字母、数字构成的序列，但Java的“字母”“数字”范围比其他语言大，字母可以是任何在某语言中代表字母的Unicode字符（如德语或是希腊语π）,数字可以是在某种语言中代表数字的任何Unicode字符，但’+’、’圈C’、空格不能出现在变量名中。<br>Java中变量的声明尽可能地靠近变量第一次使用的地方。（PS：想知道缘由的话可以去看Effective Java）<br>C&#x2F;C++中区分变量的声明（如extern int i）和定义（如int i  &#x3D; 10），而Java中不区分这一点。<br><strong>3.5 运算符</strong><br><strong>3.5.3 位运算符</strong><br>“&gt;&gt;&gt;”将用0填充高位，”&gt;&gt;”用符号位填充高位。没有”&lt;&lt;&lt;“。注意：对移位运算符右侧的参数需要进行模32操作（除非左边的操作数是long类型，此时进行模64操作），如1&lt;&lt;35与1&lt;&lt;3的结果是相同的。而C&#x2F;C++中无法确定是算术移位（扩展符号位）还是逻辑移位（高位填0）。执行中将会选取效率较高的一种，这就意味着，在C&#x2F;C++中，&gt;&gt;实际上只是为非负数定义的，而Java则消除了这种模糊。<br><strong>3.5.4 数据函数与常量</strong><br>从JDK 1.5开始可以不必使用“Math.XXX()”的调用方式，在源文件头部引入Math包，然后就可以直接调用数学方法或是常量。<br><strong>3.5.5 数组类型之间的转换</strong><br>二元运算中，两个操作数中：</p>
+<ul>
+<li>若有一个是double类型，则另一个转换为double类型</li>
+<li>否则，若有一个是float类型，则另一个转换为float类型</li>
+<li>否则，若有一个是long类型，则另一个转换为long类型</li>
+<li>否则，两个操作数都将被转换为int类型。</li>
+</ul>
+<p><strong>3.5.6 强制类型转换</strong><br>Java中允许各种数值类型之间的强制类型转换，但可能会丢失一些信息。比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)x;</span><br></pre></td></tr></table></figure>
+
+<p>此时，nx的值为9。这是因为，**强制类型转换通过截断小数部分将浮点值转换为整型。**如果要对浮点数进行舍入运算，以便得到最接近的整数时，需要使用Math.round()方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)Math.round(x);</span><br></pre></td></tr></table></figure>
+
+<p>此时nx的值为10。而使用round()方法仍需要使用强制类型转换（int）则是因为该方法返回的结果是long类型。<br><strong>3.6 字符串</strong><br><strong>3.6.1 子串</strong><br>substring()方法实际创建了一个新的字符串。<br><strong>3.6.3 不可变字符串</strong><br>不能修改Java字符串中的字符，因此String类对象被称为<strong>不可变字符串</strong>。不可变字符串有一个优点：编译器可以让字符串共享。<br>PS：C++字符串是可修改的（可以修改单个字符）。<br><strong>3.6.4 检测字符串是否相等</strong><br>一定不能用&#x3D;&#x3D;来检测两个字符串是否相当，该操作符只能判断两个字符串是否放置在同一个位置上。<br><strong>3.6.8 构建字符串</strong><br>如果需要对字符串进行修改，应该使用StringBuilder类（JDK 1.5引入）。该类前身是StringBuffer，效率有些低，但允许多线程执行添加&#x2F;删除字符的操作。若在单线程环境下应该用StringBuilder。<br><strong>3.7 输入输出</strong><br><strong>3.7.1 读取输入</strong><br>Scanner in &#x3D; new Scanner(System.in);<br>Scanner的输入是可见的，不适合从控制台读取密码，Java SE 6引入了Console类实现该目的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Console cons  = System.console();</span><br><span class="line">String username = cons.readLine(&quot;user name:&quot;);</span><br><span class="line">char[] passwd = cons.readPasswd(&quot;Password:&quot;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.7.2 格式化输出</strong><br>Java SE 5沿用了C语言函数中的printf方法，可以用于格式化输出。<br>可以使用静态的String.format方法创建一个格式化的字符串，而不打印输出。<br><strong>3.7.3 文件的输入与输出</strong><br>读文件：<br>Scanner in &#x3D; new Scanner(new File(“myfile.txt”));<br>写文件：<br>PrintWriter out &#x3D; new PrintWriter(“myfile.txt”);<br>注意，如果用一个不存在的文件构造一个Scanner，或是用一个不能被创建的文件名构造一个PrintWriter，则会发生异常。<br><strong>3.8 控制流程</strong><br>循环中检测2个浮点数是否相当需要格外小心。如：<br>for(double x &#x3D; 0; x!&#x3D;10; x+&#x3D;0.1)<br>可能永远不会结束。由于舍入误差，最终可能得不到精确值。x会从9.99999…直接跳到10.09999…<br>for循环语句可以看做是while循环的一种简化形式。<br>当在switch语句中使用枚举常量时，不必在每个标签中指明枚举名，可以由switch表达式值确定，例如：<br>Size sz &#x3D; …;<br>switch(sz){<br>case SMALL:<br>…<br>}<br>可以利用break <em>label</em>;的方式实现goto的功能。<br><strong>3.10 数组</strong><br>for each循环——操作对象必须是一个数组或是一个实现了Iterator解耦的类对象。<br>数组初始化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = &#123;2,3,5,7,11,13&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>匿名的数组：new int[]{17,19,23}; ——这种语法可以在不创建新变量的情况下重新初始化一个数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = new int[]&#123;17,19,23&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Java中允许数组长度为0，数组长度为0与null不同。<br>数组变量直接赋值将会使得两个变量引用同一个数组，要想将数据拷贝到一个新数组，可以用Arrays类的copyOf方法。<br>数组排序可以使用Arrays类中 sort方法（内部实现采用了优化的快排）。<br><strong>3.10.6 多维数组</strong><br>多维数组声明：<br>double[][] balances;<br>初始化：<br>balances &#x3D; new double[NYEARS][NRATES];<br>简化形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int[][] magicSquare = &#123;</span><br><span class="line">&#123;16,3,2&#125;,</span><br><span class="line">&#123;12,1,5&#125;,</span><br><span class="line">&#123;9,8,6&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>for each循环语句不能自动处理二维数组的每一个元素，它是按照行，即一维数组处理的。想要访问二维数组所有元素，需要嵌套的循环：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(double[] row:a)</span><br><span class="line">for(double value:row)</span><br><span class="line">do sth</span><br></pre></td></tr></table></figure>
+
+<p>由于可以单独的存取一行，所以可以让二维数组中2行交换。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double[] tmp = balances[i];</span><br><span class="line">balances[i]= balances[i+1];</span><br><span class="line">balances[i+1] = tmp;</span><br></pre></td></tr></table></figure>
+
+<p>Java中可以创建不规则的数组。<br><br/><br><strong>3.10.4 命令行参数</strong><br>Java程序的main方法中，程序名并没有存储在args数组中，例如：java Message -h world 中，args[0]是“-h”，而不是”Message”或是“java”。<br><strong>有用的API：</strong><br>String类：</p>
+<ul>
+<li>String trim() 删除原始字符串头部和尾部的空格。</li>
+</ul>
+<p>Arrays类：</p>
+<ul>
+<li>copyOf 拷贝数组</li>
+<li>sort 对数组排序</li>
+<li>binarySearch 在数组中二分查找</li>
+<li>fill 填充所有数组元素为XXX</li>
+<li>equal 判断两个数组下标是否相等</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" data-id="cuidb9JtkjAG46GnOkOcgaZBw" data-title="Java核心技术读书笔记（1）——第3章基本程序设计结构" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（3）——第5章继承" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/">Java核心技术读书笔记（3）——第5章继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（3）——第5章继承"><a href="#Java核心技术读书笔记（3）——第5章继承" class="headerlink" title="Java核心技术读书笔记（3）——第5章继承"></a>Java核心技术读书笔记（3）——第5章继承</h1><p><strong>5.1 类、超类和子类</strong><br>Java中，所有继承都是公有继承，没有C++中的私有继承、保护继承。<br>子类不能直接访问超类的私有域，应该用super.getXXX()的方式来获取。<br>子类中可以增加域、方法或是覆盖超类的方法，但绝不能删除继承的任何域与方法。<br>如果子类的构造器没有显式地调用超类的构造器，则将自动地调用超类默认（没有参数）的构造器。如果超类没有不带参数的构造器，并在子类的构造器中又没有显式地调用超类的其他构造器，则Java编译器将报告错误。<br>关键字this有2个用途：引用隐式参数、调用该类其他的构造器。<br>关键字super有2个用途：调用超类的方法、调用超类的构造器。<br>一个对象变量可以引用多种实际类型的现象被称为多态（polymorphism），在运行时那个自动选择调用哪个方法的现象称为动态绑定（dynamic binding）。<br><strong>5.1.1 继承层次</strong><br>由一个公共超类派生出来的所有类的集合被称为继承层次（inheritance hierarchy）。<br><strong>5.1.2 多态</strong><br>在Java程序设计语言中，对象变量是多态的。一个Employee变量既可以引用一个Employee类对象，也可以引用一个Employee类的任何一个子类的对象(例如，Manager, Executive等等)。<br>在Java中，子类数组的引用可以转换成超类数组的引用，而不需要采用强制类型转换。<br><strong>5.1.3 动态绑定</strong><br>调用对象方法的执行过程：<br>1)编译器查看对象的声明类型和方法名。<br>2)接下来，编译器将查看调用方法时提供的参数类型。如果在所有名为f的方法中存在一个与提供的参数类型完全匹配，就选择这个方法。这个过程被称为重载解析(overloading resolution)。</p>
+<ul>
+<li>两个具有相同名字，不同签名的方法。如果在子类中定义了一个与超类签名相同的方法，那么子类中的这个方法就度盖了超类中的这个相同签名的方法。不过，返回类型不是签名的一部分，因此，在覆盖方法时，一定要保证返回类型的兼容性。在Java SE 5.0以前的版本中，要求返回类型必须是一样的。现在允许子类将及盖方法的返回类型定义为原返回类型的子类型。</li>
+</ul>
+<p>3)如果是private方法、static方法、final方法或者构造器，那么编译器将可以准确地知道应该调用哪个方法，我们将这种调用方式称为静态绑定(static binding)。与此对应的是，调用的方法依赖于隐式参数的实际类型，并且在运行时实现动态绑定。在我们列举的示例中，编译器采用动态绑定的方式生成一条调用f (String)的指令。<br>4)当程序运行，并且采用动态绑定调用方法时，虚拟机一定调用与x所引用对象的实际类型最合适的那个类的方法。<br>动态绑定有一个非常重要的特性:无需对现存的代码进行修改，就可以对程序进行扩展。<br>警告:在度盖一个方法的时候，子类方法不能低于超类方法的可见性。特别是，如果超一类方法是public，子类方法一定要声明为public。经常会发生这类错误:在声明子类方法的时候，遗漏了public修饰符。此时，编译器将会把它解释为试图降低访问权限。<br><strong>5.1.4阻止继承:final类和方法</strong><br>有时候，可能希望阻止人们利用某个类定义子类。不允许扩展的类被称为final类。<br>类中的方法也可以被声明为final。如果这样做，子类就不能覆盖这个方法(final类中的所有方法自动地成为final方法)。<br><strong>5.1.5强制类型转换</strong><br>进行类型转换的惟一原因是:在暂时忽视对象的实际类型之后，使用对象的全部功能。<br>将一个值存入变量时，编译器将检查是否允许该操作。将一个子类的引用赋给一个超类变量，编译器是允许的。但将一个超类的引用赋给一个子类变量，必须进行类型转换，这样才能够通过运行时的检查。<br>应该养成这样一个良好的程序设计习惯:在进行类型转换之前，先查看一下是否能够成功地转换。这个过程简单地使用instanceo运算符就可以实现。<br>综上所述:<br>·只能在继承层次内进行类型转换。<br>·在将超类转换成子类之前，应该使用instanceof进行检查。<br>如果x为null，进行下列测试<br>x instanceof C<br>不会产生异常，只足返回false。之所以这样处理足因为null没有引用任何对象，当然也不会引用C类型的对象。<br><strong>5.1.6抽象类</strong><br>为了提高程序的清晰度，包含一个或多个抽象方法的类本身必须被声明为抽象的。除了抽象方法之外，抽象类还可以包含具体数据和具体方法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" data-id="cuidNpJvKT8sm_nvbg-AZzEvj" data-title="Java核心技术读书笔记（3）——第5章继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_ubuntu如何更新hostname" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/">ubuntu如何更新hostname</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ubuntu如何更新hostname"><a href="#ubuntu如何更新hostname" class="headerlink" title="ubuntu如何更新hostname"></a>ubuntu如何更新hostname</h1><p>新装的ubuntu server，安装的过程中没太留意hostname的设置，等到安完后才想起hostname是命令行中“用户名@”后面的那个东西，于是想重新换一个hostname，很简单，使用vim编辑&#x2F;etc&#x2F;hostname，将里面的内容修改你想要的新的hostname（我修改为ubuntu），重启，但此时还没完，这时如果使用sudo来执行某些特权指令，虽然也能执行，但会出现“sudo unable to solve host XXX”（我这里是我的hostname“ubuntu”），此时还需要编辑&#x2F;etc&#x2F;hosts文件，将“127.0.1.1 YYY”中的修改为新的hostname即可。\</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" data-id="cuidigDOuFKsxVJpmns85dI1K" data-title="ubuntu如何更新hostname" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
