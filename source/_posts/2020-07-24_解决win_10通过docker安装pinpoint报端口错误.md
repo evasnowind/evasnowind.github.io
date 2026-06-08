@@ -1,0 +1,20 @@
+---
+title: "解决win 10通过docker安装pinpoint报端口错误"
+date: "2020-07-24"
+categories: [分布式, 架构]
+source: "http://prayerlaputa.com/?p=841"
+---
+
+# 解决win 10通过docker安装pinpoint报端口错误
+
+按官方提示https://github.com/naver/pinpoint-docker ，通过docker安装pinpoint时，遇到端口冲突问题
+
+> |  |
+> | --- |
+> | ```  docker-compose up -d                                                                                                                                                                                              Creating network "pinpoint-docker_pinpoint" with driver "bridge"                                                                                                                                                    Creating pinpoint-docker_zoo3_1    ... done                                                                                                                                                                         Creating pinpoint-docker_zoo2_1    ... done                                                                                                                                                                         Creating pinpoint-flink-jobmanager ... done                                                                                                                                                                         Creating pinpoint-docker_zoo1_1     ... done                                                                                                                                                                        Creating pinpoint-mysql             ... done                                                                                                                                                                        Creating pinpoint-hbase             ... error                                                                                                                                                                       Creating pinpoint-flink-taskmanager ... done                                                                                                                                                                                                                                                                                                                                                                                            ERROR: for pinpoint-hbase  Cannot start service pinpoint-hbase: Ports are not available: listen tcp 0.0.0.0:2180: bind: An attempt was made to access a socket in a way forbidden by its access permissions.                                                                                                                                                                                                                            ERROR: for pinpoint-hbase  Cannot start service pinpoint-hbase: Ports are not available: listen tcp 0.0.0.0:2180: bind: An attempt was made to access a socket in a way forbidden by its access permissions.        Encountered errors while bringing up the project. ``` |
+
+根据官方提示，修改pinpoint-docker文件夹下的.env文件，修改hbase端口即可，比如我修改为了12180
+
+> |  |
+> | --- |
+> | ``` ### Pinpoint-Hbase                                                                                                                                                                                                                                                                                                                                                                                                                      PINPOINT_HBASE_NAME=pinpoint-hbase                                                                                                                                                                                  #config for hbase in external docker                                                                                                                                                                                EXTERNAL_HBASE_PORT=12180 ``` |
