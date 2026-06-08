@@ -42,160 +42,160 @@ importers:
 packages:
 
   '@adobe/css-tools@4.3.3':
-    resolution: {integrity: sha1-kHSb3ouJzUF2QiT1qsKc1BOPdf8=, tarball: https://r.npm.sankuai.com/@adobe/css-tools/download/@adobe/css-tools-4.3.3.tgz}
+    resolution: {integrity: sha1-kHSb3ouJzUF2QiT1qsKc1BOPdf8=, tarball: https://registry.npmjs.org/@adobe/css-tools/download/@adobe/css-tools-4.3.3.tgz}
 
   '@asamuzakjp/css-color@3.2.0':
-    resolution: {integrity: sha1-zEL1uFxZP3nx+k8l0rmzIeYdF5Q=, tarball: https://r.npm.sankuai.com/@asamuzakjp/css-color/download/@asamuzakjp/css-color-3.2.0.tgz}
+    resolution: {integrity: sha1-zEL1uFxZP3nx+k8l0rmzIeYdF5Q=, tarball: https://registry.npmjs.org/@asamuzakjp/css-color/download/@asamuzakjp/css-color-3.2.0.tgz}
 
   '@csstools/color-helpers@5.1.0':
-    resolution: {integrity: sha1-EGxUyAjKv9GrTGAthQXuWEwplu8=, tarball: https://r.npm.sankuai.com/@csstools/color-helpers/download/@csstools/color-helpers-5.1.0.tgz}
+    resolution: {integrity: sha1-EGxUyAjKv9GrTGAthQXuWEwplu8=, tarball: https://registry.npmjs.org/@csstools/color-helpers/download/@csstools/color-helpers-5.1.0.tgz}
     engines: {node: '>=18'}
 
   '@csstools/css-calc@2.1.4':
-    resolution: {integrity: sha1-hHP2Pi/NbkWYON1BJAHVlI8iTGU=, tarball: https://r.npm.sankuai.com/@csstools/css-calc/download/@csstools/css-calc-2.1.4.tgz}
+    resolution: {integrity: sha1-hHP2Pi/NbkWYON1BJAHVlI8iTGU=, tarball: https://registry.npmjs.org/@csstools/css-calc/download/@csstools/css-calc-2.1.4.tgz}
     engines: {node: '>=18'}
     peerDependencies:
       '@csstools/css-parser-algorithms': ^3.0.5
       '@csstools/css-tokenizer': ^3.0.4
 
   '@csstools/css-color-parser@3.1.0':
-    resolution: {integrity: sha1-Tjhq86md02xG/vATz+TBw0Hu1vA=, tarball: https://r.npm.sankuai.com/@csstools/css-color-parser/download/@csstools/css-color-parser-3.1.0.tgz}
+    resolution: {integrity: sha1-Tjhq86md02xG/vATz+TBw0Hu1vA=, tarball: https://registry.npmjs.org/@csstools/css-color-parser/download/@csstools/css-color-parser-3.1.0.tgz}
     engines: {node: '>=18'}
     peerDependencies:
       '@csstools/css-parser-algorithms': ^3.0.5
       '@csstools/css-tokenizer': ^3.0.4
 
   '@csstools/css-parser-algorithms@3.0.5':
-    resolution: {integrity: sha1-V1U3Cpopq67FUVtDyLPyz5wuMHY=, tarball: https://r.npm.sankuai.com/@csstools/css-parser-algorithms/download/@csstools/css-parser-algorithms-3.0.5.tgz}
+    resolution: {integrity: sha1-V1U3Cpopq67FUVtDyLPyz5wuMHY=, tarball: https://registry.npmjs.org/@csstools/css-parser-algorithms/download/@csstools/css-parser-algorithms-3.0.5.tgz}
     engines: {node: '>=18'}
     peerDependencies:
       '@csstools/css-tokenizer': ^3.0.4
 
   '@csstools/css-tokenizer@3.0.4':
-    resolution: {integrity: sha1-Mz/tq8P9Go5dAQABNzHPGeaoxdM=, tarball: https://r.npm.sankuai.com/@csstools/css-tokenizer/download/@csstools/css-tokenizer-3.0.4.tgz}
+    resolution: {integrity: sha1-Mz/tq8P9Go5dAQABNzHPGeaoxdM=, tarball: https://registry.npmjs.org/@csstools/css-tokenizer/download/@csstools/css-tokenizer-3.0.4.tgz}
     engines: {node: '>=18'}
 
   '@types/trusted-types@2.0.7':
-    resolution: {integrity: sha1-usywepcLkXB986PoumiWxX6tLRE=, tarball: https://r.npm.sankuai.com/@types/trusted-types/download/@types/trusted-types-2.0.7.tgz}
+    resolution: {integrity: sha1-usywepcLkXB986PoumiWxX6tLRE=, tarball: https://registry.npmjs.org/@types/trusted-types/download/@types/trusted-types-2.0.7.tgz}
 
   a-sync-waterfall@1.0.1:
-    resolution: {integrity: sha1-dba2qnJZi0l6El56J3DxT0yKH6c=, tarball: https://r.npm.sankuai.com/a-sync-waterfall/download/a-sync-waterfall-1.0.1.tgz}
+    resolution: {integrity: sha1-dba2qnJZi0l6El56J3DxT0yKH6c=, tarball: https://registry.npmjs.org/a-sync-waterfall/download/a-sync-waterfall-1.0.1.tgz}
 
   abbrev@2.0.0:
-    resolution: {integrity: sha1-z1mCm4tPA/id2idxy382U4KMib8=, tarball: https://r.npm.sankuai.com/abbrev/download/abbrev-2.0.0.tgz}
+    resolution: {integrity: sha1-z1mCm4tPA/id2idxy382U4KMib8=, tarball: https://registry.npmjs.org/abbrev/download/abbrev-2.0.0.tgz}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
   abbrev@3.0.1:
-    resolution: {integrity: sha1-isiztQJNMUZP4qX+7qn0U2v0QCU=, tarball: https://r.npm.sankuai.com/abbrev/download/abbrev-3.0.1.tgz}
+    resolution: {integrity: sha1-isiztQJNMUZP4qX+7qn0U2v0QCU=, tarball: https://registry.npmjs.org/abbrev/download/abbrev-3.0.1.tgz}
     engines: {node: ^18.17.0 || >=20.5.0}
 
   agent-base@7.1.4:
-    resolution: {integrity: sha1-48121MVI7oldPD/Y3B9sW5Ay56g=, tarball: https://r.npm.sankuai.com/agent-base/download/agent-base-7.1.4.tgz}
+    resolution: {integrity: sha1-48121MVI7oldPD/Y3B9sW5Ay56g=, tarball: https://registry.npmjs.org/agent-base/download/agent-base-7.1.4.tgz}
     engines: {node: '>= 14'}
 
   ansi-regex@6.2.2:
-    resolution: {integrity: sha1-YCFu6kZNhkWXzigyAAc4oFiWUME=, tarball: https://r.npm.sankuai.com/ansi-regex/download/ansi-regex-6.2.2.tgz}
+    resolution: {integrity: sha1-YCFu6kZNhkWXzigyAAc4oFiWUME=, tarball: https://registry.npmjs.org/ansi-regex/download/ansi-regex-6.2.2.tgz}
     engines: {node: '>=12'}
 
   anymatch@3.1.3:
-    resolution: {integrity: sha1-eQxYsZuhcgqEIFtXxhjVrYUklz4=, tarball: https://r.npm.sankuai.com/anymatch/download/anymatch-3.1.3.tgz}
+    resolution: {integrity: sha1-eQxYsZuhcgqEIFtXxhjVrYUklz4=, tarball: https://registry.npmjs.org/anymatch/download/anymatch-3.1.3.tgz}
     engines: {node: '>= 8'}
 
   argparse@2.0.1:
-    resolution: {integrity: sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=, tarball: https://r.npm.sankuai.com/argparse/download/argparse-2.0.1.tgz}
+    resolution: {integrity: sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=, tarball: https://registry.npmjs.org/argparse/download/argparse-2.0.1.tgz}
 
   asap@2.0.6:
-    resolution: {integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=, tarball: https://r.npm.sankuai.com/asap/download/asap-2.0.6.tgz}
+    resolution: {integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=, tarball: https://registry.npmjs.org/asap/download/asap-2.0.6.tgz}
 
   async@3.2.6:
-    resolution: {integrity: sha1-Gwco4Ukp1RuFtEm38G4nwRReOM4=, tarball: https://r.npm.sankuai.com/async/download/async-3.2.6.tgz}
+    resolution: {integrity: sha1-Gwco4Ukp1RuFtEm38G4nwRReOM4=, tarball: https://registry.npmjs.org/async/download/async-3.2.6.tgz}
 
   asynckit@0.4.0:
-    resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=, tarball: https://r.npm.sankuai.com/asynckit/download/asynckit-0.4.0.tgz}
+    resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=, tarball: https://registry.npmjs.org/asynckit/download/asynckit-0.4.0.tgz}
 
   balanced-match@1.0.2:
-    resolution: {integrity: sha1-6D46fj8wCzTLnYf2FfoMvzV2kO4=, tarball: https://r.npm.sankuai.com/balanced-match/download/balanced-match-1.0.2.tgz}
+    resolution: {integrity: sha1-6D46fj8wCzTLnYf2FfoMvzV2kO4=, tarball: https://registry.npmjs.org/balanced-match/download/balanced-match-1.0.2.tgz}
 
   basic-auth@2.0.1:
-    resolution: {integrity: sha1-uZgnm/R844NEtPPPkW1Gebv1Hjo=, tarball: https://r.npm.sankuai.com/basic-auth/download/basic-auth-2.0.1.tgz}
+    resolution: {integrity: sha1-uZgnm/R844NEtPPPkW1Gebv1Hjo=, tarball: https://registry.npmjs.org/basic-auth/download/basic-auth-2.0.1.tgz}
     engines: {node: '>= 0.8'}
 
   binary-extensions@2.3.0:
-    resolution: {integrity: sha1-9uFKl4WNMnJSIAJC1Mz+UixEVSI=, tarball: https://r.npm.sankuai.com/binary-extensions/download/binary-extensions-2.3.0.tgz}
+    resolution: {integrity: sha1-9uFKl4WNMnJSIAJC1Mz+UixEVSI=, tarball: https://registry.npmjs.org/binary-extensions/download/binary-extensions-2.3.0.tgz}
     engines: {node: '>=8'}
 
   bluebird@3.7.2:
-    resolution: {integrity: sha1-nyKcFb4nJFT/qXOs4NvueaGww28=, tarball: https://r.npm.sankuai.com/bluebird/download/bluebird-3.7.2.tgz}
+    resolution: {integrity: sha1-nyKcFb4nJFT/qXOs4NvueaGww28=, tarball: https://registry.npmjs.org/bluebird/download/bluebird-3.7.2.tgz}
 
   brace-expansion@1.1.15:
-    resolution: {integrity: sha1-ptkNVAZyNuX0JXCjtzeNWU2bdzg=, tarball: https://r.npm.sankuai.com/brace-expansion/download/brace-expansion-1.1.15.tgz}
+    resolution: {integrity: sha1-ptkNVAZyNuX0JXCjtzeNWU2bdzg=, tarball: https://registry.npmjs.org/brace-expansion/download/brace-expansion-1.1.15.tgz}
 
   brace-expansion@2.1.1:
-    resolution: {integrity: sha1-xoscQRHHaq46b7pV1JbO4Qw52tg=, tarball: https://r.npm.sankuai.com/brace-expansion/download/brace-expansion-2.1.1.tgz}
+    resolution: {integrity: sha1-xoscQRHHaq46b7pV1JbO4Qw52tg=, tarball: https://registry.npmjs.org/brace-expansion/download/brace-expansion-2.1.1.tgz}
 
   braces@3.0.3:
-    resolution: {integrity: sha1-SQMy9AkZRSJy1VqEgK3AxEE1h4k=, tarball: https://r.npm.sankuai.com/braces/download/braces-3.0.3.tgz}
+    resolution: {integrity: sha1-SQMy9AkZRSJy1VqEgK3AxEE1h4k=, tarball: https://registry.npmjs.org/braces/download/braces-3.0.3.tgz}
     engines: {node: '>=8'}
 
   bytes@3.1.2:
-    resolution: {integrity: sha1-iwvuuYYFrfGxKPpDhkA8AJ4CIaU=, tarball: https://r.npm.sankuai.com/bytes/download/bytes-3.1.2.tgz}
+    resolution: {integrity: sha1-iwvuuYYFrfGxKPpDhkA8AJ4CIaU=, tarball: https://registry.npmjs.org/bytes/download/bytes-3.1.2.tgz}
     engines: {node: '>= 0.8'}
 
   call-bind-apply-helpers@1.0.2:
-    resolution: {integrity: sha1-S1QowiK+mF15w9gmV0edvgtZstY=, tarball: https://r.npm.sankuai.com/call-bind-apply-helpers/download/call-bind-apply-helpers-1.0.2.tgz}
+    resolution: {integrity: sha1-S1QowiK+mF15w9gmV0edvgtZstY=, tarball: https://registry.npmjs.org/call-bind-apply-helpers/download/call-bind-apply-helpers-1.0.2.tgz}
     engines: {node: '>= 0.4'}
 
   camel-case@4.1.2:
-    resolution: {integrity: sha1-lygHKpVPgFIoIlpt7qazhGHhvVo=, tarball: https://r.npm.sankuai.com/camel-case/download/camel-case-4.1.2.tgz}
+    resolution: {integrity: sha1-lygHKpVPgFIoIlpt7qazhGHhvVo=, tarball: https://registry.npmjs.org/camel-case/download/camel-case-4.1.2.tgz}
 
   chokidar@3.6.0:
-    resolution: {integrity: sha1-GXxsxmnvKo3F57TZfuTgksPrDVs=, tarball: https://r.npm.sankuai.com/chokidar/download/chokidar-3.6.0.tgz}
+    resolution: {integrity: sha1-GXxsxmnvKo3F57TZfuTgksPrDVs=, tarball: https://registry.npmjs.org/chokidar/download/chokidar-3.6.0.tgz}
     engines: {node: '>= 8.10.0'}
 
   chokidar@4.0.3:
-    resolution: {integrity: sha1-e+N6TAPJruHs/oYqSiOyxwwgXTA=, tarball: https://r.npm.sankuai.com/chokidar/download/chokidar-4.0.3.tgz}
+    resolution: {integrity: sha1-e+N6TAPJruHs/oYqSiOyxwwgXTA=, tarball: https://registry.npmjs.org/chokidar/download/chokidar-4.0.3.tgz}
     engines: {node: '>= 14.16.0'}
 
   combined-stream@1.0.8:
-    resolution: {integrity: sha1-w9RaizT9cwYxoRCoolIGgrMdWn8=, tarball: https://r.npm.sankuai.com/combined-stream/download/combined-stream-1.0.8.tgz}
+    resolution: {integrity: sha1-w9RaizT9cwYxoRCoolIGgrMdWn8=, tarball: https://registry.npmjs.org/combined-stream/download/combined-stream-1.0.8.tgz}
     engines: {node: '>= 0.8'}
 
   command-exists@1.2.9:
-    resolution: {integrity: sha1-xQclrzgIyKsCYP1gsB+/oluVT2k=, tarball: https://r.npm.sankuai.com/command-exists/download/command-exists-1.2.9.tgz}
+    resolution: {integrity: sha1-xQclrzgIyKsCYP1gsB+/oluVT2k=, tarball: https://registry.npmjs.org/command-exists/download/command-exists-1.2.9.tgz}
 
   commander@5.1.0:
-    resolution: {integrity: sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=, tarball: https://r.npm.sankuai.com/commander/download/commander-5.1.0.tgz}
+    resolution: {integrity: sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=, tarball: https://registry.npmjs.org/commander/download/commander-5.1.0.tgz}
     engines: {node: '>= 6'}
 
   compressible@2.0.18:
-    resolution: {integrity: sha1-r1PMprBw1MPAdQ+9dyhqbXzEb7o=, tarball: https://r.npm.sankuai.com/compressible/download/compressible-2.0.18.tgz}
+    resolution: {integrity: sha1-r1PMprBw1MPAdQ+9dyhqbXzEb7o=, tarball: https://registry.npmjs.org/compressible/download/compressible-2.0.18.tgz}
     engines: {node: '>= 0.6'}
 
   compression@1.8.1:
-    resolution: {integrity: sha1-SkXZCawWUJGVqaKL2RCUiJwYDXk=, tarball: https://r.npm.sankuai.com/compression/download/compression-1.8.1.tgz}
+    resolution: {integrity: sha1-SkXZCawWUJGVqaKL2RCUiJwYDXk=, tarball: https://registry.npmjs.org/compression/download/compression-1.8.1.tgz}
     engines: {node: '>= 0.8.0'}
 
   concat-map@0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=, tarball: https://r.npm.sankuai.com/concat-map/download/concat-map-0.0.1.tgz}
+    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=, tarball: https://registry.npmjs.org/concat-map/download/concat-map-0.0.1.tgz}
 
   connect@3.7.0:
-    resolution: {integrity: sha1-XUk0iRDKpeB6AYALAw0MNfIEhPg=, tarball: https://r.npm.sankuai.com/connect/download/connect-3.7.0.tgz}
+    resolution: {integrity: sha1-XUk0iRDKpeB6AYALAw0MNfIEhPg=, tarball: https://registry.npmjs.org/connect/download/connect-3.7.0.tgz}
     engines: {node: '>= 0.10.0'}
 
   cross-spawn@7.0.6:
-    resolution: {integrity: sha1-ilj+ePANzXDDcEUXWd+/rwPo7p8=, tarball: https://r.npm.sankuai.com/cross-spawn/download/cross-spawn-7.0.6.tgz}
+    resolution: {integrity: sha1-ilj+ePANzXDDcEUXWd+/rwPo7p8=, tarball: https://registry.npmjs.org/cross-spawn/download/cross-spawn-7.0.6.tgz}
     engines: {node: '>= 8'}
 
   cssstyle@4.6.0:
-    resolution: {integrity: sha1-6hgAcCTjFn9PEFMV8+wtmCv0jtk=, tarball: https://r.npm.sankuai.com/cssstyle/download/cssstyle-4.6.0.tgz}
+    resolution: {integrity: sha1-6hgAcCTjFn9PEFMV8+wtmCv0jtk=, tarball: https://registry.npmjs.org/cssstyle/download/cssstyle-4.6.0.tgz}
     engines: {node: '>=18'}
 
   data-urls@5.0.0:
-    resolution: {integrity: sha1-L3aQa84YJEKf/stpIPRaCzDwDd4=, tarball: https://r.npm.sankuai.com/data-urls/download/data-urls-5.0.0.tgz}
+    resolution: {integrity: sha1-L3aQa84YJEKf/stpIPRaCzDwDd4=, tarball: https://registry.npmjs.org/data-urls/download/data-urls-5.0.0.tgz}
     engines: {node: '>=18'}
 
   debug@2.6.9:
-    resolution: {integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=, tarball: https://r.npm.sankuai.com/debug/download/debug-2.6.9.tgz}
+    resolution: {integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=, tarball: https://registry.npmjs.org/debug/download/debug-2.6.9.tgz}
     peerDependencies:
       supports-color: '*'
     peerDependenciesMeta:
@@ -203,7 +203,7 @@ packages:
         optional: true
 
   debug@4.4.3:
-    resolution: {integrity: sha1-xq5DLZvZZiWC/OCHCbA4xY6ePWo=, tarball: https://r.npm.sankuai.com/debug/download/debug-4.4.3.tgz}
+    resolution: {integrity: sha1-xq5DLZvZZiWC/OCHCbA4xY6ePWo=, tarball: https://registry.npmjs.org/debug/download/debug-4.4.3.tgz}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -212,347 +212,347 @@ packages:
         optional: true
 
   decimal.js@10.6.0:
-    resolution: {integrity: sha1-5kmkPjq5U6chkv9Zg4ZeUJ837Zo=, tarball: https://r.npm.sankuai.com/decimal.js/download/decimal.js-10.6.0.tgz}
+    resolution: {integrity: sha1-5kmkPjq5U6chkv9Zg4ZeUJ837Zo=, tarball: https://registry.npmjs.org/decimal.js/download/decimal.js-10.6.0.tgz}
 
   deepmerge@4.3.1:
-    resolution: {integrity: sha1-RLXyFHzTsA1LVhN2hZZvJv0l3Uo=, tarball: https://r.npm.sankuai.com/deepmerge/download/deepmerge-4.3.1.tgz}
+    resolution: {integrity: sha1-RLXyFHzTsA1LVhN2hZZvJv0l3Uo=, tarball: https://registry.npmjs.org/deepmerge/download/deepmerge-4.3.1.tgz}
     engines: {node: '>=0.10.0'}
 
   define-lazy-prop@2.0.0:
-    resolution: {integrity: sha1-P3rkIRKbyqrJvHSQXJigAJ7J7n8=, tarball: https://r.npm.sankuai.com/define-lazy-prop/download/define-lazy-prop-2.0.0.tgz}
+    resolution: {integrity: sha1-P3rkIRKbyqrJvHSQXJigAJ7J7n8=, tarball: https://registry.npmjs.org/define-lazy-prop/download/define-lazy-prop-2.0.0.tgz}
     engines: {node: '>=8'}
 
   delayed-stream@1.0.0:
-    resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=, tarball: https://r.npm.sankuai.com/delayed-stream/download/delayed-stream-1.0.0.tgz}
+    resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=, tarball: https://registry.npmjs.org/delayed-stream/download/delayed-stream-1.0.0.tgz}
     engines: {node: '>=0.4.0'}
 
   depd@2.0.0:
-    resolution: {integrity: sha1-tpYWPMdXVg0JzyLMj60Vcbeedt8=, tarball: https://r.npm.sankuai.com/depd/download/depd-2.0.0.tgz}
+    resolution: {integrity: sha1-tpYWPMdXVg0JzyLMj60Vcbeedt8=, tarball: https://registry.npmjs.org/depd/download/depd-2.0.0.tgz}
     engines: {node: '>= 0.8'}
 
   destroy@1.2.0:
-    resolution: {integrity: sha1-SANzVQmti+VSk0xn32FPlOZvoBU=, tarball: https://r.npm.sankuai.com/destroy/download/destroy-1.2.0.tgz}
+    resolution: {integrity: sha1-SANzVQmti+VSk0xn32FPlOZvoBU=, tarball: https://registry.npmjs.org/destroy/download/destroy-1.2.0.tgz}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
 
   dom-serializer@2.0.0:
-    resolution: {integrity: sha1-5BuALh7t+fbK4YPOXmIteJ19jlM=, tarball: https://r.npm.sankuai.com/dom-serializer/download/dom-serializer-2.0.0.tgz}
+    resolution: {integrity: sha1-5BuALh7t+fbK4YPOXmIteJ19jlM=, tarball: https://registry.npmjs.org/dom-serializer/download/dom-serializer-2.0.0.tgz}
 
   domelementtype@2.3.0:
-    resolution: {integrity: sha1-XEXo6GmVJiYzHXqrMm0B2vZdWJ0=, tarball: https://r.npm.sankuai.com/domelementtype/download/domelementtype-2.3.0.tgz}
+    resolution: {integrity: sha1-XEXo6GmVJiYzHXqrMm0B2vZdWJ0=, tarball: https://registry.npmjs.org/domelementtype/download/domelementtype-2.3.0.tgz}
 
   domhandler@5.0.3:
-    resolution: {integrity: sha1-zDhff3UfHR/GUMITdIBCVFOMfTE=, tarball: https://r.npm.sankuai.com/domhandler/download/domhandler-5.0.3.tgz}
+    resolution: {integrity: sha1-zDhff3UfHR/GUMITdIBCVFOMfTE=, tarball: https://registry.npmjs.org/domhandler/download/domhandler-5.0.3.tgz}
     engines: {node: '>= 4'}
 
   dompurify@3.4.8:
-    resolution: {integrity: sha1-bFT4wgcWDn+D/Lf0/QWoKsNrHNw=, tarball: https://r.npm.sankuai.com/dompurify/download/dompurify-3.4.8.tgz}
+    resolution: {integrity: sha1-bFT4wgcWDn+D/Lf0/QWoKsNrHNw=, tarball: https://registry.npmjs.org/dompurify/download/dompurify-3.4.8.tgz}
 
   domutils@3.2.2:
-    resolution: {integrity: sha1-7b/itmiwwdl8JLrw8QYrEyIhvHg=, tarball: https://r.npm.sankuai.com/domutils/download/domutils-3.2.2.tgz}
+    resolution: {integrity: sha1-7b/itmiwwdl8JLrw8QYrEyIhvHg=, tarball: https://registry.npmjs.org/domutils/download/domutils-3.2.2.tgz}
 
   dunder-proto@1.0.1:
-    resolution: {integrity: sha1-165mfh3INIL4tw/Q9u78UNow9Yo=, tarball: https://r.npm.sankuai.com/dunder-proto/download/dunder-proto-1.0.1.tgz}
+    resolution: {integrity: sha1-165mfh3INIL4tw/Q9u78UNow9Yo=, tarball: https://registry.npmjs.org/dunder-proto/download/dunder-proto-1.0.1.tgz}
     engines: {node: '>= 0.4'}
 
   ee-first@1.1.1:
-    resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=, tarball: https://r.npm.sankuai.com/ee-first/download/ee-first-1.1.1.tgz}
+    resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=, tarball: https://registry.npmjs.org/ee-first/download/ee-first-1.1.1.tgz}
 
   ejs@3.1.10:
-    resolution: {integrity: sha1-aauDWLFOiW+AzDnmIIe4hQDDrDs=, tarball: https://r.npm.sankuai.com/ejs/download/ejs-3.1.10.tgz}
+    resolution: {integrity: sha1-aauDWLFOiW+AzDnmIIe4hQDDrDs=, tarball: https://registry.npmjs.org/ejs/download/ejs-3.1.10.tgz}
     engines: {node: '>=0.10.0'}
     hasBin: true
 
   encodeurl@1.0.2:
-    resolution: {integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=, tarball: https://r.npm.sankuai.com/encodeurl/download/encodeurl-1.0.2.tgz}
+    resolution: {integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=, tarball: https://registry.npmjs.org/encodeurl/download/encodeurl-1.0.2.tgz}
     engines: {node: '>= 0.8'}
 
   encodeurl@2.0.0:
-    resolution: {integrity: sha1-e46omAd9fkCdOsRUdOo46vCFelg=, tarball: https://r.npm.sankuai.com/encodeurl/download/encodeurl-2.0.0.tgz}
+    resolution: {integrity: sha1-e46omAd9fkCdOsRUdOo46vCFelg=, tarball: https://registry.npmjs.org/encodeurl/download/encodeurl-2.0.0.tgz}
     engines: {node: '>= 0.8'}
 
   entities@4.5.0:
-    resolution: {integrity: sha1-XSaOpecRPsdMTQM7eepaNaSI+0g=, tarball: https://r.npm.sankuai.com/entities/download/entities-4.5.0.tgz}
+    resolution: {integrity: sha1-XSaOpecRPsdMTQM7eepaNaSI+0g=, tarball: https://registry.npmjs.org/entities/download/entities-4.5.0.tgz}
     engines: {node: '>=0.12'}
 
   entities@6.0.1:
-    resolution: {integrity: sha1-wow0pDN5yn9h0HQTCy9fcCCjBpQ=, tarball: https://r.npm.sankuai.com/entities/download/entities-6.0.1.tgz}
+    resolution: {integrity: sha1-wow0pDN5yn9h0HQTCy9fcCCjBpQ=, tarball: https://registry.npmjs.org/entities/download/entities-6.0.1.tgz}
     engines: {node: '>=0.12'}
 
   entities@7.0.1:
-    resolution: {integrity: sha1-JuioiInbY0F9y5oeeaPxvJK1l2s=, tarball: https://r.npm.sankuai.com/entities/download/entities-7.0.1.tgz}
+    resolution: {integrity: sha1-JuioiInbY0F9y5oeeaPxvJK1l2s=, tarball: https://registry.npmjs.org/entities/download/entities-7.0.1.tgz}
     engines: {node: '>=0.12'}
 
   es-define-property@1.0.1:
-    resolution: {integrity: sha1-mD6y+aZyTpMD9hrd8BHHLgngsPo=, tarball: https://r.npm.sankuai.com/es-define-property/download/es-define-property-1.0.1.tgz}
+    resolution: {integrity: sha1-mD6y+aZyTpMD9hrd8BHHLgngsPo=, tarball: https://registry.npmjs.org/es-define-property/download/es-define-property-1.0.1.tgz}
     engines: {node: '>= 0.4'}
 
   es-errors@1.3.0:
-    resolution: {integrity: sha1-BfdaJdq5jk+x3NXhRywFRtUFfI8=, tarball: https://r.npm.sankuai.com/es-errors/download/es-errors-1.3.0.tgz}
+    resolution: {integrity: sha1-BfdaJdq5jk+x3NXhRywFRtUFfI8=, tarball: https://registry.npmjs.org/es-errors/download/es-errors-1.3.0.tgz}
     engines: {node: '>= 0.4'}
 
   es-object-atoms@1.1.2:
-    resolution: {integrity: sha1-otCzcyBXJN+lJdI7DD4bHKWCyZs=, tarball: https://r.npm.sankuai.com/es-object-atoms/download/es-object-atoms-1.1.2.tgz}
+    resolution: {integrity: sha1-otCzcyBXJN+lJdI7DD4bHKWCyZs=, tarball: https://registry.npmjs.org/es-object-atoms/download/es-object-atoms-1.1.2.tgz}
     engines: {node: '>= 0.4'}
 
   es-set-tostringtag@2.1.0:
-    resolution: {integrity: sha1-8x274MGDsAptJutjJcgQwP0YvU0=, tarball: https://r.npm.sankuai.com/es-set-tostringtag/download/es-set-tostringtag-2.1.0.tgz}
+    resolution: {integrity: sha1-8x274MGDsAptJutjJcgQwP0YvU0=, tarball: https://registry.npmjs.org/es-set-tostringtag/download/es-set-tostringtag-2.1.0.tgz}
     engines: {node: '>= 0.4'}
 
   escape-html@1.0.3:
-    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=, tarball: https://r.npm.sankuai.com/escape-html/download/escape-html-1.0.3.tgz}
+    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=, tarball: https://registry.npmjs.org/escape-html/download/escape-html-1.0.3.tgz}
 
   esprima@4.0.1:
-    resolution: {integrity: sha1-E7BM2z5sXRnfkatph6hpVhmwqnE=, tarball: https://r.npm.sankuai.com/esprima/download/esprima-4.0.1.tgz}
+    resolution: {integrity: sha1-E7BM2z5sXRnfkatph6hpVhmwqnE=, tarball: https://registry.npmjs.org/esprima/download/esprima-4.0.1.tgz}
     engines: {node: '>=4'}
     hasBin: true
 
   etag@1.8.1:
-    resolution: {integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=, tarball: https://r.npm.sankuai.com/etag/download/etag-1.8.1.tgz}
+    resolution: {integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=, tarball: https://registry.npmjs.org/etag/download/etag-1.8.1.tgz}
     engines: {node: '>= 0.6'}
 
   fast-archy@1.0.0:
-    resolution: {integrity: sha1-JsiFBxjePOyxUgDpJXwJ8a0voNA=, tarball: https://r.npm.sankuai.com/fast-archy/download/fast-archy-1.0.0.tgz}
+    resolution: {integrity: sha1-JsiFBxjePOyxUgDpJXwJ8a0voNA=, tarball: https://registry.npmjs.org/fast-archy/download/fast-archy-1.0.0.tgz}
 
   fast-equals@3.0.3:
-    resolution: {integrity: sha1-jmy05RyhAY2H3UGYLvknWLPkGX8=, tarball: https://r.npm.sankuai.com/fast-equals/download/fast-equals-3.0.3.tgz}
+    resolution: {integrity: sha1-jmy05RyhAY2H3UGYLvknWLPkGX8=, tarball: https://registry.npmjs.org/fast-equals/download/fast-equals-3.0.3.tgz}
 
   fast-text-table@1.0.1:
-    resolution: {integrity: sha1-cFfw1Y5y6zaWAYdvm+TvVU/2glQ=, tarball: https://r.npm.sankuai.com/fast-text-table/download/fast-text-table-1.0.1.tgz}
+    resolution: {integrity: sha1-cFfw1Y5y6zaWAYdvm+TvVU/2glQ=, tarball: https://registry.npmjs.org/fast-text-table/download/fast-text-table-1.0.1.tgz}
 
   filelist@1.0.6:
-    resolution: {integrity: sha1-HohwlCp8Y2yGL3xJuTlJN7aplaM=, tarball: https://r.npm.sankuai.com/filelist/download/filelist-1.0.6.tgz}
+    resolution: {integrity: sha1-HohwlCp8Y2yGL3xJuTlJN7aplaM=, tarball: https://registry.npmjs.org/filelist/download/filelist-1.0.6.tgz}
 
   fill-range@7.1.1:
-    resolution: {integrity: sha1-RCZdPKwH4+p9wkdRY4BkN1SgUpI=, tarball: https://r.npm.sankuai.com/fill-range/download/fill-range-7.1.1.tgz}
+    resolution: {integrity: sha1-RCZdPKwH4+p9wkdRY4BkN1SgUpI=, tarball: https://registry.npmjs.org/fill-range/download/fill-range-7.1.1.tgz}
     engines: {node: '>=8'}
 
   finalhandler@1.1.2:
-    resolution: {integrity: sha1-t+fQAP/RGTjQ/bBTUG9uur6fWH0=, tarball: https://r.npm.sankuai.com/finalhandler/download/finalhandler-1.1.2.tgz}
+    resolution: {integrity: sha1-t+fQAP/RGTjQ/bBTUG9uur6fWH0=, tarball: https://registry.npmjs.org/finalhandler/download/finalhandler-1.1.2.tgz}
     engines: {node: '>= 0.8'}
 
   form-data@4.0.5:
-    resolution: {integrity: sha1-tJ5IhYBF/0y/awPhgFzrytNnkFM=, tarball: https://r.npm.sankuai.com/form-data/download/form-data-4.0.5.tgz}
+    resolution: {integrity: sha1-tJ5IhYBF/0y/awPhgFzrytNnkFM=, tarball: https://registry.npmjs.org/form-data/download/form-data-4.0.5.tgz}
     engines: {node: '>= 6'}
 
   fresh@0.5.2:
-    resolution: {integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=, tarball: https://r.npm.sankuai.com/fresh/download/fresh-0.5.2.tgz}
+    resolution: {integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=, tarball: https://registry.npmjs.org/fresh/download/fresh-0.5.2.tgz}
     engines: {node: '>= 0.6'}
 
   fs.realpath@1.0.0:
-    resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=, tarball: https://r.npm.sankuai.com/fs.realpath/download/fs.realpath-1.0.0.tgz}
+    resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=, tarball: https://registry.npmjs.org/fs.realpath/download/fs.realpath-1.0.0.tgz}
 
   fsevents@2.3.3:
-    resolution: {integrity: sha1-ysZAd4XQNnWipeGlMFxpezR9kNY=, tarball: https://r.npm.sankuai.com/fsevents/download/fsevents-2.3.3.tgz}
+    resolution: {integrity: sha1-ysZAd4XQNnWipeGlMFxpezR9kNY=, tarball: https://registry.npmjs.org/fsevents/download/fsevents-2.3.3.tgz}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
   function-bind@1.1.2:
-    resolution: {integrity: sha1-LALYZNl/PqbIgwxGTL0Rq26rehw=, tarball: https://r.npm.sankuai.com/function-bind/download/function-bind-1.1.2.tgz}
+    resolution: {integrity: sha1-LALYZNl/PqbIgwxGTL0Rq26rehw=, tarball: https://registry.npmjs.org/function-bind/download/function-bind-1.1.2.tgz}
 
   get-intrinsic@1.3.0:
-    resolution: {integrity: sha1-dD8OO2lkqTpUke0b/6rgVNf5jQE=, tarball: https://r.npm.sankuai.com/get-intrinsic/download/get-intrinsic-1.3.0.tgz}
+    resolution: {integrity: sha1-dD8OO2lkqTpUke0b/6rgVNf5jQE=, tarball: https://registry.npmjs.org/get-intrinsic/download/get-intrinsic-1.3.0.tgz}
     engines: {node: '>= 0.4'}
 
   get-proto@1.0.1:
-    resolution: {integrity: sha1-FQs/J0OGnvPoUewMSdFbHRTQDuE=, tarball: https://r.npm.sankuai.com/get-proto/download/get-proto-1.0.1.tgz}
+    resolution: {integrity: sha1-FQs/J0OGnvPoUewMSdFbHRTQDuE=, tarball: https://registry.npmjs.org/get-proto/download/get-proto-1.0.1.tgz}
     engines: {node: '>= 0.4'}
 
   glob-parent@5.1.2:
-    resolution: {integrity: sha1-hpgyxYA0/mikCTwX3BXoNA2EAcQ=, tarball: https://r.npm.sankuai.com/glob-parent/download/glob-parent-5.1.2.tgz}
+    resolution: {integrity: sha1-hpgyxYA0/mikCTwX3BXoNA2EAcQ=, tarball: https://registry.npmjs.org/glob-parent/download/glob-parent-5.1.2.tgz}
     engines: {node: '>= 6'}
 
   glob@7.2.3:
-    resolution: {integrity: sha1-uN8PuAK7+o6JvR2Ti04WV47UTys=, tarball: https://r.npm.sankuai.com/glob/download/glob-7.2.3.tgz}
+    resolution: {integrity: sha1-uN8PuAK7+o6JvR2Ti04WV47UTys=, tarball: https://registry.npmjs.org/glob/download/glob-7.2.3.tgz}
     deprecated: Glob versions prior to v9 are no longer supported
 
   gopd@1.2.0:
-    resolution: {integrity: sha1-ifVrghe9vIgCvSmd9tfxCB1+UaE=, tarball: https://r.npm.sankuai.com/gopd/download/gopd-1.2.0.tgz}
+    resolution: {integrity: sha1-ifVrghe9vIgCvSmd9tfxCB1+UaE=, tarball: https://registry.npmjs.org/gopd/download/gopd-1.2.0.tgz}
     engines: {node: '>= 0.4'}
 
   graceful-fs@4.2.11:
-    resolution: {integrity: sha1-QYPk6L8Iu24Fu7L30uDI9xLKQOM=, tarball: https://r.npm.sankuai.com/graceful-fs/download/graceful-fs-4.2.11.tgz}
+    resolution: {integrity: sha1-QYPk6L8Iu24Fu7L30uDI9xLKQOM=, tarball: https://registry.npmjs.org/graceful-fs/download/graceful-fs-4.2.11.tgz}
 
   has-symbols@1.1.0:
-    resolution: {integrity: sha1-/JxqeDoISVHQuXH+EBjegTcHozg=, tarball: https://r.npm.sankuai.com/has-symbols/download/has-symbols-1.1.0.tgz}
+    resolution: {integrity: sha1-/JxqeDoISVHQuXH+EBjegTcHozg=, tarball: https://registry.npmjs.org/has-symbols/download/has-symbols-1.1.0.tgz}
     engines: {node: '>= 0.4'}
 
   has-tostringtag@1.0.2:
-    resolution: {integrity: sha1-LNxC1AvvLltO6rfAGnPFTOerWrw=, tarball: https://r.npm.sankuai.com/has-tostringtag/download/has-tostringtag-1.0.2.tgz}
+    resolution: {integrity: sha1-LNxC1AvvLltO6rfAGnPFTOerWrw=, tarball: https://registry.npmjs.org/has-tostringtag/download/has-tostringtag-1.0.2.tgz}
     engines: {node: '>= 0.4'}
 
   hasown@2.0.4:
-    resolution: {integrity: sha1-jGLYy5C+sqrV0KW2dYGtmFTD8AM=, tarball: https://r.npm.sankuai.com/hasown/download/hasown-2.0.4.tgz}
+    resolution: {integrity: sha1-jGLYy5C+sqrV0KW2dYGtmFTD8AM=, tarball: https://registry.npmjs.org/hasown/download/hasown-2.0.4.tgz}
     engines: {node: '>= 0.4'}
 
   hexo-cli@4.3.2:
-    resolution: {integrity: sha1-fn0C2hN9n6RhpDVpZHk8VukrKeY=, tarball: https://r.npm.sankuai.com/hexo-cli/download/hexo-cli-4.3.2.tgz}
+    resolution: {integrity: sha1-fn0C2hN9n6RhpDVpZHk8VukrKeY=, tarball: https://registry.npmjs.org/hexo-cli/download/hexo-cli-4.3.2.tgz}
     engines: {node: '>=14'}
     hasBin: true
 
   hexo-front-matter@4.2.1:
-    resolution: {integrity: sha1-wo7nT2ardsmPpzh3tf96nMFBYcw=, tarball: https://r.npm.sankuai.com/hexo-front-matter/download/hexo-front-matter-4.2.1.tgz}
+    resolution: {integrity: sha1-wo7nT2ardsmPpzh3tf96nMFBYcw=, tarball: https://registry.npmjs.org/hexo-front-matter/download/hexo-front-matter-4.2.1.tgz}
     engines: {node: '>=14'}
 
   hexo-fs@4.1.3:
-    resolution: {integrity: sha1-xkxm4jDa1OwIyiEkQyeqCrppIYo=, tarball: https://r.npm.sankuai.com/hexo-fs/download/hexo-fs-4.1.3.tgz}
+    resolution: {integrity: sha1-xkxm4jDa1OwIyiEkQyeqCrppIYo=, tarball: https://registry.npmjs.org/hexo-fs/download/hexo-fs-4.1.3.tgz}
     engines: {node: '>=14'}
 
   hexo-fs@5.0.1:
-    resolution: {integrity: sha1-tdeNPfM4b6re7DZNc+H+0iSk5Xo=, tarball: https://r.npm.sankuai.com/hexo-fs/download/hexo-fs-5.0.1.tgz}
+    resolution: {integrity: sha1-tdeNPfM4b6re7DZNc+H+0iSk5Xo=, tarball: https://registry.npmjs.org/hexo-fs/download/hexo-fs-5.0.1.tgz}
     engines: {node: '>=18'}
 
   hexo-generator-archive@2.0.0:
-    resolution: {integrity: sha1-vZPxeEiEO7W/rOgRA9gfW+Gossk=, tarball: https://r.npm.sankuai.com/hexo-generator-archive/download/hexo-generator-archive-2.0.0.tgz}
+    resolution: {integrity: sha1-vZPxeEiEO7W/rOgRA9gfW+Gossk=, tarball: https://registry.npmjs.org/hexo-generator-archive/download/hexo-generator-archive-2.0.0.tgz}
     engines: {node: '>=14'}
 
   hexo-generator-category@2.0.0:
-    resolution: {integrity: sha1-VUc9X6+uwcq3pdnA2nsVnAEz1lw=, tarball: https://r.npm.sankuai.com/hexo-generator-category/download/hexo-generator-category-2.0.0.tgz}
+    resolution: {integrity: sha1-VUc9X6+uwcq3pdnA2nsVnAEz1lw=, tarball: https://registry.npmjs.org/hexo-generator-category/download/hexo-generator-category-2.0.0.tgz}
     engines: {node: '>=14'}
 
   hexo-generator-index@4.0.0:
-    resolution: {integrity: sha1-LyDPnSMdsw7bzNW+MsksiutdbWM=, tarball: https://r.npm.sankuai.com/hexo-generator-index/download/hexo-generator-index-4.0.0.tgz}
+    resolution: {integrity: sha1-LyDPnSMdsw7bzNW+MsksiutdbWM=, tarball: https://registry.npmjs.org/hexo-generator-index/download/hexo-generator-index-4.0.0.tgz}
     engines: {node: '>=18'}
 
   hexo-generator-tag@2.0.0:
-    resolution: {integrity: sha1-9aGMkrLygGOnYAi0CQp86oH7vMA=, tarball: https://r.npm.sankuai.com/hexo-generator-tag/download/hexo-generator-tag-2.0.0.tgz}
+    resolution: {integrity: sha1-9aGMkrLygGOnYAi0CQp86oH7vMA=, tarball: https://registry.npmjs.org/hexo-generator-tag/download/hexo-generator-tag-2.0.0.tgz}
     engines: {node: '>=14'}
 
   hexo-i18n@2.0.0:
-    resolution: {integrity: sha1-7Hq8Fg/+8gJSTz/4B2uF1XAcRHs=, tarball: https://r.npm.sankuai.com/hexo-i18n/download/hexo-i18n-2.0.0.tgz}
+    resolution: {integrity: sha1-7Hq8Fg/+8gJSTz/4B2uF1XAcRHs=, tarball: https://registry.npmjs.org/hexo-i18n/download/hexo-i18n-2.0.0.tgz}
     engines: {node: '>=14'}
 
   hexo-log@4.1.0:
-    resolution: {integrity: sha1-VLQsJQM1BntcYLQTf1AWB0VO/aA=, tarball: https://r.npm.sankuai.com/hexo-log/download/hexo-log-4.1.0.tgz}
+    resolution: {integrity: sha1-VLQsJQM1BntcYLQTf1AWB0VO/aA=, tarball: https://registry.npmjs.org/hexo-log/download/hexo-log-4.1.0.tgz}
     engines: {node: '>=14'}
 
   hexo-pagination@3.0.0:
-    resolution: {integrity: sha1-uYsFC73f8lrmRuPQCtYHrGrnfqc=, tarball: https://r.npm.sankuai.com/hexo-pagination/download/hexo-pagination-3.0.0.tgz}
+    resolution: {integrity: sha1-uYsFC73f8lrmRuPQCtYHrGrnfqc=, tarball: https://registry.npmjs.org/hexo-pagination/download/hexo-pagination-3.0.0.tgz}
     engines: {node: '>=14'}
 
   hexo-renderer-ejs@2.0.0:
-    resolution: {integrity: sha1-VuDD3l9rDh5ouSPGWnyL/p/3Fes=, tarball: https://r.npm.sankuai.com/hexo-renderer-ejs/download/hexo-renderer-ejs-2.0.0.tgz}
+    resolution: {integrity: sha1-VuDD3l9rDh5ouSPGWnyL/p/3Fes=, tarball: https://registry.npmjs.org/hexo-renderer-ejs/download/hexo-renderer-ejs-2.0.0.tgz}
     engines: {node: '>=12'}
 
   hexo-renderer-marked@7.0.1:
-    resolution: {integrity: sha1-w6KWGH5F05QwEaOOx0swORGNZZo=, tarball: https://r.npm.sankuai.com/hexo-renderer-marked/download/hexo-renderer-marked-7.0.1.tgz}
+    resolution: {integrity: sha1-w6KWGH5F05QwEaOOx0swORGNZZo=, tarball: https://registry.npmjs.org/hexo-renderer-marked/download/hexo-renderer-marked-7.0.1.tgz}
     engines: {node: '>=18'}
 
   hexo-renderer-stylus@3.0.1:
-    resolution: {integrity: sha1-f/bzEB+oa6Jd5BUle+f6cDLpELw=, tarball: https://r.npm.sankuai.com/hexo-renderer-stylus/download/hexo-renderer-stylus-3.0.1.tgz}
+    resolution: {integrity: sha1-f/bzEB+oa6Jd5BUle+f6cDLpELw=, tarball: https://registry.npmjs.org/hexo-renderer-stylus/download/hexo-renderer-stylus-3.0.1.tgz}
     engines: {node: '>=14'}
 
   hexo-server@3.0.0:
-    resolution: {integrity: sha1-/MWXspty7h8DWCTF69PZL34a2xw=, tarball: https://r.npm.sankuai.com/hexo-server/download/hexo-server-3.0.0.tgz}
+    resolution: {integrity: sha1-/MWXspty7h8DWCTF69PZL34a2xw=, tarball: https://registry.npmjs.org/hexo-server/download/hexo-server-3.0.0.tgz}
     engines: {node: '>=12.13.0'}
 
   hexo-theme-landscape@1.1.0:
-    resolution: {integrity: sha1-dWM178yKvSQBcPFvNsSvXExRxzk=, tarball: https://r.npm.sankuai.com/hexo-theme-landscape/download/hexo-theme-landscape-1.1.0.tgz}
+    resolution: {integrity: sha1-dWM178yKvSQBcPFvNsSvXExRxzk=, tarball: https://registry.npmjs.org/hexo-theme-landscape/download/hexo-theme-landscape-1.1.0.tgz}
 
   hexo-util@3.3.0:
-    resolution: {integrity: sha1-RIkn+yLhZ/IVkwZmbMLH6Cx3dRM=, tarball: https://r.npm.sankuai.com/hexo-util/download/hexo-util-3.3.0.tgz}
+    resolution: {integrity: sha1-RIkn+yLhZ/IVkwZmbMLH6Cx3dRM=, tarball: https://registry.npmjs.org/hexo-util/download/hexo-util-3.3.0.tgz}
     engines: {node: '>=14'}
 
   hexo-util@4.0.0:
-    resolution: {integrity: sha1-I/aVl6ogDuVhKk/Zhs99e1vMbqI=, tarball: https://r.npm.sankuai.com/hexo-util/download/hexo-util-4.0.0.tgz}
+    resolution: {integrity: sha1-I/aVl6ogDuVhKk/Zhs99e1vMbqI=, tarball: https://registry.npmjs.org/hexo-util/download/hexo-util-4.0.0.tgz}
     engines: {node: '>=18'}
 
   hexo@8.1.2:
-    resolution: {integrity: sha1-KdnV0ygdhdWd/gWvkymflaDp9qc=, tarball: https://r.npm.sankuai.com/hexo/download/hexo-8.1.2.tgz}
+    resolution: {integrity: sha1-KdnV0ygdhdWd/gWvkymflaDp9qc=, tarball: https://registry.npmjs.org/hexo/download/hexo-8.1.2.tgz}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
   highlight.js@11.11.1:
-    resolution: {integrity: sha1-/KBvoOWu7PbE1DcjkTX6vBUhNYU=, tarball: https://r.npm.sankuai.com/highlight.js/download/highlight.js-11.11.1.tgz}
+    resolution: {integrity: sha1-/KBvoOWu7PbE1DcjkTX6vBUhNYU=, tarball: https://registry.npmjs.org/highlight.js/download/highlight.js-11.11.1.tgz}
     engines: {node: '>=12.0.0'}
 
   html-encoding-sniffer@4.0.0:
-    resolution: {integrity: sha1-aW31KafP2CRGNp3FGT5ZCjc1tEg=, tarball: https://r.npm.sankuai.com/html-encoding-sniffer/download/html-encoding-sniffer-4.0.0.tgz}
+    resolution: {integrity: sha1-aW31KafP2CRGNp3FGT5ZCjc1tEg=, tarball: https://registry.npmjs.org/html-encoding-sniffer/download/html-encoding-sniffer-4.0.0.tgz}
     engines: {node: '>=18'}
 
   htmlparser2@10.1.0:
-    resolution: {integrity: sha1-/j8uEsc7bkYtThA5XbnBEZ5NauQ=, tarball: https://r.npm.sankuai.com/htmlparser2/download/htmlparser2-10.1.0.tgz}
+    resolution: {integrity: sha1-/j8uEsc7bkYtThA5XbnBEZ5NauQ=, tarball: https://registry.npmjs.org/htmlparser2/download/htmlparser2-10.1.0.tgz}
 
   htmlparser2@9.1.0:
-    resolution: {integrity: sha1-zbSY2KdaUfc5th0/cYE2w2m8jCM=, tarball: https://r.npm.sankuai.com/htmlparser2/download/htmlparser2-9.1.0.tgz}
+    resolution: {integrity: sha1-zbSY2KdaUfc5th0/cYE2w2m8jCM=, tarball: https://registry.npmjs.org/htmlparser2/download/htmlparser2-9.1.0.tgz}
 
   http-errors@2.0.1:
-    resolution: {integrity: sha1-NtL2W8kJyHkAGN02+02T2myq4Gs=, tarball: https://r.npm.sankuai.com/http-errors/download/http-errors-2.0.1.tgz}
+    resolution: {integrity: sha1-NtL2W8kJyHkAGN02+02T2myq4Gs=, tarball: https://registry.npmjs.org/http-errors/download/http-errors-2.0.1.tgz}
     engines: {node: '>= 0.8'}
 
   http-proxy-agent@7.0.2:
-    resolution: {integrity: sha1-mosfJGhmwChQlIZYX2K48sGMJw4=, tarball: https://r.npm.sankuai.com/http-proxy-agent/download/http-proxy-agent-7.0.2.tgz}
+    resolution: {integrity: sha1-mosfJGhmwChQlIZYX2K48sGMJw4=, tarball: https://registry.npmjs.org/http-proxy-agent/download/http-proxy-agent-7.0.2.tgz}
     engines: {node: '>= 14'}
 
   https-proxy-agent@7.0.6:
-    resolution: {integrity: sha1-2o3+rH2hMLBcK6S1nJts1mYRprk=, tarball: https://r.npm.sankuai.com/https-proxy-agent/download/https-proxy-agent-7.0.6.tgz}
+    resolution: {integrity: sha1-2o3+rH2hMLBcK6S1nJts1mYRprk=, tarball: https://registry.npmjs.org/https-proxy-agent/download/https-proxy-agent-7.0.6.tgz}
     engines: {node: '>= 14'}
 
   iconv-lite@0.6.3:
-    resolution: {integrity: sha1-pS+AvzjaGVLrXGgXkHGYcaGnJQE=, tarball: https://r.npm.sankuai.com/iconv-lite/download/iconv-lite-0.6.3.tgz}
+    resolution: {integrity: sha1-pS+AvzjaGVLrXGgXkHGYcaGnJQE=, tarball: https://registry.npmjs.org/iconv-lite/download/iconv-lite-0.6.3.tgz}
     engines: {node: '>=0.10.0'}
 
   inflight@1.0.6:
-    resolution: {integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=, tarball: https://r.npm.sankuai.com/inflight/download/inflight-1.0.6.tgz}
+    resolution: {integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=, tarball: https://registry.npmjs.org/inflight/download/inflight-1.0.6.tgz}
     deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
-    resolution: {integrity: sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=, tarball: https://r.npm.sankuai.com/inherits/download/inherits-2.0.4.tgz}
+    resolution: {integrity: sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=, tarball: https://registry.npmjs.org/inherits/download/inherits-2.0.4.tgz}
 
   is-binary-path@2.1.0:
-    resolution: {integrity: sha1-6h9/O4DwZCNug0cPhsCcJU+0Wwk=, tarball: https://r.npm.sankuai.com/is-binary-path/download/is-binary-path-2.1.0.tgz}
+    resolution: {integrity: sha1-6h9/O4DwZCNug0cPhsCcJU+0Wwk=, tarball: https://registry.npmjs.org/is-binary-path/download/is-binary-path-2.1.0.tgz}
     engines: {node: '>=8'}
 
   is-core-module@2.16.2:
-    resolution: {integrity: sha1-PgdFCoCA684/vwysSU9NKrMk4II=, tarball: https://r.npm.sankuai.com/is-core-module/download/is-core-module-2.16.2.tgz}
+    resolution: {integrity: sha1-PgdFCoCA684/vwysSU9NKrMk4II=, tarball: https://registry.npmjs.org/is-core-module/download/is-core-module-2.16.2.tgz}
     engines: {node: '>= 0.4'}
 
   is-docker@2.2.1:
-    resolution: {integrity: sha1-M+6r4jz+hvFL3kQIoCwM+4U6zao=, tarball: https://r.npm.sankuai.com/is-docker/download/is-docker-2.2.1.tgz}
+    resolution: {integrity: sha1-M+6r4jz+hvFL3kQIoCwM+4U6zao=, tarball: https://registry.npmjs.org/is-docker/download/is-docker-2.2.1.tgz}
     engines: {node: '>=8'}
     hasBin: true
 
   is-extglob@2.1.1:
-    resolution: {integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=, tarball: https://r.npm.sankuai.com/is-extglob/download/is-extglob-2.1.1.tgz}
+    resolution: {integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=, tarball: https://registry.npmjs.org/is-extglob/download/is-extglob-2.1.1.tgz}
     engines: {node: '>=0.10.0'}
 
   is-glob@4.0.3:
-    resolution: {integrity: sha1-ZPYeQsu7LuwgcanawLKLoeZdUIQ=, tarball: https://r.npm.sankuai.com/is-glob/download/is-glob-4.0.3.tgz}
+    resolution: {integrity: sha1-ZPYeQsu7LuwgcanawLKLoeZdUIQ=, tarball: https://registry.npmjs.org/is-glob/download/is-glob-4.0.3.tgz}
     engines: {node: '>=0.10.0'}
 
   is-number@7.0.0:
-    resolution: {integrity: sha1-dTU0W4lnNNX4DE0GxQlVUnoU8Ss=, tarball: https://r.npm.sankuai.com/is-number/download/is-number-7.0.0.tgz}
+    resolution: {integrity: sha1-dTU0W4lnNNX4DE0GxQlVUnoU8Ss=, tarball: https://registry.npmjs.org/is-number/download/is-number-7.0.0.tgz}
     engines: {node: '>=0.12.0'}
 
   is-plain-object@5.0.0:
-    resolution: {integrity: sha1-RCf1CrNCnpAl6n1S6QQ6nvQVk0Q=, tarball: https://r.npm.sankuai.com/is-plain-object/download/is-plain-object-5.0.0.tgz}
+    resolution: {integrity: sha1-RCf1CrNCnpAl6n1S6QQ6nvQVk0Q=, tarball: https://registry.npmjs.org/is-plain-object/download/is-plain-object-5.0.0.tgz}
     engines: {node: '>=0.10.0'}
 
   is-potential-custom-element-name@1.0.1:
-    resolution: {integrity: sha1-Fx7W8Z46xVQ5Tt94yqBXhKRb67U=, tarball: https://r.npm.sankuai.com/is-potential-custom-element-name/download/is-potential-custom-element-name-1.0.1.tgz}
+    resolution: {integrity: sha1-Fx7W8Z46xVQ5Tt94yqBXhKRb67U=, tarball: https://registry.npmjs.org/is-potential-custom-element-name/download/is-potential-custom-element-name-1.0.1.tgz}
 
   is-wsl@2.2.0:
-    resolution: {integrity: sha1-dKTHbnfKn9P5MvKQwX6jJs0VcnE=, tarball: https://r.npm.sankuai.com/is-wsl/download/is-wsl-2.2.0.tgz}
+    resolution: {integrity: sha1-dKTHbnfKn9P5MvKQwX6jJs0VcnE=, tarball: https://registry.npmjs.org/is-wsl/download/is-wsl-2.2.0.tgz}
     engines: {node: '>=8'}
 
   isexe@2.0.0:
-    resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=, tarball: https://r.npm.sankuai.com/isexe/download/isexe-2.0.0.tgz}
+    resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=, tarball: https://registry.npmjs.org/isexe/download/isexe-2.0.0.tgz}
 
   jake@10.9.4:
-    resolution: {integrity: sha1-1ibaEIxj1c+wCrXCX63H4AhK+OY=, tarball: https://r.npm.sankuai.com/jake/download/jake-10.9.4.tgz}
+    resolution: {integrity: sha1-1ibaEIxj1c+wCrXCX63H4AhK+OY=, tarball: https://registry.npmjs.org/jake/download/jake-10.9.4.tgz}
     engines: {node: '>=10'}
     hasBin: true
 
   js-yaml-js-types@1.0.1:
-    resolution: {integrity: sha1-+lcTW5nWezYScYQmry2bMU5caAg=, tarball: https://r.npm.sankuai.com/js-yaml-js-types/download/js-yaml-js-types-1.0.1.tgz}
+    resolution: {integrity: sha1-+lcTW5nWezYScYQmry2bMU5caAg=, tarball: https://registry.npmjs.org/js-yaml-js-types/download/js-yaml-js-types-1.0.1.tgz}
     peerDependencies:
       js-yaml: 4.x
 
   js-yaml@4.2.0:
-    resolution: {integrity: sha1-K9noVoLdkb1GmvuAnYFgQ7PUlSQ=, tarball: https://r.npm.sankuai.com/js-yaml/download/js-yaml-4.2.0.tgz}
+    resolution: {integrity: sha1-K9noVoLdkb1GmvuAnYFgQ7PUlSQ=, tarball: https://registry.npmjs.org/js-yaml/download/js-yaml-4.2.0.tgz}
     hasBin: true
 
   jsdom@25.0.1:
-    resolution: {integrity: sha1-U27GhcKI/IpXc6Zfgti0S63Mc+8=, tarball: https://r.npm.sankuai.com/jsdom/download/jsdom-25.0.1.tgz}
+    resolution: {integrity: sha1-U27GhcKI/IpXc6Zfgti0S63Mc+8=, tarball: https://registry.npmjs.org/jsdom/download/jsdom-25.0.1.tgz}
     engines: {node: '>=18'}
     peerDependencies:
       canvas: ^2.11.2
@@ -561,110 +561,110 @@ packages:
         optional: true
 
   jsonparse@1.3.1:
-    resolution: {integrity: sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=, tarball: https://r.npm.sankuai.com/jsonparse/download/jsonparse-1.3.1.tgz}
+    resolution: {integrity: sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=, tarball: https://registry.npmjs.org/jsonparse/download/jsonparse-1.3.1.tgz}
     engines: {'0': node >= 0.2.0}
 
   lower-case@2.0.2:
-    resolution: {integrity: sha1-b6I3xj29xKgsoP2ILkci3F5jTig=, tarball: https://r.npm.sankuai.com/lower-case/download/lower-case-2.0.2.tgz}
+    resolution: {integrity: sha1-b6I3xj29xKgsoP2ILkci3F5jTig=, tarball: https://registry.npmjs.org/lower-case/download/lower-case-2.0.2.tgz}
 
   lru-cache@10.4.3:
-    resolution: {integrity: sha1-QQ/IoXtw5ZgBPfJXwkRrfzOD8Rk=, tarball: https://r.npm.sankuai.com/lru-cache/download/lru-cache-10.4.3.tgz}
+    resolution: {integrity: sha1-QQ/IoXtw5ZgBPfJXwkRrfzOD8Rk=, tarball: https://registry.npmjs.org/lru-cache/download/lru-cache-10.4.3.tgz}
 
   marked@15.0.12:
-    resolution: {integrity: sha1-MHIsc0bhLQotAgermwxPAQLYbE4=, tarball: https://r.npm.sankuai.com/marked/download/marked-15.0.12.tgz}
+    resolution: {integrity: sha1-MHIsc0bhLQotAgermwxPAQLYbE4=, tarball: https://registry.npmjs.org/marked/download/marked-15.0.12.tgz}
     engines: {node: '>= 18'}
     hasBin: true
 
   math-intrinsics@1.1.0:
-    resolution: {integrity: sha1-oN10voHiqlwvJ+Zc4oNgXuTit/k=, tarball: https://r.npm.sankuai.com/math-intrinsics/download/math-intrinsics-1.1.0.tgz}
+    resolution: {integrity: sha1-oN10voHiqlwvJ+Zc4oNgXuTit/k=, tarball: https://registry.npmjs.org/math-intrinsics/download/math-intrinsics-1.1.0.tgz}
     engines: {node: '>= 0.4'}
 
   micro-memoize@4.2.0:
-    resolution: {integrity: sha1-diZsQpENpL1uYsQAwbYgT8n+a3g=, tarball: https://r.npm.sankuai.com/micro-memoize/download/micro-memoize-4.2.0.tgz}
+    resolution: {integrity: sha1-diZsQpENpL1uYsQAwbYgT8n+a3g=, tarball: https://registry.npmjs.org/micro-memoize/download/micro-memoize-4.2.0.tgz}
 
   micromatch@4.0.8:
-    resolution: {integrity: sha1-1m+hjzpHB2eJMgubGvMr2G2fogI=, tarball: https://r.npm.sankuai.com/micromatch/download/micromatch-4.0.8.tgz}
+    resolution: {integrity: sha1-1m+hjzpHB2eJMgubGvMr2G2fogI=, tarball: https://registry.npmjs.org/micromatch/download/micromatch-4.0.8.tgz}
     engines: {node: '>=8.6'}
 
   mime-db@1.52.0:
-    resolution: {integrity: sha1-u6vNwChZ9JhzAchW4zh85exDv3A=, tarball: https://r.npm.sankuai.com/mime-db/download/mime-db-1.52.0.tgz}
+    resolution: {integrity: sha1-u6vNwChZ9JhzAchW4zh85exDv3A=, tarball: https://registry.npmjs.org/mime-db/download/mime-db-1.52.0.tgz}
     engines: {node: '>= 0.6'}
 
   mime-db@1.54.0:
-    resolution: {integrity: sha1-zds+5PnGRTDf9kAjZmHULLajFPU=, tarball: https://r.npm.sankuai.com/mime-db/download/mime-db-1.54.0.tgz}
+    resolution: {integrity: sha1-zds+5PnGRTDf9kAjZmHULLajFPU=, tarball: https://registry.npmjs.org/mime-db/download/mime-db-1.54.0.tgz}
     engines: {node: '>= 0.6'}
 
   mime-types@2.1.35:
-    resolution: {integrity: sha1-OBqHG2KnNEUGYK497uRIE/cNlZo=, tarball: https://r.npm.sankuai.com/mime-types/download/mime-types-2.1.35.tgz}
+    resolution: {integrity: sha1-OBqHG2KnNEUGYK497uRIE/cNlZo=, tarball: https://registry.npmjs.org/mime-types/download/mime-types-2.1.35.tgz}
     engines: {node: '>= 0.6'}
 
   mime@1.6.0:
-    resolution: {integrity: sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=, tarball: https://r.npm.sankuai.com/mime/download/mime-1.6.0.tgz}
+    resolution: {integrity: sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=, tarball: https://registry.npmjs.org/mime/download/mime-1.6.0.tgz}
     engines: {node: '>=4'}
     hasBin: true
 
   mime@3.0.0:
-    resolution: {integrity: sha1-s3RVDco6DBhEOwyVCmpY8ZMc96c=, tarball: https://r.npm.sankuai.com/mime/download/mime-3.0.0.tgz}
+    resolution: {integrity: sha1-s3RVDco6DBhEOwyVCmpY8ZMc96c=, tarball: https://registry.npmjs.org/mime/download/mime-3.0.0.tgz}
     engines: {node: '>=10.0.0'}
     hasBin: true
 
   min-indent@1.0.1:
-    resolution: {integrity: sha1-pj9oFnOzBXH76LwlaGrnRu76mGk=, tarball: https://r.npm.sankuai.com/min-indent/download/min-indent-1.0.1.tgz}
+    resolution: {integrity: sha1-pj9oFnOzBXH76LwlaGrnRu76mGk=, tarball: https://registry.npmjs.org/min-indent/download/min-indent-1.0.1.tgz}
     engines: {node: '>=4'}
 
   minimatch@3.1.5:
-    resolution: {integrity: sha1-WAyI+NVEXyvWqo88re+g3nn71p4=, tarball: https://r.npm.sankuai.com/minimatch/download/minimatch-3.1.5.tgz}
+    resolution: {integrity: sha1-WAyI+NVEXyvWqo88re+g3nn71p4=, tarball: https://registry.npmjs.org/minimatch/download/minimatch-3.1.5.tgz}
 
   minimatch@5.1.9:
-    resolution: {integrity: sha1-EpPvFdsAmLOUVA6Pn3RPn9qN7ks=, tarball: https://r.npm.sankuai.com/minimatch/download/minimatch-5.1.9.tgz}
+    resolution: {integrity: sha1-EpPvFdsAmLOUVA6Pn3RPn9qN7ks=, tarball: https://registry.npmjs.org/minimatch/download/minimatch-5.1.9.tgz}
     engines: {node: '>=10'}
 
   minimist@1.2.8:
-    resolution: {integrity: sha1-waRk52kzAuCCoHXO4MBXdBrEdyw=, tarball: https://r.npm.sankuai.com/minimist/download/minimist-1.2.8.tgz}
+    resolution: {integrity: sha1-waRk52kzAuCCoHXO4MBXdBrEdyw=, tarball: https://registry.npmjs.org/minimist/download/minimist-1.2.8.tgz}
 
   moize@6.1.7:
-    resolution: {integrity: sha1-pny7LPkWqdJdAQOxQ9MxCzvbpog=, tarball: https://r.npm.sankuai.com/moize/download/moize-6.1.7.tgz}
+    resolution: {integrity: sha1-pny7LPkWqdJdAQOxQ9MxCzvbpog=, tarball: https://registry.npmjs.org/moize/download/moize-6.1.7.tgz}
     deprecated: This library has been deprecated in favor of micro-memoize, which as-of version 5 incorporates most of the functionality that this library offers at nearly half the size and better speed.
 
   moment-timezone@0.5.48:
-    resolution: {integrity: sha1-ERcnuydHNKUYrhVLXKWJKD8FiWc=, tarball: https://r.npm.sankuai.com/moment-timezone/download/moment-timezone-0.5.48.tgz}
+    resolution: {integrity: sha1-ERcnuydHNKUYrhVLXKWJKD8FiWc=, tarball: https://registry.npmjs.org/moment-timezone/download/moment-timezone-0.5.48.tgz}
 
   moment@2.30.1:
-    resolution: {integrity: sha1-+MkcB7enhuMMWZJt9TC06slpdK4=, tarball: https://r.npm.sankuai.com/moment/download/moment-2.30.1.tgz}
+    resolution: {integrity: sha1-+MkcB7enhuMMWZJt9TC06slpdK4=, tarball: https://registry.npmjs.org/moment/download/moment-2.30.1.tgz}
 
   morgan@1.11.0:
-    resolution: {integrity: sha1-mEZLhTiALxTp5TdOviOsNkzWF+g=, tarball: https://r.npm.sankuai.com/morgan/download/morgan-1.11.0.tgz}
+    resolution: {integrity: sha1-mEZLhTiALxTp5TdOviOsNkzWF+g=, tarball: https://registry.npmjs.org/morgan/download/morgan-1.11.0.tgz}
     engines: {node: '>= 0.8.0'}
 
   ms@2.0.0:
-    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=, tarball: https://r.npm.sankuai.com/ms/download/ms-2.0.0.tgz}
+    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=, tarball: https://registry.npmjs.org/ms/download/ms-2.0.0.tgz}
 
   ms@2.1.3:
-    resolution: {integrity: sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=, tarball: https://r.npm.sankuai.com/ms/download/ms-2.1.3.tgz}
+    resolution: {integrity: sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=, tarball: https://registry.npmjs.org/ms/download/ms-2.1.3.tgz}
 
   nanoid@3.3.12:
-    resolution: {integrity: sha1-qz2RLiF6bQpRTwCnKhZUOiiYLAU=, tarball: https://r.npm.sankuai.com/nanoid/download/nanoid-3.3.12.tgz}
+    resolution: {integrity: sha1-qz2RLiF6bQpRTwCnKhZUOiiYLAU=, tarball: https://registry.npmjs.org/nanoid/download/nanoid-3.3.12.tgz}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
   negotiator@0.6.4:
-    resolution: {integrity: sha1-d3lI4kUmUcVwtxLdAcI+JicT//c=, tarball: https://r.npm.sankuai.com/negotiator/download/negotiator-0.6.4.tgz}
+    resolution: {integrity: sha1-d3lI4kUmUcVwtxLdAcI+JicT//c=, tarball: https://registry.npmjs.org/negotiator/download/negotiator-0.6.4.tgz}
     engines: {node: '>= 0.6'}
 
   nib@1.2.0:
-    resolution: {integrity: sha1-z2UKl1MH7aqGg0cEMPgroTK/n3s=, tarball: https://r.npm.sankuai.com/nib/download/nib-1.2.0.tgz}
+    resolution: {integrity: sha1-z2UKl1MH7aqGg0cEMPgroTK/n3s=, tarball: https://registry.npmjs.org/nib/download/nib-1.2.0.tgz}
     peerDependencies:
       stylus: '*'
 
   no-case@3.0.4:
-    resolution: {integrity: sha1-02H9XJgA9VhVGoNp/A3NRmK2Ek0=, tarball: https://r.npm.sankuai.com/no-case/download/no-case-3.0.4.tgz}
+    resolution: {integrity: sha1-02H9XJgA9VhVGoNp/A3NRmK2Ek0=, tarball: https://registry.npmjs.org/no-case/download/no-case-3.0.4.tgz}
 
   normalize-path@3.0.0:
-    resolution: {integrity: sha1-Dc1p/yOhybEf0JeDFmRKA4ghamU=, tarball: https://r.npm.sankuai.com/normalize-path/download/normalize-path-3.0.0.tgz}
+    resolution: {integrity: sha1-Dc1p/yOhybEf0JeDFmRKA4ghamU=, tarball: https://registry.npmjs.org/normalize-path/download/normalize-path-3.0.0.tgz}
     engines: {node: '>=0.10.0'}
 
   nunjucks@3.2.4:
-    resolution: {integrity: sha1-8IeO71KM57CqNdZ8xomGNf10ZJ4=, tarball: https://r.npm.sankuai.com/nunjucks/download/nunjucks-3.2.4.tgz}
+    resolution: {integrity: sha1-8IeO71KM57CqNdZ8xomGNf10ZJ4=, tarball: https://registry.npmjs.org/nunjucks/download/nunjucks-3.2.4.tgz}
     engines: {node: '>= 6.9.0'}
     hasBin: true
     peerDependencies:
@@ -674,255 +674,255 @@ packages:
         optional: true
 
   nwsapi@2.2.23:
-    resolution: {integrity: sha1-WXEsOojm3iuwtszBBwOXJnAZz2w=, tarball: https://r.npm.sankuai.com/nwsapi/download/nwsapi-2.2.23.tgz}
+    resolution: {integrity: sha1-WXEsOojm3iuwtszBBwOXJnAZz2w=, tarball: https://registry.npmjs.org/nwsapi/download/nwsapi-2.2.23.tgz}
 
   on-finished@2.3.0:
-    resolution: {integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=, tarball: https://r.npm.sankuai.com/on-finished/download/on-finished-2.3.0.tgz}
+    resolution: {integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=, tarball: https://registry.npmjs.org/on-finished/download/on-finished-2.3.0.tgz}
     engines: {node: '>= 0.8'}
 
   on-finished@2.4.1:
-    resolution: {integrity: sha1-WMjEQRblSEWtV/FKsQsDUzGErD8=, tarball: https://r.npm.sankuai.com/on-finished/download/on-finished-2.4.1.tgz}
+    resolution: {integrity: sha1-WMjEQRblSEWtV/FKsQsDUzGErD8=, tarball: https://registry.npmjs.org/on-finished/download/on-finished-2.4.1.tgz}
     engines: {node: '>= 0.8'}
 
   on-headers@1.1.0:
-    resolution: {integrity: sha1-WdpPkcRfX5icbkvO3Fo7Cu1w/2U=, tarball: https://r.npm.sankuai.com/on-headers/download/on-headers-1.1.0.tgz}
+    resolution: {integrity: sha1-WdpPkcRfX5icbkvO3Fo7Cu1w/2U=, tarball: https://registry.npmjs.org/on-headers/download/on-headers-1.1.0.tgz}
     engines: {node: '>= 0.8'}
 
   once@1.4.0:
-    resolution: {integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=, tarball: https://r.npm.sankuai.com/once/download/once-1.4.0.tgz}
+    resolution: {integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=, tarball: https://registry.npmjs.org/once/download/once-1.4.0.tgz}
 
   open@8.4.2:
-    resolution: {integrity: sha1-W1/+Ko95Pc0qrXPlUMuHtZywhPk=, tarball: https://r.npm.sankuai.com/open/download/open-8.4.2.tgz}
+    resolution: {integrity: sha1-W1/+Ko95Pc0qrXPlUMuHtZywhPk=, tarball: https://registry.npmjs.org/open/download/open-8.4.2.tgz}
     engines: {node: '>=12'}
 
   parse5@7.3.0:
-    resolution: {integrity: sha1-1+Ik+nI5nHoXUJn0X8KtAksF7AU=, tarball: https://r.npm.sankuai.com/parse5/download/parse5-7.3.0.tgz}
+    resolution: {integrity: sha1-1+Ik+nI5nHoXUJn0X8KtAksF7AU=, tarball: https://registry.npmjs.org/parse5/download/parse5-7.3.0.tgz}
 
   parseurl@1.3.3:
-    resolution: {integrity: sha1-naGee+6NEt/wUT7Vt2lXeTvC6NQ=, tarball: https://r.npm.sankuai.com/parseurl/download/parseurl-1.3.3.tgz}
+    resolution: {integrity: sha1-naGee+6NEt/wUT7Vt2lXeTvC6NQ=, tarball: https://registry.npmjs.org/parseurl/download/parseurl-1.3.3.tgz}
     engines: {node: '>= 0.8'}
 
   pascal-case@3.1.2:
-    resolution: {integrity: sha1-tI4O8rmOIF58Ha50fQsVCCN2YOs=, tarball: https://r.npm.sankuai.com/pascal-case/download/pascal-case-3.1.2.tgz}
+    resolution: {integrity: sha1-tI4O8rmOIF58Ha50fQsVCCN2YOs=, tarball: https://registry.npmjs.org/pascal-case/download/pascal-case-3.1.2.tgz}
 
   path-is-absolute@1.0.1:
-    resolution: {integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=, tarball: https://r.npm.sankuai.com/path-is-absolute/download/path-is-absolute-1.0.1.tgz}
+    resolution: {integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=, tarball: https://registry.npmjs.org/path-is-absolute/download/path-is-absolute-1.0.1.tgz}
     engines: {node: '>=0.10.0'}
 
   path-key@3.1.1:
-    resolution: {integrity: sha1-WB9q3mWMu6ZaDTOA3ndTKVBU83U=, tarball: https://r.npm.sankuai.com/path-key/download/path-key-3.1.1.tgz}
+    resolution: {integrity: sha1-WB9q3mWMu6ZaDTOA3ndTKVBU83U=, tarball: https://registry.npmjs.org/path-key/download/path-key-3.1.1.tgz}
     engines: {node: '>=8'}
 
   path-parse@1.0.7:
-    resolution: {integrity: sha1-+8EUtgykKzDZ2vWFjkvWi77bZzU=, tarball: https://r.npm.sankuai.com/path-parse/download/path-parse-1.0.7.tgz}
+    resolution: {integrity: sha1-+8EUtgykKzDZ2vWFjkvWi77bZzU=, tarball: https://registry.npmjs.org/path-parse/download/path-parse-1.0.7.tgz}
 
   picocolors@1.1.1:
-    resolution: {integrity: sha1-PTIa8+q5ObCDyPkpodEs2oHCa2s=, tarball: https://r.npm.sankuai.com/picocolors/download/picocolors-1.1.1.tgz}
+    resolution: {integrity: sha1-PTIa8+q5ObCDyPkpodEs2oHCa2s=, tarball: https://registry.npmjs.org/picocolors/download/picocolors-1.1.1.tgz}
 
   picomatch@2.3.2:
-    resolution: {integrity: sha1-WpQpFeJrNy3A8OZ1MUmhbmscVgE=, tarball: https://r.npm.sankuai.com/picomatch/download/picomatch-2.3.2.tgz}
+    resolution: {integrity: sha1-WpQpFeJrNy3A8OZ1MUmhbmscVgE=, tarball: https://registry.npmjs.org/picomatch/download/picomatch-2.3.2.tgz}
     engines: {node: '>=8.6'}
 
   pretty-hrtime@1.0.3:
-    resolution: {integrity: sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=, tarball: https://r.npm.sankuai.com/pretty-hrtime/download/pretty-hrtime-1.0.3.tgz}
+    resolution: {integrity: sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=, tarball: https://registry.npmjs.org/pretty-hrtime/download/pretty-hrtime-1.0.3.tgz}
     engines: {node: '>= 0.8'}
 
   prismjs@1.30.0:
-    resolution: {integrity: sha1-2XCZadnU4WQD9vNIxjVTsZ8Jdak=, tarball: https://r.npm.sankuai.com/prismjs/download/prismjs-1.30.0.tgz}
+    resolution: {integrity: sha1-2XCZadnU4WQD9vNIxjVTsZ8Jdak=, tarball: https://registry.npmjs.org/prismjs/download/prismjs-1.30.0.tgz}
     engines: {node: '>=6'}
 
   punycode@2.3.1:
-    resolution: {integrity: sha1-AnQi4vrsCyXhVJw+G9gwm5EztuU=, tarball: https://r.npm.sankuai.com/punycode/download/punycode-2.3.1.tgz}
+    resolution: {integrity: sha1-AnQi4vrsCyXhVJw+G9gwm5EztuU=, tarball: https://registry.npmjs.org/punycode/download/punycode-2.3.1.tgz}
     engines: {node: '>=6'}
 
   range-parser@1.2.1:
-    resolution: {integrity: sha1-PPNwI9GZ4cJNGlW4SADC8+ZGgDE=, tarball: https://r.npm.sankuai.com/range-parser/download/range-parser-1.2.1.tgz}
+    resolution: {integrity: sha1-PPNwI9GZ4cJNGlW4SADC8+ZGgDE=, tarball: https://registry.npmjs.org/range-parser/download/range-parser-1.2.1.tgz}
     engines: {node: '>= 0.6'}
 
   readable-stream@3.6.2:
-    resolution: {integrity: sha1-VqmzbqllwAxak+8x6xEaDxEFaWc=, tarball: https://r.npm.sankuai.com/readable-stream/download/readable-stream-3.6.2.tgz}
+    resolution: {integrity: sha1-VqmzbqllwAxak+8x6xEaDxEFaWc=, tarball: https://registry.npmjs.org/readable-stream/download/readable-stream-3.6.2.tgz}
     engines: {node: '>= 6'}
 
   readdirp@3.6.0:
-    resolution: {integrity: sha1-dKNwvYVxFuJFspzJc0DNQxoCpsc=, tarball: https://r.npm.sankuai.com/readdirp/download/readdirp-3.6.0.tgz}
+    resolution: {integrity: sha1-dKNwvYVxFuJFspzJc0DNQxoCpsc=, tarball: https://registry.npmjs.org/readdirp/download/readdirp-3.6.0.tgz}
     engines: {node: '>=8.10.0'}
 
   readdirp@4.1.2:
-    resolution: {integrity: sha1-64WAFDX78qfuWPGeCSGwaPxplI0=, tarball: https://r.npm.sankuai.com/readdirp/download/readdirp-4.1.2.tgz}
+    resolution: {integrity: sha1-64WAFDX78qfuWPGeCSGwaPxplI0=, tarball: https://registry.npmjs.org/readdirp/download/readdirp-4.1.2.tgz}
     engines: {node: '>= 14.18.0'}
 
   resolve@1.22.12:
-    resolution: {integrity: sha1-9bKmgIl8acI4oTzRaxVnH4tzVJ8=, tarball: https://r.npm.sankuai.com/resolve/download/resolve-1.22.12.tgz}
+    resolution: {integrity: sha1-9bKmgIl8acI4oTzRaxVnH4tzVJ8=, tarball: https://registry.npmjs.org/resolve/download/resolve-1.22.12.tgz}
     engines: {node: '>= 0.4'}
     hasBin: true
 
   rfdc@1.4.1:
-    resolution: {integrity: sha1-d492xPtzHZNBTo+SX77PZMzn9so=, tarball: https://r.npm.sankuai.com/rfdc/download/rfdc-1.4.1.tgz}
+    resolution: {integrity: sha1-d492xPtzHZNBTo+SX77PZMzn9so=, tarball: https://registry.npmjs.org/rfdc/download/rfdc-1.4.1.tgz}
 
   rrweb-cssom@0.7.1:
-    resolution: {integrity: sha1-xzRRpIS4bdfPseCyiY30twMYPks=, tarball: https://r.npm.sankuai.com/rrweb-cssom/download/rrweb-cssom-0.7.1.tgz}
+    resolution: {integrity: sha1-xzRRpIS4bdfPseCyiY30twMYPks=, tarball: https://registry.npmjs.org/rrweb-cssom/download/rrweb-cssom-0.7.1.tgz}
 
   rrweb-cssom@0.8.0:
-    resolution: {integrity: sha1-MCHRtDUvvzthSq7tC8DVc5q+C8I=, tarball: https://r.npm.sankuai.com/rrweb-cssom/download/rrweb-cssom-0.8.0.tgz}
+    resolution: {integrity: sha1-MCHRtDUvvzthSq7tC8DVc5q+C8I=, tarball: https://registry.npmjs.org/rrweb-cssom/download/rrweb-cssom-0.8.0.tgz}
 
   safe-buffer@5.1.2:
-    resolution: {integrity: sha1-mR7GnSluAxN0fVm9/St0XDX4go0=, tarball: https://r.npm.sankuai.com/safe-buffer/download/safe-buffer-5.1.2.tgz}
+    resolution: {integrity: sha1-mR7GnSluAxN0fVm9/St0XDX4go0=, tarball: https://registry.npmjs.org/safe-buffer/download/safe-buffer-5.1.2.tgz}
 
   safe-buffer@5.2.1:
-    resolution: {integrity: sha1-Hq+fqb2x/dTsdfWPnNtOa3gn7sY=, tarball: https://r.npm.sankuai.com/safe-buffer/download/safe-buffer-5.2.1.tgz}
+    resolution: {integrity: sha1-Hq+fqb2x/dTsdfWPnNtOa3gn7sY=, tarball: https://registry.npmjs.org/safe-buffer/download/safe-buffer-5.2.1.tgz}
 
   safer-buffer@2.1.2:
-    resolution: {integrity: sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=, tarball: https://r.npm.sankuai.com/safer-buffer/download/safer-buffer-2.1.2.tgz}
+    resolution: {integrity: sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=, tarball: https://registry.npmjs.org/safer-buffer/download/safer-buffer-2.1.2.tgz}
 
   sax@1.3.0:
-    resolution: {integrity: sha1-pdvnfbO+BcnR7neF29PqneUVk9A=, tarball: https://r.npm.sankuai.com/sax/download/sax-1.3.0.tgz}
+    resolution: {integrity: sha1-pdvnfbO+BcnR7neF29PqneUVk9A=, tarball: https://registry.npmjs.org/sax/download/sax-1.3.0.tgz}
 
   saxes@6.0.0:
-    resolution: {integrity: sha1-/ltKR2jfTxSiAbG6amXB89mYjMU=, tarball: https://r.npm.sankuai.com/saxes/download/saxes-6.0.0.tgz}
+    resolution: {integrity: sha1-/ltKR2jfTxSiAbG6amXB89mYjMU=, tarball: https://registry.npmjs.org/saxes/download/saxes-6.0.0.tgz}
     engines: {node: '>=v12.22.7'}
 
   send@0.19.2:
-    resolution: {integrity: sha1-WbwNobTqetQnNv1kKxxClOEU/yk=, tarball: https://r.npm.sankuai.com/send/download/send-0.19.2.tgz}
+    resolution: {integrity: sha1-WbwNobTqetQnNv1kKxxClOEU/yk=, tarball: https://registry.npmjs.org/send/download/send-0.19.2.tgz}
     engines: {node: '>= 0.8.0'}
 
   serve-static@1.16.3:
-    resolution: {integrity: sha1-qXt02VV3hYPzhipPC4QetNXXjPk=, tarball: https://r.npm.sankuai.com/serve-static/download/serve-static-1.16.3.tgz}
+    resolution: {integrity: sha1-qXt02VV3hYPzhipPC4QetNXXjPk=, tarball: https://registry.npmjs.org/serve-static/download/serve-static-1.16.3.tgz}
     engines: {node: '>= 0.8.0'}
 
   setprototypeof@1.2.0:
-    resolution: {integrity: sha1-ZsmiSnP5/CjL5msJ/tPTPcrxtCQ=, tarball: https://r.npm.sankuai.com/setprototypeof/download/setprototypeof-1.2.0.tgz}
+    resolution: {integrity: sha1-ZsmiSnP5/CjL5msJ/tPTPcrxtCQ=, tarball: https://registry.npmjs.org/setprototypeof/download/setprototypeof-1.2.0.tgz}
 
   shebang-command@2.0.0:
-    resolution: {integrity: sha1-zNCvT4g1+9wmW4JGGq8MNmY/NOo=, tarball: https://r.npm.sankuai.com/shebang-command/download/shebang-command-2.0.0.tgz}
+    resolution: {integrity: sha1-zNCvT4g1+9wmW4JGGq8MNmY/NOo=, tarball: https://registry.npmjs.org/shebang-command/download/shebang-command-2.0.0.tgz}
     engines: {node: '>=8'}
 
   shebang-regex@3.0.0:
-    resolution: {integrity: sha1-rhbxZE2HPsrYQ7AwexQzYtTEIXI=, tarball: https://r.npm.sankuai.com/shebang-regex/download/shebang-regex-3.0.0.tgz}
+    resolution: {integrity: sha1-rhbxZE2HPsrYQ7AwexQzYtTEIXI=, tarball: https://registry.npmjs.org/shebang-regex/download/shebang-regex-3.0.0.tgz}
     engines: {node: '>=8'}
 
   source-map@0.7.6:
-    resolution: {integrity: sha1-o2WKuH5bZCnIofO6AIPUxhyj7wI=, tarball: https://r.npm.sankuai.com/source-map/download/source-map-0.7.6.tgz}
+    resolution: {integrity: sha1-o2WKuH5bZCnIofO6AIPUxhyj7wI=, tarball: https://registry.npmjs.org/source-map/download/source-map-0.7.6.tgz}
     engines: {node: '>= 12'}
 
   sprintf-js@1.1.3:
-    resolution: {integrity: sha1-SRS5A6L4toXRf994pw6RfocuREo=, tarball: https://r.npm.sankuai.com/sprintf-js/download/sprintf-js-1.1.3.tgz}
+    resolution: {integrity: sha1-SRS5A6L4toXRf994pw6RfocuREo=, tarball: https://registry.npmjs.org/sprintf-js/download/sprintf-js-1.1.3.tgz}
 
   statuses@1.5.0:
-    resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=, tarball: https://r.npm.sankuai.com/statuses/download/statuses-1.5.0.tgz}
+    resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=, tarball: https://registry.npmjs.org/statuses/download/statuses-1.5.0.tgz}
     engines: {node: '>= 0.6'}
 
   statuses@2.0.2:
-    resolution: {integrity: sha1-j3XuzvdlteHPzcCA2llAntQk44I=, tarball: https://r.npm.sankuai.com/statuses/download/statuses-2.0.2.tgz}
+    resolution: {integrity: sha1-j3XuzvdlteHPzcCA2llAntQk44I=, tarball: https://registry.npmjs.org/statuses/download/statuses-2.0.2.tgz}
     engines: {node: '>= 0.8'}
 
   string_decoder@1.3.0:
-    resolution: {integrity: sha1-QvEUWUpGzxqOMLCoT1bHjD7awh4=, tarball: https://r.npm.sankuai.com/string_decoder/download/string_decoder-1.3.0.tgz}
+    resolution: {integrity: sha1-QvEUWUpGzxqOMLCoT1bHjD7awh4=, tarball: https://registry.npmjs.org/string_decoder/download/string_decoder-1.3.0.tgz}
 
   strip-ansi@7.2.0:
-    resolution: {integrity: sha1-0iomlSKDamJ6+NBLXD/Sx/o+MuM=, tarball: https://r.npm.sankuai.com/strip-ansi/download/strip-ansi-7.2.0.tgz}
+    resolution: {integrity: sha1-0iomlSKDamJ6+NBLXD/Sx/o+MuM=, tarball: https://registry.npmjs.org/strip-ansi/download/strip-ansi-7.2.0.tgz}
     engines: {node: '>=12'}
 
   strip-indent@3.0.0:
-    resolution: {integrity: sha1-wy4c7pQLazQyx3G8LFS8znPNMAE=, tarball: https://r.npm.sankuai.com/strip-indent/download/strip-indent-3.0.0.tgz}
+    resolution: {integrity: sha1-wy4c7pQLazQyx3G8LFS8znPNMAE=, tarball: https://registry.npmjs.org/strip-indent/download/strip-indent-3.0.0.tgz}
     engines: {node: '>=8'}
 
   stylus@0.62.0:
-    resolution: {integrity: sha1-ZIoCDiv5Dth1h6ucLwEnV+l3u10=, tarball: https://r.npm.sankuai.com/stylus/download/stylus-0.62.0.tgz}
+    resolution: {integrity: sha1-ZIoCDiv5Dth1h6ucLwEnV+l3u10=, tarball: https://registry.npmjs.org/stylus/download/stylus-0.62.0.tgz}
     hasBin: true
 
   supports-preserve-symlinks-flag@1.0.0:
-    resolution: {integrity: sha1-btpL00SjyUrqN21MwxvHcxEDngk=, tarball: https://r.npm.sankuai.com/supports-preserve-symlinks-flag/download/supports-preserve-symlinks-flag-1.0.0.tgz}
+    resolution: {integrity: sha1-btpL00SjyUrqN21MwxvHcxEDngk=, tarball: https://registry.npmjs.org/supports-preserve-symlinks-flag/download/supports-preserve-symlinks-flag-1.0.0.tgz}
     engines: {node: '>= 0.4'}
 
   symbol-tree@3.2.4:
-    resolution: {integrity: sha1-QwY30ki6d+B4iDlR+5qg7tfGP6I=, tarball: https://r.npm.sankuai.com/symbol-tree/download/symbol-tree-3.2.4.tgz}
+    resolution: {integrity: sha1-QwY30ki6d+B4iDlR+5qg7tfGP6I=, tarball: https://registry.npmjs.org/symbol-tree/download/symbol-tree-3.2.4.tgz}
 
   through2@4.0.2:
-    resolution: {integrity: sha1-p846wqeosLlmyA58SfBITDsjl2Q=, tarball: https://r.npm.sankuai.com/through2/download/through2-4.0.2.tgz}
+    resolution: {integrity: sha1-p846wqeosLlmyA58SfBITDsjl2Q=, tarball: https://registry.npmjs.org/through2/download/through2-4.0.2.tgz}
 
   tildify@2.0.0:
-    resolution: {integrity: sha1-8gXzZ01nfOaYtwZ6melJzgO0dUo=, tarball: https://r.npm.sankuai.com/tildify/download/tildify-2.0.0.tgz}
+    resolution: {integrity: sha1-8gXzZ01nfOaYtwZ6melJzgO0dUo=, tarball: https://registry.npmjs.org/tildify/download/tildify-2.0.0.tgz}
     engines: {node: '>=8'}
 
   titlecase@1.1.3:
-    resolution: {integrity: sha1-/G1l/1grBgJBB2jvGgm3BQYxPcM=, tarball: https://r.npm.sankuai.com/titlecase/download/titlecase-1.1.3.tgz}
+    resolution: {integrity: sha1-/G1l/1grBgJBB2jvGgm3BQYxPcM=, tarball: https://registry.npmjs.org/titlecase/download/titlecase-1.1.3.tgz}
     hasBin: true
 
   tldts-core@6.1.86:
-    resolution: {integrity: sha1-qT5u2dUFy1TFQs5D/rFMc5EyZdg=, tarball: https://r.npm.sankuai.com/tldts-core/download/tldts-core-6.1.86.tgz}
+    resolution: {integrity: sha1-qT5u2dUFy1TFQs5D/rFMc5EyZdg=, tarball: https://registry.npmjs.org/tldts-core/download/tldts-core-6.1.86.tgz}
 
   tldts@6.1.86:
-    resolution: {integrity: sha1-CH4FVbMblyXuSMp+d+3FYRXNgvc=, tarball: https://r.npm.sankuai.com/tldts/download/tldts-6.1.86.tgz}
+    resolution: {integrity: sha1-CH4FVbMblyXuSMp+d+3FYRXNgvc=, tarball: https://registry.npmjs.org/tldts/download/tldts-6.1.86.tgz}
     hasBin: true
 
   to-regex-range@5.0.1:
-    resolution: {integrity: sha1-FkjESq58jZiKMmAY7XL1tN0DkuQ=, tarball: https://r.npm.sankuai.com/to-regex-range/download/to-regex-range-5.0.1.tgz}
+    resolution: {integrity: sha1-FkjESq58jZiKMmAY7XL1tN0DkuQ=, tarball: https://registry.npmjs.org/to-regex-range/download/to-regex-range-5.0.1.tgz}
     engines: {node: '>=8.0'}
 
   toidentifier@1.0.1:
-    resolution: {integrity: sha1-O+NDIaiKgg7RvYDfqjPkefu43TU=, tarball: https://r.npm.sankuai.com/toidentifier/download/toidentifier-1.0.1.tgz}
+    resolution: {integrity: sha1-O+NDIaiKgg7RvYDfqjPkefu43TU=, tarball: https://registry.npmjs.org/toidentifier/download/toidentifier-1.0.1.tgz}
     engines: {node: '>=0.6'}
 
   tough-cookie@5.1.2:
-    resolution: {integrity: sha1-Ztd0tKHZ4S3HUIlyWvOsdewxvtc=, tarball: https://r.npm.sankuai.com/tough-cookie/download/tough-cookie-5.1.2.tgz}
+    resolution: {integrity: sha1-Ztd0tKHZ4S3HUIlyWvOsdewxvtc=, tarball: https://registry.npmjs.org/tough-cookie/download/tough-cookie-5.1.2.tgz}
     engines: {node: '>=16'}
 
   tr46@5.1.1:
-    resolution: {integrity: sha1-lq6GfN24/bZKScwwWajUKLzyOMo=, tarball: https://r.npm.sankuai.com/tr46/download/tr46-5.1.1.tgz}
+    resolution: {integrity: sha1-lq6GfN24/bZKScwwWajUKLzyOMo=, tarball: https://registry.npmjs.org/tr46/download/tr46-5.1.1.tgz}
     engines: {node: '>=18'}
 
   tslib@2.8.1:
-    resolution: {integrity: sha1-YS7+TtI11Wfoq6Xypfq3AoCt6D8=, tarball: https://r.npm.sankuai.com/tslib/download/tslib-2.8.1.tgz}
+    resolution: {integrity: sha1-YS7+TtI11Wfoq6Xypfq3AoCt6D8=, tarball: https://registry.npmjs.org/tslib/download/tslib-2.8.1.tgz}
 
   unpipe@1.0.0:
-    resolution: {integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=, tarball: https://r.npm.sankuai.com/unpipe/download/unpipe-1.0.0.tgz}
+    resolution: {integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=, tarball: https://registry.npmjs.org/unpipe/download/unpipe-1.0.0.tgz}
     engines: {node: '>= 0.8'}
 
   util-deprecate@1.0.2:
-    resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=, tarball: https://r.npm.sankuai.com/util-deprecate/download/util-deprecate-1.0.2.tgz}
+    resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=, tarball: https://registry.npmjs.org/util-deprecate/download/util-deprecate-1.0.2.tgz}
 
   utils-merge@1.0.1:
-    resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=, tarball: https://r.npm.sankuai.com/utils-merge/download/utils-merge-1.0.1.tgz}
+    resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=, tarball: https://registry.npmjs.org/utils-merge/download/utils-merge-1.0.1.tgz}
     engines: {node: '>= 0.4.0'}
 
   vary@1.1.2:
-    resolution: {integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=, tarball: https://r.npm.sankuai.com/vary/download/vary-1.1.2.tgz}
+    resolution: {integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=, tarball: https://registry.npmjs.org/vary/download/vary-1.1.2.tgz}
     engines: {node: '>= 0.8'}
 
   w3c-xmlserializer@5.0.0:
-    resolution: {integrity: sha1-+SW6JoVRWFlNkHMTzt0UdsWWf2w=, tarball: https://r.npm.sankuai.com/w3c-xmlserializer/download/w3c-xmlserializer-5.0.0.tgz}
+    resolution: {integrity: sha1-+SW6JoVRWFlNkHMTzt0UdsWWf2w=, tarball: https://registry.npmjs.org/w3c-xmlserializer/download/w3c-xmlserializer-5.0.0.tgz}
     engines: {node: '>=18'}
 
   warehouse@6.0.0:
-    resolution: {integrity: sha1-J/WcJMIF13mv5cQr+Wmht3Q647I=, tarball: https://r.npm.sankuai.com/warehouse/download/warehouse-6.0.0.tgz}
+    resolution: {integrity: sha1-J/WcJMIF13mv5cQr+Wmht3Q647I=, tarball: https://registry.npmjs.org/warehouse/download/warehouse-6.0.0.tgz}
     engines: {node: '>=18'}
 
   webidl-conversions@7.0.0:
-    resolution: {integrity: sha1-JWtOGIK+feu/AdBfCqIDl3jqCAo=, tarball: https://r.npm.sankuai.com/webidl-conversions/download/webidl-conversions-7.0.0.tgz}
+    resolution: {integrity: sha1-JWtOGIK+feu/AdBfCqIDl3jqCAo=, tarball: https://registry.npmjs.org/webidl-conversions/download/webidl-conversions-7.0.0.tgz}
     engines: {node: '>=12'}
 
   whatwg-encoding@3.1.1:
-    resolution: {integrity: sha1-0PTvdpkF1CbhaI8+NDgambYLduU=, tarball: https://r.npm.sankuai.com/whatwg-encoding/download/whatwg-encoding-3.1.1.tgz}
+    resolution: {integrity: sha1-0PTvdpkF1CbhaI8+NDgambYLduU=, tarball: https://registry.npmjs.org/whatwg-encoding/download/whatwg-encoding-3.1.1.tgz}
     engines: {node: '>=18'}
 
   whatwg-mimetype@4.0.0:
-    resolution: {integrity: sha1-vBv5SphdxQOI1UqSWKxAXDyi/Ao=, tarball: https://r.npm.sankuai.com/whatwg-mimetype/download/whatwg-mimetype-4.0.0.tgz}
+    resolution: {integrity: sha1-vBv5SphdxQOI1UqSWKxAXDyi/Ao=, tarball: https://registry.npmjs.org/whatwg-mimetype/download/whatwg-mimetype-4.0.0.tgz}
     engines: {node: '>=18'}
 
   whatwg-url@14.2.0:
-    resolution: {integrity: sha1-TuAtXXJRVdrgBPaulcc+fvXZVmM=, tarball: https://r.npm.sankuai.com/whatwg-url/download/whatwg-url-14.2.0.tgz}
+    resolution: {integrity: sha1-TuAtXXJRVdrgBPaulcc+fvXZVmM=, tarball: https://registry.npmjs.org/whatwg-url/download/whatwg-url-14.2.0.tgz}
     engines: {node: '>=18'}
 
   which@2.0.2:
-    resolution: {integrity: sha1-fGqN0KY2oDJ+ELWckobu6T8/UbE=, tarball: https://r.npm.sankuai.com/which/download/which-2.0.2.tgz}
+    resolution: {integrity: sha1-fGqN0KY2oDJ+ELWckobu6T8/UbE=, tarball: https://registry.npmjs.org/which/download/which-2.0.2.tgz}
     engines: {node: '>= 8'}
     hasBin: true
 
   wrappy@1.0.2:
-    resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=, tarball: https://r.npm.sankuai.com/wrappy/download/wrappy-1.0.2.tgz}
+    resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=, tarball: https://registry.npmjs.org/wrappy/download/wrappy-1.0.2.tgz}
 
   ws@8.21.0:
-    resolution: {integrity: sha1-AS5BP8B0KZRRIbDBUxWMQ0MIaVE=, tarball: https://r.npm.sankuai.com/ws/download/ws-8.21.0.tgz}
+    resolution: {integrity: sha1-AS5BP8B0KZRRIbDBUxWMQ0MIaVE=, tarball: https://registry.npmjs.org/ws/download/ws-8.21.0.tgz}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -934,11 +934,11 @@ packages:
         optional: true
 
   xml-name-validator@5.0.0:
-    resolution: {integrity: sha1-gr6blX96/az5YeWYDxvyJ8C/dnM=, tarball: https://r.npm.sankuai.com/xml-name-validator/download/xml-name-validator-5.0.0.tgz}
+    resolution: {integrity: sha1-gr6blX96/az5YeWYDxvyJ8C/dnM=, tarball: https://registry.npmjs.org/xml-name-validator/download/xml-name-validator-5.0.0.tgz}
     engines: {node: '>=18'}
 
   xmlchars@2.2.0:
-    resolution: {integrity: sha1-Bg/hvLf5x2/ioX24apvDq4lCEMs=, tarball: https://r.npm.sankuai.com/xmlchars/download/xmlchars-2.2.0.tgz}
+    resolution: {integrity: sha1-Bg/hvLf5x2/ioX24apvDq4lCEMs=, tarball: https://registry.npmjs.org/xmlchars/download/xmlchars-2.2.0.tgz}
 
 snapshots:
 
