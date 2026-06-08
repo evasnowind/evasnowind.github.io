@@ -1,0 +1,14 @@
+---
+title: "ubuntu忘记密码，忘记root密码的解决方法！【转载】"
+date: "2015-12-09"
+categories: [linux]
+source: "http://prayerlaputa.com/?p=130"
+---
+
+# ubuntu忘记密码，忘记root密码的解决方法！【转载】
+
+转自：http://www.linuxdiyf.com/viewarticle.php?id=179291\
+ubuntu的root默认是禁止使用的，在安装的时候也没要求你设置root的密码，和红帽系统系列这里是不同的。要使用，给root设置密码就行了，sudo passwd root\
+如果只是普通用户密码忘了，用root就可以修改。如果root都忘记了，就进入单用户模式，这里跟红帽系统系列也不同。\
+进入单用户模式:1,开机到grub时，用上下键移到第二行的恢复模式，按e（注意不是回车） 2，把ro single 改成rw single init=/bin/bash 然后按ctrl+x 就可以进入 单用户模式，进去干什么都行了。可以改普通用户密码，也可以改root密码。按ctrl+alt+delete 重启（我试过用命令关机，重启都不行，只能用这个）。\
+这些我都是试过的，也是成功的，你试试吧！我看过一些网上的一些方法，也试过，是不行的！一些是用红帽系统系列的方法，一些是某个步骤不对！
