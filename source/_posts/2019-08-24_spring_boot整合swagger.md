@@ -180,11 +180,11 @@ private String email;
 
 ## 4. 效果
 
-![](images/swagger截图1-300x222_ece54ddd.png)
+![](/images/swagger截图1-300x222_ece54ddd.png)
 
-![](images/swagger截图2-300x258_0d5c6f13.png)
+![](/images/swagger截图2-300x258_0d5c6f13.png)
 
-![](images/swagger截图3-300x177_6c518d0d.png)
+![](/images/swagger截图3-300x177_6c518d0d.png)
 
 ## 5. 如果配置了shiro或是拦截器，注意需要打开相关权限
 
@@ -204,8 +204,8 @@ filterChainDefinitionMap.put("/webjars/springfox-swagger-ui/**", "anon");
 
 ## 6. swagger接口显示地址
 
-- http://ip:端口/swagger-ui.html   Swagger官方UI
-- http://ip:端口//doc.html   第三方Bootstarp皮肤的UI
+- http://ip:端口/swagger-ui.html   Swagger官方UI
+- http://ip:端口//doc.html   第三方Bootstarp皮肤的UI
 
 ## 7.参考文档
 

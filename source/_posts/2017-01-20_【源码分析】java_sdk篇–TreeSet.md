@@ -13,7 +13,7 @@ TreeSet与TreeMap类似，能够创建有序的集合。
 
 ## 基本操作
 
-TreeSet的实现基于TreeMap（TreeMap源码比较复杂，参考这篇文章：[Java提高篇（二七）—–TreeMap](http://blog.csdn.net/chenssy/article/details/26668941) ），内部使用
+TreeSet的实现基于TreeMap（TreeMap源码比较复杂，参考这篇文章：[Java提高篇（二七）—–TreeMap](http://blog.csdn.net/chenssy/article/details/26668941) ），内部使用
 
 ```
 private transient NavigableMap<E,Object> m;

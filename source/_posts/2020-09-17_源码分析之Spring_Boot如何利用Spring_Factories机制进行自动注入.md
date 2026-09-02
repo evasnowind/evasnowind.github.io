@@ -77,7 +77,7 @@ private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoad
 ## 示例
 
 举个例子，spring boot start的实现中，如下所示：\
-![](images/spring-boot-starter-factories-snapshot-3_d3582dd7.jpg)
+![](/images/spring-boot-starter-factories-snapshot-3_d3582dd7.jpg)
 
 spring-boot的spring.factories具体内容如下：
 

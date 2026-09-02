@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=806"
 
 # 现象
 
-以jar包方式部署系统，想读取resource或是template下面的文件时，报 `File Not Found`
+以jar包方式部署系统，想读取resource或是template下面的文件时，报 `File Not Found`
 
 我遇到的情况是，整个项目达成了一个包，在开发环境（windows + idea）读取文件没问题，但在预发布环境（centos, 打成一个jar部署），则报错。\
 使用

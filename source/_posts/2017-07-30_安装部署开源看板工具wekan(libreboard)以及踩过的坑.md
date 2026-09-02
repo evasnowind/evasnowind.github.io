@@ -5,7 +5,7 @@ categories: [java, web, 开源]
 source: "http://prayerlaputa.com/?p=534"
 ---
 
-一直很想使用看板工具来管理工作任务，市面上trello/teambition等有很多有用的工具，方便更新工作状态。然而，由于公司内网没法连外网，只能自己部署一套了。幸好目前这类实现比较多，我选用了wekan，之前叫做libreboard，http://github.com/wekan/wekan  。东西不错，跟trello很类似，但github上的wiki安装说明很滞后，有些地方说的也不是很清楚，我自己部署过程中也踩了几个坑，记录一下。\
+一直很想使用看板工具来管理工作任务，市面上trello/teambition等有很多有用的工具，方便更新工作状态。然而，由于公司内网没法连外网，只能自己部署一套了。幸好目前这类实现比较多，我选用了wekan，之前叫做libreboard，http://github.com/wekan/wekan  。东西不错，跟trello很类似，但github上的wiki安装说明很滞后，有些地方说的也不是很清楚，我自己部署过程中也踩了几个坑，记录一下。\
 首先是安装方式，wekan的wiki写的还是很多的，有各种安装方式，我发帖咨询后感觉目前作者一直主要在维护的是docker版本，其他的版本可能滞后一些，所以建议大家直接使用docker安装吧。
 
 ### **docker安装方式**

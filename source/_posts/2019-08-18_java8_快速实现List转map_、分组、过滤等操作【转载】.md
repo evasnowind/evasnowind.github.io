@@ -165,5 +165,5 @@ partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的�
 
 最后一个是表格，可以参见原帖：<https://blog.csdn.net/lu930124/article/details/77595585>
 
-![](images/常用collectors-300x204_692499fb.png)
+![](/images/常用collectors-300x204_692499fb.png)
 {% endraw %}

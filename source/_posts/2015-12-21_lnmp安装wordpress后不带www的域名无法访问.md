@@ -41,4 +41,4 @@ source: "http://prayerlaputa.com/?p=157"
 
 > server\_name www.prayerlaputa.com prayerlaputa.com;
 
-之后，重启lnmp（lnmp restart），试了试，ok了。不过网上也有很多人并非这么配置的，如下文：[VPS LNMP下带www与不带www的301重定向设置方法](http://ju.outofmemory.cn/entry/53830)  贴出来给大家参考一下
+之后，重启lnmp（lnmp restart），试了试，ok了。不过网上也有很多人并非这么配置的，如下文：[VPS LNMP下带www与不带www的301重定向设置方法](http://ju.outofmemory.cn/entry/53830)  贴出来给大家参考一下

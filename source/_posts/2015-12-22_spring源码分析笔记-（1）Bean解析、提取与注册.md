@@ -35,7 +35,7 @@ InputStream inputStream = resource.getInputStream();
     - doLoadBeanDefinitions
       - Document doc = doLoadDocument(inputSource, resource);//获取Document对象
         - DefaultDocumentLoader.loadDocument(inputResource)
-          - createDocumentBuilderFactory –> createDocumentBuilder –> DocumentBuilder.parse(inputResource) （返回Document对象）
+          - createDocumentBuilderFactory –> createDocumentBuilder –> DocumentBuilder.parse(inputResource) （返回Document对象）
       - registerBeanDefinitions(doc, resource);//解析、注册Bean
         - BeanDefinitionDocumentReader.registerBeanDefinitions
           - DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions

@@ -42,7 +42,7 @@ public void reorder(){
 
 > getItemId是干嘛用的？在调用 invalidateView()时，ListView会刷新显示内容。如果内容的id是有效的，系统会跟据id来确定当前显示哪条内容，也就是firstVisibleChild的位置。id是否有效通过hasStableIds()确定。
 
-我的理解是，在BaseAdapter中，hasStableIds()方法默认返回false，意思是每个item元素的id不稳定，会根据item位置来确定id；如果返回true，表示每个item元素的id是稳定的，即相同的id引用相同的对象。这是因为默认id不稳定，导致我上面写的adapter在进行拖拽操作后，item元素（view对象）位置变了，但其id并没有与我在重排列viewList时一致，导致很古怪的乱序或是重复响应问题。参考[可拖动九宫格的另一种实现](https://github.com/askerov/DynamicGrid) 后，修改adapter实现如下：
+我的理解是，在BaseAdapter中，hasStableIds()方法默认返回false，意思是每个item元素的id不稳定，会根据item位置来确定id；如果返回true，表示每个item元素的id是稳定的，即相同的id引用相同的对象。这是因为默认id不稳定，导致我上面写的adapter在进行拖拽操作后，item元素（view对象）位置变了，但其id并没有与我在重排列viewList时一致，导致很古怪的乱序或是重复响应问题。参考[可拖动九宫格的另一种实现](https://github.com/askerov/DynamicGrid) 后，修改adapter实现如下：
 
 ```
 private HashMap<Object, Integer> mIdMap = new HashMap<Object, Integer>();
@@ -146,7 +146,7 @@ return mIdMap.get(item);
 }
 @Override
 public View getView(int position, View convertView, ViewGroup parent) {
-View view =(View) getItem(position);
+View view =(View) getItem(position);
 return view;
 }
 }

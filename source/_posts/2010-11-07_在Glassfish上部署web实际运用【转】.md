@@ -6,7 +6,7 @@ source: "http://prayerlaputa.com/?p=412"
 ---
 
 转自：http://www.verybc.com/a/hulianwang/2009/1124/9298.html\
- \
+ \
 
 本文介绍了在Glassfish上部署Web应用的操作流程。这个教程中使用的配置是Netbeans5.5.1以及Glassfish V2。
 
@@ -31,15 +31,15 @@ xml 源代码
 
 |  |
 | --- |
-| ﹤property title=”domain.title” value=”domain1″/﹥  域名  ﹤property title=”instance.title” value=”server”/﹥  ﹤property title=”admin.user” value=”admin”/﹥ 编程用户名  ﹤property title=”admin.passexpress” value=”adminadmin”/﹥ 编程密码  ﹤property title=”admin.port” value=”4848″/﹥ 管理平台端口  ﹤property title=”instance.port” value=”8080″/﹥ 举例端口，也那是经过那个端口来访问web实际运用  ﹤property title=”orb.port” value=”3700″/﹥  ﹤property title=”imq.port” value=”7676″/﹥  ﹤property title=”https.port” value=”8181″/﹥ https端口 |
+| ﹤property title=”domain.title” value=”domain1″/﹥  域名  ﹤property title=”instance.title” value=”server”/﹥  ﹤property title=”admin.user” value=”admin”/﹥ 编程用户名  ﹤property title=”admin.passexpress” value=”adminadmin”/﹥ 编程密码  ﹤property title=”admin.port” value=”4848″/﹥ 管理平台端口  ﹤property title=”instance.port” value=”8080″/﹥ 举例端口，也那是经过那个端口来访问web实际运用  ﹤property title=”orb.port” value=”3700″/﹥  ﹤property title=”imq.port” value=”7676″/﹥  ﹤property title=”https.port” value=”8181″/﹥ https端口 |
 
 根据需求改正以上设置，运行：ant -f setup.xml，假如系统没有安装ant，在glassfishlibant下有一个的ant1.6版。安装结束后，进入glassfish/bin下，在控制台运行下面命令启动glassfish：
 
-asadmin start-domain domain1     // domain1是上面设置的domain.title，系统默认domain1
+asadmin start-domain domain1     // domain1是上面设置的domain.title，系统默认domain1
 
 启动结束后，进入测试也许已经正确启动
 
-asadmin stop-domain domain1  //停止服务器\
+asadmin stop-domain domain1  //停止服务器\
 **三，部署web实际运用**
 
 有三种方法，没成绩直接将war或ear放在glassfish/domain/autodeploy列表 下，glassfish启动后会自动部署。第二是经过命令asadmin deploy部署实际运用, 另外 asadmin updeploy 卸载实际运用。经过asadmin deploy –help 和 asadmin undeploy –help 获得更多帮助。

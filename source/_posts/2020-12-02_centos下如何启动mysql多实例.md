@@ -54,29 +54,29 @@ uid=501(mysql) gid=501(mysql) groups=501(mysql)
 ```
 -data
 -- mysql
-    |-- mysql_3307
-        |-- data
-        |-- log
-        `-- tmp
-    `-- mysql_3308
-        |-- data
-        |-- log
-        `-- tmp
-​
+    |-- mysql_3307
+        |-- data
+        |-- log
+        `-- tmp
+    `-- mysql_3308
+        |-- data
+        |-- log
+        `-- tmp
+
 ```
 
 ## 更改目录权限
 
 ```
-chown -R mysql:mysql /data/mysql/  
-chown -R mysql:mysql /usr/local/mysql/  
+chown -R mysql:mysql /data/mysql/  
+chown -R mysql:mysql /usr/local/mysql/  
 ```
 
 ## 添加环境变量
 
 ```
-echo 'export PATH=$PATH:/usr/local/mysql/bin' >>  /etc/profile  
-source /etc/profile  
+echo 'export PATH=$PATH:/usr/local/mysql/bin' >>  /etc/profile  
+source /etc/profile  
 ```
 
 ## 添加配置文件
@@ -93,7 +93,7 @@ source /etc/profile  
 # my_3307.cnf
 # For advice on how to change settings please see
 # http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
-​
+
 [mysqld]
 #
 # Remove leading # and set to the amount of RAM for the most important data
@@ -115,9 +115,9 @@ basedir=/usr/local/mysql-5.7.32
 datadir=/data/mysql/mysql_3307/data
 socket=/data/mysql/mysql_3307/mysql.sock
 server_id=3307
-​
+
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
-​
+
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 log-output=file
@@ -132,13 +132,13 @@ collation-server = utf8_unicode_ci
 init-connect='SET NAMES utf8'
 character-set-server = utf8
 language =/usr/local/mysql-5.7.32/share/english
-​
+
 [client]
 default-character-set=utf8
-​
+
 [mysql]
 default-character-set=utf8
-​
+
 ```
 
 ## 启动mysql

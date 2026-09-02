@@ -11,19 +11,19 @@ source: "http://prayerlaputa.com/?p=619"
 
 npm install -g nodemon
 
-2： 命令行查询插件版本信息
+2： 命令行查询插件版本信息
 
 nodemon –version
 
 3：如果提示‘nodemon’ 不是内部或外部命令解决方法
 
-![](images/20190704162601416_3eae7170.gif)
+![](/images/20190704162601416_3eae7170.gif)
 
 找到nodejs下的nodemon插件，复制此路径！下面要用到。
 
 4：右击–我的电脑–单击属性–高级系统设置–环境变量
 
-![](images/20190704162949426_5941ee20.gif)
+![](/images/20190704162949426_5941ee20.gif)
 
 选中用户变量的path，然后编辑，然后将第三步复制的路径添加到path配置中，保存，保存，保存！
 
@@ -31,7 +31,7 @@ nodemon –version
 
 nodemon –version
 
-![](images/20190704162949426_5941ee20.gif)
+![](/images/20190704162949426_5941ee20.gif)
 
 这样就解决了’xxx’插件不是内部或外部命令也不是可运行的程序或批处理文件的问题。
 

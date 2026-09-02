@@ -31,7 +31,7 @@ source: "http://prayerlaputa.com/?p=915"
 此处偷懒了，直接使用了sysbench默认的脚本创建数据库表，如果需要测试特定的表，需要修改`/usr/share/sysbench`下的脚本，基本只需要修改`oltp_common.lua`脚本即可，这个需要花时间细致的修改，这次就不在这方面多花时间了。本次主要目的是做基准测试、看看Mysql性能。
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write prepare
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write prepare
 ```
 
 ##### 1.2 进行读写测试
@@ -41,7 +41,7 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 执行命令：
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
 ```
 
 参数说明：
@@ -58,17 +58,17 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 ```
 [root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
 sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
-​
+
 Running the test with following options:
 Number of threads: 20
 Report intermediate results every 10 second(s)
 Initializing random number generator from current time
-​
-​
+
+
 Initializing worker threads...
-​
+
 Threads started!
-​
+
 [ 10s ] thds: 20 tps: 115.28 qps: 2327.70 (r/w/o: 1633.92/461.22/232.56) lat (ms,95%): 337.94 err/s: 0.00 reconn/s: 0.00
 [ 20s ] thds: 20 tps: 107.65 qps: 2154.96 (r/w/o: 1508.64/431.01/215.31) lat (ms,95%): 350.33 err/s: 0.00 reconn/s: 0.00
 [ 30s ] thds: 20 tps: 107.57 qps: 2155.23 (r/w/o: 1509.13/430.97/215.13) lat (ms,95%): 337.94 err/s: 0.00 reconn/s: 0.00
@@ -100,30 +100,30 @@ Threads started!
 [ 290s ] thds: 20 tps: 134.52 qps: 2687.68 (r/w/o: 1880.73/537.90/269.05) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00
 [ 300s ] thds: 20 tps: 130.74 qps: 2615.97 (r/w/o: 1830.71/523.77/261.49) lat (ms,95%): 277.21 err/s: 0.00 reconn/s: 0.00
 SQL statistics:
-    queries performed:
-        read:                            527282
-        write:                           150652
-        other:                           75326
-        total:                           753260
-    transactions:                        37663  (125.47 per sec.)
-    queries:                             753260 (2509.43 per sec.)
-    ignored errors:                      0      (0.00 per sec.)
-    reconnects:                          0      (0.00 per sec.)
-​
+    queries performed:
+        read:                            527282
+        write:                           150652
+        other:                           75326
+        total:                           753260
+    transactions:                        37663  (125.47 per sec.)
+    queries:                             753260 (2509.43 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
 General statistics:
-    total time:                          300.1706s
-    total number of events:              37663
-​
+    total time:                          300.1706s
+    total number of events:              37663
+
 Latency (ms):
-         min:                                    7.13
-         avg:                                  159.35
-         max:                                  873.88
-         95th percentile:                      292.60
-         sum:                              6001658.82
-​
+         min:                                    7.13
+         avg:                                  159.35
+         max:                                  873.88
+         95th percentile:                      292.60
+         sum:                              6001658.82
+
 Threads fairness:
-    events (avg/stddev):           1883.1500/14.40
-    execution time (avg/stddev):   300.0829/0.05
+    events (avg/stddev):           1883.1500/14.40
+    execution time (avg/stddev):   300.0829/0.05
 ```
 
 ###### 1.2.2 第二次执行100w次读写
@@ -131,7 +131,7 @@ Threads fairness:
 在第一次执行完成后，再一次执行相同的压测命令：
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
 ```
 
 也就是说，将第一次执行当做预热，然后得到了如下结果：
@@ -139,17 +139,17 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 ```
 [root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
 sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
-​
+
 Running the test with following options:
 Number of threads: 20
 Report intermediate results every 10 second(s)
 Initializing random number generator from current time
-​
-​
+
+
 Initializing worker threads...
-​
+
 Threads started!
-​
+
 [ 10s ] thds: 20 tps: 134.18 qps: 2711.59 (r/w/o: 1901.91/539.32/270.36) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00
 [ 20s ] thds: 20 tps: 137.73 qps: 2743.17 (r/w/o: 1918.90/549.01/275.26) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00
 [ 30s ] thds: 20 tps: 135.00 qps: 2700.12 (r/w/o: 1889.21/540.70/270.20) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00
@@ -181,30 +181,30 @@ Threads started!
 [ 290s ] thds: 20 tps: 137.72 qps: 2747.78 (r/w/o: 1923.26/549.08/275.44) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00
 [ 300s ] thds: 20 tps: 139.27 qps: 2798.45 (r/w/o: 1958.44/561.47/278.54) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00
 SQL statistics:
-    queries performed:
-        read:                            574434
-        write:                           164124
-        other:                           82062
-        total:                           820620
-    transactions:                        41031  (136.74 per sec.)
-    queries:                             820620 (2734.82 per sec.)
-    ignored errors:                      0      (0.00 per sec.)
-    reconnects:                          0      (0.00 per sec.)
-​
+    queries performed:
+        read:                            574434
+        write:                           164124
+        other:                           82062
+        total:                           820620
+    transactions:                        41031  (136.74 per sec.)
+    queries:                             820620 (2734.82 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
 General statistics:
-    total time:                          300.0629s
-    total number of events:              41031
-​
+    total time:                          300.0629s
+    total number of events:              41031
+
 Latency (ms):
-         min:                                    6.62
-         avg:                                  146.24
-         max:                                  709.59
-         95th percentile:                      262.64
-         sum:                              6000331.95
-​
+         min:                                    6.62
+         avg:                                  146.24
+         max:                                  709.59
+         95th percentile:                      262.64
+         sum:                              6000331.95
+
 Threads fairness:
-    events (avg/stddev):           2051.5500/16.35
-    execution time (avg/stddev):   300.0166/0.02
+    events (avg/stddev):           2051.5500/16.35
+    execution time (avg/stddev):   300.0166/0.02
 ```
 
 ###### 1.2.3 第三次执行100w次读写
@@ -212,7 +212,7 @@ Threads fairness:
 还是这条命令，再次执行看下：
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
 ```
 
 最后执行结果如下：
@@ -220,17 +220,17 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 ```
 [root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run
 sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
-​
+
 Running the test with following options:
 Number of threads: 20
 Report intermediate results every 10 second(s)
 Initializing random number generator from current time
-​
-​
+
+
 Initializing worker threads...
-​
+
 Threads started!
-​
+
 [ 10s ] thds: 20 tps: 137.99 qps: 2785.30 (r/w/o: 1953.79/553.54/277.97) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00
 [ 20s ] thds: 20 tps: 139.98 qps: 2796.53 (r/w/o: 1955.64/561.23/279.66) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00
 [ 30s ] thds: 20 tps: 135.89 qps: 2721.84 (r/w/o: 1905.59/544.37/271.88) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00
@@ -262,30 +262,30 @@ Threads started!
 [ 290s ] thds: 20 tps: 142.26 qps: 2838.44 (r/w/o: 1985.40/568.53/284.51) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00
 [ 300s ] thds: 20 tps: 137.89 qps: 2755.07 (r/w/o: 1928.14/551.15/275.78) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00
 SQL statistics:
-    queries performed:
-        read:                            595840
-        write:                           170240
-        other:                           85120
-        total:                           851200
-    transactions:                        42560  (141.79 per sec.)
-    queries:                             851200 (2835.86 per sec.)
-    ignored errors:                      0      (0.00 per sec.)
-    reconnects:                          0      (0.00 per sec.)
-​
+    queries performed:
+        read:                            595840
+        write:                           170240
+        other:                           85120
+        total:                           851200
+    transactions:                        42560  (141.79 per sec.)
+    queries:                             851200 (2835.86 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
 General statistics:
-    total time:                          300.1547s
-    total number of events:              42560
-​
+    total time:                          300.1547s
+    total number of events:              42560
+
 Latency (ms):
-         min:                                    6.18
-         avg:                                  141.02
-         max:                                  687.11
-         95th percentile:                      257.95
-         sum:                              6001887.46
-​
+         min:                                    6.18
+         avg:                                  141.02
+         max:                                  687.11
+         95th percentile:                      257.95
+         sum:                              6001887.46
+
 Threads fairness:
-    events (avg/stddev):           2128.0000/14.78
-    execution time (avg/stddev):   300.0944/0.03
+    events (avg/stddev):           2128.0000/14.78
+    execution time (avg/stddev):   300.0944/0.03
 ```
 
 ##### 1.3 清理数据
@@ -293,7 +293,7 @@ Threads fairness:
 使用如下命令清理数据
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300   --threads=20 --percentile=95 oltp_read_write cleanup
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300   --threads=20 --percentile=95 oltp_read_write cleanup
 ```
 
 #### 2. 测试myisam 100w条记录的读写性能
@@ -303,7 +303,7 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 使用
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write help
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write help
 ```
 
 可以看到oltp\_read\_write脚本所支持的参数，如下所示：
@@ -311,26 +311,26 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 ```
 [root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write help
 sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
-​
+
 oltp_read_write options:
-  --auto_inc[=on|off]           Use AUTO_INCREMENT column as Primary Key (for MySQL), or its alternatives in other DBMS. When disabled, use client-generated IDs [on]
-  --create_secondary[=on|off]   Create a secondary index in addition to the PRIMARY KEY [on]
-  --delete_inserts=N            Number of DELETE/INSERT combinations per transaction [1]
-  --distinct_ranges=N           Number of SELECT DISTINCT queries per transaction [1]
-  --index_updates=N             Number of UPDATE index queries per transaction [1]
-  --mysql_storage_engine=STRING Storage engine, if MySQL is used [innodb]
-  --non_index_updates=N         Number of UPDATE non-index queries per transaction [1]
-  --order_ranges=N              Number of SELECT ORDER BY queries per transaction [1]
-  --pgsql_variant=STRING        Use this PostgreSQL variant when running with the PostgreSQL driver. The only currently supported variant is 'redshift'. When enabled, create_secondary is automatically disabled, and delete_inserts is set to 0
-  --point_selects=N             Number of point SELECT queries per transaction [10]
-  --range_selects[=on|off]      Enable/disable all range SELECT queries [on]
-  --range_size=N                Range size for range SELECT queries [100]
-  --secondary[=on|off]          Use a secondary index in place of the PRIMARY KEY [off]
-  --simple_ranges=N             Number of simple range SELECT queries per transaction [1]
-  --skip_trx[=on|off]           Don't start explicit transactions and execute all queries in the AUTOCOMMIT mode [off]
-  --sum_ranges=N                Number of SELECT SUM() queries per transaction [1]
-  --table_size=N                Number of rows per table [10000]
-  --tables=N                    Number of tables [1]
+  --auto_inc[=on|off]           Use AUTO_INCREMENT column as Primary Key (for MySQL), or its alternatives in other DBMS. When disabled, use client-generated IDs [on]
+  --create_secondary[=on|off]   Create a secondary index in addition to the PRIMARY KEY [on]
+  --delete_inserts=N            Number of DELETE/INSERT combinations per transaction [1]
+  --distinct_ranges=N           Number of SELECT DISTINCT queries per transaction [1]
+  --index_updates=N             Number of UPDATE index queries per transaction [1]
+  --mysql_storage_engine=STRING Storage engine, if MySQL is used [innodb]
+  --non_index_updates=N         Number of UPDATE non-index queries per transaction [1]
+  --order_ranges=N              Number of SELECT ORDER BY queries per transaction [1]
+  --pgsql_variant=STRING        Use this PostgreSQL variant when running with the PostgreSQL driver. The only currently supported variant is 'redshift'. When enabled, create_secondary is automatically disabled, and delete_inserts is set to 0
+  --point_selects=N             Number of point SELECT queries per transaction [10]
+  --range_selects[=on|off]      Enable/disable all range SELECT queries [on]
+  --range_size=N                Range size for range SELECT queries [100]
+  --secondary[=on|off]          Use a secondary index in place of the PRIMARY KEY [off]
+  --simple_ranges=N             Number of simple range SELECT queries per transaction [1]
+  --skip_trx[=on|off]           Don't start explicit transactions and execute all queries in the AUTOCOMMIT mode [off]
+  --sum_ranges=N                Number of SELECT SUM() queries per transaction [1]
+  --table_size=N                Number of rows per table [10000]
+  --tables=N                    Number of tables [1]
 ```
 
 此处我们指定下数据库存储引擎为myisam，执行：
@@ -348,7 +348,7 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 执行命令
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write   --mysql_storage_engine=myisam run
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write   --mysql_storage_engine=myisam run
 ```
 
 测试结果如下：
@@ -356,30 +356,30 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 ```
 ......
 SQL statistics:
-    queries performed:
-        read:                            722036
-        write:                           206294
-        other:                           103150
-        total:                           1031480
-    transactions:                        51574  (171.84 per sec.)
-    queries:                             1031480 (3436.86 per sec.)
-    ignored errors:                      0      (0.00 per sec.)
-    reconnects:                          0      (0.00 per sec.)
-​
+    queries performed:
+        read:                            722036
+        write:                           206294
+        other:                           103150
+        total:                           1031480
+    transactions:                        51574  (171.84 per sec.)
+    queries:                             1031480 (3436.86 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
 General statistics:
-    total time:                          300.1224s
-    total number of events:              51574
-​
+    total time:                          300.1224s
+    total number of events:              51574
+
 Latency (ms):
-         min:                                    2.91
-         avg:                                  116.36
-         max:                                 2703.01
-         95th percentile:                      153.02
-         sum:                              6001171.45
-​
+         min:                                    2.91
+         avg:                                  116.36
+         max:                                 2703.01
+         95th percentile:                      153.02
+         sum:                              6001171.45
+
 Threads fairness:
-    events (avg/stddev):           2578.7000/7.62
-    execution time (avg/stddev):   300.0586/0.04
+    events (avg/stddev):           2578.7000/7.62
+    execution time (avg/stddev):   300.0586/0.04
 ```
 
 ###### 2.2.2 第二次执行100w次读写
@@ -389,30 +389,30 @@ Threads fairness:
 ```
 ......
 SQL statistics:
-    queries performed:
-        read:                            697480
-        write:                           199279
-        other:                           99641
-        total:                           996400
-    transactions:                        49820  (165.95 per sec.)
-    queries:                             996400 (3319.08 per sec.)
-    ignored errors:                      0      (0.00 per sec.)
-    reconnects:                          0      (0.00 per sec.)
-​
+    queries performed:
+        read:                            697480
+        write:                           199279
+        other:                           99641
+        total:                           996400
+    transactions:                        49820  (165.95 per sec.)
+    queries:                             996400 (3319.08 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
 General statistics:
-    total time:                          300.2032s
-    total number of events:              49820
-​
+    total time:                          300.2032s
+    total number of events:              49820
+
 Latency (ms):
-         min:                                    2.86
-         avg:                                  120.45
-         max:                                 3435.92
-         95th percentile:                      176.73
-         sum:                              6000916.19
-​
+         min:                                    2.86
+         avg:                                  120.45
+         max:                                 3435.92
+         95th percentile:                      176.73
+         sum:                              6000916.19
+
 Threads fairness:
-    events (avg/stddev):           2491.0000/9.31
-    execution time (avg/stddev):   300.0458/0.06
+    events (avg/stddev):           2491.0000/9.31
+    execution time (avg/stddev):   300.0458/0.06
 ```
 
 ###### 2.2.3 第三次执行100w次读写
@@ -420,36 +420,36 @@ Threads fairness:
 ```
 ······
 SQL statistics:
-    queries performed:
-        read:                            680372
-        write:                           194389
-        other:                           97199
-        total:                           971960
-    transactions:                        48598  (161.84 per sec.)
-    queries:                             971960 (3236.88 per sec.)
-    ignored errors:                      0      (0.00 per sec.)
-    reconnects:                          0      (0.00 per sec.)
-​
+    queries performed:
+        read:                            680372
+        write:                           194389
+        other:                           97199
+        total:                           971960
+    transactions:                        48598  (161.84 per sec.)
+    queries:                             971960 (3236.88 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
 General statistics:
-    total time:                          300.2761s
-    total number of events:              48598
-​
+    total time:                          300.2761s
+    total number of events:              48598
+
 Latency (ms):
-         min:                                    2.88
-         avg:                                  123.52
-         max:                                 2916.81
-         95th percentile:                      189.93
-         sum:                              6002904.07
-​
+         min:                                    2.88
+         avg:                                  123.52
+         max:                                 2916.81
+         95th percentile:                      189.93
+         sum:                              6002904.07
+
 Threads fairness:
-    events (avg/stddev):           2429.9000/10.74
-    execution time (avg/stddev):   300.1452/0.07
+    events (avg/stddev):           2429.9000/10.74
+    execution time (avg/stddev):   300.1452/0.07
 ```
 
 ##### 2.3 清理数据
 
 ```
-sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write cleanup
+sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write cleanup
 ```
 
 ## 测试总结
@@ -498,9 +498,9 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user
 ```
 [root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write prewarm
 sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
-​
+
 Initializing worker threads...
-​
+
 Prewarming table sbtest6
 Prewarming table sbtest7
 Prewarming table sbtest9
