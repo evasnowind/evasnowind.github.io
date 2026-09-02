@@ -99,66 +99,16 @@
       
         <p>在使用Android的GridView控件时，很多人都会碰到这么个奇怪的问题：整个GridView中，所有item的响应都没问题，只有第一个item不响应，或是显示不正常，或是点完第一个item后不响应但再点其他的item后其他item会响应、同时第一个item也响应了（超诡异的现象……），stackoverflow上有不少帖子，如下面的帖子：<br><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/11778228/onclicklistener-not-working-for-first-item-in-gridview">http://stackoverflow.com/questions/11778228/onclicklistener-not-working-for-first-item-in-gridview</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/over140/p/3999815.html">http://www.cnblogs.com/over140/p/3999815.html</a><br>至少就我所看到的，出现第一个item有问题的情况，一般都有使用BaseAdapter，而出问题的地方一般都是getView的书写有问题，稍微整理归纳一下可能的解决方法，供大家参考：</p>
 <ol>
-<li>检查getView方法中是否有动态设置LayoutParams的操作，如果有，那么<strong>注意不能new 一个新的LayoutParams，而应该调用getLayoutParams获取已有的LayoutParams</strong>。参见该帖中的最佳答案：<a target="_blank" rel="noopener" href="http://www.4byte.cn/question/337904/android-gridview-checkbox-of-the-first-item-not-work-when-i-recycled-convertview.html">http://www.4byte.cn/question/337904/android-gridview-checkbox-of-the-first-item-not-work-when-i-recycled-convertview.html</a>  。如果getLayoutParams返回为空或是返回的LayoutParams不是AbsListView.LayoutParams，那就在getView之前用setLayoutParams方法设置一下。</li>
+<li>检查getView方法中是否有动态设置LayoutParams的操作，如果有，那么<strong>注意不能new 一个新的LayoutParams，而应该调用getLayoutParams获取已有的LayoutParams</strong>。参见该帖中的最佳答案：<a target="_blank" rel="noopener" href="http://www.4byte.cn/question/337904/android-gridview-checkbox-of-the-first-item-not-work-when-i-recycled-convertview.html">http://www.4byte.cn/question/337904/android-gridview-checkbox-of-the-first-item-not-work-when-i-recycled-convertview.html</a>  。如果getLayoutParams返回为空或是返回的LayoutParams不是AbsListView.LayoutParams，那就在getView之前用setLayoutParams方法设置一下。</li>
 <li>listener响应有问题：尝试使用GridView的onItemClickListener，如果是onItemClickListener响应有问题，检查setOnItemClickListener是否在setAdapter之后。尽量不要采用给每个item的View加onClickListener的方式，如果必须使用该方式，并且采用了ViewHolder的写法复用View，那么需要注意加onClickListener的位置，是加在convertVew&#x3D;&#x3D;null的地方还是外面我就记不清了，我没试过，只看到有一个帖子说过这个。</li>
-<li>如果还有问题，我看到的可能的解决方法有（没试过，不确定是否可行，但有人在相关帖子里提到的各种方法）：（1）不用ViewHolder写法，每次getView都重新创建新的View    （2）GriView设置背景色为透明</li>
+<li>如果还有问题，我看到的可能的解决方法有（没试过，不确定是否可行，但有人在相关帖子里提到的各种方法）：（1）不用ViewHolder写法，每次getView都重新创建新的View    （2）GriView设置背景色为透明</li>
 </ol>
 <p><br>但就我感觉，想要动态设置GridView的item宽、高，但直接new LayoutParams导致出问题的出现次数比较多，大家注意一下，具体为啥会这样就没细究了，有兴趣的童鞋欢迎讨论一下。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_Android_GridView%E6%8E%A7%E4%BB%B6%E7%AC%AC%E4%B8%80%E4%B8%AAitem%E4%B8%8D%E5%93%8D%E5%BA%94%E6%88%96%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8/" data-id="cuid9AeakaOcD-C7WL2BKsrUO" data-title="Android GridView控件第一个item不响应或显示不正常" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-03_ubuntu下配置tmux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/03/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/" class="article-date">
-  <time class="dt-published" datetime="2015-12-03T00:00:00.000Z" itemprop="datePublished">2015-12-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/03/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/">ubuntu下配置tmux</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>参考如下技术帖：<br><a target="_blank" rel="noopener" href="http://www.haogongju.net/art/1767128">http://www.haogongju.net/art/1767128</a>  <a target="_blank" rel="noopener" href="http://linuxtoy.org/archives/alias.html">http://linuxtoy.org/archives/alias.html</a>  <a target="_blank" rel="noopener" href="http://forum.ubuntu.org.cn/viewtopic.php?f=122&t=297928">http://forum.ubuntu.org.cn/viewtopic.php?f=122&amp;t=297928</a>  <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Tmux/">https://wiki.archlinux.org/index.php/Tmux\</a><br><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog/_8ea8e9d50101efb9.html">http://blog.sina.com.cn/s/blog\_8ea8e9d50101efb9.html</a>  <a target="_blank" rel="noopener" href="http://blog.csdn.net/yjj1s/article/details/6413172/">http://blog.csdn.net/yjj1s/article/details/6413172\</a><br><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog/_6fb9802f0106an1u.html">http://blog.sina.com.cn/s/blog\_6fb9802f0106an1u.html</a>  <a target="_blank" rel="noopener" href="http://jack-boy.iteye.com/blog/1586908/">http://jack-boy.iteye.com/blog/1586908\</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yjj1s/article/details/6413172/">http://blog.csdn.net/yjj1s/article/details/6413172\</a><br>tmux可以称得上为终端多窗口管理神器。tmux是一个可以在终端里开启多窗口的工具，它由 OpenBSD 团队基于C语言开发并维护的，是 OpenBSD 的基础系统软件之一，基于 BSD 许可证发布，可以称之为 GNU screen 的 BSD 替代版。除了 OpenBSD 外，它也可运行于 Linux 、Freebsd、AIX、IRIX,Opensolaris 等 OS 之上。目前的最新版为1.7.在这里就不做过多介绍，这里主要将如何配置，其实配置起来很简单，只要在&#x2F;etc&#x2F;tmux.conf和<del>&#x2F;.tmux.conf文件中按照规则写上配置信息即可，但需要注意的是，有时可能碰到命名在</del>&#x2F;.tmux.conf中写了配置信息，但配置不生效的情况，此时可以重启tmux或者在命令模式（按PREFIX : ，即按下ctrl+b,再输入一个“：”)输入<br>source-file ~&#x2F;.tmux.conf<br>即可使配置生效。<br>我的配置其实挺简单，就是要将窗口分为3个部分，方便编程（一个文本编辑、一个编译运行查看运行结果、一个浏览文件系统）.<br>我的配置信息如下：</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#打开utf8 支持</span><br><span class="line">set -g status-utf8 on</span><br><span class="line">setw -g utf8 on</span><br><span class="line"># statusbar 自定义，具体可以查看man 文档，非常详细</span><br><span class="line">set -g display-time 3000</span><br><span class="line">set -g status-fg blue</span><br><span class="line">new  -s work # 创建一个叫work的seesion（附带有一个window）</span><br><span class="line">neww ranger #在当前session再创建一个window运行ranger</span><br><span class="line">selectw -t 0 # 选择第一window</span><br><span class="line">splitw -h -p 50 -t 0 # 水平切割第一个pane，百分比是50</span><br><span class="line">splitw -v -p 50 -t 1 # 垂直切割第二个pane，百分比是50</span><br><span class="line">selectp -t 0 # 选择第一个pane</span><br></pre></td></tr></table></figure></blockquote>
-<p>这样配置后，只需要在命令行中运行“tmux attach -t work”即可进入到已经在配置信息中定义好的3窗口的界面。不过为了避免每次都输入“tmux attach -t work”，可以为这条命令起一个别名：</p>
-<blockquote>
-<p>alias tmux2work&#x3D;”tmux attach -t work”</p>
-</blockquote>
-<p>之后直接输入tmux2work就可以了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/" data-id="cuidljDeKLcCIkgNcUp2fmps_" data-title="ubuntu下配置tmux" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_Android_GridView%E6%8E%A7%E4%BB%B6%E7%AC%AC%E4%B8%80%E4%B8%AAitem%E4%B8%8D%E5%93%8D%E5%BA%94%E6%88%96%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8/" data-id="cuidvslGEfeYCDUZBs24IT2Tl" data-title="Android GridView控件第一个item不响应或显示不正常" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -217,7 +167,7 @@
 <p>结果大家也都知道，i&#x3D;1，j&#x3D;1<br>看操作过程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static void main(java.lang.String[]);</span><br><span class="line"> Code:</span><br><span class="line"> 0: iconst_0</span><br><span class="line"> 1: istore_1 //i=0</span><br><span class="line"> 2: iconst_0</span><br><span class="line"> 3: istore_2 //j=0</span><br><span class="line"> 4: iinc 1, 1 //局部变量i加1，这时候i变成1了 。</span><br><span class="line"> 7: iload_1 //把i的值放到栈顶,栈顶的值是1</span><br><span class="line"> 8: istore_2 //j=1</span><br><span class="line"> 9: getstatic #2; //Field java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line"> 12: iload_1</span><br><span class="line"> 13: invokevirtual #3; //Method java/io/PrintStream.println:(I)V</span><br><span class="line"> 16: getstatic #2; //Field java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line"> 19: iload_2</span><br><span class="line"> 20: invokevirtual #3; //Method java/io/PrintStream.println:(I)V</span><br><span class="line"> 23: return</span><br></pre></td></tr></table></figure>
 
-<p>对比代码2和代码3，关键的差别就是iload_1   个iinc这两条指令的位置变了。<br>上面这个帖子偏重于底层，对于java字节码不熟悉的童鞋可能一时不会理解，没关系，下面我贴出另一个帖子，大家应该就明白了：<br>原帖地址：<a target="_blank" rel="noopener" href="http://www.ticmy.com/?p=43">http://www.ticmy.com/?p=43</a></p>
+<p>对比代码2和代码3，关键的差别就是iload_1   个iinc这两条指令的位置变了。<br>上面这个帖子偏重于底层，对于java字节码不熟悉的童鞋可能一时不会理解，没关系，下面我贴出另一个帖子，大家应该就明白了：<br>原帖地址：<a target="_blank" rel="noopener" href="http://www.ticmy.com/?p=43">http://www.ticmy.com/?p=43</a></p>
 <table>
 <thead>
 <tr>
@@ -265,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_java%E4%B8%ADi=i++%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuideAqcdclqjLQ_mBbodj4N4" data-title="java中i=i++问题分析【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_java%E4%B8%ADi=i++%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidFlM3h6H8S3M5lfjHXnHOq" data-title="java中i=i++问题分析【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -277,14 +227,14 @@
 
 
   
-    <article id="post-2015-12-03_使用fdisk和resize2fs重置ubuntu系统分区表【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-2015-12-03_ubuntu下配置tmux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2015/12/03/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+    <a href="/2015/12/03/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/" class="article-date">
   <time class="dt-published" datetime="2015-12-03T00:00:00.000Z" itemprop="datePublished">2015-12-03</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a>
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具</a>
   </div>
 
   </div>
@@ -295,7 +245,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/03/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">使用fdisk和resize2fs重置ubuntu系统分区表【转载】</a>
+      <a class="p-name article-title" href="/2015/12/03/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/">ubuntu下配置tmux</a>
     </h1>
   
 
@@ -303,15 +253,19 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>我只是个搬运工，刚好碰到虚拟机中ubuntu空间不够、需要扩大虚拟机磁盘，vmware怎么扩展网上帖子很多，不说了，但vmware扩展虚拟机磁盘后，文件系统中并没有反应处理，就需要我们来更新分区表啥的。然后这个我查了好多帖子，终于找到比较靠谱的帖子，遂转载一下，做个记录（话说度娘真搜不出东西啊，还是google还是……）<br>原帖地址：<a target="_blank" rel="noopener" href="http://askubuntu.com/questions/24027/how-can-i-resize-an-ext-root-partition-at-runtime">http://askubuntu.com/questions/24027/how-can-i-resize-an-ext-root-partition-at-runtime</a><br>另一个类似的帖子也贴出来：<a target="_blank" rel="noopener" href="https://www.rootusers.com/how-to-increase-the-size-of-a-linux-lvm-by-expanding-the-virtual-machine-disk/">https://www.rootusers.com/how-to-increase-the-size-of-a-linux-lvm-by-expanding-the-virtual-machine-disk/</a><br>vmware倒是给出了修改RedHat&#x2F;CentOS的修改方式：<a target="_blank" rel="noopener" href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1006371">http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1006371</a><br>以下是帖子正文：<br>How can I increase the size of the root partition of a system at runtime?<br>I have a partition that is not allocated after the root partition (which is also ext4), how can I add that unallocated space to the space allocated to the root partition without having to shutdown the server?<br> <br>There are two steps to this: First, the partition must be resized. If you’re using LVM, it’s easy; if you’re using classic partitions, it’s a bit more complicated, and might require a reboot (though you never have to boot another system or live CD).<br>One fragile but feasible approach (worked for me) is to use <code>fdisk</code> by first deleting the partition, then carefully recreating it with a larger size at the same position. You can do this while the partition is mounted, but you will need to reboot for the kernel to notice the changed partition table.<br>Example:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk /dev/sda</span><br><span class="line">Command (m for help): p</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     9437183     4717568   83  Linux</span><br><span class="line">Command (m for help): d</span><br><span class="line">Selected partition 1</span><br><span class="line">Command (m for help): p</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">Command (m for help): n</span><br><span class="line">Command action</span><br><span class="line">   e   extended</span><br><span class="line">   p   primary partition (1-4)</span><br><span class="line">p</span><br><span class="line">Partition number (1-4, default 1): 1</span><br><span class="line">First sector (2048-10485759, default 2048):</span><br><span class="line">Using default value 2048</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-10485759, default 10485759):</span><br><span class="line">Using default value 10485759</span><br><span class="line">Command (m for help): p</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1            2048    10485759     5241856   83  Linux</span><br><span class="line">Command (m for help): w</span><br><span class="line">The partition table has been altered!</span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line">WARNING: Re-reading the partition table failed with error 16: Device or resource busy.</span><br><span class="line">The kernel still uses the old table. The new table will be used at</span><br><span class="line">the next reboot or after you run partprobe(8) or kpartx(8)</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+        <p>参考如下技术帖：<br><a target="_blank" rel="noopener" href="http://www.haogongju.net/art/1767128">http://www.haogongju.net/art/1767128</a>  <a target="_blank" rel="noopener" href="http://linuxtoy.org/archives/alias.html">http://linuxtoy.org/archives/alias.html</a>  <a target="_blank" rel="noopener" href="http://forum.ubuntu.org.cn/viewtopic.php?f=122&t=297928">http://forum.ubuntu.org.cn/viewtopic.php?f=122&amp;t=297928</a>  <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Tmux/">https://wiki.archlinux.org/index.php/Tmux\</a><br><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog/_8ea8e9d50101efb9.html">http://blog.sina.com.cn/s/blog\_8ea8e9d50101efb9.html</a>  <a target="_blank" rel="noopener" href="http://blog.csdn.net/yjj1s/article/details/6413172/">http://blog.csdn.net/yjj1s/article/details/6413172\</a><br><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog/_6fb9802f0106an1u.html">http://blog.sina.com.cn/s/blog\_6fb9802f0106an1u.html</a>  <a target="_blank" rel="noopener" href="http://jack-boy.iteye.com/blog/1586908/">http://jack-boy.iteye.com/blog/1586908\</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yjj1s/article/details/6413172/">http://blog.csdn.net/yjj1s/article/details/6413172\</a><br>tmux可以称得上为终端多窗口管理神器。tmux是一个可以在终端里开启多窗口的工具，它由 OpenBSD 团队基于C语言开发并维护的，是 OpenBSD 的基础系统软件之一，基于 BSD 许可证发布，可以称之为 GNU screen 的 BSD 替代版。除了 OpenBSD 外，它也可运行于 Linux 、Freebsd、AIX、IRIX,Opensolaris 等 OS 之上。目前的最新版为1.7.在这里就不做过多介绍，这里主要将如何配置，其实配置起来很简单，只要在&#x2F;etc&#x2F;tmux.conf和<del>&#x2F;.tmux.conf文件中按照规则写上配置信息即可，但需要注意的是，有时可能碰到命名在</del>&#x2F;.tmux.conf中写了配置信息，但配置不生效的情况，此时可以重启tmux或者在命令模式（按PREFIX : ，即按下ctrl+b,再输入一个“：”)输入<br>source-file ~&#x2F;.tmux.conf<br>即可使配置生效。<br>我的配置其实挺简单，就是要将窗口分为3个部分，方便编程（一个文本编辑、一个编译运行查看运行结果、一个浏览文件系统）.<br>我的配置信息如下：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#打开utf8 支持</span><br><span class="line">set -g status-utf8 on</span><br><span class="line">setw -g utf8 on</span><br><span class="line"># statusbar 自定义，具体可以查看man 文档，非常详细</span><br><span class="line">set -g display-time 3000</span><br><span class="line">set -g status-fg blue</span><br><span class="line">new  -s work # 创建一个叫work的seesion（附带有一个window）</span><br><span class="line">neww ranger #在当前session再创建一个window运行ranger</span><br><span class="line">selectw -t 0 # 选择第一window</span><br><span class="line">splitw -h -p 50 -t 0 # 水平切割第一个pane，百分比是50</span><br><span class="line">splitw -v -p 50 -t 1 # 垂直切割第二个pane，百分比是50</span><br><span class="line">selectp -t 0 # 选择第一个pane</span><br></pre></td></tr></table></figure></blockquote>
+<p>这样配置后，只需要在命令行中运行“tmux attach -t work”即可进入到已经在配置信息中定义好的3窗口的界面。不过为了避免每次都输入“tmux attach -t work”，可以为这条命令起一个别名：</p>
+<blockquote>
+<p>alias tmux2work&#x3D;”tmux attach -t work”</p>
+</blockquote>
+<p>之后直接输入tmux2work就可以了。</p>
 
-<p>Again, it is critical that the new partition starts at the same block as the old. The Id should also match (83 for Linux systems). Be prepared to lose all your data at the slightest typo.<br>Remember to add the boot flag again, if necessary.<br>By now it should be apparent why people recommend using a live CD. 😉<br>However, once the partition is resized (and the system rebooted, if necessary), it’s a simple matter of running <code>resize2fs</code> on the file system, and you can do this even when it’s mounted as the root partition.<br>Example:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo resize2fs /dev/sda1</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidrutXvxIyPgh7deob1ehGl" data-title="使用fdisk和resize2fs重置ubuntu系统分区表【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/" data-id="cuidWRrnu0ZoIkcxN8Yet0yLP" data-title="ubuntu下配置tmux" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -354,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_%E6%9C%89%E7%94%A8%E7%9A%84IT%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" data-id="cuidpOFRpvY99nDPqfsKS6s5f" data-title="有用的IT资源汇总" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_%E6%9C%89%E7%94%A8%E7%9A%84IT%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" data-id="cuidlfEGaMfg-CXZWd-q2OOkx" data-title="有用的IT资源汇总" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -491,7 +445,53 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E8%AF%BB%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%8F%E5%85%B8%E4%B9%A6%E7%B1%8D/" data-id="cuidBwPRm0EMFMyT-3DnN9F69" data-title="程序员必读的一些经典书籍" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E8%AF%BB%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%8F%E5%85%B8%E4%B9%A6%E7%B1%8D/" data-id="cuidBJTz0r2oxsRKAc95KRp86" data-title="程序员必读的一些经典书籍" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-03_使用fdisk和resize2fs重置ubuntu系统分区表【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/03/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-03T00:00:00.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>►<a class="article-category-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/03/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">使用fdisk和resize2fs重置ubuntu系统分区表【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>我只是个搬运工，刚好碰到虚拟机中ubuntu空间不够、需要扩大虚拟机磁盘，vmware怎么扩展网上帖子很多，不说了，但vmware扩展虚拟机磁盘后，文件系统中并没有反应处理，就需要我们来更新分区表啥的。然后这个我查了好多帖子，终于找到比较靠谱的帖子，遂转载一下，做个记录（话说度娘真搜不出东西啊，还是google还是……）<br>原帖地址：<a target="_blank" rel="noopener" href="http://askubuntu.com/questions/24027/how-can-i-resize-an-ext-root-partition-at-runtime">http://askubuntu.com/questions/24027/how-can-i-resize-an-ext-root-partition-at-runtime</a><br>另一个类似的帖子也贴出来：<a target="_blank" rel="noopener" href="https://www.rootusers.com/how-to-increase-the-size-of-a-linux-lvm-by-expanding-the-virtual-machine-disk/">https://www.rootusers.com/how-to-increase-the-size-of-a-linux-lvm-by-expanding-the-virtual-machine-disk/</a><br>vmware倒是给出了修改RedHat&#x2F;CentOS的修改方式：<a target="_blank" rel="noopener" href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1006371">http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1006371</a><br>以下是帖子正文：<br>How can I increase the size of the root partition of a system at runtime?<br>I have a partition that is not allocated after the root partition (which is also ext4), how can I add that unallocated space to the space allocated to the root partition without having to shutdown the server?<br> <br>There are two steps to this: First, the partition must be resized. If you’re using LVM, it’s easy; if you’re using classic partitions, it’s a bit more complicated, and might require a reboot (though you never have to boot another system or live CD).<br>One fragile but feasible approach (worked for me) is to use <code>fdisk</code> by first deleting the partition, then carefully recreating it with a larger size at the same position. You can do this while the partition is mounted, but you will need to reboot for the kernel to notice the changed partition table.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk /dev/sda</span><br><span class="line">Command (m for help): p</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     9437183     4717568   83  Linux</span><br><span class="line">Command (m for help): d</span><br><span class="line">Selected partition 1</span><br><span class="line">Command (m for help): p</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">Command (m for help): n</span><br><span class="line">Command action</span><br><span class="line">   e   extended</span><br><span class="line">   p   primary partition (1-4)</span><br><span class="line">p</span><br><span class="line">Partition number (1-4, default 1): 1</span><br><span class="line">First sector (2048-10485759, default 2048):</span><br><span class="line">Using default value 2048</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-10485759, default 10485759):</span><br><span class="line">Using default value 10485759</span><br><span class="line">Command (m for help): p</span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1            2048    10485759     5241856   83  Linux</span><br><span class="line">Command (m for help): w</span><br><span class="line">The partition table has been altered!</span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line">WARNING: Re-reading the partition table failed with error 16: Device or resource busy.</span><br><span class="line">The kernel still uses the old table. The new table will be used at</span><br><span class="line">the next reboot or after you run partprobe(8) or kpartx(8)</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+
+<p>Again, it is critical that the new partition starts at the same block as the old. The Id should also match (83 for Linux systems). Be prepared to lose all your data at the slightest typo.<br>Remember to add the boot flag again, if necessary.<br>By now it should be apparent why people recommend using a live CD. 😉<br>However, once the partition is resized (and the system rebooted, if necessary), it’s a simple matter of running <code>resize2fs</code> on the file system, and you can do this even when it’s mounted as the root partition.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo resize2fs /dev/sda1</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/03/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidmClnXVGvELInDMbXZHrVf" data-title="使用fdisk和resize2fs重置ubuntu系统分区表【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -593,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/11/29/2015-11-29_%E5%8F%AF%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86%E9%94%A6/" data-id="cuidYGcV-39Yj7hGBwWRKy5lE" data-title="可提高生产力的实用工具集锦" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/11/29/2015-11-29_%E5%8F%AF%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86%E9%94%A6/" data-id="cuidFdE82FIzIYUQTDnggARv8" data-title="可提高生产力的实用工具集锦" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -641,13 +641,13 @@
 </ol>
 <p>so, 开始详细说明：<br><strong>1</strong>**、<strong><strong>VPS</strong></strong>设置**<br>现在VPS选择很多，这里不一一列举，大家随意，看自己情况选适合自己的就好。我用的是搬瓦工（bandwagonhost.com）最便宜的套餐（256MB内存，12G硬盘，500G流量），一年100多软妹币，本是搭梯子用（科学上网速度还是可以的），打算wordpress后访问博客速度感觉尚可。<br><strong>2</strong>**、<strong><strong>lnmp</strong></strong>设置**<br>有了VPS就需要开始假设web服务器了，搜了一下发现大家用lnmp（linux、nginx、mysql、php）比较多，所以我也就选这个啦，一键安装过程参见<a target="_blank" rel="noopener" href="http://lnmp.org/install.html">http://lnmp.org/install.html</a> ，写的很细，一步步按教程来就好，教程里有提到创建虚拟主机这个步骤，一开始说实话我对这个概念不是很清楚，不过之前提过的“<a target="_blank" rel="noopener" href="http://www.railgun.top/blog/?p=32">vps+lnmp+wordpress搭建个人博客</a>” 里面说的挺清楚的，摘抄一下给大家看看：</p>
 <blockquote>
-<p>lnmp环境搭建好后，需要设置虚拟主机。首先区分几个概念服务器，vps，虚拟主机。<br>服务器：一般理解就是一台电脑，有主板硬盘内存CPU的东西；<br>vps（Virtual Private Server 虚拟专用服务器）：一台服务器通过软件划分成几台vps，每台vps在客户看来都是独立的服务器，其实是跑在一台物理机器上的；<br>虚拟主机：虚拟主机一般是针对网站说的，一个网站跑在一台虚拟主机上，也就是apache服务器 wwwroot&#x2F;下面的一个文件夹，就是一个虚拟主机，比如  wwwroot&#x2F;aaa  是个虚拟主机，wwwroot&#x2F;bbb 是另外一个虚拟主机，是web服务器区分不同网站时的提法。<br>可以看到，从大到小，依次是服务器＞vps＞虚拟主机。<br>弄清楚了什么是虚拟主机，就明白了为什么要配置虚拟主机了，因为我们的vps上不是就跑一个网站，有可能要搭好几个网站（土豪自行忽略掉这句话），比如搭个博客，搭个下载站，等等很多。不过，一个ip地址最多解析5个顶级域名，所以最多就5个网站（二级域名不算）。<br>搭建虚拟主机教程  <a target="_blank" rel="noopener" href="http://lnmp.org/faq/lnmp-vhost-add-howto.html">http://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
+<p>lnmp环境搭建好后，需要设置虚拟主机。首先区分几个概念服务器，vps，虚拟主机。<br>服务器：一般理解就是一台电脑，有主板硬盘内存CPU的东西；<br>vps（Virtual Private Server 虚拟专用服务器）：一台服务器通过软件划分成几台vps，每台vps在客户看来都是独立的服务器，其实是跑在一台物理机器上的；<br>虚拟主机：虚拟主机一般是针对网站说的，一个网站跑在一台虚拟主机上，也就是apache服务器 wwwroot&#x2F;下面的一个文件夹，就是一个虚拟主机，比如  wwwroot&#x2F;aaa  是个虚拟主机，wwwroot&#x2F;bbb 是另外一个虚拟主机，是web服务器区分不同网站时的提法。<br>可以看到，从大到小，依次是服务器＞vps＞虚拟主机。<br>弄清楚了什么是虚拟主机，就明白了为什么要配置虚拟主机了，因为我们的vps上不是就跑一个网站，有可能要搭好几个网站（土豪自行忽略掉这句话），比如搭个博客，搭个下载站，等等很多。不过，一个ip地址最多解析5个顶级域名，所以最多就5个网站（二级域名不算）。<br>搭建虚拟主机教程  <a target="_blank" rel="noopener" href="http://lnmp.org/faq/lnmp-vhost-add-howto.html">http://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
 </blockquote>
-<p>上面这段话说的挺清楚的，理解这些概念对后续操作很有帮助，认真看。<br>另外，lnmp已经安装了phpmyadmin，后续有数据库操作可以用这个。<br><strong>3</strong><strong>、域名解析设置</strong><br>安装好lnmp环境后，接下来就该设置DNS域名解析了，购买域名的地方也有很多，不再赘述。我在godaddy上买的，顺便说句godaddy坑爹的地方，我之前的域名续费了两年，今年忘记续费，再去看时发现购买价格翻了3倍，原本每年100RMB左右，重新购买居然要300多RMB，真是坑爹啊<del>_</del>  ，而且最近貌似.io的域名价格一直很贵，本想买个.io提高下逼格，结果还是放弃了……扯远了，回归正题，购买域名后，需要配置域名解析，配置一下域名到IP的映射，这里再进行一下摘抄（来源如下：<a target="_blank" rel="noopener" href="http://www.railgun.top/blog/?p=19">http://www.railgun.top/blog/?p=19</a>），主要是给大家看一下解析类型：</p>
+<p>上面这段话说的挺清楚的，理解这些概念对后续操作很有帮助，认真看。<br>另外，lnmp已经安装了phpmyadmin，后续有数据库操作可以用这个。<br><strong>3</strong><strong>、域名解析设置</strong><br>安装好lnmp环境后，接下来就该设置DNS域名解析了，购买域名的地方也有很多，不再赘述。我在godaddy上买的，顺便说句godaddy坑爹的地方，我之前的域名续费了两年，今年忘记续费，再去看时发现购买价格翻了3倍，原本每年100RMB左右，重新购买居然要300多RMB，真是坑爹啊<del>_</del>  ，而且最近貌似.io的域名价格一直很贵，本想买个.io提高下逼格，结果还是放弃了……扯远了，回归正题，购买域名后，需要配置域名解析，配置一下域名到IP的映射，这里再进行一下摘抄（来源如下：<a target="_blank" rel="noopener" href="http://www.railgun.top/blog/?p=19">http://www.railgun.top/blog/?p=19</a>），主要是给大家看一下解析类型：</p>
 <blockquote>
 <p>A记录：将域名指向一个IPv4地址（例如：10.10.10.10），需要增加A记录。网站最基本的解析就是A记录 ，把域名解析到你自己的服务器ipv4地址，如138.xxx.xxx.xxx ，如果不添加主机记录www，就不能访问<a target="_blank" rel="noopener" href="http://www.railgun.top,只能访问railgun.top/">www.railgun.top，只能访问railgun.top\</a><br>CNAME记录：如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录。如果想设置二级域名就要添加CNAME记录，比如blog.railgun.top ，参照上图设置，主机记录是blog，记录值就是你的主域名<a target="_blank" rel="noopener" href="http://www.railgun.top/">www.railgun.top\</a><br>MX记录：建立电子邮箱服务，将指向邮件服务器地址，需要设置MX记录<br>NS记录：域名解析服务器记录，如果要将子域名指定某个域名服务器来解析，需要设置NS记录<br>TXT记录：可任意填写（可为空），通常用做SPF记录（反垃圾邮件）使用<br>AAAA记录：将主机名（或域名）指向一个IPv6地址（例如：ff03:0:0:0:0:0:0:c1），需要添加AAAA记录<br>SRV记录：记录了哪台计算机提供了哪个服务。格式为：服务的名字.协议的类型（例如：_example-server._tcp）<br>显性URL：将域名指向一个http（s)协议地址，访问域名时，自动跳转至目标地址（例如：将<a href="http://www.net.cn显性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址为：www.hichina.com）。\">www.net.cn显性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址为：www.hichina.com）。\</a><br>隐性URL：与显性URL类似，但隐性转发会隐藏真实的目标地址（例如：将<a href="http://www.net.cn隐性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址仍然为：www.net.cn）。">www.net.cn隐性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址仍然为：www.net.cn）。</a></p>
 </blockquote>
-<p>godaddy上需要设置DNS Zone File，如下图所示，在Points to的位置填上VPS的地址，如下图所示：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2015/11/godaddy_set_dns.png"><img src="http://www.prayerlaputa.com/wp-content/uploads/2015/11/godaddy_set_dns-287x300.png" alt="godaddy_set_dns"></a><br>填写完、确认后，需要等一段时间DNS解析才能生效，可以过十来分钟之后ping 你的域名，能ping通即可。<br><strong>4</strong><strong>、搭建****wordpress</strong><br>域名解析设置好后，接下来就是安装wordpress，这一步相对简单，参考wordpress官网给出的步骤即可，写的很清楚，地址：<a target="_blank" rel="noopener" href="http://codex.wordpress.org.cn/WordPress%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B">wordpress安装过程</a> 注意，解压wordpress安装包后，记得给wordpress整个文件夹赋予读写权限，用chmod a+wr -R &#x2F;wordpress 即可。<br>lnmp已安装了phpmyadmin，如果想用“域名&#x2F;phpmyadmin”这种形式使用phpmyadmin，在&#x2F;home&#x2F;wwwroot&#x2F;default文件夹下找到phpmyadmin文件夹，将该文件夹拷贝一份到你在lnmp中所设置的虚拟主机目录（和你的域名一样的那个目录，一般是&#x2F;home&#x2F;wwwroot&#x2F;域名）下，即可使用。<br><strong>5</strong><strong>、安装<strong><strong>wordpress</strong></strong>后可能遇到的问题</strong><br>按照官方教程安装完wordpress之后，可能遇到的问题以及解决方法如下（参考了如下帖子：<a target="_blank" rel="noopener" href="http://www.banwagong.com/111.html">搬瓦工VPS:LNMP环境下安装wordpress常遇到的问题及解决方法</a>  ）：</p>
+<p>godaddy上需要设置DNS Zone File，如下图所示，在Points to的位置填上VPS的地址，如下图所示：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2015/11/godaddy_set_dns.png"><img src="http://www.prayerlaputa.com/wp-content/uploads/2015/11/godaddy_set_dns-287x300.png" alt="godaddy_set_dns"></a><br>填写完、确认后，需要等一段时间DNS解析才能生效，可以过十来分钟之后ping 你的域名，能ping通即可。<br><strong>4</strong><strong>、搭建****wordpress</strong><br>域名解析设置好后，接下来就是安装wordpress，这一步相对简单，参考wordpress官网给出的步骤即可，写的很清楚，地址：<a target="_blank" rel="noopener" href="http://codex.wordpress.org.cn/WordPress%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B">wordpress安装过程</a> 注意，解压wordpress安装包后，记得给wordpress整个文件夹赋予读写权限，用chmod a+wr -R &#x2F;wordpress 即可。<br>lnmp已安装了phpmyadmin，如果想用“域名&#x2F;phpmyadmin”这种形式使用phpmyadmin，在&#x2F;home&#x2F;wwwroot&#x2F;default文件夹下找到phpmyadmin文件夹，将该文件夹拷贝一份到你在lnmp中所设置的虚拟主机目录（和你的域名一样的那个目录，一般是&#x2F;home&#x2F;wwwroot&#x2F;域名）下，即可使用。<br><strong>5</strong><strong>、安装<strong><strong>wordpress</strong></strong>后可能遇到的问题</strong><br>按照官方教程安装完wordpress之后，可能遇到的问题以及解决方法如下（参考了如下帖子：<a target="_blank" rel="noopener" href="http://www.banwagong.com/111.html">搬瓦工VPS:LNMP环境下安装wordpress常遇到的问题及解决方法</a>  ）：</p>
 <ul>
 <li><strong>后台只显示一个主题</strong>：主要是和scandir函数有关，解决方法也比较简单，修改<br>&#x2F;usr&#x2F;local&#x2F;php&#x2F;etc&#x2F;php.ini 。可以通过VI命令修改，或者下载到本地进行修改，找到disable_functions 后面的scandir删除掉这个函数。然后重启PHP即可。<ul>
 <li>ini路径 &#x2F;usr&#x2F;local&#x2F;php&#x2F;etc&#x2F;php.ini</li>
@@ -659,14 +659,14 @@
 <li>chown -R www &#x2F;home&#x2F;wwwroot</li>
 </ul>
 </li>
-<li><strong>安装后过了一段时间<strong><strong>VPS</strong></strong>硬盘爆满</strong>：lnmp安装时，mysql日志默认没有关闭，可能是这个原因（参考如下帖子：<a target="_blank" rel="noopener" href="http://www.banwagong.com/176.html">http://www.banwagong.com/176.html</a>），修改一下**&#x2F;etc&#x2F;my.cnf<strong>文件。找到</strong>log-bin&#x3D;mysql-bin<strong>和</strong>binlog_format&#x3D;mixed<strong>两行，在这两条的前面加一个</strong>#**号 ，将这两条语句注释掉即可。然后重启mysql   <strong>&#x2F;etc&#x2F;init.d&#x2F;mysql restart</strong></li>
+<li><strong>安装后过了一段时间<strong><strong>VPS</strong></strong>硬盘爆满</strong>：lnmp安装时，mysql日志默认没有关闭，可能是这个原因（参考如下帖子：<a target="_blank" rel="noopener" href="http://www.banwagong.com/176.html">http://www.banwagong.com/176.html</a>），修改一下**&#x2F;etc&#x2F;my.cnf<strong>文件。找到</strong>log-bin&#x3D;mysql-bin<strong>和</strong>binlog_format&#x3D;mixed<strong>两行，在这两条的前面加一个</strong>#**号 ，将这两条语句注释掉即可。然后重启mysql   <strong>&#x2F;etc&#x2F;init.d&#x2F;mysql restart</strong></li>
 </ul>
-<p>建议大家用上述方式建站后，去“<a target="_blank" rel="noopener" href="http://www.banwagong.com/145.html">搬瓦工VPS</a>”这个网站上看看，列出了很多需要注意的事项，我就参考了好多帖子，推荐一下。<br> <br>以上。\</p>
+<p>建议大家用上述方式建站后，去“<a target="_blank" rel="noopener" href="http://www.banwagong.com/145.html">搬瓦工VPS</a>”这个网站上看看，列出了很多需要注意的事项，我就参考了好多帖子，推荐一下。<br> <br>以上。\</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/11/27/2015-11-27_%E4%BD%BF%E7%94%A8vps+lnmp+wordpress%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-id="cuidqERMQ48siRtn5tPXTxuLA" data-title="使用vps+lnmp+wordpress搭建个人博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/11/27/2015-11-27_%E4%BD%BF%E7%94%A8vps+lnmp+wordpress%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-id="cuidM1f0XKgZtF-YOgwitSDu8" data-title="使用vps+lnmp+wordpress搭建个人博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -709,7 +709,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/08/14/2011-08-14_Google%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%87%AA%E6%9C%88%E5%85%89%E5%8D%9A%E5%AE%A2%E3%80%91/" data-id="cuidEo6hjra--qUueIq-wOXAt" data-title="Google打不开的解决方法【转自月光博客】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/08/14/2011-08-14_Google%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%87%AA%E6%9C%88%E5%85%89%E5%8D%9A%E5%AE%A2%E3%80%91/" data-id="cuid0l5GgRDzyB7JInZDttjQj" data-title="Google打不开的解决方法【转自月光博客】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -752,7 +752,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/08/14/2011-08-14_could_not_find_the_main_class(eclipse%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%B1%BB)%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid-Fatz3QD8OpVC82o8AuOl" data-title="could_not_find_the_main_class(eclipse不能运行类)【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/08/14/2011-08-14_could_not_find_the_main_class(eclipse%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%B1%BB)%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidouQBByefeuoFS4MSv4D6D" data-title="could_not_find_the_main_class(eclipse不能运行类)【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -794,7 +794,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
     </div>
   </div>
 
@@ -807,7 +807,7 @@
       <ul>
         
           <li>
-            <a href="/2026/09/02/hello-world/">Hello World</a>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
           </li>
         
           <li>

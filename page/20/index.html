@@ -102,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/07/18/2010-07-18_Netbeans%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%EF%BC%88%E8%BD%AC%EF%BC%89/" data-id="cuidrQc4zRM2Nk-EdfHrifUeQ" data-title="Netbeans中文乱码问题汇总（转）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/07/18/2010-07-18_Netbeans%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%EF%BC%88%E8%BD%AC%EF%BC%89/" data-id="cuid2g68J4yT6oGPV1Qe-B2rR" data-title="Netbeans中文乱码问题汇总（转）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -144,7 +144,7 @@
 # 在MFC中添加用户自定义消息【转载】
 
 转载地址： http://blog.sina.com.cn/s/blog\_4a1695ff0100ckgo.html\
- \
+ \
 首先弄清楚两点：\
 （1）谁要发送这个消息（2）谁要接受这个消息。\
 用一个简单的例子来说明。对象A向B（也可以就是A到A）发送消息。\
@@ -171,7 +171,7 @@ ON\_MESSAGE(WM\_USERMESSAGE, OnProcName)\
 发信站: 哈工大紫丁香 (2003年11月26日07:45:34 星期三), 站内信件\
 \
 消息映射、循环机制是Windows程序运行的基本方式。VC++ MFC 中有许多现成的消息句柄\
-，可当我们需要完成其它的任务，需要自定义消息，就遇到了一些困难。在MFC  \
+，可当我们需要完成其它的任务，需要自定义消息，就遇到了一些困难。在MFC  \
 ClassWizard中不允许添加用户自定义消息，所以我们必须在程序中添加相应代码，以便可\
 以象处理其它消息一样处理自定义消息。通常的做法是采取以下步骤:\
 \
@@ -179,47 +179,47 @@ ClassWizard中不允许添加用户自定义消息，所以我们必须在程序
 \
 推荐用户自定义消息至少是WM\_USER+100，因为很多新控件也要使用WM\_USER消息。\
 \
-#define WM\_MY\_MESSAGE (WM\_USER+100)  \
+#define WM\_MY\_MESSAGE (WM\_USER+100)  \
 \
-第二步:实现消息处理函数。该函数使用WPRAM和LPARAM参数并返回LPESULT。  \
+第二步:实现消息处理函数。该函数使用WPRAM和LPARAM参数并返回LPESULT。  \
 \
-LPESULT CMainFrame::OnMyMessage(WPARAM wParam, LPARAM lParam)  \
-{  \
-// TODO: 处理用户自定义消息  \
-…  \
-return 0;  \
-}  \
+LPESULT CMainFrame::OnMyMessage(WPARAM wParam, LPARAM lParam)  \
+{  \
+// TODO: 处理用户自定义消息  \
+…  \
+return 0;  \
+}  \
 \
 第三步:在类头文件的AFX\_MSG块中说明消息处理函数:\
 \
-class CMainFrame:public CMDIFrameWnd  \
-{  \
-…  \
-// 一般消息映射函数  \
-protected:  \
-// {{AFX\_MSG(CMainFrame)  \
-afx\_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);  \
-afx\_msg void OnTimer(UINT nIDEvent);  \
-afx\_msg LRESULT OnMyMessage(WPARAM wParam, LPARAM lParam);  \
-//}}AFX\_MSG  \
-DECLARE\_MESSAGE\_MAP()  \
-}  \
+class CMainFrame:public CMDIFrameWnd  \
+{  \
+…  \
+// 一般消息映射函数  \
+protected:  \
+// {{AFX\_MSG(CMainFrame)  \
+afx\_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);  \
+afx\_msg void OnTimer(UINT nIDEvent);  \
+afx\_msg LRESULT OnMyMessage(WPARAM wParam, LPARAM lParam);  \
+//}}AFX\_MSG  \
+DECLARE\_MESSAGE\_MAP()  \
+}  \
 \
 第四步:在用户类的消息块中，使用ON\_MESSAGE宏指令将消息映射到消息处理函数中。\
 \
 \
-BEGIN\_MESSAGE\_MAP(CMainFrame, CMDIFrameWnd)  \
-//{{AFX\_MSG\_MAP(CMainFrame)  \
-ON\_WM\_CREATE()  \
-ON\_WM\_TIMER()  \
-ON\_MESSAGE(WM\_MY\_MESSAGE, OnMyMessage)  \
-//}}AFX\_MSG\_MAP  \
-END\_MESSAGE\_MAP()  \
+BEGIN\_MESSAGE\_MAP(CMainFrame, CMDIFrameWnd)  \
+//{{AFX\_MSG\_MAP(CMainFrame)  \
+ON\_WM\_CREATE()  \
+ON\_WM\_TIMER()  \
+ON\_MESSAGE(WM\_MY\_MESSAGE, OnMyMessage)  \
+//}}AFX\_MSG\_MAP  \
+END\_MESSAGE\_MAP()  \
 \
 如果用户需要一个定义整个系统唯一的消息,可以调用SDK函数RegisterWindowMessage定义\
 消息:\
 \
-static UINT WM\_MY\_MESSAGE=RegisterWindowMessage(“User”);  \
+static UINT WM\_MY\_MESSAGE=RegisterWindowMessage(“User”);  \
 \
 并使用ON\_REGISTERED\_MESSAGE宏指令取代ON\_MESSAGE宏指令,其余步骤同上。\
 \
@@ -235,7 +235,7 @@ WM\_MY\_MESSAGE, // 消息\
 SMTO\_ABORTIFHUNG |\
 SMTO\_NORMAL,\
 TIMEOUT\_INTERVAL,\
-&result);  \
+&result);  \
 \
 以避免其它进程如果被阻塞而造成系统死等状态。\
 \
@@ -257,10 +257,10 @@ ON\_REGISTERED\_MESSAGE(WM\_MY\_MESSAGE,OnMyMessage) //定义消息映射\
 // 消息处理函数\
 LRESULT CMessageView::OnMyMessage(WPARAM wParam, LPARAM lParam)\
 {\
-// TODO: 处理用户自定义消息  \
-…  \
+// TODO: 处理用户自定义消息  \
+…  \
 return 0;\
-}  \
+}  \
 \
 //发送消息的测试函数\
 void CMainFrame::OnTest()\
@@ -268,7 +268,7 @@ void CMainFrame::OnTest()\
 CView \* active = GetActiveView();//获取当前视类指针\
 if(active != NULL)\
 active->PostMessage(WM\_MY\_MESSAGE,0,0);\
-}  \
+}  \
 \
 在其它类中向视类发送消息：\
 \
@@ -286,7 +286,7 @@ pChild = (CMDIChildWnd \*) pFrame->GetActiveFrame();\
 pView = pChild->GetActiveView();\
 if(pView != NULL)\
 pView->PostMessage(WM\_MY\_MESSAGE,0,0);//发送消息\
-}  \
+}  \
 \
 其余步骤同上。\
 \
@@ -301,7 +301,7 @@ CFrameWnd \* active = GetActiveFrame();//获取当前主窗口框架指针\
 if(active != this)\
 active->PostMessage(WM\_MY\_MESSAGE,0,0);\
 return 0;\
-}  \
+}  \
 \
 在其它类中向不同的类发送消息可依次方法类推，这样我们的程序就可以的不受限制\
 向其它类和进程发送消息，而避免了种种意想不到的风险。\
@@ -333,11 +333,11 @@ pChild = (CMDIChildWnd \*) pFrame->GetActiveFrame();\
 pView = pChild->GetActiveView();\
 if(active != NULL)\
 active->PostMessage(WM\_MY\_MESSAGE,0,0);//发送消息\
-}  \
+}  \
 \
 在Message.h头文件中添加如下语句：\
 \
-static UINT WM\_MY\_MESSAGE=RegisterWindowMessage(“Message”);  \
+static UINT WM\_MY\_MESSAGE=RegisterWindowMessage(“Message”);  \
 \
 第四步:在视类中添加自定义消息:\
 \
@@ -354,7 +354,7 @@ BEGIN\_MESSAGE\_MAP(CMessageView, CView)\
 //}}AFX\_MSG\_MAP\
 // Standard printing commands\
 ON\_REGISTERED\_MESSAGE(WM\_MY\_MESSAGE,OnMyMessage) //此行添加代码定义唯一消息\
-END\_MESSAGE\_MAP()  \
+END\_MESSAGE\_MAP()  \
 \
 添加相应的0消息处理函数\
 \
@@ -365,7 +365,7 @@ GetClientRect(&rect);\
 InvalidateRect(&rect);\
 test=!test;\
 return 0;\
-}  \
+}  \
 \
 在MessageView.h中添加布尔变量 public:BOOL test;\
 \
@@ -380,7 +380,7 @@ ASSERT\_VALID(pDoc);\
 // 以下程序显示消息响应效果\
 if(test)\
 pDC->TextOut(0,0,”消息响应!”);\
-}  \
+}  \
 \
 第五步：显示测试对话框\
 \
@@ -392,7 +392,7 @@ void CMainFrame::OnTest()\
 {\
 TestDialog dialog;\
 dialog.DoModal();\
-}  \
+}  \
 \
 运行程序,在测试菜单打开对话框,点击测试按钮即可看到结果。
 
@@ -400,7 +400,7 @@ dialog.DoModal();\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/06/04/2010-06-04_%E5%9C%A8MFC%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidLSYPIIO-qZVty2CtioJMS" data-title="在MFC中添加用户自定义消息【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/06/04/2010-06-04_%E5%9C%A8MFC%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid9p8Gb5hdzSuqc14TPU1mp" data-title="在MFC中添加用户自定义消息【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -443,7 +443,7 @@ dialog.DoModal();\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/05/25/2010-05-25_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuid_CyICUEW_mzzxUhzEPt-I" data-title="用Visio画ER图的解决方案（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/05/25/2010-05-25_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidN3WfQAGrvlFG0kbHrTp_Q" data-title="用Visio画ER图的解决方案（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -503,8 +503,8 @@ dialog.DoModal();\
 </blockquote>
 <p>10、通过鼠标获得子窗口指针</p>
 <blockquote>
-<p>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>用于确定包含指定点的子窗口<br>如 果指定点在客户区之外，函数返回NULL；<br>如果指定点在客户区内，但是不属于任何一个子窗口，函数返回该CWnd的指针；<br>如果有多个子窗 口包含指定点，则返回第一个子窗口的指针。<br>还要注意的是，该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>对于第二个参数 nFlags有几个含义：<br>CWP_ALL             file:&#x2F;&#x2F;不忽略任何子窗口<br>CWP_SKIPNIVSIBLE    file:&#x2F;&#x2F;忽略不可见子窗口<br>CWP_SKIPDISABLED    file:&#x2F;&#x2F;忽略禁止的子窗口<br>CWP_SKIPRANSPARENT file:&#x2F;&#x2F;忽略透明子窗口</p>
-<p>获 取工具条的指针<br>在缺省状态下，有一个默认的工具条AFX_IDW_TOOLBAR， 我们可以根据相应的ID去获取工具条指针，方法如下：<br>CToolBar* pToolBar&#x3D;(CToolBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_TOOLBAR);<br>是不是很简单？<br>获取状态条的指 针<br>在缺省状态下，有一个默认的状态条AFX_IDW_STATUS_BAR， 我们自然也可以根据相应的ID去获取状态条指针，方法如下：<br>CStatusBar* pToolBar&#x3D;(CStatusBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>是不是同样很简单？<br>    获取控件的指针 <br>这里有两种方法。<br>一、调用CWnd: : GetDlgItem， 获取一个CWnd*指针调用成员函数。例如，我们想获取CButton指针，方法如下：<br>CButton* pButton&#x3D;(CButton*) GetDlgItem (IDC_MYBUTTON);<br>二、可以使用ClassWizard将控件和成员变量联系起来。在ClassWizard中 简单地选择Member Variables标签，然后选择Add Variable …按钮。如 果在对话资源编辑器中，按下Ctrl键并双击控件即可转到Add Member Variable对 话。<br>    在文档类中调用 视图类指针<br>我们可以利用文档类的成员函数GetFirstView()和GetNextView()遍 历视图。<br>    在视图类中调用文档类<br>其实，在视图类中有一个现成的成员函数供我们使用，那就是：GetDocument();利 用它我们可以很容易的得到文档类指针，我们先看一下GetDocument()函数的实现：<br>CColorButtonDoc* CColorButtonView::GetDocument()<br>{<br>ASSERT(m_pDocument-&gt;IsKindOf(RUNTIME_CLASS(CColorButtonDoc)));<br>return (CColorButtonDoc*)m_pDocument;<br>}<br>这里实际上是将m_pDocument强制转换成CColorButtonDoc*， 也就是我们想要的。<br>   在框架类中调 用文档类、视图类<br>这里我们可以利用GetActiveXXXXX()去 掉用当前激活的文档和视图：<br>CMyDoc*   pDoc&#x3D;(CMyDoc*)GetActiveDocument();<br>CMyView* pView&#x3D;(CMyView*)GetActiveView();<br>   获得应用程序指针<br>这个很简单，一句话搞定：<br>CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();<br>   获得主框架指 针<br>在类CWinThread里面有一个公有 的成员变量：CWnd* m_pMainWnd; 它存在的主要目的就是提供我们获得CWnd指 针，我们可以利用它来达到我们的目的：<br>CMainFrame* pFrame&#x3D;(CMainFrame*)(AfxGetApp()-&gt;m_pMainWnd);<br>通过鼠标获 得子窗口指针<br>这里我们要用到一个不太常用的函数：ChildWindowFromPoint。 他的原型如下：<br>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>这个函数用于确定包含指定点的子窗口，如果指定点在客户区之外，函数返回NULL；如果指定点在客户区 内，但是不属于任何一个子窗口，函数返回该CWnd的指针；如果有多个子窗口包含指定点，则返回第一个子窗口的指针。不过，这 里还要注意的是：该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>对于第二个参数nFlags有几个含义：<br>CWP_ALL             <a href="file:///">file:&#x2F;&#x2F;不</a>忽略任何子窗口<br>CWP_SKIPNIVSIBLE    <a href="file:///">file:&#x2F;&#x2F;忽</a>略不可见子窗口<br>CWP_SKIPDISABLED    <a href="file:///">file:&#x2F;&#x2F;忽</a>略禁止的子窗口<br>CWP_SKIPRANSPARENT  <a href="file:///">file:&#x2F;&#x2F;忽</a>略 透明子窗口</p>
+<p>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>用于确定包含指定点的子窗口<br>如 果指定点在客户区之外，函数返回NULL；<br>如果指定点在客户区内，但是不属于任何一个子窗口，函数返回该CWnd的指针；<br>如果有多个子窗 口包含指定点，则返回第一个子窗口的指针。<br>还要注意的是，该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>对于第二个参数 nFlags有几个含义：<br>CWP_ALL             file:&#x2F;&#x2F;不忽略任何子窗口<br>CWP_SKIPNIVSIBLE    file:&#x2F;&#x2F;忽略不可见子窗口<br>CWP_SKIPDISABLED    file:&#x2F;&#x2F;忽略禁止的子窗口<br>CWP_SKIPRANSPARENT file:&#x2F;&#x2F;忽略透明子窗口</p>
+<p>获 取工具条的指针<br>在缺省状态下，有一个默认的工具条AFX_IDW_TOOLBAR， 我们可以根据相应的ID去获取工具条指针，方法如下：<br>CToolBar* pToolBar&#x3D;(CToolBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_TOOLBAR);<br>是不是很简单？<br>获取状态条的指 针<br>在缺省状态下，有一个默认的状态条AFX_IDW_STATUS_BAR， 我们自然也可以根据相应的ID去获取状态条指针，方法如下：<br>CStatusBar* pToolBar&#x3D;(CStatusBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>是不是同样很简单？<br>    获取控件的指针 <br>这里有两种方法。<br>一、调用CWnd: : GetDlgItem， 获取一个CWnd*指针调用成员函数。例如，我们想获取CButton指针，方法如下：<br>CButton* pButton&#x3D;(CButton*) GetDlgItem (IDC_MYBUTTON);<br>二、可以使用ClassWizard将控件和成员变量联系起来。在ClassWizard中 简单地选择Member Variables标签，然后选择Add Variable …按钮。如 果在对话资源编辑器中，按下Ctrl键并双击控件即可转到Add Member Variable对 话。<br>    在文档类中调用 视图类指针<br>我们可以利用文档类的成员函数GetFirstView()和GetNextView()遍 历视图。<br>    在视图类中调用文档类<br>其实，在视图类中有一个现成的成员函数供我们使用，那就是：GetDocument();利 用它我们可以很容易的得到文档类指针，我们先看一下GetDocument()函数的实现：<br>CColorButtonDoc* CColorButtonView::GetDocument()<br>{<br>ASSERT(m_pDocument-&gt;IsKindOf(RUNTIME_CLASS(CColorButtonDoc)));<br>return (CColorButtonDoc*)m_pDocument;<br>}<br>这里实际上是将m_pDocument强制转换成CColorButtonDoc*， 也就是我们想要的。<br>   在框架类中调 用文档类、视图类<br>这里我们可以利用GetActiveXXXXX()去 掉用当前激活的文档和视图：<br>CMyDoc*   pDoc&#x3D;(CMyDoc*)GetActiveDocument();<br>CMyView* pView&#x3D;(CMyView*)GetActiveView();<br>   获得应用程序指针<br>这个很简单，一句话搞定：<br>CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();<br>   获得主框架指 针<br>在类CWinThread里面有一个公有 的成员变量：CWnd* m_pMainWnd; 它存在的主要目的就是提供我们获得CWnd指 针，我们可以利用它来达到我们的目的：<br>CMainFrame* pFrame&#x3D;(CMainFrame*)(AfxGetApp()-&gt;m_pMainWnd);<br>通过鼠标获 得子窗口指针<br>这里我们要用到一个不太常用的函数：ChildWindowFromPoint。 他的原型如下：<br>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>这个函数用于确定包含指定点的子窗口，如果指定点在客户区之外，函数返回NULL；如果指定点在客户区 内，但是不属于任何一个子窗口，函数返回该CWnd的指针；如果有多个子窗口包含指定点，则返回第一个子窗口的指针。不过，这 里还要注意的是：该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>对于第二个参数nFlags有几个含义：<br>CWP_ALL             <a href="file:///">file:&#x2F;&#x2F;不</a>忽略任何子窗口<br>CWP_SKIPNIVSIBLE    <a href="file:///">file:&#x2F;&#x2F;忽</a>略不可见子窗口<br>CWP_SKIPDISABLED    <a href="file:///">file:&#x2F;&#x2F;忽</a>略禁止的子窗口<br>CWP_SKIPRANSPARENT  <a href="file:///">file:&#x2F;&#x2F;忽</a>略 透明子窗口</p>
 <p>在何时何地，你都可以通过以下方法精确的得到任何一个对象 （Application，DocTemplate,Document，View,Frame）<br>1。通过AfxGetApp()得到当前的App 对象；<br>2。通过AfxGetMainWnd（）得到主窗口；<br>3。通过CMDIFrameWnd::GetActiveFrame得到当前 活动窗口；<br>4。通过GetNextWindow()遍例所有的子窗口；（如果要得到你想要的子窗口，可以通过特定的成员变量来标志）；<br>5。 通过CWinApp::GetFirstDocTemplatePostion()以及CWinApp::GetNextDocTemplate()的组 合应用来遍历所有的DocTemplate对象，并且用CDocTemplate::GetDocString()来判断当前得到的文档莫板对象是哪个。<br>6。 通过CDocTemplate::GetFirstDocPosition()以及CDocTemplate的GetNextDoc（）组合来遍历所有的 该模板的文档对象，并用CDocument::GetDocTemplate()来得到文档模板，用CDocment::GetTitle() 或者GetPathName()来判断当前的文档是哪个。<br>7。通过CDocuemt的GetFirstViewPositon()以及 GetNextView()来遍历视图对象，一般通过访问View的成员变量来区别各个视图；通过CView::GetDocument()来得到文档对 象；<br>8。Frame-&gt;View： 通过GetActiveView方法；<br>9。Frame-&gt;Doc：通过 GetActiveDocument();<br>10。View-&gt;Frame：GetParentFrame();<br>11。 View-&gt;Doc:GetDocuemt()&#x2F;&#x2F;前面已经说了。<br>12。Doc-&gt;View:前面说了；<br>13。 Doc-&gt;Frame:不知道有没有很直接的方法。<br>MFC应用程序中指针的使用\</p>
 <ol>
 <li>在View中获得Doc指针\</li>
@@ -538,7 +538,7 @@ dialog.DoModal();\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/05/19/2010-05-19_MFC%E6%8C%87%E9%92%88%E7%9A%84%E8%8E%B7%E5%8F%96%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuids4rwFvasYR33rcrotbySD" data-title="MFC指针的获取（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/05/19/2010-05-19_MFC%E6%8C%87%E9%92%88%E7%9A%84%E8%8E%B7%E5%8F%96%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuid7EynUKxmomAnCcTJUk-2J" data-title="MFC指针的获取（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -576,13 +576,13 @@ dialog.DoModal();\
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>转自：<a target="_blank" rel="noopener" href="http://hi.baidu.com/ruiqing/_2008/blog/item/50381334c10183bbd1a2d369.html/">http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html\</a><br>_RecordsetPtr m_pRecordset;&#x2F;&#x2F;创建一个_RecordsetPtr m_pRecordset.CreateInstance(“ADODB.Recordset”); &#x2F;&#x2F;创建一个实例 try {      m_pRecordset-&gt;Open(<br>“SELECT * FROM duty”,                                               &#x2F;&#x2F;sql查询语句<br>m_pConnection.GetInterfacePtr(),                               &#x2F;&#x2F;得到sql连接的指针<br>&#x2F;&#x2F;Const <strong>adOpenDynamic</strong> &#x3D; 2 ‘动态游标功能最强，但耗资源也最多。用户对记录说做的修改，增加或删除记录都将反映到记录集中。支持全功能浏览(ACCESS不支持)。<br>adOpenDynamic,<br><br>&#x2F;&#x2F;Const adLockOptimistic &#x3D; 3 ‘只有在调用Update方法时才锁定记录集，而在此前的其他操作仍可对当前记录进行更改、插入和删除 等<br>adLockOptimistic,<br>&#x2F;&#x2F;<strong>AdCmdText</strong> 将 CommandText 作为命令或存储过程调用的文本化定义进行计算。<br>adCmdText);<br>}<br>catch(_com_error e)<br>{<br>&#x2F;&#x2F;cout&lt;<e->ErrorMessage()&lt;&lt;endl;<br>AfxMessageBox(“Create Instance failed!”);<br>return;<br>}</p>
+        <p>转自：<a target="_blank" rel="noopener" href="http://hi.baidu.com/ruiqing/_2008/blog/item/50381334c10183bbd1a2d369.html/">http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html\</a><br>_RecordsetPtr m_pRecordset;&#x2F;&#x2F;创建一个_RecordsetPtr m_pRecordset.CreateInstance(“ADODB.Recordset”); &#x2F;&#x2F;创建一个实例 try {      m_pRecordset-&gt;Open(<br>“SELECT * FROM duty”,                                               &#x2F;&#x2F;sql查询语句<br>m_pConnection.GetInterfacePtr(),                               &#x2F;&#x2F;得到sql连接的指针<br>&#x2F;&#x2F;Const <strong>adOpenDynamic</strong> &#x3D; 2 ‘动态游标功能最强，但耗资源也最多。用户对记录说做的修改，增加或删除记录都将反映到记录集中。支持全功能浏览(ACCESS不支持)。<br>adOpenDynamic,<br><br>&#x2F;&#x2F;Const adLockOptimistic &#x3D; 3 ‘只有在调用Update方法时才锁定记录集，而在此前的其他操作仍可对当前记录进行更改、插入和删除 等<br>adLockOptimistic,<br>&#x2F;&#x2F;<strong>AdCmdText</strong> 将 CommandText 作为命令或存储过程调用的文本化定义进行计算。<br>adCmdText);<br>}<br>catch(_com_error e)<br>{<br>&#x2F;&#x2F;cout&lt;<e->ErrorMessage()&lt;&lt;endl;<br>AfxMessageBox(“Create Instance failed!”);<br>return;<br>}</p>
 <p><strong>内容一：</strong><br>‘定义数据库连接的一些常量<br>Const adOpenForwardOnly &#x3D; 0 ‘(默认值)游标只向前浏览记录，不支持分页、Recordset、BookMark<br>Const adOpenKeyset &#x3D; 1 ‘键集游标，其他用户对记录说做的修改将反映到记录集中，但其他用户增加或删除记录不会反映到记录集中。支持分页、Recordset、BookMark<br>Const <strong>adOpenDynamic</strong> &#x3D; 2 ‘动态游标功能最强，但耗资源也最多。用户对记录说做的修改，增加或删除记录都将反映到记录集中。支持全功能浏览(ACCESS不支持)。<br>Const adOpenStatic &#x3D; 3 ‘静态游标，只是数据的一个快照，用户对记录说做的修改，增加或删除记录都不会反映到记录集中。支持向前或向后移动<br>Const adLockReadOnly &#x3D; 1 ‘(默认值)锁定类型，默认的，只读，不能作任何修改<br>Const adLockPessimistic &#x3D; 2 ‘当编辑时立即锁定记录，最安全的方式<br>Const adLockOptimistic &#x3D; 3 ‘只有在调用Update方法时才锁定记录集，而在此前的其他操作仍可对当前记录进行更改、插入和删除等<br>Const adLockBatchOptimistic &#x3D; 4 ‘当编辑时记录不会被锁定，而更改、插入和删除是在批处理方式下完成的<br>Const adCmdText &#x3D; &amp;H0001<br>Const adCmdTable &#x3D; &amp;H0002<br>%&gt;<br>Open 方法 (ADO Recordset)<br>打开游标。<br>语法<br>recordset.Open Source, ActiveConnection, CursorType, LockType, Options<br><strong>内容二：</strong><br>CommandType 属性<br>指示 Command 对象的类型。<br>设置和返回值<br>设置或返回以下某个 CommandTypeEnum 值。<br>常量 说明<br><strong>AdCmdText</strong> 将 CommandText 作为命令或存储过程调用的文本化定义进行计算。<br>AdCmdTable 将 CommandText 作为其列全部由内部生成的 SQL 查询返回的表格的名称进行计算。<br>AdCmdTableDirect 将 CommandText 作为其列全部返回的表格的名称进行计算。<br>AdCmdStoredProc 将 CommandText 作为存储过程名进行计算。<br>AdCmdUnknown 默认值。CommandText 属性中的命令类型未知。<br>adCmdFile 将 CommandText 作为持久 Recordset 文件名进行计算。<br>AdExecuteNoRecords 指示 CommandText 为不返回行的命令或存储过程（例如，插入数据的命令）。如果检索任意行，则将丢弃这些行且并不返回。它总是与 <strong>adCmdText</strong> 或 adCmdStoredProc 进行组合。<br>说明<br>使用 CommandType 属性可优化 CommandText 属性的计算。<br>如果 CommandType 属性的值等于 adCmdUnknown（默认值），系统的性能将会降低，因为 ADO 必须调用提供者以确定 CommandText 属性是 SQL 语句、还是存储过程或表格名称。如果知道正在使用的命令的类型，可通过设置 CommandType 属性指令 ADO 直接转到相关代码。如果 CommandType 属性与 CommandText 属性中的命令类型不匹配，调用 Execute 方法时将产生错误。<br>adExecuteNoRecords 常量通过最小化内部处理来提高性能。该常量不独立使用，它总是与 <strong>adCmdText</strong> 或 adCmdStoredProc 组合（如 <strong>adCmdText</strong>+adExecuteNoRecords） 一起使用。如果与 Recordset.Open 一起使用 adExecuteNoRecords，或者该方法使用 Command 对象都将产生错误。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/05/10/2010-05-10__RecordsetPtr%E7%9A%84_open%E5%87%BD%E6%95%B0(%E8%BD%AC%E8%BD%BD)/" data-id="cuidhkGk9lp5Al0bfNL7MXkqW" data-title="_RecordsetPtr的 open函数(转载)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/05/10/2010-05-10__RecordsetPtr%E7%9A%84_open%E5%87%BD%E6%95%B0(%E8%BD%AC%E8%BD%BD)/" data-id="cuidAqvTf6XoAoSDI6Ujsn8E1" data-title="_RecordsetPtr的 open函数(转载)" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -620,8 +620,8 @@ dialog.DoModal();\
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><br> <br>转自：<a target="_blank" rel="noopener" href="http://hi.baidu.com.sixxs.org/eagle/_shuai/blog/item/325c3abfb763800619d81f90.html/">http://hi.baidu.com.sixxs.org/eagle\_shuai/blog/item/325c3abfb763800619d81f90.html\</a><br>chilli 的 MFC指针的获取</p>
-<p>1、获取应用程序指针<br>CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();<br>2、获取主框架指针<br>CWinApp 中的公有成员变量 m_pMainWnd 就是主框架的指针<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)(AfxGetApp()-&gt;m_pMainWnd);<br>或者<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br><br>３、获取菜单指针<br>CMenu* pMenu &#x3D; AfxGetMainWnd()-&gt;GetMenu();<br>４、获取工具栏、状态栏指针<br>主框架中可以直接使用m_wndToolBar、m_wndStatusBar<br>其他：<br>CToolBar* pToolBar &#x3D; (CToolBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_TOOLBAR);<br>CStatusBar* pStatusBar &#x3D; (CStatusBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>5、获取控件指针<br>先用 GetDlgItem() 再转换，如：<br>CButton* pButton &#x3D; (CButton*)GetDlgItem(IDC_MYBUTTON);<br>6、获取文档、视图指针<br>SDI:<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br>CYourDoc* pDoc &#x3D; (CYourDoc*)pMainFrame-&gt;GetActiveDocument();<br>CYourView* pView &#x3D; (CYourView*)pMainFrame-&gt;GetActiveView();<br>MDI:<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br>CChildFrame* pChildFrame &#x3D; (CChildFrame*)pMainFrame-&gt;GetActiveFrame();<br>CYourDoc* pDoc &#x3D; (CYourDoc*)pChildFrame-&gt;GetActiveDocument();<br>CYourView* pView &#x3D; (CYourView*)pChildFrame-&gt;GetActiveView();<br>7、文档、视图<br>从视图获取文档指针：<br>CYourDoc* pDoc &#x3D; GetDocument();<br>从文档获取视图指针：<br>利用成员函数 GetFirstViewPosition() 和 GetNextView() 遍历<br>virtual POSITION GetFirstViewPosition() const;<br>virtual CView* GetNextView(POSITION&amp; rPosition) const;<br>SDI:<br>CYourView* pView;<br>POSITION pos &#x3D; GetFirstViewPosition();<br>pView &#x3D; GetNextView(pos);<br>MDI:<br>定义函数<br>CView* CYourDoc::GetView(CRuntimeClass* pClass)<br>{<br>CView* pView;<br>POSITION pos&#x3D;GetFirstViewPosition();<br>while(pos!&#x3D;NULL)<br>{<br>pView&#x3D;GetNextView(pos);<br>if(!pView-&gt;IsKindOf(pClass))<br>break;<br>}<br>if(!pView-&gt;IsKindOf(pClass))<br>{<br>AfxMessageBox(“Connt Locate the View.”);<br>return NULL;<br>}<br>return pView;<br>}<br>使用如下：<br>CYourView* pView&#x3D;(CYourView*)GetView(RUNTIME_CLASS(CYourView));<br>8、文档模版、文档<br>从文档获取文档模版指针：<br>CDocTemplate* GetDocTemplate() const;<br>从文档模版获取文档指针：<br>viaual POSITION GetFirstDocPosition( ) const &#x3D; 0;<br>visual CDocument* GetNextDoc(POSITION &amp; rPos) const &#x3D; 0;<br>9、获取分割视图中各个视图的指针<br>主框架中定义：CSplitterWnd m_wndSplitter;<br>定义两个View<strong>类</strong>：CView1、CView2<br>框架<strong>类</strong>中重载：<br>BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT, CCreateContext* pContext)<br>{<br>VERIFY(m_splitter.CreateStatic(this,2,1)); &#x2F;&#x2F;分割成两行一列<br>VERIFY(m_splitter.CreateView(0,0,RUNTIME_CLASS(CView1),CSize(100,100),pContext));<br>VERIFY(m_splitter.CreateView(1,0,RUNTIME_CLASS(CView2),CSize(100,100),pContext));<br>return TRUE;<br>}<br>获取分割视图指针<br>CView1* pView1 &#x3D; (CView1*)m_wndSplitter.GetPane(0,0);<br>CView2* pView2 &#x3D; (CView2*)m_wndSplitter.GetPane(1,0);<br>10、通过鼠标获得子窗口指针<br>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>用于确定包含指定点的子窗口<br>如果指定点在客户区之外，函数返回NULL；<br>如果指定点在客户区内，但是不属于任何一个子窗口，函数返回该CWnd的指针；<br>如果有多个子窗口包含指定点，则返回第一个子窗口的指针。<br>还要注意的是，该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>对于第二个参数nFlags有几个含义：<br>CWP_ALL             file:&#x2F;&#x2F;不忽略任何子窗口<br>CWP_SKIPNIVSIBLE    file:&#x2F;&#x2F;忽略不可见子窗口<br>CWP_SKIPDISABLED    file:&#x2F;&#x2F;忽略禁止的子窗口<br>CWP_SKIPRANSPARENT file:&#x2F;&#x2F;忽略透明子窗口<br>获取工具条的指针<br>在缺省状态下，有一个默认的工具条AFX_IDW_TOOLBAR，我们可以根据相应的ID去获取工具条指针，方法如下：<br>CToolBar* pToolBar&#x3D;(CToolBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_TOOLBAR);<br>是不是很简单？<br>获取状态条的指针<br>在缺省状态下，有一个默认的状态条AFX_IDW_STATUS_BAR，我们自然也可以根据相应的ID去获取状态条指针，方法如下：<br>CStatusBar* pToolBar&#x3D;(CStatusBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>这里有两种方法。<br>一、调用CWnd: : GetDlgItem，获取一个CWnd*指针调用成员函数。例如，我们想获取CButton指针，方法如下：<br>CButton* pButton&#x3D;(CButton*) GetDlgItem (IDC_MYBUTTON);<br>二、可以使用ClassWizard将控件和成员变量联系起来。在ClassWizard中简单地选择Member Variables标签，然后选择Add Variable …按钮。如果在对话资源编辑器中，按下Ctrl键并双击控件即可转到Add Member Variable对话。<br>我们可以利用文档类的成员函数GetFirstView()和GetNextView()遍历视图。<br>其实，在视图类中有一个现成的成员函数供我们使用，那就是：GetDocument();利用它我们可以很容易的得到文档类指针，我们先看一下 GetDocument()函数的实现：<br>CColorButtonDoc* CColorButtonView::GetDocument()<br>{<br>ASSERT(m_pDocument-&gt;IsKindOf(RUNTIME_CLASS(CColorButtonDoc)));<br>return (CColorButtonDoc*)m_pDocument;<br>}<br>这里实际上是将m_pDocument强制转换成CColorButtonDoc*，也就是我们想要的。<br>这里我们可以利用GetActiveXXXXX()去掉用当前激活的文档和视图：<br>CMyDoc*   pDoc&#x3D;(CMyDoc*)GetActiveDocument();<br>CMyView* pView&#x3D;(CMyView*)GetActiveView();<br>这个很简单，一句话搞定：<br>CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();<br>在类CWinThread里面有一个公有的成员变量：CWnd* m_pMainWnd; 它存在的主要目的就是提供我们获得CWnd指针，我们可以利用它来达到我们的目的：<br>CMainFrame* pFrame&#x3D;(CMainFrame*)(AfxGetApp()-&gt;m_pMainWnd);<br>通过鼠标获得子窗口指针<br>这里我们要用到一个不太常用的函数：ChildWindowFromPoint。他的原型如下：<br>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>这个函数用于确定包含指定点的子窗口，如果指定点在客户区之外，函数返回NULL；如果指定点在客户区内，但是不属于任何一个子窗口，函数返回该CWnd 的指针；如果有多个子窗口包含指定点，则返回第一个子窗口的指针。不过，这里还要注意的是：该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>忽略任何子窗口略不可见子窗口略禁止的子窗口<br>在何时何地，你都可以通过以下方法精确的得到任何一个对象 （Application，DocTemplate,Document，View,Frame）<br>1。通过AfxGetApp()得到当前的App对象；<br>2。通过AfxGetMainWnd（）得到主窗口；<br>3。通过CMDIFrameWnd::GetActiveFrame得到当前活动窗口；<br>4。通过GetNextWindow()遍例所有的子窗口；（如果要得到你想要的子窗口，可以通过特定的成员变量来标志）；<br>5。通过CWinApp::GetFirstDocTemplatePostion()以及CWinApp::GetNextDocTemplate() 的组合应用来遍历所有的DocTemplate对象，并且用CDocTemplate::GetDocString()来判断当前得到的文档莫板对象是哪 个。<br>6。通过CDocTemplate::GetFirstDocPosition()以及CDocTemplate的GetNextDoc（）组合来遍历所 有的该模板的文档对象，并用CDocument::GetDocTemplate()来得到文档模板，用CDocment::GetTitle() 或者GetPathName()来判断当前的文档是哪个。<br>7。通过CDocuemt的GetFirstViewPositon()以及GetNextView()来遍历视图对象，一般通过访问View的成员变量 来区别各个视图；通过CView::GetDocument()来得到文档对象；<br>8。Frame-&gt;View： 通过GetActiveView方法；<br>9。Frame-&gt;Doc：通过GetActiveDocument();<br>10。View-&gt;Frame：GetParentFrame();<br>11。View-&gt;Doc:GetDocuemt()&#x2F;&#x2F;前面已经说了。<br>12。Doc-&gt;View:前面说了；<br>13。Doc-&gt;Frame:不知道有没有很直接的方法。<br>MFC应用程序中指针的使用\</p>
+        <p><br> <br>转自：<a target="_blank" rel="noopener" href="http://hi.baidu.com.sixxs.org/eagle/_shuai/blog/item/325c3abfb763800619d81f90.html/">http://hi.baidu.com.sixxs.org/eagle\_shuai/blog/item/325c3abfb763800619d81f90.html\</a><br>chilli 的 MFC指针的获取</p>
+<p>1、获取应用程序指针<br>CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();<br>2、获取主框架指针<br>CWinApp 中的公有成员变量 m_pMainWnd 就是主框架的指针<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)(AfxGetApp()-&gt;m_pMainWnd);<br>或者<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br><br>３、获取菜单指针<br>CMenu* pMenu &#x3D; AfxGetMainWnd()-&gt;GetMenu();<br>４、获取工具栏、状态栏指针<br>主框架中可以直接使用m_wndToolBar、m_wndStatusBar<br>其他：<br>CToolBar* pToolBar &#x3D; (CToolBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_TOOLBAR);<br>CStatusBar* pStatusBar &#x3D; (CStatusBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>5、获取控件指针<br>先用 GetDlgItem() 再转换，如：<br>CButton* pButton &#x3D; (CButton*)GetDlgItem(IDC_MYBUTTON);<br>6、获取文档、视图指针<br>SDI:<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br>CYourDoc* pDoc &#x3D; (CYourDoc*)pMainFrame-&gt;GetActiveDocument();<br>CYourView* pView &#x3D; (CYourView*)pMainFrame-&gt;GetActiveView();<br>MDI:<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br>CChildFrame* pChildFrame &#x3D; (CChildFrame*)pMainFrame-&gt;GetActiveFrame();<br>CYourDoc* pDoc &#x3D; (CYourDoc*)pChildFrame-&gt;GetActiveDocument();<br>CYourView* pView &#x3D; (CYourView*)pChildFrame-&gt;GetActiveView();<br>7、文档、视图<br>从视图获取文档指针：<br>CYourDoc* pDoc &#x3D; GetDocument();<br>从文档获取视图指针：<br>利用成员函数 GetFirstViewPosition() 和 GetNextView() 遍历<br>virtual POSITION GetFirstViewPosition() const;<br>virtual CView* GetNextView(POSITION&amp; rPosition) const;<br>SDI:<br>CYourView* pView;<br>POSITION pos &#x3D; GetFirstViewPosition();<br>pView &#x3D; GetNextView(pos);<br>MDI:<br>定义函数<br>CView* CYourDoc::GetView(CRuntimeClass* pClass)<br>{<br>CView* pView;<br>POSITION pos&#x3D;GetFirstViewPosition();<br>while(pos!&#x3D;NULL)<br>{<br>pView&#x3D;GetNextView(pos);<br>if(!pView-&gt;IsKindOf(pClass))<br>break;<br>}<br>if(!pView-&gt;IsKindOf(pClass))<br>{<br>AfxMessageBox(“Connt Locate the View.”);<br>return NULL;<br>}<br>return pView;<br>}<br>使用如下：<br>CYourView* pView&#x3D;(CYourView*)GetView(RUNTIME_CLASS(CYourView));<br>8、文档模版、文档<br>从文档获取文档模版指针：<br>CDocTemplate* GetDocTemplate() const;<br>从文档模版获取文档指针：<br>viaual POSITION GetFirstDocPosition( ) const &#x3D; 0;<br>visual CDocument* GetNextDoc(POSITION &amp; rPos) const &#x3D; 0;<br>9、获取分割视图中各个视图的指针<br>主框架中定义：CSplitterWnd m_wndSplitter;<br>定义两个View<strong>类</strong>：CView1、CView2<br>框架<strong>类</strong>中重载：<br>BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT, CCreateContext* pContext)<br>{<br>VERIFY(m_splitter.CreateStatic(this,2,1)); &#x2F;&#x2F;分割成两行一列<br>VERIFY(m_splitter.CreateView(0,0,RUNTIME_CLASS(CView1),CSize(100,100),pContext));<br>VERIFY(m_splitter.CreateView(1,0,RUNTIME_CLASS(CView2),CSize(100,100),pContext));<br>return TRUE;<br>}<br>获取分割视图指针<br>CView1* pView1 &#x3D; (CView1*)m_wndSplitter.GetPane(0,0);<br>CView2* pView2 &#x3D; (CView2*)m_wndSplitter.GetPane(1,0);<br>10、通过鼠标获得子窗口指针<br>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>用于确定包含指定点的子窗口<br>如果指定点在客户区之外，函数返回NULL；<br>如果指定点在客户区内，但是不属于任何一个子窗口，函数返回该CWnd的指针；<br>如果有多个子窗口包含指定点，则返回第一个子窗口的指针。<br>还要注意的是，该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>对于第二个参数nFlags有几个含义：<br>CWP_ALL             file:&#x2F;&#x2F;不忽略任何子窗口<br>CWP_SKIPNIVSIBLE    file:&#x2F;&#x2F;忽略不可见子窗口<br>CWP_SKIPDISABLED    file:&#x2F;&#x2F;忽略禁止的子窗口<br>CWP_SKIPRANSPARENT file:&#x2F;&#x2F;忽略透明子窗口<br>获取工具条的指针<br>在缺省状态下，有一个默认的工具条AFX_IDW_TOOLBAR，我们可以根据相应的ID去获取工具条指针，方法如下：<br>CToolBar* pToolBar&#x3D;(CToolBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_TOOLBAR);<br>是不是很简单？<br>获取状态条的指针<br>在缺省状态下，有一个默认的状态条AFX_IDW_STATUS_BAR，我们自然也可以根据相应的ID去获取状态条指针，方法如下：<br>CStatusBar* pToolBar&#x3D;(CStatusBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>这里有两种方法。<br>一、调用CWnd: : GetDlgItem，获取一个CWnd*指针调用成员函数。例如，我们想获取CButton指针，方法如下：<br>CButton* pButton&#x3D;(CButton*) GetDlgItem (IDC_MYBUTTON);<br>二、可以使用ClassWizard将控件和成员变量联系起来。在ClassWizard中简单地选择Member Variables标签，然后选择Add Variable …按钮。如果在对话资源编辑器中，按下Ctrl键并双击控件即可转到Add Member Variable对话。<br>我们可以利用文档类的成员函数GetFirstView()和GetNextView()遍历视图。<br>其实，在视图类中有一个现成的成员函数供我们使用，那就是：GetDocument();利用它我们可以很容易的得到文档类指针，我们先看一下 GetDocument()函数的实现：<br>CColorButtonDoc* CColorButtonView::GetDocument()<br>{<br>ASSERT(m_pDocument-&gt;IsKindOf(RUNTIME_CLASS(CColorButtonDoc)));<br>return (CColorButtonDoc*)m_pDocument;<br>}<br>这里实际上是将m_pDocument强制转换成CColorButtonDoc*，也就是我们想要的。<br>这里我们可以利用GetActiveXXXXX()去掉用当前激活的文档和视图：<br>CMyDoc*   pDoc&#x3D;(CMyDoc*)GetActiveDocument();<br>CMyView* pView&#x3D;(CMyView*)GetActiveView();<br>这个很简单，一句话搞定：<br>CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();<br>在类CWinThread里面有一个公有的成员变量：CWnd* m_pMainWnd; 它存在的主要目的就是提供我们获得CWnd指针，我们可以利用它来达到我们的目的：<br>CMainFrame* pFrame&#x3D;(CMainFrame*)(AfxGetApp()-&gt;m_pMainWnd);<br>通过鼠标获得子窗口指针<br>这里我们要用到一个不太常用的函数：ChildWindowFromPoint。他的原型如下：<br>CWnd* ChildWindowFromPoint(POINT point) const;<br>CWnd* ChildWindowFromPoint(POINT point,UINT nFlags) const;<br>这个函数用于确定包含指定点的子窗口，如果指定点在客户区之外，函数返回NULL；如果指定点在客户区内，但是不属于任何一个子窗口，函数返回该CWnd 的指针；如果有多个子窗口包含指定点，则返回第一个子窗口的指针。不过，这里还要注意的是：该函数返回的是一个伪窗口指针，不能将它保存起来供以后使用。<br>忽略任何子窗口略不可见子窗口略禁止的子窗口<br>在何时何地，你都可以通过以下方法精确的得到任何一个对象 （Application，DocTemplate,Document，View,Frame）<br>1。通过AfxGetApp()得到当前的App对象；<br>2。通过AfxGetMainWnd（）得到主窗口；<br>3。通过CMDIFrameWnd::GetActiveFrame得到当前活动窗口；<br>4。通过GetNextWindow()遍例所有的子窗口；（如果要得到你想要的子窗口，可以通过特定的成员变量来标志）；<br>5。通过CWinApp::GetFirstDocTemplatePostion()以及CWinApp::GetNextDocTemplate() 的组合应用来遍历所有的DocTemplate对象，并且用CDocTemplate::GetDocString()来判断当前得到的文档莫板对象是哪 个。<br>6。通过CDocTemplate::GetFirstDocPosition()以及CDocTemplate的GetNextDoc（）组合来遍历所 有的该模板的文档对象，并用CDocument::GetDocTemplate()来得到文档模板，用CDocment::GetTitle() 或者GetPathName()来判断当前的文档是哪个。<br>7。通过CDocuemt的GetFirstViewPositon()以及GetNextView()来遍历视图对象，一般通过访问View的成员变量 来区别各个视图；通过CView::GetDocument()来得到文档对象；<br>8。Frame-&gt;View： 通过GetActiveView方法；<br>9。Frame-&gt;Doc：通过GetActiveDocument();<br>10。View-&gt;Frame：GetParentFrame();<br>11。View-&gt;Doc:GetDocuemt()&#x2F;&#x2F;前面已经说了。<br>12。Doc-&gt;View:前面说了；<br>13。Doc-&gt;Frame:不知道有没有很直接的方法。<br>MFC应用程序中指针的使用\</p>
 <ol>
 <li>在View中获得Doc指针\</li>
 <li>在App中获得MainFrame指针\</li>
@@ -652,7 +652,7 @@ dialog.DoModal();\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/03/26/2010-03-26_%E5%BC%95%E7%94%A8MFC%E6%8C%87%E9%92%88%E7%9A%84%E8%8E%B7%E5%8F%96%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuid615DVZZhwuXoOhh-zIkAJ" data-title="引用MFC指针的获取（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/03/26/2010-03-26_%E5%BC%95%E7%94%A8MFC%E6%8C%87%E9%92%88%E7%9A%84%E8%8E%B7%E5%8F%96%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidR3g6E8WObmPFyKrcZAOrp" data-title="引用MFC指针的获取（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -690,12 +690,12 @@ dialog.DoModal();\
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>转自：<a target="_blank" rel="noopener" href="http://www.wang48.com/jishubaodianview/?jsd%5C_id=4902%5C">http://www.wang48.com/jishubaodianview/?jsd\_id=4902\</a><br>（转到自己博客，省的到处去翻）<br> <br>事实上网络编程简单的理解就是两台计算机相互通讯数据而已，对于程序员而言，去掌握一种编程接口并使用一种编程模型相对就会显得简单的多了，Java SDK提供一些相对简单的Api来完成这些工作。Socket就是其中之一，对于Java而言，这些Api存在与java.net 这个包里面，因此只要导入这个包就可以准备网络编程了。<br>网络编程的基本模型就是客户机到服务器模型，简单的说就是两个进程之间相互通讯，然后其中一个必须提供一个固定的位置，而另一个则只需要知道这个固定的位置。并去建立两者之间的联系，然后完成数据的通讯就可以了，这里提供固定位置的通常称为服务器，而建立联系的通常叫做客户端，基于这个简单的模型，就可以进入网络编程啦。<br>Java对这个模型的支持有很多种Api，而这里我只想介绍有关Socket的编程接口，对于Java而言已经简化了Socket的编程接口。首先我们来讨论有关提供固定位置的服务方是如何建立的。Java提供了ServerSocket来对其进行支持.事实上当你创建该类的一个实力对象并提供一个端口资源你就建立了一个固定位置可以让其他计算机来访问你，ServerSocket server&#x3D;new ServerSocket(6789);这里稍微要注意的是端口的分配必须是唯一的。因为端口是为了唯一标识每台计算机唯一服务的，另外端口号是从 0~65535之间的，前1024个端口已经被Tcp&#x2F;Ip 作为保留端口，因此你所分配的端口只能是1024个之后的。好了，我们有了固定位置.现在所需要的就是一根连接线了.该连接线由客户方首先提出要求。因此 Java同样提供了一个Socket对象来对其进行支持，只要客户方创建一个Socket的实例对象进行支持就可以了。Socket client<br>&#x3D;new Socket(InetAddress.getLocalHost(),5678);客户机必须知道有关服务器的IP地址，对于着一点Java也提供了一个相关的类InetAddress 该对象的实例必须通过它的静态方法来提供，它的静态方法主要提供了得到本机IP 和通过名字或IP直接得到InetAddress的方法。<br>上面的方法基本可以建立一条连线让两台计算机相互交流了，可是数据是如何传输的呢？事实上I&#x2F;O操作总是和网络编程息息相关的。因为底层的网络是继续数据的，除非远程调用，处理问题的核心在执行上，否则数据的交互还是依赖于IO操作的，所以你也必须导入java.io这个包.java的IO操作也不复杂，它提供了针对于字节流和Unicode的读者和写者，然后也提供了一个缓冲用于数据的读写。<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(server.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(server.getOutputStream());<br>上面两句就是建立缓冲并把原始的字节流转变为 Unicode可以操作，而原始的字节流来源于Socket的两个方法，getInputStream()和getOutputStream()方，分别用来得到输入和输出，那么现在有了基本的模型和基本的操作工具，我们可以做一个简单的Socket例程了.<br>服务方:<br>import java.io.*;<br>import java.net.*;<br>public class MyServer {<br>public static void main(String[] args) throws IOException{<br>ServerSocket server&#x3D;new ServerSocket(5678);<br>Socket client&#x3D;server.accept();<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(client.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(client.getOutputStream());<br>while(true){<br>String str&#x3D;in.readLine();<br>System.out.println(str);<br>out.println(“has receive….”);<br>out.flush();<br>if(str.equals(“end”))<br>break;<br>}<br>client.close();<br>}<br>}<br>这个程序的主要目的在于服务器不断接收客户机所写入的信息只到，客户机发送”End”字符串就退出程序，并且服务器也会做出”Receive”为回应，告知客户机已接收到消息。<br>客户机代码:<br>import java.net.*;<br>import java.io.*;<br>public class Client{<br>static Socket server;<br>public static void main(String[] args)throws Exception{<br>server&#x3D;new Socket(InetAddress.getLocalHost(),5678);<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(server.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(server.getOutputStream());<br>BufferedReader wt&#x3D;new BufferedReader(new InputStreamReader(System.in));<br>while(true){<br>String str&#x3D;wt.readLine();<br>out.println(str);<br>out.flush();<br>if(str.equals(“end”)){<br>break;<br>}<br>System.out.println(in.readLine());<br>}<br>server.close();<br>}<br>}<br>客户机代码则是接受客户键盘输入,并把该信息输出，然后输出”End”用来做退出标识。<br>这个程序只是简单的两台计算机之间的通讯，如果是多个客户同时访问一个服务器呢？你可以试着再运行一个客户端，结果是会抛出异常的。那么多个客户端如何实现呢?<br>其实,简单的分析一下，就可以看出客户和服务通讯的主要通道就是Socket本身，而服务器通过accept方法就是同意和客户建立通讯.这样当客户建立Socket的同时。服务器也会使用这一根连线来先后通讯，那么既然如此只要我们存在多条连线就可以了。那么我们的程序可以变为如下:<br>服务器:<br>import java.io.*;<br>import java.net.*;<br>public class MyServer {<br>public static void main(String[] args) throws IOException{<br>ServerSocket server&#x3D;new ServerSocket(5678);<br>while(true){<br>Socket client&#x3D;server.accept();<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(client.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(client.getOutputStream());<br>while(true){<br>String str&#x3D;in.readLine();<br>System.out.println(str);<br>out.println(“has receive….”);<br>out.flush();<br>if(str.equals(“end”))<br>break;<br>}<br>client.close();<br>}<br>}<br>}<br>这里仅仅只是加了一个外层的While循环，这个循环的目的就是当一个客户进来就为它分配一个Socket直到这个客户完成一次和服务器的交互，这里也就是接受到客户的”End”消息.那么现在就实现了多客户之间的交互了。但是.问题又来了，这样做虽然解决了多客户,可是是排队执行的。也就是说当一个客户和服务器完成一次通讯之后下一个客户才可以进来和服务器交互，无法做到同时服务，那么要如何才能同时达到既能相互之间交流又能同时交流呢？很显然这是一个并行执行的问题了。所以线程是最好的解决方案。<br>那么下面的问题是如何使用线程.首先要做的事情是创建线程并使得其可以和网络连线取得联系。然后由线程来执行刚才的操作，要创建线程要么直接继承Thread要么实现Runnable接口，要建立和 Socket的联系只要传递引用就可以了.而要执行线程就必须重写run方法，而run方法所做的事情就是刚才单线程版本main所做的事情，因此我们的程序变成了这样:<br>import java.net.*;<br>import java.io.*;<br>public class MultiUser extends Thread{<br>private Socket client;<br>public MultiUser(Socket c){<br>this.client&#x3D;c;<br>}<br>public void run(){<br>try{<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(client.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(client.getOutputStream());<br>&#x2F;&#x2F;Mutil User but can’t parallel<br>while(true){<br>String str&#x3D;in.readLine();<br>System.out.println(str);<br>out.println(“has receive….”);<br>out.flush();<br>if(str.equals(“end”))<br>break;<br>}<br>client.close();<br>}catch(IOException ex){<br>}finally{<br>}<br>}<br>public static void main(String[] args)throws IOException{<br>ServerSocket server&#x3D;new ServerSocket(5678);<br>while(true){<br>&#x2F;&#x2F;transfer location change Single User or Multi User<br>MultiUser mu&#x3D;new MultiUser(server.accept());<br>mu.start();<br>}<br>}<br>}<br>我的类直接从 Thread类继承了下来.并且通过构造函数传递引用和客户Socket建立了联系，这样每个线程就有了。一个通讯管道.同样我们可以填写run方法，把之前的操作交给线程来完成，这样多客户并行的Socket就建立起来了。</p>
+        <p>转自：<a target="_blank" rel="noopener" href="http://www.wang48.com/jishubaodianview/?jsd%5C_id=4902%5C">http://www.wang48.com/jishubaodianview/?jsd\_id=4902\</a><br>（转到自己博客，省的到处去翻）<br> <br>事实上网络编程简单的理解就是两台计算机相互通讯数据而已，对于程序员而言，去掌握一种编程接口并使用一种编程模型相对就会显得简单的多了，Java SDK提供一些相对简单的Api来完成这些工作。Socket就是其中之一，对于Java而言，这些Api存在与java.net 这个包里面，因此只要导入这个包就可以准备网络编程了。<br>网络编程的基本模型就是客户机到服务器模型，简单的说就是两个进程之间相互通讯，然后其中一个必须提供一个固定的位置，而另一个则只需要知道这个固定的位置。并去建立两者之间的联系，然后完成数据的通讯就可以了，这里提供固定位置的通常称为服务器，而建立联系的通常叫做客户端，基于这个简单的模型，就可以进入网络编程啦。<br>Java对这个模型的支持有很多种Api，而这里我只想介绍有关Socket的编程接口，对于Java而言已经简化了Socket的编程接口。首先我们来讨论有关提供固定位置的服务方是如何建立的。Java提供了ServerSocket来对其进行支持.事实上当你创建该类的一个实力对象并提供一个端口资源你就建立了一个固定位置可以让其他计算机来访问你，ServerSocket server&#x3D;new ServerSocket(6789);这里稍微要注意的是端口的分配必须是唯一的。因为端口是为了唯一标识每台计算机唯一服务的，另外端口号是从 0~65535之间的，前1024个端口已经被Tcp&#x2F;Ip 作为保留端口，因此你所分配的端口只能是1024个之后的。好了，我们有了固定位置.现在所需要的就是一根连接线了.该连接线由客户方首先提出要求。因此 Java同样提供了一个Socket对象来对其进行支持，只要客户方创建一个Socket的实例对象进行支持就可以了。Socket client<br>&#x3D;new Socket(InetAddress.getLocalHost(),5678);客户机必须知道有关服务器的IP地址，对于着一点Java也提供了一个相关的类InetAddress 该对象的实例必须通过它的静态方法来提供，它的静态方法主要提供了得到本机IP 和通过名字或IP直接得到InetAddress的方法。<br>上面的方法基本可以建立一条连线让两台计算机相互交流了，可是数据是如何传输的呢？事实上I&#x2F;O操作总是和网络编程息息相关的。因为底层的网络是继续数据的，除非远程调用，处理问题的核心在执行上，否则数据的交互还是依赖于IO操作的，所以你也必须导入java.io这个包.java的IO操作也不复杂，它提供了针对于字节流和Unicode的读者和写者，然后也提供了一个缓冲用于数据的读写。<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(server.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(server.getOutputStream());<br>上面两句就是建立缓冲并把原始的字节流转变为 Unicode可以操作，而原始的字节流来源于Socket的两个方法，getInputStream()和getOutputStream()方，分别用来得到输入和输出，那么现在有了基本的模型和基本的操作工具，我们可以做一个简单的Socket例程了.<br>服务方:<br>import java.io.*;<br>import java.net.*;<br>public class MyServer {<br>public static void main(String[] args) throws IOException{<br>ServerSocket server&#x3D;new ServerSocket(5678);<br>Socket client&#x3D;server.accept();<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(client.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(client.getOutputStream());<br>while(true){<br>String str&#x3D;in.readLine();<br>System.out.println(str);<br>out.println(“has receive….”);<br>out.flush();<br>if(str.equals(“end”))<br>break;<br>}<br>client.close();<br>}<br>}<br>这个程序的主要目的在于服务器不断接收客户机所写入的信息只到，客户机发送”End”字符串就退出程序，并且服务器也会做出”Receive”为回应，告知客户机已接收到消息。<br>客户机代码:<br>import java.net.*;<br>import java.io.*;<br>public class Client{<br>static Socket server;<br>public static void main(String[] args)throws Exception{<br>server&#x3D;new Socket(InetAddress.getLocalHost(),5678);<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(server.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(server.getOutputStream());<br>BufferedReader wt&#x3D;new BufferedReader(new InputStreamReader(System.in));<br>while(true){<br>String str&#x3D;wt.readLine();<br>out.println(str);<br>out.flush();<br>if(str.equals(“end”)){<br>break;<br>}<br>System.out.println(in.readLine());<br>}<br>server.close();<br>}<br>}<br>客户机代码则是接受客户键盘输入,并把该信息输出，然后输出”End”用来做退出标识。<br>这个程序只是简单的两台计算机之间的通讯，如果是多个客户同时访问一个服务器呢？你可以试着再运行一个客户端，结果是会抛出异常的。那么多个客户端如何实现呢?<br>其实,简单的分析一下，就可以看出客户和服务通讯的主要通道就是Socket本身，而服务器通过accept方法就是同意和客户建立通讯.这样当客户建立Socket的同时。服务器也会使用这一根连线来先后通讯，那么既然如此只要我们存在多条连线就可以了。那么我们的程序可以变为如下:<br>服务器:<br>import java.io.*;<br>import java.net.*;<br>public class MyServer {<br>public static void main(String[] args) throws IOException{<br>ServerSocket server&#x3D;new ServerSocket(5678);<br>while(true){<br>Socket client&#x3D;server.accept();<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(client.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(client.getOutputStream());<br>while(true){<br>String str&#x3D;in.readLine();<br>System.out.println(str);<br>out.println(“has receive….”);<br>out.flush();<br>if(str.equals(“end”))<br>break;<br>}<br>client.close();<br>}<br>}<br>}<br>这里仅仅只是加了一个外层的While循环，这个循环的目的就是当一个客户进来就为它分配一个Socket直到这个客户完成一次和服务器的交互，这里也就是接受到客户的”End”消息.那么现在就实现了多客户之间的交互了。但是.问题又来了，这样做虽然解决了多客户,可是是排队执行的。也就是说当一个客户和服务器完成一次通讯之后下一个客户才可以进来和服务器交互，无法做到同时服务，那么要如何才能同时达到既能相互之间交流又能同时交流呢？很显然这是一个并行执行的问题了。所以线程是最好的解决方案。<br>那么下面的问题是如何使用线程.首先要做的事情是创建线程并使得其可以和网络连线取得联系。然后由线程来执行刚才的操作，要创建线程要么直接继承Thread要么实现Runnable接口，要建立和 Socket的联系只要传递引用就可以了.而要执行线程就必须重写run方法，而run方法所做的事情就是刚才单线程版本main所做的事情，因此我们的程序变成了这样:<br>import java.net.*;<br>import java.io.*;<br>public class MultiUser extends Thread{<br>private Socket client;<br>public MultiUser(Socket c){<br>this.client&#x3D;c;<br>}<br>public void run(){<br>try{<br>BufferedReader in&#x3D;new BufferedReader(new InputStreamReader(client.getInputStream()));<br>PrintWriter out&#x3D;new PrintWriter(client.getOutputStream());<br>&#x2F;&#x2F;Mutil User but can’t parallel<br>while(true){<br>String str&#x3D;in.readLine();<br>System.out.println(str);<br>out.println(“has receive….”);<br>out.flush();<br>if(str.equals(“end”))<br>break;<br>}<br>client.close();<br>}catch(IOException ex){<br>}finally{<br>}<br>}<br>public static void main(String[] args)throws IOException{<br>ServerSocket server&#x3D;new ServerSocket(5678);<br>while(true){<br>&#x2F;&#x2F;transfer location change Single User or Multi User<br>MultiUser mu&#x3D;new MultiUser(server.accept());<br>mu.start();<br>}<br>}<br>}<br>我的类直接从 Thread类继承了下来.并且通过构造函数传递引用和客户Socket建立了联系，这样每个线程就有了。一个通讯管道.同样我们可以填写run方法，把之前的操作交给线程来完成，这样多客户并行的Socket就建立起来了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/03/06/2010-03-06_Java_Socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%88%9D%E7%BA%A7%E5%85%A5%E9%97%A8%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidov97DisVk1F50f3JW6vD5" data-title="Java Socket网络编程初级入门（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/03/06/2010-03-06_Java_Socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%88%9D%E7%BA%A7%E5%85%A5%E9%97%A8%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidNp5D8TJMy600wOWT9VAAA" data-title="Java Socket网络编程初级入门（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -736,8 +736,9 @@ dialog.DoModal();\
         <p>Yahoo!的 Exceptional Performance团队为改善 Web性能带来最佳实践。他们为此进行了一系列的实验、开发了各种工具、写了大量的文 章和博客并在各种会议上参与探讨。最佳实践的核心就是旨在提高网站性能。</p>
 <p>原文地址：<a target="_blank" rel="noopener" href="http://developer.yahoo.com/performance/rules.html">http://developer.yahoo.com/performance/rules.html</a></p>
 <p>中文转载地址：<a target="_blank" rel="noopener" href="http://blog.csdn.net/alex86gbk/archive/2009/08/13/4438506.aspx">http://blog.csdn.net/alex86gbk/archive/2009/08/13/4438506.aspx</a></p>
-<p>  Excetional Performance 团队总结出了一系列可以提高网站速度的方法。可以分为 7大类 34条。</p>
-<p>    包括内容 、服务器 、 CSS 、 JavaScript 、Cookie 、图片 、移动应用 ，七部分。</p>
+<p>  Excetional Performance 团队总结出了一系列可以提高网站速度的方法。可以分为 7大类 34条。</p>
+<pre><code>包括内容 、服务器 、 CSS 、 JavaScript 、Cookie 、图片 、移动应用 ，七部分。
+</code></pre>
 <p>其中内容部分一共十条建议：</p>
 <p><strong>一、内容部分</strong></p>
 <ul>
@@ -754,60 +755,68 @@ dialog.DoModal();\
 </ul>
 <p><strong>1</strong><strong>、尽量减少 HTTP请求次数</strong></p>
 <p>终端用户响应的时间中，有 80%用于下载各项内容。这部分时间包括下载页面中的图像、样式表、脚本、 Flash等。通过减少页面中的元素可以减少 HTTP请求的次数。这是提高网页速度的关键步骤。</p>
-<p>  减少页面组件的方法其实就是简化页面设计。那么有没有一种方法既能保持页面内容的丰富性又能达到加快响应时间的目的呢？这里有几条减少HTTP请求次数同时又可能保持页面内容丰富的技术。</p>
+<p>  减少页面组件的方法其实就是简化页面设计。那么有没有一种方法既能保持页面内容的丰富性又能达到加快响应时间的目的呢？这里有几条减少HTTP请求次数同时又可能保持页面内容丰富的技术。</p>
 <p>合并文件是通过把所有的脚本放到一个文件中来减少 HTTP请求的方法，如可以简单地把所有的 CSS文件都放入一个样式表中。当脚本或者样式表在不同页面中使用时需要做不同的修 改，这可能会相对麻烦点，但即便如此也要把这个方法作为改善页面性能的重要一步。</p>
 <p>CSS Sprites是减少图像请求的有效方法。把所有的背景图像都放到一个图片文件中，然后通过 CSS的 background-image和 background-position属性来显示图片的不同部分；</p>
 <p>图片地图是把多张图片整合到一张图片中。虽然文件的总体大小不会改变，但是可 以减少 HTTP请求次数。图片地图只有在图片的所有组成部分在页面中是紧挨在一起的时候才能 使用，如导航栏。确定图片的坐标和可能会比较繁琐且容易出错，同时使用图片地图导航也不具有可读性，因此不推荐这种方法；</p>
 <p>内联图像是使用 data:URL scheme的方法把图像数据加载页面中。这可能会增加页面的大 小。把内联图像放到样式表（可缓存）中可以减少 HTTP请求同时又避免增加页面文件的大小。但是内联图像现在还没有得到主流浏览器的 支持。</p>
-<p>  减少页面的 HTTP请求次数是你首先要做的一步。这是改进首次访问用户等待时间的最重要的方法。 如同 Tenni Theurer的他的博客 Browser Cahe Usage – Exposed!中所说， HTTP请求在无缓存情况下占去了 40%到 60%的响应时间。让那些初次访问你网站的人获得更加快速的体验吧！</p>
+<p>  减少页面的 HTTP请求次数是你首先要做的一步。这是改进首次访问用户等待时间的最重要的方法。 如同 Tenni Theurer的他的博客 Browser Cahe Usage – Exposed!中所说， HTTP请求在无缓存情况下占去了 40%到 60%的响应时间。让那些初次访问你网站的人获得更加快速的体验吧！</p>
 <p><strong>2</strong><strong>、减少 DNS查找次数</strong></p>
-<p>  域名系统（ DNS）提供了域名和 IP的对应关系，就像电话本中人名和他们的电话号码的关系一样。当你在浏览器地址栏中 输入 <a target="_blank" rel="noopener" href="http://www.yahoo.com/">www.yahoo.com</a> 时， DNS解析服务器就会返回这个域名对应的 IP地址。 DNS解析的过程同样也是需要时间的。一般情况下返回给定域名对应的 IP地址会花费 20到 120毫秒的时间。而且在这个过程中浏览器什么都不会做直到 DNS查找完毕。</p>
-<p>   缓存 DNS查找可以改善页面性能。这种缓存需要一个特定的缓存服务器，这种服务器一般属于用户的 ISP提供商或者本地局域网控制，但是它同样会在用户使用的计算机上产生缓存。 DNS信息会保留在操作系统的 DNS缓存中（微软 Windows系统中 DNS Client Service）。大多数浏览器有独立于操作系统以外的自己的缓存。由于浏览器有自己的缓存记录，因此在一次请求中它不会受到操作系统的影响。</p>
-<p>  Internet Explorer 默认情况下对 DNS查找记录的缓存时间为 30分钟，它在注册表中的键值为 DnsCacheTimeout。 Firefox对 DNS的查找记录缓存时间为 1分钟，它在配置文件中的选项为 network.dnsCacheExpiration（ Fasterfox把这个选项改为了 1小时）。</p>
-<p>  当客户端中的 DNS缓存都为空时（浏览器和操作系统都为空）， DNS查找的次数和页面中主机名的数量相同。这其中包括页面中 URL、图片、脚本文件、样式表、Flash对象等包含的主机名。减少主机名的数量可以减少DNS查找次数。</p>
-<p>  减少主机名的数量还可以减少页面中并行下载的数量。减少 DNS查找次数可以节省响应时间，但是减少并行下载却会增加响应时间。我的指导原则是 把这些页面中的内容分割成至少两部分但不超过四部分。这种结果就是在减少 DNS查找次数和保持较高程度并行下载两者之间的权衡了。</p>
+<p>  域名系统（ DNS）提供了域名和 IP的对应关系，就像电话本中人名和他们的电话号码的关系一样。当你在浏览器地址栏中 输入 <a target="_blank" rel="noopener" href="http://www.yahoo.com/">www.yahoo.com</a> 时， DNS解析服务器就会返回这个域名对应的 IP地址。 DNS解析的过程同样也是需要时间的。一般情况下返回给定域名对应的 IP地址会花费 20到 120毫秒的时间。而且在这个过程中浏览器什么都不会做直到 DNS查找完毕。</p>
+<p>   缓存 DNS查找可以改善页面性能。这种缓存需要一个特定的缓存服务器，这种服务器一般属于用户的 ISP提供商或者本地局域网控制，但是它同样会在用户使用的计算机上产生缓存。 DNS信息会保留在操作系统的 DNS缓存中（微软 Windows系统中 DNS Client Service）。大多数浏览器有独立于操作系统以外的自己的缓存。由于浏览器有自己的缓存记录，因此在一次请求中它不会受到操作系统的影响。</p>
+<p>  Internet Explorer 默认情况下对 DNS查找记录的缓存时间为 30分钟，它在注册表中的键值为 DnsCacheTimeout。 Firefox对 DNS的查找记录缓存时间为 1分钟，它在配置文件中的选项为 network.dnsCacheExpiration（ Fasterfox把这个选项改为了 1小时）。</p>
+<p>  当客户端中的 DNS缓存都为空时（浏览器和操作系统都为空）， DNS查找的次数和页面中主机名的数量相同。这其中包括页面中 URL、图片、脚本文件、样式表、Flash对象等包含的主机名。减少主机名的数量可以减少DNS查找次数。</p>
+<p>  减少主机名的数量还可以减少页面中并行下载的数量。减少 DNS查找次数可以节省响应时间，但是减少并行下载却会增加响应时间。我的指导原则是 把这些页面中的内容分割成至少两部分但不超过四部分。这种结果就是在减少 DNS查找次数和保持较高程度并行下载两者之间的权衡了。</p>
 <p><strong>3</strong><strong>、避免跳转</strong></p>
 <p>跳转是使用 301和 302代码实现的。下面是一个响应代码为 301的 HTTP头：</p>
-<p>      HTTP&#x2F;1.1 301 Moved Permanently</p>
-<p>      Location: <a target="_blank" rel="noopener" href="http://example.com/newuri">http://example.com/newuri</a></p>
-<p>      Content-Type: text&#x2F;html</p>
-<p>  浏览器会把用户指向到 Location中指定的 URL。头文件中的所有信息在一次跳转中都是必需的，内容部分可以为空。不管他们的名 称， 301和 302响应都不会被缓存除非增加一个额外的头选项，如 Expires或者 Cache-Control来指定它缓存。 <meat />元素的刷新标签和JavaScript也可以实现 URL的跳转，但是如果你必须要跳转的时候，最好的方法就是使用标准的 3XXHTTP状态代码，这主要是为了确保“后退”按钮可以正确地使用。</p>
-<p>  但是要记住跳转会降低用户体验。在用户和 HTML文档中间增加一个跳转，会拖延页面中所有元素的显示，因为在 HTML文件被加载前任何文件（图像、 Flash等）都不会被下载。</p>
-<p>  有一种经常被网页开发者忽略却往往十分浪费响应时间的跳转现象。 这种现象发生在当 URL本该有斜杠（ &#x2F;）却被忽略掉时。例如，当我们要访问 <a target="_blank" rel="noopener" href="http://astrology.yahoo.com/astrology">http://astrology.yahoo.com/astrology</a> 时，实际上返回的是一个包含 301代码的跳转，它指向的是 <a target="_blank" rel="noopener" href="http://astrology.yahoo.com/astrology/">http://astrology.yahoo.com/astrology/</a>  （注意末尾的斜杠）。在 Apache服务器中可以使用 Alias 或者 mod_rewrite或者 the DirectorySlash来避免。</p>
-<p>  连接新网站和旧网站是跳转功能经常被用到的另一种情况。这种情况 下往往要连接网站的不同内容然后根据用户的不同类型（如浏览器类型、用户账号所属类型）来进行跳转。使用跳转来实现两个网站的切换十分简单，需要的代码量 也不多。尽管使用这种方法对于开发者来说可以降低复杂程度，但是它同样降低用户体验。一个可替代方法就是如果两者在同一台服务器上时使用 Alias和 mod_rewrite和实现。如果是因为域名的不同而采用跳转，那么可以通过使用 Alias或者 mod_rewirte建立 CNAME（保存一个域名和另外一个域名之间关系的DNS记录）来替代。</p>
+<pre><code>  HTTP/1.1 301 Moved Permanently
+
+  Location: &lt;http://example.com/newuri&gt;
+
+  Content-Type: text/html
+</code></pre>
+<p>  浏览器会把用户指向到 Location中指定的 URL。头文件中的所有信息在一次跳转中都是必需的，内容部分可以为空。不管他们的名 称， 301和 302响应都不会被缓存除非增加一个额外的头选项，如 Expires或者 Cache-Control来指定它缓存。 <meat />元素的刷新标签和JavaScript也可以实现 URL的跳转，但是如果你必须要跳转的时候，最好的方法就是使用标准的 3XXHTTP状态代码，这主要是为了确保“后退”按钮可以正确地使用。</p>
+<p>  但是要记住跳转会降低用户体验。在用户和 HTML文档中间增加一个跳转，会拖延页面中所有元素的显示，因为在 HTML文件被加载前任何文件（图像、 Flash等）都不会被下载。</p>
+<p>  有一种经常被网页开发者忽略却往往十分浪费响应时间的跳转现象。 这种现象发生在当 URL本该有斜杠（ &#x2F;）却被忽略掉时。例如，当我们要访问 <a target="_blank" rel="noopener" href="http://astrology.yahoo.com/astrology">http://astrology.yahoo.com/astrology</a> 时，实际上返回的是一个包含 301代码的跳转，它指向的是 <a target="_blank" rel="noopener" href="http://astrology.yahoo.com/astrology/">http://astrology.yahoo.com/astrology/</a>  （注意末尾的斜杠）。在 Apache服务器中可以使用 Alias 或者 mod_rewrite或者 the DirectorySlash来避免。</p>
+<p>  连接新网站和旧网站是跳转功能经常被用到的另一种情况。这种情况 下往往要连接网站的不同内容然后根据用户的不同类型（如浏览器类型、用户账号所属类型）来进行跳转。使用跳转来实现两个网站的切换十分简单，需要的代码量 也不多。尽管使用这种方法对于开发者来说可以降低复杂程度，但是它同样降低用户体验。一个可替代方法就是如果两者在同一台服务器上时使用 Alias和 mod_rewrite和实现。如果是因为域名的不同而采用跳转，那么可以通过使用 Alias或者 mod_rewirte建立 CNAME（保存一个域名和另外一个域名之间关系的DNS记录）来替代。</p>
 <p><strong>4</strong><strong>、可缓存的 AJAX</strong></p>
-<p>  Ajax 经常被提及的一个好处就是由于其从后台服务器传输信息 的异步性而为用户带来的反馈的即时性。但是，使用 Ajax并不能保证用户不会在等待异步的 JavaScript和 XML响应上花费时间。在很多应用中，用户是否需要等待响应取决于 Ajax如何来使用。例如，在一个基于 Web的 Email客户端中，用户必须等待 Ajax返回符合他们条件的邮件查询结果。记住一点，“异步”并不异味着“即时”，这 很重要。</p>
-<p>  为了提高性能，优化 Ajax响应是很重要的。提高 Ajxa性能的措施中最重要的方法就是使响应具有可缓存性，具体的讨论可以查看 Add an Expires or a Cache-Control Header。 其它的几条规则也同样适用于Ajax：</p>
-<p>    Gizp 压缩文件</p>
-<p>    减少 DNS查找次数</p>
-<p>    精简 JavaScript</p>
-<p>    避免跳转</p>
-<p>    配置 ETags</p>
-<p>  让我们来看一个例子：一个 Web2.0的 Email客户端会使用 Ajax来自动完成对用户地址薄的下载。如果用户在上次使用过 Email web应用程序后没有对地址薄作任何的修改，而且 Ajax响应通过 Expire或者 Cacke-Control头来实现缓存，那么就可以直接从上一次的缓存中读取地址薄 了。必须告知浏览器是使用缓存中的地址薄还是发送一个新的请求。这可以通过为读取地址薄的 Ajax URL增加一个含有上次编辑时间的时间戳来实现，例如， &amp;t&#x3D;11900241612等。如果地址薄在上次下载后没有被编辑过，时间 戳就不变，则从浏览器的缓存中加载从而减少了一次 HTTP请求过程。如果用户修改过地址薄，时间戳就会用来确定新的 URL和缓存响应并不匹配，浏览器就会重要请求更新地址薄。</p>
-<p>  即使你的 Ajxa响应是动态生成的，哪怕它只适用于一个用户，那么它也应该被缓存起来。这样做 可以使你的 Web2.0应用程序更加快捷。</p>
+<p>  Ajax 经常被提及的一个好处就是由于其从后台服务器传输信息 的异步性而为用户带来的反馈的即时性。但是，使用 Ajax并不能保证用户不会在等待异步的 JavaScript和 XML响应上花费时间。在很多应用中，用户是否需要等待响应取决于 Ajax如何来使用。例如，在一个基于 Web的 Email客户端中，用户必须等待 Ajax返回符合他们条件的邮件查询结果。记住一点，“异步”并不异味着“即时”，这 很重要。</p>
+<p>  为了提高性能，优化 Ajax响应是很重要的。提高 Ajxa性能的措施中最重要的方法就是使响应具有可缓存性，具体的讨论可以查看 Add an Expires or a Cache-Control Header。 其它的几条规则也同样适用于Ajax：</p>
+<pre><code>Gizp 压缩文件
+
+减少 DNS查找次数
+
+精简 JavaScript
+
+避免跳转
+
+配置 ETags
+</code></pre>
+<p>  让我们来看一个例子：一个 Web2.0的 Email客户端会使用 Ajax来自动完成对用户地址薄的下载。如果用户在上次使用过 Email web应用程序后没有对地址薄作任何的修改，而且 Ajax响应通过 Expire或者 Cacke-Control头来实现缓存，那么就可以直接从上一次的缓存中读取地址薄 了。必须告知浏览器是使用缓存中的地址薄还是发送一个新的请求。这可以通过为读取地址薄的 Ajax URL增加一个含有上次编辑时间的时间戳来实现，例如， &amp;t&#x3D;11900241612等。如果地址薄在上次下载后没有被编辑过，时间 戳就不变，则从浏览器的缓存中加载从而减少了一次 HTTP请求过程。如果用户修改过地址薄，时间戳就会用来确定新的 URL和缓存响应并不匹配，浏览器就会重要请求更新地址薄。</p>
+<p>  即使你的 Ajxa响应是动态生成的，哪怕它只适用于一个用户，那么它也应该被缓存起来。这样做 可以使你的 Web2.0应用程序更加快捷。</p>
 <p><strong>5</strong><strong>、推迟加载内容</strong></p>
-<p>  你可以仔细看一下你的网页，问问自己“哪些内容是页面呈现时 所必需首先加载的？哪些内容和结构可以稍后再加载？</p>
-<p>  把整个过程按照 onload事件分隔成两部分， JavaScript是一个理想的选择。例如，如果你有用于实现拖放和动画的 JavaScript，那么它就以等待稍后加载，因为页面上的拖放元素是在初始化呈现 之后才发生的。其它的例如隐藏部分的内容（用户操作之后才显现的内容）和处于折叠部分的图像也可以推迟加载</p>
-<p>  工具可以节省你的工作量： YUI Image Loader可以帮你推迟加载折叠部分的图片， YUI Get utility是包含 JS和 CSS的便捷方法。比如你可以打开 Firebug的 Net选项卡看一下 Yahoo的首页。</p>
-<p>  当性能目标和其它网站开发实践一致时就会相得益彰。这种情况 下，通过程序提高网站性能的方法告诉我们，在支持 JavaScript的情况下，可以先去除用户体验，不过这要保证你的网站在没有 JavaScript也可以正常运行。在确定页面运行正常后，再加载脚本来实现如拖放和动画等更加花哨的效果。</p>
+<p>  你可以仔细看一下你的网页，问问自己“哪些内容是页面呈现时 所必需首先加载的？哪些内容和结构可以稍后再加载？</p>
+<p>  把整个过程按照 onload事件分隔成两部分， JavaScript是一个理想的选择。例如，如果你有用于实现拖放和动画的 JavaScript，那么它就以等待稍后加载，因为页面上的拖放元素是在初始化呈现 之后才发生的。其它的例如隐藏部分的内容（用户操作之后才显现的内容）和处于折叠部分的图像也可以推迟加载</p>
+<p>  工具可以节省你的工作量： YUI Image Loader可以帮你推迟加载折叠部分的图片， YUI Get utility是包含 JS和 CSS的便捷方法。比如你可以打开 Firebug的 Net选项卡看一下 Yahoo的首页。</p>
+<p>  当性能目标和其它网站开发实践一致时就会相得益彰。这种情况 下，通过程序提高网站性能的方法告诉我们，在支持 JavaScript的情况下，可以先去除用户体验，不过这要保证你的网站在没有 JavaScript也可以正常运行。在确定页面运行正常后，再加载脚本来实现如拖放和动画等更加花哨的效果。</p>
 <p><strong>6</strong><strong>、预加载</strong></p>
-<p>  预加载和后加载看起来似乎恰恰相反，但实际上预加载是为了实 现另外一种目标。预加载是在浏览器空闲时请求将来可能会用到的页面内容（如图像、样式表和脚本）。使用这种方法，当用户要访问下一个页面时，页面中的内容 大部分已经加载到缓存中了，因此可以大大改善访问速度。</p>
+<p>  预加载和后加载看起来似乎恰恰相反，但实际上预加载是为了实 现另外一种目标。预加载是在浏览器空闲时请求将来可能会用到的页面内容（如图像、样式表和脚本）。使用这种方法，当用户要访问下一个页面时，页面中的内容 大部分已经加载到缓存中了，因此可以大大改善访问速度。</p>
 <p>下面提供了几种预加载方法：</p>
-<p>  无条件加载：触发 onload事件时，直接加载额外的页面内容。以 Google.com为例，你可以看一下它的 spirit image图像是怎样在 onload中加载的。这个 spirit image图像在 google.com主页中是不需要的，但是却可以在搜索结果页面中用到它。</p>
+<p>  无条件加载：触发 onload事件时，直接加载额外的页面内容。以 Google.com为例，你可以看一下它的 spirit image图像是怎样在 onload中加载的。这个 spirit image图像在 google.com主页中是不需要的，但是却可以在搜索结果页面中用到它。</p>
 <p>有条件加载：根据用户的操作来有根据地判断用户下面可能去往的页面并相应的预 加载页面内容。在 search.yahoo.com中你可以看到如何在你输入内容时加载额外的页面内容。</p>
-<p>  有预期的加载：载入重新设计过的页面时使用预加载。这种情况经常出现在页面经过重新设计后用户抱怨“新的页面看起来很酷，但是却比以前慢”。问题可能出在 用户对于你的旧站点建立了完整的缓存，而对于新站点却没有任何缓存内容。因此你可以在访问新站之前就加载一部内容来避免这种结果的出现。在你的旧站中利用 浏览器的空余时间加载新站中用到的图像的和脚本来提高访问速度。</p>
+<p>  有预期的加载：载入重新设计过的页面时使用预加载。这种情况经常出现在页面经过重新设计后用户抱怨“新的页面看起来很酷，但是却比以前慢”。问题可能出在 用户对于你的旧站点建立了完整的缓存，而对于新站点却没有任何缓存内容。因此你可以在访问新站之前就加载一部内容来避免这种结果的出现。在你的旧站中利用 浏览器的空余时间加载新站中用到的图像的和脚本来提高访问速度。</p>
 <p><strong>7</strong><strong>、减少 DOM元素数量</strong></p>
-<p>  一个复杂的页面意味着需要下载更多数据，同时也意味着 JavaScript遍历 DOM的效率越慢。比如当你增加一个事件句柄时在 500和 5000个 DOM元素中循环效果肯定是不一样的。</p>
-<p>  大量的 DOM元素的存在意味着页面中有可以不用移除内容只需要替换元素标签就可以精简的部分。你在页面布局中使用表格了吗？你有没有仅仅为了布局而引入更多的 <div>元素呢？也许会存在一个适合或者在语意是更贴切的标签可以供你使用。</p>
-<p>  YUI CSS utilities 可以给你的布局带来巨大帮助： grids.css可以帮你实现整体布局， font.css和 reset.css可以帮助你移除浏览器默认格式。它提供了一个重新审视你页面中标签 的机会，比如只有在语意上有意义时才使用 <div>，而不是因为它具有换行效果才使用它。</p>
-<p>  DOM 元素数量很容易计算出来，只需要在 Firebug的控制台内输入：</p>
+<p>  一个复杂的页面意味着需要下载更多数据，同时也意味着 JavaScript遍历 DOM的效率越慢。比如当你增加一个事件句柄时在 500和 5000个 DOM元素中循环效果肯定是不一样的。</p>
+<p>  大量的 DOM元素的存在意味着页面中有可以不用移除内容只需要替换元素标签就可以精简的部分。你在页面布局中使用表格了吗？你有没有仅仅为了布局而引入更多的 <div>元素呢？也许会存在一个适合或者在语意是更贴切的标签可以供你使用。</p>
+<p>  YUI CSS utilities 可以给你的布局带来巨大帮助： grids.css可以帮你实现整体布局， font.css和 reset.css可以帮助你移除浏览器默认格式。它提供了一个重新审视你页面中标签 的机会，比如只有在语意上有意义时才使用 <div>，而不是因为它具有换行效果才使用它。</p>
+<p>  DOM 元素数量很容易计算出来，只需要在 Firebug的控制台内输入：</p>
 <p>document.getElementsByTagName(‘*’).length</p>
-<p>  那么多少个 DOM元素算是多呢？这可以对照有很好标记使用的类似页面。比如 Yahoo!主页是一个内容非常多的页面，但是它只使用了 700个元素（ HTML标签）。</p>
+<p>  那么多少个 DOM元素算是多呢？这可以对照有很好标记使用的类似页面。比如 Yahoo!主页是一个内容非常多的页面，但是它只使用了 700个元素（ HTML标签）。</p>
 <p><strong>8</strong><strong>、根据域名划分页面内容</strong></p>
-<p>  把页面内容划分成若干部分可以使你最大限度地实现平行下载。由于 DNS查找带来的影响你首先要确保你使用的域名数量在 2个到 4个之间。例如，你可以把用到的 HTML内容和动态内容放在 <a target="_blank" rel="noopener" href="http://www.example.org/">http://www.example.org/</a> 上，而把页面各种组件（图片、脚本、 CSS)分别存放在 statics1.example.org和 statics.example.org上。</p>
+<p>  把页面内容划分成若干部分可以使你最大限度地实现平行下载。由于 DNS查找带来的影响你首先要确保你使用的域名数量在 2个到 4个之间。例如，你可以把用到的 HTML内容和动态内容放在 <a target="_blank" rel="noopener" href="http://www.example.org/">http://www.example.org/</a> 上，而把页面各种组件（图片、脚本、 CSS)分别存放在 statics1.example.org和 statics.example.org上。</p>
 <p>你可在 Tenni Theurer和 Patty Chi合写的文章 Maximizing Parallel Downloads in the Carpool Lane找到更多相关信息。</p>
 <p><strong>9</strong><strong>、使 iframe的数量最小</strong></p>
-<p>  ifrmae 元素可以在父文档中插入一个新的 HTML文档。了解 iframe的工作理然后才能更加有效地使用它，这一点很重要。</p>
+<p>  ifrmae 元素可以在父文档中插入一个新的 HTML文档。了解 iframe的工作理然后才能更加有效地使用它，这一点很重要。</p>
 <iframe>优点：
 
 <p>解决加载缓慢的第三方内容如图标和广告等的加载问题</p>
@@ -819,8 +828,8 @@ dialog.DoModal();\
 <p>会阻止页面加载</p>
 <p>没有语意</p>
 <p><strong>10</strong><strong>、不要出现 404错误</strong></p>
-<p>   HTTP 请求时间消耗是很大的，因此使用 HTTP请求来获得一个没有用处的响应（例如 404没有找到页面）是完全没有必要的，它只会降低用户体验而不会有一点好处。</p>
-<p>  有些站点把 404错误响应页面改为“你是不是要找 ***”，这虽然改进了用户体验但是同样也会浪费服务器资源（如数据库等）。最糟糕的 情况是指向外部 JavaScript的链接出现问题并返回 404代码。首先，这种加载会破坏并行加载；其次浏览器会把试图在返回的404响应内容中找到可能有用的部分当作 JavaScript代码来执行。</p>
+<p>   HTTP 请求时间消耗是很大的，因此使用 HTTP请求来获得一个没有用处的响应（例如 404没有找到页面）是完全没有必要的，它只会降低用户体验而不会有一点好处。</p>
+<p>  有些站点把 404错误响应页面改为“你是不是要找 ***”，这虽然改进了用户体验但是同样也会浪费服务器资源（如数据库等）。最糟糕的 情况是指向外部 JavaScript的链接出现问题并返回 404代码。首先，这种加载会破坏并行加载；其次浏览器会把试图在返回的404响应内容中找到可能有用的部分当作 JavaScript代码来执行。</p>
 <p><strong>二、服务器部分</strong></p>
 <ul>
 <li>使用内容分发网络</li>
@@ -834,9 +843,10 @@ dialog.DoModal();\
 <p><strong>11</strong><strong>、使用内容分发网络</strong><br>用户与你网站服务器的接近程度会影响响应时间的长短。把你的网站内容分散到多个、处于不同地域位置的服务器上可以加快下载速度。但是首先我们应该做些什么呢？<br>按地域布置网站内容的第一步并不是要尝试重新架构你的网站让他们在分发服务器上正常运行。根据应用的需求来改变网站结构，这可能会包括一些比较复杂的任 务，如在服务器间同步Session状态和合并数据库更新等。要想缩短用户和内容服务器的距离，这些架构步骤可能是不可避免的。<br>要记住，在终端用户的响应时间中有80%到90%的响应时间用于下载图像、样式表、脚本、Flash等页面内容。这就是网站性能黄金守则。和重新设计你的 应用程序架构这样比较困难的任务相比，首先来分布静态内容会更好一点。这不仅会缩短响应时间，而且对于内容分发网络来说它更容易实现。<br>内容分发网络（Content Delivery Network，CDN）是由一系列分散到各个不同地理位置上的Web服务器组成的，它提高了网站内容的传输速度。用于向用户传输内容的服务器主要是根据 和用户在网络上的靠近程度来指定的。例如，拥有最少网络跳数（network hops）和响应速度最快的服务器会被选定。<br>一些大型的网络公司拥有自己的CDN，但是使用像Akamai Technologies，Mirror Image Internet，或者Limelight Networks这样的CDN服务成本却非常高。对于刚刚起步的企业和个人网站来说，可能没有使用CDN的成本预算，但是随着目标用户群的不断扩大和更加 全球化，CDN就是实现快速响应所必需的了。以Yahoo来说，他们转移到CDN上的网站程序静态内容节省了终端用户20%以上的响应时间。使用CDN是一个只需要相对简单地修改代码实现显著改善网站访问速度的方法。</p>
 <p><strong>12</strong><strong>、为文件头指定Expires或Cache-Control</strong> <br>这条守则包括两方面的内容：<br>对于静态内容：设置文件头过期时间Expires的值为“Never expire”（永不过期）<br>对于动态内容：使用恰当的Cache-Control文件头来帮助浏览器进行有条件的请求<br>网页内容设计现在越来越丰富，这就意味着页面中要包含更多的脚本、样式表、图片和Flash。第一次访问你页面的用户就意味着进行多次的HTTP请求，但 是通过使用Expires文件头就可以使这样内容具有缓存性。它避免了接下来的页面访问中不必要的HTTP请求。Expires文件头经常用于图像文件， 但是应该在所有的内容都使用他，包括脚本、样式表和Flash等。<br>浏览器（和代理）使用缓存来减少HTTP请求的大小和次数以加快页面访问速度。Web服务器在HTTP响应中使用Expires文件头来告诉客户端内容需 要缓存多长时间。下面这个例子是一个较长时间的Expires文件头，它告诉浏览器这个响应直到2010年4月15日才过期。<br>Expires: Thu, 15 Apr 2010 20:00:00 GMT<br>如果你使用的是Apache服务器，可以使用ExpiresDefault来设定相对当前日期的过期时间。下面这个例子是使用 ExpiresDefault来设定请求时间后10年过期的文件头：<br>ExpiresDefault “access plus 10 years”<br>要切记，如果使用了Expires文件头，当页面内容改变时就必须改变内容的文件名。依Yahoo!来说我们经常使用这样的步骤：在内容的文件名中加上版 本号，如yahoo_2.0.6.js。<br>使用Expires文件头只有会在用户已经访问过你的网站后才会起作用。当用户首次访问你的网站时这对减少HTTP请求次数来说是无效的，因为浏览器的缓 存是空的。因此这种方法对于你网站性能的改进情况要依据他们“预缓存”存在时对你页面的点击频率（“预缓存”中已经包含了页面中的所有内容）。 Yahoo!建立了一套测量方法，我们发现所有的页面浏览量中有75~85%都有“预缓存”。通过使用Expires文件头，增加了缓存在浏览器中内容的 数量，并且可以在用户接下来的请求中再次使用这些内容，这甚至都不需要通过用户发送一个字节的请求。</p>
 <p><strong>13</strong><strong>、Gzip压缩文件内容</strong><br>网络传输中的HTTP请求和应答时间可以通过前端机制得到显著改善。的确，终端用户的带宽、互联网提供者、与对等交换点的靠近程度等都不是网站开发者所能 决定的。但是还有其他因素影响着响应时间。通过减小HTTP响应的大小可以节省HTTP响应时间。<br>从HTTP&#x2F;1.1开始，web客户端都默认支持HTTP请求中有Accept-Encoding文件头的压缩格式：<br>Accept-Encoding: gzip, deflate<br>如果web服务器在请求的文件头中检测到上面的代码，就会以客户端列出的方式压缩响应内容。Web服务器把压缩方式通过响应文件头中的Content- Encoding来返回给浏览器。<br>Content-Encoding: gzip<br>Gzip是目前最流行也是最有效的压缩方式。这是由GNU项目开发并通过RFC 1952来标准化的。另外仅有的一个压缩格式是deflate，但是它的使用范围有限效果也稍稍逊色。<br>Gzip大概可以减少70%的响应规模。目前大约有90%通过浏览器传输的互联网交换支持gzip格式。如果你使用的是Apache，gzip模块配置和 你的版本有关：Apache 1.3使用mod_zip，而Apache 2.x使用moflate。<br>浏览器和代理都会存在这样的问题：浏览器期望收到的和实际接收到的内容会存在不匹配的现象。幸好，这种特殊情况随着旧式浏览器使用量的减少在减少。 Apache模块会通过自动添加适当的Vary响应文件头来避免这种状况的出现。<br>服务器根据文件类型来选择需要进行gzip压缩的文件，但是这过于限制了可压缩的文件。大多数web服务器会压缩HTML文档。对脚本和样式表进行压缩同 样也是值得做的事情，但是很多web服务器都没有这个功能。实际上，压缩任何一个文本类型的响应，包括XML和JSON，都值得的。图像和PDF文件由于 已经压缩过了所以不能再进行gzip压缩。如果试图gizp压缩这些文件的话不但会浪费CPU资源还会增加文件的大小。<br>Gzip压缩所有可能的文件类型是减少文件体积增加用户体验的简单方法。</p>
-<p><strong>14</strong><strong>、配置ETag</strong> <br>Entity tags（ETags）（实体标签）是web服务器和浏览器用于判断浏览器缓存中的内容和服务器中的原始内容是否匹配的一种机制（“实体”就是所说的“内 容”，包括图片、脚本、样式表等）。增加ETag为实体的验证提供了一个比使用“last-modified date（上次编辑时间）”更加灵活的机制。Etag是一个识别内容版本号的唯一字符串。唯一的格式限制就是它必须包含在双引号内。原始服务器通过含有 ETag文件头的响应指定页面内容的ETag。<br>HTTP&#x2F;1.1 200 OK<br>Last-Modified: Tue, 12 Dec 2006 03:03:59 GMT<br>ETag: “10c24bc-4ab-457e1c1f”<br>Content-Length: 12195<br>稍后，如果浏览器要验证一个文件，它会使用If-None-Match文件头来把ETag传回给原始服务器。在这个例子中，如果ETag匹配，就会返回一 个304状态码，这就节省了12195字节的响应。      GET &#x2F;i&#x2F;yahoo.gif HTTP&#x2F;1.1<br>Host: us.yimg.com<br>If-Modified-Since: Tue, 12 Dec 2006 03:03:59 GMT<br>If-None-Match: “10c24bc-4ab-457e1c1f”<br>HTTP&#x2F;1.1 304 Not Modified<br>ETag的问题在于，它是根据可以辨别网站所在的服务器的具有唯一性的属性来生成的。当浏览器从一台服务器上获得页面内容后到另外一台服务器上进行验证时 ETag就会不匹配，这种情况对于使用服务器组和处理请求的网站来说是非常常见的。默认情况下，Apache和IIS都会把数据嵌入ETag中，这会显著 减少多服务器间的文件验证冲突。<br>Apache 1.3和2.x中的ETag格式为inode-size-timestamp。即使某个文件在不同的服务器上会处于相同的目录下，文件大小、权限、时间戳 等都完全相同，但是在不同服务器上他们的内码也是不同的。<br>IIS 5.0和IIS 6.0处理ETag的机制相似。IIS中的ETag格式为Filetimestamp:ChangeNumber。用ChangeNumber来跟踪 IIS配置的改变。网站所用的不同IIS服务器间ChangeNumber也不相同。不同的服务器上的Apache和IIS即使对于完全相同的内容产生的 ETag在也不相同，用户并不会接收到一个小而快的304响应；相反他们会接收一个正常的200响应并下载全部内容。如果你的网站只放在一台服务器上，就 不会存在这个问题。但是如果你的网站是架设在多个服务器上，并且使用Apache和 IIS产生默认的ETag配置，你的用户获得页面就会相对慢一点，服务器会传输更多的内容，占用更多的带宽，代理也不会有效地缓存你的网站内容。即使你的 内容拥有Expires文件头，无论用户什么时候点击“刷新”或者“重载”按钮都会发送相应的GET请求。<br>如果你没有使用ETag提供的灵活的验证模式，那么干脆把所有的ETag都去掉会更好。Last-Modified文件头验证是基于内容的时间戳的。去掉 ETag文件头会减少响应和下次请求中文件的大小。微软的这篇支持文稿讲述了如何去掉ETag。在Apache中，只需要在配置文件中简单添加下面一行代 码就可以了：<br>FileETag none</p>
+<p><strong>14</strong><strong>、配置ETag</strong> <br>Entity tags（ETags）（实体标签）是web服务器和浏览器用于判断浏览器缓存中的内容和服务器中的原始内容是否匹配的一种机制（“实体”就是所说的“内 容”，包括图片、脚本、样式表等）。增加ETag为实体的验证提供了一个比使用“last-modified date（上次编辑时间）”更加灵活的机制。Etag是一个识别内容版本号的唯一字符串。唯一的格式限制就是它必须包含在双引号内。原始服务器通过含有 ETag文件头的响应指定页面内容的ETag。<br>HTTP&#x2F;1.1 200 OK<br>Last-Modified: Tue, 12 Dec 2006 03:03:59 GMT<br>ETag: “10c24bc-4ab-457e1c1f”<br>Content-Length: 12195<br>稍后，如果浏览器要验证一个文件，它会使用If-None-Match文件头来把ETag传回给原始服务器。在这个例子中，如果ETag匹配，就会返回一 个304状态码，这就节省了12195字节的响应。      GET &#x2F;i&#x2F;yahoo.gif HTTP&#x2F;1.1<br>Host: us.yimg.com<br>If-Modified-Since: Tue, 12 Dec 2006 03:03:59 GMT<br>If-None-Match: “10c24bc-4ab-457e1c1f”<br>HTTP&#x2F;1.1 304 Not Modified<br>ETag的问题在于，它是根据可以辨别网站所在的服务器的具有唯一性的属性来生成的。当浏览器从一台服务器上获得页面内容后到另外一台服务器上进行验证时 ETag就会不匹配，这种情况对于使用服务器组和处理请求的网站来说是非常常见的。默认情况下，Apache和IIS都会把数据嵌入ETag中，这会显著 减少多服务器间的文件验证冲突。<br>Apache 1.3和2.x中的ETag格式为inode-size-timestamp。即使某个文件在不同的服务器上会处于相同的目录下，文件大小、权限、时间戳 等都完全相同，但是在不同服务器上他们的内码也是不同的。<br>IIS 5.0和IIS 6.0处理ETag的机制相似。IIS中的ETag格式为Filetimestamp:ChangeNumber。用ChangeNumber来跟踪 IIS配置的改变。网站所用的不同IIS服务器间ChangeNumber也不相同。不同的服务器上的Apache和IIS即使对于完全相同的内容产生的 ETag在也不相同，用户并不会接收到一个小而快的304响应；相反他们会接收一个正常的200响应并下载全部内容。如果你的网站只放在一台服务器上，就 不会存在这个问题。但是如果你的网站是架设在多个服务器上，并且使用Apache和 IIS产生默认的ETag配置，你的用户获得页面就会相对慢一点，服务器会传输更多的内容，占用更多的带宽，代理也不会有效地缓存你的网站内容。即使你的 内容拥有Expires文件头，无论用户什么时候点击“刷新”或者“重载”按钮都会发送相应的GET请求。<br>如果你没有使用ETag提供的灵活的验证模式，那么干脆把所有的ETag都去掉会更好。Last-Modified文件头验证是基于内容的时间戳的。去掉 ETag文件头会减少响应和下次请求中文件的大小。微软的这篇支持文稿讲述了如何去掉ETag。在Apache中，只需要在配置文件中简单添加下面一行代 码就可以了：<br>FileETag none</p>
 <p><strong>15</strong><strong>、尽早刷新输出缓冲</strong><br>当用户请求一个页面时，无论如何都会花费200到500毫秒用于后台组织HTML文件。在这期间，浏览器会一直空闲等待数据返回。在PHP中，你可以使用 flush()方法，它允许你把已经编译的好的部分HTML响应文件先发送给浏览器，这时浏览器就会可以下载文件中的内容（脚本等）而后台同时处理剩余的 HTML页面。这样做的效果会在后台烦恼或者前台较空闲时更加明显。<br>输出缓冲应用最好的一个地方就是紧跟在<head />之后，因为HTML的头部分容易生成而且头部往往包含CSS和JavaScript文件，这样浏览器就可以在后台编译剩余HTML的同时并行下 载它们。 例子：</p>
-<p>      … &lt;!– css, js –&gt;\</p>
+<pre><code>  … &lt;!– css, js –&gt;\
+</code></pre>
 </head>\
 <?php flush(); ?>\
 <body>\
@@ -864,7 +874,7 @@ dialog.DoModal();\
 <p>2、 产生一个从未浏览过的页面将浪费服务器的计算周期（computing cycles）</p>
 <p>3、 损坏用户数据。如果你在请求中追踪状态（以cookie或是其他的方式），你可能会损坏数据。即使这个图像请求并没有返回一个图像，所有的头被浏览器读取并接受，包括所有cookie。While the rest of the response is thrown away, the damage may already be done.</p>
 <p>引起这种行为的根源在于浏览器中URI的解析方式。这种行为定义在RFC 3986 – Uniform Resource Identifiers.当一个空串作为一个URI时，它被认为一个相对URI（relative URI）并通过定义在section 5.2中的算法被解析。这个特例，一个空串，列在section 5.4当中。Firefox, Safari, and Chrome都是依据这一规格来解析空串，而Internet Explorer则不正确的解析这个串，符合更早的一个规范，RFC 2396 – Uniform Resource Identifiers (this was obsoleted by RFC 3986).所以技术上，浏览器都在做它们被期望所做的事情来解析relative URIs，问题是在这个范围，空串不是故意造成的。</p>
-<p>HTML5 adds to the description of the <img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image001.gif">tag’s src attribute to instruct browsers not to make an additional request in section 4.8.2: <br>    The src attribute must be present, and must contain a valid URL referencing a non-interactive, optionally animated, image resource that is neither paged nor scripted. If the base URI of the element is the same as the document’s address, then the src attribute’s value must not be the empty string. <br>非常希望浏览器在将来不会有这样的问题。不幸的是，没有为<script src=””> and <link href=””>的条款。或许仍需要时间来做出调整以保证浏览器不会意外的实现这一行为。<br>这一规则是受雅虎JavaScript导师Nicolas C. Zakas启发。更新信息请参见<a target="_blank" rel="noopener" href="http://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/">Empty image src can destroy your site.</a>.<br><strong>三、CSS部分</strong></p>
+<p>HTML5 adds to the description of the <img src="file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image001.gif">tag’s src attribute to instruct browsers not to make an additional request in section 4.8.2: <br>    The src attribute must be present, and must contain a valid URL referencing a non-interactive, optionally animated, image resource that is neither paged nor scripted. If the base URI of the element is the same as the document’s address, then the src attribute’s value must not be the empty string. <br>非常希望浏览器在将来不会有这样的问题。不幸的是，没有为<script src=””> and <link href=””>的条款。或许仍需要时间来做出调整以保证浏览器不会意外的实现这一行为。<br>这一规则是受雅虎JavaScript导师Nicolas C. Zakas启发。更新信息请参见<a target="_blank" rel="noopener" href="http://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/">Empty image src can destroy your site.</a>.<br><strong>三、CSS部分</strong></p>
 <ul>
 <li>把样式表置于顶部</li>
 <li>避免使用CSS表达式（Expression）</li>
@@ -909,7 +919,8 @@ dialog.DoModal();\
 <li>favicon.ico要小而且可缓存</li>
 </ul>
 <p><strong>29</strong><strong>、优化图像</strong><br>设计人员完成对页面的设计之后，不要急于将它们上传到web服务器，这里还需要做几件事：<br>你可以检查一下你的GIF图片中图像颜色的数量是否和调色板规格一致。 使用imagemagick中下面的命令行很容易检查：<br>identify -verbose image.gif<br>如果你发现图片中只用到了4种颜色，而在调色板的中显示的256色的颜色槽，那么这张图片就还有压缩的空间。<br>尝试把GIF格式转换成PNG格式，看看是否节省空间。大多数情况下是可以压缩的。由于浏览器支持有限，设计者们往往不太乐意使用PNG格式的图片，不过 这都是过去的事情了。现在只有一个问题就是在真彩PNG格式中的alpha通道半透明问题，不过同样的，GIF也不是真彩格式也不支持半透明。因此GIF 能做到的，PNG（PNG8）同样也能做到（除了动画）。下面这条简单的命令可以 安全地把GIF格式转换为PNG格式：</p>
-<p>      convert image.gif image.png</p>
+<pre><code>  convert image.gif image.png
+</code></pre>
 <p>“我们要说的是：给PNG一个施展身手的机会吧！”<br>在所有的PNG图片上运行pngcrush（或者其它PNG优化工具）。例如：<br>pngcrush image.png -rem alla -reduce -brute result.png<br>在所有的JPEG图片上运行jpegtran。这个工具可以对图片中的出现的锯齿等做无损操作，同时它还可以用于优化和清除图片中的注释以及其它无用信息 （如EXIF信息）：<br>jpegtran -copy none -optimize -perfect src.jpg dest.jpg</p>
 <p><strong>30</strong><strong>、优化CSS Spirite</strong><br>在Spirite中水平排列你的图片，垂直排列会稍稍增加文件大小；<br>Spirite中把颜色较近的组合在一起可以降低颜色数，理想状况是低于256色以便适用PNG8格式；<br>便于移动，不要在Spirite的图像中间留有较大空隙。这虽然不大会增加文件大小但对于用户代理来说它需要更少的内存来把图片解压为像素地图。 100×100的图片为1万像素，而1000×1000就是100万像素。</p>
 <p><strong>31</strong><strong>、不要在HTML中缩放图像</strong><br>不要为了在HTML中设置长宽而使用比实际需要大的图片。如果你需要：<br>&lt;img width=”100″ height=”100″ src=”mycat.jpg” alt=”My Cat” /&gt;<br>那么你的图片（mycat.jpg）就应该是100×100像素而不是把一个500×500像素的图片缩小使用。</p>
@@ -925,7 +936,7 @@ dialog.DoModal();\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/02/28/2010-02-28_Yahoo!%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5%E5%88%86%E4%BA%AB%EF%BC%9A%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%8435%E6%9D%A1%E9%BB%84%E9%87%91%E5%AE%88%E5%88%99/" data-id="cuidzsb8OXU4NeFVDLrdew8lU" data-title="Yahoo!团队实践分享：网站性能优化的35条黄金守则" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/02/28/2010-02-28_Yahoo!%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5%E5%88%86%E4%BA%AB%EF%BC%9A%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%8435%E6%9D%A1%E9%BB%84%E9%87%91%E5%AE%88%E5%88%99/" data-id="cuidOgQtyqnxE5JmjbVsAzpAN" data-title="Yahoo!团队实践分享：网站性能优化的35条黄金守则" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -986,7 +997,7 @@ dialog.DoModal();\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/02/24/2010-02-24_GRASP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E2%80%93_%E6%A6%82%E8%A6%81%E7%AF%87%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidaO2x_KQLPG-4HI2eXxtos" data-title="GRASP设计模式 – 概要篇（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/02/24/2010-02-24_GRASP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E2%80%93_%E6%A6%82%E8%A6%81%E7%AF%87%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidujwKyJSRGRIeTTd7Yz21F" data-title="GRASP设计模式 – 概要篇（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1030,10 +1041,10 @@ dialog.DoModal();\
 <ol start="2">
 <li>要重载的方法和被重载的方法要求：参数列表不同或返回类型不同或二<br>者都不同</li>
 </ol>
-<p>overwrite （重写）关键字：new</p>
+<p>overwrite （重写）关键字：new</p>
 <p>用来是从父类继承的与是由了new关键字的方法的方法名一样的所以方<br>法无效，就像父类里不存在这些方法一样。只要去方法名一样别的没要<br>求。</p>
 <p>override （覆写）关键字： override</p>
-<p>1.override的方法必须父类的(直接父类或间接父类(就是向上n层的父<br>类))虚方法或抽象方法其中抽象方法是必须覆写的。<br>2.要求3处相同<br>相同的方法名称称；<br>相同的参数列表；<br>相同的返回类型。<br> <br>而百度知道一位仁兄写到：\</p>
+<p>1.override的方法必须父类的(直接父类或间接父类(就是向上n层的父<br>类))虚方法或抽象方法其中抽象方法是必须覆写的。<br>2.要求3处相同<br>相同的方法名称称；<br>相同的参数列表；<br>相同的返回类型。<br> <br>而百度知道一位仁兄写到：\</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">overload  完全新的方法，参数和原方法不同。</span><br><span class="line">override  覆盖继承到的那个方法，那个方法仍然没有放弃。</span><br><span class="line">overwrite 重写继承到的那个方法的代码，原方法被放弃。</span><br></pre></td></tr></table></figure>
 
 <p>\</p>
@@ -1041,7 +1052,7 @@ dialog.DoModal();\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/02/12/2010-02-12_Java%E4%B8%AD%E7%9A%84Overload_Overwrite_Override%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidBURTU40Ze0NiS2NOhuGmG" data-title="Java中的Overload Overwrite Override（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/02/12/2010-02-12_Java%E4%B8%AD%E7%9A%84Overload_Overwrite_Override%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuid4Y9O6NArGFnrK6jOMgp4S" data-title="Java中的Overload Overwrite Override（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1083,7 +1094,7 @@ dialog.DoModal();\
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
     </div>
   </div>
 
@@ -1096,7 +1107,7 @@ dialog.DoModal();\
       <ul>
         
           <li>
-            <a href="/2026/09/02/hello-world/">Hello World</a>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
           </li>
         
           <li>

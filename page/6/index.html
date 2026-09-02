@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/10/31/2019-10-31_git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9/" data-id="cuidLatfgkegek-O8QsUDPYj_" data-title="git使用技巧-撤销修改" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/10/31/2019-10-31_git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9/" data-id="cuid1pyzsJB4dzZ8pJSsUWgxY" data-title="git使用技巧-撤销修改" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -160,58 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/10/22/2019-10-22_%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90-%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" data-id="cuided03Fiqd3X54XcH_r15gd" data-title="分布式id生成-雪花算法实现资源汇总" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2019-10-19_mybatis_xml常用写法-使用like关键字【整理+转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2019-10-19T00:00:00.000Z" itemprop="datePublished">2019-10-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/mybatis/">mybatis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/">mybatis xml常用写法-使用like关键字【整理+转载】</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="需求：xml中需要在where中拼接like语句"><a href="#需求：xml中需要在where中拼接like语句" class="headerlink" title="需求：xml中需要在where中拼接like语句"></a>需求：xml中需要在where中拼接like语句</h1><h2 id="方法1：concat"><a href="#方法1：concat" class="headerlink" title="方法1：concat"></a>方法1：concat</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;where&gt;</span><br><span class="line">    &lt;trim  suffixOverrides=&quot;,&quot; &gt;</span><br><span class="line">        &lt;if test=&quot;id != null and id != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and id =  #&#123;id&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;name != null and name != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/trim&gt;</span><br><span class="line">&lt;/where&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法2："><a href="#方法2：" class="headerlink" title="方法2：${}"></a>方法2：${}</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;examTypeName!=null and examTypeName!=&#x27;&#x27;&quot;&gt;</span><br><span class="line">    and exam_type_name like &#x27;%$&#123;examTypeName&#125;%&#x27;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法3："><a href="#方法3：" class="headerlink" title="方法3：#{}"></a>方法3：#{}</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;examTypeName!=null and examTypeName!=&#x27;&#x27;&quot;&gt;</span><br><span class="line">    and exam_type_name like &quot;%&quot;#&#123;examTypeName&#125;&quot;%&quot;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xzj80927/article/details/90038411">mybatis中xml开发like的几种写法</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidK-jZO4fQq-H8_tEYAKW8I" data-title="mybatis xml常用写法-使用like关键字【整理+转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/10/22/2019-10-22_%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90-%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" data-id="cuid_VJfbnMxz7-UsFSD4ustv" data-title="分布式id生成-雪花算法实现资源汇总" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -265,7 +214,58 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/" data-id="cuidC1gK7hVrSYhS8ESa2Z9SW" data-title="mybatis xml常用写法-传入数组list" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/" data-id="cuidCs6oLPNffUbpNnLi7vD3G" data-title="mybatis xml常用写法-传入数组list" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2019-10-19_mybatis_xml常用写法-使用like关键字【整理+转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2019-10-19T00:00:00.000Z" itemprop="datePublished">2019-10-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/mybatis/">mybatis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/">mybatis xml常用写法-使用like关键字【整理+转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="需求：xml中需要在where中拼接like语句"><a href="#需求：xml中需要在where中拼接like语句" class="headerlink" title="需求：xml中需要在where中拼接like语句"></a>需求：xml中需要在where中拼接like语句</h1><h2 id="方法1：concat"><a href="#方法1：concat" class="headerlink" title="方法1：concat"></a>方法1：concat</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;where&gt;</span><br><span class="line">    &lt;trim  suffixOverrides=&quot;,&quot; &gt;</span><br><span class="line">        &lt;if test=&quot;id != null and id != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and id =  #&#123;id&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;name != null and name != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/trim&gt;</span><br><span class="line">&lt;/where&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法2："><a href="#方法2：" class="headerlink" title="方法2：${}"></a>方法2：${}</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;examTypeName!=null and examTypeName!=&#x27;&#x27;&quot;&gt;</span><br><span class="line">    and exam_type_name like &#x27;%$&#123;examTypeName&#125;%&#x27;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法3："><a href="#方法3：" class="headerlink" title="方法3：#{}"></a>方法3：#{}</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;examTypeName!=null and examTypeName!=&#x27;&#x27;&quot;&gt;</span><br><span class="line">    and exam_type_name like &quot;%&quot;#&#123;examTypeName&#125;&quot;%&quot;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xzj80927/article/details/90038411">mybatis中xml开发like的几种写法</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidHTK_JzyqAzyIbzzzjar7L" data-title="mybatis xml常用写法-使用like关键字【整理+转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -323,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/09/26/2019-09-26_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%883%EF%BC%89-_%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E6%A3%80%E6%9F%A5/" data-id="cuidzsllUNLfO9I91QO_ao3J7" data-title="google guava使用教程系列（3）- 前置条件检查" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/09/26/2019-09-26_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%883%EF%BC%89-_%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E6%A3%80%E6%9F%A5/" data-id="cuidoqdyvQFNSQ_jNX_daAT1O" data-title="google guava使用教程系列（3）- 前置条件检查" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -449,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/09/13/2019-09-13_%E3%80%90%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%E3%80%91java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" data-id="cuidtM4gRNHWYtGfAxjDetRbe" data-title="【听课笔记】java分布式锁" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/09/13/2019-09-13_%E3%80%90%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%E3%80%91java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" data-id="cuidfII-7BObWbCBq5X4_rHaH" data-title="【听课笔记】java分布式锁" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -509,7 +509,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/09/05/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" data-id="cuidRQ55EsE5UiJc94C3oaL2s" data-title="spring boot上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载+整理】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/09/05/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" data-id="cuidkLKBJIwWtE14DqO5R3AmG" data-title="spring boot上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载+整理】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -566,8 +566,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">//对swagger2相关接口放行，5个配置</span><br><span class="line">filterChainDefinitionMap.put(&quot;/doc.html&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/swagger-ui.html&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/swagger-resources/**&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/v2/api-docs/**&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/webjars/springfox-swagger-ui/**&quot;, &quot;anon&quot;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="6-swagger接口显示地址"><a href="#6-swagger接口显示地址" class="headerlink" title="6. swagger接口显示地址"></a>6. swagger接口显示地址</h2><ul>
-<li><a href="http://ip:端口/swagger-ui.html">http://ip:端口/swagger-ui.html</a>   Swagger官方UI</li>
-<li><a href="http://ip:端口//doc.html">http://ip:端口//doc.html</a>   第三方Bootstarp皮肤的UI</li>
+<li><a href="http://ip:端口/swagger-ui.html">http://ip:端口/swagger-ui.html</a>   Swagger官方UI</li>
+<li><a href="http://ip:端口//doc.html">http://ip:端口//doc.html</a>   第三方Bootstarp皮肤的UI</li>
 </ul>
 <h2 id="7-参考文档"><a href="#7-参考文档" class="headerlink" title="7.参考文档"></a>7.参考文档</h2><p>swagger2 注解说明 ( @ApiImplicitParams )<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiangyu1013/article/details/83107255">https://blog.csdn.net/jiangyu1013/article/details/83107255</a></p>
 <p>spring boot项目中使用swagger2<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/05be40b9a7a3">https://www.jianshu.com/p/05be40b9a7a3</a></p>
@@ -576,7 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/08/24/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/" data-id="cuidc1SGRjloHaqwojtYERIIA" data-title="spring boot整合swagger" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/08/24/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/" data-id="cuid3KMv81LYe9p7MLm98zZ8_" data-title="spring boot整合swagger" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -686,13 +686,13 @@ partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的�
 
 最后一个是表格，可以参见原帖：<https://blog.csdn.net/lu930124/article/details/77595585>
 
-![](images/常用collectors-300x204_692499fb.png)
+![](/images/常用collectors-300x204_692499fb.png)
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/08/18/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidH_GeDY_6yB2jxXMFA0fga" data-title="java8 快速实现List转map 、分组、过滤等操作【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/08/18/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid8cA5lF9ZffFEzLgYb4vXR" data-title="java8 快速实现List转map 、分组、过滤等操作【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -747,7 +747,7 @@ partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/08/17/2019-08-17_Arrays.asList%E4%B8%AD%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidkaa_WMoASmuR3OpM59Yom" data-title="Arrays.asList中所遇到的坑【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/08/17/2019-08-17_Arrays.asList%E4%B8%AD%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidkO5J072FZmS94meiDt0Mj" data-title="Arrays.asList中所遇到的坑【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -789,7 +789,7 @@ partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
     </div>
   </div>
 
@@ -802,7 +802,7 @@ partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的�
       <ul>
         
           <li>
-            <a href="/2026/09/02/hello-world/">Hello World</a>
+            <a href="/2026/06/08/hello-world/">Hello World</a>
           </li>
         
           <li>
