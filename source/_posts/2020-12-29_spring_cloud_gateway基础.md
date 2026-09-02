@@ -13,7 +13,7 @@ spring cloud gateway（后续简称SCG）本身就是spring cloud体系的一员
 - 路由 route: 网关的基本构建块。它由ID，目标URI，谓词集合和过滤器集合定义
 - 过滤器 filter: 由特定工厂构造生成
 
-![](images/spring-cloud-gateway-structure_ff83e600.png)
+![](/images/spring-cloud-gateway-structure_ff83e600.png)
 
 ### 工作过程
 
@@ -24,7 +24,7 @@ spring cloud gateway（后续简称SCG）本身就是spring cloud体系的一员
 - 5. 响应交给后置filter处理
 - 6. SCG将响应返回给客户端
 
-![](images/tCZIYxXepbNLnjPp_62cf7bf7.png)
+![](/images/tCZIYxXepbNLnjPp_62cf7bf7.png)
 
 ### 应用场景
 

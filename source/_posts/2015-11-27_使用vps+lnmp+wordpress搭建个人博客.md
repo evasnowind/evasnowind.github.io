@@ -24,15 +24,15 @@ so, 开始详细说明：\
 > lnmp环境搭建好后，需要设置虚拟主机。首先区分几个概念服务器，vps，虚拟主机。\
 > 服务器：一般理解就是一台电脑，有主板硬盘内存CPU的东西；\
 > vps（Virtual Private Server 虚拟专用服务器）：一台服务器通过软件划分成几台vps，每台vps在客户看来都是独立的服务器，其实是跑在一台物理机器上的；\
-> 虚拟主机：虚拟主机一般是针对网站说的，一个网站跑在一台虚拟主机上，也就是apache服务器 wwwroot/下面的一个文件夹，就是一个虚拟主机，比如  wwwroot/aaa  是个虚拟主机，wwwroot/bbb 是另外一个虚拟主机，是web服务器区分不同网站时的提法。\
+> 虚拟主机：虚拟主机一般是针对网站说的，一个网站跑在一台虚拟主机上，也就是apache服务器 wwwroot/下面的一个文件夹，就是一个虚拟主机，比如  wwwroot/aaa  是个虚拟主机，wwwroot/bbb 是另外一个虚拟主机，是web服务器区分不同网站时的提法。\
 > 可以看到，从大到小，依次是服务器＞vps＞虚拟主机。\
 > 弄清楚了什么是虚拟主机，就明白了为什么要配置虚拟主机了，因为我们的vps上不是就跑一个网站，有可能要搭好几个网站（土豪自行忽略掉这句话），比如搭个博客，搭个下载站，等等很多。不过，一个ip地址最多解析5个顶级域名，所以最多就5个网站（二级域名不算）。\
-> 搭建虚拟主机教程  http://lnmp.org/faq/lnmp-vhost-add-howto.html
+> 搭建虚拟主机教程  http://lnmp.org/faq/lnmp-vhost-add-howto.html
 
 上面这段话说的挺清楚的，理解这些概念对后续操作很有帮助，认真看。\
 另外，lnmp已经安装了phpmyadmin，后续有数据库操作可以用这个。\
 **3****、域名解析设置**\
-安装好lnmp环境后，接下来就该设置DNS域名解析了，购买域名的地方也有很多，不再赘述。我在godaddy上买的，顺便说句godaddy坑爹的地方，我之前的域名续费了两年，今年忘记续费，再去看时发现购买价格翻了3倍，原本每年100RMB左右，重新购买居然要300多RMB，真是坑爹啊~\_~  ，而且最近貌似.io的域名价格一直很贵，本想买个.io提高下逼格，结果还是放弃了……扯远了，回归正题，购买域名后，需要配置域名解析，配置一下域名到IP的映射，这里再进行一下摘抄（来源如下：<http://www.railgun.top/blog/?p=19>），主要是给大家看一下解析类型：
+安装好lnmp环境后，接下来就该设置DNS域名解析了，购买域名的地方也有很多，不再赘述。我在godaddy上买的，顺便说句godaddy坑爹的地方，我之前的域名续费了两年，今年忘记续费，再去看时发现购买价格翻了3倍，原本每年100RMB左右，重新购买居然要300多RMB，真是坑爹啊~\_~  ，而且最近貌似.io的域名价格一直很贵，本想买个.io提高下逼格，结果还是放弃了……扯远了，回归正题，购买域名后，需要配置域名解析，配置一下域名到IP的映射，这里再进行一下摘抄（来源如下：<http://www.railgun.top/blog/?p=19>），主要是给大家看一下解析类型：
 
 > A记录：将域名指向一个IPv4地址（例如：10.10.10.10），需要增加A记录。网站最基本的解析就是A记录 ，把域名解析到你自己的服务器ipv4地址，如138.xxx.xxx.xxx ，如果不添加主机记录www，就不能访问www.railgun.top，只能访问railgun.top\
 > CNAME记录：如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录。如果想设置二级域名就要添加CNAME记录，比如blog.railgun.top ，参照上图设置，主机记录是blog，记录值就是你的主域名www.railgun.top\
@@ -48,10 +48,10 @@ godaddy上需要设置DNS Zone File，如下图所示，在Points to的位置填
 [![godaddy_set_dns](http://www.prayerlaputa.com/wp-content/uploads/2015/11/godaddy_set_dns-287x300.png)](http://www.prayerlaputa.com/wp-content/uploads/2015/11/godaddy_set_dns.png)\
 填写完、确认后，需要等一段时间DNS解析才能生效，可以过十来分钟之后ping 你的域名，能ping通即可。\
 **4****、搭建****wordpress**\
-域名解析设置好后，接下来就是安装wordpress，这一步相对简单，参考wordpress官网给出的步骤即可，写的很清楚，地址：[wordpress安装过程](http://codex.wordpress.org.cn/WordPress%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B) 注意，解压wordpress安装包后，记得给wordpress整个文件夹赋予读写权限，用chmod a+wr -R /wordpress 即可。\
+域名解析设置好后，接下来就是安装wordpress，这一步相对简单，参考wordpress官网给出的步骤即可，写的很清楚，地址：[wordpress安装过程](http://codex.wordpress.org.cn/WordPress%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B) 注意，解压wordpress安装包后，记得给wordpress整个文件夹赋予读写权限，用chmod a+wr -R /wordpress 即可。\
 lnmp已安装了phpmyadmin，如果想用“域名/phpmyadmin”这种形式使用phpmyadmin，在/home/wwwroot/default文件夹下找到phpmyadmin文件夹，将该文件夹拷贝一份到你在lnmp中所设置的虚拟主机目录（和你的域名一样的那个目录，一般是/home/wwwroot/域名）下，即可使用。\
 **5****、安装****wordpress****后可能遇到的问题**\
-按照官方教程安装完wordpress之后，可能遇到的问题以及解决方法如下（参考了如下帖子：[搬瓦工VPS:LNMP环境下安装wordpress常遇到的问题及解决方法](http://www.banwagong.com/111.html)  ）：
+按照官方教程安装完wordpress之后，可能遇到的问题以及解决方法如下（参考了如下帖子：[搬瓦工VPS:LNMP环境下安装wordpress常遇到的问题及解决方法](http://www.banwagong.com/111.html)  ）：
 
 - **后台只显示一个主题**：主要是和scandir函数有关，解决方法也比较简单，修改\
   /usr/local/php/etc/php.ini 。可以通过VI命令修改，或者下载到本地进行修改，找到disable\_functions 后面的scandir删除掉这个函数。然后重启PHP即可。
@@ -60,8 +60,8 @@ lnmp已安装了phpmyadmin，如果想用“域名/phpmyadmin”这种形式使�
 - **后台安装插件或主题都提示需要输入****FTP****信息**：出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可
   - chmod -R 755 /home/wwwroot
   - chown -R www /home/wwwroot
-- **安装后过了一段时间****VPS****硬盘爆满**：lnmp安装时，mysql日志默认没有关闭，可能是这个原因（参考如下帖子：<http://www.banwagong.com/176.html>），修改一下**/etc/my.cnf**文件。找到**log-bin=mysql-bin**和**binlog\_format=mixed**两行，在这两条的前面加一个**#**号 ，将这两条语句注释掉即可。然后重启mysql   **/etc/init.d/mysql restart**
+- **安装后过了一段时间****VPS****硬盘爆满**：lnmp安装时，mysql日志默认没有关闭，可能是这个原因（参考如下帖子：<http://www.banwagong.com/176.html>），修改一下**/etc/my.cnf**文件。找到**log-bin=mysql-bin**和**binlog\_format=mixed**两行，在这两条的前面加一个**#**号 ，将这两条语句注释掉即可。然后重启mysql   **/etc/init.d/mysql restart**
 
 建议大家用上述方式建站后，去“[搬瓦工VPS](http://www.banwagong.com/145.html)”这个网站上看看，列出了很多需要注意的事项，我就参考了好多帖子，推荐一下。\
- \
+ \
 以上。\

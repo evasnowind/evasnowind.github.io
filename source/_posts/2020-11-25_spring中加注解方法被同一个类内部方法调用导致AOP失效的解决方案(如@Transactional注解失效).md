@@ -11,18 +11,18 @@ source: "http://prayerlaputa.com/?p=913"
 
 ```
 public class A {
-    //......
-    
-    @Transactional
-    public void serviceA() {
-        ......
-    }
-    
+    //......
+    
+    @Transactional
+    public void serviceA() {
+        ......
+    }
+    
     public void serviceB() {
-        ......
-        serviceA()
-        ......
-    }
+        ......
+        serviceA()
+        ......
+    }
 }
 ```
 
@@ -41,7 +41,7 @@ public class A {
 serviceA() {
 ......
 }
-​
+
 //加上注解后
 serviceAProxy() {
 //AOP执行前逻辑
@@ -66,17 +66,17 @@ AOP的逻辑在代理后的方法中，那么我们就去执行spring生成的�
 
 ```
 public class A{
-​
-    //通过spring将代理后对象注入到self变量
-    @Autowired
-    private A self;
-​
-    public void serviceB() {
-            ......
-            //此处调用的就是代理后的方法
-            self.serviceA()
-            ......
-    }
+
+    //通过spring将代理后对象注入到self变量
+    @Autowired
+    private A self;
+
+    public void serviceB() {
+            ......
+            //此处调用的就是代理后的方法
+            self.serviceA()
+            ......
+    }
 }
 ```
 
@@ -88,12 +88,12 @@ public class A{
 
 ```
 public class A {
-    public void serviceB() {
-            ......
-            //此处调用的就是代理后的方法
-            ((A)AopContext.currentProxy()).serviceA();
-            ......
-    }
+    public void serviceB() {
+            ......
+            //此处调用的就是代理后的方法
+            ((A)AopContext.currentProxy()).serviceA();
+            ......
+    }
 }
 ```
 
@@ -111,7 +111,7 @@ public class A {
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 @SpringBootApplication
 public class SpringAopApplication {
-​
+
     public static void main(String[] args) {
         SpringApplication.run(SpringAopApplication.class, args);
     }
@@ -125,18 +125,18 @@ public class SpringAopApplication {
 ```
 public class A implements ApplicationContextAware {
 private ApplicationContext applicationContext;
-    
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
-    
-    
-    public void serviceB() {
-            ......
-            //此处调用的就是代理后的方法
-            applicationContext.getBean(A.class).serviceA();
-            ......
-    }
+    
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+    
+    
+    public void serviceB() {
+            ......
+            //此处调用的就是代理后的方法
+            applicationContext.getBean(A.class).serviceA();
+            ......
+    }
 }
 ```

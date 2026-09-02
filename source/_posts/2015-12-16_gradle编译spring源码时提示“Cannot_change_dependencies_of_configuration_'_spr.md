@@ -21,7 +21,7 @@ source: "http://prayerlaputa.com/?p=151"
 > BUILD FAILED
 
 \
-搜了一下，终于在<http://segmentfault.com/q/1010000002721774> 看到了答案：是因为JDK版本与spring framework源码的版本不太匹配，一开始我用JDK 8去build，就出现上述异常，然后改用JDK 7,还是不行，索性换了***最新版的spring framework***（版本：4.x）,此时编译即可顺利通过。\
+搜了一下，终于在<http://segmentfault.com/q/1010000002721774> 看到了答案：是因为JDK版本与spring framework源码的版本不太匹配，一开始我用JDK 8去build，就出现上述异常，然后改用JDK 7,还是不行，索性换了***最新版的spring framework***（版本：4.x）,此时编译即可顺利通过。\
 PS：spring framework相关简介、依赖等内容可参考如下链接：
 
 - <http://projects.spring.io/spring-framework/>

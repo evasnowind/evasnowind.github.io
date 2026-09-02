@@ -10,17 +10,17 @@ source: "http://prayerlaputa.com/?p=910"
 我想自定义一个缓存注解，用来缓存方法返回值，并且支持自定义缓存超时时间，注解定义是这样：
 
 ```
-​
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Inherited
 public @interface MyCache {
-​
-    @AliasFor("value")
-    int expireTime() default 60;
-​
-    @AliasFor("expireTime")
-    int value() default 60;
+
+    @AliasFor("value")
+    int expireTime() default 60;
+
+    @AliasFor("expireTime")
+    int value() default 60;
 }
 ```
 
@@ -33,34 +33,34 @@ public @interface MyCache {
 ```
 @Around("myCache()")
 public Object around(ProceedingJoinPoint pjp) {
-    ......
-    //获取方法对象
-    Method curMethod = getMethodByJoinPoint(pjp, methodSignature);
-    //出问题的是这一句！
-    Annotation annotation = curMethod.getAnnotation(MyCache.class);
-    Integer expireTime = (Integer) getAnnotationConfig(annotation, "expireTime");
-    Integer annotationValue = (Integer) getAnnotationConfig(annotation, "value");
-    log.info("annotationValue={}, expireTime={}.", annotationValue, expireTime);
-    ......
+    ......
+    //获取方法对象
+    Method curMethod = getMethodByJoinPoint(pjp, methodSignature);
+    //出问题的是这一句！
+    Annotation annotation = curMethod.getAnnotation(MyCache.class);
+    Integer expireTime = (Integer) getAnnotationConfig(annotation, "expireTime");
+    Integer annotationValue = (Integer) getAnnotationConfig(annotation, "value");
+    log.info("annotationValue={}, expireTime={}.", annotationValue, expireTime);
+    ......
 }
-​
+
 private Method getMethodByJoinPoint(ProceedingJoinPoint pjp, MethodSignature methodSignature) throws NoSuchMethodException {
-    Object target = pjp.getTarget();
-    return target.getClass().getMethod(methodSignature.getName(), methodSignature.getParameterTypes());
+    Object target = pjp.getTarget();
+    return target.getClass().getMethod(methodSignature.getName(), methodSignature.getParameterTypes());
 }
-​
+
 private Object getAnnotationConfig(Annotation annotation, String name) {
-    if (null == annotation || StringUtils.isEmpty(name)) {
-        return null;
-    }
-​
-    try {
-        return annotation.annotationType().getMethod(name).invoke(annotation);
-    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-        log.error("getAnnotationConfig error:", e);
-    }
-​
-    return null;
+    if (null == annotation || StringUtils.isEmpty(name)) {
+        return null;
+    }
+
+    try {
+        return annotation.annotationType().getMethod(name).invoke(annotation);
+    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+        log.error("getAnnotationConfig error:", e);
+    }
+
+    return null;
 }
 ```
 
@@ -81,8 +81,8 @@ log.info("annotationVal2={}.", annotationVal2);
 ```
 @MyCache(expireTime = 40, value = 50)
 public String getValByCache(String key) {
-    log.info("getValByCache running...");
-    return key + "-" + idx.incrementAndGet();
+    log.info("getValByCache running...");
+    return key + "-" + idx.incrementAndGet();
 }
 ```
 
@@ -92,8 +92,8 @@ public String getValByCache(String key) {
 ......
 2020-11-20 16:54:18.628  INFO 12076 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
 2020-11-20 16:54:18.878  WARN 12076 --- [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: file [D:\GitRepository\framework-dev-learning\spring-aop-2-customzed-cache-annotation\target\classes\com\prayerlaputa\service\MyCacheDemoService.class]; nested exception is org.springframework.core.annotation.AnnotationConfigurationException: Different @AliasFor mirror values for annotation [com.prayerlaputa.annotation.MyCache] declared on com.prayerlaputa.service.MyCacheDemoService.getValByCache(java.lang.String); attribute 'expireTime' and its alias 'value' are declared with values of [40] and [50].
-2020-11-20 16:54:18.945 ERROR 12076 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
-​
+2020-11-20 16:54:18.945 ERROR 12076 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
 org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: file [D:\GitRepository\framework-dev-learning\spring-aop-2-customzed-cache-annotation\target\classes\com\prayerlaputa\service\MyCacheDemoService.class]; nested exception is org.springframework.core.annotation.AnnotationConfigurationException: Different @AliasFor mirror values for annotation [com.prayerlaputa.annotation.MyCache] declared on com.prayerlaputa.service.MyCacheDemoService.getValByCache(java.lang.String); attribute 'expireTime' and its alias 'value' are declared with values of [40] and [50].
     at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:452) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
     at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:315) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
@@ -138,10 +138,10 @@ Caused by: org.springframework.core.annotation.AnnotationConfigurationException:
     at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:123) ~[spring-core-5.2.5.RELEASE.jar:5.2.5.RELEASE]
     at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:428) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
     ... 25 common frames omitted
-​
-​
+
+
 Process finished with exit code 0
-​
+
 ```
 
 ## 参考资料

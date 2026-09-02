@@ -15,13 +15,13 @@ http://wenku.baidu.com/view/fa749e737fd5360cba1adbdd.html
 ![](file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
 
 java.lang.NoClassDefFoundError: jdk1/6/0/10\
- \
+ \
 \
 开始以为是版本不兼容，但是直接发布在Tomcat目录下，直接点击Tomcat的StartUp.bat是可以启动的，运行正常。\
 于是写了一个测试类，在eclipse中运行这个类，只是输出几个字符，居然也不可以，报错信息一样。\
 Google了些信息出来，无非是说设置path，classpath等，按照这个照做后，很遗憾，报错信息依旧，而且我原来用1.5版本时也没有配置这些变量。\
 整整一个下午的时间，头晕脑胀，却一无所获。\
- \
+ \
 其实是一个地方的配置写错了。大家注意了：\
 ![](file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg)\
 红色框起来的地方，这里本来是输入vm参数的，结果我copy/paste，当成了jre的名字，这个参数jre当然不会识别了，但是jre提示的信息也有点过，你要是说“vm参数错误”不就好找了，偏偏说java.lang.NoClassDefFoundError: jdk1/6/0/10。\

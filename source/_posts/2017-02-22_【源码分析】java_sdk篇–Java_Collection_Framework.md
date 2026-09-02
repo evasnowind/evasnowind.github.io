@@ -14,7 +14,7 @@ JCF，即Java Collection Framework，是JDK中已经封装好容器类，类结�
 [![](http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF详细图-300x296.jpg)](http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF详细图.jpg)\
 网上常见的是这张图，但其实少了一个Queue，看下面这张图更清楚一些：[\](http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF详细图2.gif)\
 [![](http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF详细图2-300x285.gif)](http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF详细图2.gif)\
- \
+ \
 看着很复杂，其实按照我们日常用到的类，可以按照如下分类（仅列出常见的具体实现类，上图那些抽象类就不一一讨论了）：\
 1、Collection
 
@@ -62,7 +62,7 @@ HashSet在创建对象时可以指定集合初始容量、负载因子（load fa
 Map，图，是一种存储键值对映射的容器类，在Map中键可以是任意类型的对象，但不能有重复的键，每个键都对应一个值，真正存储在图中的是键值构成的条目。\
 [HashMap是基于哈希表的Map接口的非同步实现，继承自AbstractMap，AbstractMap是部分实现Map接口的抽象类。](http://www.jianshu.com/p/63e76826e852)\
 [![](http://www.prayerlaputa.com/wp-content/uploads/2017/02/HashMap实现-300x108.jpg)](http://www.prayerlaputa.com/wp-content/uploads/2017/02/HashMap实现.jpg)\
-[在之前的版本中，HashMap采用数组+链表实现，即使用链表处理冲突，同一hash值的链表都存储在一个链表里。但是当链表中的元素较多，即hash值相等的元素较多时，通过key值依次查找的效率较低。而JDK1.8中，HashMap采用数组+链表+红黑树实现，当链表长度超过阈值（8）时，将链表转换为红黑树，这样大大减少了查找时间。](http://www.jianshu.com/p/63e76826e852) 也就是说JDK 1.8开始用数组+链表+红黑树是实现。具体分析参考此文章：[Java – 集合框架完全解析](http://www.jianshu.com/p/63e76826e852)  以及本博客后续文章。\
+[在之前的版本中，HashMap采用数组+链表实现，即使用链表处理冲突，同一hash值的链表都存储在一个链表里。但是当链表中的元素较多，即hash值相等的元素较多时，通过key值依次查找的效率较低。而JDK1.8中，HashMap采用数组+链表+红黑树实现，当链表长度超过阈值（8）时，将链表转换为红黑树，这样大大减少了查找时间。](http://www.jianshu.com/p/63e76826e852) 也就是说JDK 1.8开始用数组+链表+红黑树是实现。具体分析参考此文章：[Java – 集合框架完全解析](http://www.jianshu.com/p/63e76826e852)  以及本博客后续文章。\
 [在HashMap中要找到某个元素，需要根据key的hash值来求得对应数组中的位置。对于任意给定的对象，只要它的hashCode()返回值相同，那么程序调用hash(int h)方法所计算得到的hash码值总是相同的。我们首先想到的就是把hash值对数组长度取模运算，这样一来，元素的分布相对来说是比较均匀的。但是，“模”运算的消耗还是比较大的，在HashMap中，**(n – 1) & hash**用于计算对象应该保存在table数组的哪个索引处。HashMap底层数组的长度总是2的n次方，当数组长度为2的n次幂的时候，**(n – 1) & hash** 算得的index相同的几率较小，数据在数组上分布就比较均匀，也就是说碰撞的几率小，相对的，查询的时候就不用遍历某个位置上的链表，这样查询效率也就较高了。](http://www.jianshu.com/p/63e76826e852)\
 TreeMap基于红黑树数据结构的实现，键值可以使用Comparable或Comparator接口来排序。TreeMap继承自AbstractMap，同时实现了接口NavigableMap，而接口NavigableMap则继承自SortedMap。SortedMap是Map的子接口，使用它可以确保图中的条目是排好序的。\
 在实际使用中，如果更新Map时不需要保持图中元素的顺序，就使用HashMap，如果需要保持Map中元素的插入顺序或者访问顺序，就使用LinkedHashMap，如果需要使Map按照键值排序，就使用TreeMap。
@@ -73,7 +73,7 @@ TreeMap基于红黑树数据结构的实现，键值可以使用Comparable或Com
 >
 > 前面我们已经提到，Java设计者们在对之前的容器类进行重新设计时保留了一些数据结构，其中就有Vector。用法上，Vector与ArrayList基本一致，不同之处在于Vector使用了关键字synchronized将访问和修改向量的方法都变成同步的了，所以对于不需要同步的应用程序来说，类ArrayList比类Vector更高效。
 >
-> Vector非常类似ArrayList，但是Vector是同步的。由Vector创建的Iterator，虽然和ArrayList创建的 Iterator是同一接口，但是，因为Vector是同步的，当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素），这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。**通过使用capacity和ensurecapacity操作以及capacityIncrement域可以优化存储操作，这个前面讲过**，（**Vector的Iterator和listIterator方法翻译的迭代器支持fail-fast机制，因此如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException，这就是所谓fail-fast策略。官方对此的说明是**  java.util 包中的集合类都返回 fail-fast迭代器，这意味着它们假设线程在集合内容中进行迭代时，集合不会更改它的内容。如果 fail-fast迭代器检测到在迭代过程中进行了更改操作，那么它会抛出 ConcurrentModificationException，这是不可控异常。）
+> Vector非常类似ArrayList，但是Vector是同步的。由Vector创建的Iterator，虽然和ArrayList创建的 Iterator是同一接口，但是，因为Vector是同步的，当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例如，添加或删除了一些元素），这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。**通过使用capacity和ensurecapacity操作以及capacityIncrement域可以优化存储操作，这个前面讲过**，（**Vector的Iterator和listIterator方法翻译的迭代器支持fail-fast机制，因此如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException，这就是所谓fail-fast策略。官方对此的说明是**  java.util 包中的集合类都返回 fail-fast迭代器，这意味着它们假设线程在集合内容中进行迭代时，集合不会更改它的内容。如果 fail-fast迭代器检测到在迭代过程中进行了更改操作，那么它会抛出 ConcurrentModificationException，这是不可控异常。）
 >
 > ##### 2.Stack
 >

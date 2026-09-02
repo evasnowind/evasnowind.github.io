@@ -52,9 +52,9 @@ props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDes
 KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 consumer.subscribe(Arrays.asList("foo", "bar"));
 while (true) {
-    ConsumerRecords<String, String> records = consumer.poll(100);
-    for (ConsumerRecord<String, String> record : records)
-        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
+    ConsumerRecords<String, String> records = consumer.poll(100);
+    for (ConsumerRecord<String, String> record : records)
+        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
 }
 ```
 
@@ -79,29 +79,29 @@ while (true) {
 //代码2：
 @Override
 public void subscribe(Collection<String> topics, ConsumerRebalanceListener listener) {
-    acquireAndEnsureOpen();
-    try {
-        maybeThrowInvalidGroupIdException();
-        if (topics == null)
-            throw new IllegalArgumentException("Topic collection to subscribe to cannot be null");
-        if (topics.isEmpty()) {
-            // treat subscribing to empty topic list as the same as unsubscribing
-            this.unsubscribe();
-        } else {
-            for (String topic : topics) {
-                if (topic == null || topic.trim().isEmpty())
-                    throw new IllegalArgumentException("Topic collection to subscribe to cannot contain null or empty topic");
-            }
-​
-            throwIfNoAssignorsConfigured();
-            fetcher.clearBufferedDataForUnassignedTopics(topics);
-            log.info("Subscribed to topic(s): {}", Utils.join(topics, ", "));
-            if (this.subscriptions.subscribe(new HashSet<>(topics), listener))
-                metadata.requestUpdateForNewTopics();
-        }
-    } finally {
-        release();
-    }
+    acquireAndEnsureOpen();
+    try {
+        maybeThrowInvalidGroupIdException();
+        if (topics == null)
+            throw new IllegalArgumentException("Topic collection to subscribe to cannot be null");
+        if (topics.isEmpty()) {
+            // treat subscribing to empty topic list as the same as unsubscribing
+            this.unsubscribe();
+        } else {
+            for (String topic : topics) {
+                if (topic == null || topic.trim().isEmpty())
+                    throw new IllegalArgumentException("Topic collection to subscribe to cannot contain null or empty topic");
+            }
+
+            throwIfNoAssignorsConfigured();
+            fetcher.clearBufferedDataForUnassignedTopics(topics);
+            log.info("Subscribed to topic(s): {}", Utils.join(topics, ", "));
+            if (this.subscriptions.subscribe(new HashSet<>(topics), listener))
+                metadata.requestUpdateForNewTopics();
+        }
+    } finally {
+        release();
+    }
 }
 ```
 
@@ -128,45 +128,45 @@ KafkaConsumer的[Javadoc](https://kafka.apache.org/10/javadoc/?org/apache/kafka/
 
 ```
 /**
-     * Acquire the light lock and ensure that the consumer hasn't been closed.
-     * @throws IllegalStateException If the consumer has been closed
-     */
+     * Acquire the light lock and ensure that the consumer hasn't been closed.
+     * @throws IllegalStateException If the consumer has been closed
+     */
 private void acquireAndEnsureOpen() {
-    acquire();
-    //KafkaConsumer成员变量，初始值为false，调用close(Duration)方法后才会置为true
-    if (this.closed) {
-        release();
-        throw new IllegalStateException("This consumer has already been closed.");
-    }
+    acquire();
+    //KafkaConsumer成员变量，初始值为false，调用close(Duration)方法后才会置为true
+    if (this.closed) {
+        release();
+        throw new IllegalStateException("This consumer has already been closed.");
+    }
 }
-​
+
 //变量声明
 private static final long NO_CURRENT_THREAD = -1L;
-​
+
 private void acquire() {
-    //拿到当前线程的线程id
-    long threadId = Thread.currentThread().getId();
-    /*if threadId与当前正执行的线程的id不一致（并发，多线程访问）&& threadId对应的线程没有争抢到锁
-         then 抛出异常
-    举例：
-        现在有两个KafkaConsumer线程，线程id分别是thread1, thread2，要执行acquire()方法。
+    //拿到当前线程的线程id
+    long threadId = Thread.currentThread().getId();
+    /*if threadId与当前正执行的线程的id不一致（并发，多线程访问）&& threadId对应的线程没有争抢到锁
+         then 抛出异常
+    举例：
+        现在有两个KafkaConsumer线程，线程id分别是thread1, thread2，要执行acquire()方法。
         thread1先启动，执行完上面这条语句、赋值threadId后， thread1栈帧中threadId=thread1，此时CPU线程调度、执行thread2，
         thread2也走到if语句时，在thread2的栈帧中，threadId已经赋值为thread2，走到这里，currentThread作为成员变量，初始值为NO_CURRENT_THREAD（-1），因此必然不相等，继续走第二判断条件，即利用AtomicInteger的CAS操作，将当前线程id threadId(thread2)赋值给currentThread这个AtomicInteger，必然返回true，因此会继续执行，使得refcount加1；
         接着，此时执行thread1，那么再继续执行if，threadId(thread1) != currentThread.get() (thread2)能满足，但是currentThread的CAS赋值将会失败，因此此时currentThread的值并不是NO_CURRENT_THREAD。
         
         refcount用于记录重入锁的情况，参见release()方法，当refcount=0时，currentThread将重新赋值为NO_CURRENT_THREAD，保证彻底解锁。
-    */
-    if (threadId != currentThread.get() && !currentThread.compareAndSet(NO_CURRENT_THREAD, threadId))
-        throw new ConcurrentModificationException("KafkaConsumer is not safe for multi-threaded access");
-    refcount.incrementAndGet();
+    */
+    if (threadId != currentThread.get() && !currentThread.compareAndSet(NO_CURRENT_THREAD, threadId))
+        throw new ConcurrentModificationException("KafkaConsumer is not safe for multi-threaded access");
+    refcount.incrementAndGet();
 }
-​
+
 /**
-     * Release the light lock protecting the consumer from multi-threaded access.
-     */
+     * Release the light lock protecting the consumer from multi-threaded access.
+     */
 private void release() {
-    if (refcount.decrementAndGet() == 0)
-        currentThread.set(NO_CURRENT_THREAD);
+    if (refcount.decrementAndGet() == 0)
+        currentThread.set(NO_CURRENT_THREAD);
 }
 ```
 
@@ -178,11 +178,11 @@ private void release() {
 
 ```
 public synchronized int requestUpdateForNewTopics() {
-    // Override the timestamp of last refresh to let immediate update.
-    this.lastRefreshMs = 0;
-    this.needPartialUpdate = true;
-    this.requestVersion++;
-    return this.updateVersion;
+    // Override the timestamp of last refresh to let immediate update.
+    this.lastRefreshMs = 0;
+    this.needPartialUpdate = true;
+    this.requestVersion++;
+    return this.updateVersion;
 }
 ```
 
@@ -192,7 +192,7 @@ public synchronized int requestUpdateForNewTopics() {
 
 我们已经知道，拉取消息是调用KafkaConsumer的poll(Duration)方法，主要流程的序列图参考下图
 
-![](images/kafka-consumer-poll-process-sequence-dia_c8d2a1e0.png)
+![](/images/kafka-consumer-poll-process-sequence-dia_c8d2a1e0.png)
 
 注：引自 极客时间 消息队列高手课
 
@@ -204,78 +204,78 @@ poll源码如下，主要流程在：
 ```
 @Override
 public ConsumerRecords<K, V> poll(final Duration timeout) {
-    return poll(time.timer(timeout), true);
+    return poll(time.timer(timeout), true);
 }
-​
+
 /**
-     * @throws KafkaException if the rebalance callback throws exception
-     */
+     * @throws KafkaException if the rebalance callback throws exception
+     */
 private ConsumerRecords<K, V> poll(final Timer timer, final boolean includeMetadataInTimeout) {
-    //加锁，保证只有1个线程读取数据
-    acquireAndEnsureOpen();
-    try {
-        //记录开始时间
-        this.kafkaConsumerMetrics.recordPollStart(timer.currentTimeMs());
-​
-        if (this.subscriptions.hasNoSubscriptionOrUserAssignment()) {
-            //没有订阅信息，抛异常
-            throw new IllegalStateException("Consumer is not subscribed to any topics or assigned any partitions");
-        }
-​
-        do {
-            //这个地方没太看懂
-            client.maybeTriggerWakeup();
-​
-            if (includeMetadataInTimeout) {
-                // try to update assignment metadata BUT do not need to block on the timer for join group
-                updateAssignmentMetadataIfNeeded(timer, false);
-            } else {
-                /*
+    //加锁，保证只有1个线程读取数据
+    acquireAndEnsureOpen();
+    try {
+        //记录开始时间
+        this.kafkaConsumerMetrics.recordPollStart(timer.currentTimeMs());
+
+        if (this.subscriptions.hasNoSubscriptionOrUserAssignment()) {
+            //没有订阅信息，抛异常
+            throw new IllegalStateException("Consumer is not subscribed to any topics or assigned any partitions");
+        }
+
+        do {
+            //这个地方没太看懂
+            client.maybeTriggerWakeup();
+
+            if (includeMetadataInTimeout) {
+                // try to update assignment metadata BUT do not need to block on the timer for join group
+                updateAssignmentMetadataIfNeeded(timer, false);
+            } else {
+                /*
                 updateAssignmentMetadataIfNeeded方法有3个作用：
-                    - discovery coordinator if necessary
-                    - join group if necessary
-                    - refresh metadata and fetch position if necessary
+                    - discovery coordinator if necessary
+                    - join group if necessary
+                    - refresh metadata and fetch position if necessary
                 */
-                while (!updateAssignmentMetadataIfNeeded(time.timer(Long.MAX_VALUE), true)) {
-                    log.warn("Still waiting for metadata");
-                }
-            }
-​
-            final Map<TopicPartition, List<ConsumerRecord<K, V>>> records = pollForFetches(timer);
-            if (!records.isEmpty()) {
-                // before returning the fetched records, we can send off the next round of fetches
-                // and avoid block waiting for their responses to enable pipelining while the user
-                // is handling the fetched records.
-                //
-                // NOTE: since the consumed position has already been updated, we must not allow
-                // wakeups or any other errors to be triggered prior to returning the fetched records.
-                if (fetcher.sendFetches() > 0 || client.hasPendingRequests()) {
-                    client.transmitSends();
-                }
-​
-                return this.interceptors.onConsume(new ConsumerRecords<>(records));
-            }
-        } while (timer.notExpired());
-​
-        return ConsumerRecords.empty();
-    } finally {
-        release();
-        this.kafkaConsumerMetrics.recordPollEnd(timer.currentTimeMs());
-    }
+                while (!updateAssignmentMetadataIfNeeded(time.timer(Long.MAX_VALUE), true)) {
+                    log.warn("Still waiting for metadata");
+                }
+            }
+
+            final Map<TopicPartition, List<ConsumerRecord<K, V>>> records = pollForFetches(timer);
+            if (!records.isEmpty()) {
+                // before returning the fetched records, we can send off the next round of fetches
+                // and avoid block waiting for their responses to enable pipelining while the user
+                // is handling the fetched records.
+                //
+                // NOTE: since the consumed position has already been updated, we must not allow
+                // wakeups or any other errors to be triggered prior to returning the fetched records.
+                if (fetcher.sendFetches() > 0 || client.hasPendingRequests()) {
+                    client.transmitSends();
+                }
+
+                return this.interceptors.onConsume(new ConsumerRecords<>(records));
+            }
+        } while (timer.notExpired());
+
+        return ConsumerRecords.empty();
+    } finally {
+        release();
+        this.kafkaConsumerMetrics.recordPollEnd(timer.currentTimeMs());
+    }
 }
-​
+
 boolean updateAssignmentMetadataIfNeeded(final Timer timer, final boolean waitForJoinGroup) {
-    if (coordinator != null && !coordinator.poll(timer, waitForJoinGroup)) {
-        return false;
-    }
+    if (coordinator != null && !coordinator.poll(timer, waitForJoinGroup)) {
+        return false;
+    }
     /*
     Set the fetch position to the committed position (if there is one) or reset it using the offset reset policy the user has configured.
     更新position或是根据用户配置重置position
     */
-    return updateFetchPositions(timer);
+    return updateFetchPositions(timer);
 }
-​
-​
+
+
 ```
 
 ### updateAssignmentMetadataIfNeeded() 更新元数据
@@ -292,54 +292,54 @@ updateAssignmentMetadataIfNeeded调用了coordinator.poll() 方法，即Consumer
 
 ```
 public boolean poll(Timer timer, boolean waitForJoinGroup) {
-    maybeUpdateSubscriptionMetadata();
-​
-    invokeCompletedOffsetCommitCallbacks();
+    maybeUpdateSubscriptionMetadata();
+
+    invokeCompletedOffsetCommitCallbacks();
     //先忽略细节逻辑，第一次启动时，将执行此处
-    if (subscriptions.hasAutoAssignedPartitions()) {
-        if (protocol == null) {
-            throw new IllegalStateException("User configured " + ConsumerConfig.PARTITION_ASSIGNMENT_STRATEGY_CONFIG +
-                                            " to empty while trying to subscribe for group protocol to auto assign partitions");
-        }
+    if (subscriptions.hasAutoAssignedPartitions()) {
+        if (protocol == null) {
+            throw new IllegalStateException("User configured " + ConsumerConfig.PARTITION_ASSIGNMENT_STRATEGY_CONFIG +
+                                            " to empty while trying to subscribe for group protocol to auto assign partitions");
+        }
         /*
         此处是发送心跳逻辑
         */
-        pollHeartbeat(timer.currentTimeMs());
-        
-        if (coordinatorUnknown() && !ensureCoordinatorReady(timer)) {
-            return false;
-        }
-​
-        if (rejoinNeededOrPending()) {
-            if (subscriptions.hasPatternSubscription()) {
-                
-                if (this.metadata.timeToAllowUpdate(timer.currentTimeMs()) == 0) {
-                    this.metadata.requestUpdate();
-                }
-​
-                /*
-                在此处会根据当前needFullUpdate needPartialUpdate等状态，
-                执行元数据更新逻辑，具体的逻辑则是由ConsumerNetworkClient#poll方法执行。
-                */
-                if (!client.ensureFreshMetadata(timer)) {
-                    return false;
-                }
-​
-                maybeUpdateSubscriptionMetadata();
-            }
-​
-            if (!ensureActiveGroup(waitForJoinGroup ? timer : time.timer(0L))) {
-                return false;
-            }
-        }
-    } else {
-        if (metadata.updateRequested() && !client.hasReadyNodes(timer.currentTimeMs())) {
-            client.awaitMetadataUpdate(timer);
-        }
-    }
-​
-    maybeAutoCommitOffsetsAsync(timer.currentTimeMs());
-    return true;
+        pollHeartbeat(timer.currentTimeMs());
+        
+        if (coordinatorUnknown() && !ensureCoordinatorReady(timer)) {
+            return false;
+        }
+
+        if (rejoinNeededOrPending()) {
+            if (subscriptions.hasPatternSubscription()) {
+                
+                if (this.metadata.timeToAllowUpdate(timer.currentTimeMs()) == 0) {
+                    this.metadata.requestUpdate();
+                }
+
+                /*
+                在此处会根据当前needFullUpdate needPartialUpdate等状态，
+                执行元数据更新逻辑，具体的逻辑则是由ConsumerNetworkClient#poll方法执行。
+                */
+                if (!client.ensureFreshMetadata(timer)) {
+                    return false;
+                }
+
+                maybeUpdateSubscriptionMetadata();
+            }
+
+            if (!ensureActiveGroup(waitForJoinGroup ? timer : time.timer(0L))) {
+                return false;
+            }
+        }
+    } else {
+        if (metadata.updateRequested() && !client.hasReadyNodes(timer.currentTimeMs())) {
+            client.awaitMetadataUpdate(timer);
+        }
+    }
+
+    maybeAutoCommitOffsetsAsync(timer.currentTimeMs());
+    return true;
 }
 ```
 
@@ -361,56 +361,56 @@ ConsumerNetworkClient封装了 consumer和 kafka cluster 之间所有的网络�
 
 ```
 public void poll(Timer timer, PollCondition pollCondition, boolean disableWakeup) {
-        // 调用handler
-        firePendingCompletedRequests();
-​
-        lock.lock();
-        try {
-            // Handle async disconnects prior to attempting any sends
-            handlePendingDisconnects();
-​
-            /*
-            遍历unsent中已保存的所有请求，并调用KafkaClient#send，发送请求
-            */
-            long pollDelayMs = trySend(timer.currentTimeMs());
-​
-            if (pendingCompletion.isEmpty() && (pollCondition == null || pollCondition.shouldBlock())) {
-                // if there are no requests in flight, do not block longer than the retry backoff
-                long pollTimeout = Math.min(timer.remainingMs(), pollDelayMs);
-                /*
-                KafkaClient中维护着一个在途请求映射表，参见InFlightRequests类。NetworkClient#send方法
-                在发送网络请求时，将会在在途请求映射表加入一条记录。注意是为了避免请求超时导致请求一直等待、
-                占用内存、进而导致内存不足
-                */
-                if (client.inFlightRequestCount() == 0)
-                    pollTimeout = Math.min(pollTimeout, retryBackoffMs);
-                client.poll(pollTimeout, timer.currentTimeMs());
-            } else {
-                client.poll(0, timer.currentTimeMs());
-            }
-            timer.update();
-​
-            checkDisconnects(timer.currentTimeMs());
-            if (!disableWakeup) {
-                maybeTriggerWakeup();
-            }
-            
-            maybeThrowInterruptException();
-​
-            trySend(timer.currentTimeMs());
-​
-            failExpiredRequests(timer.currentTimeMs());
+        // 调用handler
+        firePendingCompletedRequests();
+
+        lock.lock();
+        try {
+            // Handle async disconnects prior to attempting any sends
+            handlePendingDisconnects();
+
+            /*
+            遍历unsent中已保存的所有请求，并调用KafkaClient#send，发送请求
+            */
+            long pollDelayMs = trySend(timer.currentTimeMs());
+
+            if (pendingCompletion.isEmpty() && (pollCondition == null || pollCondition.shouldBlock())) {
+                // if there are no requests in flight, do not block longer than the retry backoff
+                long pollTimeout = Math.min(timer.remainingMs(), pollDelayMs);
+                /*
+                KafkaClient中维护着一个在途请求映射表，参见InFlightRequests类。NetworkClient#send方法
+                在发送网络请求时，将会在在途请求映射表加入一条记录。注意是为了避免请求超时导致请求一直等待、
+                占用内存、进而导致内存不足
+                */
+                if (client.inFlightRequestCount() == 0)
+                    pollTimeout = Math.min(pollTimeout, retryBackoffMs);
+                client.poll(pollTimeout, timer.currentTimeMs());
+            } else {
+                client.poll(0, timer.currentTimeMs());
+            }
+            timer.update();
+
+            checkDisconnects(timer.currentTimeMs());
+            if (!disableWakeup) {
+                maybeTriggerWakeup();
+            }
+            
+            maybeThrowInterruptException();
+
+            trySend(timer.currentTimeMs());
+
+            failExpiredRequests(timer.currentTimeMs());
             //清理unsent
-            unsent.clean();
-        } finally {
-            lock.unlock();
-        }
-​
-        // called without the lock to avoid deadlock potential if handlers need to acquire locks
-        firePendingCompletedRequests();
-​
-        metadata.maybeThrowAnyException();
-    }
+            unsent.clean();
+        } finally {
+            lock.unlock();
+        }
+
+        // called without the lock to avoid deadlock potential if handlers need to acquire locks
+        firePendingCompletedRequests();
+
+        metadata.maybeThrowAnyException();
+    }
 ```
 
 #### KafkaConsumer#updateFetchPositions() 更新消费位置
@@ -419,7 +419,7 @@ Kafka Consumer 在消费过程中是需要维护消费位置的，Consumer 每�
 
 而consumer发起提交位置的请求，还是在`updateAssignmentMetadataIfNeeded()`方法中，毕竟位置信息也是服务端broker的一个元数据。在`` `updateAssignmentMetadataIfNeeded ``方法实现中，最后一句调用`KafkaConsumer#updateFetchPositions(timer);`，而这个方法又会调用coordinator.refreshCommittedOffsetsIfNeeded()方法。调用链路如下：
 
-![](images/kafka-consumer-refresh-position-sequence_2db1d1e5.png)
+![](/images/kafka-consumer-refresh-position-sequence_2db1d1e5.png)
 
 注：同一个类内部的方法调用，用类名头部加了’’’区分了下，主要是为了在Typora里画图方便。不支持可参考images/kafka-consumer-refresh-position-sequence-diagram.png 图片。
 
@@ -429,30 +429,30 @@ Kafka Consumer 在消费过程中是需要维护消费位置的，Consumer 每�
 
 ```
 private Map<TopicPartition, List<ConsumerRecord<K, V>>> pollForFetches(Timer timer) {
-    // 省略部分代码        
-    // 如果缓存里面有未读取的消息，直接返回这些消息
-    final Map<TopicPartition, List<ConsumerRecord<K, V>>> records = fetcher.fetchedRecords();
-    if (!records.isEmpty()) {
-        return records;
-    }
-​
+    // 省略部分代码        
+    // 如果缓存里面有未读取的消息，直接返回这些消息
+    final Map<TopicPartition, List<ConsumerRecord<K, V>>> records = fetcher.fetchedRecords();
+    if (!records.isEmpty()) {
+        return records;
+    }
+
     /* 
     构造拉取消息请求，并发送。
     注意，该方法内部，将调用ConsumerNetworkClient#send方法，而这个send方法将会把 
     kafka节点信息 --> 请求  存放到ConsumerNetworkClient#unsent成员变量中
     */
-    fetcher.sendFetches();
-​
-    // 省略部分代码
-    // 发送网络请求拉取消息，等待直到有消息返回或者超时
-    client.poll(pollTimer, () -> {
-        // since a fetch might be completed by the background thread, we need this poll condition
-        // to ensure that we do not block unnecessarily in poll()
-        return !fetcher.hasAvailableFetches();
-    });
+    fetcher.sendFetches();
+
+    // 省略部分代码
+    // 发送网络请求拉取消息，等待直到有消息返回或者超时
+    client.poll(pollTimer, () -> {
+        // since a fetch might be completed by the background thread, we need this poll condition
+        // to ensure that we do not block unnecessarily in poll()
+        return !fetcher.hasAvailableFetches();
+    });
     //省略部分代码
-    //返回拉取到的消息
-    return fetcher.fetchedRecords();
+    //返回拉取到的消息
+    return fetcher.fetchedRecords();
 }
 ```
 
@@ -479,6 +479,6 @@ private Map<TopicPartition, List<ConsumerRecord<K, V>>> pollForFetches(Timer tim
 
 ## KafkaConsumer相关类图
 
-![](images/kafka-consumer-class-diagram-300x108_8c2de7cc.png)
+![](/images/kafka-consumer-class-diagram-300x108_8c2de7cc.png)
 
 上图引自：极客时间 消息队列高手课

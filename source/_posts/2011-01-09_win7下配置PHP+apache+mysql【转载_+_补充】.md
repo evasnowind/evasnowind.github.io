@@ -27,7 +27,7 @@ Apache启动后，用[http://localhost/](http://localhost.sixxs.org/)或[http://
 有关Apache的配置见下面内容。
 
 （2）配置PHP（解压PHP压缩包到D:MyProgramsphp）\
-首先，对于PHP版本的说明：  PHP版本：php-5.3.2-Win32-VC6-x86，VC9是专门为IIS定制的，VC6 是为了其他WEB服务软件提供的，如 Apache。\
+首先，对于PHP版本的说明：  PHP版本：php-5.3.2-Win32-VC6-x86，VC9是专门为IIS定制的，VC6 是为了其他WEB服务软件提供的，如 Apache。\
 
 将PHP解压到一个非中文且不带空格的路径下（我用的是D:MyProgramsphp），详细的安装步骤在安装文档install.txt文件中，由于是全E文的而且非常详细，估计很多人不太有耐心将其看完，但是它真的很有用，本文后面会拿其做参考。\
 If you are installing PHP 5, extract to C:php as the zip file doesn’t expand as in PHP 4. You may choose a different location but do not have spaces in the path (like C:Program FilesPHP) as some web servers will crash if you do.\
@@ -35,7 +35,7 @@ If you are installing PHP 5, extract to C:php as the zip file doesn’t expand a
 根据网上和大多数教材的说法需要将所有的dll文件复制到系统文件夹（%systemroot%system32），我个人不是很喜欢这个做法。在install.txt中有这么一段描述：\
 To make php5ts.dll available you have three options: copy the file to the Windows system directory, copy the file to the web server’s directory, or add your PHP directory, C:php to the PATH. For better maintenance, we advise you to follow the last option, add C:php to the PATH, because it will be simpler to upgrade PHP in the future. Read more about how to add your PHP directory to PATH in the corresponding FAQ entry (and then don’t forget to restart the computer – logoff isn’t enough).\
 所以为了今后升级和维护的方便，最好的方法是将PHP的解压路径（如D:MyProgramsphp）加入PATH环境变量，然后reboot。\
- \
+ \
 PHP在解压路径存放有两个文件 php.ini-development 和 php.ini-production，虽然install.txt强烈建议标准服务器使用后者，但是对于开发而言还是适合使用php.ini- development，将其备份后改名为php.ini，用文本编辑器将其打开。\
 首先查找extension\_dir，它用于指定PHP扩展dll的位置，根据注释可以将On windows下的那一行改成\
 extension\_dir = “D:MyProgramsphpext”\

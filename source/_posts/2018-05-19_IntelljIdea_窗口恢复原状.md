@@ -9,4 +9,4 @@ source: "http://prayerlaputa.com/?p=569"
 
 如果还不行，点击这个地方试试。
 
-![](images/a1b603f79052982272a04d8edaca7bcb0b46d405_47a3313c.jpg)
+![](/images/a1b603f79052982272a04d8edaca7bcb0b46d405_47a3313c.jpg)

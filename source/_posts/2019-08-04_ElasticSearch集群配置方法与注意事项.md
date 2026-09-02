@@ -20,17 +20,17 @@ source: "http://prayerlaputa.com/?p=579"
 
 ```
 cluster.name: tipdm-es #es集群名称
-node.name: es-node1    #es节点名称，每个节点的名称不能相同
-node.master: true      #指定该节点是否有资格被选举成为master，默认是true
-node.data: true        #指定该节点是否存储索引数据，默认为true。
+node.name: es-node1    #es节点名称，每个节点的名称不能相同
+node.master: true      #指定该节点是否有资格被选举成为master，默认是true
+node.data: true        #指定该节点是否存储索引数据，默认为true。
 
-network.host: 192.168.111.76  #节点的ip地址
+network.host: 192.168.111.76  #节点的ip地址
 
 ## 下面这两个参数应该是旧版本配置参数，我安装的是7.2版本，对应参数是discovery.seed_hosts 和 cluster.initial_master_nodes 
 #设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点
 discovery.zen.ping.unicast.hosts: ["192.168.111.75", "192.168.111.76", "192.168.111.77"]
 #设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）
-discovery.zen.minimum_master_nodes: 2 
+discovery.zen.minimum_master_nodes: 2 
 
 #如果要使用head,那么需要设置下面2个参数,使head插件可以访问es
 http.cors.enabled: true
@@ -144,14 +144,14 @@ npm install
 
 ```
 connect: {
-    server: {
-        options: {
-            port: 9100,
-            hostname: '*',
-            base: '.',
-            keepalive: true
-        }
-    }
+    server: {
+        options: {
+            port: 9100,
+            hostname: '*',
+            base: '.',
+            keepalive: true
+        }
+    }
 }
 ```
 

@@ -6,9 +6,9 @@ source: "http://prayerlaputa.com/?p=419"
 ---
 
 转自：http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html\
-\_RecordsetPtr m\_pRecordset;//创建一个\_RecordsetPtr m\_pRecordset.CreateInstance(“ADODB.Recordset”); //创建一个实例 try {      m\_pRecordset->Open(\
-“SELECT \* FROM duty”,                                               //sql查询语句\
-m\_pConnection.GetInterfacePtr(),                               //得到sql连接的指针\
+\_RecordsetPtr m\_pRecordset;//创建一个\_RecordsetPtr m\_pRecordset.CreateInstance(“ADODB.Recordset”); //创建一个实例 try {      m\_pRecordset->Open(\
+“SELECT \* FROM duty”,                                               //sql查询语句\
+m\_pConnection.GetInterfacePtr(),                               //得到sql连接的指针\
 //Const **adOpenDynamic** = 2 ‘动态游标功能最强，但耗资源也最多。用户对记录说做的修改，增加或删除记录都将反映到记录集中。支持全功能浏览(ACCESS不支持)。\
 adOpenDynamic,\
 \

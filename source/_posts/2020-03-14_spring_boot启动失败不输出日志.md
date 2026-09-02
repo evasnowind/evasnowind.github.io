@@ -6,7 +6,7 @@ source: "http://prayerlaputa.com/?p=782"
 ---
 
 spring boot启动失败，没有任何错误日志输出，只输出了如下信息：\
-![](images/spring_boot_start_fail-300x170_d4c13e5e.png)
+![](/images/spring_boot_start_fail-300x170_d4c13e5e.png)
 
 可能的原因：
 
@@ -28,12 +28,12 @@ spring boot启动失败，没有任何错误日志输出，只输出了如下信
 ### 3、idea本地缓存导致的失败
 
 这个是我遇到的情况，莫名其妙，前一天晚上还好好的，第二天突然就启动不了，什么都不输出，还是只显示下面这图\
-![](images/spring_boot_start_fail-300x170_d4c13e5e.png)
+![](/images/spring_boot_start_fail-300x170_d4c13e5e.png)
 
 **此时可以尝试执行`mvn clean`命令，清除target目录下的之前打好的jar包或者是war包。**
 
 当然，也可以尝试这样，然后重新build。\
-![](images/idea_clean_cache-170x300_5c104837.png)
+![](/images/idea_clean_cache-170x300_5c104837.png)
 
 ## 参考资料
 

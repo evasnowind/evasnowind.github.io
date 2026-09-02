@@ -19,7 +19,7 @@ show variables like '%max_allowed_packet%';
 mysql --max_allowed_packet=32M
 ```
 
-更多修改方法参见官方文档：[B.4.2.9 Packet Too Large](https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html)，以及这篇 [How to change max\_allowed\_packet size](https://stackoverflow.com/questions/8062496/how-to-change-max-allowed-packet-size)
+更多修改方法参见官方文档：[B.4.2.9 Packet Too Large](https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html)，以及这篇 [How to change max\_allowed\_packet size](https://stackoverflow.com/questions/8062496/how-to-change-max-allowed-packet-size)
 
 # 参考资料
 

@@ -17,7 +17,7 @@ mapper xml文件中：
     SELECT id, title, type, release_id , ...
     FROM test
     WHERE release_id = ${id} and type = ${type}
-</select>  
+</select>  
 ```
 
 mapper接口中：

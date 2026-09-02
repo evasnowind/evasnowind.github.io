@@ -12,7 +12,7 @@ vmware倒是给出了修改RedHat/CentOS的修改方式：<http://kb.vmware.com/
 以下是帖子正文：\
 How can I increase the size of the root partition of a system at runtime?\
 I have a partition that is not allocated after the root partition (which is also ext4), how can I add that unallocated space to the space allocated to the root partition without having to shutdown the server?\
- \
+ \
 There are two steps to this: First, the partition must be resized. If you’re using LVM, it’s easy; if you’re using classic partitions, it’s a bit more complicated, and might require a reboot (though you never have to boot another system or live CD).\
 One fragile but feasible approach (worked for me) is to use `fdisk` by first deleting the partition, then carefully recreating it with a larger size at the same position. You can do this while the partition is mounted, but you will need to reboot for the kernel to notice the changed partition table.\
 Example:

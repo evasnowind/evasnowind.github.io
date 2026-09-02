@@ -37,5 +37,5 @@ Windows系统下：C:\Users\XXX\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6
 印象里还需要自行创建两个文件：gradle-3.3-all.zip.lck、gradle-3.3-all.zip.ok，直接创建文件、改下名字就行，不需要添加任何内容。这个大家可以去自己的操作系统中看看。55gk2rcmfc6p2dg9u9ohc3hw9这个是跟gradle版本有关，不同gradle文件夹名不一样。大家第一次启动as后看看as对应哪个版本gradle，下对应版本就行了。\
 注意，**不用事先在环境变量中配置gradle，直接把gradle放到默认文件夹就行**——我就是因为这个小细节，折腾了好久……心累……\
 5、重新启动gradle，此时应该就能正常启动as、进行编译。\
- \
- \
+ \
+ \

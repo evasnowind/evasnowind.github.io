@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=813"
 
 众所知周，spring cloud 1.5版本与2.x版本差异很大，官方没有做向下兼容，导致大家对于升级spring cloud版本都非常慎重。
 
-此处，首先推荐阅读官方给出的迁移手册 [Spring Boot 2.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide)
+此处，首先推荐阅读官方给出的迁移手册 [Spring Boot 2.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide)
 
 虽然是英文的，但建议还是好好读读。
 
@@ -158,7 +158,7 @@ mvnrepository\
         </dependency>
 ```
 
-注意，feign本身也有一些变化，可以参考此文章 [Spring cloud系列十八 Spring Cloud 从Dalston.SR5到Greenwich.SR1 的升级记录](https://blog.csdn.net/hry2015/article/details/89340069)，比如:
+注意，feign本身也有一些变化，可以参考此文章 [Spring cloud系列十八 Spring Cloud 从Dalston.SR5到Greenwich.SR1 的升级记录](https://blog.csdn.net/hry2015/article/details/89340069)，比如:
 
 1. feign中部分包名变化
 
@@ -175,7 +175,7 @@ org.springframework.cloud.netflix.feign.**.java -> org.springframework.cloud.ope
 
 ### 3. 属性变化
 
-此处就要感谢`spring-boot-properties-migrator` 这个包了，会自动给出新版本里应该用哪个属性。\
+此处就要感谢`spring-boot-properties-migrator` 这个包了，会自动给出新版本里应该用哪个属性。\
 比如：\
 应用的上下文路径：server.context-path: authority –> server.servlet.context-path: authority\
 上传文件参数配置：spring.http.multipart.\* -> spring.servlet.multipart.\*\
