@@ -71,92 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2015-12-09_windows下使用eclipse_for_C_C++【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c-c/">c/c++</a>►<a class="article-category-link" href="/categories/c-c/java/">java</a>►<a class="article-category-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">windows下使用eclipse for C/C++【转载】</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="windows下使用eclipse-for-C-C-【转载】"><a href="#windows下使用eclipse-for-C-C-【转载】" class="headerlink" title="windows下使用eclipse for C&#x2F;C++【转载】"></a>windows下使用eclipse for C&#x2F;C++【转载】</h1><p>经过网上搜索资料加上本人测试，以下方法可行：<br>1，先装好JDK<br>2，装好Eclipse3.32+MinGW1<br>3，打开CDT包把plugins和features拷到Eclipse相应的目录里<br>4，把Eclipse的configuration目录下的org.eclipse.update删了<br>5，启动Eclipse，现在可以建立C&#x2F;C++工程了<br>6，现在建立你的C&#x2F;C++工程<br>7，编写好你的源代码<br>8，在Project的Properties新建一个Builder(Project→Properties选择Builder标签→New，双击Program)<br>9，在MAIN标签（不用点击，默认第一个就是）的LOCATION输入你MINGW的MAKE路径，如C:\MinGW\bin\mingw32-make.exe<br>在WORKING DIRECTORY输入你PROJECT的MAKEFILE文件所在的目录，如D:\workspace\test<br>点APPLY更新进去，一直点OK退回编辑界面<br>10，建立文件makefile，不用加后缀名，输入<br>all(你设置的标签名):<br>gcc -o 你的程序名 你的源代码名.c<br>注意：g++前面是用tab而不能用空格。上面编译的是C，编译C++要用g++ -o Hello Hello.cpp<br>设定Make Targets，Windows-&gt;Show View-&gt;Make Targets。在Make Targets视窗中按下右鍵，选择Add Build Target，Target Name输入：编译，Make Target输入:all(你设置的标签名)。双击编译即可完成编译。<br>11，现在Run你的工程吧！<br>8～10为重点所在，请大家注意！<br>PS：个人觉得，在你安装好MinGW后，写一个C程序，记得按住Ctrl+b先build一下，或者是直接ctrl+F11直接build并运行。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidsU1cl7rGrtel94mnraDq0" data-title="windows下使用eclipse for C/C++【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-09_用Visio画ER图的解决方案【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">用Visio画ER图的解决方案【转载】</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="用Visio画ER图的解决方案【转载】"><a href="#用Visio画ER图的解决方案【转载】" class="headerlink" title="用Visio画ER图的解决方案【转载】"></a>用Visio画ER图的解决方案【转载】</h1><p>转自：<a target="_blank" rel="noopener" href="http://hi.baidu.com/%BA%EC%C3%F1/blog/item/d013f603726e0c8ad53f7c78.html/">http://hi.baidu.com/%BA%EC%C3%F1/blog/item/d013f603726e0c8ad53f7c78.html\</a><br>今天刚刚装了Visio,但是郁闷地发现Visio中默认没有ER图的模型，绘图类型中的数据库模型中也没有ER图，根本没有菱形。对于第一次接触 Visio的我来说花了好大的力气也没有找到，想专业一把未遂。<br>后来问了其他人，答案更让当时郁闷的我有些火气：1）菱形在基本流程图里（晕，那也不是ER图中的啊，怎么能这么混用啊，不伦不类）2）你就将就一下嘛， 画出来就行，那么专业干嘛？（更晕，要是不想画的专业我就不花力气用Visio了）。其实想想，他们是比我懂得变通的，我怎么就这么死心眼儿呢？还是有点 儿完美主义？我不知道，但是我没有采纳他们的意见，继续找我自己的解决方式。记得好像有相关的模版或者模型可以下载的，但是没有找到。再后来，我对 Visio熟悉了一些，自己选择了这样一种解决方式：自定义。<br>先在“流程图”－〉“基本流程图”中找到菱形和方块， 分别右击选择“添加到我的形状”－〉“添加到新模具”。之后出现“另存 为”对话框，把新模具命名为“ER图”，这样我们就把菱形和方块添加到了新模具“ER图”中。用同样的思路，在“数据库”－〉“ORM图表”找到椭圆和直 线，添加到模具“ER图”中。<br>添加完成后，我们就可以在画ER图时打开该模具，ER图所有的元素都会在一个模具中显示出来了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid21nGmxgBeLsG2ucYXoHWR" data-title="用Visio画ER图的解决方案【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-2015-12-09_学习_Linux_几点忠告【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
@@ -188,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid5EnvQ5-M6bNwoMK3aigpN" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidg2qR-opebqTrNstn6f1Be" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -231,7 +145,93 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidUhb_bgyRDsYev9NXbAld3" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidiLo5nOvq80W5l1bHiOQyS" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_windows下使用eclipse_for_C_C++【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/c-c/">c/c++</a>►<a class="article-category-link" href="/categories/c-c/java/">java</a>►<a class="article-category-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">windows下使用eclipse for C/C++【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="windows下使用eclipse-for-C-C-【转载】"><a href="#windows下使用eclipse-for-C-C-【转载】" class="headerlink" title="windows下使用eclipse for C&#x2F;C++【转载】"></a>windows下使用eclipse for C&#x2F;C++【转载】</h1><p>经过网上搜索资料加上本人测试，以下方法可行：<br>1，先装好JDK<br>2，装好Eclipse3.32+MinGW1<br>3，打开CDT包把plugins和features拷到Eclipse相应的目录里<br>4，把Eclipse的configuration目录下的org.eclipse.update删了<br>5，启动Eclipse，现在可以建立C&#x2F;C++工程了<br>6，现在建立你的C&#x2F;C++工程<br>7，编写好你的源代码<br>8，在Project的Properties新建一个Builder(Project→Properties选择Builder标签→New，双击Program)<br>9，在MAIN标签（不用点击，默认第一个就是）的LOCATION输入你MINGW的MAKE路径，如C:\MinGW\bin\mingw32-make.exe<br>在WORKING DIRECTORY输入你PROJECT的MAKEFILE文件所在的目录，如D:\workspace\test<br>点APPLY更新进去，一直点OK退回编辑界面<br>10，建立文件makefile，不用加后缀名，输入<br>all(你设置的标签名):<br>gcc -o 你的程序名 你的源代码名.c<br>注意：g++前面是用tab而不能用空格。上面编译的是C，编译C++要用g++ -o Hello Hello.cpp<br>设定Make Targets，Windows-&gt;Show View-&gt;Make Targets。在Make Targets视窗中按下右鍵，选择Add Build Target，Target Name输入：编译，Make Target输入:all(你设置的标签名)。双击编译即可完成编译。<br>11，现在Run你的工程吧！<br>8～10为重点所在，请大家注意！<br>PS：个人觉得，在你安装好MinGW后，写一个C程序，记得按住Ctrl+b先build一下，或者是直接ctrl+F11直接build并运行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid7x8wp33jE3bkVBCyxsovk" data-title="windows下使用eclipse for C/C++【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-09_用Visio画ER图的解决方案【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">用Visio画ER图的解决方案【转载】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="用Visio画ER图的解决方案【转载】"><a href="#用Visio画ER图的解决方案【转载】" class="headerlink" title="用Visio画ER图的解决方案【转载】"></a>用Visio画ER图的解决方案【转载】</h1><p>转自：<a target="_blank" rel="noopener" href="http://hi.baidu.com/%BA%EC%C3%F1/blog/item/d013f603726e0c8ad53f7c78.html/">http://hi.baidu.com/%BA%EC%C3%F1/blog/item/d013f603726e0c8ad53f7c78.html\</a><br>今天刚刚装了Visio,但是郁闷地发现Visio中默认没有ER图的模型，绘图类型中的数据库模型中也没有ER图，根本没有菱形。对于第一次接触 Visio的我来说花了好大的力气也没有找到，想专业一把未遂。<br>后来问了其他人，答案更让当时郁闷的我有些火气：1）菱形在基本流程图里（晕，那也不是ER图中的啊，怎么能这么混用啊，不伦不类）2）你就将就一下嘛， 画出来就行，那么专业干嘛？（更晕，要是不想画的专业我就不花力气用Visio了）。其实想想，他们是比我懂得变通的，我怎么就这么死心眼儿呢？还是有点 儿完美主义？我不知道，但是我没有采纳他们的意见，继续找我自己的解决方式。记得好像有相关的模版或者模型可以下载的，但是没有找到。再后来，我对 Visio熟悉了一些，自己选择了这样一种解决方式：自定义。<br>先在“流程图”－〉“基本流程图”中找到菱形和方块， 分别右击选择“添加到我的形状”－〉“添加到新模具”。之后出现“另存 为”对话框，把新模具命名为“ER图”，这样我们就把菱形和方块添加到了新模具“ER图”中。用同样的思路，在“数据库”－〉“ORM图表”找到椭圆和直 线，添加到模具“ER图”中。<br>添加完成后，我们就可以在画ER图时打开该模具，ER图所有的元素都会在一个模具中显示出来了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidjGkBZNqOzIe2Bq3dDjBBj" data-title="用Visio画ER图的解决方案【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -331,7 +331,50 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" data-id="cuid3YS3FvztyAlzbexSBZPF_" data-title="BCEL简明教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" data-id="cuidav2pg9eqij7eGBgVwpdsR" data-title="BCEL简明教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（0）——汇总篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/">Java核心技术读书笔记（0）——汇总篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java核心技术读书笔记（0）——汇总篇"><a href="#Java核心技术读书笔记（0）——汇总篇" class="headerlink" title="Java核心技术读书笔记（0）——汇总篇"></a>Java核心技术读书笔记（0）——汇总篇</h1><p>虽然用Java编程已经有几年了，但一直没好好看Java的各种语法细节，都是碰上问题就去网上搜，最近打算重新看一下Java核心技术（Core Java）这本书，毕竟很久之前看过，有不少东西都忘记了，顺便做一下读书笔记，摘录一下自己在书中看到的比较“新鲜”的Java语法。我觉得应该有不少人和我一样平时只是用Java，但没想到或是忘记Java还有这样那样的用法，于是贴在自己的博客上给大家分享一下。<br>下面给出链接（将会不断更新）：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=62">第3章 Java基本的程序设计结构</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=64">第4章 对象与类</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=69">第5章 继承</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" data-id="cuidS7N3efBBY5vM67pImgane" data-title="Java核心技术读书笔记（0）——汇总篇" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -420,50 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" data-id="cuidaczSH-o4xMiw-6dIn6F-L" data-title="Java核心技术读书笔记（2）——第4章对象与类" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-04_Java核心技术读书笔记（0）——汇总篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" class="article-date">
-  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/">Java核心技术读书笔记（0）——汇总篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Java核心技术读书笔记（0）——汇总篇"><a href="#Java核心技术读书笔记（0）——汇总篇" class="headerlink" title="Java核心技术读书笔记（0）——汇总篇"></a>Java核心技术读书笔记（0）——汇总篇</h1><p>虽然用Java编程已经有几年了，但一直没好好看Java的各种语法细节，都是碰上问题就去网上搜，最近打算重新看一下Java核心技术（Core Java）这本书，毕竟很久之前看过，有不少东西都忘记了，顺便做一下读书笔记，摘录一下自己在书中看到的比较“新鲜”的Java语法。我觉得应该有不少人和我一样平时只是用Java，但没想到或是忘记Java还有这样那样的用法，于是贴在自己的博客上给大家分享一下。<br>下面给出链接（将会不断更新）：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=62">第3章 Java基本的程序设计结构</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=64">第4章 对象与类</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/?p=69">第5章 继承</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" data-id="cuidvVwCEn2tzkgfiFfB9QzMo" data-title="Java核心技术读书笔记（0）——汇总篇" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" data-id="cuiddVgjrHXcu_wyS0pnQxVaY" data-title="Java核心技术读书笔记（2）——第4章对象与类" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -551,7 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" data-id="cuidb9JtkjAG46GnOkOcgaZBw" data-title="Java核心技术读书笔记（1）——第3章基本程序设计结构" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" data-id="cuidePZjGwD-nhFU5aDY6m8Mx" data-title="Java核心技术读书笔记（1）——第3章基本程序设计结构" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -598,7 +598,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" data-id="cuidNpJvKT8sm_nvbg-AZzEvj" data-title="Java核心技术读书笔记（3）——第5章继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" data-id="cuid-sITuIO4Y5glr5xQzv4nT" data-title="Java核心技术读书笔记（3）——第5章继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -641,7 +641,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" data-id="cuidigDOuFKsxVJpmns85dI1K" data-title="ubuntu如何更新hostname" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" data-id="cuidxjdXg3kJ-cSZa1EzNNxn2" data-title="ubuntu如何更新hostname" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -683,7 +683,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">May 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a></li></ul>
     </div>
   </div>
 
@@ -696,7 +696,7 @@
       <ul>
         
           <li>
-            <a href="/2026/06/08/hello-world/">Hello World</a>
+            <a href="/2026/09/02/hello-world/">Hello World</a>
           </li>
         
           <li>
