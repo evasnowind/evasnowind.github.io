@@ -5,10 +5,6 @@ categories: [java]
 source: "http://prayerlaputa.com/?p=746"
 ---
 
-# Java中日期格式化yyyyMMdd和YYYYMMdd的区别
-
-# Java中日期格式化yyyyMMdd和YYYYMMdd的区别
-
 示例代码：
 
 ```

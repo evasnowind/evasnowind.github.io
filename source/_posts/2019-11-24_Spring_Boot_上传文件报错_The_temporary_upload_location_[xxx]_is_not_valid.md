@@ -5,8 +5,6 @@ categories: [excel, spring boot]
 source: "http://prayerlaputa.com/?p=712"
 ---
 
-# Spring Boot 上传文件报错 The temporary upload location [xxx] is not valid
-
 # 问题
 
 导入excel文件时，偶发bug:

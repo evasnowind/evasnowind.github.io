@@ -5,8 +5,6 @@ categories: [guava, java]
 source: "http://prayerlaputa.com/?p=662"
 ---
 
-# google guava使用教程系列（1）-String相关
-
 **注意：本文档基于google guava 28 wiki**
 
 # Joiner

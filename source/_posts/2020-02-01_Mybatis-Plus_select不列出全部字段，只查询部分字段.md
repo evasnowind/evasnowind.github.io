@@ -5,8 +5,6 @@ categories: [mybatis]
 source: "http://prayerlaputa.com/?p=751"
 ---
 
-# Mybatis-Plus select不列出全部字段，只查询部分字段
-
 mybatis-plus select查询语句默认是查全部字段，有两种方法可以指定要查询的字段
 
 假定表结构如下：

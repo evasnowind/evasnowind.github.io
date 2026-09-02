@@ -5,8 +5,6 @@ categories: [android, java]
 source: "http://prayerlaputa.com/?p=237"
 ---
 
-# 【转发】Android中SQLite应用详解
-
 打算整理一下最近两年做android所学到的东西，代码、文章配套整理一下，但是发现自己其实研究的还很肤浅，写出东西还是没人家写的明白，so，索性直接转发吧，主要是为了日后查起来方便，代码打出一份方便日后搬砖。\
 下面文章转自：[Android中SQLite应用详解](http://blog.csdn.net/liuhe688/article/details/6715983) 相关代码参见：<https://github.com/evasnowind/PrayerUtility/>\
 ————华丽的分割线————\

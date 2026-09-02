@@ -5,8 +5,6 @@ categories: [java]
 source: "http://prayerlaputa.com/?p=412"
 ---
 
-# 在Glassfish上部署web实际运用【转】
-
 转自：http://www.verybc.com/a/hulianwang/2009/1124/9298.html\
  \
 

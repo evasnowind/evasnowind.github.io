@@ -5,8 +5,6 @@ categories: [java, spring boot]
 source: "http://prayerlaputa.com/?p=730"
 ---
 
-# spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file
-
 ## 问题与原因
 
 启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：

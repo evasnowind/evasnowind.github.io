@@ -5,8 +5,6 @@ categories: [java, mybatis]
 source: "http://prayerlaputa.com/?p=679"
 ---
 
-# mybatis xml常用写法-使用like关键字【整理+转载】
-
 # 需求：xml中需要在where中拼接like语句
 
 ## 方法1：concat

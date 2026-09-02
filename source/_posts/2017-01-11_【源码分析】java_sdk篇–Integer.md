@@ -5,8 +5,6 @@ categories: [java, 源码剖析]
 source: "http://prayerlaputa.com/?p=258"
 ---
 
-# 【源码分析】java sdk篇–Integer
-
 今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：\
 a. highestOneBit(i)\
 如果一个数是0, 则返回0\

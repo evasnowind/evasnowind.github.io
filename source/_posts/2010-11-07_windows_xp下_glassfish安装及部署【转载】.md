@@ -5,8 +5,6 @@ categories: [java]
 source: "http://prayerlaputa.com/?p=413"
 ---
 
-# windows xp下 glassfish安装及部署【转载】
-
 转自：http://www.blogjava.net/ann/articles/260260.html\
  \
 一. 下载解压glassfish\

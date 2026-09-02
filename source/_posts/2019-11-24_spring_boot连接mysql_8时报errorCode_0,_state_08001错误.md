@@ -5,8 +5,6 @@ categories: [mysql, spring boot]
 source: "http://prayerlaputa.com/?p=715"
 ---
 
-# spring boot连接mysql 8时报errorCode 0, state 08001错误
-
 # 现象
 
 spring boot 启动时，连接mysql 8数据库报错`errorCode 0, state 08001`。

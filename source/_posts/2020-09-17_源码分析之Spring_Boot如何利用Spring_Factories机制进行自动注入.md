@@ -5,8 +5,6 @@ categories: [spring, spring boot, 源码剖析]
 source: "http://prayerlaputa.com/?p=869"
 ---
 
-# 源码分析之Spring Boot如何利用Spring Factories机制进行自动注入
-
 ## 前言
 
 本文所涉及spring/spring boot代码，请参考spring boot 2.2.6对应版本。

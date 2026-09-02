@@ -5,8 +5,6 @@ categories: [java, 源码剖析, 读书笔记]
 source: "http://prayerlaputa.com/?p=262"
 ---
 
-# 【源码分析】java sdk篇–CopyOnWrite容器
-
 工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。
 
 ## 一、概念

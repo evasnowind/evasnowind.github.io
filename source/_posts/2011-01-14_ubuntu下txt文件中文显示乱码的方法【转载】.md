@@ -5,8 +5,6 @@ categories: [linux]
 source: "http://prayerlaputa.com/?p=399"
 ---
 
-# ubuntu下txt文件中文显示乱码的方法【转载】
-
 转载地址：http://apps.hi.baidu.com/share/detail/10311333\
 **刚装ubuntu后，打开windows下的TXT文件就会发现无法显示中文，出现大量乱码。**\
 这时候需要设置一下。\

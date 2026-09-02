@@ -5,8 +5,6 @@ categories: [java, 网络]
 source: "http://prayerlaputa.com/?p=421"
 ---
 
-# Java Socket网络编程初级入门（转载）
-
 转自：http://www.wang48.com/jishubaodianview/?jsd\_id=4902\
 （转到自己博客，省的到处去翻）\
  \

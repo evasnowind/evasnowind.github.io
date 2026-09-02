@@ -5,8 +5,6 @@ categories: [android, java, 学习]
 source: "http://prayerlaputa.com/?p=185"
 ---
 
-# Android中Handler使用postDelayed方法不生效
-
 今天遇到一个比较奇怪的问题，在我们所用的客户端框架中，使用Handler执行一个任务，基本用法如下，但调试时发现并没有执行mRunnable。
 
 ```

@@ -5,8 +5,6 @@ categories: [mybatis]
 source: "http://prayerlaputa.com/?p=754"
 ---
 
-# mybatis_plus常见用法-不用xml实现自定义查询
-
 找到两种方法：\
 1、采用mybatis注解的方式\
 参见：[MyBatis Plus 自定义查询语句](https://blog.csdn.net/weixin_31058701/article/details/102834031)\

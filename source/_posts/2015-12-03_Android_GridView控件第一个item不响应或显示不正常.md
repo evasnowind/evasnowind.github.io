@@ -5,8 +5,6 @@ categories: [android]
 source: "http://prayerlaputa.com/?p=56"
 ---
 
-# Android GridView控件第一个item不响应或显示不正常
-
 在使用Android的GridView控件时，很多人都会碰到这么个奇怪的问题：整个GridView中，所有item的响应都没问题，只有第一个item不响应，或是显示不正常，或是点完第一个item后不响应但再点其他的item后其他item会响应、同时第一个item也响应了（超诡异的现象……），stackoverflow上有不少帖子，如下面的帖子：\
 <http://stackoverflow.com/questions/11778228/onclicklistener-not-working-for-first-item-in-gridview>\
 <http://www.cnblogs.com/over140/p/3999815.html>\

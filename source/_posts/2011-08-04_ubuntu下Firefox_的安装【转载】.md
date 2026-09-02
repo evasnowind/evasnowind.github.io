@@ -5,8 +5,6 @@ categories: [linux, web, 软件]
 source: "http://prayerlaputa.com/?p=383"
 ---
 
-# ubuntu下Firefox 的安装【转载】
-
 转载地址：[http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=337166](http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=337166 "http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=337166")\
 看到好多人在版上问怎么安装 firefox 5，有必要介绍一下了：\
 和 Chrome 与 Opera 不同，Mozilla 的官方网站提供的 Firefox for Linux 并不是 deb 或 rpm 这样的安装包，而是一个 tar.bz2 的压缩文档。许多人看到 tar.bz2或 tar.gz 这样结尾的文件，自然而然地会以为这又是什么“源代码编译安装”？太痛苦了！其实不是，把它下载下来，解压缩，你会在里面找到一个名字叫做 firefox 的文件（其实是一个可执行的 shell 脚本），没错，它就是真正的 firefox 可执行文件！直接双击它（一般情况下系统会弹出一个对话框问你：firefox 是一个可执行的文本文件，你是要运行 firefox 还是显示它的内容？那么你就选择“运行”），新版的 firefox 就启动了。\

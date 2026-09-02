@@ -5,8 +5,6 @@ categories: [分布式, 搜索]
 source: "http://prayerlaputa.com/?p=683"
 ---
 
-# elasticsearch启动时报错：error=’Cannot allocate memory’ (errno=12)
-
 elasticsearch启动时报错：
 
 ```

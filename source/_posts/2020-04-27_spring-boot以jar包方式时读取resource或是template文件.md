@@ -5,8 +5,6 @@ categories: [io, java]
 source: "http://prayerlaputa.com/?p=806"
 ---
 
-# spring-boot以jar包方式时读取resource或是template文件
-
 # 现象
 
 以jar包方式部署系统，想读取resource或是template下面的文件时，报 `File Not Found`

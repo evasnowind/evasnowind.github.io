@@ -5,8 +5,6 @@ categories: [java, spring]
 source: "http://prayerlaputa.com/?p=910"
 ---
 
-# spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖
-
 事情是这样子的：
 
 我想自定义一个缓存注解，用来缓存方法返回值，并且支持自定义缓存超时时间，注解定义是这样：

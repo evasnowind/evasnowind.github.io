@@ -5,8 +5,6 @@ categories: [java, 源码剖析, 算法]
 source: "http://prayerlaputa.com/?p=247"
 ---
 
-# 【源码分析】java sdk篇–ConcurrentSkipListMap
-
 最近开始看jdk源代码，先分享一个挺好的博客：<http://blog.csdn.net/chenssy>  chenssy 有关JDK源码的博文写的很细，我就参考他的博文写写其他的内容，已经被chenssy写过的内容我就不再重复啦，估计也没他写的细。另外，如果网上已有相关分析，我可能直接给出链接、做做补充，毕竟本系列属于读书笔记性质，留下个记录免得自己忘记，并不打算写的特别全或是全部原创。下面就开始【源码分析】系列的第一篇：ConcurrentSkipListMap\
 声明：本博客内容一般采集自互联网，若引用了其他文章或是博客的内容，我会尽量注明出处。如果有转载、未注明出处，或是有侵权的情况，请及时与我沟通（evasnowind@sina.com），我会及时删除。转载请注明本文出处，谢谢。\
 在java中，\

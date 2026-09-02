@@ -5,8 +5,6 @@ categories: [j2ee, 工具, 开源]
 source: "http://prayerlaputa.com/?p=623"
 ---
 
-# spring boot整合swagger
-
 本文仅展示总体配置，具体注解用法请另行搜索、查询。
 
 ## 1.加上maven依赖，引入相关包

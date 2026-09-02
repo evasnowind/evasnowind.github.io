@@ -5,8 +5,6 @@ categories: [java, 学习, 源码剖析]
 source: "http://prayerlaputa.com/?p=316"
 ---
 
-# 【源码分析】java sdk篇–Java Collection Framework
-
 本文就是想学习、简单总结一下JDK里的JCF，并且制定一下自己后续阅读源码的范围——先学习一下JCF中重要的一些类，后续学习Java其他一些东西，给自己定个路线图，O(∩\_∩)O~\
 本文参考了多篇文章，如有引用但没标注的地方，请及时联系我，这文章本意是想记录一下，相当于读书笔记。
 

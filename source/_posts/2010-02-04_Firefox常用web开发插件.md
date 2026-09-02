@@ -5,8 +5,6 @@ categories: [web]
 source: "http://prayerlaputa.com/?p=426"
 ---
 
-# Firefox常用web开发插件
-
 Debugging工具\
 1、 [Firebug](http://getfirebug.com/)
 

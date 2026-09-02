@@ -5,8 +5,6 @@ categories: [linux, 虚拟化, 软件]
 source: "http://prayerlaputa.com/?p=136"
 ---
 
-# Linux虚拟机安装VMware Tool【转载】
-
 转自：http://robert-liu.javaeye.com/blog/534051\
 在虚拟机上安装完系统，可能会遇到一些使用不方便的问题，比如 鼠标切入切出，刚安装的系统分辨率低等等。\
 这个时候，我们可以安装VMware Tool来解决这些问题。

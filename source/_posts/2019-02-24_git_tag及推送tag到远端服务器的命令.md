@@ -5,8 +5,6 @@ categories: [git]
 source: "http://prayerlaputa.com/?p=688"
 ---
 
-# git tag及推送tag到远端服务器的命令
-
 查看tag\
 git show\
 git tag -l “v1.5” //加上筛选条件

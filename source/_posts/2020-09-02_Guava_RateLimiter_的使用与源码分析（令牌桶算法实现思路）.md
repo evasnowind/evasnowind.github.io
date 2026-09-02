@@ -5,8 +5,6 @@ categories: [guava, 源码剖析]
 source: "http://prayerlaputa.com/?p=849"
 ---
 
-# Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）
-
 ## Guava RateLimiter基本使用
 
 学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。

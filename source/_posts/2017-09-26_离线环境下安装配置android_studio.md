@@ -5,8 +5,6 @@ categories: [android, java, 工作, 工具, 软件]
 source: "http://prayerlaputa.com/?p=372"
 ---
 
-# 离线环境下安装配置android studio
-
 公司项目迁移到android studio上已经有一段时间，之前光是配置android studio就花了一些时间——因为公司内网环境不能访问外网（内心吐槽过无数次了……工作本不能上外网给我们做开发的带来很多问题，唉……）……\
 本文主要想总结一下android studio在离线环境下如何配置。\
 jdk/android sdk的下载、配置再次不再赘述。\

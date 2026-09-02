@@ -5,8 +5,6 @@ categories: [guava, java, 工具]
 source: "http://prayerlaputa.com/?p=674"
 ---
 
-# google guava使用教程系列（3）- 前置条件检查
-
 google guava使用教程系列（3）- 前置条件检查
 
 原文地址:[<https://github.com/google/guava/wiki/PreconditionsExplained>])(<https://github.com/google/guava/wiki/PreconditionsExplained>)

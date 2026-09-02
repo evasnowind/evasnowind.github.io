@@ -5,8 +5,6 @@ categories: [mysql]
 source: "http://prayerlaputa.com/?p=915"
 ---
 
-# 使用sysbench对mysql进行基准测试
-
 ### 测试环境说明
 
 #### 硬件

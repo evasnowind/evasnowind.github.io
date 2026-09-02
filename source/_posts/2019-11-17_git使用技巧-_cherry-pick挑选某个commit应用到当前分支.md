@@ -5,8 +5,6 @@ categories: [git]
 source: "http://prayerlaputa.com/?p=705"
 ---
 
-# git使用技巧- cherry-pick挑选某个commit应用到当前分支
-
 git cherry-pick可以挑选某个分支的一个或多个commit，将其应用到当前分支上。
 
 ```

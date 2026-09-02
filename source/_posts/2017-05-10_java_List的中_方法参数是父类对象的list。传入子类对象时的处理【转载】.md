@@ -5,8 +5,6 @@ categories: [java]
 source: "http://prayerlaputa.com/?p=648"
 ---
 
-# java List的中 方法参数是父类对象的list。传入子类对象时的处理【转载】
-
 # java List的中 方法参数是父类对象的list。传入子类对象时的处理
 
 本文转载自：\

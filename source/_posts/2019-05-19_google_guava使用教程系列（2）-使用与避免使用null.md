@@ -5,8 +5,6 @@ categories: [guava, java, 工具]
 source: "http://prayerlaputa.com/?p=670"
 ---
 
-# google guava使用教程系列（2）-使用与避免使用null
-
 # 有关null的使用
 
 不要在Set中使用null，或者把null作为map的键值。使用特殊值代表null会让查找操作的语义更清晰。

@@ -5,8 +5,6 @@ categories: [android, java, web]
 source: "http://prayerlaputa.com/?p=211"
 ---
 
-# android webview控件中javascript与java的相互调用
-
 首先说明下，本帖主要是为了给出思路，不会给出特别细的教学代码，详细的API使用网上搜就好了。\
 先给出一个对于webview的帖子：[有关webview中js与java互调的帖子](http://ju.outofmemory.cn/entry/223084)\
 ***javascript调用java***\

@@ -5,8 +5,6 @@ categories: [spring cloud]
 source: "http://prayerlaputa.com/?p=923"
 ---
 
-# spring cloud gateway基础
-
 spring cloud gateway（后续简称SCG）本身就是spring cloud体系的一员，在对于java技术栈的系统使用起来比较方便，此外，SCG扩展性比较好，适合作为**业务网关**的基础、根据自身需求进行二次开发。
 
 ### 关键组成部分

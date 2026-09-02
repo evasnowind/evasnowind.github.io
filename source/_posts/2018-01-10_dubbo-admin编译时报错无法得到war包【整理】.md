@@ -5,8 +5,6 @@ categories: [j2ee, java, linux, web, 工具, 软件]
 source: "http://prayerlaputa.com/?p=538"
 ---
 
-# dubbo-admin编译时报错无法得到war包【整理】
-
 整理笔记本时发现一些以前做过的笔记，整理一下，在博客里留个记录，省的以后忘记。\
 问题是这样的：dubbo在部署时需要用到dubbo-admin，但dubbo-admin需要自己编译，网上各种下载的war包可能并不适合自己的开发环境、有极大概率是没法用的。\
 编译dubbo-admin很简单，在编译环境中准备好jdk、maven（jdk maven配置过程就没必要说了，网上n多教程），从github上下载dubbo源代码，准备工作就这些。\

@@ -5,8 +5,6 @@ categories: [java, spring boot]
 source: "http://prayerlaputa.com/?p=810"
 ---
 
-# spring项目部署linux时读取字体失败导致绘图时输出乱码
-
 # 现象
 
 spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用`Graphics2D graphic`绘图时用到字体，却输出乱码。

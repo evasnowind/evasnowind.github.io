@@ -5,8 +5,6 @@ categories: [虚拟化]
 source: "http://prayerlaputa.com/?p=414"
 ---
 
-# Linux虚拟机安装VMware Tool
-
 转自：http://robert-liu.javaeye.com/blog/534051\
  \
  \

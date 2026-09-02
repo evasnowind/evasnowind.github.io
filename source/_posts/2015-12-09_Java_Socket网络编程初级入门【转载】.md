@@ -5,8 +5,6 @@ categories: [java, 网络]
 source: "http://prayerlaputa.com/?p=140"
 ---
 
-# Java Socket网络编程初级入门【转载】
-
 转自：http://www.wang48.com/jishubaodianview/?jsd\_id=4902\
 （转到自己博客，省的到处去翻）\
 事实上网络编程简单的理解就是两台计算机相互通讯数据而已，对于程序员而言，去掌握一种编程接口并使用一种编程模型相对就会显得简单的多了，Java SDK提供一些相对简单的Api来完成这些工作。Socket就是其中之一，对于Java而言，这些Api存在与java.net 这个包里面，因此只要导入这个包就可以准备网络编程了。\

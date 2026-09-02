@@ -5,8 +5,6 @@ categories: [linux, web, 工具]
 source: "http://prayerlaputa.com/?p=400"
 ---
 
-# win7下配置PHP+apache+mysql【转载 + 补充】
-
 本帖参考了如下帖子：
 
 http://apachewin7.jiaogen.com/2010/04/21/win7%E4%B8%8Bphp5-3apache2-2%E9%85%8D%E7%BD%AE/

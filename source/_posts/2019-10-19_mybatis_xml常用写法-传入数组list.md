@@ -5,8 +5,6 @@ categories: [java, mybatis]
 source: "http://prayerlaputa.com/?p=677"
 ---
 
-# mybatis xml常用写法-传入数组list
-
 # 需求：xml中传入参数中包含一个list，需要在where中拼接in语句
 
 假设查询person表，参数类型为XXXVo，XXXVo中包含一个List对象，保存了状态列表，此时可以参考如下查询

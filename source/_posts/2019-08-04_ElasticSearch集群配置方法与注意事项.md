@@ -5,8 +5,6 @@ categories: [java, 工具, 开源]
 source: "http://prayerlaputa.com/?p=579"
 ---
 
-# ElasticSearch集群配置方法与注意事项
-
 # 目标
 
 一台主节点，一台从节点

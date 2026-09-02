@@ -5,8 +5,6 @@ categories: [java, mybatis, spring, spring boot]
 source: "http://prayerlaputa.com/?p=775"
 ---
 
-# spring中使用mybatis/mybatis plus连接sqlserver
-
 本文主要关注如何使用mybatis/mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。
 
 # 框架选择

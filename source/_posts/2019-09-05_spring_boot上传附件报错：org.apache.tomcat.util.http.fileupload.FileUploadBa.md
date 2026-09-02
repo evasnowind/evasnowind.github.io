@@ -5,8 +5,6 @@ categories: [java, spring, spring boot]
 source: "http://prayerlaputa.com/?p=645"
 ---
 
-# spring boot上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载+整理】
-
 # 问题
 
 spring boot + spring cloud，上传附件时遇到如下错误：

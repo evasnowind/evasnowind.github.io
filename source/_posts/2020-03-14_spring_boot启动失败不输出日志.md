@@ -5,8 +5,6 @@ categories: [java, spring boot]
 source: "http://prayerlaputa.com/?p=782"
 ---
 
-# spring boot启动失败不输出日志
-
 spring boot启动失败，没有任何错误日志输出，只输出了如下信息：\
 ![](images/spring_boot_start_fail-300x170_d4c13e5e.png)
 

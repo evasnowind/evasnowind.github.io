@@ -5,8 +5,6 @@ categories: [linux, 工具]
 source: "http://prayerlaputa.com/?p=573"
 ---
 
-# mac os x上执行shell脚本时，如何隐藏终端窗口？
-
 默认情况下，如果在mac终端中执行shell脚本，会弹出窗口展示脚本执行输出。
 
 工作中需求：执行shell脚本，不能展示输出。

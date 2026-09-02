@@ -5,8 +5,6 @@ categories: [java, 并发, 源码剖析]
 source: "http://prayerlaputa.com/?p=823"
 ---
 
-# Java并发之深入解析volatile关键字
-
 从一道面试题讲起：**采用DCL实现单例模式时，是否需要加volatile关键字？为什么？**
 
 ## 有关单例模式
