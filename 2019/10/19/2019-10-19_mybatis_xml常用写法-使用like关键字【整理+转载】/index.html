@@ -6,15 +6,15 @@
   
   <title>mybatis xml常用写法-使用like关键字【整理+转载】 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="mybatis xml常用写法-使用like关键字【整理+转载】需求：xml中需要在where中拼接like语句方法1：concat12345678910&lt;where&gt;    &lt;trim  suffixOverrides&#x3D;&quot;,&quot; &gt;        &lt;if test&#x3D;&quot;id !&#x3D; null and id !&#x3D; &#x27;&#x27;&amp;qu">
+  <meta name="description" content="需求：xml中需要在where中拼接like语句方法1：concat12345678910&lt;where&gt;    &lt;trim  suffixOverrides&#x3D;&quot;,&quot; &gt;        &lt;if test&#x3D;&quot;id !&#x3D; null and id !&#x3D; &#x27;&#x27;&quot; &gt;            and id &#x3D;  #&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mybatis xml常用写法-使用like关键字【整理+转载】">
 <meta property="og:url" content="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="mybatis xml常用写法-使用like关键字【整理+转载】需求：xml中需要在where中拼接like语句方法1：concat12345678910&lt;where&gt;    &lt;trim  suffixOverrides&#x3D;&quot;,&quot; &gt;        &lt;if test&#x3D;&quot;id !&#x3D; null and id !&#x3D; &#x27;&#x27;&amp;qu">
+<meta property="og:description" content="需求：xml中需要在where中拼接like语句方法1：concat12345678910&lt;where&gt;    &lt;trim  suffixOverrides&#x3D;&quot;,&quot; &gt;        &lt;if test&#x3D;&quot;id !&#x3D; null and id !&#x3D; &#x27;&#x27;&quot; &gt;            and id &#x3D;  #&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-10-19T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.481Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.968Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mybatis-xml常用写法-使用like关键字【整理-转载】"><a href="#mybatis-xml常用写法-使用like关键字【整理-转载】" class="headerlink" title="mybatis xml常用写法-使用like关键字【整理+转载】"></a>mybatis xml常用写法-使用like关键字【整理+转载】</h1><h1 id="需求：xml中需要在where中拼接like语句"><a href="#需求：xml中需要在where中拼接like语句" class="headerlink" title="需求：xml中需要在where中拼接like语句"></a>需求：xml中需要在where中拼接like语句</h1><h2 id="方法1：concat"><a href="#方法1：concat" class="headerlink" title="方法1：concat"></a>方法1：concat</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;where&gt;</span><br><span class="line">    &lt;trim  suffixOverrides=&quot;,&quot; &gt;</span><br><span class="line">        &lt;if test=&quot;id != null and id != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and id =  #&#123;id&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;name != null and name != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/trim&gt;</span><br><span class="line">&lt;/where&gt;</span><br></pre></td></tr></table></figure>
+        <h1 id="需求：xml中需要在where中拼接like语句"><a href="#需求：xml中需要在where中拼接like语句" class="headerlink" title="需求：xml中需要在where中拼接like语句"></a>需求：xml中需要在where中拼接like语句</h1><h2 id="方法1：concat"><a href="#方法1：concat" class="headerlink" title="方法1：concat"></a>方法1：concat</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;where&gt;</span><br><span class="line">    &lt;trim  suffixOverrides=&quot;,&quot; &gt;</span><br><span class="line">        &lt;if test=&quot;id != null and id != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and id =  #&#123;id&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;name != null and name != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/trim&gt;</span><br><span class="line">&lt;/where&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="方法2："><a href="#方法2：" class="headerlink" title="方法2：${}"></a>方法2：${}</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;examTypeName!=null and examTypeName!=&#x27;&#x27;&quot;&gt;</span><br><span class="line">    and exam_type_name like &#x27;%$&#123;examTypeName&#125;%&#x27;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
 
@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid3g2cjcE3TDESClViqvrRr" data-title="mybatis xml常用写法-使用like关键字【整理+转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidK-jZO4fQq-H8_tEYAKW8I" data-title="mybatis xml常用写法-使用like关键字【整理+转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -122,19 +122,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/22/2019-10-22_%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90-%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          mybatis xml常用写法-传入数组list
+          分布式id生成-雪花算法实现资源汇总
         
       </div>
     </a>
   
   
-    <a href="/2019/09/26/2019-09-26_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%883%EF%BC%89-_%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E6%A3%80%E6%9F%A5/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">google guava使用教程系列（3）- 前置条件检查</div>
+      <div class="article-nav-title">mybatis xml常用写法-传入数组list</div>
     </a>
   
 </nav>

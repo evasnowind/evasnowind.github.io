@@ -6,18 +6,18 @@
   
   <title>spring boot启动失败不输出日志 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="spring boot启动失败不输出日志spring boot启动失败，没有任何错误日志输出，只输出了如下信息： 可能的原因： 1、日志配置文件没有配好解决：修改日志等级，找到logback-boot.xml文件，找到&lt;root level&#x3D;&quot;INFO&quot;&gt; &lt;&#x2F;root&gt;，修改日志等级，添加标准输出 123&lt;root level&#x3D;&quot;INF">
+  <meta name="description" content="spring boot启动失败，没有任何错误日志输出，只输出了如下信息： 可能的原因： 1、日志配置文件没有配好解决：修改日志等级，找到logback-boot.xml文件，找到&lt;root level&#x3D;&quot;INFO&quot;&gt; &lt;&#x2F;root&gt;，修改日志等级，添加标准输出 123&lt;root level&#x3D;&quot;INFO&quot;&gt;    &lt;a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring boot启动失败不输出日志">
 <meta property="og:url" content="https://evasnowind.github.io/2020/03/14/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="spring boot启动失败不输出日志spring boot启动失败，没有任何错误日志输出，只输出了如下信息： 可能的原因： 1、日志配置文件没有配好解决：修改日志等级，找到logback-boot.xml文件，找到&lt;root level&#x3D;&quot;INFO&quot;&gt; &lt;&#x2F;root&gt;，修改日志等级，添加标准输出 123&lt;root level&#x3D;&quot;INF">
+<meta property="og:description" content="spring boot启动失败，没有任何错误日志输出，只输出了如下信息： 可能的原因： 1、日志配置文件没有配好解决：修改日志等级，找到logback-boot.xml文件，找到&lt;root level&#x3D;&quot;INFO&quot;&gt; &lt;&#x2F;root&gt;，修改日志等级，添加标准输出 123&lt;root level&#x3D;&quot;INFO&quot;&gt;    &lt;a">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://evasnowind.github.io/images/spring_boot_start_fail-300x170_d4c13e5e.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/spring_boot_start_fail-300x170_d4c13e5e.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/idea_clean_cache-170x300_5c104837.png">
 <meta property="article:published_time" content="2020-03-14T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.483Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://evasnowind.github.io/images/spring_boot_start_fail-300x170_d4c13e5e.png">
@@ -103,7 +103,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="spring-boot启动失败不输出日志"><a href="#spring-boot启动失败不输出日志" class="headerlink" title="spring boot启动失败不输出日志"></a>spring boot启动失败不输出日志</h1><p>spring boot启动失败，没有任何错误日志输出，只输出了如下信息：<br><img src="/images/spring_boot_start_fail-300x170_d4c13e5e.png"></p>
+        <p>spring boot启动失败，没有任何错误日志输出，只输出了如下信息：<br><img src="/images/spring_boot_start_fail-300x170_d4c13e5e.png"></p>
 <p>可能的原因：</p>
 <h3 id="1、日志配置文件没有配好"><a href="#1、日志配置文件没有配好" class="headerlink" title="1、日志配置文件没有配好"></a>1、日志配置文件没有配好</h3><p>解决：修改日志等级，找到logback-boot.xml文件，找到<code>&lt;root level=&quot;INFO&quot;&gt; &lt;/root&gt;</code>，修改日志等级，添加标准输出</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;root level=&quot;INFO&quot;&gt;</span><br><span class="line">    &lt;appender-ref ref=&quot;STDOUT&quot;/&gt;</span><br><span class="line">&lt;/root&gt;</span><br></pre></td></tr></table></figure>
@@ -121,7 +121,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/03/14/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/" data-id="cuidrznsGZY75M-pDnrB6Xksk" data-title="spring boot启动失败不输出日志" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/03/14/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/" data-id="cuidSWKg4JOw31LgipXc5ToVT" data-title="spring boot启动失败不输出日志" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

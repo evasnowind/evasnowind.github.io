@@ -6,15 +6,15 @@
   
   <title>mysql中判断字段是否包含数字或者是否为纯数字 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="mysql中判断字段是否包含数字或者是否为纯数字 各种场景 判断字段是否包含数字 使用like模糊查询包含某个数字 使用mysql原生函数FIND_IN_SET查询包含某个数字 使用regexp正则匹配纯数字 使用regexp正则匹配字段值不包含数字   参考资料  各种场景判断字段是否包含数字1select name from text where name regex &#x27;[0-9]&amp;">
+  <meta name="description" content="各种场景 判断字段是否包含数字 使用like模糊查询包含某个数字 使用mysql原生函数FIND_IN_SET查询包含某个数字 使用regexp正则匹配纯数字 使用regexp正则匹配字段值不包含数字   参考资料  各种场景判断字段是否包含数字1select name from text where name regex &#x27;[0-9]&#x27;  使用like模糊查询包含某个数字1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql中判断字段是否包含数字或者是否为纯数字">
 <meta property="og:url" content="https://evasnowind.github.io/2020/02/26/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="mysql中判断字段是否包含数字或者是否为纯数字 各种场景 判断字段是否包含数字 使用like模糊查询包含某个数字 使用mysql原生函数FIND_IN_SET查询包含某个数字 使用regexp正则匹配纯数字 使用regexp正则匹配字段值不包含数字   参考资料  各种场景判断字段是否包含数字1select name from text where name regex &#x27;[0-9]&amp;">
+<meta property="og:description" content="各种场景 判断字段是否包含数字 使用like模糊查询包含某个数字 使用mysql原生函数FIND_IN_SET查询包含某个数字 使用regexp正则匹配纯数字 使用regexp正则匹配字段值不包含数字   参考资料  各种场景判断字段是否包含数字1select name from text where name regex &#x27;[0-9]&#x27;  使用like模糊查询包含某个数字1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-26T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.482Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mysql中判断字段是否包含数字或者是否为纯数字"><a href="#mysql中判断字段是否包含数字或者是否为纯数字" class="headerlink" title="mysql中判断字段是否包含数字或者是否为纯数字"></a>mysql中判断字段是否包含数字或者是否为纯数字</h1><ul>
+        <ul>
 <li><a href="file:///D:/GitRepository/JavaKnowledgeTree/SQL/mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97.md#%E5%90%84%E7%A7%8D%E5%9C%BA%E6%99%AF">各种场景</a><ul>
 <li><a href="file:///D:/GitRepository/JavaKnowledgeTree/SQL/mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97.md#%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97">判断字段是否包含数字</a></li>
 <li><a href="file:///D:/GitRepository/JavaKnowledgeTree/SQL/mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97.md#%E4%BD%BF%E7%94%A8like%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E6%95%B0%E5%AD%97">使用like模糊查询包含某个数字</a></li>
@@ -133,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/26/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/" data-id="cuidhQShQc6e9zKQXOyxQyqvw" data-title="mysql中判断字段是否包含数字或者是否为纯数字" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/26/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/" data-id="cuidJDaFW3myvPjz1HWSxcSJ_" data-title="mysql中判断字段是否包含数字或者是否为纯数字" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

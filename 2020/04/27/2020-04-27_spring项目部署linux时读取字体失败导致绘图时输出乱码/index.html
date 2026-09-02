@@ -6,15 +6,15 @@
   
   <title>spring项目部署linux时读取字体失败导致绘图时输出乱码 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="spring项目部署linux时读取字体失败导致绘图时输出乱码现象spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用Graphics2D graphic绘图时用到字体，却输出乱码。 原因字体文件找不到，比如说开发环境是windows，可能是使用“微软雅黑”字体，是正常的，但部署到线上（往往是linux），就会是乱码。 解决1、找到项目所需字体，上传到linux服务器中，并放">
+  <meta name="description" content="现象spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用Graphics2D graphic绘图时用到字体，却输出乱码。 原因字体文件找不到，比如说开发环境是windows，可能是使用“微软雅黑”字体，是正常的，但部署到线上（往往是linux），就会是乱码。 解决1、找到项目所需字体，上传到linux服务器中，并放到指定位置先说结论：我个人不推荐这样做！！！ 比如说这篇帖子中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring项目部署linux时读取字体失败导致绘图时输出乱码">
 <meta property="og:url" content="https://evasnowind.github.io/2020/04/27/2020-04-27_spring%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2linux%E6%97%B6%E8%AF%BB%E5%8F%96%E5%AD%97%E4%BD%93%E5%A4%B1%E8%B4%A5%E5%AF%BC%E8%87%B4%E7%BB%98%E5%9B%BE%E6%97%B6%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="spring项目部署linux时读取字体失败导致绘图时输出乱码现象spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用Graphics2D graphic绘图时用到字体，却输出乱码。 原因字体文件找不到，比如说开发环境是windows，可能是使用“微软雅黑”字体，是正常的，但部署到线上（往往是linux），就会是乱码。 解决1、找到项目所需字体，上传到linux服务器中，并放">
+<meta property="og:description" content="现象spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用Graphics2D graphic绘图时用到字体，却输出乱码。 原因字体文件找不到，比如说开发环境是windows，可能是使用“微软雅黑”字体，是正常的，但部署到线上（往往是linux），就会是乱码。 解决1、找到项目所需字体，上传到linux服务器中，并放到指定位置先说结论：我个人不推荐这样做！！！ 比如说这篇帖子中">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-27T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.483Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="spring项目部署linux时读取字体失败导致绘图时输出乱码"><a href="#spring项目部署linux时读取字体失败导致绘图时输出乱码" class="headerlink" title="spring项目部署linux时读取字体失败导致绘图时输出乱码"></a>spring项目部署linux时读取字体失败导致绘图时输出乱码</h1><h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用<code>Graphics2D graphic</code>绘图时用到字体，却输出乱码。</p>
+        <h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用<code>Graphics2D graphic</code>绘图时用到字体，却输出乱码。</p>
 <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>字体文件找不到，比如说开发环境是windows，可能是使用“微软雅黑”字体，是正常的，但部署到线上（往往是linux），就会是乱码。</p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h3 id="1、找到项目所需字体，上传到linux服务器中，并放到指定位置"><a href="#1、找到项目所需字体，上传到linux服务器中，并放到指定位置" class="headerlink" title="1、找到项目所需字体，上传到linux服务器中，并放到指定位置"></a>1、找到项目所需字体，上传到linux服务器中，并放到指定位置</h3><p>先说结论：<strong>我个人不推荐这样做！！！</strong></p>
 <p>比如说这篇帖子中说的（我没试验，网上搜到顺手转给大家）：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33772645/article/details/859430219">java jdk-awt.font在centos上中文乱码的问题, 安装中文字体</a></p>
@@ -127,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/04/27/2020-04-27_spring%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2linux%E6%97%B6%E8%AF%BB%E5%8F%96%E5%AD%97%E4%BD%93%E5%A4%B1%E8%B4%A5%E5%AF%BC%E8%87%B4%E7%BB%98%E5%9B%BE%E6%97%B6%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/" data-id="cuidVJmaszrE8ft3Pu-kAUOJx" data-title="spring项目部署linux时读取字体失败导致绘图时输出乱码" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/04/27/2020-04-27_spring%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2linux%E6%97%B6%E8%AF%BB%E5%8F%96%E5%AD%97%E4%BD%93%E5%A4%B1%E8%B4%A5%E5%AF%BC%E8%87%B4%E7%BB%98%E5%9B%BE%E6%97%B6%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/" data-id="cuidMhgZpXTS2WqQ3HT98HcZk" data-title="spring项目部署linux时读取字体失败导致绘图时输出乱码" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

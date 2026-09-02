@@ -6,15 +6,15 @@
   
   <title>spring-boot以jar包方式时读取resource或是template文件 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="spring-boot以jar包方式时读取resource或是template文件现象以jar包方式部署系统，想读取resource或是template下面的文件时，报 File Not Found 我遇到的情况是，整个项目达成了一个包，在开发环境（windows + idea）读取文件没问题，但在预发布环境（centos, 打成一个jar部署），则报错。使用 1jar -xvf xxx.jar">
+  <meta name="description" content="现象以jar包方式部署系统，想读取resource或是template下面的文件时，报 File Not Found 我遇到的情况是，整个项目达成了一个包，在开发环境（windows + idea）读取文件没问题，但在预发布环境（centos, 打成一个jar部署），则报错。使用 1jar -xvf xxx.jar  命令解压jar后，大体结构如下： 1234BOOT-INFMETA-INForg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring-boot以jar包方式时读取resource或是template文件">
 <meta property="og:url" content="https://evasnowind.github.io/2020/04/27/2020-04-27_spring-boot%E4%BB%A5jar%E5%8C%85%E6%96%B9%E5%BC%8F%E6%97%B6%E8%AF%BB%E5%8F%96resource%E6%88%96%E6%98%AFtemplate%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="spring-boot以jar包方式时读取resource或是template文件现象以jar包方式部署系统，想读取resource或是template下面的文件时，报 File Not Found 我遇到的情况是，整个项目达成了一个包，在开发环境（windows + idea）读取文件没问题，但在预发布环境（centos, 打成一个jar部署），则报错。使用 1jar -xvf xxx.jar">
+<meta property="og:description" content="现象以jar包方式部署系统，想读取resource或是template下面的文件时，报 File Not Found 我遇到的情况是，整个项目达成了一个包，在开发环境（windows + idea）读取文件没问题，但在预发布环境（centos, 打成一个jar部署），则报错。使用 1jar -xvf xxx.jar  命令解压jar后，大体结构如下： 1234BOOT-INFMETA-INForg">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-27T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.483Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="spring-boot以jar包方式时读取resource或是template文件"><a href="#spring-boot以jar包方式时读取resource或是template文件" class="headerlink" title="spring-boot以jar包方式时读取resource或是template文件"></a>spring-boot以jar包方式时读取resource或是template文件</h1><h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>以jar包方式部署系统，想读取resource或是template下面的文件时，报 <code>File Not Found</code></p>
+        <h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>以jar包方式部署系统，想读取resource或是template下面的文件时，报 <code>File Not Found</code></p>
 <p>我遇到的情况是，整个项目达成了一个包，在开发环境（windows + idea）读取文件没问题，但在预发布环境（centos, 打成一个jar部署），则报错。<br>使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -xvf xxx.jar</span><br></pre></td></tr></table></figure>
 
@@ -129,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/04/27/2020-04-27_spring-boot%E4%BB%A5jar%E5%8C%85%E6%96%B9%E5%BC%8F%E6%97%B6%E8%AF%BB%E5%8F%96resource%E6%88%96%E6%98%AFtemplate%E6%96%87%E4%BB%B6/" data-id="cuid2KjU7XwT5lt2Q1vsNuFqj" data-title="spring-boot以jar包方式时读取resource或是template文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/04/27/2020-04-27_spring-boot%E4%BB%A5jar%E5%8C%85%E6%96%B9%E5%BC%8F%E6%97%B6%E8%AF%BB%E5%8F%96resource%E6%88%96%E6%98%AFtemplate%E6%96%87%E4%BB%B6/" data-id="cuidhZvcd9GUFKiZBR8rxzIKr" data-title="spring-boot以jar包方式时读取resource或是template文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

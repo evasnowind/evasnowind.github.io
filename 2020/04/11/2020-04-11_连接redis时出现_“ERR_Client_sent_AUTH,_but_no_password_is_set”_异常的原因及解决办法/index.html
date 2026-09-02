@@ -6,15 +6,15 @@
   
   <title>连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法现象使用redis-cli连接redis时，报错：ERR Client sent AUTH, but no password is set 异常信息类似： 1234567891011121314redis.clients.jedis.exceptions.Jedi">
+  <meta name="description" content="现象使用redis-cli连接redis时，报错：ERR Client sent AUTH, but no password is set 异常信息类似： 1234567891011121314redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the poolat redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法">
 <meta property="og:url" content="https://evasnowind.github.io/2020/04/11/2020-04-11_%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%87%BA%E7%8E%B0_%E2%80%9CERR_Client_sent_AUTH,_but_no_password_is_set%E2%80%9D_%E5%BC%82%E5%B8%B8%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法现象使用redis-cli连接redis时，报错：ERR Client sent AUTH, but no password is set 异常信息类似： 1234567891011121314redis.clients.jedis.exceptions.Jedi">
+<meta property="og:description" content="现象使用redis-cli连接redis时，报错：ERR Client sent AUTH, but no password is set 异常信息类似： 1234567891011121314redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the poolat redis">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-11T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.483Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="连接redis时出现-“ERR-Client-sent-AUTH-but-no-password-is-set”-异常的原因及解决办法"><a href="#连接redis时出现-“ERR-Client-sent-AUTH-but-no-password-is-set”-异常的原因及解决办法" class="headerlink" title="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法"></a>连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法</h1><h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>使用<code>redis-cli</code>连接redis时，报错：<br><code>ERR Client sent AUTH, but no password is set</code></p>
+        <h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>使用<code>redis-cli</code>连接redis时，报错：<br><code>ERR Client sent AUTH, but no password is set</code></p>
 <p>异常信息类似：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool</span><br><span class="line">at redis.clients.util.Pool.getResource(Pool.java:53)</span><br><span class="line">at redis.clients.jedis.JedisPool.getResource(JedisPool.java:226)</span><br><span class="line">at cn.hncu.RedisPool.getJedis(RedisPool.java:66)</span><br><span class="line">at cn.hncu.RedisJava.main(RedisJava.java:15)</span><br><span class="line">Caused by: redis.clients.jedis.exceptions.JedisDataException: ERR Client sent AUTH, but no password is set</span><br><span class="line">at redis.clients.jedis.Protocol.processError(Protocol.java:127)</span><br><span class="line">at redis.clients.jedis.Protocol.process(Protocol.java:161)</span><br><span class="line">at redis.clients.jedis.Protocol.read(Protocol.java:215)</span><br><span class="line">at redis.clients.jedis.Connection.readProtocolWithCheckingBroken(Connection.java:340)</span><br><span class="line">at redis.clients.jedis.Connection.getStatusCodeReply(Connection.java:239)</span><br><span class="line">at redis.clients.jedis.BinaryJedis.auth(BinaryJedis.java:2139)</span><br><span class="line">at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:108)</span><br><span class="line">at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:868)</span><br></pre></td></tr></table></figure>
 
@@ -113,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/04/11/2020-04-11_%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%87%BA%E7%8E%B0_%E2%80%9CERR_Client_sent_AUTH,_but_no_password_is_set%E2%80%9D_%E5%BC%82%E5%B8%B8%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" data-id="cuidQgG6ldS617E1ThXJptUPg" data-title="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/04/11/2020-04-11_%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%87%BA%E7%8E%B0_%E2%80%9CERR_Client_sent_AUTH,_but_no_password_is_set%E2%80%9D_%E5%BC%82%E5%B8%B8%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" data-id="cuidKXPA2-kXYwmXZ7dOoQMX-" data-title="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

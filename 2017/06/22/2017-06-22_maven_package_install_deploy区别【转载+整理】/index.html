@@ -6,15 +6,15 @@
   
   <title>maven package install deploy区别【转载+整理】 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="maven package install deploy区别【转载+整理】稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：maven package install deploy区别添加jar包到本地Maven仓库首先，说下package install deploy区别**1、maven package：**打包到本项目，一般是在项目target目录下。如果a项目依赖于b项目，打包b项">
+  <meta name="description" content="稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：maven package install deploy区别添加jar包到本地Maven仓库首先，说下package install deploy区别**1、maven package：**打包到本项目，一般是在项目target目录下。如果a项目依赖于b项目，打包b项目时，只会打包到b项目下target下，编译a项目时就会报错，因为找不到所">
 <meta property="og:type" content="article">
 <meta property="og:title" content="maven package install deploy区别【转载+整理】">
 <meta property="og:url" content="https://evasnowind.github.io/2017/06/22/2017-06-22_maven_package_install_deploy%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD+%E6%95%B4%E7%90%86%E3%80%91/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="maven package install deploy区别【转载+整理】稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：maven package install deploy区别添加jar包到本地Maven仓库首先，说下package install deploy区别**1、maven package：**打包到本项目，一般是在项目target目录下。如果a项目依赖于b项目，打包b项">
+<meta property="og:description" content="稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：maven package install deploy区别添加jar包到本地Maven仓库首先，说下package install deploy区别**1、maven package：**打包到本项目，一般是在项目target目录下。如果a项目依赖于b项目，打包b项目时，只会打包到b项目下target下，编译a项目时就会报错，因为找不到所">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-06-22T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.480Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.967Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="maven-package-install-deploy区别【转载-整理】"><a href="#maven-package-install-deploy区别【转载-整理】" class="headerlink" title="maven package install deploy区别【转载+整理】"></a>maven package install deploy区别【转载+整理】</h1><p>稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yhj19920417/article/details/72627227">maven package install deploy区别</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zeng1994/p/7486330.html">添加jar包到本地Maven仓库</a><br>首先，说下package install deploy区别<br>**1、maven package：**打包到本项目，一般是在项目target目录下。<br>如果a项目依赖于b项目，打包b项目时，只会打包到b项目下target下，编译a项目时就会报错，因为找不到所依赖的b项目，说明a项目在本地仓库是没有找到它所依赖的b项目。<br>**2、maven install：**打包会安装到本地的maven仓库中，如果没有设置过maven本地仓库，一般在用户&#x2F;.m2目录下。<br>如果a项目依赖于b项目，那么install b项目时，会在本地仓库同时生成pom文件和jar文件，<br>可以看install b的日志:<br>[INFO] — maven-install-plugin:2.5.2:install (default-install) @ b —<br>[INFO]Installing D:\Java\workspace\b\target\b-2.7.4.RELEASE.jar to<br>C:\mavenRepository\com**\b\2.7.4.RELEASE\b-2.7.4.RELEASE.jar [INFO]<br>Installing D:\java\workspace\b\pom.xml to<br>C:\mavenRepository\com**\b\2.7.4.RELEASE\b-2.7.4.RELEASE.pom<br>说明b项目已安装到本地仓库了,并且是jar和pom同时安装的. 这时候去compile a项目，编译通过.<br><strong>总结：</strong><br><strong>A、maven package：打包（jar等）到本项目的target下。</strong><br><strong>B、maven install：把target下打的包（jar等）安装到本地仓库，可以供其他项目使用。</strong><br><strong>3、maven deploy：<strong>将打包的文件发布到远程参考,提供其他人员进行下载依赖。<br>然后呢，对于</strong>mvn install</strong>命令，格式如下：</p>
+        <p>稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yhj19920417/article/details/72627227">maven package install deploy区别</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zeng1994/p/7486330.html">添加jar包到本地Maven仓库</a><br>首先，说下package install deploy区别<br>**1、maven package：**打包到本项目，一般是在项目target目录下。<br>如果a项目依赖于b项目，打包b项目时，只会打包到b项目下target下，编译a项目时就会报错，因为找不到所依赖的b项目，说明a项目在本地仓库是没有找到它所依赖的b项目。<br>**2、maven install：**打包会安装到本地的maven仓库中，如果没有设置过maven本地仓库，一般在用户&#x2F;.m2目录下。<br>如果a项目依赖于b项目，那么install b项目时，会在本地仓库同时生成pom文件和jar文件，<br>可以看install b的日志:<br>[INFO] — maven-install-plugin:2.5.2:install (default-install) @ b —<br>[INFO]Installing D:\Java\workspace\b\target\b-2.7.4.RELEASE.jar to<br>C:\mavenRepository\com**\b\2.7.4.RELEASE\b-2.7.4.RELEASE.jar [INFO]<br>Installing D:\java\workspace\b\pom.xml to<br>C:\mavenRepository\com**\b\2.7.4.RELEASE\b-2.7.4.RELEASE.pom<br>说明b项目已安装到本地仓库了,并且是jar和pom同时安装的. 这时候去compile a项目，编译通过.<br><strong>总结：</strong><br><strong>A、maven package：打包（jar等）到本项目的target下。</strong><br><strong>B、maven install：把target下打的包（jar等）安装到本地仓库，可以供其他项目使用。</strong><br><strong>3、maven deploy：<strong>将打包的文件发布到远程参考,提供其他人员进行下载依赖。<br>然后呢，对于</strong>mvn install</strong>命令，格式如下：</p>
 <blockquote>
 <p>安装指定文件到本地仓库命令：<br>mvn install:install-file<br>-DgroupId&#x3D;<groupId> : 设置项目代码的包名(一般用组织名)<br>-DartifactId&#x3D;<artifactId> : 设置项目名或模块名<br>-Dversion&#x3D;1.0.0 : 版本号<br>-Dpackaging&#x3D;jar : 什么类型的文件(jar包)<br>-Dfile&#x3D;&lt;myfile.jar&gt; : 指定jar文件路径与文件名(同目录只需文件名)</p>
 </blockquote>
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/06/22/2017-06-22_maven_package_install_deploy%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD+%E6%95%B4%E7%90%86%E3%80%91/" data-id="cuidRoAtWLuwjGpU6sE3q4DVT" data-title="maven package install deploy区别【转载+整理】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/06/22/2017-06-22_maven_package_install_deploy%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD+%E6%95%B4%E7%90%86%E3%80%91/" data-id="cuidSXT0c8hkpPTAZUpR8L_le" data-title="maven package install deploy区别【转载+整理】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

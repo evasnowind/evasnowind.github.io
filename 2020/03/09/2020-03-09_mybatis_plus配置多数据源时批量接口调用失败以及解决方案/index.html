@@ -6,15 +6,15 @@
   
   <title>mybatis plus配置多数据源时批量接口调用失败以及解决方案 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="mybatis plus配置多数据源时批量接口调用失败以及解决方案表现仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下 12345678910111213141516171819org.apache.ibatis.exceptions.Pe">
+  <meta name="description" content="表现仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下 12345678910111213141516171819org.apache.ibatis.exceptions.PersistenceException: ### Error flu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mybatis plus配置多数据源时批量接口调用失败以及解决方案">
 <meta property="og:url" content="https://evasnowind.github.io/2020/03/09/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="mybatis plus配置多数据源时批量接口调用失败以及解决方案表现仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下 12345678910111213141516171819org.apache.ibatis.exceptions.Pe">
+<meta property="og:description" content="表现仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下 12345678910111213141516171819org.apache.ibatis.exceptions.PersistenceException: ### Error flu">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.482Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mybatis-plus配置多数据源时批量接口调用失败以及解决方案"><a href="#mybatis-plus配置多数据源时批量接口调用失败以及解决方案" class="headerlink" title="mybatis plus配置多数据源时批量接口调用失败以及解决方案"></a>mybatis plus配置多数据源时批量接口调用失败以及解决方案</h1><h1 id="表现"><a href="#表现" class="headerlink" title="表现"></a>表现</h1><p>仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常<br>配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下</p>
+        <h1 id="表现"><a href="#表现" class="headerlink" title="表现"></a>表现</h1><p>仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常<br>配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">org.apache.ibatis.exceptions.PersistenceException: </span><br><span class="line">### Error flushing statements.  Cause: org.apache.ibatis.executor.BatchExecutorException: com.xxx.survey.mapper.SurveyAnswerMapper.insert (batch index #1) failed. Cause: java.sql.BatchUpdateException: 对象名 &#x27;t_survey_answer&#x27; 无效。</span><br><span class="line">### Cause: org.apache.ibatis.executor.BatchExecutorException: com.xxx.survey.mapper.SurveyAnswerMapper.insert (batch index #1) failed. Cause: java.sql.BatchUpdateException: 对象名 &#x27;t_survey_answer&#x27; 无效。</span><br><span class="line"> at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)</span><br><span class="line"> at org.apache.ibatis.session.defaults.DefaultSqlSession.flushStatements(DefaultSqlSession.java:255)</span><br><span class="line"> at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.saveBatch(ServiceImpl.java:128)</span><br><span class="line"> at com.baomidou.mybatisplus.extension.service.IService.saveBatch(IService.java:58)</span><br><span class="line"> at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(&lt;generated&gt;)</span><br><span class="line"> at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)</span><br><span class="line"> at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:736)</span><br><span class="line"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)</span><br><span class="line"> at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)</span><br><span class="line"> at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)</span><br><span class="line"> at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)</span><br><span class="line"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)</span><br><span class="line"> at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:671)</span><br><span class="line"> at com.xxx.survey.service.impl.SurveyAnswerServiceImpl$$EnhancerBySpringCGLIB$$dbeefaf3.saveBatch(&lt;generated&gt;)</span><br><span class="line"> at com.xxx.survey.ServiceTest.testGetAttendanceRecord(ServiceTest.java:91)</span><br><span class="line"> at sun.refl</span><br></pre></td></tr></table></figure>
 
 <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>配置动态数据源之后，我在配置对象中mapper xml文件夹配置没有区分开，不同数据源的mapper都放到了同一个文件夹中，即不同的</p>
@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/03/09/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" data-id="cuidNFBMyIyDtjCF5BhwD6g_M" data-title="mybatis plus配置多数据源时批量接口调用失败以及解决方案" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/03/09/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" data-id="cuide2J9PvzAER3108CZwAtSd" data-title="mybatis plus配置多数据源时批量接口调用失败以及解决方案" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

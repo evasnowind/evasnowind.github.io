@@ -97,12 +97,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="安装JDK-Tomcat设置环境变量的方法"><a href="#安装JDK-Tomcat设置环境变量的方法" class="headerlink" title="安装JDK + Tomcat设置环境变量的方法"></a>安装JDK + Tomcat设置环境变量的方法</h1><p>初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。<br>下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:jdk1.6.0（当然其他路径也可以）。<br>JDK安装完成之后我们来设置环境变量：<br>我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：<br>（1）设置好path变量，使得我们能够在系统中的任何地方运行java应用程序，比如 javac、java、javah等等,这就要找到我们安装JDK的目录，比如我们的JDK安装在C:jdk1.6.0目录下,那么在C: jdk1.6.0bin目录下就是我们常用的java应用程序,我们就需要把C:jdk1.6.0bin这个目录加到path环境变量里面。<br>在系统变量里找到path变量,选择-&gt;编辑；(里面已经有很多的变量值,是在变量值的最前面加上C:jdk1.6.0bin;)<br>变量名: path<br>变量值: C:jdk1.6.0bin;<br>（2）classpath环境变量，是当我们在开发java程序时需要引用别人写好的类时，要让java解释器知道到哪里去找这个类。通常，sun为我们提供了一些额外的丰富的类包，一个是dt.jar，一个是tools.jar，这两个jar 包都位于C:jdk1.6.0lib目录下，所以通常我们都会把这两个jar包加到我们的classpath环境变量中set classpath&#x3D;.;C:jdk1.6.0libtools.jar;C:jdk1.6.0libdt.jar。<br>在系统环境变量那一栏中点-&gt;新建classpath<br>变量名: classpath<br>变量值: .;%JAVA_HOME%libtools.jar;%JAVA_HOME%libdt.jar;（注意，CLASSPATH最前面是有个 “.”的，表示当前目录，这样当我们运行java AClass的时候，系统就会先在当前目录寻找AClass文件了。）；<br>（3）设置JAVA_HOME:<br>一是为了方便引用，比如，JDK安装在C:jdk1.6.0目录里，则设置 JAVA_HOME为该目录路径, 那么以后要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径串;<br>二则是归一原则, 当JDK路径改变的时候, 仅需更改JAVA_HOME的变量值即可, 否则,就要更改任何用绝对路径引用JDK目录的文档, 要是万一没有改全, 某个程序找不到JDK, 后果是可想而知的—-系统崩溃!<br>三则是第三方软件会引用约定好的JAVA_HOME变量, 不然, 你不能正常使用该软件.<br>在系统环境变量那一栏中点-&gt;新建JAVA_HOME （JAVA_HOME指向的是JDK的安装路径）<br>变量名： JAVA_HOME<br>变量值： C:jdk1.6.0<br>配置完成下面写一个简单的java程式来测试J2SDK是否已安装成功：<br>public class HelloWorld{<br>public static void main(String[] args){<br>ystem.out.println(“Hello world!”);<br>}<br>}<br>将程式保存为文档名为HelloWorld.java的文档。<br>打开命令提示符窗口，进入到HelloWorld.java所在目录，键入下面的命令<br>javac HelloWorld.java<br>java HelloWorld<br>此时若打印出来HelloWorld则安装成功，若没有打印出这句话，仔细检查以上配置是否正确。<br>环境变量配置成功后你就可以着手学习java了。<br>安装Tomcat后，在我的电脑-&gt;属性-&gt;高级-&gt;环境变量-&gt;系统变量中添加以下环境变量(假定你的tomcat安装在c:tomcat)：<br>CATALINA_HOME&#x3D;c:tomcat<br>CATALINA_BASE&#x3D;c:tomcat<br>然后修改环境变量中的classpath，把tomat安装目录下的commonlib下的(可以根据实际追加)servlet.jar追加到classpath中去，<br>修改后的classpath如下：<br>classpath&#x3D;.;%JAVA_HOME%libdt.jar;%JAVA_HOME%libtools.jar;%CATALINA_HOME%commonlibservlet.jar;<br>接着可以启动tomcat，在IE中访问<a href="http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。">http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。</a></p>
+        <p>初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。<br>下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:jdk1.6.0（当然其他路径也可以）。<br>JDK安装完成之后我们来设置环境变量：<br>我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：<br>（1）设置好path变量，使得我们能够在系统中的任何地方运行java应用程序，比如 javac、java、javah等等,这就要找到我们安装JDK的目录，比如我们的JDK安装在C:jdk1.6.0目录下,那么在C: jdk1.6.0bin目录下就是我们常用的java应用程序,我们就需要把C:jdk1.6.0bin这个目录加到path环境变量里面。<br>在系统变量里找到path变量,选择-&gt;编辑；(里面已经有很多的变量值,是在变量值的最前面加上C:jdk1.6.0bin;)<br>变量名: path<br>变量值: C:jdk1.6.0bin;<br>（2）classpath环境变量，是当我们在开发java程序时需要引用别人写好的类时，要让java解释器知道到哪里去找这个类。通常，sun为我们提供了一些额外的丰富的类包，一个是dt.jar，一个是tools.jar，这两个jar 包都位于C:jdk1.6.0lib目录下，所以通常我们都会把这两个jar包加到我们的classpath环境变量中set classpath&#x3D;.;C:jdk1.6.0libtools.jar;C:jdk1.6.0libdt.jar。<br>在系统环境变量那一栏中点-&gt;新建classpath<br>变量名: classpath<br>变量值: .;%JAVA_HOME%libtools.jar;%JAVA_HOME%libdt.jar;（注意，CLASSPATH最前面是有个 “.”的，表示当前目录，这样当我们运行java AClass的时候，系统就会先在当前目录寻找AClass文件了。）；<br>（3）设置JAVA_HOME:<br>一是为了方便引用，比如，JDK安装在C:jdk1.6.0目录里，则设置 JAVA_HOME为该目录路径, 那么以后要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径串;<br>二则是归一原则, 当JDK路径改变的时候, 仅需更改JAVA_HOME的变量值即可, 否则,就要更改任何用绝对路径引用JDK目录的文档, 要是万一没有改全, 某个程序找不到JDK, 后果是可想而知的—-系统崩溃!<br>三则是第三方软件会引用约定好的JAVA_HOME变量, 不然, 你不能正常使用该软件.<br>在系统环境变量那一栏中点-&gt;新建JAVA_HOME （JAVA_HOME指向的是JDK的安装路径）<br>变量名： JAVA_HOME<br>变量值： C:jdk1.6.0<br>配置完成下面写一个简单的java程式来测试J2SDK是否已安装成功：<br>public class HelloWorld{<br>public static void main(String[] args){<br>ystem.out.println(“Hello world!”);<br>}<br>}<br>将程式保存为文档名为HelloWorld.java的文档。<br>打开命令提示符窗口，进入到HelloWorld.java所在目录，键入下面的命令<br>javac HelloWorld.java<br>java HelloWorld<br>此时若打印出来HelloWorld则安装成功，若没有打印出这句话，仔细检查以上配置是否正确。<br>环境变量配置成功后你就可以着手学习java了。<br>安装Tomcat后，在我的电脑-&gt;属性-&gt;高级-&gt;环境变量-&gt;系统变量中添加以下环境变量(假定你的tomcat安装在c:tomcat)：<br>CATALINA_HOME&#x3D;c:tomcat<br>CATALINA_BASE&#x3D;c:tomcat<br>然后修改环境变量中的classpath，把tomat安装目录下的commonlib下的(可以根据实际追加)servlet.jar追加到classpath中去，<br>修改后的classpath如下：<br>classpath&#x3D;.;%JAVA_HOME%libdt.jar;%JAVA_HOME%libtools.jar;%CATALINA_HOME%commonlibservlet.jar;<br>接着可以启动tomcat，在IE中访问<a href="http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。">http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/02/06/2011-02-06_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidTut_A-wfckTEGVgxiRKMP" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/02/06/2011-02-06_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuid14PhwG6AnSGO_u-z6ZUYR" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -140,12 +140,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Firefox-键盘快捷键【转载】"><a href="#Firefox-键盘快捷键【转载】" class="headerlink" title="Firefox 键盘快捷键【转载】"></a>Firefox 键盘快捷键【转载】</h1><p>Firefox 键盘快捷键<br>导航类<br>后退： Alt+左方向键 或 Backspace<br>前进： Shift+Backspace 或 Alt+右方向键<br>首页： Alt+Home<br>打开文件： Ctrl+O<br>重新载入： F5 或 Ctrl+R<br>重新载入 (忽略缓存)： Ctrl+F5 或 Ctrl+Shift+R<br>停止： Esc<br><br>当前页<br>到页面底部： End<br>到页面顶部： Home<br>移到下一帧： F6<br>移到上一帧： Shift+F6<br>页面源代码： Ctrl+U<br>打印： Ctrl+P<br>页面另存为： Ctrl+S<br>放大文字： Ctrl++缩小文字： Ctrl+-<br>恢复文本大小： Ctrl+0<br>编辑<br>复制： Ctrl+C<br>剪切： Ctrl+X<br>删除： Del<br>粘贴： Ctrl+V<br>重做： Ctrl+Y<br>全选： Ctrl+A<br>撤消： Ctrl+Z<br>搜索<br>本页查找： Ctrl+F<br>再次查找： F3<br>输入查找链接： ‘<br>输入查找文本： &#x2F;<br>查找： Shift+F3<br>网页搜索： Ctrl+K 或 Ctrl+E<br>窗口和标签<br>关闭标签： Ctrl+W 或 Ctrl+F4<br>关闭窗口： Ctrl+Shift+W 或 Alt+F4<br>向左移动标签： Ctrl+左方向键 或 Ctrl+上方向键<br>向右移动标签： Ctrl+右方向键 或 Ctrl+下方向键<br>移动标签到开头： Ctrl+Home<br>移动标签到结尾： Ctrl+End<br>新建标签页： Ctrl+T<br>新建窗口： Ctrl+N<br>下一个标签页： Ctrl+Tab 或 Ctrl+PageDown<br>在新标签页打开网址： Alt+Enter<br>前一个标签页： Ctrl+Shift+Tab 或 Ctrl+PageUp<br>撤销关闭标签页： Ctrl+Shift+T<br>选择标签页 [1 to 8]： Ctrl+[1 到 8]<br>选择最后标签页： Ctrl+9<br>工具<br>添加所有为书签： Ctrl+Shift+D<br>添加当前为书签： Ctrl+D<br>打开书签： Ctrl+B 或 Ctrl+I<br>插入浏览： F7<br>下载： Ctrl+J<br>历史： Ctrl+H<br>清除私有数据： Ctrl+Shift+Del<br>其他<br>补全 .com 地址： Ctrl+Enter<br>补全 .net 地址： Shift+Enter<br>补全 .org 地址： Ctrl+Shift+Enter<br>删除选定的自匹配输入： Del<br>全屏： F11<br>选择地址条： Alt+D 或 F6 或 Ctrl+L<br>选择或管理搜索引擎： Alt+上方向键 或 Alt+下方向键 或 F4<br>Firefox 鼠标快捷键<br>后退： Shift+Scroll down<br>关闭标签页： 在标签上按鼠标中键<br>减小文字大小： Ctrl+Scroll up<br>前进： Shift+Scroll up<br>增大文字大小： Ctrl+Scroll down<br>新建标签页： 在标签页栏双击鼠标<br>在后台打开标签页： Ctrl+Left-click 或 点击鼠标中键<br>在前台打开标签页： Shift+Ctrl+Left-click 或 Shift+点击鼠标中键<br>在新窗口打开： Shift+Left-click<br>刷新 (覆盖缓存)： Shift+Reload button<br>保存页面为： Alt+Left-click<br>逐行滚动： Alt+Scroll</p>
+        <p>Firefox 键盘快捷键<br>导航类<br>后退： Alt+左方向键 或 Backspace<br>前进： Shift+Backspace 或 Alt+右方向键<br>首页： Alt+Home<br>打开文件： Ctrl+O<br>重新载入： F5 或 Ctrl+R<br>重新载入 (忽略缓存)： Ctrl+F5 或 Ctrl+Shift+R<br>停止： Esc<br><br>当前页<br>到页面底部： End<br>到页面顶部： Home<br>移到下一帧： F6<br>移到上一帧： Shift+F6<br>页面源代码： Ctrl+U<br>打印： Ctrl+P<br>页面另存为： Ctrl+S<br>放大文字： Ctrl++缩小文字： Ctrl+-<br>恢复文本大小： Ctrl+0<br>编辑<br>复制： Ctrl+C<br>剪切： Ctrl+X<br>删除： Del<br>粘贴： Ctrl+V<br>重做： Ctrl+Y<br>全选： Ctrl+A<br>撤消： Ctrl+Z<br>搜索<br>本页查找： Ctrl+F<br>再次查找： F3<br>输入查找链接： ‘<br>输入查找文本： &#x2F;<br>查找： Shift+F3<br>网页搜索： Ctrl+K 或 Ctrl+E<br>窗口和标签<br>关闭标签： Ctrl+W 或 Ctrl+F4<br>关闭窗口： Ctrl+Shift+W 或 Alt+F4<br>向左移动标签： Ctrl+左方向键 或 Ctrl+上方向键<br>向右移动标签： Ctrl+右方向键 或 Ctrl+下方向键<br>移动标签到开头： Ctrl+Home<br>移动标签到结尾： Ctrl+End<br>新建标签页： Ctrl+T<br>新建窗口： Ctrl+N<br>下一个标签页： Ctrl+Tab 或 Ctrl+PageDown<br>在新标签页打开网址： Alt+Enter<br>前一个标签页： Ctrl+Shift+Tab 或 Ctrl+PageUp<br>撤销关闭标签页： Ctrl+Shift+T<br>选择标签页 [1 to 8]： Ctrl+[1 到 8]<br>选择最后标签页： Ctrl+9<br>工具<br>添加所有为书签： Ctrl+Shift+D<br>添加当前为书签： Ctrl+D<br>打开书签： Ctrl+B 或 Ctrl+I<br>插入浏览： F7<br>下载： Ctrl+J<br>历史： Ctrl+H<br>清除私有数据： Ctrl+Shift+Del<br>其他<br>补全 .com 地址： Ctrl+Enter<br>补全 .net 地址： Shift+Enter<br>补全 .org 地址： Ctrl+Shift+Enter<br>删除选定的自匹配输入： Del<br>全屏： F11<br>选择地址条： Alt+D 或 F6 或 Ctrl+L<br>选择或管理搜索引擎： Alt+上方向键 或 Alt+下方向键 或 F4<br>Firefox 鼠标快捷键<br>后退： Shift+Scroll down<br>关闭标签页： 在标签上按鼠标中键<br>减小文字大小： Ctrl+Scroll up<br>前进： Shift+Scroll up<br>增大文字大小： Ctrl+Scroll down<br>新建标签页： 在标签页栏双击鼠标<br>在后台打开标签页： Ctrl+Left-click 或 点击鼠标中键<br>在前台打开标签页： Shift+Ctrl+Left-click 或 Shift+点击鼠标中键<br>在新窗口打开： Shift+Left-click<br>刷新 (覆盖缓存)： Shift+Reload button<br>保存页面为： Alt+Left-click<br>逐行滚动： Alt+Scroll</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/02/06/2011-02-06_Firefox_%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidzWSsjxb40Y8JentCYt_vq" data-title="Firefox 键盘快捷键【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/02/06/2011-02-06_Firefox_%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidiEQnIqdBrUvlo0rKun7L3" data-title="Firefox 键盘快捷键【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -183,14 +183,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="gconf-editor简介【转载】"><a href="#gconf-editor简介【转载】" class="headerlink" title="gconf-editor简介【转载】"></a>gconf-editor简介【转载】</h1><p>来自：</p>
+        <p>来自：</p>
 <p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/rivers/archive/2010/10/19/1855357.html">http://www.cnblogs.com/rivers/archive/2010/10/19/1855357.html</a></p>
 <p><br> <br>gconf-editor是一款类似于注册表的软件，但是远远比改注册表简单，更改里面的配置实际上是修改了硬盘上的文本文档。主要是为了方便对桌面环境及一些软件做一些较多修改──假如一个一个改文本，就太麻烦了。<br><br><br>下面简单介绍几则gconf-editor的使用技巧（比如去掉桌面上的挂载盘符）：<br><br>在终端下打gconf-editor打开“配置编辑器”（中文名），然后开始吧！<br><br>1、去掉桌面上的已挂载盘符和加上“电脑”等图标<br><br>定 位到“&#x2F;apps&#x2F;nautilus&#x2F;desktop”，勾上 “Computer_icon_visible” “Home_icon_visible”“Network_icon_visible”，这样桌面上就有“电脑”“主目录”“网络服务器”三个图标了，再 把“Volumes_visible”的勾去掉，这样桌面上的已挂载的图标就会消失，以后需要再进“电脑”里找就OK了！<br><br>2、去掉“Bug报告”<br><br>有时候在Gnome下难免会碰到应用程式崩溃，这时Bug报告就会出来。假如您觉得比较讨厌，就能够通过gconf-editor去掉他。定位到“&#x2F;apps&#x2F;bug-buddy”，把右侧“run_on_crash”勾掉，就再也不会跑出来烦人了。<br><br>3、让截图有阴影效果<br><br>这 招能让您用Alt+PrintScreen键截图后，让图片有各种效果。定位到 “&#x2F;apps&#x2F;gnome-screenshot”，在右侧，boder_effect的值改一下，默认是none，改成“shadow”就是有阴影效果 了，black-line的话，截图周围就有黑线了。<br><br><br>以上只是抛砖引玉讲三点，gconf-editor这个东西很不错，谁都会改，因为每个键值下都有注释呢。\</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/02/04/2011-02-04_gconf-editor%E7%AE%80%E4%BB%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidstANu_TPF2AxTVFLyL9mz" data-title="gconf-editor简介【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/02/04/2011-02-04_gconf-editor%E7%AE%80%E4%BB%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidvXKQPUNwW_5tD0-kK_GQJ" data-title="gconf-editor简介【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -228,13 +228,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="xx-is-not-in-the-sudoers-file-问题解决【转载】"><a href="#xx-is-not-in-the-sudoers-file-问题解决【转载】" class="headerlink" title="xx is not in the sudoers file 问题解决【转载】"></a>xx is not in the sudoers file 问题解决【转载】</h1><p>原帖地址：<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog/_4ef045ab0100j59t.html/">http://blog.sina.com.cn/s/blog\_4ef045ab0100j59t.html\</a><br><br> <br>我用的是redhat5.4，在一般用户下执行sudo命令提示llhtiger is not in the sudoers file. This incident will be reported.解决方法：<br>一、$whereis sudoers －－－－－－－找出文件所在的位置，默认都是&#x2F;etc&#x2F;sudoers         <br>二、 #chmod u+w &#x2F;etc&#x2F;sudoers    以超级用户登录su -root ，修改文件权限即添加文件拥有这的写权限 限，ls -al &#x2F;etc&#x2F;sudoers 可以查看原文件的权限。    <br>三、vim &#x2F;etc&#x2F;sudoers 编辑文件，在root ALL&#x3D;(ALL)ALL行下添加XXX ALL&#x3D;(ALL)ALL，XXX为你的用户名。添加方法：找到root行，按下”i“键进入编辑模式添加即可！编辑好后esc键进入一般模式，“：wq”保存退出！<br>最后， #chmod u－w &#x2F;etc&#x2F;sudoers 回到文件的原权限！<br><br><br>下面这个稍微详细一点：<br>在ubuntu中由于禁用了root用户，默认情况下会把安装系统时建立的用户添加到sudoers中。但在redhat和centos中并没有把任何root用户之外的用户默认的添加到sudoers之中。这样我们在执行sudo 命令时就会出现xxx is not in the sudoers file. This incident will be reported.这样的错误输出。现在为了安全起见比较提倡使用普通用户做日常操作，而在需要超级用户的时候使用sudo 来做，这样，我们就有必要把一些用户添加到sudoers之中。<br>其实把用户添加到sudoers之中很简单。<br>首先利用whereis 命令查找sudoers配置文件的目录（默认会在&#x2F;etc&#x2F;sudoers)<br>[root@localhost xiaofei]# whereis sudoers<br>sudoers: &#x2F;etc&#x2F;sudoers &#x2F;etc&#x2F;sudoers.bak &#x2F;usr&#x2F;share&#x2F;man&#x2F;man5&#x2F;sudoers.5.gz<br>然后需要切换到root用户，更改&#x2F;etc&#x2F;sudoers的权限<br>[root@localhost xiaofei]# chmod u+w &#x2F;etc&#x2F;sudoers<br>然后就可以利用vi编辑器来把用户添加到sudoers之中<br>[root@localhost xiaofei]# vi &#x2F;etc&#x2F;sudoers<br>然后找到root    ALL&#x3D;(ALL)       ALL所在的位置，把所要添加的用户添加到文件之中，<br>顺便提一下vi编辑器的用法。刚进入vi编辑器的时候牌命令行模式，这时可以通过方向键来移动光标，找到要编辑的位置之后按下“i”，然后就进入了插入模 式，这时候你可以输入或删除字符。编辑完成之后按“esc”键退出插入模式，进入命令行模式，这时候按“：”可以进入末行模式，输入“wq”保存并退出。<br>下面是添加完的结果。\</p>
+        <p>原帖地址：<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog/_4ef045ab0100j59t.html/">http://blog.sina.com.cn/s/blog\_4ef045ab0100j59t.html\</a><br><br> <br>我用的是redhat5.4，在一般用户下执行sudo命令提示llhtiger is not in the sudoers file. This incident will be reported.解决方法：<br>一、$whereis sudoers －－－－－－－找出文件所在的位置，默认都是&#x2F;etc&#x2F;sudoers         <br>二、 #chmod u+w &#x2F;etc&#x2F;sudoers    以超级用户登录su -root ，修改文件权限即添加文件拥有这的写权限 限，ls -al &#x2F;etc&#x2F;sudoers 可以查看原文件的权限。    <br>三、vim &#x2F;etc&#x2F;sudoers 编辑文件，在root ALL&#x3D;(ALL)ALL行下添加XXX ALL&#x3D;(ALL)ALL，XXX为你的用户名。添加方法：找到root行，按下”i“键进入编辑模式添加即可！编辑好后esc键进入一般模式，“：wq”保存退出！<br>最后， #chmod u－w &#x2F;etc&#x2F;sudoers 回到文件的原权限！<br><br><br>下面这个稍微详细一点：<br>在ubuntu中由于禁用了root用户，默认情况下会把安装系统时建立的用户添加到sudoers中。但在redhat和centos中并没有把任何root用户之外的用户默认的添加到sudoers之中。这样我们在执行sudo 命令时就会出现xxx is not in the sudoers file. This incident will be reported.这样的错误输出。现在为了安全起见比较提倡使用普通用户做日常操作，而在需要超级用户的时候使用sudo 来做，这样，我们就有必要把一些用户添加到sudoers之中。<br>其实把用户添加到sudoers之中很简单。<br>首先利用whereis 命令查找sudoers配置文件的目录（默认会在&#x2F;etc&#x2F;sudoers)<br>[root@localhost xiaofei]# whereis sudoers<br>sudoers: &#x2F;etc&#x2F;sudoers &#x2F;etc&#x2F;sudoers.bak &#x2F;usr&#x2F;share&#x2F;man&#x2F;man5&#x2F;sudoers.5.gz<br>然后需要切换到root用户，更改&#x2F;etc&#x2F;sudoers的权限<br>[root@localhost xiaofei]# chmod u+w &#x2F;etc&#x2F;sudoers<br>然后就可以利用vi编辑器来把用户添加到sudoers之中<br>[root@localhost xiaofei]# vi &#x2F;etc&#x2F;sudoers<br>然后找到root    ALL&#x3D;(ALL)       ALL所在的位置，把所要添加的用户添加到文件之中，<br>顺便提一下vi编辑器的用法。刚进入vi编辑器的时候牌命令行模式，这时可以通过方向键来移动光标，找到要编辑的位置之后按下“i”，然后就进入了插入模 式，这时候你可以输入或删除字符。编辑完成之后按“esc”键退出插入模式，进入命令行模式，这时候按“：”可以进入末行模式，输入“wq”保存并退出。<br>下面是添加完的结果。\</p>
 <h2 id="Allow-root-to-run-any-commands-anywhere"><a href="#Allow-root-to-run-any-commands-anywhere" class="headerlink" title="Allow root to run any commands anywhere\"></a>Allow root to run any commands anywhere\</h2><p>root    ALL&#x3D;(ALL)       ALL<br>xiaofei ALL&#x3D;(ALL)       ALL              （这一行是添加的内容，xiaofei是我的用户名）<br>然后需要把sudoers 的写权限去掉（否则系统不允许执行suoders文件）：<br>[root@localhost xiaofei]# chmod u-w &#x2F;etc&#x2F;sudoers<br>至此，在退出root用户之后就可以利用sudo命令来执行超级用户的权限了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/02/04/2011-02-04_xx_is_not_in_the_sudoers_file_%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidQBFp8wJLbmL_jL57bs7P5" data-title="xx is not in the sudoers file 问题解决【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/02/04/2011-02-04_xx_is_not_in_the_sudoers_file_%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidtkk-Qdi2eZ0m_wyWuK9vU" data-title="xx is not in the sudoers file 问题解决【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -272,13 +272,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="ubuntu下txt文件中文显示乱码的方法【转载】"><a href="#ubuntu下txt文件中文显示乱码的方法【转载】" class="headerlink" title="ubuntu下txt文件中文显示乱码的方法【转载】"></a>ubuntu下txt文件中文显示乱码的方法【转载】</h1><p>转载地址：<a target="_blank" rel="noopener" href="http://apps.hi.baidu.com/share/detail/10311333/">http://apps.hi.baidu.com/share/detail/10311333\</a><br><strong>刚装ubuntu后，打开windows下的TXT文件就会发现无法显示中文，出现大量乱码。</strong><br>这时候需要设置一下。<br><br>在终端打：<br>gconf-editor                            &#x2F;&#x2F;调出gconf-edit<br>然后依次点开：<br>apps-&gt;gedit-2-&gt;preferences－＞encodings<br>双击encodings中的auto-detected<br>在弹开的对话框中加入<br>GB18030，GBK，GB2312<br><img src="/images/cc706456a2bbf8253b2935f5_7b475829.jpg"><br>再将GB18030,GB2312移到最上<br><img src="/images/1a261ad19e7f19e5a8ec9af4_9f7bb08b.jpg"><br>接着确定退出就OK了<br>看看效果图<br>解决前<img src="/images/139c1e26813404098644f9f5_d28c1b15.jpg"><br>解决后<br><img src="/images/c4ceb4620afc56e58cb10df4_d99cdec0.jpg"></p>
+        <p>转载地址：<a target="_blank" rel="noopener" href="http://apps.hi.baidu.com/share/detail/10311333/">http://apps.hi.baidu.com/share/detail/10311333\</a><br><strong>刚装ubuntu后，打开windows下的TXT文件就会发现无法显示中文，出现大量乱码。</strong><br>这时候需要设置一下。<br><br>在终端打：<br>gconf-editor                            &#x2F;&#x2F;调出gconf-edit<br>然后依次点开：<br>apps-&gt;gedit-2-&gt;preferences－＞encodings<br>双击encodings中的auto-detected<br>在弹开的对话框中加入<br>GB18030，GBK，GB2312<br><img src="/images/cc706456a2bbf8253b2935f5_7b475829.jpg"><br>再将GB18030,GB2312移到最上<br><img src="/images/1a261ad19e7f19e5a8ec9af4_9f7bb08b.jpg"><br>接着确定退出就OK了<br>看看效果图<br>解决前<img src="/images/139c1e26813404098644f9f5_d28c1b15.jpg"><br>解决后<br><img src="/images/c4ceb4620afc56e58cb10df4_d99cdec0.jpg"></p>
 <p>来自: <a target="_blank" rel="noopener" href="http://hi.baidu.com/little%D5%C1/blog/item/41fec93dc789d2e055e723f2.html">http://hi.baidu.com/little%D5%C1/blog/item/41fec93dc789d2e055e723f2.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/01/14/2011-01-14_ubuntu%E4%B8%8Btxt%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E4%B9%B1%E7%A0%81%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidyDJlvxypCAg5y_86Cscn8" data-title="ubuntu下txt文件中文显示乱码的方法【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/01/14/2011-01-14_ubuntu%E4%B8%8Btxt%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E4%B9%B1%E7%A0%81%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidZiSHf2T96oLEFWnT4zwmE" data-title="ubuntu下txt文件中文显示乱码的方法【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -316,7 +316,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="win7下配置PHP-apache-mysql【转载-补充】"><a href="#win7下配置PHP-apache-mysql【转载-补充】" class="headerlink" title="win7下配置PHP+apache+mysql【转载 + 补充】"></a>win7下配置PHP+apache+mysql【转载 + 补充】</h1><p>本帖参考了如下帖子：</p>
+        <p>本帖参考了如下帖子：</p>
 <p><a target="_blank" rel="noopener" href="http://apachewin7.jiaogen.com/2010/04/21/win7%E4%B8%8Bphp5-3apache2-2%E9%85%8D%E7%BD%AE/">http://apachewin7.jiaogen.com/2010/04/21/win7%E4%B8%8Bphp5-3apache2-2%E9%85%8D%E7%BD%AE/</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.umgr.com/Blog/PostView.aspx?bpId=67938">http://www.umgr.com/Blog/PostView.aspx?bpId=67938</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/good/_hans/archive/2010/04/01/1702059.html">http://www.cnblogs.com/good\_hans/archive/2010/04/01/1702059.html</a></p>
@@ -332,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/01/09/2011-01-09_win7%E4%B8%8B%E9%85%8D%E7%BD%AEPHP+apache+mysql%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%A1%A5%E5%85%85%E3%80%91/" data-id="cuidolcJhcHx4unI3mwHSX87E" data-title="win7下配置PHP+apache+mysql【转载 + 补充】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/01/09/2011-01-09_win7%E4%B8%8B%E9%85%8D%E7%BD%AEPHP+apache+mysql%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%A1%A5%E5%85%85%E3%80%91/" data-id="cuidwJXR3_X-3GOIZY_ZAkb0t" data-title="win7下配置PHP+apache+mysql【转载 + 补充】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -370,7 +370,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Eclipse插件【转载】"><a href="#Eclipse插件【转载】" class="headerlink" title="Eclipse插件【转载】"></a>Eclipse插件【转载】</h1><p>转载地址：</p>
+        <p>转载地址：</p>
 <p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/u2/77630/showart/_1333878.html">http://blog.chinaunix.net/u2/77630/showart\_1333878.html</a></p>
 <p>目前在<a target="_blank" rel="noopener" href="http://www.eclipseplugincentral.com/">http://www.eclipseplugincentral.com/</a>和<a target="_blank" rel="noopener" href="http://eclipse-plugins.2y.net/eclipse/plugins.jsp">http://eclipse-plugins.2y.net/eclipse/plugins.jsp</a>上收录了很多插件。现在做一简单的介绍\</p>
 <p>1.       Web</p>
@@ -401,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/01/05/2011-01-05_Eclipse%E6%8F%92%E4%BB%B6%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidIPIwK0zZZUYEAsLsiWQ-_" data-title="Eclipse插件【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/01/05/2011-01-05_Eclipse%E6%8F%92%E4%BB%B6%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidut3NuOaCDMuEJNNLJMvCX" data-title="Eclipse插件【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -439,7 +439,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Ubuntu10-10-linux-安装jdk1-6及环境变量的设置【转载】"><a href="#Ubuntu10-10-linux-安装jdk1-6及环境变量的设置【转载】" class="headerlink" title="Ubuntu10.10(linux) 安装jdk1.6及环境变量的设置【转载】"></a>Ubuntu10.10(linux) 安装jdk1.6及环境变量的设置【转载】</h1><p>转载地址：<a target="_blank" rel="noopener" href="http://javaangle.blog.163.com/blog/static/1079330652010111374551387/">http://javaangle.blog.163.com/blog/static/1079330652010111374551387/</a></p>
+        <p>转载地址：<a target="_blank" rel="noopener" href="http://javaangle.blog.163.com/blog/static/1079330652010111374551387/">http://javaangle.blog.163.com/blog/static/1079330652010111374551387/</a></p>
 <p>1.测试环境<br>ubuntu10.10&#x2F;jdk1.6u21<br>2.安装过程<br>2.1下载jdk安装文件，这里下载bin格式<br>2.2复制安装文件至&#x2F;home&#x2F;java下<br>2.3使用”chmod 777″或”chomd +x”向文件添加可执行权限</p>
 <p>*<em>sudo chomd +x jdk-6u21-linux-i586.bin*</em></p>
 <p>2.4运行该文件</p>
@@ -449,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/01/05/2011-01-05_Ubuntu10.10(linux)_%E5%AE%89%E8%A3%85jdk1.6%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidA_9KNSHw8Ymk5gJaSuyP4" data-title="Ubuntu10.10(linux) 安装jdk1.6及环境变量的设置【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/01/05/2011-01-05_Ubuntu10.10(linux)_%E5%AE%89%E8%A3%85jdk1.6%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidf-wL3pQUp1E5ZwSgXeQmj" data-title="Ubuntu10.10(linux) 安装jdk1.6及环境变量的设置【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -487,7 +487,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="在Ubuntu-10-10下安装JDK配置Eclipse及Tomcat【转载-订正】"><a href="#在Ubuntu-10-10下安装JDK配置Eclipse及Tomcat【转载-订正】" class="headerlink" title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】"></a>在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】</h1><p>本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。</p>
+        <p>本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。</p>
 <p>51CTO编者按：我们曾经介绍过在《<a target="_blank" rel="noopener" href="http://developer.51cto.com.sixxs.org/art/200907/135215.htm">Ubuntu JDK安装配置详解</a>》，本文将介绍如何配置最新的Ubuntu、JDK以及Tomcat。</p>
 <p>作者注：根据本人在实际操作中所遇到的问题，我在原文章基础之上做了补充说明，请注意。</p>
 <p><strong>1、安装JDK</strong></p>
@@ -624,7 +624,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2011/01/05/2011-01-05_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" data-id="cuidkaST5-NDQSvk1Ps6n6KF-" data-title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2011/01/05/2011-01-05_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" data-id="cuidRNQO4BhhWAuDsMO0cqjdC" data-title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -662,13 +662,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="ubuntu忘记密码，忘记root密码的解决方法！【转载】"><a href="#ubuntu忘记密码，忘记root密码的解决方法！【转载】" class="headerlink" title="ubuntu忘记密码，忘记root密码的解决方法！【转载】"></a>ubuntu忘记密码，忘记root密码的解决方法！【转载】</h1><p>转自：<a target="_blank" rel="noopener" href="http://www.linuxdiyf.com/viewarticle.php?id=179291">http://www.linuxdiyf.com/viewarticle.php?id=179291</a></p>
+        <p>转自：<a target="_blank" rel="noopener" href="http://www.linuxdiyf.com/viewarticle.php?id=179291">http://www.linuxdiyf.com/viewarticle.php?id=179291</a></p>
 <p>ubuntu的root默认是禁止使用的，在安装的时候也没要求你设置root的密码，和红帽系统系列这里是不同的。要使用，给root设置密码就行了，sudo passwd root<br>如果只是普通用户密码忘了，用root就可以修改。如果root都忘记了，就进入单用户模式，这里跟红帽系统系列也不同。<br>进入单用户模式:1,开机到grub时，用上下键移到第二行的恢复模式，按e（注意不是回车） 2，把ro single 改成rw single init&#x3D;&#x2F;bin&#x2F;bash 然后按ctrl+x 就可以进入 单用户模式，进去干什么都行了。可以改普通用户密码，也可以改root密码。按ctrl+alt+delete 重启（我试过用命令关机，重启都不行，只能用这个）。<br>这些我都是试过的，也是成功的，你试试吧！我看过一些网上的一些方法，也试过，是不行的！一些是用红帽系统系列的方法，一些是某个步骤不对！<br>如果不行，你可以找我，我的QQ 284198471（校长Ubuntu），希望能帮到你！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/12/05/2010-12-05_ubuntu%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%EF%BC%8C%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%81%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidbN83NZ-iq3UvjwsQLxeYo" data-title="ubuntu忘记密码，忘记root密码的解决方法！【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/12/05/2010-12-05_ubuntu%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%EF%BC%8C%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%81%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidyfZZBLw6zn2kBzEfiryuL" data-title="ubuntu忘记密码，忘记root密码的解决方法！【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

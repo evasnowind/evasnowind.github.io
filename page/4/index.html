@@ -97,7 +97,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="spring中使用mybatis-mybatis-plus连接sqlserver"><a href="#spring中使用mybatis-mybatis-plus连接sqlserver" class="headerlink" title="spring中使用mybatis&#x2F;mybatis plus连接sqlserver"></a>spring中使用mybatis&#x2F;mybatis plus连接sqlserver</h1><p>本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。</p>
+        <p>本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。</p>
 <h1 id="框架选择"><a href="#框架选择" class="headerlink" title="框架选择"></a>框架选择</h1><p>应用框架：spring boot<br>ORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）<br>数据库连接池：druid</p>
 <h1 id="pom依赖"><a href="#pom依赖" class="headerlink" title="pom依赖"></a>pom依赖</h1><p>此处仅给出我的配置，mybatis&#x2F;druid请依据自己项目的需要进行选择。<br>方便起见我用的是mybatis plus</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mybatis plus --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-generator-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.7&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- druid 连接池 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;druid&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.1.12&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--for SqlServer--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.microsoft.sqlserver&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;sqljdbc4&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -136,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/03/03/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" data-id="cuidgIasiG14PzChxZog_aqiw" data-title="spring中使用mybatis/mybatis plus连接sqlserver" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/03/03/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" data-id="cuid7e0L3n8f2g8Zn5dkltTr7" data-title="spring中使用mybatis/mybatis plus连接sqlserver" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -174,7 +174,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mysql中判断字段是否包含数字或者是否为纯数字"><a href="#mysql中判断字段是否包含数字或者是否为纯数字" class="headerlink" title="mysql中判断字段是否包含数字或者是否为纯数字"></a>mysql中判断字段是否包含数字或者是否为纯数字</h1><ul>
+        <ul>
 <li><a href="file:///D:/GitRepository/JavaKnowledgeTree/SQL/mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97.md#%E5%90%84%E7%A7%8D%E5%9C%BA%E6%99%AF">各种场景</a><ul>
 <li><a href="file:///D:/GitRepository/JavaKnowledgeTree/SQL/mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97.md#%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97">判断字段是否包含数字</a></li>
 <li><a href="file:///D:/GitRepository/JavaKnowledgeTree/SQL/mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97.md#%E4%BD%BF%E7%94%A8like%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E6%95%B0%E5%AD%97">使用like模糊查询包含某个数字</a></li>
@@ -208,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/26/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/" data-id="cuidhQShQc6e9zKQXOyxQyqvw" data-title="mysql中判断字段是否包含数字或者是否为纯数字" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/26/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/" data-id="cuidJDaFW3myvPjz1HWSxcSJ_" data-title="mysql中判断字段是否包含数字或者是否为纯数字" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -246,7 +246,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mybatis常用写法-mapper-xml传入多个参数"><a href="#mybatis常用写法-mapper-xml传入多个参数" class="headerlink" title="mybatis常用写法-mapper xml传入多个参数"></a>mybatis常用写法-mapper xml传入多个参数</h1><p>mapper xml文件中：</p>
+        <p>mapper xml文件中：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=&quot;XxxResultMap&quot; type=&quot;com.xxx.xxxx&quot;&gt;</span><br><span class="line">    &lt;id column=&quot;id&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/resultMap&gt;</span><br><span class="line"></span><br><span class="line">&lt;select id=&quot;selectXXXX&quot; resultMap=&quot;XxxResultMap&quot;&gt;</span><br><span class="line">    SELECT id, title, type, release_id , ...</span><br><span class="line">    FROM test</span><br><span class="line">    WHERE release_id = $&#123;id&#125; and type = $&#123;type&#125;</span><br><span class="line">&lt;/select&gt;  </span><br></pre></td></tr></table></figure>
 
 <p>mapper接口中：</p>
@@ -259,7 +259,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/25/2020-02-25_mybatis%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-mapper_xml%E4%BC%A0%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0/" data-id="cuidSQlUjA1Lf-sXD_GsAwP3W" data-title="mybatis常用写法-mapper xml传入多个参数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/25/2020-02-25_mybatis%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-mapper_xml%E4%BC%A0%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0/" data-id="cuid9vFIbNVMFMUdUKvGs5WnV" data-title="mybatis常用写法-mapper xml传入多个参数" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -297,7 +297,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="linux批量删除多个文件，正则匹配删除文件"><a href="#linux批量删除多个文件，正则匹配删除文件" class="headerlink" title="linux批量删除多个文件，正则匹配删除文件"></a>linux批量删除多个文件，正则匹配删除文件</h1><h1 id="一般的删除文件的操作"><a href="#一般的删除文件的操作" class="headerlink" title="一般的删除文件的操作"></a>一般的删除文件的操作</h1><ul>
+        <h1 id="一般的删除文件的操作"><a href="#一般的删除文件的操作" class="headerlink" title="一般的删除文件的操作"></a>一般的删除文件的操作</h1><ul>
 <li>删除几个文件 <code>rm 文件1 文件2</code></li>
 <li>删除某些固定字母开头的文件 rm xxx*</li>
 <li>删除文件夹下面所有文件 rm * -rf</li>
@@ -323,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/18/2020-02-18_linux%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%EF%BC%8C%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6/" data-id="cuidS5fTJQjU0WcIjsFHZYr2M" data-title="linux批量删除多个文件，正则匹配删除文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/18/2020-02-18_linux%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%EF%BC%8C%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6/" data-id="cuidg4a5q9NJ-qcW8zXJDHSQj" data-title="linux批量删除多个文件，正则匹配删除文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -361,7 +361,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mysql中使用replace-regexp实现正则替换"><a href="#mysql中使用replace-regexp实现正则替换" class="headerlink" title="mysql中使用replace regexp实现正则替换"></a>mysql中使用replace regexp实现正则替换</h1><p>mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from_str,to_str)</p>
+        <p>mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from_str,to_str)</p>
 <p>例如<br><code>UPDATE myTable SET HTML=REPLACE(HTML,&#39;&lt;br&gt;&#39;,&#39;&#39;) WHERE HTML REGEXP &#39;(&lt;br */*&gt;\s*){2,}&#39;</code></p>
 <p>更多例子如下：</p>
 <p>为了找出以“d”开头的名字，使用“^”匹配名字的开始：</p>
@@ -379,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/18/2020-02-18_mysql%E4%B8%AD%E4%BD%BF%E7%94%A8replace_regexp%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%88%99%E6%9B%BF%E6%8D%A2/" data-id="cuidnSGZgC3HIeYWtTMT_wqKm" data-title="mysql中使用replace regexp实现正则替换" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/18/2020-02-18_mysql%E4%B8%AD%E4%BD%BF%E7%94%A8replace_regexp%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%88%99%E6%9B%BF%E6%8D%A2/" data-id="cuidrvkQLb3v0ZuNzKFyERWBn" data-title="mysql中使用replace regexp实现正则替换" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -417,7 +417,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="spring框架中获取客户端的真实ip"><a href="#spring框架中获取客户端的真实ip" class="headerlink" title="spring框架中获取客户端的真实ip"></a>spring框架中获取客户端的真实ip</h1><p>题外话，前端也可以调用已有的接口获取ip，例如调用搜狐接口 <a target="_blank" rel="noopener" href="https://pv.sohu.com/cityjson?ie=utf-8">https://pv.sohu.com/cityjson?ie=utf-8</a></p>
+        <p>题外话，前端也可以调用已有的接口获取ip，例如调用搜狐接口 <a target="_blank" rel="noopener" href="https://pv.sohu.com/cityjson?ie=utf-8">https://pv.sohu.com/cityjson?ie=utf-8</a></p>
 <p>在spring框架中，获取IP接口，则需要获取 HttpServletRequest 对象，该对象中包含了客户端请求的相关信息。</p>
 <p>java代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/** </span><br><span class="line"> * @Description: 获取客户端IP地址   </span><br><span class="line"> */  </span><br><span class="line">private String getIpAddr(HttpServletRequest request) &#123;   </span><br><span class="line">    String ip = request.getHeader(&quot;x-forwarded-for&quot;);   </span><br><span class="line">    if(ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) &#123;   </span><br><span class="line">        ip = request.getHeader(&quot;Proxy-Client-IP&quot;);   </span><br><span class="line">    &#125;   </span><br><span class="line">    if(ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) &#123;   </span><br><span class="line">        ip = request.getHeader(&quot;WL-Proxy-Client-IP&quot;);   </span><br><span class="line">    &#125;   </span><br><span class="line">    if(ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) &#123;   </span><br><span class="line">        ip = request.getRemoteAddr();   </span><br><span class="line">        if(ip.equals(&quot;127.0.0.1&quot;))&#123;     </span><br><span class="line">            //根据网卡取本机配置的IP     </span><br><span class="line">            InetAddress inet=null;     </span><br><span class="line">            try &#123;     </span><br><span class="line">                inet = InetAddress.getLocalHost();     </span><br><span class="line">            &#125; catch (Exception e) &#123;     </span><br><span class="line">                e.printStackTrace();     </span><br><span class="line">            &#125;     </span><br><span class="line">            ip= inet.getHostAddress();     </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;   </span><br><span class="line">    // 多个代理的情况，第一个IP为客户端真实IP,多个IP按照&#x27;,&#x27;分割  </span><br><span class="line">    if(ip != null &amp;&amp; ip.length() &gt; 15)&#123;    </span><br><span class="line">        if(ip.indexOf(&quot;,&quot;)&gt;0)&#123;     </span><br><span class="line">            ip = ip.substring(0,ip.indexOf(&quot;,&quot;));     </span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;     </span><br><span class="line">    return ip;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -434,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/18/2020-02-18_spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E7%9C%9F%E5%AE%9Eip/" data-id="cuidmfSBmRNQMTSokLknFgVFD" data-title="spring框架中获取客户端的真实ip" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/18/2020-02-18_spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E7%9C%9F%E5%AE%9Eip/" data-id="cuidZqdreuGX9BFKlnCuRMtFD" data-title="spring框架中获取客户端的真实ip" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -472,7 +472,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Mybatis-Plus-select不列出全部字段，只查询部分字段"><a href="#Mybatis-Plus-select不列出全部字段，只查询部分字段" class="headerlink" title="Mybatis-Plus select不列出全部字段，只查询部分字段"></a>Mybatis-Plus select不列出全部字段，只查询部分字段</h1><p>mybatis-plus select查询语句默认是查全部字段，有两种方法可以指定要查询的字段</p>
+        <p>mybatis-plus select查询语句默认是查全部字段，有两种方法可以指定要查询的字段</p>
 <p>假定表结构如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `user` (</span><br><span class="line">  `id` bigint(20) NOT NULL COMMENT &#x27;主键&#x27;,</span><br><span class="line">  `name` varchar(30) DEFAULT NULL COMMENT &#x27;姓名&#x27;,</span><br><span class="line">  `age` int(11) DEFAULT NULL COMMENT &#x27;年龄&#x27;,</span><br><span class="line">  `email` varchar(50) DEFAULT NULL COMMENT &#x27;邮箱&#x27;,</span><br><span class="line">  `manager_id` bigint(20) DEFAULT NULL COMMENT &#x27;直属上级id&#x27;,</span><br><span class="line">  `create_time` datetime DEFAULT NULL COMMENT &#x27;创建时间&#x27;</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
 
@@ -488,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/01/2020-02-01_Mybatis-Plus_select%E4%B8%8D%E5%88%97%E5%87%BA%E5%85%A8%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%8C%E5%8F%AA%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5/" data-id="cuidqq8W_SqVrVQbSOFpTrJS9" data-title="Mybatis-Plus select不列出全部字段，只查询部分字段" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/01/2020-02-01_Mybatis-Plus_select%E4%B8%8D%E5%88%97%E5%87%BA%E5%85%A8%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%8C%E5%8F%AA%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5/" data-id="cuidDv06z-sOkce7jlYEilDKl" data-title="Mybatis-Plus select不列出全部字段，只查询部分字段" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -526,7 +526,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mybatis-plus常见用法-不用xml实现自定义查询"><a href="#mybatis-plus常见用法-不用xml实现自定义查询" class="headerlink" title="mybatis_plus常见用法-不用xml实现自定义查询"></a>mybatis_plus常见用法-不用xml实现自定义查询</h1><p>找到两种方法：<br>1、采用mybatis注解的方式<br>参见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31058701/article/details/102834031">MyBatis Plus 自定义查询语句</a><br>DAO层：</p>
+        <p>找到两种方法：<br>1、采用mybatis注解的方式<br>参见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31058701/article/details/102834031">MyBatis Plus 自定义查询语句</a><br>DAO层：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Select(&quot;select b.bomName, &quot; +</span><br><span class="line">		&quot;b.bomProductType, b.bomMaterial, &quot; +</span><br><span class="line">		&quot;o.customerID AS bomID, &quot; +</span><br><span class="line">		&quot;o.ordersDataNo AS qrCode, &quot; +</span><br><span class="line">		&quot;s.deliveryDate AS barCode, &quot; +</span><br><span class="line">		&quot;s.mainType AS workshop &quot; +</span><br><span class="line">		&quot;FROM mes_order_bom b &quot; +</span><br><span class="line">		&quot;LEFT JOIN mes_order_ordersdata o ON b.ordersID = o.id &quot; +</span><br><span class="line">		&quot;LEFT JOIN mes_order_soncontract s ON o.sonContractID = s.id &quot; +</span><br><span class="line">		&quot;WHERE o.ordersDataNo IN (#&#123;orderNoList&#125;)&quot;)</span><br><span class="line">List&lt;MesOrderBom&gt; getBomAndOrderCodeNumber(@Param(&quot;orderNoList&quot;)List&lt;String&gt; orderNoList);</span><br></pre></td></tr></table></figure>
 
 <p>Service层：</p>
@@ -544,7 +544,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/01/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/" data-id="cuidi9MeXk1Rs857VS0EiJpam" data-title="mybatis_plus常见用法-不用xml实现自定义查询" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/01/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/" data-id="cuidOGkHWGReZxmdaLkoa0SFi" data-title="mybatis_plus常见用法-不用xml实现自定义查询" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -582,7 +582,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Java中日期格式化yyyyMMdd和YYYYMMdd的区别"><a href="#Java中日期格式化yyyyMMdd和YYYYMMdd的区别" class="headerlink" title="Java中日期格式化yyyyMMdd和YYYYMMdd的区别"></a>Java中日期格式化yyyyMMdd和YYYYMMdd的区别</h1><h1 id="Java中日期格式化yyyyMMdd和YYYYMMdd的区别-1"><a href="#Java中日期格式化yyyyMMdd和YYYYMMdd的区别-1" class="headerlink" title="Java中日期格式化yyyyMMdd和YYYYMMdd的区别"></a>Java中日期格式化yyyyMMdd和YYYYMMdd的区别</h1><p>示例代码：</p>
+        <p>示例代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">       //YYYY 是表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。</span><br><span class="line">       //2019-12-29至2020-1-4跨年周</span><br><span class="line">       Calendar calendar = Calendar.getInstance();</span><br><span class="line">       //2019-12-28</span><br><span class="line">       calendar.set(2019, Calendar.DECEMBER, 28);  </span><br><span class="line">       Date strDate1 = calendar.getTime(); </span><br><span class="line">       //2019-12-29</span><br><span class="line">       calendar.set(2019, Calendar.DECEMBER, 29);  </span><br><span class="line">       Date strDate2 = calendar.getTime(); </span><br><span class="line">       // 2019-12-31  </span><br><span class="line">       calendar.set(2019, Calendar.DECEMBER, 31);  </span><br><span class="line">       Date strDate3 = calendar.getTime();  </span><br><span class="line">       // 2020-01-01  </span><br><span class="line">       calendar.set(2020, Calendar.JANUARY, 1);  </span><br><span class="line">       Date strDate4 = calendar.getTime();  </span><br><span class="line">       </span><br><span class="line">       DateFormat df1 = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</span><br><span class="line">       DateFormat df2 = new SimpleDateFormat(&quot;YYYYMMdd&quot;);</span><br><span class="line">       //yyyyMMdd</span><br><span class="line">       System.out.println(&quot;yyyyMMdd&quot;);</span><br><span class="line">       System.out.println(&quot;2019-12-28: &quot; + df1.format(strDate1)); </span><br><span class="line">       System.out.println(&quot;2019-12-29: &quot; + df1.format(strDate2)); </span><br><span class="line">       System.out.println(&quot;2019-12-31: &quot; + df1.format(strDate3));  </span><br><span class="line">       System.out.println(&quot;2020-01-01: &quot; + df1.format(strDate4));  </span><br><span class="line">       //YYYYMMdd</span><br><span class="line">       System.out.println(&quot;YYYYMMdd&quot;);</span><br><span class="line">       System.out.println(&quot;2019-12-28: &quot; + df2.format(strDate1));</span><br><span class="line">       System.out.println(&quot;2019-12-29: &quot; + df2.format(strDate2));</span><br><span class="line">       System.out.println(&quot;2019-12-31: &quot; + df2.format(strDate3));  </span><br><span class="line">       System.out.println(&quot;2020-01-01: &quot; + df2.format(strDate4));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出结果：</p>
@@ -594,7 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/01/16/2020-01-16_Java%E4%B8%AD%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96yyyyMMdd%E5%92%8CYYYYMMdd%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="cuidftUdnQIsmpEPsIFbgx51x" data-title="Java中日期格式化yyyyMMdd和YYYYMMdd的区别" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/01/16/2020-01-16_Java%E4%B8%AD%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96yyyyMMdd%E5%92%8CYYYYMMdd%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="cuidcOzbisK8LcxNXFh4PIyYn" data-title="Java中日期格式化yyyyMMdd和YYYYMMdd的区别" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -632,7 +632,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mysql-常用函数整理-获取多个字段最大值最小值"><a href="#mysql-常用函数整理-获取多个字段最大值最小值" class="headerlink" title="mysql 常用函数整理-获取多个字段最大值最小值"></a>mysql 常用函数整理-获取多个字段最大值最小值</h1><p>内容转自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yangshijin1988/article/details/51698061/">https://blog.csdn.net/yangshijin1988/article/details/51698061/</a></p>
+        <p>内容转自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yangshijin1988/article/details/51698061/">https://blog.csdn.net/yangshijin1988/article/details/51698061/</a></p>
 <p>greatest(字段1，字段2，字段3，..，字段n)  取最大值</p>
 <p>least(字段1，字段2，字段3，…，字段n)   取最小值</p>
 <p>示例：</p>
@@ -642,7 +642,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/01/11/2020-01-11_mysql_%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86-%E8%8E%B7%E5%8F%96%E5%A4%9A%E4%B8%AA%E5%AD%97%E6%AE%B5%E6%9C%80%E5%A4%A7%E5%80%BC%E6%9C%80%E5%B0%8F%E5%80%BC/" data-id="cuidh8L6cOlLTZnamAMBEXYoy" data-title="mysql 常用函数整理-获取多个字段最大值最小值" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/01/11/2020-01-11_mysql_%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86-%E8%8E%B7%E5%8F%96%E5%A4%9A%E4%B8%AA%E5%AD%97%E6%AE%B5%E6%9C%80%E5%A4%A7%E5%80%BC%E6%9C%80%E5%B0%8F%E5%80%BC/" data-id="cuidWAANHPg6eoH9QgXCKcf8u" data-title="mysql 常用函数整理-获取多个字段最大值最小值" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

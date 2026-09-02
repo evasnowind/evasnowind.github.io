@@ -6,19 +6,19 @@
   
   <title>源码分析之Netty线程模型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="源码分析之Netty线程模型不得不说的Reactor模式提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的Scalable IO in Java所提出的Multiple Reactors模式，参见下图  如果想知道为何出现Reactor模式，需要将IO发展过程，都说一下可能才会比较清晰，此处就不一一展开，有兴趣的童">
+  <meta name="description" content="不得不说的Reactor模式提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的Scalable IO in Java所提出的Multiple Reactors模式，参见下图  如果想知道为何出现Reactor模式，需要将IO发展过程，都说一下可能才会比较清晰，此处就不一一展开，有兴趣的童鞋可以参考这篇帖子：Reac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="源码分析之Netty线程模型">
 <meta property="og:url" content="https://evasnowind.github.io/2020/09/09/2020-09-09_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BNetty%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="源码分析之Netty线程模型不得不说的Reactor模式提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的Scalable IO in Java所提出的Multiple Reactors模式，参见下图  如果想知道为何出现Reactor模式，需要将IO发展过程，都说一下可能才会比较清晰，此处就不一一展开，有兴趣的童">
+<meta property="og:description" content="不得不说的Reactor模式提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的Scalable IO in Java所提出的Multiple Reactors模式，参见下图  如果想知道为何出现Reactor模式，需要将IO发展过程，都说一下可能才会比较清晰，此处就不一一展开，有兴趣的童鞋可以参考这篇帖子：Reac">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://evasnowind.github.io/images/multiple-reactors-pattern-300x234_37432a92.jpg">
 <meta property="og:image" content="https://evasnowind.github.io/images/reactor-class-diagram-300x194_f846bdac.jpg">
 <meta property="og:image" content="https://evasnowind.github.io/images/reactor-sequence-diagram-300x174_505192ef.jpg">
 <meta property="og:image" content="https://evasnowind.github.io/images/netty-io-thread-model-300x149_741ed623.png">
 <meta property="article:published_time" content="2020-09-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.483Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://evasnowind.github.io/images/multiple-reactors-pattern-300x234_37432a92.jpg">
@@ -104,7 +104,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="源码分析之Netty线程模型"><a href="#源码分析之Netty线程模型" class="headerlink" title="源码分析之Netty线程模型"></a>源码分析之Netty线程模型</h1><h2 id="不得不说的Reactor模式"><a href="#不得不说的Reactor模式" class="headerlink" title="不得不说的Reactor模式"></a>不得不说的Reactor模式</h2><p>提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的<code>Scalable IO in Java</code>所提出的<code>Multiple Reactors</code>模式，参见下图</p>
+        <h2 id="不得不说的Reactor模式"><a href="#不得不说的Reactor模式" class="headerlink" title="不得不说的Reactor模式"></a>不得不说的Reactor模式</h2><p>提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的<code>Scalable IO in Java</code>所提出的<code>Multiple Reactors</code>模式，参见下图</p>
 <p><img src="/images/multiple-reactors-pattern-300x234_37432a92.jpg"></p>
 <p>如果想知道为何出现Reactor模式，需要将IO发展过程，都说一下可能才会比较清晰，此处就不一一展开，有兴趣的童鞋可以参考这篇帖子：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/crazymakercircle/p/9833847.html">Reactor模式</a></p>
 <p>那么，<strong>什么是Reactor模式呢？</strong></p>
@@ -175,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/09/2020-09-09_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BNetty%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" data-id="cuidgfqRsd_ZBWICjoA0h3A2q" data-title="源码分析之Netty线程模型" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/09/2020-09-09_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BNetty%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" data-id="cuid1yA5hYQZeovx6shTX3R4V" data-title="源码分析之Netty线程模型" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

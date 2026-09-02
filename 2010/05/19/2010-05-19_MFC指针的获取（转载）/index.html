@@ -6,15 +6,15 @@
   
   <title>MFC指针的获取（转载） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="MFC指针的获取（转载）源地址：http:&#x2F;&#x2F;blog.csdn.net&#x2F;yincheng01&#x2F;archive&#x2F;2009&#x2F;01&#x2F;06&#x2F;3718954.aspx 1、获取应用程序指针CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();2、获取主框架指针CWinApp 中的公有成员变量 m_pMainWnd 就是主框架的指针CMainFrame* pMainFrame &amp;#x">
+  <meta name="description" content="源地址：http:&#x2F;&#x2F;blog.csdn.net&#x2F;yincheng01&#x2F;archive&#x2F;2009&#x2F;01&#x2F;06&#x2F;3718954.aspx 1、获取应用程序指针CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();2、获取主框架指针CWinApp 中的公有成员变量 m_pMainWnd 就是主框架的指针CMainFrame* pMainFrame &#x3D; (CMainFr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MFC指针的获取（转载）">
 <meta property="og:url" content="https://evasnowind.github.io/2010/05/19/2010-05-19_MFC%E6%8C%87%E9%92%88%E7%9A%84%E8%8E%B7%E5%8F%96%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="MFC指针的获取（转载）源地址：http:&#x2F;&#x2F;blog.csdn.net&#x2F;yincheng01&#x2F;archive&#x2F;2009&#x2F;01&#x2F;06&#x2F;3718954.aspx 1、获取应用程序指针CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();2、获取主框架指针CWinApp 中的公有成员变量 m_pMainWnd 就是主框架的指针CMainFrame* pMainFrame &amp;#x">
+<meta property="og:description" content="源地址：http:&#x2F;&#x2F;blog.csdn.net&#x2F;yincheng01&#x2F;archive&#x2F;2009&#x2F;01&#x2F;06&#x2F;3718954.aspx 1、获取应用程序指针CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();2、获取主框架指针CWinApp 中的公有成员变量 m_pMainWnd 就是主框架的指针CMainFrame* pMainFrame &#x3D; (CMainFr">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2010-05-19T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.473Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.962Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="MFC指针的获取（转载）"><a href="#MFC指针的获取（转载）" class="headerlink" title="MFC指针的获取（转载）"></a>MFC指针的获取（转载）</h1><p>源地址：<a target="_blank" rel="noopener" href="http://blog.csdn.net/yincheng01/archive/2009/01/06/3718954.aspx">http://blog.csdn.net/yincheng01/archive/2009/01/06/3718954.aspx</a></p>
+        <p>源地址：<a target="_blank" rel="noopener" href="http://blog.csdn.net/yincheng01/archive/2009/01/06/3718954.aspx">http://blog.csdn.net/yincheng01/archive/2009/01/06/3718954.aspx</a></p>
 <p>1、获取应用程序指针<br>CMyApp* pApp&#x3D;(CMyApp*)AfxGetApp();<br>2、获取主框架指针<br>CWinApp 中的公有成员变量 m_pMainWnd 就是主框架的指针<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)(AfxGetApp()-&gt;m_pMainWnd);<br>或者<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br>３、获取菜单指针<br>CMenu* pMenu &#x3D; AfxGetMainWnd()-&gt;GetMenu();<br>４、获取工具栏、状态栏指针<br>主框架中可以直接使用m_wndToolBar、m_wndStatusBar<br>其他：<br>CToolBar* pToolBar &#x3D; (CToolBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_TOOLBAR);<br>CStatusBar* pStatusBar &#x3D; (CStatusBar*)AfxGetMainWnd()-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>5、获取控件指针<br>先用 GetDlgItem() 再转换，如：<br>CButton* pButton &#x3D; (CButton*)GetDlgItem(IDC_MYBUTTON);<br>6、获取文档、视图指针</p>
 <blockquote>
 <p>SDI:<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br>CYourDoc* pDoc &#x3D; (CYourDoc*)pMainFrame-&gt;GetActiveDocument();<br>CYourView* pView &#x3D; (CYourView*)pMainFrame-&gt;GetActiveView();<br>MDI:<br>CMainFrame* pMainFrame &#x3D; (CMainFrame*)AfxGetMainWnd();<br>CChildFrame* pChildFrame &#x3D; (CChildFrame*)pMainFrame-&gt;GetActiveFrame();<br>CYourDoc* pDoc &#x3D; (CYourDoc*)pChildFrame-&gt;GetActiveDocument();<br>CYourView* pView &#x3D; (CYourView*)pChildFrame-&gt;GetActiveView();</p>
@@ -156,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2010/05/19/2010-05-19_MFC%E6%8C%87%E9%92%88%E7%9A%84%E8%8E%B7%E5%8F%96%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuidm1SMsULjD9WzkTdY4xji3" data-title="MFC指针的获取（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2010/05/19/2010-05-19_MFC%E6%8C%87%E9%92%88%E7%9A%84%E8%8E%B7%E5%8F%96%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" data-id="cuids4rwFvasYR33rcrotbySD" data-title="MFC指针的获取（转载）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

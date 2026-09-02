@@ -6,15 +6,15 @@
   
   <title>ubuntu 10.10如何开机直接进入命令行界面【转载】 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="ubuntu 10.10如何开机直接进入命令行界面【转载】转载地址：http:&#x2F;&#x2F;www.ylmf.net&#x2F;ubuntu&#x2F;tips&#x2F;2010122818544.html\注：此种方法我亲自测试，可行Ubuntu 10.10启动进入命令行模式1: 运行 sudo gedit &#x2F;etc&#x2F;default&#x2F;grub2: 找到 GRUB_CMDLINE_LINUX_DEFAUL">
+  <meta name="description" content="转载地址：http:&#x2F;&#x2F;www.ylmf.net&#x2F;ubuntu&#x2F;tips&#x2F;2010122818544.html\注：此种方法我亲自测试，可行Ubuntu 10.10启动进入命令行模式1: 运行 sudo gedit &#x2F;etc&#x2F;default&#x2F;grub2: 找到 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash”3: 改为 GR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu 10.10如何开机直接进入命令行界面【转载】">
 <meta property="og:url" content="https://evasnowind.github.io/2015/12/09/2015-12-09_ubuntu_10.10%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ubuntu 10.10如何开机直接进入命令行界面【转载】转载地址：http:&#x2F;&#x2F;www.ylmf.net&#x2F;ubuntu&#x2F;tips&#x2F;2010122818544.html\注：此种方法我亲自测试，可行Ubuntu 10.10启动进入命令行模式1: 运行 sudo gedit &#x2F;etc&#x2F;default&#x2F;grub2: 找到 GRUB_CMDLINE_LINUX_DEFAUL">
+<meta property="og:description" content="转载地址：http:&#x2F;&#x2F;www.ylmf.net&#x2F;ubuntu&#x2F;tips&#x2F;2010122818544.html\注：此种方法我亲自测试，可行Ubuntu 10.10启动进入命令行模式1: 运行 sudo gedit &#x2F;etc&#x2F;default&#x2F;grub2: 找到 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash”3: 改为 GR">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2015-12-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.477Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.965Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="ubuntu-10-10如何开机直接进入命令行界面【转载】"><a href="#ubuntu-10-10如何开机直接进入命令行界面【转载】" class="headerlink" title="ubuntu 10.10如何开机直接进入命令行界面【转载】"></a>ubuntu 10.10如何开机直接进入命令行界面【转载】</h1><p>转载地址：<br><a target="_blank" rel="noopener" href="http://www.ylmf.net/ubuntu/tips/2010122818544.html/">http://www.ylmf.net/ubuntu/tips/2010122818544.html\</a><br>注：此种方法我亲自测试，可行<br>Ubuntu 10.10启动进入命令行模式<br>1: 运行 sudo gedit &#x2F;etc&#x2F;default&#x2F;grub<br>2: 找到 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash”<br>3: 改为 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash text”<br>4: 运行 sudo update-grub<br>重启 over<br>根本不需要任何对GDM的操作<br>另外 中文locale下在命令行界面显示中文可以非常简单的安装zhcon即可 还自带命令行下的中文输入法<br>sudo aptitude install zhcon<br>zhcon –utf8<br>主意 一定要以 –utf8参数启动，zhcon默认是gb2312编码<br>如果控制台下没有输入中文的需要 ，那么可以使用jfbterm ，显示速度更快，也漂亮一点<br>sudo aptitude install jfbterm<br>jfbterm -q -c other,UTF-8,iconv,UTF-8<br>由于参数较长 可以写入文件并加上执行权限来运行<br>另外 ，为了开启framebuffer ，以提升zhcon或者jfbterm的性能，还需要修改 &#x2F;etc&#x2F;default&#x2F;grub 文件， 将GRUB_GFXMODE前面的注释(#号)去掉，后面的根据你的机器修改为 800×600或者1024×768，注意不要修改为宽屏分辨率，除非你用vbeinfo这个命令测试出显卡支持宽屏分辨率下的framebuffer<br>例如<br>GRUB_GFXMODE&#x3D;800x600x16<br>注：下面给出网上搜到的其他方法，仅供参考，我没有试验<br>转载地址：<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/man8848/article/details/4127302/">http://blog.csdn.net/man8848/article/details/4127302\</a><br>Linux默认启动后进入XWindow，但可以修改参数直接进入命令行界面。到底是进入XWindow还是进入命令行界面，是在系统初始化进行的。<br>对于大部分linux系统，初始化使用init进程， &#x2F;etc&#x2F;inittab 为其配置文件。例如\</p>
+        <p>转载地址：<br><a target="_blank" rel="noopener" href="http://www.ylmf.net/ubuntu/tips/2010122818544.html/">http://www.ylmf.net/ubuntu/tips/2010122818544.html\</a><br>注：此种方法我亲自测试，可行<br>Ubuntu 10.10启动进入命令行模式<br>1: 运行 sudo gedit &#x2F;etc&#x2F;default&#x2F;grub<br>2: 找到 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash”<br>3: 改为 GRUB_CMDLINE_LINUX_DEFAULT&#x3D;”quiet splash text”<br>4: 运行 sudo update-grub<br>重启 over<br>根本不需要任何对GDM的操作<br>另外 中文locale下在命令行界面显示中文可以非常简单的安装zhcon即可 还自带命令行下的中文输入法<br>sudo aptitude install zhcon<br>zhcon –utf8<br>主意 一定要以 –utf8参数启动，zhcon默认是gb2312编码<br>如果控制台下没有输入中文的需要 ，那么可以使用jfbterm ，显示速度更快，也漂亮一点<br>sudo aptitude install jfbterm<br>jfbterm -q -c other,UTF-8,iconv,UTF-8<br>由于参数较长 可以写入文件并加上执行权限来运行<br>另外 ，为了开启framebuffer ，以提升zhcon或者jfbterm的性能，还需要修改 &#x2F;etc&#x2F;default&#x2F;grub 文件， 将GRUB_GFXMODE前面的注释(#号)去掉，后面的根据你的机器修改为 800×600或者1024×768，注意不要修改为宽屏分辨率，除非你用vbeinfo这个命令测试出显卡支持宽屏分辨率下的framebuffer<br>例如<br>GRUB_GFXMODE&#x3D;800x600x16<br>注：下面给出网上搜到的其他方法，仅供参考，我没有试验<br>转载地址：<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/man8848/article/details/4127302/">http://blog.csdn.net/man8848/article/details/4127302\</a><br>Linux默认启动后进入XWindow，但可以修改参数直接进入命令行界面。到底是进入XWindow还是进入命令行界面，是在系统初始化进行的。<br>对于大部分linux系统，初始化使用init进程， &#x2F;etc&#x2F;inittab 为其配置文件。例如\</p>
 <h1 id="The-default-runlevel"><a href="#The-default-runlevel" class="headerlink" title="The default runlevel\"></a>The default runlevel\</h1><p>id:2:initdefault\</p>
 <h1 id="Boot-time-system-configuration-initialization-script"><a href="#Boot-time-system-configuration-initialization-script" class="headerlink" title="Boot-time system configuration&#x2F;initialization script\"></a>Boot-time system configuration&#x2F;initialization script\</h1><p>si::sysinit:&#x2F;etc&#x2F;init.d&#x2F;rcS\</p>
 <h1 id="Runlevels"><a href="#Runlevels" class="headerlink" title="Runlevels\"></a>Runlevels\</h1><p>l0:0:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 0<br>l1:1:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 1<br>l2:2:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 2<br>l3:3:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 3<br>l4:4:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 4<br>l5:5:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 5<br>l6:6:wait:&#x2F;etc&#x2F;init.d&#x2F;rc 6<br>z6:6:respawn:&#x2F;sbin&#x2F;sulogin\</p>
@@ -109,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_ubuntu_10.10%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidqsLWTNxCHe0Y-6uGUyB2o" data-title="ubuntu 10.10如何开机直接进入命令行界面【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_ubuntu_10.10%E5%A6%82%E4%BD%95%E5%BC%80%E6%9C%BA%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidfdmFYJEMmSC8o0kmZKPxd" data-title="ubuntu 10.10如何开机直接进入命令行界面【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -129,9 +129,9 @@
     </a>
   
   
-    <a href="/2015/12/09/2015-12-09_ubuntu%E4%B8%8Bvsftpd%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/12/09/2015-12-09_Yahoo!%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5%E5%88%86%E4%BA%AB%EF%BC%9A%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%8434%E6%9D%A1%E9%BB%84%E9%87%91%E5%AE%88%E5%88%99%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">ubuntu下vsftpd的安装与配置</div>
+      <div class="article-nav-title">Yahoo!团队实践分享：网站性能优化的34条黄金守则【转载】</div>
     </a>
   
 </nav>

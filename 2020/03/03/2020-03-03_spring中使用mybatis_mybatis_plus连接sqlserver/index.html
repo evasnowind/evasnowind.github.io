@@ -6,15 +6,15 @@
   
   <title>spring中使用mybatis/mybatis plus连接sqlserver | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="spring中使用mybatis&#x2F;mybatis plus连接sqlserver本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。 框架选择应用框架：spring bootORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）数据库连接池：druid">
+  <meta name="description" content="本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。 框架选择应用框架：spring bootORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）数据库连接池：druid pom依赖此处仅给出我的配置，mybatis&#x2F;druid请依据自己项目的需要进行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring中使用mybatis&#x2F;mybatis plus连接sqlserver">
 <meta property="og:url" content="https://evasnowind.github.io/2020/03/03/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="spring中使用mybatis&#x2F;mybatis plus连接sqlserver本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。 框架选择应用框架：spring bootORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）数据库连接池：druid">
+<meta property="og:description" content="本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。 框架选择应用框架：spring bootORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）数据库连接池：druid pom依赖此处仅给出我的配置，mybatis&#x2F;druid请依据自己项目的需要进行">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-03T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.482Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.969Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="spring中使用mybatis-mybatis-plus连接sqlserver"><a href="#spring中使用mybatis-mybatis-plus连接sqlserver" class="headerlink" title="spring中使用mybatis&#x2F;mybatis plus连接sqlserver"></a>spring中使用mybatis&#x2F;mybatis plus连接sqlserver</h1><p>本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。</p>
+        <p>本文主要关注如何使用mybatis&#x2F;mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。</p>
 <h1 id="框架选择"><a href="#框架选择" class="headerlink" title="框架选择"></a>框架选择</h1><p>应用框架：spring boot<br>ORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）<br>数据库连接池：druid</p>
 <h1 id="pom依赖"><a href="#pom依赖" class="headerlink" title="pom依赖"></a>pom依赖</h1><p>此处仅给出我的配置，mybatis&#x2F;druid请依据自己项目的需要进行选择。<br>方便起见我用的是mybatis plus</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mybatis plus --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-generator-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.7&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- druid 连接池 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;druid&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.1.12&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--for SqlServer--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.microsoft.sqlserver&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;sqljdbc4&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -138,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/03/03/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" data-id="cuidgIasiG14PzChxZog_aqiw" data-title="spring中使用mybatis/mybatis plus连接sqlserver" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/03/03/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" data-id="cuid7e0L3n8f2g8Zn5dkltTr7" data-title="spring中使用mybatis/mybatis plus连接sqlserver" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

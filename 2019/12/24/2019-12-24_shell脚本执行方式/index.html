@@ -6,15 +6,15 @@
   
   <title>shell脚本执行方式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="shell脚本执行方式一个规范的Shell脚本在第一行会指出由哪个程序（解释器）来执行脚本中的内容，这一行内容在Linux bash的编程一般为： 1#！&#x2F;bin&#x2F;bash  或 1#！&#x2F;bin&#x2F;sh  注意  在Shell中如果一行的第一个字母是#,则是注释，但是上面两个是写在第一行，所以不是脚本注释行，如果写在某个命令之后，则变成注释行。 sh为bash的软链接，大多数情况下，脚本的开头使用“">
+  <meta name="description" content="一个规范的Shell脚本在第一行会指出由哪个程序（解释器）来执行脚本中的内容，这一行内容在Linux bash的编程一般为： 1#！&#x2F;bin&#x2F;bash  或 1#！&#x2F;bin&#x2F;sh  注意  在Shell中如果一行的第一个字母是#,则是注释，但是上面两个是写在第一行，所以不是脚本注释行，如果写在某个命令之后，则变成注释行。 sh为bash的软链接，大多数情况下，脚本的开头使用“#!&#x2F;bin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell脚本执行方式">
 <meta property="og:url" content="https://evasnowind.github.io/2019/12/24/2019-12-24_shell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="shell脚本执行方式一个规范的Shell脚本在第一行会指出由哪个程序（解释器）来执行脚本中的内容，这一行内容在Linux bash的编程一般为： 1#！&#x2F;bin&#x2F;bash  或 1#！&#x2F;bin&#x2F;sh  注意  在Shell中如果一行的第一个字母是#,则是注释，但是上面两个是写在第一行，所以不是脚本注释行，如果写在某个命令之后，则变成注释行。 sh为bash的软链接，大多数情况下，脚本的开头使用“">
+<meta property="og:description" content="一个规范的Shell脚本在第一行会指出由哪个程序（解释器）来执行脚本中的内容，这一行内容在Linux bash的编程一般为： 1#！&#x2F;bin&#x2F;bash  或 1#！&#x2F;bin&#x2F;sh  注意  在Shell中如果一行的第一个字母是#,则是注释，但是上面两个是写在第一行，所以不是脚本注释行，如果写在某个命令之后，则变成注释行。 sh为bash的软链接，大多数情况下，脚本的开头使用“#!&#x2F;bin">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-24T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.482Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.968Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="shell脚本执行方式"><a href="#shell脚本执行方式" class="headerlink" title="shell脚本执行方式"></a>shell脚本执行方式</h1><p>一个规范的Shell脚本在第一行会指出由哪个程序（解释器）来执行脚本中的内容，这一行内容在Linux bash的编程一般为：</p>
+        <p>一个规范的Shell脚本在第一行会指出由哪个程序（解释器）来执行脚本中的内容，这一行内容在Linux bash的编程一般为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#！/bin/bash</span><br></pre></td></tr></table></figure>
 
 <p>或</p>
@@ -110,7 +110,7 @@
 <li>在Shell中如果一行的第一个字母是#,则是注释，但是上面两个是写在第一行，所以不是脚本注释行，如果写在某个命令之后，则变成注释行。</li>
 <li>sh为bash的软链接，大多数情况下，脚本的开头使用“#!&#x2F;bin&#x2F;bash”和“#!&#x2F;bin&#x2F;sh”是没有区别的，但更规范的写法是在脚本的开头使用“#!&#x2F;bin&#x2F;bash”。</li>
 </ul>
-<h1 id="shell脚本执行方式-1"><a href="#shell脚本执行方式-1" class="headerlink" title="shell脚本执行方式"></a>shell脚本执行方式</h1><p>有3种方式：</p>
+<h1 id="shell脚本执行方式"><a href="#shell脚本执行方式" class="headerlink" title="shell脚本执行方式"></a>shell脚本执行方式</h1><p>有3种方式：</p>
 <h3 id="bash-script-name或是sh-script-name"><a href="#bash-script-name或是sh-script-name" class="headerlink" title="bash script-name或是sh script-name"></a>bash script-name或是sh script-name</h3><p>当脚本文件本身没有可执行权限时常使用的方法，或者脚本文件开头没有指定解释器时需要使用的方法。<br><strong>注意：</strong></p>
 <blockquote>
 <p>尽量不要用<code>sh script-name</code>去执行脚本，理由如下：</p>
@@ -132,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/12/24/2019-12-24_shell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F/" data-id="cuidIwL_GQNO5zOS2iauYd7AW" data-title="shell脚本执行方式" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/12/24/2019-12-24_shell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F/" data-id="cuidMnuwWLwLK5u0lBcBWAu2c" data-title="shell脚本执行方式" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

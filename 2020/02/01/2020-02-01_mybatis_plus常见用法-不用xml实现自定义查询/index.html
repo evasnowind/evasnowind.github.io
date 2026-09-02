@@ -6,15 +6,15 @@
   
   <title>mybatis_plus常见用法-不用xml实现自定义查询 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="mybatis_plus常见用法-不用xml实现自定义查询找到两种方法：1、采用mybatis注解的方式参见：MyBatis Plus 自定义查询语句DAO层： 1234567891011@Select(&quot;select b.bomName, &quot; +		&quot;b.bomProductType, b.bomMaterial, &quot; +		&quot;o.custome">
+  <meta name="description" content="找到两种方法：1、采用mybatis注解的方式参见：MyBatis Plus 自定义查询语句DAO层： 1234567891011@Select(&quot;select b.bomName, &quot; +		&quot;b.bomProductType, b.bomMaterial, &quot; +		&quot;o.customerID AS bomID, &quot; +		&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mybatis_plus常见用法-不用xml实现自定义查询">
 <meta property="og:url" content="https://evasnowind.github.io/2020/02/01/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="mybatis_plus常见用法-不用xml实现自定义查询找到两种方法：1、采用mybatis注解的方式参见：MyBatis Plus 自定义查询语句DAO层： 1234567891011@Select(&quot;select b.bomName, &quot; +		&quot;b.bomProductType, b.bomMaterial, &quot; +		&quot;o.custome">
+<meta property="og:description" content="找到两种方法：1、采用mybatis注解的方式参见：MyBatis Plus 自定义查询语句DAO层： 1234567891011@Select(&quot;select b.bomName, &quot; +		&quot;b.bomProductType, b.bomMaterial, &quot; +		&quot;o.customerID AS bomID, &quot; +		&amp;quot">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.482Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.968Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mybatis-plus常见用法-不用xml实现自定义查询"><a href="#mybatis-plus常见用法-不用xml实现自定义查询" class="headerlink" title="mybatis_plus常见用法-不用xml实现自定义查询"></a>mybatis_plus常见用法-不用xml实现自定义查询</h1><p>找到两种方法：<br>1、采用mybatis注解的方式<br>参见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31058701/article/details/102834031">MyBatis Plus 自定义查询语句</a><br>DAO层：</p>
+        <p>找到两种方法：<br>1、采用mybatis注解的方式<br>参见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31058701/article/details/102834031">MyBatis Plus 自定义查询语句</a><br>DAO层：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Select(&quot;select b.bomName, &quot; +</span><br><span class="line">		&quot;b.bomProductType, b.bomMaterial, &quot; +</span><br><span class="line">		&quot;o.customerID AS bomID, &quot; +</span><br><span class="line">		&quot;o.ordersDataNo AS qrCode, &quot; +</span><br><span class="line">		&quot;s.deliveryDate AS barCode, &quot; +</span><br><span class="line">		&quot;s.mainType AS workshop &quot; +</span><br><span class="line">		&quot;FROM mes_order_bom b &quot; +</span><br><span class="line">		&quot;LEFT JOIN mes_order_ordersdata o ON b.ordersID = o.id &quot; +</span><br><span class="line">		&quot;LEFT JOIN mes_order_soncontract s ON o.sonContractID = s.id &quot; +</span><br><span class="line">		&quot;WHERE o.ordersDataNo IN (#&#123;orderNoList&#125;)&quot;)</span><br><span class="line">List&lt;MesOrderBom&gt; getBomAndOrderCodeNumber(@Param(&quot;orderNoList&quot;)List&lt;String&gt; orderNoList);</span><br></pre></td></tr></table></figure>
 
 <p>Service层：</p>
@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/02/01/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/" data-id="cuidi9MeXk1Rs857VS0EiJpam" data-title="mybatis_plus常见用法-不用xml实现自定义查询" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/02/01/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/" data-id="cuidOGkHWGReZxmdaLkoa0SFi" data-title="mybatis_plus常见用法-不用xml实现自定义查询" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

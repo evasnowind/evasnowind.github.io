@@ -6,15 +6,15 @@
   
   <title>【源码分析】java sdk篇–CopyOnWrite容器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="【源码分析】java sdk篇–CopyOnWrite容器工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。 一、概念CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只有两个类  CopyOnWriteArrayList CopyOnWriteSet  这些容器类与平时用到的ArrayList&amp;#x">
+  <meta name="description" content="工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。 一、概念CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只有两个类  CopyOnWriteArrayList CopyOnWriteSet  这些容器类与平时用到的ArrayList&#x2F;Set的区别之处在于：  CopyOnWrite容器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【源码分析】java sdk篇–CopyOnWrite容器">
 <meta property="og:url" content="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="【源码分析】java sdk篇–CopyOnWrite容器工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。 一、概念CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只有两个类  CopyOnWriteArrayList CopyOnWriteSet  这些容器类与平时用到的ArrayList&amp;#x">
+<meta property="og:description" content="工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。 一、概念CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只有两个类  CopyOnWriteArrayList CopyOnWriteSet  这些容器类与平时用到的ArrayList&#x2F;Set的区别之处在于：  CopyOnWrite容器">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-01-11T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.479Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.966Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="【源码分析】java-sdk篇–CopyOnWrite容器"><a href="#【源码分析】java-sdk篇–CopyOnWrite容器" class="headerlink" title="【源码分析】java sdk篇–CopyOnWrite容器"></a>【源码分析】java sdk篇–CopyOnWrite容器</h1><p>工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。</p>
+        <p>工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。</p>
 <h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><p>CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只有两个类</p>
 <ul>
 <li>CopyOnWriteArrayList</li>
@@ -124,7 +124,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/" data-id="cuidhPIaKzUfZcr6En6fz7wxE" data-title="【源码分析】java sdk篇–CopyOnWrite容器" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/" data-id="cuidMfGrokMbt_NpD3zYtuc5u" data-title="【源码分析】java sdk篇–CopyOnWrite容器" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

@@ -6,15 +6,15 @@
   
   <title>安装JDK + Tomcat设置环境变量的方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="安装JDK + Tomcat设置环境变量的方法初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。JDK安装完成之后我们来设置环境变量：我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：（1）设置好path变量">
+  <meta name="description" content="初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。JDK安装完成之后我们来设置环境变量：我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：（1）设置好path变量，使得我们能够在系统中的任何地方运行java应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安装JDK + Tomcat设置环境变量的方法">
 <meta property="og:url" content="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="安装JDK + Tomcat设置环境变量的方法初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。JDK安装完成之后我们来设置环境变量：我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：（1）设置好path变量">
+<meta property="og:description" content="初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。JDK安装完成之后我们来设置环境变量：我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：（1）设置好path变量，使得我们能够在系统中的任何地方运行java应">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2015-12-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.478Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.965Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,12 +99,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="安装JDK-Tomcat设置环境变量的方法"><a href="#安装JDK-Tomcat设置环境变量的方法" class="headerlink" title="安装JDK + Tomcat设置环境变量的方法"></a>安装JDK + Tomcat设置环境变量的方法</h1><p>初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。<br>下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。<br>JDK安装完成之后我们来设置环境变量：<br>我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：<br>（1）设置好path变量，使得我们能够在系统中的任何地方运行java应用程序，比如 javac、java、javah等等,这就要找到我们安装JDK的目录，比如我们的JDK安装在C:\jdk1.6.0目录下,那么在C: \jdk1.6.0\bin目录下就是我们常用的java应用程序,我们就需要把C:\jdk1.6.0\bin这个目录加到path环境变量里面。<br>在系统变量里找到path变量,选择-&gt;编辑；(里面已经有很多的变量值,是在变量值的最前面加上C:\jdk1.6.0\bin;)<br>变量名: path<br>变量值: C:\jdk1.6.0\bin;<br>（2）classpath环境变量，是当我们在开发java程序时需要引用别人写好的类时，要让java解释器知道到哪里去找这个类。通常，sun为我们提供了一些额外的丰富的类包，一个是dt.jar，一个是tools.jar，这两个jar 包都位于C:\jdk1.6.0\lib目录下，所以通常我们都会把这两个jar包加到我们的classpath环境变量中set classpath&#x3D;.;C:\jdk1.6.0\lib\tools.jar;C:\jdk1.6.0\lib\dt.jar。<br>在系统环境变量那一栏中点-&gt;新建classpath<br>变量名: classpath<br>变量值: .;%JAVA_HOME%\lib\tools.jar;%JAVA_HOME%\lib\dt.jar;（注意，CLASSPATH最前面是有个 “.”的，表示当前目录，这样当我们运行java AClass的时候，系统就会先在当前目录寻找AClass文件了。）；<br>（3）设置JAVA_HOME:<br>一是为了方便引用，比如，JDK安装在C:\jdk1.6.0目录里，则设置 JAVA_HOME为该目录路径, 那么以后要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径串;<br>二则是归一原则, 当JDK路径改变的时候, 仅需更改JAVA_HOME的变量值即可, 否则,就要更改任何用绝对路径引用JDK目录的文档, 要是万一没有改全, 某个程序找不到JDK, 后果是可想而知的—-系统崩溃!<br>三则是第三方软件会引用约定好的JAVA_HOME变量, 不然, 你不能正常使用该软件.<br>在系统环境变量那一栏中点-&gt;新建JAVA_HOME （JAVA_HOME指向的是JDK的安装路径）<br>变量名： JAVA_HOME<br>变量值： C:\jdk1.6.0<br>配置完成下面写一个简单的java程式来测试J2SDK是否已安装成功：<br>public class HelloWorld{<br>public static void main(String[] args){<br>System.out.println(“Hello world!”);<br>}<br>}<br>将程式保存为文档名为HelloWorld.java的文档。<br>打开命令提示符窗口，进入到HelloWorld.java所在目录，键入下面的命令<br>javac HelloWorld.java<br>java HelloWorld<br>此时若打印出来HelloWorld则安装成功，若没有打印出这句话，仔细检查以上配置是否正确。<br>环境变量配置成功后你就可以着手学习java了。<br>安装Tomcat后，在我的电脑-&gt;属性-&gt;高级-&gt;环境变量-&gt;系统变量中添加以下环境变量(假定你的tomcat安装在c:\tomcat)：<br>CATALINA_HOME&#x3D;c:\tomcat<br>CATALINA_BASE&#x3D;c:\tomcat<br>然后修改环境变量中的classpath，把tomat安装目录下的common\lib下的(可以根据实际追加)servlet.jar追加到classpath中去，<br>修改后的classpath如下：<br>classpath&#x3D;.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%CATALINA_HOME%\common\lib\servlet.jar;<br>接着可以启动tomcat，在IE中访问<a href="http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。">http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。</a></p>
+        <p>初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。<br>下载好的JDK是一个可执行安装程序，双击安装。将安装路径改为：C:\jdk1.6.0（当然其他路径也可以）。<br>JDK安装完成之后我们来设置环境变量：<br>我的电脑点右键，选择“属性”，选择“高级”标签，进入环境变量设置，分别设置如下三个环境变量：<br>（1）设置好path变量，使得我们能够在系统中的任何地方运行java应用程序，比如 javac、java、javah等等,这就要找到我们安装JDK的目录，比如我们的JDK安装在C:\jdk1.6.0目录下,那么在C: \jdk1.6.0\bin目录下就是我们常用的java应用程序,我们就需要把C:\jdk1.6.0\bin这个目录加到path环境变量里面。<br>在系统变量里找到path变量,选择-&gt;编辑；(里面已经有很多的变量值,是在变量值的最前面加上C:\jdk1.6.0\bin;)<br>变量名: path<br>变量值: C:\jdk1.6.0\bin;<br>（2）classpath环境变量，是当我们在开发java程序时需要引用别人写好的类时，要让java解释器知道到哪里去找这个类。通常，sun为我们提供了一些额外的丰富的类包，一个是dt.jar，一个是tools.jar，这两个jar 包都位于C:\jdk1.6.0\lib目录下，所以通常我们都会把这两个jar包加到我们的classpath环境变量中set classpath&#x3D;.;C:\jdk1.6.0\lib\tools.jar;C:\jdk1.6.0\lib\dt.jar。<br>在系统环境变量那一栏中点-&gt;新建classpath<br>变量名: classpath<br>变量值: .;%JAVA_HOME%\lib\tools.jar;%JAVA_HOME%\lib\dt.jar;（注意，CLASSPATH最前面是有个 “.”的，表示当前目录，这样当我们运行java AClass的时候，系统就会先在当前目录寻找AClass文件了。）；<br>（3）设置JAVA_HOME:<br>一是为了方便引用，比如，JDK安装在C:\jdk1.6.0目录里，则设置 JAVA_HOME为该目录路径, 那么以后要使用这个路径的时候, 只需输入%JAVA_HOME%即可, 避免每次引用都输入很长的路径串;<br>二则是归一原则, 当JDK路径改变的时候, 仅需更改JAVA_HOME的变量值即可, 否则,就要更改任何用绝对路径引用JDK目录的文档, 要是万一没有改全, 某个程序找不到JDK, 后果是可想而知的—-系统崩溃!<br>三则是第三方软件会引用约定好的JAVA_HOME变量, 不然, 你不能正常使用该软件.<br>在系统环境变量那一栏中点-&gt;新建JAVA_HOME （JAVA_HOME指向的是JDK的安装路径）<br>变量名： JAVA_HOME<br>变量值： C:\jdk1.6.0<br>配置完成下面写一个简单的java程式来测试J2SDK是否已安装成功：<br>public class HelloWorld{<br>public static void main(String[] args){<br>System.out.println(“Hello world!”);<br>}<br>}<br>将程式保存为文档名为HelloWorld.java的文档。<br>打开命令提示符窗口，进入到HelloWorld.java所在目录，键入下面的命令<br>javac HelloWorld.java<br>java HelloWorld<br>此时若打印出来HelloWorld则安装成功，若没有打印出这句话，仔细检查以上配置是否正确。<br>环境变量配置成功后你就可以着手学习java了。<br>安装Tomcat后，在我的电脑-&gt;属性-&gt;高级-&gt;环境变量-&gt;系统变量中添加以下环境变量(假定你的tomcat安装在c:\tomcat)：<br>CATALINA_HOME&#x3D;c:\tomcat<br>CATALINA_BASE&#x3D;c:\tomcat<br>然后修改环境变量中的classpath，把tomat安装目录下的common\lib下的(可以根据实际追加)servlet.jar追加到classpath中去，<br>修改后的classpath如下：<br>classpath&#x3D;.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%CATALINA_HOME%\common\lib\servlet.jar;<br>接着可以启动tomcat，在IE中访问<a href="http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。">http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidiLo5nOvq80W5l1bHiOQyS" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidf75xjH86qQM8oLEyGtYK8" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -114,19 +114,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/09/2015-12-09_win7%E4%B8%8B%E9%85%8D%E7%BD%AEPHP+apache+mysql%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%A1%A5%E5%85%85%E3%80%91/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          学习 Linux 几点忠告【转载】
+          win7下配置PHP+apache+mysql【转载 + 补充】
         
       </div>
     </a>
   
   
-    <a href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">windows下使用eclipse for C/C++【转载】</div>
+      <div class="article-nav-title">用Visio画ER图的解决方案【转载】</div>
     </a>
   
 </nav>

@@ -6,18 +6,18 @@
   
   <title>【源码分析】java sdk篇–Java Collection Framework | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="【源码分析】java sdk篇–Java Collection Framework本文就是想学习、简单总结一下JDK里的JCF，并且制定一下自己后续阅读源码的范围——先学习一下JCF中重要的一些类，后续学习Java其他一些东西，给自己定个路线图，O(∩_∩)O~本文参考了多篇文章，如有引用但没标注的地方，请及时联系我，这文章本意是想记录一下，相当于读书笔记。 一、概述JCF，即Java Colle">
+  <meta name="description" content="本文就是想学习、简单总结一下JDK里的JCF，并且制定一下自己后续阅读源码的范围——先学习一下JCF中重要的一些类，后续学习Java其他一些东西，给自己定个路线图，O(∩_∩)O~本文参考了多篇文章，如有引用但没标注的地方，请及时联系我，这文章本意是想记录一下，相当于读书笔记。 一、概述JCF，即Java Collection Framework，是JDK中已经封装好容器类，类结构如下：网上常见的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【源码分析】java sdk篇–Java Collection Framework">
 <meta property="og:url" content="https://evasnowind.github.io/2017/02/22/2017-02-22_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Java_Collection_Framework/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="【源码分析】java sdk篇–Java Collection Framework本文就是想学习、简单总结一下JDK里的JCF，并且制定一下自己后续阅读源码的范围——先学习一下JCF中重要的一些类，后续学习Java其他一些东西，给自己定个路线图，O(∩_∩)O~本文参考了多篇文章，如有引用但没标注的地方，请及时联系我，这文章本意是想记录一下，相当于读书笔记。 一、概述JCF，即Java Colle">
+<meta property="og:description" content="本文就是想学习、简单总结一下JDK里的JCF，并且制定一下自己后续阅读源码的范围——先学习一下JCF中重要的一些类，后续学习Java其他一些东西，给自己定个路线图，O(∩_∩)O~本文参考了多篇文章，如有引用但没标注的地方，请及时联系我，这文章本意是想记录一下，相当于读书笔记。 一、概述JCF，即Java Collection Framework，是JDK中已经封装好容器类，类结构如下：网上常见的">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE-300x296.jpg">
 <meta property="og:image" content="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE2-300x285.gif">
 <meta property="og:image" content="http://www.prayerlaputa.com/wp-content/uploads/2017/02/HashMap%E5%AE%9E%E7%8E%B0-300x108.jpg">
 <meta property="article:published_time" content="2017-02-22T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.479Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.966Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE-300x296.jpg">
@@ -103,7 +103,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="【源码分析】java-sdk篇–Java-Collection-Framework"><a href="#【源码分析】java-sdk篇–Java-Collection-Framework" class="headerlink" title="【源码分析】java sdk篇–Java Collection Framework"></a>【源码分析】java sdk篇–Java Collection Framework</h1><p>本文就是想学习、简单总结一下JDK里的JCF，并且制定一下自己后续阅读源码的范围——先学习一下JCF中重要的一些类，后续学习Java其他一些东西，给自己定个路线图，O(∩_∩)O~<br>本文参考了多篇文章，如有引用但没标注的地方，请及时联系我，这文章本意是想记录一下，相当于读书笔记。</p>
+        <p>本文就是想学习、简单总结一下JDK里的JCF，并且制定一下自己后续阅读源码的范围——先学习一下JCF中重要的一些类，后续学习Java其他一些东西，给自己定个路线图，O(∩_∩)O~<br>本文参考了多篇文章，如有引用但没标注的地方，请及时联系我，这文章本意是想记录一下，相当于读书笔记。</p>
 <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>JCF，即Java Collection Framework，是JDK中已经封装好容器类，类结构如下：<br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE.jpg"><img src="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE-300x296.jpg"></a><br>网上常见的是这张图，但其实少了一个Queue，看下面这张图更清楚一些：[](<a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE2.gif)/">http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF详细图2.gif)\</a><br><a target="_blank" rel="noopener" href="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE2.gif"><img src="http://www.prayerlaputa.com/wp-content/uploads/2017/02/JCF%E8%AF%A6%E7%BB%86%E5%9B%BE2-300x285.gif"></a><br> <br>看着很复杂，其实按照我们日常用到的类，可以按照如下分类（仅列出常见的具体实现类，上图那些抽象类就不一一讨论了）：<br>1、Collection</p>
 <ul>
 <li>List<ul>
@@ -150,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/02/22/2017-02-22_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Java_Collection_Framework/" data-id="cuidZG8nX7E3gD2ZVhPnfwzr2" data-title="【源码分析】java sdk篇–Java Collection Framework" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/02/22/2017-02-22_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Java_Collection_Framework/" data-id="cuidMh2z7rMKUL4Ed6jUrPhM0" data-title="【源码分析】java sdk篇–Java Collection Framework" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

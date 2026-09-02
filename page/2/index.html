@@ -97,7 +97,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="源码分析之Eureka客户端源码解析"><a href="#源码分析之Eureka客户端源码解析" class="headerlink" title="源码分析之Eureka客户端源码解析"></a>源码分析之Eureka客户端源码解析</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。</p>
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。</p>
 <h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="一些注解的说明"><a href="#一些注解的说明" class="headerlink" title="一些注解的说明"></a>一些注解的说明</h4><p>eureka中用到几个比较有意思的注解，简化程序实现。</p>
 <h5 id="ConfigurationProperties-“eureka-instance”"><a href="#ConfigurationProperties-“eureka-instance”" class="headerlink" title="@ConfigurationProperties(“eureka.instance”)"></a>@ConfigurationProperties(“eureka.instance”)</h5><p>表示从外部配置文件中（properties或是yml文件）读取”eureka.instance”对应的配置。</p>
 <h5 id="ConditionalOnBean-ConditionalOnClass"><a href="#ConditionalOnBean-ConditionalOnClass" class="headerlink" title="@ConditionalOnBean&#x2F;@ConditionalOnClass"></a>@ConditionalOnBean&#x2F;@ConditionalOnClass</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@ConditionalOnBean         //   当给定的在bean存在时,则实例化当前Bean</span><br><span class="line">@ConditionalOnMissingBean  //   当给定的在bean不存在时,则实例化当前Bean</span><br><span class="line">@ConditionalOnClass        //   当给定的类名在类路径上存在，则实例化当前Bean</span><br><span class="line">@ConditionalOnMissingClass //   当给定的类名在类路径上不存在，则实例化当前Bean</span><br></pre></td></tr></table></figure>
@@ -175,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/22/2020-09-22_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BEureka%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-id="cuidx0FaPFKhlwaj5_4uRTTTo" data-title="源码分析之Eureka客户端源码解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/22/2020-09-22_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BEureka%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-id="cuidkdzietjiQAAi6gs-_IFZv" data-title="源码分析之Eureka客户端源码解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -213,7 +213,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="源码分析之Java线程池ThreadPoolExecutor"><a href="#源码分析之Java线程池ThreadPoolExecutor" class="headerlink" title="源码分析之Java线程池ThreadPoolExecutor"></a>源码分析之Java线程池ThreadPoolExecutor</h1><p>我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。</p>
+        <p>我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。</p>
 <p>同样的，接下来要分析的线程池，首先用途自不必说，不管有没有用过，ThreadPoolExecutor的运行机制、传说中的7个参数(核心线程数corePoolSize、最大线程数maxPoolSize、等待时间keepAliveTime、时间单位timeUnit、阻塞队列blockingQueue、线程工厂threadFactory、拒绝策略rejectHandler)，相信大家都已经熟练掌握，此处不再赘述。</p>
 <p>接下来简单过一下ThreadPoolExecutor的注释。\</p>
 <h2 id="0-源码注释中的关键点"><a href="#0-源码注释中的关键点" class="headerlink" title="0. 源码注释中的关键点"></a>0. 源码注释中的关键点</h2><p>ThreadPoolExecutor的类注释中，主要阐述如下内容：</p>
@@ -289,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/21/2020-09-21_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BJava%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/" data-id="cuidEBhUwDdueMFuby0QWACde" data-title="源码分析之Java线程池ThreadPoolExecutor" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/21/2020-09-21_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BJava%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/" data-id="cuidgGqhjswn4LMq5pDLMCNDm" data-title="源码分析之Java线程池ThreadPoolExecutor" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -327,7 +327,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="源码分析之Spring-Boot如何利用Spring-Factories机制进行自动注入"><a href="#源码分析之Spring-Boot如何利用Spring-Factories机制进行自动注入" class="headerlink" title="源码分析之Spring Boot如何利用Spring Factories机制进行自动注入"></a>源码分析之Spring Boot如何利用Spring Factories机制进行自动注入</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文所涉及spring&#x2F;spring boot代码，请参考spring boot 2.2.6对应版本。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文所涉及spring&#x2F;spring boot代码，请参考spring boot 2.2.6对应版本。</p>
 <p>我们在刚学习spring boot时，有没有一个困惑：spring boot能够自动实例化很多第三方的依赖库？比如eureka、druid等。这个就涉及到spring boot的扩展机制spring factories。</p>
 <p>简单来将，spring factories类似与Java SPI机制，利用该机制，我们能够自定义实现一些SDK或是spring boot starter，其实例化过程由我们来实现，使用方只需要在项目中引入包、不需要或是只需做很少的配置。</p>
 <h2 id="Spring-Factories的核心"><a href="#Spring-Factories的核心" class="headerlink" title="Spring Factories的核心"></a>Spring Factories的核心</h2><p>spring factories机制核心在spring-core包中定义的SpringFactoriesLoader类，该类的公有方法只有2个：\</p>
@@ -369,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/17/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" data-id="cuid4VtkAKNgbwsfIlsUKj6KO" data-title="源码分析之Spring Boot如何利用Spring Factories机制进行自动注入" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/17/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" data-id="cuidEvMMicRnOOFUfEk3t7r7f" data-title="源码分析之Spring Boot如何利用Spring Factories机制进行自动注入" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -407,7 +407,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="源码分析之Kafka-Consumer消费消息的过程"><a href="#源码分析之Kafka-Consumer消费消息的过程" class="headerlink" title="源码分析之Kafka Consumer消费消息的过程"></a>源码分析之Kafka Consumer消费消息的过程</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文基于Apache Kafka 2.5.1（2020.09.10拉取最新代码）</p>
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文基于Apache Kafka 2.5.1（2020.09.10拉取最新代码）</p>
 <h2 id="Consumer如何使用？"><a href="#Consumer如何使用？" class="headerlink" title="Consumer如何使用？"></a>Consumer如何使用？</h2><p>阅读源码前的首先要做到熟悉相关组件的概念、基本使用。而最靠谱的资料就是官方文档。</p>
 <p>建议阅读官方文档（<a target="_blank" rel="noopener" href="https://kafka.apache.org/documentation/">https://kafka.apache.org/documentation/</a>）后，自己练习、使用kafka之后再开始阅读源码。</p>
 <p>KafkaConsumer的JavaDoc（参见<a target="_blank" rel="noopener" href="https://kafka.apache.org/10/javadoc/?org/apache/kafka/clients/consumer/KafkaConsumer.html">https://kafka.apache.org/10/javadoc/?org/apache/kafka/clients/consumer/KafkaConsumer.html</a>）本身就给出了不少有用信息，下面仅列出一些关键点：</p>
@@ -572,7 +572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/11/2020-09-11_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BKafka_Consumer%E6%B6%88%E8%B4%B9%E6%B6%88%E6%81%AF%E7%9A%84%E8%BF%87%E7%A8%8B/" data-id="cuidanImC6t1ln-kv-3BOWJBt" data-title="源码分析之Kafka Consumer消费消息的过程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/11/2020-09-11_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BKafka_Consumer%E6%B6%88%E8%B4%B9%E6%B6%88%E6%81%AF%E7%9A%84%E8%BF%87%E7%A8%8B/" data-id="cuidpO-deycJrT6z1S7jOdkxa" data-title="源码分析之Kafka Consumer消费消息的过程" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -610,7 +610,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="源码分析之Netty线程模型"><a href="#源码分析之Netty线程模型" class="headerlink" title="源码分析之Netty线程模型"></a>源码分析之Netty线程模型</h1><h2 id="不得不说的Reactor模式"><a href="#不得不说的Reactor模式" class="headerlink" title="不得不说的Reactor模式"></a>不得不说的Reactor模式</h2><p>提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的<code>Scalable IO in Java</code>所提出的<code>Multiple Reactors</code>模式，参见下图</p>
+        <h2 id="不得不说的Reactor模式"><a href="#不得不说的Reactor模式" class="headerlink" title="不得不说的Reactor模式"></a>不得不说的Reactor模式</h2><p>提到Netty，就必须先说一下Reactor模式，源头应该是Doug Lea大神（学java的如果不知道这位神的请自己反思一下……）的<code>Scalable IO in Java</code>所提出的<code>Multiple Reactors</code>模式，参见下图</p>
 <p><img src="/images/multiple-reactors-pattern-300x234_37432a92.jpg"></p>
 <p>如果想知道为何出现Reactor模式，需要将IO发展过程，都说一下可能才会比较清晰，此处就不一一展开，有兴趣的童鞋可以参考这篇帖子：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/crazymakercircle/p/9833847.html">Reactor模式</a></p>
 <p>那么，<strong>什么是Reactor模式呢？</strong></p>
@@ -681,7 +681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/09/2020-09-09_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BNetty%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" data-id="cuidgfqRsd_ZBWICjoA0h3A2q" data-title="源码分析之Netty线程模型" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/09/2020-09-09_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BNetty%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" data-id="cuid1yA5hYQZeovx6shTX3R4V" data-title="源码分析之Netty线程模型" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -719,7 +719,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Guava-RateLimiter-的使用与源码分析（令牌桶算法实现思路）"><a href="#Guava-RateLimiter-的使用与源码分析（令牌桶算法实现思路）" class="headerlink" title="Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）"></a>Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）</h1><h2 id="Guava-RateLimiter基本使用"><a href="#Guava-RateLimiter基本使用" class="headerlink" title="Guava RateLimiter基本使用"></a>Guava RateLimiter基本使用</h2><p>学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。</p>
+        <h2 id="Guava-RateLimiter基本使用"><a href="#Guava-RateLimiter基本使用" class="headerlink" title="Guava RateLimiter基本使用"></a>Guava RateLimiter基本使用</h2><p>学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。</p>
 <p>比如Guava RateLimiter，从RateLimiter类的源码注释中可以看到，官方给出的典型应用场景与使用：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">As an example, imagine that we have a list of tasks to execute, but we don&#x27;t want to submit more than 2 per second:</span><br><span class="line"> </span><br><span class="line"> final RateLimiter rateLimiter = RateLimiter.create(2.0); // rate is &quot;2 permits per second&quot;</span><br><span class="line"> void submitTasks(List&lt;Runnable&gt; tasks, Executor executor) &#123;</span><br><span class="line">   for (Runnable task : tasks) &#123;</span><br><span class="line">     rateLimiter.acquire(); // may wait</span><br><span class="line">     executor.execute(task);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">As another example, imagine that we produce a stream of data, and we want to cap it at 5kb per second. This could be accomplished by requiring a permit per byte, and specifying a rate of 5000 permits per second:</span><br><span class="line"> </span><br><span class="line"> final RateLimiter rateLimiter = RateLimiter.create(5000.0); // rate = 5000 permits per second</span><br><span class="line"> void submitPacket(byte[] packet) &#123;</span><br><span class="line">   rateLimiter.acquire(packet.length);</span><br><span class="line">   networkService.send(packet);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
@@ -755,7 +755,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/02/2020-09-02_Guava_RateLimiter_%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%EF%BC%89/" data-id="cuidaG4BJGeno5N2g3xUtqhTe" data-title="Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/02/2020-09-02_Guava_RateLimiter_%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%EF%BC%89/" data-id="cuidCe2bV1YytGkCD_fOS9csT" data-title="Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -793,7 +793,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="tomcat和dubbo对于JDK线程池的修改"><a href="#tomcat和dubbo对于JDK线程池的修改" class="headerlink" title="tomcat和dubbo对于JDK线程池的修改"></a>tomcat和dubbo对于JDK线程池的修改</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><ul>
+        <h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><ul>
 <li><p>计算任务的分类</p>
 <ul>
 <li>CPU密集型：需要线程长时间进行的复杂的运算，这种类型的任务需要少创建线程，过多的线程将会频繁引起上文切换，降低任务处理处理速度。</li>
@@ -846,7 +846,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/08/18/2020-08-18_tomcat%E5%92%8Cdubbo%E5%AF%B9%E4%BA%8EJDK%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BF%AE%E6%94%B9/" data-id="cuidmItDVDdGkUIUBDL5VA0Un" data-title="tomcat和dubbo对于JDK线程池的修改" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/08/18/2020-08-18_tomcat%E5%92%8Cdubbo%E5%AF%B9%E4%BA%8EJDK%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BF%AE%E6%94%B9/" data-id="cuidKKCXytUELiTNxxGQWyoXy" data-title="tomcat和dubbo对于JDK线程池的修改" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -884,7 +884,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="解决win-10通过docker安装pinpoint报端口错误"><a href="#解决win-10通过docker安装pinpoint报端口错误" class="headerlink" title="解决win 10通过docker安装pinpoint报端口错误"></a>解决win 10通过docker安装pinpoint报端口错误</h1><p>按官方提示<a target="_blank" rel="noopener" href="https://github.com/naver/pinpoint-docker">https://github.com/naver/pinpoint-docker</a> ，通过docker安装pinpoint时，遇到端口冲突问题</p>
+        <p>按官方提示<a target="_blank" rel="noopener" href="https://github.com/naver/pinpoint-docker">https://github.com/naver/pinpoint-docker</a> ，通过docker安装pinpoint时，遇到端口冲突问题</p>
 <blockquote>
 <table>
 <thead>
@@ -918,7 +918,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/07/24/2020-07-24_%E8%A7%A3%E5%86%B3win_10%E9%80%9A%E8%BF%87docker%E5%AE%89%E8%A3%85pinpoint%E6%8A%A5%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF/" data-id="cuidnkUNMEnBcVqGvvIr1J6nR" data-title="解决win 10通过docker安装pinpoint报端口错误" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/07/24/2020-07-24_%E8%A7%A3%E5%86%B3win_10%E9%80%9A%E8%BF%87docker%E5%AE%89%E8%A3%85pinpoint%E6%8A%A5%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF/" data-id="cuid5NyXUe9w_ZDH0N5KZT587" data-title="解决win 10通过docker安装pinpoint报端口错误" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -956,7 +956,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="写给即将或是想进入互联网大厂工作的后浪们"><a href="#写给即将或是想进入互联网大厂工作的后浪们" class="headerlink" title="写给即将或是想进入互联网大厂工作的后浪们"></a>写给即将或是想进入互联网大厂工作的后浪们</h1><h3 id="明确目标"><a href="#明确目标" class="headerlink" title="明确目标"></a>明确目标</h3><p>进入互联网行业，不管是实习，还是正式工作，要记住，从入行这一刻起，就要不停的学习、不停的思考，最好是根据自己的优缺点、喜好，订个明确的目标，自己到底想走哪条路线，是纯技术路线、不想太关心业务？产品经理？程序员只是过渡、想走管理？还是在互联网公司捞几年钱然后就转行？</p>
+        <h3 id="明确目标"><a href="#明确目标" class="headerlink" title="明确目标"></a>明确目标</h3><p>进入互联网行业，不管是实习，还是正式工作，要记住，从入行这一刻起，就要不停的学习、不停的思考，最好是根据自己的优缺点、喜好，订个明确的目标，自己到底想走哪条路线，是纯技术路线、不想太关心业务？产品经理？程序员只是过渡、想走管理？还是在互联网公司捞几年钱然后就转行？</p>
 <ul>
 <li>对技术特别感兴趣：那毫无疑问，技术这条路，其实也没有上限，你可以去极客时间app上看看那些大牛们</li>
 </ul>
@@ -1101,7 +1101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/07/15/2020-07-15_%E5%86%99%E7%BB%99%E5%8D%B3%E5%B0%86%E6%88%96%E6%98%AF%E6%83%B3%E8%BF%9B%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%A4%A7%E5%8E%82%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%90%8E%E6%B5%AA%E4%BB%AC/" data-id="cuidqmiAWD5_17yVxvygErypA" data-title="写给即将或是想进入互联网大厂工作的后浪们" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/07/15/2020-07-15_%E5%86%99%E7%BB%99%E5%8D%B3%E5%B0%86%E6%88%96%E6%98%AF%E6%83%B3%E8%BF%9B%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%A4%A7%E5%8E%82%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%90%8E%E6%B5%AA%E4%BB%AC/" data-id="cuiduFhnMJxUBywcYi9nytJ6o" data-title="写给即将或是想进入互联网大厂工作的后浪们" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1139,7 +1139,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Java并发之深入解析volatile关键字"><a href="#Java并发之深入解析volatile关键字" class="headerlink" title="Java并发之深入解析volatile关键字"></a>Java并发之深入解析volatile关键字</h1><p>从一道面试题讲起：<strong>采用DCL实现单例模式时，是否需要加volatile关键字？为什么？</strong></p>
+        <p>从一道面试题讲起：<strong>采用DCL实现单例模式时，是否需要加volatile关键字？为什么？</strong></p>
 <h2 id="有关单例模式"><a href="#有关单例模式" class="headerlink" title="有关单例模式"></a>有关单例模式</h2><p>我们在网上搜如何实现单例模式时，帖子往往给出多种实现：饿汉模式、懒汉模式、双重锁懒汉模式（双重锁检查，double check lock，经常简写做DCL）、静态内部类模式、枚举模式等。</p>
 <p>此处可以参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/mnb65482/article/details/80458571">深入理解单例模式：静态内部类单例原理</a> 这篇文章。</p>
 <p>顺带提一句，《Java并发编程的艺术》（方腾飞）第3章有讨论过DCL、静态内部类这两种实现方式，建议去读一读。</p>
@@ -1243,7 +1243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/05/27/2020-05-27_Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90volatile%E5%85%B3%E9%94%AE%E5%AD%97/" data-id="cuidZk8P9yCr3O4UVpus4kMs6" data-title="Java并发之深入解析volatile关键字" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/05/27/2020-05-27_Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90volatile%E5%85%B3%E9%94%AE%E5%AD%97/" data-id="cuid0dhQzLURPRbu2SsMAOYPd" data-title="Java并发之深入解析volatile关键字" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

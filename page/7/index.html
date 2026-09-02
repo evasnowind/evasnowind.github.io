@@ -97,7 +97,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Java三种方法将List转换为Map的实例【转载】"><a href="#Java三种方法将List转换为Map的实例【转载】" class="headerlink" title="Java三种方法将List转换为Map的实例【转载】"></a>Java三种方法将List转换为Map的实例【转载】</h1><p>原文链接：<a target="_blank" rel="noopener" href="https://www.jb51.net/article/149605.htm">https://www.jb51.net/article/149605.htm</a></p>
+        <p>原文链接：<a target="_blank" rel="noopener" href="https://www.jb51.net/article/149605.htm">https://www.jb51.net/article/149605.htm</a></p>
 <h1 id="Java三种方法将List转换为Map的实例"><a href="#Java三种方法将List转换为Map的实例" class="headerlink" title="Java三种方法将List转换为Map的实例"></a>Java三种方法将List转换为Map的实例</h1><p>1.for循环</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;pre class=&quot;brush:java;&quot;&gt;import com.google.common.base.Function;</span><br><span class="line">import com.google.common.collect.Maps;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line">public class ListToMap &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    List&lt;User&gt; userList = new ArrayList&lt;&gt;();</span><br><span class="line">    User user1 = new User();</span><br><span class="line">    user1.setId(1L);</span><br><span class="line">    user1.setAge(&quot;12&quot;);</span><br><span class="line">    User user2 = new User();</span><br><span class="line">    user2.setId(2L);</span><br><span class="line">    user2.setAge(&quot;13&quot;);</span><br><span class="line">    userList.add(user1);</span><br><span class="line">    userList.add(user2);</span><br><span class="line">    Map&lt;Long, User&gt; maps = new HashMap&lt;&gt;();</span><br><span class="line">    for (User user : userList) &#123;</span><br><span class="line">      maps.put(user.getId(), user);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(maps);</span><br><span class="line">  &#125;</span><br><span class="line">  public static class User &#123;</span><br><span class="line">    private Long id;</span><br><span class="line">    private String age;</span><br><span class="line">    public Long getId() &#123;</span><br><span class="line">      return id;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setId(Long id) &#123;</span><br><span class="line">      this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getAge() &#123;</span><br><span class="line">      return age;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setAge(String age) &#123;</span><br><span class="line">      this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">      return &quot;User&#123;&quot; +</span><br><span class="line">          &quot;id=&quot; + id +</span><br><span class="line">          &quot;, age=&#x27;&quot; + age + &#x27;\&#x27;&#x27; +</span><br><span class="line">          &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
 
@@ -109,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/08/11/2019-08-11_Java%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%B0%86List%E8%BD%AC%E6%8D%A2%E4%B8%BAMap%E7%9A%84%E5%AE%9E%E4%BE%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidz985vHcO83D92V4HjJ8JC" data-title="Java三种方法将List转换为Map的实例【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/08/11/2019-08-11_Java%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%B0%86List%E8%BD%AC%E6%8D%A2%E4%B8%BAMap%E7%9A%84%E5%AE%9E%E4%BE%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidR61HOZkWCEPzfipTLB2BU" data-title="Java三种方法将List转换为Map的实例【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -147,7 +147,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组"><a href="#shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组" class="headerlink" title="shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组"></a>shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组</h1><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组</p>
+        <h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组</p>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="shell中的-IFS"><a href="#shell中的-IFS" class="headerlink" title="shell中的$IFS"></a>shell中的$IFS</h2><p>Shell 脚本中有个变量叫IFS(Internal Field Seprator) ，内部域分隔符。完整定义是The shell uses the value stored in IFS, which is the space, tab, and newline characters by default, to delimit words for the read and set commands, when parsing output from command substitution, and when performing variable substitution.<br>Shell 的环境变量分为set, env 两种，其中 set 变量可以通过 export 工具导入到 env 变量中。其中，set 是显示设置shell变量，仅在本 shell 中有效；env 是显示设置用户环境变量 ，仅在当前会话中有效。换句话说，set 变量里包含了env 变量，但set变量不一定都是env 变量。这两种变量不同之处在于变量的作用域不同。显然，env 变量的作用域要大些，它可以在 subshell 中使用。<br>IFS 是一种 set 变量，当 shell 处理”命令替换”和”参数替换”时，shell 根据 IFS 的值，默认是 space, tab, newline 来拆解读入的变量，然后对特殊字符进行处理，最后重新组合赋值给该变量。</p>
 <h3 id="IFS的使用"><a href="#IFS的使用" class="headerlink" title="$IFS的使用"></a>$IFS的使用</h3><ol>
 <li>查看$IFS的值</li>
@@ -181,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/08/06/2019-08-06_shell%E4%B8%AD%E6%A0%B9%E6%8D%AE%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%86%E5%88%86%E6%88%90%E6%95%B0%E7%BB%84%EF%BC%8C%E7%84%B6%E5%90%8E%E9%81%8D%E5%8E%86%E8%AF%A5%E6%95%B0%E7%BB%84/" data-id="cuidg2oY_xLcpMmShdIruQzG5" data-title="shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/08/06/2019-08-06_shell%E4%B8%AD%E6%A0%B9%E6%8D%AE%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%86%E5%88%86%E6%88%90%E6%95%B0%E7%BB%84%EF%BC%8C%E7%84%B6%E5%90%8E%E9%81%8D%E5%8E%86%E8%AF%A5%E6%95%B0%E7%BB%84/" data-id="cuidtVgPCfRiRSQ6kn1Wn0DqD" data-title="shell中根据指定分隔符将字符串拆分成数组，然后遍历该数组" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -219,7 +219,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="ElasticSearch集群配置方法与注意事项"><a href="#ElasticSearch集群配置方法与注意事项" class="headerlink" title="ElasticSearch集群配置方法与注意事项"></a>ElasticSearch集群配置方法与注意事项</h1><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>一台主节点，一台从节点</p>
+        <h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>一台主节点，一台从节点</p>
 <h1 id="ES安装与配置"><a href="#ES安装与配置" class="headerlink" title="ES安装与配置"></a>ES安装与配置</h1><p>注意，集群配置完成前建议不要启动单个ES实例。<br>原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。</p>
 <h1 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h1><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: tipdm-es #es集群名称</span><br><span class="line">node.name: es-node1    #es节点名称，每个节点的名称不能相同</span><br><span class="line">node.master: true      #指定该节点是否有资格被选举成为master，默认是true</span><br><span class="line">node.data: true        #指定该节点是否存储索引数据，默认为true。</span><br><span class="line"></span><br><span class="line">network.host: 192.168.111.76  #节点的ip地址</span><br><span class="line"></span><br><span class="line">## 下面这两个参数应该是旧版本配置参数，我安装的是7.2版本，对应参数是discovery.seed_hosts 和 cluster.initial_master_nodes </span><br><span class="line">#设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.111.75&quot;, &quot;192.168.111.76&quot;, &quot;192.168.111.77&quot;]</span><br><span class="line">#设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）</span><br><span class="line">discovery.zen.minimum_master_nodes: 2 </span><br><span class="line"></span><br><span class="line">#如果要使用head,那么需要设置下面2个参数,使head插件可以访问es</span><br><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br><span class="line"></span><br><span class="line">#这是Centos6不支持SecComp，而ES默认bootstrap.system_call_filter为true进行检测，所以导致检测失败，失败后直接导致ES不能启动。</span><br><span class="line">bootstrap.memory_lock: false</span><br><span class="line">bootstrap.system_call_filter: false</span><br></pre></td></tr></table></figure>
 
@@ -287,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/08/04/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="cuidhluYIlDKzJkLmjdLi3FXd" data-title="ElasticSearch集群配置方法与注意事项" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/08/04/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="cuidBbw-onp0GAIcNTUzWqm2u" data-title="ElasticSearch集群配置方法与注意事项" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -325,14 +325,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mysql-Truncated-incorrect-DOUBLE-value解决办法"><a href="#mysql-Truncated-incorrect-DOUBLE-value解决办法" class="headerlink" title="mysql Truncated incorrect DOUBLE value解决办法"></a>mysql Truncated incorrect DOUBLE value解决办法</h1><p>出现该错误“Truncated incorrect DOUBLE value”时，极有可能是你写的mysql查询语句中所提供的字段，与表中字段类型不匹配。比如字段为字符型的，与数字进行比较，数字两侧没加引号；比如表中字段明明是字符串，但在where语句中偏偏直接写成了a&#x3D;23而不是a&#x3D;’23’。</p>
+        <p>出现该错误“Truncated incorrect DOUBLE value”时，极有可能是你写的mysql查询语句中所提供的字段，与表中字段类型不匹配。比如字段为字符型的，与数字进行比较，数字两侧没加引号；比如表中字段明明是字符串，但在where语句中偏偏直接写成了a&#x3D;23而不是a&#x3D;’23’。</p>
 <p>解决：字段改成对应类型即可。</p>
 <p>参考：<a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/693223458186942564.html">https://zhidao.baidu.com/question/693223458186942564.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/08/04/2019-08-04_mysql_Truncated_incorrect_DOUBLE_value%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" data-id="cuid5plB_xW5WmoJzhuxfColN" data-title="mysql Truncated incorrect DOUBLE value解决办法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/08/04/2019-08-04_mysql_Truncated_incorrect_DOUBLE_value%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" data-id="cuid4idPl_U9XkkGgClAOY5eM" data-title="mysql Truncated incorrect DOUBLE value解决办法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -370,7 +370,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="mac-os-x上执行shell脚本时，如何隐藏终端窗口？"><a href="#mac-os-x上执行shell脚本时，如何隐藏终端窗口？" class="headerlink" title="mac os x上执行shell脚本时，如何隐藏终端窗口？"></a>mac os x上执行shell脚本时，如何隐藏终端窗口？</h1><p>默认情况下，如果在mac终端中执行shell脚本，会弹出窗口展示脚本执行输出。</p>
+        <p>默认情况下，如果在mac终端中执行shell脚本，会弹出窗口展示脚本执行输出。</p>
 <p>工作中需求：执行shell脚本，不能展示输出。</p>
 <p>解决：</p>
 <p>问了下谷歌，搜索出如下答案，亲测可用。</p>
@@ -394,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/07/27/2019-07-27_mac_os_x%E4%B8%8A%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E6%97%B6%EF%BC%8C%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E7%BB%88%E7%AB%AF%E7%AA%97%E5%8F%A3%EF%BC%9F/" data-id="cuidzfzpXgLvIRdUF0N8v--u_" data-title="mac os x上执行shell脚本时，如何隐藏终端窗口？" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/07/27/2019-07-27_mac_os_x%E4%B8%8A%E6%89%A7%E8%A1%8Cshell%E8%84%9A%E6%9C%AC%E6%97%B6%EF%BC%8C%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E7%BB%88%E7%AB%AF%E7%AA%97%E5%8F%A3%EF%BC%9F/" data-id="cuidSJd7mFsslpm3cT2cflkAh" data-title="mac os x上执行shell脚本时，如何隐藏终端窗口？" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -432,7 +432,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="正在学习，以及未来想学（军令状）"><a href="#正在学习，以及未来想学（军令状）" class="headerlink" title="正在学习，以及未来想学（军令状）"></a>正在学习，以及未来想学（军令状）</h1><p>正在学习：</p>
+        <p>正在学习：</p>
 <ul>
 <li>spring cloud主要组件系统的过一遍，之后会开始源码分析</li>
 <li>zookeeper</li>
@@ -455,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/06/14/2019-06-14_%E6%AD%A3%E5%9C%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%9C%AA%E6%9D%A5%E6%83%B3%E5%AD%A6%EF%BC%88%E5%86%9B%E4%BB%A4%E7%8A%B6%EF%BC%89/" data-id="cuidQblhOdOvxS8ej8lLwTgL8" data-title="正在学习，以及未来想学（军令状）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/06/14/2019-06-14_%E6%AD%A3%E5%9C%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%9C%AA%E6%9D%A5%E6%83%B3%E5%AD%A6%EF%BC%88%E5%86%9B%E4%BB%A4%E7%8A%B6%EF%BC%89/" data-id="cuiduEt5ppDwe1Zf7MzmBB9EG" data-title="正在学习，以及未来想学（军令状）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -493,7 +493,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="google-guava使用教程系列（2）-使用与避免使用null"><a href="#google-guava使用教程系列（2）-使用与避免使用null" class="headerlink" title="google guava使用教程系列（2）-使用与避免使用null"></a>google guava使用教程系列（2）-使用与避免使用null</h1><h1 id="有关null的使用"><a href="#有关null的使用" class="headerlink" title="有关null的使用"></a>有关null的使用</h1><p>不要在Set中使用null，或者把null作为map的键值。使用特殊值代表null会让查找操作的语义更清晰。</p>
+        <h1 id="有关null的使用"><a href="#有关null的使用" class="headerlink" title="有关null的使用"></a>有关null的使用</h1><p>不要在Set中使用null，或者把null作为map的键值。使用特殊值代表null会让查找操作的语义更清晰。</p>
 <p>如果你想把null作为map中某条目的值，更好的办法是 不把这一条目放到map中，而是单独维护一个”值为null的键集合” (null keys)。Map 中对应某个键的值是null，和map中没有对应某个键的值，是非常容易混淆的两种情况。因此，最好把值为null的键分离开，并且仔细想想，null值的键在你的项目中到底表达了什么语义。</p>
 <p>如果你需要在列表中使用null，并且这个列表的数据是稀疏的，使用Map&lt;Integer, E&gt;可能会更高效，并且更准确地符合你的潜在需求。</p>
 <p>此外，考虑一下使用自然的null对象——特殊值。举例来说，为某个enum类型增加特殊的枚举值表示null，比如java.math.RoundingMode就定义了一个枚举值UNNECESSARY，它表示一种不做任何舍入操作的模式，用这种模式做舍入操作会直接抛出异常。</p>
@@ -561,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/05/19/2019-05-19_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%882%EF%BC%89-%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8null/" data-id="cuidbh3YfSOHs6yaQMBJ0buxU" data-title="google guava使用教程系列（2）-使用与避免使用null" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/05/19/2019-05-19_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%882%EF%BC%89-%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8null/" data-id="cuiddVQ9j93rj0PBfLADlZUOy" data-title="google guava使用教程系列（2）-使用与避免使用null" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -599,7 +599,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="google-guava使用教程系列（1）-String相关"><a href="#google-guava使用教程系列（1）-String相关" class="headerlink" title="google guava使用教程系列（1）-String相关"></a>google guava使用教程系列（1）-String相关</h1><p><strong>注意：本文档基于google guava 28 wiki</strong></p>
+        <p><strong>注意：本文档基于google guava 28 wiki</strong></p>
 <h1 id="Joiner"><a href="#Joiner" class="headerlink" title="Joiner"></a>Joiner</h1><p>连接器</p>
 <h3 id="将字符串拼接"><a href="#将字符串拼接" class="headerlink" title="将字符串拼接"></a>将字符串拼接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Joiner joiner = Joiner.on(&quot;; &quot;).skipNulls();</span><br><span class="line">return joiner.join(&quot;Harry&quot;, null, &quot;Ron&quot;, &quot;Hermione&quot;);</span><br></pre></td></tr></table></figure>
 
@@ -792,7 +792,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/04/14/2019-04-14_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89-String%E7%9B%B8%E5%85%B3/" data-id="cuidy1yjwj0y8hnRysSHcmxbG" data-title="google guava使用教程系列（1）-String相关" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/04/14/2019-04-14_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89-String%E7%9B%B8%E5%85%B3/" data-id="cuid_D7UqbI91pLJPcue_nlvK" data-title="google guava使用教程系列（1）-String相关" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -830,7 +830,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="elasticsearch启动时报错：error-’Cannot-allocate-memory’-errno-12"><a href="#elasticsearch启动时报错：error-’Cannot-allocate-memory’-errno-12" class="headerlink" title="elasticsearch启动时报错：error&#x3D;’Cannot allocate memory’ (errno&#x3D;12)"></a>elasticsearch启动时报错：error&#x3D;’Cannot allocate memory’ (errno&#x3D;12)</h1><p>elasticsearch启动时报错：</p>
+        <p>elasticsearch启动时报错：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Java HotSpot™ 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000e5330000, 449642496, 0) failed; error=‘Cannot allocate memory’ (errno=12)</span><br><span class="line"></span><br><span class="line">There is insufficient memory for the Java Runtime Environment to continue.</span><br><span class="line">Native memory allocation (mmap) failed to map 449642496 bytes for committing reserved memory.</span><br><span class="line">An error report file with more information is saved as:</span><br><span class="line">/opt/elasticsearch/hs_err_pidxxx.log</span><br></pre></td></tr></table></figure>
 
 <p>原因：没有足够的内存供JRE运行<br>解决：修改es配置参数</p>
@@ -841,7 +841,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/03/22/2019-03-22_elasticsearch%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9Aerror=%E2%80%99Cannot_allocate_memory%E2%80%99_(errno=12)/" data-id="cuidQ7EgPOUZ6l1UxvBV6dYrA" data-title="elasticsearch启动时报错：error=’Cannot allocate memory’ (errno=12)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/03/22/2019-03-22_elasticsearch%E5%90%AF%E5%8A%A8%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9Aerror=%E2%80%99Cannot_allocate_memory%E2%80%99_(errno=12)/" data-id="cuidnTQxVpCCDpoIeMsPaetCG" data-title="elasticsearch启动时报错：error=’Cannot allocate memory’ (errno=12)" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -879,14 +879,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="git-tag及推送tag到远端服务器的命令"><a href="#git-tag及推送tag到远端服务器的命令" class="headerlink" title="git tag及推送tag到远端服务器的命令"></a>git tag及推送tag到远端服务器的命令</h1><p>查看tag<br>git show<br>git tag -l “v1.5” &#x2F;&#x2F;加上筛选条件</p>
+        <p>查看tag<br>git show<br>git tag -l “v1.5” &#x2F;&#x2F;加上筛选条件</p>
 <p>创建tag<br>git tag 版本号<br>git tag -a v1.5 -m “my version 1.5” &#x2F;&#x2F;加上备注信息<br>git tag -a v1.5 &#x2F;&#x2F;会打开默认文本编辑器<br>git tag -s v1.5 -m ‘my signed 1.5 tag’ &#x2F;&#x2F;用 GPG 来签署标签</p>
 <p>推送到远端<br>git push origin [tagname] &#x2F;&#x2F;push单个tag<br>git push [origin] –tags &#x2F;&#x2F;push所有tag</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2019/02/24/2019-02-24_git_tag%E5%8F%8A%E6%8E%A8%E9%80%81tag%E5%88%B0%E8%BF%9C%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4/" data-id="cuidSPaSmu-HVrzvU4874h2wd" data-title="git tag及推送tag到远端服务器的命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2019/02/24/2019-02-24_git_tag%E5%8F%8A%E6%8E%A8%E9%80%81tag%E5%88%B0%E8%BF%9C%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4/" data-id="cuidG9DGp0I8Td9zUWnunatsn" data-title="git tag及推送tag到远端服务器的命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

@@ -6,12 +6,12 @@
   
   <title>源码分析之Eureka客户端源码解析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="源码分析之Eureka客户端源码解析说明本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。 预备知识一些注解的说明eureka中用到几个比较有意思的注解，简化程序实现。 @ConfigurationProperties(“eureka.instance”)表示从外部配置文件中（properties或是yml文件）读取”eureka.instance”对应的配置。 @Co">
+  <meta name="description" content="说明本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。 预备知识一些注解的说明eureka中用到几个比较有意思的注解，简化程序实现。 @ConfigurationProperties(“eureka.instance”)表示从外部配置文件中（properties或是yml文件）读取”eureka.instance”对应的配置。 @ConditionalOnBean&amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="源码分析之Eureka客户端源码解析">
 <meta property="og:url" content="https://evasnowind.github.io/2020/09/22/2020-09-22_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BEureka%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="源码分析之Eureka客户端源码解析说明本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。 预备知识一些注解的说明eureka中用到几个比较有意思的注解，简化程序实现。 @ConfigurationProperties(“eureka.instance”)表示从外部配置文件中（properties或是yml文件）读取”eureka.instance”对应的配置。 @Co">
+<meta property="og:description" content="说明本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。 预备知识一些注解的说明eureka中用到几个比较有意思的注解，简化程序实现。 @ConfigurationProperties(“eureka.instance”)表示从外部配置文件中（properties或是yml文件）读取”eureka.instance”对应的配置。 @ConditionalOnBean&amp;#x">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://evasnowind.github.io/images/eureka-architecture-1024x548_c59397f0.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/eureka-client-work-flow-1024x598_c91e0794.png">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://evasnowind.github.io/images/eureka-client-startup-work-flow-1024x728_79011726.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/spring-cloud-netflix-eureka-client-metai_8e79bf68.png">
 <meta property="article:published_time" content="2020-09-22T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-02T11:17:32.484Z">
+<meta property="article:modified_time" content="2026-09-02T11:23:30.970Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://evasnowind.github.io/images/eureka-architecture-1024x548_c59397f0.png">
@@ -105,7 +105,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="源码分析之Eureka客户端源码解析"><a href="#源码分析之Eureka客户端源码解析" class="headerlink" title="源码分析之Eureka客户端源码解析"></a>源码分析之Eureka客户端源码解析</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。</p>
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文所分析代码版本为spring boot&#x2F;cloud 2.2.6。</p>
 <h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="一些注解的说明"><a href="#一些注解的说明" class="headerlink" title="一些注解的说明"></a>一些注解的说明</h4><p>eureka中用到几个比较有意思的注解，简化程序实现。</p>
 <h5 id="ConfigurationProperties-“eureka-instance”"><a href="#ConfigurationProperties-“eureka-instance”" class="headerlink" title="@ConfigurationProperties(“eureka.instance”)"></a>@ConfigurationProperties(“eureka.instance”)</h5><p>表示从外部配置文件中（properties或是yml文件）读取”eureka.instance”对应的配置。</p>
 <h5 id="ConditionalOnBean-ConditionalOnClass"><a href="#ConditionalOnBean-ConditionalOnClass" class="headerlink" title="@ConditionalOnBean&#x2F;@ConditionalOnClass"></a>@ConditionalOnBean&#x2F;@ConditionalOnClass</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@ConditionalOnBean         //   当给定的在bean存在时,则实例化当前Bean</span><br><span class="line">@ConditionalOnMissingBean  //   当给定的在bean不存在时,则实例化当前Bean</span><br><span class="line">@ConditionalOnClass        //   当给定的类名在类路径上存在，则实例化当前Bean</span><br><span class="line">@ConditionalOnMissingClass //   当给定的类名在类路径上不存在，则实例化当前Bean</span><br></pre></td></tr></table></figure>
@@ -183,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2020/09/22/2020-09-22_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BEureka%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-id="cuidx0FaPFKhlwaj5_4uRTTTo" data-title="源码分析之Eureka客户端源码解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2020/09/22/2020-09-22_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BEureka%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-id="cuidkdzietjiQAAi6gs-_IFZv" data-title="源码分析之Eureka客户端源码解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
