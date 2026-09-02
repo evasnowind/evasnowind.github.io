@@ -5,8 +5,6 @@ categories: [学习, 读书, 读书笔记]
 source: "http://prayerlaputa.com/?p=384"
 ---
 
-# 10 Programming Proverbs Every Developer Should Know[转载]
-
 转载地址：[http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/](http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/ "http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/")\
 Proverbs are used to express universal truths or life lessons in a short and memorable fashion.  I find that they are a great way to keep things in perspective, both in life and in work.  Because of this, I have assembled 10 programming proverbs that every developer needs in their arsenal.
 

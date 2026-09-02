@@ -5,8 +5,6 @@ categories: [java, 读书]
 source: "http://prayerlaputa.com/?p=144"
 ---
 
-# Java中的Overload Overwrite Override【转载】
-
 一直比较模糊下面几个概念,今天在网上看到,摘录如下:
 
 overload （重载）关键 字： 无

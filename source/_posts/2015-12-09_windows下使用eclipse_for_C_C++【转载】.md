@@ -5,8 +5,6 @@ categories: [c/c++, java, 工具]
 source: "http://prayerlaputa.com/?p=101"
 ---
 
-# windows下使用eclipse for C/C++【转载】
-
 经过网上搜索资料加上本人测试，以下方法可行：\
 1，先装好JDK\
 2，装好Eclipse3.32+MinGW1\

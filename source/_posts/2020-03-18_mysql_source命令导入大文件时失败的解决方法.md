@@ -5,8 +5,6 @@ categories: [mysql]
 source: "http://prayerlaputa.com/?p=788"
 ---
 
-# mysql source命令导入大文件时失败的解决方法
-
 方法：\
 1、将大文件分成多个小文件\
 2、检查mysql的`max_allowed_packet`参数配置，命令如下：

@@ -5,8 +5,6 @@ categories: [linux, 工具]
 source: "http://prayerlaputa.com/?p=60"
 ---
 
-# ubuntu下配置tmux
-
 参考如下技术帖：\
 http://www.haogongju.net/art/1767128  http://linuxtoy.org/archives/alias.html  http://forum.ubuntu.org.cn/viewtopic.php?f=122&t=297928  https://wiki.archlinux.org/index.php/Tmux\
 http://blog.sina.com.cn/s/blog\_8ea8e9d50101efb9.html  http://blog.csdn.net/yjj1s/article/details/6413172\

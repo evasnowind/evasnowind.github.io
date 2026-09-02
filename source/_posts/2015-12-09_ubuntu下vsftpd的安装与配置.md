@@ -5,8 +5,6 @@ categories: [工具, 软件]
 source: "http://prayerlaputa.com/?p=92"
 ---
 
-# ubuntu下vsftpd的安装与配置
-
 ubuntu下安装软件一般都很简单，FTP也是如此，貌似vsftpd用的比较多，因此前两天也在一台机器上试验了一下，过程如下：\
 1、安装vsftpd：在终端中输入sudo apt-get install vsftpd。\
 2、配置vsftpd：安装成功后，要对vsftpd进行配置，vsftpd的配置文件为/etc/vsftpd.conf，使用sudo vim /etc/vsftpd.conf就可以进入编辑状态了，当然如果读者安装的ubuntu有图形界面（个人使用的桌面版），那也可以使用sudo gedit /etc/vsftpd.conf来进行编辑，这样更舒服一些。\

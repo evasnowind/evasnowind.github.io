@@ -5,8 +5,6 @@ categories: [kafka, 分布式, 源码剖析]
 source: "http://prayerlaputa.com/?p=861"
 ---
 
-# 源码分析之Kafka Consumer消费消息的过程
-
 ## 说明
 
 本文基于Apache Kafka 2.5.1（2020.09.10拉取最新代码）

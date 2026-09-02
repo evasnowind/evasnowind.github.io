@@ -5,8 +5,6 @@ categories: [linux, 工具, 虚拟化, 软件]
 source: "http://prayerlaputa.com/?p=174"
 ---
 
-# Docker的save和export命令的区别【转载】
-
 中文帖子地址：<http://my.oschina.net/zjzhai/blog/225112>\
 stackoverflow地址：<http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker>\
 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。\

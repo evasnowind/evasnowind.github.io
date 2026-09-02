@@ -5,8 +5,6 @@ categories: [java]
 source: "http://prayerlaputa.com/?p=598"
 ---
 
-# Java三种方法将List转换为Map的实例【转载】
-
 原文链接：https://www.jb51.net/article/149605.htm
 
 # Java三种方法将List转换为Map的实例

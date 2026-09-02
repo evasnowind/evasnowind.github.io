@@ -5,8 +5,6 @@ categories: [linux]
 source: "http://prayerlaputa.com/?p=113"
 ---
 
-# xx is not in the sudoers file 问题解决【转载】
-
 原帖地址：http://blog.sina.com.cn/s/blog\_4ef045ab0100j59t.html\
 我用的是redhat5.4，在一般用户下执行sudo命令提示llhtiger is not in the sudoers file. This incident will be reported.解决方法：\
 一、$whereis sudoers －－－－－－－找出文件所在的位置，默认都是/etc/sudoers\

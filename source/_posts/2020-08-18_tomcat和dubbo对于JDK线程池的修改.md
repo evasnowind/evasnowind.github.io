@@ -5,8 +5,6 @@ categories: [java, 多线程, 源码剖析]
 source: "http://prayerlaputa.com/?p=845"
 ---
 
-# tomcat和dubbo对于JDK线程池的修改
-
 ## 预备知识
 
 - 计算任务的分类

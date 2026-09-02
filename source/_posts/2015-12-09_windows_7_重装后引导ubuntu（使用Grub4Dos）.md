@@ -5,8 +5,6 @@ categories: [linux]
 source: "http://prayerlaputa.com/?p=110"
 ---
 
-# windows 7 重装后引导ubuntu（使用Grub4Dos）
-
 本来机器上是windows 7和ubuntu，重装win 7后，ubuntu不见了，为了将其引导出来，我和同学翻了一下网上的教程，发现基本步骤相同，总结如下：\
 1、书写一个boot.ini,放入C盘，内容如下\
 [boot loader]\

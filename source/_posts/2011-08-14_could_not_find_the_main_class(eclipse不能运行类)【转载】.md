@@ -5,8 +5,6 @@ categories: [j2ee, java]
 source: "http://prayerlaputa.com/?p=382"
 ---
 
-# could_not_find_the_main_class(eclipse不能运行类)【转载】
-
 最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。\
 首先，在eclipse中启动Tomcat服务器，始终不能启动\
 [![clip_image002](images/201108141347089996_b4c9aedb.jpg "clip_image002")](http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141347073749.jpg)\

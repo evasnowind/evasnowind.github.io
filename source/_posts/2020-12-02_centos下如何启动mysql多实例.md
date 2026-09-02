@@ -5,8 +5,6 @@ categories: [mysql]
 source: "http://prayerlaputa.com/?p=917"
 ---
 
-# centos下如何启动mysql多实例
-
 mysql安装有多种方式：
 
 > 具体详细参考官网 （<https://dev.mysql.com/doc/refman/5.7/en/installing.html>）

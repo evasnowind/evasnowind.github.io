@@ -5,8 +5,6 @@ categories: [工具, 软件]
 source: "http://prayerlaputa.com/?p=537"
 ---
 
-# maven package install deploy区别【转载+整理】
-
 稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：\
 [maven package install deploy区别](http://blog.csdn.net/yhj19920417/article/details/72627227)\
 [添加jar包到本地Maven仓库](http://www.cnblogs.com/zeng1994/p/7486330.html)\

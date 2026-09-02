@@ -5,8 +5,6 @@ categories: [java, linux]
 source: "http://prayerlaputa.com/?p=392"
 ---
 
-# could not find the main class(eclipse不能运行类) -解决方法【转载】
-
 转载地址：
 
 http://wenku.baidu.com/view/fa749e737fd5360cba1adbdd.html

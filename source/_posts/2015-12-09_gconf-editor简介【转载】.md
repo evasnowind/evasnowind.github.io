@@ -5,8 +5,6 @@ categories: [linux]
 source: "http://prayerlaputa.com/?p=115"
 ---
 
-# gconf-editor简介【转载】
-
 来自：\
 http://www.cnblogs.com/rivers/archive/2010/10/19/1855357.html\
 gconf-editor是一款类似于注册表的软件，但是远远比改注册表简单，更改里面的配置实际上是修改了硬盘上的文本文档。主要是为了方便对桌面环境及一些软件做一些较多修改──假如一个一个改文本，就太麻烦了。\

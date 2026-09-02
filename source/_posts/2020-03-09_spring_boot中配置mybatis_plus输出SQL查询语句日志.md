@@ -5,8 +5,6 @@ categories: [mybatis, spring boot]
 source: "http://prayerlaputa.com/?p=780"
 ---
 
-# spring boot中配置mybatis plus输出SQL查询语句日志
-
 在spring boot的application.yml文件中配置：
 
 ```

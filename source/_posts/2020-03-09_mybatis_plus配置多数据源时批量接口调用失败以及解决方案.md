@@ -5,8 +5,6 @@ categories: [mybatis, spring boot]
 source: "http://prayerlaputa.com/?p=778"
 ---
 
-# mybatis plus配置多数据源时批量接口调用失败以及解决方案
-
 # 表现
 
 仅配置单个数据源时，mybatis plus的save/saveBatch接口调用正常\

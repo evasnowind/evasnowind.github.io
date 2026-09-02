@@ -5,8 +5,6 @@ categories: [linux, 学习, 工具]
 source: "http://prayerlaputa.com/?p=53"
 ---
 
-# 使用fdisk和resize2fs重置ubuntu系统分区表【转载】
-
 我只是个搬运工，刚好碰到虚拟机中ubuntu空间不够、需要扩大虚拟机磁盘，vmware怎么扩展网上帖子很多，不说了，但vmware扩展虚拟机磁盘后，文件系统中并没有反应处理，就需要我们来更新分区表啥的。然后这个我查了好多帖子，终于找到比较靠谱的帖子，遂转载一下，做个记录（话说度娘真搜不出东西啊，还是google还是……）\
 原帖地址：<http://askubuntu.com/questions/24027/how-can-i-resize-an-ext-root-partition-at-runtime>\
 另一个类似的帖子也贴出来：<https://www.rootusers.com/how-to-increase-the-size-of-a-linux-lvm-by-expanding-the-virtual-machine-disk/>\

@@ -5,8 +5,6 @@ categories: [mysql]
 source: "http://prayerlaputa.com/?p=765"
 ---
 
-# mysql中使用replace regexp实现正则替换
-
 mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from\_str,to\_str)
 
 例如\

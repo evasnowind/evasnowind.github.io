@@ -5,8 +5,6 @@ categories: [linux]
 source: "http://prayerlaputa.com/?p=397"
 ---
 
-# gconf-editor简介【转载】
-
 来自：
 
 http://www.cnblogs.com/rivers/archive/2010/10/19/1855357.html

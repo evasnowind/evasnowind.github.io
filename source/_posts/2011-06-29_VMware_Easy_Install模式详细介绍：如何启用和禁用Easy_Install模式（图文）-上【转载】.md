@@ -5,8 +5,6 @@ categories: [虚拟化]
 source: "http://prayerlaputa.com/?p=394"
 ---
 
-# VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上【转载】
-
 转载地址：
 
 http://hi.baidu.com/i\_coolboy/blog/item/433149d3f33aa0d2a8ec9a69.html

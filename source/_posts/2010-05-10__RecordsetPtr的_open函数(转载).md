@@ -5,8 +5,6 @@ categories: [c/c++]
 source: "http://prayerlaputa.com/?p=419"
 ---
 
-# _RecordsetPtr的 open函数(转载)
-
 转自：http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html\
 \_RecordsetPtr m\_pRecordset;//创建一个\_RecordsetPtr m\_pRecordset.CreateInstance(“ADODB.Recordset”); //创建一个实例 try {      m\_pRecordset->Open(\
 “SELECT \* FROM duty”,                                               //sql查询语句\

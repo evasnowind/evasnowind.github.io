@@ -5,8 +5,6 @@ categories: [linux, web, wordpress, 工具, 网络]
 source: "http://prayerlaputa.com/?p=157"
 ---
 
-# lnmp安装wordpress后不带www的域名无法访问
-
 在VPS上装了wordpress有一段时间了，今天才发现有个小问题：尼玛用www.prayerlaputa.com完整域名访问没问题，用不带www的域名访问就会访问到lnmp的index页面，搜了一下发现是nginx中配置域名重定向有问题，原本内容大致如下：
 
 > server\

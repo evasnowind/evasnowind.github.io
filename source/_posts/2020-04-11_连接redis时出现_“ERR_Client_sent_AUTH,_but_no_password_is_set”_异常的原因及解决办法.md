@@ -5,8 +5,6 @@ categories: [redis]
 source: "http://prayerlaputa.com/?p=798"
 ---
 
-# 连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法
-
 ## 现象
 
 使用`redis-cli`连接redis时，报错：\

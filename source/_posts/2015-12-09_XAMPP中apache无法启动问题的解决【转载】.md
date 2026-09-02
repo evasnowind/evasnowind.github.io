@@ -5,8 +5,6 @@ categories: [linux, 工具]
 source: "http://prayerlaputa.com/?p=88"
 ---
 
-# XAMPP中apache无法启动问题的解决【转载】
-
 XAMPP中apache无法启动问题的解决\
 转载地址：http://www.yange.org/?p=141\
 xampp启动时默认需要80和用于https服务的443端口。一般不能启动都是因为这两个端口被占用。\

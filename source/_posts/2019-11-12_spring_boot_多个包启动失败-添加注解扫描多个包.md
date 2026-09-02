@@ -5,8 +5,6 @@ categories: [java, spring, spring boot]
 source: "http://prayerlaputa.com/?p=703"
 ---
 
-# spring boot 多个包启动失败-添加注解扫描多个包
-
 # spring boot 多个包启动失败-解决：扫描多个包
 
 表现：启动时提示如下信息：\

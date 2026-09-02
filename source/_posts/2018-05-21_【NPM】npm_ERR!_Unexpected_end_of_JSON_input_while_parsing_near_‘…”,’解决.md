@@ -5,8 +5,6 @@ categories: [web]
 source: "http://prayerlaputa.com/?p=621"
 ---
 
-# 【NPM】npm ERR! Unexpected end of JSON input while parsing near ‘…”,’解决方案【转载】
-
 ## 问题描述
 
 今天安装项目依赖npm install 的时候出现错误：

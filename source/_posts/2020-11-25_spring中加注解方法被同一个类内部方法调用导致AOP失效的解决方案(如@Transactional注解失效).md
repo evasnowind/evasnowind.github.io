@@ -5,8 +5,6 @@ categories: [aop, spring]
 source: "http://prayerlaputa.com/?p=913"
 ---
 
-# spring中加注解方法被同一个类内部方法调用导致AOP失效的解决方案(如@Transactional注解失效)
-
 ## 现象
 
 示例：

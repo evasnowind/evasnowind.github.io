@@ -5,8 +5,6 @@ categories: [linux]
 source: "http://prayerlaputa.com/?p=398"
 ---
 
-# xx is not in the sudoers file 问题解决【转载】
-
 原帖地址：http://blog.sina.com.cn/s/blog\_4ef045ab0100j59t.html\
 \
  \

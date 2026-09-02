@@ -5,8 +5,6 @@ categories: [mybatis]
 source: "http://prayerlaputa.com/?p=769"
 ---
 
-# mybatis常用写法-mapper xml传入多个参数
-
 mapper xml文件中：
 
 ```
