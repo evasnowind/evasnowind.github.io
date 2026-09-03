@@ -1,1352 +1,1379 @@
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/bollnh/hexo-theme-material
-        Version: 1.5.6 -->
-    <script>
-        window.materialVersion = "1.5.6"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1',
-            '1.5.0',
-            '1.5.2',
-            '1.5.5'
-        ]
-    </script>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Prayer的数字城堡">
+<meta property="og:url" content="https://evasnowind.github.io/page/6/index.html">
+<meta property="og:site_name" content="Prayer的数字城堡">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Prayer">
+<meta name="twitter:card" content="summary">
 
 
+<link rel="canonical" href="https://evasnowind.github.io/page/6/">
 
 
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/6/index.html","title":""}</script>
 
-
-    <link rel="dns-prefetch" href="https://lib.baomitu.com"/>
-
-
-
-
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!-- Title -->
-    
-    <title>
-        
-        Prayer的数字城堡
-    </title>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.svg">
-    <link rel="icon" href="/img/favicon.svg">
-
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
-    <meta name="theme-color" content="#0097A7">
-
-    <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-
-    
-
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Prayer的数字城堡</title>
   
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
 
 
 
 
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <style>
-        @font-face {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: 300;
-            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot);
-            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.svg#Roboto) format('svg')
-        }
-
-        @font-face {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: regular;
-            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot);
-            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.svg#Roboto) format('svg')
-        }
-
-        @font-face {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: 500;
-            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot);
-            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.svg#Roboto) format('svg')
-        }
-    </style>
-
-
-<!-- Import Material Icons -->
-
-
-    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
 
 
 
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
-    
+  
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
-    <!-- WebAPP Icons -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Prayer的数字城堡">
-    <meta name="msapplication-starturl" content="https://evasnowind.github.io/page/6/">
-    <meta name="msapplication-navbutton-color" content="#0097A7">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Prayer的数字城堡">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/img/favicon.svg">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- RSS -->
-    
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://evasnowind.github.io/page/6/">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Prayer的数字城堡">
-    <meta property="og:image" content="/img/favicon.svg">
-    <meta property="og:description" content="">
-    
-
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="https://evasnowind.github.io/page/6/index.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
 
 
 
-    
-
-    <!-- Analytics -->
-    
-    
-    
-
-    <!-- Custom Head -->
-    
-
-<meta name="generator" content="Hexo 8.1.2"></head>
 
 
-    
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
 
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
 
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
+  
 
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span id="MD-burger-id" class="MD-burger-layer"></span>
-                        </button>
-                    
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
 
-    <!-- Pin on top -->
-    
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/31/2019-10-31_git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9/">git使用技巧-撤销修改</a></p>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
+  </div>
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            git撤销修改
+  <div class="site-meta">
 
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/31/2019-10-31_git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>10月 31, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/git/">git</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/22/2019-10-22_%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90-%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/">分布式id生成-雪花算法实现资源汇总</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            讲分布式Id生成的文章很多，其中雪花算法也提到过多次，本文不再赘述，只是给出资源汇总，仅供参考。
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/22/2019-10-22_%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90-%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>10月 22, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/">mybatis xml常用写法-传入数组list</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>10月 19, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/java/">java</a>, <a class="post_category-link" href="/categories/java/mybatis/">mybatis</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/">mybatis xml常用写法-使用like关键字【整理+转载】</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>10月 19, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/java/">java</a>, <a class="post_category-link" href="/categories/java/mybatis/">mybatis</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/09/26/2019-09-26_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%883%EF%BC%89-_%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E6%A3%80%E6%9F%A5/">google guava使用教程系列（3）- 前置条件检查</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            google guava使用教程系列（3）- 前置条件检查
-原文地址:[
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/09/26/2019-09-26_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%883%EF%BC%89-_%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E6%A3%80%E6%9F%A5/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>9月 26, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/guava/">guava</a>, <a class="post_category-link" href="/categories/guava/java/">java</a>, <a class="post_category-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/09/13/2019-09-13_%E3%80%90%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%E3%80%91java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">【听课笔记】java分布式锁</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            课程链接
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/09/13/2019-09-13_%E3%80%90%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%E3%80%91java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>9月 13, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/java/">java</a>, <a class="post_category-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>, <a class="post_category-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/09/05/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/">spring boot上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载+整理】</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            问题spring ...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/09/05/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>9月 05, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/java/">java</a>, <a class="post_category-link" href="/categories/java/spring/">spring</a>, <a class="post_category-link" href="/categories/java/spring/spring-boot/">spring boot</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/08/24/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/">spring boot整合swagger</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            本文仅展示总体配置，具体注解用法请另行搜索、查询。
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/08/24/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>8月 24, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/j2ee/">j2ee</a>, <a class="post_category-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具</a>, <a class="post_category-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/08/18/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">java8 快速实现List转map 、分组、过滤等操作【转载】</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-# java8 快速实现List转map 、分组、过滤等操作【转载】
-
-版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/08/18/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>8月 18, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/java/">java</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/08/17/2019-08-17_Arrays.asList%E4%B8%AD%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">Arrays.asList中所遇到的坑【转载】</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            转载自：
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/08/17/2019-08-17_Arrays.asList%E4%B8%AD%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Prayer's avatar">
-            </div>
-            <div>
-                <strong>Prayer</strong>
-                <span>8月 17, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/page/5/">&lt;button aria-label&#x3D;&quot;Last page&quot; class&#x3D;&quot;mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon&quot;&gt;&lt;i class&#x3D;&quot;material-icons&quot; role&#x3D;&quot;presentation&quot;&gt;arrow_back&lt;&#x2F;i&gt;&lt;&#x2F;button&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/7/">&lt;button aria-label&#x3D;&quot;Next page&quot; class&#x3D;&quot;mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon&quot;&gt;&lt;i class&#x3D;&quot;material-icons&quot; role&#x3D;&quot;presentation&quot;&gt;arrow_forward&lt;&#x2F;i&gt;&lt;&#x2F;button&gt;</a>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
-    </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Prayer's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        
-        <b class="caret"></b>
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Prayer的数字城堡</h1>
+      <i class="logo-line"></i>
     </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="https://github.com/evasnowind" target="_blank" title="GitHub">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">code</i>
-                        
-                        GitHub
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
 
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
-        </li>
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-timelines"><a href="/timelines/" rel="section"><i class="fa fa-calendar fa-fw"></i>Timelines</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
         
-    
+  
+  <aside class="sidebar">
 
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2026/06/">六月 2026<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/09/">九月 2020<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/12/">十二月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">七月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/12/">十二月 2015<span class="sidebar_archives-count">44</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2011/08/">八月 2011<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2011/07/">七月 2011<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2011/06/">六月 2011<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2011/02/">二月 2011<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2011/01/">一月 2011<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2010/12/">十二月 2010<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2010/11/">十一月 2010<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2010/07/">七月 2010<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2010/06/">六月 2010<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2010/05/">五月 2010<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2010/03/">三月 2010<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2010/02/">二月 2010<span class="sidebar_archives-count">4</span></a>
-            </ul>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
         </li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/android/">android<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/">java<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/web/">web<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/">工作<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/web/">web<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/aop/">aop<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/aop/spring/">spring<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/c-c/">c/c++<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/c-c/java/">java<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/c-c/linux/">linux<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/c-c/linux/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/c-c/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/excel/">excel<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/excel/spring-boot/">spring boot<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/git/">git<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/guava/">guava<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/guava/java/">java<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/guava/java/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/guava/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/io/">io<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/io/Netty/">Netty<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/io/Netty/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/io/java/">java<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/">j2ee<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/">java<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/linux/">linux<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/linux/web/">web<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/linux/web/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/web/">web<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/web/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/">java<span class="sidebar_archives-count">56</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/linux/">linux<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/mybatis/">mybatis<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/mybatis/spring/">spring<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/mybatis/spring/spring-boot/">spring boot<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/spring/">spring<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/spring/spring-boot/">spring boot<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/spring/%E7%BD%91%E7%BB%9C/">网络<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/spring-boot/">spring boot<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/web/">web<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/web/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/web/%E5%BC%80%E6%BA%90/">开源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/">架构<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/web/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/">并发<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/">算法<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%B9%B6%E5%8F%91/">并发<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E5%B9%B6%E5%8F%91/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E7%AE%97%E6%B3%95/">算法<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E7%BD%91%E7%BB%9C/">网络<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/java/%E8%AF%BB%E4%B9%A6/">读书<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/kafka/">kafka<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/kafka/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/">linux<span class="sidebar_archives-count">32</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/shell/">shell<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/shell/%E8%84%9A%E6%9C%AC/">脚本<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/web/">web<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/web/wordpress/">wordpress<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/web/wordpress/%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%BB%9C/">网络<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/web/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/web/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/">开源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/linux/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mybatis/">mybatis<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/mybatis/spring-boot/">spring boot<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/mysql/">mysql<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/mysql/spring-boot/">spring boot<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python/">python<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/">工作<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/python/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%B7%A5%E4%BD%9C/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/redis/">redis<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring/">spring<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring/spring-boot/">spring boot<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring/spring-boot/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring-boot/">spring boot<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring-boot/spring-cloud/">spring cloud<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring-boot/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring-cloud/">spring cloud<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/spring-cloud/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/web/">web<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/wordpress/">wordpress<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/wordpress/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%90%9C%E7%B4%A2/">搜索<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E6%9E%B6%E6%9E%84/">架构<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/">分布式一致性<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7/%E7%AE%97%E6%B3%95/">算法<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/">工作<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/">读书<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E4%BD%9C/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/">架构<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C/">网络<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/">读书<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC/">脚本<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%BA%90/">资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BB%E4%B9%A6/">读书<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%AF%BB%E4%B9%A6/%E8%B5%84%E6%BA%90/">资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%B5%84%E6%BA%90/">资源<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件<span class="sidebar_archives-count">2</span></a>
-            </ul>
+        <li class="sidebar-nav-overview">
+          站点概览
         </li>
-        
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Prayer</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
     
 
-    <!-- Pages  -->
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/10/31/2019-10-31_git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/10/31/2019-10-31_git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9/" class="post-title-link" itemprop="url">git使用技巧-撤销修改</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-31 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-31T00:00:00+00:00">2019-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>git撤销修改</p>
+<h2 id="丢弃工作区的修改"><a href="#丢弃工作区的修改" class="headerlink" title="丢弃工作区的修改"></a>丢弃工作区的修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout  --文件名称</span><br></pre></td></tr></table></figure>
+
+<h2 id="把暂存区的修改撤销掉（unstage），重新放回工作区"><a href="#把暂存区的修改撤销掉（unstage），重新放回工作区" class="headerlink" title="把暂存区的修改撤销掉（unstage），重新放回工作区"></a>把暂存区的修改撤销掉（unstage），重新放回工作区</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD 文件名称</span><br></pre></td></tr></table></figure>
+
+<h2 id="已经commit到版本库，想撤回本次commit"><a href="#已经commit到版本库，想撤回本次commit" class="headerlink" title="已经commit到版本库，想撤回本次commit"></a>已经commit到版本库，想撤回本次commit</h2><p>前提：没有推送到远端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
     
 
-    <!-- Article Number  -->
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
-        <li>
-            <a href="/archives">
-                文章总数
-                <span class="sidebar-badge">201</span>
-            </a>
-        </li>
-        
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/10/22/2019-10-22_%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90-%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/10/22/2019-10-22_%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90-%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">分布式id生成-雪花算法实现资源汇总</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-22T00:00:00+00:00">2019-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">分布式</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
     
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>讲分布式Id生成的文章很多，其中雪花算法也提到过多次，本文不再赘述，只是给出资源汇总，仅供参考。</p>
+<h2 id="snowflake-snowflake-2010"><a href="#snowflake-snowflake-2010" class="headerlink" title="snowflake-snowflake-2010"></a>snowflake-snowflake-2010</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twitter原版，scala编写，地址：https://github.com/twitter-archive/snowflake</span><br></pre></td></tr></table></figure>
+
+<h2 id="java版本snowflake"><a href="#java版本snowflake" class="headerlink" title="java版本snowflake"></a>java版本snowflake</h2><p>代码源地址 参见</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/beyondfengyu/SnowFlake">https://github.com/beyondfengyu/SnowFlake</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/souyunku/SnowFlake">https://github.com/souyunku/SnowFlake</a></li>
+</ul>
+<h2 id="Leaf——美团点评分布式ID生成系统"><a href="#Leaf——美团点评分布式ID生成系统" class="headerlink" title="Leaf——美团点评分布式ID生成系统"></a>Leaf——美团点评分布式ID生成系统</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">介绍参见Leaf——美团点评分布式ID生成系统 https://tech.meituan.com/2017/04/21/mt-leaf.html</span><br><span class="line">代码参见https://github.com/Meituan-Dianping/Leaf</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/" class="post-title-link" itemprop="url">mybatis xml常用写法-传入数组list</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-19T00:00:00+00:00">2019-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/mybatis/" itemprop="url" rel="index"><span itemprop="name">mybatis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="需求：xml中传入参数中包含一个list，需要在where中拼接in语句"><a href="#需求：xml中传入参数中包含一个list，需要在where中拼接in语句" class="headerlink" title="需求：xml中传入参数中包含一个list，需要在where中拼接in语句"></a>需求：xml中传入参数中包含一个list，需要在where中拼接in语句</h1><p>假设查询person表，参数类型为XXXVo，XXXVo中包含一个List对象，保存了状态列表，此时可以参考如下查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;queryXXX&quot; parameterType=&quot;XXXVo&quot;</span><br><span class="line">			resultMap=&quot;XXXResult&quot;&gt;</span><br><span class="line">		select *</span><br><span class="line">		from person</span><br><span class="line">		 WHERE 1=1</span><br><span class="line">		&lt;if test=&quot;statusFilter != null and statusFilter.size() &gt; 0&quot;&gt;</span><br><span class="line">            and status in</span><br><span class="line">            &lt;foreach collection=&quot;statusFilter&quot; item=&quot;statusId&quot; index=&quot;i&quot; open=&quot;(&quot; close=&quot;)&quot; separator=&quot;,&quot;&gt;</span><br><span class="line">                #&#123;statusId&#125;</span><br><span class="line">            &lt;/foreach&gt;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">		 ORDER BY DEPTID</span><br><span class="line">	&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="通过Map对象传递参数给xml"><a href="#通过Map对象传递参数给xml" class="headerlink" title="通过Map对象传递参数给xml"></a>通过Map对象传递参数给xml</h2><p>参数同样可以通过Map对象传递到xml这个层面，此时这样写即可：<br>java代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.put(statusFilter, 列表实例对象);</span><br></pre></td></tr></table></figure>
+
+<p>xml代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;queryXXX&quot; parameterType=&quot;java.util.HashMap&quot;</span><br><span class="line">			resultMap=&quot;XXXResult&quot;&gt;</span><br><span class="line">		select *</span><br><span class="line">		from person</span><br><span class="line">		 WHERE 1=1</span><br><span class="line">		&lt;if test=&quot;statusFilter != null and statusFilter.size() &gt; 0&quot;&gt;</span><br><span class="line">            and status in</span><br><span class="line">            &lt;foreach collection=&quot;statusFilter&quot; item=&quot;statusId&quot; index=&quot;i&quot; open=&quot;(&quot; close=&quot;)&quot; separator=&quot;,&quot;&gt;</span><br><span class="line">                #&#123;statusId&#125;</span><br><span class="line">            &lt;/foreach&gt;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">		 ORDER BY DEPTID</span><br><span class="line">	&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15204179/article/details/1000425509">myBatis的xml映射文件中传入list集合与数组做条件</a></li>
 </ul>
 
-
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
-
-    <div class="sidebar-divider"></div>
-
-
-<!-- Theme Material -->
-
-    <a href="https://github.com/bollnh/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
-
-<!-- Help & Support -->
-<!--
-
--->
-
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
-
+      
     </div>
 
-    <!-- Sidebar Image -->
+    
+    
     
 
-</aside>
-
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-
-    <!-- Facebook -->
-    
-
-    <!-- Google + -->
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/evasnowind" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-
-    <!-- V2EX -->
-    
-
-    <!-- Segmentfault -->
-    
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
 
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Prayer的数字城堡
-            
-                <br>
-                
-                    Powered by Hexo · Theme Material
-                
-            
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/10/19/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BD%BF%E7%94%A8like%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%90%E6%95%B4%E7%90%86+%E8%BD%AC%E8%BD%BD%E3%80%91/" class="post-title-link" itemprop="url">mybatis xml常用写法-使用like关键字【整理+转载】</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-19T00:00:00+00:00">2019-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/mybatis/" itemprop="url" rel="index"><span itemprop="name">mybatis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
+      </header>
 
-        <!-- Paradox Footer Right Section -->
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="需求：xml中需要在where中拼接like语句"><a href="#需求：xml中需要在where中拼接like语句" class="headerlink" title="需求：xml中需要在where中拼接like语句"></a>需求：xml中需要在where中拼接like语句</h1><h2 id="方法1：concat"><a href="#方法1：concat" class="headerlink" title="方法1：concat"></a>方法1：concat</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;where&gt;</span><br><span class="line">    &lt;trim  suffixOverrides=&quot;,&quot; &gt;</span><br><span class="line">        &lt;if test=&quot;id != null and id != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and id =  #&#123;id&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;name != null and name != &#x27;&#x27;&quot; &gt;</span><br><span class="line">            and name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/trim&gt;</span><br><span class="line">&lt;/where&gt;</span><br></pre></td></tr></table></figure>
 
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
+<h2 id="方法2："><a href="#方法2：" class="headerlink" title="方法2：${}"></a>方法2：${}</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;examTypeName!=null and examTypeName!=&#x27;&#x27;&quot;&gt;</span><br><span class="line">    and exam_type_name like &#x27;%$&#123;examTypeName&#125;%&#x27;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
 
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
+<h2 id="方法3："><a href="#方法3：" class="headerlink" title="方法3：#{}"></a>方法3：#{}</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;examTypeName!=null and examTypeName!=&#x27;&#x27;&quot;&gt;</span><br><span class="line">    and exam_type_name like &quot;%&quot;#&#123;examTypeName&#125;&quot;%&quot;</span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure>
 
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/bollnh/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xzj80927/article/details/90038411">mybatis中xml开发like的几种写法</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/09/26/2019-09-26_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%883%EF%BC%89-_%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E6%A3%80%E6%9F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/26/2019-09-26_google_guava%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97%EF%BC%883%EF%BC%89-_%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E6%A3%80%E6%9F%A5/" class="post-title-link" itemprop="url">google guava使用教程系列（3）- 前置条件检查</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-26T00:00:00+00:00">2019-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/guava/" itemprop="url" rel="index"><span itemprop="name">guava</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/guava/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/guava/java/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
-    
-</footer>
-
-
-                    <!-- Import JS File -->
-
-    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
-
-
-
-    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
-
-
-
-    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- UC Browser Compatible -->
-<!-- <script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('
-<link rel="stylesheet" href="/css/uc.css">
-');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script> -->
-
-<!-- Import prettify js  -->
-
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
+      </header>
 
     
     
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
-
-
-<script>
-    var copyrightNow = new Date().getFullYear();
-    var textContent = document.querySelector('span[year]')
-
-    copyrightSince = 2010;
-    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
-        textContent.textContent = copyrightNow
-    } else {
-        textContent.textContent = copyrightSince + ' - ' + copyrightNow
-    }
-
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/bollnh/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
     
+    <div class="post-body" itemprop="articleBody">
+          <p>google guava使用教程系列（3）- 前置条件检查</p>
+<p>原文地址:[<a target="_blank" rel="noopener" href="https://github.com/google/guava/wiki/PreconditionsExplained">https://github.com/google/guava/wiki/PreconditionsExplained</a>])(<a target="_blank" rel="noopener" href="https://github.com/google/guava/wiki/PreconditionsExplained">https://github.com/google/guava/wiki/PreconditionsExplained</a>)</p>
+<p>简而言之，guava提供了一系列检查参数的方案，个人感觉一般，实际业务场景中对于参数判断自己写可能比这种封装更方便。</p>
+<p>官方举的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">checkArgument(i &gt;= 0, &quot;Argument was %s but expected nonnegative&quot;, i);</span><br><span class="line">checkArgument(i &lt; j, &quot;Expected i &lt; j, but %s &gt;= %s&quot;, i, j);</span><br></pre></td></tr></table></figure>
+
+<p>大致有如下几类：</p>
+<ul>
+<li>checkArgument(boolean)</li>
+<li>checkNotNull(T)</li>
+<li>checkState(boolean)</li>
+<li>checkElementIndex(int index, int size)</li>
+<li>checkPositionIndex(int index, int size)</li>
+<li>checkPositionIndexes(int start, int end, int size)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://ifeve.com/google-guava-preconditions/">http://ifeve.com/google-guava-preconditions/</a>有翻译，但翻译不全，建议github上的原版wiki。看名字基本能猜到方法用途，看个人喜好吧，我个人倒是更喜欢apache commons里的校验方法，比如StringUtils.isEmpty()</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/09/13/2019-09-13_%E3%80%90%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%E3%80%91java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/13/2019-09-13_%E3%80%90%E5%90%AC%E8%AF%BE%E7%AC%94%E8%AE%B0%E3%80%91java%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" class="post-title-link" itemprop="url">【听课笔记】java分布式锁</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-13T00:00:00+00:00">2019-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">分布式</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%B9%B6%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">并发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="课程链接"><a href="#课程链接" class="headerlink" title="课程链接"></a>课程链接</h1><p>课程:<a target="_blank" rel="noopener" href="https://url.163.com/VD8">https://url.163.com/VD8</a></p>
+<h1 id="java锁"><a href="#java锁" class="headerlink" title="java锁"></a>java锁</h1><h2 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h2><p>在jdk 1.5以后，优化了，使其性能并不是像很多帖子说的那样，“非常重”</p>
+<h2 id="JUC-lock"><a href="#JUC-lock" class="headerlink" title="JUC lock"></a>JUC lock</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lock()</td>
+<td>获取锁，如果锁被暂用则一直等待</td>
+</tr>
+<tr>
+<td>tryLock()</td>
+<td>如果获取锁的时候锁被占用就返回false，否则返回true</td>
+</tr>
+<tr>
+<td>tryLock(long time, TimeUnit unit)</td>
+<td>比起tryLock，多出等待时间</td>
+</tr>
+<tr>
+<td>unLock()</td>
+<td></td>
+</tr>
+<tr>
+<td>lockInterruptibly()</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="lock与synchronized区别"><a href="#lock与synchronized区别" class="headerlink" title="lock与synchronized区别"></a>lock与synchronized区别</h3><ul>
+<li>lock是接口，syn是java关键字，是内置实现；</li>
+<li>sync 发生异常时自动释放线程占有的锁，因此不会导致死锁现象发生；lock在发生异常时，如果没有unLock去释放锁，可能造成死锁。因此使用lock时需要在finally中释放锁</li>
+<li>lock 可以让等待锁的线程响应中断；sync 不行，使用sync等待线程一直等待下去，不能中断<br>lock可以知道有没有成功获得锁，sync则无法知道</li>
+<li>lock可提高多线程读效率</li>
+</ul>
+<p>性能上，竞争不激烈，两者性能；竞争激烈时，lock性能远由于sync。具体需要根据情况而定。<br>并不一定总是需要用lock，sync更方便，lock需要更精心维护代码、避免死锁</p>
+<h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><p>push<br>pull<br>的方式</p>
+<p>惊群效应</p>
+<p>分布式锁需要具备的条件：</p>
+<ul>
+<li>互斥性</li>
+<li>可重入</li>
+<li>超时高效</li>
+<li>阻塞&#x2F;非阻塞</li>
+</ul>
+<p>几种实现方式：</p>
+<ol>
+<li>数据库实现(乐观锁)</li>
+<li>基于zookeeper的实现</li>
+<li>基于redis的实现</li>
+<li>自研分布式锁（google的chubby, zookeeper实际上是基于这个chubby）</li>
+</ol>
+<h2 id="基于数据库实现"><a href="#基于数据库实现" class="headerlink" title="基于数据库实现"></a>基于数据库实现</h2><p>略</p>
+<h2 id="基于redis的实现"><a href="#基于redis的实现" class="headerlink" title="基于redis的实现"></a>基于redis的实现</h2><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SETNX key value   </span><br></pre></td></tr></table></figure>
+
+<p>if key不存在，则设置为value；存在则不做任何操作<br>“SET if Not eXist”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expire key seconds </span><br></pre></td></tr></table></figure>
+
+<p>设置过期时间，如果key已国企，则将会被自动删除。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del key</span><br></pre></td></tr></table></figure>
+
+<p>删除key</p>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><h4 id="基本锁"><a href="#基本锁" class="headerlink" title="基本锁"></a>基本锁</h4><p>原理：利用redis的setnx，如果不存在某个key则设置值，设置成功则表示锁成功<br>缺点：如果获取锁后的进程在没有执行完就挂了，则锁永远不会释放</p>
+<h4 id="改进型"><a href="#改进型" class="headerlink" title="改进型"></a>改进型</h4><p>改进：在基本形式锁上setnx后设置expire，保证超时后也能自动释放锁<br>缺点：setnx与expire不是一个原子操作，可能执行完setnx该进程就挂了</p>
+<h4 id="再改进"><a href="#再改进" class="headerlink" title="再改进"></a>再改进</h4><p>lua执行具有原子性<br>改进：利用lua脚本，将setnx与expire编程一个原子操作，可解决一部分问题<br>缺点：还是会出现锁过期的问题</p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>官方提供的java组件：redisson<br>redisson的分布式可重入锁RLock java对象实现了java.util.concurrent.locks.lock接口同时还支持过期解锁<br>地址：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/redisson/redisson">redisson github</a></li>
+<li><a target="_blank" rel="noopener" href="https://redisson.org/">redisson 官网</a></li>
+</ul>
+<h2 id="分布式锁方案比较"><a href="#分布式锁方案比较" class="headerlink" title="分布式锁方案比较"></a>分布式锁方案比较</h2><ul>
+<li>从理解的难易程度（从低到高）<br>数据库 &gt; 缓存 &gt; zookeeper</li>
+<li>从实现的复杂性角度<br>zookeeper &gt;&#x3D; 缓存 &gt; 数据</li>
+<li>从性能角度（从高到底）<br>缓存 &gt; zookeeper &gt;&#x3D; 数据库</li>
+<li>从可靠性角度（从高到低）<br>zookeeper &gt; 缓存 &gt; 数据库</li>
+</ul>
+<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><p>redis的可以用于哪些场景？</p>
+<ul>
+<li>缓存</li>
+<li>消息队列</li>
+<li>分布式锁</li>
+<li>发布订阅</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/09/05/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/05/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" class="post-title-link" itemprop="url">spring boot上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载+整理】</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-05T00:00:00+00:00">2019-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/spring/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring boot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>spring boot + spring cloud，上传附件时遇到如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.web.multipart.MultipartException: Could not parse multipart servlet request; nested exception is java.lang.IllegalStateException: org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException: the request was rejected because its size (11963927) exceeds the configured maximum (10485760)</span><br></pre></td></tr></table></figure>
+
+<p>错误信息表示上传附件报超出自带tomacat限制大小（默认1M）\</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol>
+<li>在配置文件（application.properties或是application.yml）加入如下代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.http.multipart.maxFileSize = 10Mb</span><br><span class="line">spring.http.multipart.maxRequestSize=100Mb</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>把如下代码放在启动类上，并在类上加入@Configuration</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * 文件上传配置</span><br><span class="line">   * </span><br><span class="line">   * @return</span><br><span class="line">   */</span><br><span class="line">  @Bean</span><br><span class="line">  public MultipartConfigElement multipartConfigElement() &#123;</span><br><span class="line">      MultipartConfigFactory factory = new MultipartConfigFactory();</span><br><span class="line">      //  单个数据大小</span><br><span class="line">      factory.setMaxFileSize(&quot;10240KB&quot;); // KB,MB</span><br><span class="line">      /// 总上传数据大小</span><br><span class="line">      factory.setMaxRequestSize(&quot;102400KB&quot;);</span><br><span class="line">      return factory.createMultipartConfig();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我这里选择只修改配置参数，就修复了问题。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/fxj0720/article/details/80255651">spring boot上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/08/24/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/24/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/" class="post-title-link" itemprop="url">spring boot整合swagger</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-24T00:00:00+00:00">2019-08-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/j2ee/" itemprop="url" rel="index"><span itemprop="name">j2ee</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/j2ee/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/j2ee/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">开源</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文仅展示总体配置，具体注解用法请另行搜索、查询。</p>
+<h2 id="1-加上maven依赖，引入相关包"><a href="#1-加上maven依赖，引入相关包" class="headerlink" title="1.加上maven依赖，引入相关包"></a>1.加上maven依赖，引入相关包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.swagger.core.v3&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;swagger-annotations&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.8&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- http://localhost:18004/doc.html --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;swagger-bootstrap-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.8.8&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- Swagger用了高版本的 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-spring-boot项目中加入配置类"><a href="#2-spring-boot项目中加入配置类" class="headerlink" title="2.spring boot项目中加入配置类"></a>2.spring boot项目中加入配置类</h2><p>添加一个配置对象，大体代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">package com.demo.config;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.annotation.Profile;</span><br><span class="line"></span><br><span class="line">import io.swagger.annotations.Api;</span><br><span class="line">import springfox.documentation.builders.ApiInfoBuilder;</span><br><span class="line">import springfox.documentation.builders.PathSelectors;</span><br><span class="line">import springfox.documentation.builders.RequestHandlerSelectors;</span><br><span class="line">import springfox.documentation.service.ApiInfo;</span><br><span class="line">import springfox.documentation.service.Contact;</span><br><span class="line">import springfox.documentation.spi.DocumentationType;</span><br><span class="line">import springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line">import springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* Swagger2配置</span><br><span class="line">* http://localhost:18005/swagger-ui.html</span><br><span class="line">* http://localhost:18005/doc.html</span><br><span class="line">*/</span><br><span class="line">@Configuration</span><br><span class="line">@EnableSwagger2</span><br><span class="line">@Profile(&#123;&quot;dev&quot;, &quot;pre&quot;&#125;)</span><br><span class="line">class SwaggerConfig &#123;</span><br><span class="line">/**</span><br><span class="line">* swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等</span><br><span class="line">*/</span><br><span class="line">@Bean</span><br><span class="line">public Docket createRestApi() &#123;</span><br><span class="line">return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">.apiInfo(apiInfo())</span><br><span class="line">.select()</span><br><span class="line">.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))</span><br><span class="line">//为当前包路径</span><br><span class="line">//.apis(RequestHandlerSelectors.basePackage(&quot;com.br.demo.controller&quot;))</span><br><span class="line">.paths(PathSelectors.any())</span><br><span class="line">.build();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 构建 api文档的详细信息函数</span><br><span class="line">*/</span><br><span class="line">private ApiInfo apiInfo() &#123;</span><br><span class="line">ApiInfo apiInfo = new ApiInfoBuilder()</span><br><span class="line">//页面标题</span><br><span class="line">.title(&quot;账务系统接口API文档&quot;)</span><br><span class="line">//创建人</span><br><span class="line">.contact(new Contact(&quot;xx&quot;, &quot;http://xx.100credit.cn&quot;, &quot;xx@100credit.com&quot;))</span><br><span class="line">//版本号</span><br><span class="line">.version(&quot;1.0&quot;)</span><br><span class="line">//描述</span><br><span class="line">.description(&quot;账务系统接口大全&quot;)</span><br><span class="line">.build();</span><br><span class="line">return apiInfo;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-用各种注解加入接口说明"><a href="#3-用各种注解加入接口说明" class="headerlink" title="3.用各种注解加入接口说明"></a>3.用各种注解加入接口说明</h2><p>例如controller</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">import javax.annotation.Resource;</span><br><span class="line"></span><br><span class="line">import org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestBody;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">import com.demo.bean.model.User;</span><br><span class="line">import com.demo.common.result.Result;</span><br><span class="line">import com.demo.common.result.ResultUtils;</span><br><span class="line">import com.demo.controller.BaseController;</span><br><span class="line">import com.demo.service.UserService;</span><br><span class="line"></span><br><span class="line">import io.swagger.annotations.Api;</span><br><span class="line">import io.swagger.annotations.ApiImplicitParam;</span><br><span class="line">import io.swagger.annotations.ApiOperation;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;api/user&quot;)</span><br><span class="line">@Api(&quot;UserController相关的api&quot;)</span><br><span class="line">public class UserController extends BaseController &#123;</span><br><span class="line"></span><br><span class="line">@Resource</span><br><span class="line">private UserService userService;</span><br><span class="line"></span><br><span class="line">@ApiOperation(value = &quot;查询用户&quot;, notes = &quot;获得用户信息&quot;)</span><br><span class="line">@PostMapping(&quot;/getUser&quot;)</span><br><span class="line">private Result&lt;User&gt; getUser(User user) &#123;</span><br><span class="line">User userResult = new User();</span><br><span class="line">userResult.setName(&quot;xx&quot;);</span><br><span class="line">userResult.setEmail(&quot;xx@qq.com&quot;);</span><br><span class="line">return ResultUtils.succeed(userResult);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>实体类示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">Model模型类</span><br><span class="line"></span><br><span class="line">import io.swagger.annotations.ApiModel;</span><br><span class="line">import io.swagger.annotations.ApiModelProperty;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">@ApiModel(&quot;用户实体类&quot;)</span><br><span class="line">@Data</span><br><span class="line">public class User &#123;</span><br><span class="line"></span><br><span class="line">@ApiModelProperty(name=&quot;name&quot;,value=&quot;用户名&quot;,required=true)</span><br><span class="line">private String name;</span><br><span class="line"></span><br><span class="line">@ApiModelProperty(name=&quot;email&quot;,value=&quot;邮箱&quot;,required=false)</span><br><span class="line">private String email;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-效果"><a href="#4-效果" class="headerlink" title="4. 效果"></a>4. 效果</h2><p><img src="/images/swagger%E6%88%AA%E5%9B%BE1-300x222_ece54ddd.png"></p>
+<p><img src="/images/swagger%E6%88%AA%E5%9B%BE2-300x258_0d5c6f13.png"></p>
+<p><img src="/images/swagger%E6%88%AA%E5%9B%BE3-300x177_6c518d0d.png"></p>
+<h2 id="5-如果配置了shiro或是拦截器，注意需要打开相关权限"><a href="#5-如果配置了shiro或是拦截器，注意需要打开相关权限" class="headerlink" title="5. 如果配置了shiro或是拦截器，注意需要打开相关权限"></a>5. 如果配置了shiro或是拦截器，注意需要打开相关权限</h2><p>以shiro为例，需做如下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">//对swagger2相关接口放行，5个配置</span><br><span class="line">filterChainDefinitionMap.put(&quot;/doc.html&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/swagger-ui.html&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/swagger-resources/**&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/v2/api-docs/**&quot;, &quot;anon&quot;);</span><br><span class="line">filterChainDefinitionMap.put(&quot;/webjars/springfox-swagger-ui/**&quot;, &quot;anon&quot;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-swagger接口显示地址"><a href="#6-swagger接口显示地址" class="headerlink" title="6. swagger接口显示地址"></a>6. swagger接口显示地址</h2><ul>
+<li><a href="http://ip:端口/swagger-ui.html">http://ip:端口/swagger-ui.html</a>   Swagger官方UI</li>
+<li><a href="http://ip:端口//doc.html">http://ip:端口//doc.html</a>   第三方Bootstarp皮肤的UI</li>
+</ul>
+<h2 id="7-参考文档"><a href="#7-参考文档" class="headerlink" title="7.参考文档"></a>7.参考文档</h2><p>swagger2 注解说明 ( @ApiImplicitParams )<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiangyu1013/article/details/83107255">https://blog.csdn.net/jiangyu1013/article/details/83107255</a></p>
+<p>spring boot项目中使用swagger2<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/05be40b9a7a3">https://www.jianshu.com/p/05be40b9a7a3</a></p>
+<p>spring boot 整合 swagger2,并设置post,get请求方式<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq/_36249132/article/details/90109815">https://blog.csdn.net/qq\_36249132/article/details/90109815</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/08/18/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/18/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="post-title-link" itemprop="url">java8 快速实现List转map 、分组、过滤等操作【转载】</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-18 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-18T00:00:00+00:00">2019-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+# java8 快速实现List转map 、分组、过滤等操作【转载】
+
+版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。\
+本文链接：https://blog.csdn.net/lu930124/article/details/77595585
+
+利用java8新特性，可以用简洁高效的代码来实现一些数据处理。
+
+定义1个Apple对象：
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">public class Apple &#123;</span><br><span class="line">private Integer id;</span><br><span class="line">private String name;</span><br><span class="line">private BigDecimal money;</span><br><span class="line">private Integer num;</span><br><span class="line">public Apple(Integer id, String name, BigDecimal money, Integer num) &#123;</span><br><span class="line">this.id = id;</span><br><span class="line">this.name = name;</span><br><span class="line">this.money = money;</span><br><span class="line">this.num = num;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+\
+添加一些测试数据：
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">List&lt;Apple&gt; appleList = new ArrayList&lt;&gt;();//存放apple对象集合</span><br><span class="line"></span><br><span class="line">Apple apple1 = new Apple(1,&quot;苹果1&quot;,new BigDecimal(&quot;3.25&quot;),10);</span><br><span class="line">Apple apple12 = new Apple(1,&quot;苹果2&quot;,new BigDecimal(&quot;1.35&quot;),20);</span><br><span class="line">Apple apple2 = new Apple(2,&quot;香蕉&quot;,new BigDecimal(&quot;2.89&quot;),30);</span><br><span class="line">Apple apple3 = new Apple(3,&quot;荔枝&quot;,new BigDecimal(&quot;9.99&quot;),40);</span><br><span class="line"></span><br><span class="line">appleList.add(apple1);</span><br><span class="line">appleList.add(apple12);</span><br><span class="line">appleList.add(apple2);</span><br><span class="line">appleList.add(apple3);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+1、分组\
+List里面的对象元素，以某个属性来分组，例如，以id分组，将id相同的放在一起：
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">//List 以ID分组 Map&lt;Integer,List&lt;Apple&gt;&gt;</span><br><span class="line">Map&lt;Integer, List&lt;Apple&gt;&gt; groupBy = appleList.stream().collect(Collectors.groupingBy(Apple::getId));</span><br><span class="line"></span><br><span class="line">System.err.println(&quot;groupBy:&quot;+groupBy);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+{1=[Apple{id=1, name=’苹果1′, money=3.25, num=10}, Apple{id=1, name=’苹果2′, money=1.35, num=20}], 2=[Apple{id=2, name=’香蕉’, money=2.89, num=30}], 3=[Apple{id=3, name=’荔枝’, money=9.99, num=40}]}
+
+2、List转Map\
+id为key，apple对象为value，可以这么做：
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* List -&gt; Map</span><br><span class="line">* 需要注意的是：</span><br><span class="line">* toMap 如果集合对象有重复的key，会报错Duplicate key ....</span><br><span class="line">* apple1,apple12的id都为1。</span><br><span class="line">* 可以用 (k1,k2)-&gt;k1 来设置，如果有重复的key,则保留key1,舍弃key2</span><br><span class="line">*/</span><br><span class="line">Map&lt;Integer, Apple&gt; appleMap = appleList.stream().collect(Collectors.toMap(Apple::getId, a -&gt; a,(k1,k2)-&gt;k1));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+打印appleMap\
+{1=Apple{id=1, name=’苹果1′, money=3.25, num=10}, 2=Apple{id=2, name=’香蕉’, money=2.89, num=30}, 3=Apple{id=3, name=’荔枝’, money=9.99, num=40}}
+
+3、过滤Filter\
+从集合中过滤出来符合条件的元素：
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">//过滤出符合条件的数据</span><br><span class="line">List&lt;Apple&gt; filterList = appleList.stream().filter(a -&gt; a.getName().equals(&quot;香蕉&quot;)).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">System.err.println(&quot;filterList:&quot;+filterList);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+[Apple{id=2, name=’香蕉’, money=2.89, num=30}]
+
+4.求和\
+将集合中的数据按照某个属性求和:
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">//计算 总金额</span><br><span class="line">BigDecimal totalMoney = appleList.stream().map(Apple::getMoney).reduce(BigDecimal.ZERO, BigDecimal::add);</span><br><span class="line">System.err.println(&quot;totalMoney:&quot;+totalMoney); //totalMoney:17.48</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+5.查找流中最大 最小值
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Collectors.maxBy 和 Collectors.minBy 来计算流中的最大或最小值。</span><br><span class="line"></span><br><span class="line">Optional&lt;Dish&gt; maxDish = Dish.menu.stream().</span><br><span class="line">collect(Collectors.maxBy(Comparator.comparing(Dish::getCalories)));</span><br><span class="line">maxDish.ifPresent(System.out::println);</span><br><span class="line"></span><br><span class="line">Optional&lt;Dish&gt; minDish = Dish.menu.stream().</span><br><span class="line">collect(Collectors.minBy(Comparator.comparing(Dish::getCalories)));</span><br><span class="line">minDish.ifPresent(System.out::println);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+6.去重
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import static java.util.Comparator.comparingLong;</span><br><span class="line">import static java.util.stream.Collectors.collectingAndThen;</span><br><span class="line">import static java.util.stream.Collectors.toCollection;</span><br><span class="line"></span><br><span class="line">// 根据id去重</span><br><span class="line">List&lt;Person&gt; unique = appleList.stream().collect(</span><br><span class="line">collectingAndThen(</span><br><span class="line">toCollection(() -&gt; new TreeSet&lt;&gt;(comparingLong(Apple::getId))), ArrayList::new)</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+下表展示 Collectors 类的静态工厂方法。
+
+工厂方法 返回类型 作用\
+toList List<T> 把流中所有项目收集到一个 List\
+toSet Set<T> 把流中所有项目收集到一个 Set，删除重复项\
+toCollection Collection<T> 把流中所有项目收集到给定的供应源创建的集合menuStream.collect(toCollection(), ArrayList::new)\
+counting Long 计算流中元素的个数\
+sumInt Integer 对流中项目的一个整数属性求和\
+averagingInt Double 计算流中项目 Integer 属性的平均值\
+summarizingInt IntSummaryStatistics 收集关于流中项目 Integer 属性的统计值，例如最大、最小、 总和与平均值\
+joining String 连接对流中每个项目调用 toString 方法所生成的字符串collect(joining(“, “))\
+maxBy Optional<T> 一个包裹了流中按照给定比较器选出的最大元素的 Optional， 或如果流为空则为 Optional.empty()\
+minBy Optional<T> 一个包裹了流中按照给定比较器选出的最小元素的 Optional， 或如果流为空则为 Optional.empty()\
+reducing 归约操作产生的类型 从一个作为累加器的初始值开始，利用 BinaryOperator 与流 中的元素逐个结合，从而将流归约为单个值累加int totalCalories = menuStream.collect(reducing(0, Dish::getCalories, Integer::sum));\
+collectingAndThen 转换函数返回的类型 包裹另一个收集器，对其结果应用转换函数int howManyDishes = menuStream.collect(collectingAndThen(toList(), List::size))\
+groupingBy Map<K, List<T>> 根据项目的一个属性的值对流中的项目作问组，并将属性值作 为结果 Map 的键\
+partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的结果来对项目进行分区
+
+最后一个是表格，可以参见原帖：<https://blog.csdn.net/lu930124/article/details/77595585>
+
+![](/images/常用collectors-300x204_692499fb.png)
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/08/17/2019-08-17_Arrays.asList%E4%B8%AD%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/17/2019-08-17_Arrays.asList%E4%B8%AD%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="post-title-link" itemprop="url">Arrays.asList中所遇到的坑【转载】</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-17 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-17T00:00:00+00:00">2019-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>转载自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wang-meng/p/f1532cf23ce049ce63b4bdd62d53659d.html">https://www.cnblogs.com/wang-meng/p/f1532cf23ce049ce63b4bdd62d53659d.html</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在项目上线的时候发现一个问题，从后台报错日志看：<strong>java.lang.UnsupportedOperationException异常</strong><br>从代码定位来看，原来是使用了Arrays.asList()方法时把一个数组转化成List列表时，对得到的List列表进行add()和remove()操作, 所以导致了这个问题。</p>
+<p>对于这个问题，现在来总结下，当然会总结Arrays下面的一些坑。</p>
+<h2 id="源代码分析"><a href="#源代码分析" class="headerlink" title="源代码分析"></a>源代码分析</h2><p>首先，遇到问题不可怕，遇到问题解决就是了，但是必须要保证下次不会再犯相同的问题。<br>Arrays.asList返回的是同样的ArrayList，为什么就不能使用add和remove方法呢？</p>
+<p>1，查看Arrays.asList 源码<br><img src="/images/799093-20181014221109823-1745635954_605be621.png">,</p>
+<p>2，查看此ArrayList结构：<br><img src="/images/799093-20181014221110187-1077018580_49778143.png"></p>
+<p>3， 在查看AbstractList结构：<br><img src="/images/799093-20181014221110706-1882850228_c08bfe59.png"></p>
+<p>果然，UnsupportedOperationException 是这里抛出的，因为Arrays中的ArrayList并没有实现此方法，故抛出了异常。<br><strong>所以说 Arrays.asList 返回的 List 是一个不可变长度的列表，此列表不再具备原 List 的很多特性，因此慎用 Arrays.asList 方法。</strong></p>
+<h2 id="Arrays中其他坑"><a href="#Arrays中其他坑" class="headerlink" title="Arrays中其他坑"></a>Arrays中其他坑</h2><p>1，下面程序输出是什么？<br><img src="/images/799093-20181014221111014-1921967414_c0123c7a.png"><br><strong>打印结果是：1</strong><br>由上面asList 源码我们可以看到返回的 Arrays 的内部类 ArrayList 构造方法接收的是一个类型为 T 的数组，而基本类型是不能作为泛型参数的，所以这里参数 a 只能接收引用类型，自然为了编译通过编译器就把上面的 int[] 数组当做了一个引用参数，所以 size 为 1，要想修改这个问题很简单，将 int[] 换成 Integer[] 即可。所以<strong>原始类型不能作为 Arrays.asList 方法的参数，否则会被当做一个参数。</strong></p>
+<p>2，Collections.toArray报错问题<br>大家可以看下 java.util.ArrayList 源码 中特别标记有一句话如下：<br><img src="/images/799093-20181014221111414-531849769_b2a62e88.png"><br>Bug地址：<a target="_blank" rel="noopener" href="https://bugs.java.com/view_bug.do?bug_id=6260652">https://bugs.java.com/view_bug.do?bug_id=6260652</a><br>那下面来试验下什么情况下会出现这种异常：<br><img src="/images/799093-20181014221111730-2078070269_dcc5a178.png"></p>
+<p>如上图，这种控制台打印的结果如下：<br><strong>class [Ljava.lang.String;</strong><br><strong>Exception in thread “main” java.lang.ArrayStoreException: java.lang.Object</strong></p>
+<p>我们查看Arrays中ArrayList的toArray源码：<br><img src="/images/799093-20181014221112085-400703368_c1b48f07.png"><br>因为asList返回的是一个String数组，所以这里toArray返回的其实是String[]类型，只不过是这里做了一个向上转型，将String[]类型转为Object[]类型罢了。<br>但是注意，虽然返回的引用为Object[]，但实际的类型还是String[],当你往一个引用类型和实际类型不匹配的对象中添加元素时，就是报错。<br>具体大家可以参考Java向上转型和向下转型的相关知识点。</p>
+<p>关于Arrays中的坑就说到这里，有补充的欢迎留言。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Prayer</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
 </html>
