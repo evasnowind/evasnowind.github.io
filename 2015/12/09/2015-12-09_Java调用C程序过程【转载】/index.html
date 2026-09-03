@@ -19,16 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="首先说明一下Java调用C程序的过程，下面这些内容从网上搜索到的结果：转自：http:&#x2F;&#x2F;liufei-fir.iteye.com&#x2F;blog&#x2F;776326用java调用dll本是一个不难的事情，但往往会给初学者带来的一点麻烦，网络上很多调用dll的例子都参差不齐，往往省略了一些步骤，对他们来说觉得简单不需要说明，对初学者来说确很重要，结果不想可知。因此在这里仔细的说明一下，希望给初学者们带来些许方">
+    <meta name="description" content="围绕Java调用C程序过程整理相关实践、经验与要点。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java调用C程序过程【转载】">
 <meta property="og:url" content="https://evasnowind.github.io/2015/12/09/2015-12-09_Java%E8%B0%83%E7%94%A8C%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="首先说明一下Java调用C程序的过程，下面这些内容从网上搜索到的结果：转自：http:&#x2F;&#x2F;liufei-fir.iteye.com&#x2F;blog&#x2F;776326用java调用dll本是一个不难的事情，但往往会给初学者带来的一点麻烦，网络上很多调用dll的例子都参差不齐，往往省略了一些步骤，对他们来说觉得简单不需要说明，对初学者来说确很重要，结果不想可知。因此在这里仔细的说明一下，希望给初学者们带来些许方">
+<meta property="og:description" content="围绕Java调用C程序过程整理相关实践、经验与要点。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-12-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.332Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.600Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
 
@@ -160,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -203,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2015/12/09/2015-12-09_Java%E8%B0%83%E7%94%A8C%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Java调用C程序过程【转载】 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="围绕Java调用C程序过程整理相关实践、经验与要点。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -236,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,28 +261,24 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/java/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+          <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">围绕Java调用C程序过程整理相关实践、经验与要点。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>首先说明一下Java调用C程序的过程，下面这些内容从网上搜索到的结果：<br>转自：<a target="_blank" rel="noopener" href="http://liufei-fir.iteye.com/blog/776326">http://liufei-fir.iteye.com/blog/776326</a><br>用java调用dll本是一个不难的事情，但往往会给初学者带来的一点麻烦，网络上很多调用dll的例子都参差不齐，往往省略了一些步骤，对他们来说觉得简单不需要说明，对初学者来说确很重要，结果不想可知。因此在这里仔细的说明一下，希望给初学者们带来些许方便，高手绕过。。<br>一，首先在C盘建立项目文件夹jnitest，然后建立hello文件夹，在hello文件夹下放入Test.java，即在<br>C:\jnitest\hello下放入Test.java，<br>Test.java的内容为：<br>package hello;<br>class Test {<br>static {<br>System.loadLibrary(“TestDll”);<br>}<br>public static void main(String ar[]) {<br>System.out.println(“Hello world from Java”);<br>Test t &#x3D; new Test();<br>int a &#x3D; 1, b &#x3D; 1;<br>int c &#x3D; t.add(a, b);<br>System.out.println(c);<br>}<br>public native int add(int a, int b);<br>}<br>二，启动cmd命令行工具，切换到项目文件夹的目录（C:\jnitest&gt;），然后输入javac hello\Test.java，即cmd最终显示为：C:\jnitest&gt;javac hello\Test.java，接着执行C:\jnitest&gt;javah hello.Test。所有命令<br>都注意下大小写。最终会在C:\jnitest下生成hello_Test.h头文件。<br>三，打开Vc++ 6.0，新建-》工程-》Win32 Dynamic-Link Library，工程名称为TestDll，点确定，然后<br>选择“一个简单的DLL工程”，按完成。<br>四，将hello_Test.h拷贝到VC的TestDll项目的文件夹下，在VC6.0界面中左方导航中选择“FileView”选择<br>Header Files点右键-》添加文件到目录，然后选中hello_Test.h。<br>五，打开TestDll.cpp，修改内容为：<br>&#x2F;&#x2F; TestDll.cpp : Defines the entry point for the DLL application.<br>&#x2F;&#x2F;<br>#include “stdafx.h”<br>#include “hello_Test.h”<br>JNIEXPORT jint JNICALL Java_hello_Test_add<br>(JNIEnv *, jobject, jint a, jint b)<br>{<br>return a+b;<br>}<br>六，点菜单“工具”-》选项-》目录，这里应添加jdk的头文件路径，添加两个。我的为H:\JDK1.5.0_16<br>\INCLUDE和H:\JDK1.5.0_16\INCLUDE\WIN32。<br>七，编译项目文件。<br>八，将编译生成的TestDll.dll拷贝到和hello_Test.h相同的目录下，在我这边既是C:\jnitest。（既C:\jnitest下有TestDll.dll和hello_Test.h）。<br>九，在cmd命令行C:\jnitest&gt;下输入java hello.Test，即可看到结果。<br>十。输出为：Hello world from Java<br>2<br>这里补充说明的是，上述方法采取了命令行编译的方式，直接将dll放入.class文件所在文件夹，如果是使用eclipse，那么就需要将dll导入到工程中，具体的步骤如下：<strong>右单击项目名→导入→常规→文件系统→下一步→浏览→选择DLL文件所在目录→确定→勾选DLL文件→完成.</strong><br>如果在得到dll后运行程序，出现no XXX in java.library.path异常，则说明dll没有找到，此时使用dll</p>
+    <div class="post-body" itemprop="articleBody"><p>首先说明一下Java调用C程序的过程，下面这些内容从网上搜索到的结果：<br>转自：<a target="_blank" rel="noopener" href="http://liufei-fir.iteye.com/blog/776326">http://liufei-fir.iteye.com/blog/776326</a><br>用java调用dll本是一个不难的事情，但往往会给初学者带来的一点麻烦，网络上很多调用dll的例子都参差不齐，往往省略了一些步骤，对他们来说觉得简单不需要说明，对初学者来说确很重要，结果不想可知。因此在这里仔细的说明一下，希望给初学者们带来些许方便，高手绕过。。<br>一，首先在C盘建立项目文件夹jnitest，然后建立hello文件夹，在hello文件夹下放入Test.java，即在<br>C:\jnitest\hello下放入Test.java，<br>Test.java的内容为：<br>package hello;<br>class Test {\</p>
+<span id="more"></span>
+
+<p>static {<br>System.loadLibrary(“TestDll”);<br>}<br>public static void main(String ar[]) {<br>System.out.println(“Hello world from Java”);<br>Test t &#x3D; new Test();<br>int a &#x3D; 1, b &#x3D; 1;<br>int c &#x3D; t.add(a, b);<br>System.out.println(c);<br>}<br>public native int add(int a, int b);<br>}<br>二，启动cmd命令行工具，切换到项目文件夹的目录（C:\jnitest&gt;），然后输入javac hello\Test.java，即cmd最终显示为：C:\jnitest&gt;javac hello\Test.java，接着执行C:\jnitest&gt;javah hello.Test。所有命令<br>都注意下大小写。最终会在C:\jnitest下生成hello_Test.h头文件。<br>三，打开Vc++ 6.0，新建-》工程-》Win32 Dynamic-Link Library，工程名称为TestDll，点确定，然后<br>选择“一个简单的DLL工程”，按完成。<br>四，将hello_Test.h拷贝到VC的TestDll项目的文件夹下，在VC6.0界面中左方导航中选择“FileView”选择<br>Header Files点右键-》添加文件到目录，然后选中hello_Test.h。<br>五，打开TestDll.cpp，修改内容为：<br>&#x2F;&#x2F; TestDll.cpp : Defines the entry point for the DLL application.<br>&#x2F;&#x2F;<br>#include “stdafx.h”<br>#include “hello_Test.h”<br>JNIEXPORT jint JNICALL Java_hello_Test_add<br>(JNIEnv *, jobject, jint a, jint b)<br>{<br>return a+b;<br>}<br>六，点菜单“工具”-》选项-》目录，这里应添加jdk的头文件路径，添加两个。我的为H:\JDK1.5.0_16<br>\INCLUDE和H:\JDK1.5.0_16\INCLUDE\WIN32。<br>七，编译项目文件。<br>八，将编译生成的TestDll.dll拷贝到和hello_Test.h相同的目录下，在我这边既是C:\jnitest。（既C:\jnitest下有TestDll.dll和hello_Test.h）。<br>九，在cmd命令行C:\jnitest&gt;下输入java hello.Test，即可看到结果。<br>十。输出为：Hello world from Java<br>2<br>这里补充说明的是，上述方法采取了命令行编译的方式，直接将dll放入.class文件所在文件夹，如果是使用eclipse，那么就需要将dll导入到工程中，具体的步骤如下：<strong>右单击项目名→导入→常规→文件系统→下一步→浏览→选择DLL文件所在目录→确定→勾选DLL文件→完成.</strong><br>如果在得到dll后运行程序，出现no XXX in java.library.path异常，则说明dll没有找到，此时使用dll</p>
 
     </div>
 
@@ -274,6 +287,10 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          </div>
 
         
 

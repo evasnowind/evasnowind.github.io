@@ -19,16 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="目标一台主节点，一台从节点 ES安装与配置注意，集群配置完成前建议不要启动单个ES实例。原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。 配置集群修改配置文件1234567891011121314151617181920cluster.name: tipdm-es #es集群名称node.name: es-node1    #es节点名称，每个节点的名称不能相同n">
+    <meta name="description" content="注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ElasticSearch集群配置方法与注意事项">
 <meta property="og:url" content="https://evasnowind.github.io/2019/08/04/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="目标一台主节点，一台从节点 ES安装与配置注意，集群配置完成前建议不要启动单个ES实例。原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。 配置集群修改配置文件1234567891011121314151617181920cluster.name: tipdm-es #es集群名称node.name: es-node1    #es节点名称，每个节点的名称不能相同n">
+<meta property="og:description" content="注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-08-04T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.335Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.604Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Elasticsearch">
 <meta name="twitter:card" content="summary">
 
 
@@ -161,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -204,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/08/04/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="ElasticSearch集群配置方法与注意事项 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -237,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,21 +261,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/%E5%B7%A5%E5%85%B7/%E5%BC%80%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">开源</span></a>
+          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">中间件</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。</div>
         </div>
       </header>
 
@@ -268,6 +277,8 @@
     
     <div class="post-body" itemprop="articleBody"><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>一台主节点，一台从节点</p>
 <h1 id="ES安装与配置"><a href="#ES安装与配置" class="headerlink" title="ES安装与配置"></a>ES安装与配置</h1><p>注意，集群配置完成前建议不要启动单个ES实例。<br>原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。</p>
+<span id="more"></span>
+
 <h1 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h1><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: tipdm-es #es集群名称</span><br><span class="line">node.name: es-node1    #es节点名称，每个节点的名称不能相同</span><br><span class="line">node.master: true      #指定该节点是否有资格被选举成为master，默认是true</span><br><span class="line">node.data: true        #指定该节点是否存储索引数据，默认为true。</span><br><span class="line"></span><br><span class="line">network.host: 192.168.111.76  #节点的ip地址</span><br><span class="line"></span><br><span class="line">## 下面这两个参数应该是旧版本配置参数，我安装的是7.2版本，对应参数是discovery.seed_hosts 和 cluster.initial_master_nodes </span><br><span class="line">#设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.111.75&quot;, &quot;192.168.111.76&quot;, &quot;192.168.111.77&quot;]</span><br><span class="line">#设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）</span><br><span class="line">discovery.zen.minimum_master_nodes: 2 </span><br><span class="line"></span><br><span class="line">#如果要使用head,那么需要设置下面2个参数,使head插件可以访问es</span><br><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br><span class="line"></span><br><span class="line">#这是Centos6不支持SecComp，而ES默认bootstrap.system_call_filter为true进行检测，所以导致检测失败，失败后直接导致ES不能启动。</span><br><span class="line">bootstrap.memory_lock: false</span><br><span class="line">bootstrap.system_call_filter: false</span><br></pre></td></tr></table></figure>
 
 <p>建议新建一个linux用户，用于管理elasticsearch</p>
@@ -338,6 +349,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Elasticsearch/" rel="tag"># Elasticsearch</a>
+          </div>
 
         
 

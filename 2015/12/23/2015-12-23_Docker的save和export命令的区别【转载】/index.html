@@ -19,16 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="中文帖子地址：http:&#x2F;&#x2F;my.oschina.net&#x2F;zjzhai&#x2F;blog&#x2F;225112stackoverflow地址：http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;22655867&#x2F;what-is-the-difference-between-save-and-export-in-docker我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，">
+    <meta name="description" content="中文帖子地址： stackoverflow地址： 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker的save和export命令的区别【转载】">
 <meta property="og:url" content="https://evasnowind.github.io/2015/12/23/2015-12-23_Docker%E7%9A%84save%E5%92%8Cexport%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="中文帖子地址：http:&#x2F;&#x2F;my.oschina.net&#x2F;zjzhai&#x2F;blog&#x2F;225112stackoverflow地址：http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;22655867&#x2F;what-is-the-difference-between-save-and-export-in-docker我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，">
+<meta property="og:description" content="中文帖子地址： stackoverflow地址： 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-12-23T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.333Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.601Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
 
 
@@ -161,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -204,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2015/12/23/2015-12-23_Docker%E7%9A%84save%E5%92%8Cexport%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Docker的save和export命令的区别【转载】 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="中文帖子地址： stackoverflow地址： 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -237,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,25 +261,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">虚拟化</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/%E5%B7%A5%E5%85%B7/%E8%99%9A%E6%8B%9F%E5%8C%96/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">中文帖子地址： stackoverflow地址： 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。</div>
         </div>
       </header>
 
@@ -271,6 +276,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>中文帖子地址：<a target="_blank" rel="noopener" href="http://my.oschina.net/zjzhai/blog/225112">http://my.oschina.net/zjzhai/blog/225112</a><br>stackoverflow地址：<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker">http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker</a><br>我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。<br>在结束我一天的工作之前，我希望能保存下我的工作。但我在Docker的save和export命令之间，我凌乱了。我不知道它们之间有什么区别。所以，我上StackOverflow问了一个<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker">问题</a>，接着得到<a target="_blank" rel="noopener" href="http://stackoverflow.com/users/1014586/mbarthelemy">mbarthelemy</a>很棒的回复。以下是我发掘到的内容：</p>
+<span id="more"></span>
+
 <h3 id="Docker是如何工作的（简单说明）"><a href="#Docker是如何工作的（简单说明）" class="headerlink" title="Docker是如何工作的（简单说明）"></a>Docker是如何工作的（简单说明）</h3><p>Docker是基于镜像的。镜像类似于已经包含了文件、配置和安装好的程序的虚拟机镜像。同样的，你可以像启动虚拟机一样启动多个镜像实例。运行中的镜像称为容器。你可以修改容器（比如删除一个文件），但这些修改不会影响到镜像。不过，你使用<code>docker commit &lt;container-id&gt; &lt;image-name&gt;</code>命令可以把一个正在运行的容器变成一个新的镜像。<br><strong>举个例子：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 像Docker官方的hello world例子一样，拉取一个叫busybox的镜像</span><br><span class="line">sudo docker pull busybox</span><br><span class="line"># 查看本地已经有哪些镜像</span><br><span class="line"># 我们可以看到busybox</span><br><span class="line">sudo docker images</span><br><span class="line"># 现在让我们来修改下busybox镜像的容器</span><br><span class="line"># 这次，我们创建一个文件夹</span><br><span class="line">sudo docker run busybox mkdir /home/test</span><br><span class="line"># 让我们再看看我们有哪些镜像了。</span><br><span class="line"># 注意每条命令执行后容器都会停止</span><br><span class="line"># 可以看到有一个busybox容器</span><br><span class="line">sudo docker ps -a</span><br><span class="line"># 现在，可以提交修改了。</span><br><span class="line"># 提交后会看到一个新的镜像busybox-1</span><br><span class="line">#  &lt;CONTAINER ID&gt; 是刚刚修改容器后得到的ID</span><br><span class="line">sudo docker commit &lt;CONTAINER ID&gt; busybox-1</span><br><span class="line"># 再看看我们有哪些镜像。</span><br><span class="line"># 我们现在同时有busybox和busybox-1镜像了。</span><br><span class="line">sudo docker images</span><br><span class="line"># 我们执行以下命令，看看这两个镜像有什么不同</span><br><span class="line">sudo docker run busybox [ -d /home/test ] &amp;&amp; echo &#x27;Directory found&#x27; || echo &#x27;Directory not found&#x27;</span><br><span class="line">sudo docker run busybox-1 [ -d /home/test ] &amp;&amp; echo &#x27;Directory found&#x27; || echo &#x27;Directory not found&#x27;</span><br></pre></td></tr></table></figure>
 
@@ -316,6 +323,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
 
         
 

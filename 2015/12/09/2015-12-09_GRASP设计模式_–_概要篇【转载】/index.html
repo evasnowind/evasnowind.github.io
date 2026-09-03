@@ -19,16 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="转载地址：http:&#x2F;&#x2F;www.lifevv.com&#x2F;sysdesign&#x2F;doc&#x2F;20071211214255251.html\GRASP 是General Responsibility Assignment Software patterns（通用职责分配软件模式）的简称，它的核心思想是“职责分配（Responsibility Assignment）”。GRASP提出了几个基本原则，用来解决面向">
+    <meta name="description" content="所谓面向对象设计，就是在系统设计的过程中，通过把系统分成相对独立但又互相联系的对象组合的一种设计方法。 对象具有属性和 行为，对象间通过消息进行交互（协作）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GRASP设计模式 – 概要篇【转载】">
 <meta property="og:url" content="https://evasnowind.github.io/2015/12/09/2015-12-09_GRASP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E2%80%93_%E6%A6%82%E8%A6%81%E7%AF%87%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="转载地址：http:&#x2F;&#x2F;www.lifevv.com&#x2F;sysdesign&#x2F;doc&#x2F;20071211214255251.html\GRASP 是General Responsibility Assignment Software patterns（通用职责分配软件模式）的简称，它的核心思想是“职责分配（Responsibility Assignment）”。GRASP提出了几个基本原则，用来解决面向">
+<meta property="og:description" content="所谓面向对象设计，就是在系统设计的过程中，通过把系统分成相对独立但又互相联系的对象组合的一种设计方法。 对象具有属性和 行为，对象间通过消息进行交互（协作）。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-12-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.332Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.600Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
 
 
@@ -161,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -204,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2015/12/09/2015-12-09_GRASP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E2%80%93_%E6%A6%82%E8%A6%81%E7%AF%87%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="GRASP设计模式 – 概要篇【转载】 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="所谓面向对象设计，就是在系统设计的过程中，通过把系统分成相对独立但又互相联系的对象组合的一种设计方法。 对象具有属性和 行为，对象间通过消息进行交互（协作）。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -237,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,17 +261,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a>
+          <a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">所谓面向对象设计，就是在系统设计的过程中，通过把系统分成相对独立但又互相联系的对象组合的一种设计方法。 对象具有属性和 行为，对象间通过消息进行交互（协作）。</div>
         </div>
       </header>
 
@@ -265,6 +278,8 @@
     <div class="post-body" itemprop="articleBody"><p>转载地址：<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071211214255251.html/">http://www.lifevv.com/sysdesign/doc/20071211214255251.html\</a><br>GRASP 是General Responsibility Assignment Software patterns（通用职责分配软件模式）的简称，它的核心思想是“职责分配（Responsibility Assignment）”。GRASP提出了几个基本原则，用来解决面向对象设计的一些问题。<br>Craig Larman氏在《Applying UML and Patterns》一书中提出了GRASP设计模式的概念。作者称其为设计模式，其实，更好的理解应该为设计原则。因为，与GoF等设计模式不同的 是，GoF等设计模式是针对特定问题而提出的解决方法，而GRASP则是站在面向对象设计的角度，告诉我们怎么样设计问题空间中的类与它们的行为责任，以 及明确类之间的相互关系等等。GRASP可以说是GoF等设计模式的基础。<br> <br>GRASP概要<br>GRASP 是General Responsibility Assignment Software patterns（通用职责分配软件模式）的简称，它的核心思想是“职责分配（Responsibility Assignment）”，用职责设计对象：”Designing Objects with Responsibilities”。它包含了9个基本模式：<br>1，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071211215750856.html">信息专家 (Information expert)</a><br>2，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212222726771.html">创建者 （Creator)</a> <br>3，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223047743.html">高内聚 (High Cohesion)</a><br>4，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223253491.html">低耦合 (Low coupling)</a><br>5，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223450699.html">控制器 (Controller)</a><br>6，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071213202414192.html">多态性 (Polymorphism)</a><br>7，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071213202721964.html">纯虚构 (Pure Fabrication)</a><br>8，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071212223652851.html">间接性 (Indirection)</a><br>9，<a target="_blank" rel="noopener" href="http://www.lifevv.com/sysdesign/doc/20071213203257320.html">变化预防 (Protected Variations)</a><br>GRASP的主要特征：<br>– 对象职责分配的基本原则。<br>– 主要应用在分析和建模上。<br>GRASP的核心思想的理解：<br>自己干自己的事（职责的分配）<br>自己干自己的能干的事（职责的分配）<br>自己只干自己的事（职责的内聚）</p>
 <p>面向对象设计</p>
 <p>所谓面向对象设计，就是在系统设计的过程中，通过把系统分成相对独立但又互相联系的对象组合的一种设计方法。<br>对象具有属性和 行为，对象间通过消息进行交互（协作）。</p>
+<span id="more"></span>
+
 <h3 id="面向对象设计一般有以下几个关键步骤："><a href="#面向对象设计一般有以下几个关键步骤：" class="headerlink" title="面向对象设计一般有以下几个关键步骤："></a>面向对象设计一般有以下几个关键步骤：</h3><p>1，发现对象。找出系统应该由哪些对象构成。<br>2，对象的属性。对象具有哪些属性。<br>3，对象的行为。对象具有 哪些行为，或者说对象需要做什么，它的职责是什么。<br>4，对象的关系。对象与对象之间的关系是什么，怎样进行交互，协作等等。</p>
 <h4 id="发现对象"><a href="#发现对象" class="headerlink" title="发现对象"></a>发现对象</h4><p>对象的发现超出了本文的讨论范围。我们简单地介绍一下对象发现的过程与手段。<br>一般意义上的对象是现实世界上物体的抽 象。也就是说，现实世界里有什么物体，就有什么对象；物体存在什么属性，对象就有什么属性。<br>我们可以用“名词筛选法”来发现系统的对象。<br>比 如，一个学生考试成绩管理系统，有以下简单的用例：<br>– 管理员创建题库（把题条加入题库）<br>– 系统根据管理员输入的某些条件随机生成试题<br>– 学生成绩入库与管理<br>我们可以通过字面意思找出名词，就可以找出“管理员”，“题条”，“题库”，“试题”，“学生”，“学生成绩”等几个对象。<br>一 般通过这种方法（名词筛选法）就可以找出系统的绝大部分对象。</p>
 <h4 id="对象行为"><a href="#对象行为" class="headerlink" title="对象行为"></a>对象行为</h4><p>行为是对象应该执行的动作，也就是对象的职责。对象具有哪些职责呢？相对于上面所说的“名词筛选法”，可以简单地用“动词筛 选法”来发现“对象的行为”。<br>比如，上面的“学生考试成绩管理系统”一例中，有“创建题库”，“输入（条件）”，“生成试题”，“成绩入库”， “成绩管理”等动词，也就是说，系统的对象至少具有以上这些行为（或职责）。<br>有时，我们可能还会发现某些“行为”的粒度过大，这时，可以通过进一 步细化用例的描述，来发现更多更细的“行为”。这里不再详述。<br>问题1：找出对象的行为（职责）之后，怎么样分配这些行为呢？也就是说怎么 确认“行为”属于哪个对象呢？</p>
@@ -277,18 +292,21 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2015/12/09/2015-12-09_WordPress_%E5%A4%B4%E5%83%8F%E4%BF%AE%E6%94%B9%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="prev" title="WordPress 头像修改【转载】">
-                  <i class="fa fa-angle-left"></i> WordPress 头像修改【转载】
+                <a href="/2015/12/09/2015-12-09_C%E8%AF%AD%E8%A8%80%E4%B8%ADtime%E5%87%BD%E6%95%B0%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="prev" title="C语言中time函数【转载】">
+                  <i class="fa fa-angle-left"></i> C语言中time函数【转载】
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2015/12/09/2015-12-09_Ubuntu%E4%B8%8Btxt%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E4%B9%B1%E7%A0%81%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="next" title="Ubuntu下txt文件中文显示乱码的方法【转载】">
-                  Ubuntu下txt文件中文显示乱码的方法【转载】 <i class="fa fa-angle-right"></i>
+                <a href="/2015/12/16/2015-12-16_gradle%E7%BC%96%E8%AF%91spring%E6%BA%90%E7%A0%81%E6%97%B6%E6%8F%90%E7%A4%BA%E2%80%9CCannot_change_dependencies_of_configuration_'_spr/" rel="next" title="gradle编译spring源码时提示“Cannot change dependencies of configuration &#39;:spring-orm-hibernate4…..”">
+                  gradle编译spring源码时提示“Cannot change dependencies of configuration ':spring-orm-hibernate4…..” <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

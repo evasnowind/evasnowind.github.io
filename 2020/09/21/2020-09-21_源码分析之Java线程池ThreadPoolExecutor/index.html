@@ -19,16 +19,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。 同样的，接下来要分析的线程池，首先用途自不必说，不管有没有用过，ThreadPoolExecutor的运行机制、传说中的7个参数(核心线程数corePoolSize、最大线程数maxPoolSize、等待时间keepAlive">
+    <meta name="description" content="我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="源码分析之Java线程池ThreadPoolExecutor">
 <meta property="og:url" content="https://evasnowind.github.io/2020/09/21/2020-09-21_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BJava%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。 同样的，接下来要分析的线程池，首先用途自不必说，不管有没有用过，ThreadPoolExecutor的运行机制、传说中的7个参数(核心线程数corePoolSize、最大线程数maxPoolSize、等待时间keepAlive">
+<meta property="og:description" content="我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-21T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.337Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.607Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="并发">
+<meta property="article:tag" content="源码分析">
 <meta name="twitter:card" content="summary">
 
 
@@ -161,24 +164,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -204,18 +222,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2020/09/21/2020-09-21_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BJava%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="源码分析之Java线程池ThreadPoolExecutor | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -237,7 +255,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,21 +263,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">源码剖析</span></a>
+          <a href="/categories/Java/%E5%B9%B6%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">并发</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">我个人觉得，学习源码的姿势，首先是需要知道想学习的框架/工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。</div>
         </div>
       </header>
 
@@ -269,6 +284,8 @@
     <div class="post-body" itemprop="articleBody"><p>我个人觉得，学习源码的姿势，首先是需要知道想学习的框架&#x2F;工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。</p>
 <p>同样的，接下来要分析的线程池，首先用途自不必说，不管有没有用过，ThreadPoolExecutor的运行机制、传说中的7个参数(核心线程数corePoolSize、最大线程数maxPoolSize、等待时间keepAliveTime、时间单位timeUnit、阻塞队列blockingQueue、线程工厂threadFactory、拒绝策略rejectHandler)，相信大家都已经熟练掌握，此处不再赘述。</p>
 <p>接下来简单过一下ThreadPoolExecutor的注释。\</p>
+<span id="more"></span>
+
 <h2 id="0-源码注释中的关键点"><a href="#0-源码注释中的关键点" class="headerlink" title="0. 源码注释中的关键点"></a>0. 源码注释中的关键点</h2><p>ThreadPoolExecutor的类注释中，主要阐述如下内容：</p>
 <ul>
 <li>有关运行机制、7个参数如何使用与配合<ul>
@@ -346,6 +363,11 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag"># 源码分析</a>
+              <a href="/tags/%E5%B9%B6%E5%8F%91/" rel="tag"># 并发</a>
+          </div>
 
         
 

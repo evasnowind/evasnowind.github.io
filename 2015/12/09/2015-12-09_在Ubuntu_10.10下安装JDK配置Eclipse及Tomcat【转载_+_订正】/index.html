@@ -19,16 +19,20 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。51CTO编者按：我们曾经介绍过在《Ubuntu JDK安装配置详解》，本文将介绍如何配置最新的Ubuntu、JDK以及Tomcat。作者注：根据本人在实际操作中所遇到的问题，我在">
+    <meta name="description" content="记录在 Ubuntu 10.10 环境下安装 JDK、配置 Eclipse 与 Tomcat 的主要步骤与注意事项。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】">
 <meta property="og:url" content="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。51CTO编者按：我们曾经介绍过在《Ubuntu JDK安装配置详解》，本文将介绍如何配置最新的Ubuntu、JDK以及Tomcat。作者注：根据本人在实际操作中所遇到的问题，我在">
+<meta property="og:description" content="记录在 Ubuntu 10.10 环境下安装 JDK、配置 Eclipse 与 Tomcat 的主要步骤与注意事项。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-12-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.333Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.601Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Eclipse">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Tomcat">
 <meta name="twitter:card" content="summary">
 
 
@@ -160,24 +164,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -203,18 +222,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="记录在 Ubuntu 10.10 环境下安装 JDK、配置 Eclipse 与 Tomcat 的主要步骤与注意事项。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -236,7 +255,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,17 +263,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">记录在 Ubuntu 10.10 环境下安装 JDK、配置 Eclipse 与 Tomcat 的主要步骤与注意事项。</div>
         </div>
       </header>
 
@@ -262,6 +278,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。<br>51CTO编者按：我们曾经介绍过在《Ubuntu JDK安装配置详解》，本文将介绍如何配置最新的Ubuntu、JDK以及Tomcat。<br>作者注：根据本人在实际操作中所遇到的问题，我在原文章基础之上做了补充说明，请注意。<br>1、安装JDK<br>1.1、到官网下载相关的JDK<br>这里下载的是 jdk-6u23-linux-i586.bin。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html/">http://www.oracle.com/technetwork/java/javase/downloads/index.html\</a><br>1.2、在“administrator个人文件夹”建立一个“Java文件夹”<br>即位置-&gt;主文件夹-&gt;administrator；<br>将下载的 jdk-6u23-linux-i586.bin放置这个Java的文件夹。<br>路径可以根据自己的实际情况进行修改，这里以administrator下的Java文件夹为例子<br>1.3、打开“终端”<br>即应用程序-&gt;附件-&gt;终端<br>输入：<br>sudo sh jdk-6u23-linux-i586.bin<br>（可能会遇到要输入的用户密码）<br>2、设置JAVA_HOME环境系统变量<br>2.1、这里Ctrl+H可以看到隐藏的文件，比较有用的快捷键。<br>输入：<br>sudo gedit &#x2F;etc&#x2F;environment<br>在文件中添加：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_Home&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>即如图：<br>设置JAVA_HOME环境系统变量<br>设置JAVA_HOME环境系统变量<br>2.2、同样，修改第二个文件<br>输入：<br>sudo gedit &#x2F;etc&#x2F;profile<br>在umask 022之前添加以下语句：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>export PATH&#x3D;$JAVA_HOME&#x2F;bin:$JAVA_HOME&#x2F;jre&#x2F;bin:$PATH:$HOME&#x2F;bin<br>即如图：<br>添加以上语句<br>2.3、注销用户，检测JDK版本。<br>输入：<br>java -version<br>即如图：<br>安装JRE、JDK成功<br>安装JRE、JDK成功<br>注：按照上面所说的配置环境变量的方法，编写一个helloworld程序，使用普通用户运行，会出问题，应该是CLASSPATH配置有些问题，我的配置方法如下：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:.:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>按照这种方法配置即可成功运行helloworld程序。参见：<br><a target="_blank" rel="noopener" href="http://javaangle.blog.163.com/blog/static/1079330652010111374551387//">http://javaangle.blog.163.com/blog/static/1079330652010111374551387/\</a><br>此外该文章还给出了另一种安装JDK的方法。<br>3、安装Eclipse。<br>3.1、到官网下载相关的Eclipse<br>这里下载的是 eclipse-jee-helios-SR1-linux-gtk.tar.gz（即Java EE）。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.eclipse.org/downloads//">http://www.eclipse.org/downloads/\</a><br>3.2、将下载的 eclipse-jee-helios-SR1-linux-gtk.tar.gz放在Java文件夹内，解压。<br>运行解压后的Eclipse，即如图：<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>4、安装Tomcat7.05<br>4.1、到官网下载相关的Tomcat<br>这里下载的是 apache-tomcat-7.0.5.tar.gz。<br>下载地址：<a target="_blank" rel="noopener" href="http://tomcat.apache.org//">http://tomcat.apache.org/\</a><br>4.2、将下载的 apache-tomcat-7.0.5.tar.gz放在Java文件夹，解压并命名为tomcat7<br>如果喜欢执行命令行的话，可以执行的命令<br>（解压）sudo tar zxvf apache-tomcat-7.0.5<br>（命名为tomcat7）sudo mv apache-tomcat-7.05 tomcat7<br>4.3、在终端进行tomcat7下的bin文件<br>（即cd Java&#x2F;tomcat7&#x2F;bin）<br>这里用的是vim编辑器打开，也可以用gedit打开，即输入：<br>sudo gedit catalina.sh<br>当你输入：<br>sudo vim catalina.sh<br>得到<br>cygwin&#x3D;false<br>os400&#x3D;false<br>darwin&#x3D;false<br>case “<code>uname</code>” in<br>CYGWIN*) cygwin&#x3D;true;;<br>OS400*) os400&#x3D;true;;<br>Darwin*) darwin&#x3D;true;;<br>上面添加：<br>JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>JAVA_OPTS&#x3D;”-server -Xms512m -Xmx1024m -XX:PermSize&#x3D;600M -XX:MaxPermSize&#x3D;600m -Dcom.sun.management.jmxremote”<br>4.4、tomcat7.0.5的端口（一般tomcat7.0.5的端口默认为8080），如果发生冲突，则可以在以下文件修改。<br>tomcat7&#x2F;conf&#x2F;server.xml 文件里的：<br>改成9090，或者其它均可（这里用9090吧）。<br>4.5、这里已经进入了Java&#x2F;tomcat7&#x2F;bin文件夹内了。<br>输入：<br>sudo .&#x2F;starup.sh<br>启动Tomcat 7。<br>若出现<br>Using CATALINA_BASE: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_TMPDIR: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;temp<br>Using JRE_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>Using CLASSPATH: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;bootstrap.jar:&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;tomcat-juli.jar<br>则成功。<br>即如图：<br>安装成功<br>运行<a target="_blank" rel="noopener" href="http://localhost:9090/%E5%BE%97%EF%BC%9A/">http://localhost:9090/得：\</a><br>4.6、若要关闭tomcat7，<br>则输入：<br>sudo .&#x2F;shutdown.sh<br>5、总结<br>配置还是需要一些耐心的。多练习，总会理解的。好了这边是我们给大家带来的Ubuntu JDK安装和配置，而Ubuntu JDK安装和配置是初学者的必由之路，希望各位喜欢。</p>
+<span id="more"></span>
 
     </div>
 
@@ -270,18 +287,24 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Eclipse/" rel="tag"># Eclipse</a>
+              <a href="/tags/Tomcat/" rel="tag"># Tomcat</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="prev" title="学习 Linux 几点忠告【转载】">
-                  <i class="fa fa-angle-left"></i> 学习 Linux 几点忠告【转载】
+                <a href="/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" rel="prev" title="安装JDK + Tomcat设置环境变量的方法">
+                  <i class="fa fa-angle-left"></i> 安装JDK + Tomcat设置环境变量的方法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="next" title="windows下使用eclipse for C&#x2F;C++【转载】">
-                  windows下使用eclipse for C/C++【转载】 <i class="fa fa-angle-right"></i>
+                <a href="/2015/12/09/2015-12-09_xx_is_not_in_the_sudoers_file_%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="next" title="xx is not in the sudoers file 问题解决【转载】">
+                  xx is not in the sudoers file 问题解决【转载】 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

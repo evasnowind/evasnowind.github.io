@@ -19,17 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="建议使用pinyin4j，作为老牌的拼音转汉字解决方案，个人感觉比较可靠。小站用这个应该够用了。可以参考该帖子：使用 pinyin4j API 将汉字转换为拼音 （学习笔记）hutool工具包中有一个PinyinUtil工具类，目前已被弃用，不推荐使用，因为某些汉字可能会被转错，比如下图中的“馨”：">
+    <meta name="description" content="建议使用pinyin4j，作为老牌的拼音转汉字解决方案，个人感觉比较可靠。小站用这个应该够用了。 可以参考该帖子：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java 汉字转拼音">
 <meta property="og:url" content="https://evasnowind.github.io/2019/01/25/2019-01-25_java_%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="建议使用pinyin4j，作为老牌的拼音转汉字解决方案，个人感觉比较可靠。小站用这个应该够用了。可以参考该帖子：使用 pinyin4j API 将汉字转换为拼音 （学习笔记）hutool工具包中有一个PinyinUtil工具类，目前已被弃用，不推荐使用，因为某些汉字可能会被转错，比如下图中的“馨”：">
+<meta property="og:description" content="建议使用pinyin4j，作为老牌的拼音转汉字解决方案，个人感觉比较可靠。小站用这个应该够用了。 可以参考该帖子：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://evasnowind.github.io/images/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_15746847545722-300x108_246c17e0.png">
 <meta property="article:published_time" content="2019-01-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.335Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.604Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://evasnowind.github.io/images/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_15746847545722-300x108_246c17e0.png">
 
@@ -162,24 +163,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -205,18 +221,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/01/25/2019-01-25_java_%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="java 汉字转拼音 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="建议使用pinyin4j，作为老牌的拼音转汉字解决方案，个人感觉比较可靠。小站用这个应该够用了。 可以参考该帖子：">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -238,7 +254,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -246,17 +262,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">建议使用pinyin4j，作为老牌的拼音转汉字解决方案，个人感觉比较可靠。小站用这个应该够用了。 可以参考该帖子：</div>
         </div>
       </header>
 
@@ -264,6 +277,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>建议使用pinyin4j，作为老牌的拼音转汉字解决方案，个人感觉比较可靠。小站用这个应该够用了。<br>可以参考该帖子：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sky_limitless/article/details/79443540">使用 pinyin4j API 将汉字转换为拼音 （学习笔记）</a><br>hutool工具包中有一个PinyinUtil工具类，目前已被弃用，不推荐使用，因为某些汉字可能会被转错，比如下图中的“馨”：</p>
+<span id="more"></span>
+
 <p><img src="/images/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_15746847545722-300x108_246c17e0.png"></p>
 
     </div>
@@ -273,6 +288,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
 
         
 

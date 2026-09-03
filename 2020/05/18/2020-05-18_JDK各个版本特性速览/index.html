@@ -19,17 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="JDK 1.5 很重要的一个版本。  更新了Java内存模型（JMM） 增强volatile语义 增强final语义   泛型 For-Each循环 注解 枚举 JUC包 lock接口  JDK 1.6 Desktop类和SystemTray类 JAXB2实现对象与XML之间的映射 StAX Compiler API 轻量级 Http Server API 插入式注解处理API（Pluggable">
+    <meta name="description" content="并发相关：sychronized锁优化：偏向锁、轻量级锁、重量级锁。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK各个版本特性速览">
 <meta property="og:url" content="https://evasnowind.github.io/2020/05/18/2020-05-18_JDK%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E9%80%9F%E8%A7%88/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="JDK 1.5 很重要的一个版本。  更新了Java内存模型（JMM） 增强volatile语义 增强final语义   泛型 For-Each循环 注解 枚举 JUC包 lock接口  JDK 1.6 Desktop类和SystemTray类 JAXB2实现对象与XML之间的映射 StAX Compiler API 轻量级 Http Server API 插入式注解处理API（Pluggable">
+<meta property="og:description" content="并发相关：sychronized锁优化：偏向锁、轻量级锁、重量级锁。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/JDK8%E4%BE%9D%E8%B5%96%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9.jpg">
 <meta property="article:published_time" content="2020-05-18T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.337Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.606Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/JDK8%E4%BE%9D%E8%B5%96%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9.jpg">
 
@@ -163,24 +164,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -206,18 +222,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2020/05/18/2020-05-18_JDK%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E9%80%9F%E8%A7%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="JDK各个版本特性速览 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="并发相关：sychronized锁优化：偏向锁、轻量级锁、重量级锁。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -239,7 +255,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -247,13 +263,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">并发相关：sychronized锁优化：偏向锁、轻量级锁、重量级锁。</div>
         </div>
       </header>
 
@@ -275,6 +292,8 @@
 <li>JUC包</li>
 <li>lock接口</li>
 </ul>
+<span id="more"></span>
+
 <h2 id="JDK-1-6"><a href="#JDK-1-6" class="headerlink" title="JDK 1.6"></a>JDK 1.6</h2><ul>
 <li>Desktop类和SystemTray类</li>
 <li>JAXB2实现对象与XML之间的映射</li>
@@ -364,6 +383,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
 
         
 

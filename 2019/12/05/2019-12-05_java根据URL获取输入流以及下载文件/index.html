@@ -19,16 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="代码取自：JAVA根据URL网址获取输入流 12345678910111213141516171819202122232425262728&#x2F;** * 根据地址获得数据的输入流 * @param strUrl 网络连接地址 * @return url的输入流 *&#x2F;    public static InputStream getInputStreamByUrl(String strUrl)&amp;#123">
+    <meta name="description" content="代码取自：JAVA根据URL网址获取输入流。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java根据URL获取输入流以及下载文件">
 <meta property="og:url" content="https://evasnowind.github.io/2019/12/05/2019-12-05_java%E6%A0%B9%E6%8D%AEURL%E8%8E%B7%E5%8F%96%E8%BE%93%E5%85%A5%E6%B5%81%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="代码取自：JAVA根据URL网址获取输入流 12345678910111213141516171819202122232425262728&#x2F;** * 根据地址获得数据的输入流 * @param strUrl 网络连接地址 * @return url的输入流 *&#x2F;    public static InputStream getInputStreamByUrl(String strUrl)&amp;#123">
+<meta property="og:description" content="代码取自：JAVA根据URL网址获取输入流。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-05T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.336Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.605Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="网络编程">
 <meta name="twitter:card" content="summary">
 
 
@@ -160,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -203,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/12/05/2019-12-05_java%E6%A0%B9%E6%8D%AEURL%E8%8E%B7%E5%8F%96%E8%BE%93%E5%85%A5%E6%B5%81%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="java根据URL获取输入流以及下载文件 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="代码取自：JAVA根据URL网址获取输入流。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -236,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,17 +261,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+          <a href="/categories/Java/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">代码取自：JAVA根据URL网址获取输入流。</div>
         </div>
       </header>
 
@@ -268,6 +286,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public ResponseEntity&lt;byte[]&gt; downloadFileByUrl(String downUrl, String fileName, String contentType, String contentDisposition) throws IOException &#123;</span><br><span class="line">        InputStream inputStream = getInputStreamByUrl(downUrl);</span><br><span class="line"></span><br><span class="line">        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();</span><br><span class="line">        IOUtils.copy(inputStream, byteArrayOutputStream);</span><br><span class="line">        inputStream.close();</span><br><span class="line">        HttpHeaders headers = new HttpHeaders();</span><br><span class="line">        //设置下载协议头。下面fileName的两次转换主要是为了保证中文文件名</span><br><span class="line">        fileName = new String(fileName.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);</span><br><span class="line">        headers.set(HttpHeaders.CONTENT_DISPOSITION, contentDisposition + &quot;;filename=&quot; + new String(fileName.getBytes(), &quot;utf-8&quot;));</span><br><span class="line">        headers.set(HttpHeaders.CONTENT_TYPE, contentType);</span><br><span class="line">        ResponseEntity&lt;byte[]&gt; responseEntity = new ResponseEntity&lt;byte[]&gt;(byteArrayOutputStream.toByteArray(), headers, HttpStatus.OK);</span><br><span class="line">        byteArrayOutputStream.close();</span><br><span class="line">        return responseEntity;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>其中<code>Content-Type</code>可以用MediaType中的常量，自行控制；<code>Content-Disposition</code>则看需求，如果需要直接打开文件，则传”inline”，若是想下载则传”attachment”。</p>
+<span id="more"></span>
+
 
     </div>
 
@@ -276,6 +296,10 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag"># 网络编程</a>
+          </div>
 
         
 

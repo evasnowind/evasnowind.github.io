@@ -19,16 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="问题导入excel文件时，偶发bug: 1234567891011org.springframework.web.multipart.MultipartException: Could not parse multipart servlet request; nested exception is java.io.IOException: The temporary upload location">
+    <meta name="description" content="Spring boot项目在导入文件时，没有找到指定文件夹。 子所以是偶发的问题，是因为spring boot项目本身在启动后会自动在Temp文件夹中创建若干临时文件夹，而操作系统可能会定期删除这些临时文件夹。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot 上传文件报错 The temporary upload location [xxx] is not valid">
 <meta property="og:url" content="https://evasnowind.github.io/2019/11/24/2019-11-24_Spring_Boot_%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99_The_temporary_upload_location_%5Bxxx%5D_is_not_valid/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="问题导入excel文件时，偶发bug: 1234567891011org.springframework.web.multipart.MultipartException: Could not parse multipart servlet request; nested exception is java.io.IOException: The temporary upload location">
+<meta property="og:description" content="Spring boot项目在导入文件时，没有找到指定文件夹。 子所以是偶发的问题，是因为spring boot项目本身在启动后会自动在Temp文件夹中创建若干临时文件夹，而操作系统可能会定期删除这些临时文件夹。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-11-24T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.336Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.605Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Spring Boot">
 <meta name="twitter:card" content="summary">
 
 
@@ -161,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -204,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2019/11/24/2019-11-24_Spring_Boot_%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99_The_temporary_upload_location_%5Bxxx%5D_is_not_valid/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Spring Boot 上传文件报错 The temporary upload location [xxx] is not valid | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Spring boot项目在导入文件时，没有找到指定文件夹。 子所以是偶发的问题，是因为spring boot项目本身在启动后会自动在Temp文件夹中创建若干临时文件夹，而操作系统可能会定期删除这些临时文件夹。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -237,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,17 +261,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/excel/" itemprop="url" rel="index"><span itemprop="name">excel</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/excel/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring boot</span></a>
+          <a href="/categories/Java/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">Spring boot项目在导入文件时，没有找到指定文件夹。 子所以是偶发的问题，是因为spring boot项目本身在启动后会自动在Temp文件夹中创建若干临时文件夹，而操作系统可能会定期删除这些临时文件夹。</div>
         </div>
       </header>
 
@@ -266,6 +283,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.web.multipart.MultipartException: Could not parse multipart servlet request; nested exception is java.io.IOException: The temporary upload location [C:\Users\AppData\Local\Temp\tomcat.4266029690466887869.8037\work\Tomcat\localhost\ROOT] is not valid</span><br><span class="line">	at org.springframework.web.multipart.support.StandardMultipartHttpServletRequest.parseRequest(StandardMultipartHttpServletRequest.java:112)</span><br><span class="line">	at org.springframework.web.multipart.support.StandardMultipartHttpServletRequest.&lt;init&gt;(StandardMultipartHttpServletRequest.java:86)</span><br><span class="line">	at org.springframework.web.multipart.support.StandardServletMultipartResolver.resolveMultipart(StandardServletMultipartResolver.java:79)</span><br><span class="line">	at org.springframework.web.servlet.DispatcherServlet.checkMultipart(DispatcherServlet.java:1104)</span><br><span class="line">	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:936)</span><br><span class="line">	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)</span><br><span class="line">	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)</span><br><span class="line">	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)</span><br><span class="line">	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)</span><br><span class="line">	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)</span><br></pre></td></tr></table></figure>
 
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>Spring boot项目在导入文件时，没有找到指定文件夹。<br>子所以是偶发的问题，是因为spring boot项目本身在启动后会自动在Temp文件夹中创建若干临时文件夹，而操作系统可能会定期删除这些临时文件夹。linux也有类似操作系统自动清空临时文件夹的操作，参见这篇文章<a target="_blank" rel="noopener" href="https://blog.51cto.com/kusorz/2051877">CentOS7的&#x2F;tmp目录自动清理规则</a>。</p>
+<span id="more"></span>
+
 <p>\</p>
 <p>源码层面的分析参见<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yihuihui/p/10372887.html">SpringBoot文件上传异常之提示The temporary upload location xxx is not valid</a></p>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>手工改变临时文件的存储路径，并且如果该路径下的文件夹没有创建，则用程序来创建，保证路径有效。</p>
@@ -284,6 +303,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring-Boot/" rel="tag"># Spring Boot</a>
+          </div>
 
         
 

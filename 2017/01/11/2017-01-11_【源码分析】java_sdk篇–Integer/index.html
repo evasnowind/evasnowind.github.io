@@ -19,16 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：a. highestOneBit(i)如果一个数是0, 则返回0如果是负数, 则返回 -2147483648 1000,0000,0000,0000,0000,0000,0000,0000(二进制表示的数)如果是正数, 返回的则是跟它最靠近的比它小的">
+    <meta name="description" content="今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【源码分析】java sdk篇–Integer">
 <meta property="og:url" content="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Integer/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：a. highestOneBit(i)如果一个数是0, 则返回0如果是负数, 则返回 -2147483648 1000,0000,0000,0000,0000,0000,0000,0000(二进制表示的数)如果是正数, 返回的则是跟它最靠近的比它小的">
+<meta property="og:description" content="今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-01-11T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.334Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.602Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="源码分析">
 <meta name="twitter:card" content="summary">
 
 
@@ -160,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -203,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Integer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="【源码分析】java sdk篇–Integer | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -236,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,17 +261,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">源码剖析</span></a>
+          <a href="/categories/Java/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">源码分析</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：</div>
         </div>
       </header>
 
@@ -262,6 +280,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：<br>a. highestOneBit(i)<br>如果一个数是0, 则返回0<br>如果是负数, 则返回 -2147483648 1000,0000,0000,0000,0000,0000,0000,0000(二进制表示的数)<br>如果是正数, 返回的则是跟它最靠近的比它小的2的N次方<br>正数、0好解释，至于负数，由于计算机中的数字都是采用补码表示，即反码+1，并且最高位是一个1、表示负数，因此这个符号位作为最终结果返回。<br>该方法内部实现很简单，具体分析可以参考这篇文章：<a target="_blank" rel="noopener" href="http://blog.csdn.net/jessenpan/article/details/9617749">Java Integer.highestOneBit(i)代码品读</a> （这文章里顺便复习了一下有关位运算的知识，需要的童鞋可以看看）<br>b. lowestOneBit(i)<br>API说明看着有点绕，但其实很简单，就是和上面的highestOneBit相反，返回一个数，这个数最多只包含i二进制表示中最低位的1<br>内部实现如下：</p>
+<span id="more"></span>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static int lowestOneBit(int i) &#123;</span><br><span class="line">  return i &amp;amp;amp;amp;amp; -i;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
 <p>仍然是利用了原码、补码、反码的知识：<br>i&#x3D;0则返回0；<br>i不等于0，那么i和-i中一个是原码、一个是反码+1，假定-i是那个反码+1的数，i的二进制表示中最低位是从右往左的第m位，那么i和-i从第m+1位开始，由于分别是正码以及对应的反码，进行安慰与操作后直接变为0，第m位则由于反码加了1的缘故，保留下来，即得结果。<br>c.int numberOfLeadingZeros(int i)<br>在指定 int 值的二进制补码表示形式中最高位（最左边）的 1 位之前，零位的数量。（注：从JDK 1.5才有该接口）<br>d. int numberOfTrailingZeros(int i)<br>返回指定的 int 值的二进制补码表示形式中最低（“最右边”）的为 1 的位后面的零位个数。（注：从JDK 1.5才有该接口）<br>e.int bitCount(int i)<br>返回指定 int 值的二进制表示形式的 1 位的数量。（注：从JDK 1.5才有该接口）<br>该方法实现看上去有点莫名其妙，分析可以参考这篇文章：<a target="_blank" rel="noopener" href="http://15838341661-139-com.iteye.com/blog/1642525">求二进制数中1的个数</a><br>f.String toBinaryString(int i)<br>返回二进制表示的字符串<br>g. String toHexString(int i)<br>返回十六进制表示的字符串<br>h.String toOctalString(int i)<br>返回八进制表示的字符串<br>i. String toUnsignedString(int i)<br>返回i对应的unsigned int数字的字符串表示（注：从JDK 1.8才有该接口）<br>j. String toUnsignedString(int i, int radix)<br>返回i对应的unsigned int数字的字符串表示，并且根据radix进制进行输出（注：从JDK 1.8才有该接口）。<br>注意，看源代码可以发现，目前JDK 1.8中的该方法参数radix实现仅支持2~36，radix大于36则按照radix&#x3D;10进行计算，这一点需要注意。<br> <br>列一下感觉平时没怎么用过、但可能比较有用的方法，其他方法常用就没必要再列举了，就酱紫。</p>
@@ -273,18 +293,22 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag"># 源码分析</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2017/01/05/2017-01-05_%E7%A7%BB%E9%99%A4UTF8%E6%96%87%E4%BB%B6%E7%9A%84BOM%E5%A4%B4/" rel="prev" title="移除UTF8文件的BOM头">
-                  <i class="fa fa-angle-left"></i> 移除UTF8文件的BOM头
+                <a href="/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/" rel="prev" title="【源码分析】java sdk篇–CopyOnWrite容器">
+                  <i class="fa fa-angle-left"></i> 【源码分析】java sdk篇–CopyOnWrite容器
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/" rel="next" title="【源码分析】java sdk篇–CopyOnWrite容器">
-                  【源码分析】java sdk篇–CopyOnWrite容器 <i class="fa fa-angle-right"></i>
+                <a href="/2017/01/12/2017-01-12_%E3%80%90%E6%95%B4%E7%90%86%E3%80%91%E4%BD%BF%E7%94%A8ant%E5%92%8Cjenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E8%AF%91android%E9%A1%B9%E7%9B%AE%EF%BC%88windows%E7%8E%AF%E5%A2%83%EF%BC%89/" rel="next" title="【整理】使用ant和jenkins自动化编译android项目（windows环境）">
+                  【整理】使用ant和jenkins自动化编译android项目（windows环境） <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

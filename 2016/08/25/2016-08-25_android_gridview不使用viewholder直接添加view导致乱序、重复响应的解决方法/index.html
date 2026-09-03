@@ -19,16 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是这个版本，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式，即adapter使用BaseAdapter，adapter中保存数据，而调用getView方法时，若是第一次调用则将可复用的数据保存到一个ViewHolder类中，后续就不用再重新创建View；或者，adapter中每次根">
+    <meta name="description" content="要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是这个版本，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android gridview不使用viewholder直接添加view导致乱序、重复响应的解决方法">
 <meta property="og:url" content="https://evasnowind.github.io/2016/08/25/2016-08-25_android_gridview%E4%B8%8D%E4%BD%BF%E7%94%A8viewholder%E7%9B%B4%E6%8E%A5%E6%B7%BB%E5%8A%A0view%E5%AF%BC%E8%87%B4%E4%B9%B1%E5%BA%8F%E3%80%81%E9%87%8D%E5%A4%8D%E5%93%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是这个版本，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式，即adapter使用BaseAdapter，adapter中保存数据，而调用getView方法时，若是第一次调用则将可复用的数据保存到一个ViewHolder类中，后续就不用再重新创建View；或者，adapter中每次根">
+<meta property="og:description" content="要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是这个版本，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-08-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.334Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.602Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 
 
@@ -160,24 +161,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -203,18 +219,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2016/08/25/2016-08-25_android_gridview%E4%B8%8D%E4%BD%BF%E7%94%A8viewholder%E7%9B%B4%E6%8E%A5%E6%B7%BB%E5%8A%A0view%E5%AF%BC%E8%87%B4%E4%B9%B1%E5%BA%8F%E3%80%81%E9%87%8D%E5%A4%8D%E5%93%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="android gridview不使用viewholder直接添加view导致乱序、重复响应的解决方法 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是这个版本，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -236,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,21 +260,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/android/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/android/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">源码剖析</span></a>
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是这个版本，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式。</div>
         </div>
       </header>
 
@@ -266,6 +275,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是<a target="_blank" rel="noopener" href="http://blog.csdn.net/xiaanming/article/details/17718579">这个版本</a>，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式，即adapter使用BaseAdapter，adapter中保存数据，而调用getView方法时，若是第一次调用则将可复用的数据保存到一个ViewHolder类中，后续就不用再重新创建View；或者，adapter中每次根据数据创建view。<br>由于公司所用的客户端框架限制，我在实现可拖动的九宫格时，在getView方法中，拿到的数据就是一个个已经创建好的View对象，但按照上面提到的<a target="_blank" rel="noopener" href="http://blog.csdn.net/xiaanming/article/details/17718579">xiaanming</a>的拖动实现方式，我将这些已有的View对象在getView中返回、加入到GridView后，发现显示没问题，但是拖动之后，View的显示顺序会乱掉，而且会出现第一次点击某个View时对应回调方法没有响应，但第二次点击时则会响应第一次点击、第二次点击两个回调方法。<br>为解决这问题，在github上发现如下<a target="_blank" rel="noopener" href="https://github.com/askerov/DynamicGrid">可拖动九宫格的另一种实现</a>，尝试重写adapter类后解决了该问题，发现这个跟stableid有关。我一开始写的adapter大概样子如下；</p>
+<span id="more"></span>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class GridAdapter extends BaseAdapter&#123;</span><br><span class="line">List&lt;View&gt; viewList;</span><br><span class="line">...//init opertation</span><br><span class="line">@Override</span><br><span class="line">public int getCount() &#123;</span><br><span class="line">// TODO Auto-generated method stub</span><br><span class="line">return viewList.size();</span><br><span class="line">&#125;</span><br><span class="line">@Override</span><br><span class="line">public Object getItem(int position) &#123;</span><br><span class="line">// TODO Auto-generated method stub</span><br><span class="line">return viewList.get(position);</span><br><span class="line">&#125;</span><br><span class="line">@Override</span><br><span class="line">public long getItemId(int position) &#123;</span><br><span class="line">// TODO Auto-generated method stub</span><br><span class="line">return position;</span><br><span class="line">&#125;</span><br><span class="line">@Override</span><br><span class="line">public View getView(int position, View convertView, ViewGroup parent) &#123;</span><br><span class="line">// TODO Auto-generated method stub</span><br><span class="line">return viewList.get(position);</span><br><span class="line">&#125;</span><br><span class="line">public void reorder()&#123;</span><br><span class="line">//reorder view list</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这种写法对于ViewHolder方式或是每次创建新View放的方式实现adapter来说，没有任何问题，但由于我直接使用现有的View对象，而GridView本身又有缓存机制，导致GridView重用View对象时View的顺序和我已经创建的viewList不一致，为解决这一问题，就得说下getItemId(int pos)方法和hasStableIds()方法，可以参考<a target="_blank" rel="noopener" href="http://blog.csdn.net/heng615975867/article/details/16944343">这个帖子</a>，引用一下人家的话：</p>
@@ -284,6 +295,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+          </div>
 
         
 

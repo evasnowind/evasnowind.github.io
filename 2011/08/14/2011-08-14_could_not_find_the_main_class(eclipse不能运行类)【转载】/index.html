@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。首先，在eclipse中启动Tomcat服务器，始终不能启动java.lang.NoClassDefFoundError: jdk1&#x2F;6&#x2F;0&#x2F;10开始以为是版本不兼容，但是直接发布在Tomcat目录下，直接点击Tomcat的StartUp.bat是可以启动的，运行正常。于是写了一个测试类，在eclipse中运">
+    <meta name="description" content="最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。 首先，在eclipse中启动Tomcat服务器，始终不能启动 [](http:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="could_not_find_the_main_class(eclipse不能运行类)【转载】">
 <meta property="og:url" content="https://evasnowind.github.io/2011/08/14/2011-08-14_could_not_find_the_main_class(eclipse%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%B1%BB)%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。首先，在eclipse中启动Tomcat服务器，始终不能启动java.lang.NoClassDefFoundError: jdk1&#x2F;6&#x2F;0&#x2F;10开始以为是版本不兼容，但是直接发布在Tomcat目录下，直接点击Tomcat的StartUp.bat是可以启动的，运行正常。于是写了一个测试类，在eclipse中运">
+<meta property="og:description" content="最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。 首先，在eclipse中启动Tomcat服务器，始终不能启动 [](http:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://evasnowind.github.io/images/201108141347089996_b4c9aedb.jpg">
 <meta property="og:image" content="https://evasnowind.github.io/images/201108141347274950_7cac4ff0.jpg">
@@ -39,8 +39,9 @@
 <meta property="og:image" content="https://evasnowind.github.io/images/201108141350495463_8f43673e.jpg">
 <meta property="og:image" content="https://evasnowind.github.io/images/20110814135103979_1d41625b.jpg">
 <meta property="article:published_time" content="2011-08-14T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.331Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.599Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Eclipse">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://evasnowind.github.io/images/201108141347089996_b4c9aedb.jpg">
 
@@ -173,24 +174,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -216,18 +232,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2011/08/14/2011-08-14_could_not_find_the_main_class(eclipse%E4%B8%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%B1%BB)%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="could_not_find_the_main_class(eclipse不能运行类)【转载】 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。 首先，在eclipse中启动Tomcat服务器，始终不能启动 [](http:">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -249,7 +265,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,17 +273,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/j2ee/" itemprop="url" rel="index"><span itemprop="name">j2ee</span></a>
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/j2ee/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+          <a href="/categories/%E5%B7%A5%E5%85%B7/IDE/" itemprop="url" rel="index"><span itemprop="name">IDE</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。 首先，在eclipse中启动Tomcat服务器，始终不能启动 [](http:</div>
         </div>
       </header>
 
@@ -275,6 +292,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。<br>首先，在eclipse中启动Tomcat服务器，始终不能启动<br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141347073749.jpg"><img src="/images/201108141347089996_b4c9aedb.jpg" alt="clip_image002" title="clip_image002"></a><br>java.lang.NoClassDefFoundError: jdk1&#x2F;6&#x2F;0&#x2F;10<br>开始以为是版本不兼容，但是直接发布在Tomcat目录下，直接点击Tomcat的StartUp.bat是可以启动的，运行正常。<br>于是写了一个测试类，在eclipse中运行这个类，只是输出几个字符，居然也不可以，报错信息一样。<br>Google了些信息出来，无非是说设置path，classpath等，按照这个照做后，很遗憾，报错信息依旧，而且我原来用1.5版本时也没有配置这些变量。<br>整整一个下午的时间，头晕脑胀，却一无所获。<br>其实是一个地方的配置写错了。大家注意了：<br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141347192461.jpg"><img src="/images/201108141347274950_7cac4ff0.jpg" alt="clip_image004" title="clip_image004"></a><br>红色框起来的地方，这里本来是输入vm参数的，结果我copy&#x2F;paste，当成了jre的名字，这个参数jre当然不会识别了，但是jre提示的信息也有点过，你要是说“vm参数错误”不就好找了，偏偏说java.lang.NoClassDefFoundError: jdk1&#x2F;6&#x2F;0&#x2F;10。<br>下面总结一下：<br>在用eclipse时无需在环境变量中配置path、classpath等。<br>在eclipse中配置jre<br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141347314238.jpg"><img src="/images/20110814134733419_92084d5d.jpg" alt="clip_image006" title="clip_image006"></a><br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141348498524.jpg"><img src="/images/20110814134857665_3a2da0f1.jpg" alt="clip_image008" title="clip_image008"></a><br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/2011081413490865.jpg"><img src="/images/201108141349159895_37673536.jpg" alt="clip_image010" title="clip_image010"></a><br>配置编译选项<br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/20110814134924300.jpg"><img src="/images/20110814134928984_24fb6ee2.jpg" alt="clip_image012" title="clip_image012"></a><br>再针对具体工程设置<br>[<img src="/images/201108141349417056_c0bf4f02.jpg" alt="clip_image012[1]" title="clip_image012[1]">](<a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/20110814134939908.jpg)/">http://images.cnblogs.com/cnblogs_com/evasnowind/201108/20110814134939908.jpg)\</a><br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141349564141.jpg"><img src="/images/201108141349583354_e968be63.jpg" alt="clip_image014" title="clip_image014"></a><br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141350022891.jpg"><img src="/images/201108141350088676_14fdecdf.jpg" alt="clip_image016" title="clip_image016"></a><br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141350175833.jpg"><img src="/images/201108141350415483_beac7448.jpg" alt="clip_image018" title="clip_image018"></a><br>运行时类配置<br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141350459971.jpg"><img src="/images/201108141350495463_8f43673e.jpg" alt="clip_image020" title="clip_image020"></a><br><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/evasnowind/201108/201108141350578716.jpg"><img src="/images/20110814135103979_1d41625b.jpg" alt="clip_image022" title="clip_image022"></a><br>好了，完结。<br>希望对大家有帮助。</p>
+<span id="more"></span>
+
 
     </div>
 
@@ -283,6 +302,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Eclipse/" rel="tag"># Eclipse</a>
+          </div>
 
         
 

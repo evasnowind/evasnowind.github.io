@@ -19,16 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle cleanidea eclipse命令build后总是出问题，直接导入eclipse中也会报错，查了一下，在 http:&#x2F;&#x2F;bbs.csdn.net&#x2F;topics&#x2F;390993197 发现问题原因：eclipse尚未安装Gr">
+    <meta name="description" content="为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译spring framework 4源码时GroovyDynamicElementReader报错">
 <meta property="og:url" content="https://evasnowind.github.io/2015/12/17/2015-12-17_%E7%BC%96%E8%AF%91spring_framework_4%E6%BA%90%E7%A0%81%E6%97%B6GroovyDynamicElementReader%E6%8A%A5%E9%94%99/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle cleanidea eclipse命令build后总是出问题，直接导入eclipse中也会报错，查了一下，在 http:&#x2F;&#x2F;bbs.csdn.net&#x2F;topics&#x2F;390993197 发现问题原因：eclipse尚未安装Gr">
+<meta property="og:description" content="为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-12-17T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.333Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.601Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
 
 
@@ -160,24 +161,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -203,18 +219,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2015/12/17/2015-12-17_%E7%BC%96%E8%AF%91spring_framework_4%E6%BA%90%E7%A0%81%E6%97%B6GroovyDynamicElementReader%E6%8A%A5%E9%94%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="编译spring framework 4源码时GroovyDynamicElementReader报错 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -236,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,21 +260,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/j2ee/" itemprop="url" rel="index"><span itemprop="name">j2ee</span></a>
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/j2ee/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/j2ee/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">源码剖析</span></a>
+          <a href="/categories/Java/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle。</div>
         </div>
       </header>
 
@@ -266,6 +279,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>为了阅读spring源代码，用gradle重新build了spring framework 4，但发现有个项目死活过不去，spring-beans-groovy用gradle cleanidea eclipse命令build后总是出问题，直接导入eclipse中也会报错，查了一下，在 <a target="_blank" rel="noopener" href="http://bbs.csdn.net/topics/390993197">http://bbs.csdn.net/topics/390993197</a> 发现问题原因：eclipse尚未安装Groovy插件，so，插件装起，eclipse Help –&gt; install new software，添加Groovy插件地址，<a target="_blank" rel="noopener" href="https://github.com/groovy/groovy-eclipse/wiki">https://github.com/groovy/groovy-eclipse/wiki</a>此处有各种eclipse版本对应的groovy插件下载地址（注意eclipse的版本），安装插件后重新clean一下spring-beans-groovy这个项目就可以了。<br>以上</p>
+<span id="more"></span>
+
 
     </div>
 
@@ -274,6 +289,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+          </div>
 
         
 

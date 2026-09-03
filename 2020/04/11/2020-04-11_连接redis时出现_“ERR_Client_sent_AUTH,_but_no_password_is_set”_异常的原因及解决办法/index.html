@@ -19,16 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="现象使用redis-cli连接redis时，报错：ERR Client sent AUTH, but no password is set 异常信息类似： 1234567891011121314redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the poolat redis">
+    <meta name="description" content="使用redis-cli连接redis时，报错： ERR Client sent AUTH, but no password is set。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法">
 <meta property="og:url" content="https://evasnowind.github.io/2020/04/11/2020-04-11_%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%87%BA%E7%8E%B0_%E2%80%9CERR_Client_sent_AUTH,_but_no_password_is_set%E2%80%9D_%E5%BC%82%E5%B8%B8%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="现象使用redis-cli连接redis时，报错：ERR Client sent AUTH, but no password is set 异常信息类似： 1234567891011121314redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the poolat redis">
+<meta property="og:description" content="使用redis-cli连接redis时，报错： ERR Client sent AUTH, but no password is set。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-11T00:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T11:48:11.336Z">
+<meta property="article:modified_time" content="2026-09-03T16:01:32.606Z">
 <meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
 
 
@@ -161,24 +162,39 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
   <p class="site-author-name" itemprop="name">Prayer</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">如果这世上真的有奇迹，那只是努力的另一种名字</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -204,18 +220,18 @@
     <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2020/04/11/2020-04-11_%E8%BF%9E%E6%8E%A5redis%E6%97%B6%E5%87%BA%E7%8E%B0_%E2%80%9CERR_Client_sent_AUTH,_but_no_password_is_set%E2%80%9D_%E5%BC%82%E5%B8%B8%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-150.png">
       <meta itemprop="name" content="Prayer">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="如果这世上真的有奇迹，那只是努力的另一种名字">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法 | Prayer的数字城堡">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="使用redis-cli连接redis时，报错： ERR Client sent AUTH, but no password is set。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -237,7 +253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-03 11:48:11" itemprop="dateModified" datetime="2026-09-03T11:48:11+00:00">2026-09-03</time>
+      <time title="修改时间：2026-09-03 16:01:32" itemprop="dateModified" datetime="2026-09-03T16:01:32+00:00">2026-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,13 +261,14 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
         </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">使用redis-cli连接redis时，报错： ERR Client sent AUTH, but no password is set。</div>
         </div>
       </header>
 
@@ -263,6 +280,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool</span><br><span class="line">at redis.clients.util.Pool.getResource(Pool.java:53)</span><br><span class="line">at redis.clients.jedis.JedisPool.getResource(JedisPool.java:226)</span><br><span class="line">at cn.hncu.RedisPool.getJedis(RedisPool.java:66)</span><br><span class="line">at cn.hncu.RedisJava.main(RedisJava.java:15)</span><br><span class="line">Caused by: redis.clients.jedis.exceptions.JedisDataException: ERR Client sent AUTH, but no password is set</span><br><span class="line">at redis.clients.jedis.Protocol.processError(Protocol.java:127)</span><br><span class="line">at redis.clients.jedis.Protocol.process(Protocol.java:161)</span><br><span class="line">at redis.clients.jedis.Protocol.read(Protocol.java:215)</span><br><span class="line">at redis.clients.jedis.Connection.readProtocolWithCheckingBroken(Connection.java:340)</span><br><span class="line">at redis.clients.jedis.Connection.getStatusCodeReply(Connection.java:239)</span><br><span class="line">at redis.clients.jedis.BinaryJedis.auth(BinaryJedis.java:2139)</span><br><span class="line">at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:108)</span><br><span class="line">at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:868)</span><br></pre></td></tr></table></figure>
 
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>Redis服务器没有设置密码，但客户端向其发送了AUTH（authentication，身份验证）请求。</p>
+<span id="more"></span>
+
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="解决方法1：配置参数不传密码"><a href="#解决方法1：配置参数不传密码" class="headerlink" title="解决方法1：配置参数不传密码"></a>解决方法1：配置参数不传密码</h3><p>不推荐，请直接跳过这个步骤。</p>
 <h3 id="解决方法2：给redis集群设置密码"><a href="#解决方法2：给redis集群设置密码" class="headerlink" title="解决方法2：给redis集群设置密码"></a>解决方法2：给redis集群设置密码</h3><p>首先找到正在使用的配置文件，在配置文件中找到<code>requirepass</code>，去掉注释设置密码，编辑完后保存，重新启动Redis，再运行程序</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
@@ -276,6 +295,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Redis/" rel="tag"># Redis</a>
+          </div>
 
         
 
