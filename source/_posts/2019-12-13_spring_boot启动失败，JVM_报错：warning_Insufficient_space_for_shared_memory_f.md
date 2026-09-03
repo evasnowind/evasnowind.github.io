@@ -1,8 +1,10 @@
 ---
 title: "spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file"
 date: "2019-12-13"
-categories: [java, spring boot]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=730"
+description: "启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：。"
 ---
 
 ## 问题与原因
@@ -21,6 +23,8 @@ at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
 ```
 
 然而，这个只是结果，实际上并不能定位问题，笔者继续找异常，看到类似下面的错误：
+
+<!-- more -->
 
 ```
 org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is org.springframework.boot.context.embedded.EmbeddedServletContainerException: Unable to start embedded Tomcat

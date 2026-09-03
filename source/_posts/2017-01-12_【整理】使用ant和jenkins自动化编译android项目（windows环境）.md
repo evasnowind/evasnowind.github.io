@@ -1,11 +1,15 @@
 ---
 title: "【整理】使用ant和jenkins自动化编译android项目（windows环境）"
 date: "2017-01-12"
-categories: [android, java, 工具]
+categories: ["Android"]
+tags: ["Android"]
 source: "http://prayerlaputa.com/?p=268"
+description: "平时工作经常需要编译不同的android测试包，对这种重复劳动着实无感，趁着这几天工作不是很忙，尝试部署了jenkins来自动编译，下面记录一下过程（以下主要讨论在windows环境下的操作）。"
 ---
 
 平时工作经常需要编译不同的android测试包，对这种重复劳动着实无感，趁着这几天工作不是很忙，尝试部署了jenkins来自动编译，下面记录一下过程（以下主要讨论在windows环境下的操作）。
+
+<!-- more -->
 
 ### 第一步
 

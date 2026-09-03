@@ -1,8 +1,10 @@
 ---
 title: "WordPress 头像修改【转载】"
 date: "2015-12-09"
-categories: [wordpress]
+categories: ["Web", "WordPress"]
+tags: ["WordPress"]
 source: "http://prayerlaputa.com/?p=142"
+description: "完成了以上步骤，今后在Venus blog或其他支持Gravatar的网站留言都会显示你帅帅的头像了。"
 ---
 
 转自：http://newfaction.net/2010/11/20/modify-wordpress-avatar.html\
@@ -18,6 +20,8 @@ source: "http://prayerlaputa.com/?p=142"
 > 7. 等待审核：可能需要站方短暂审核一下，一般选择了G，而你的图片没什么特别的，很快就通过。一般遇上慢的情况也就10分钟左右。
 
 完成了以上步骤，今后在Venus blog或其他支持Gravatar的网站留言都会显示你帅帅的头像了。暂时来说，大部分支持Gravatar的网站均是使用**WordPress**程序的博客，但其实任何其他网站程序，如果加入了Gravatar的代码，也是可以支持Gravatar的。估计这个应用在日后会渐渐普及起来吧，起码用户不需要每到一个网站去就搞一下头像……
+
+<!-- more -->
 
 ### 下面还有阿瓦同学写的[FAQ](http://newfaction.net/tag/faq "查看 FAQ 的全部文章")，可能对大家有帮助：
 

@@ -1,8 +1,10 @@
 ---
 title: "Android中Handler使用postDelayed方法不生效"
 date: "2016-01-20"
-categories: [android, java, 学习]
+categories: ["Android"]
+tags: ["Android"]
 source: "http://prayerlaputa.com/?p=185"
+description: "今天遇到一个比较奇怪的问题，在我们所用的客户端框架中，使用Handler执行一个任务，基本用法如下，但调试时发现并没有执行mRunnable。"
 ---
 
 今天遇到一个比较奇怪的问题，在我们所用的客户端框架中，使用Handler执行一个任务，基本用法如下，但调试时发现并没有执行mRunnable。
@@ -19,6 +21,8 @@ mHandler.postDelayed(mRunnable, 500);
 
 \
 但是，当我修改一下，将mHandler修改为局部变量，如下，却发现mRunnable正常执行了。
+
+<!-- more -->
 
 ```
 ……

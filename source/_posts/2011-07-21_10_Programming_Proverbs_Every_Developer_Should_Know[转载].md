@@ -1,12 +1,16 @@
 ---
 title: "10 Programming Proverbs Every Developer Should Know[转载]"
 date: "2011-07-21"
-categories: [学习, 读书, 读书笔记]
+categories: ["阅读"]
+tags: ["阅读"]
 source: "http://prayerlaputa.com/?p=384"
+description: "Relax. It’s probably just another fire drill Poorly designed code tends to manifest itself throu。"
 ---
 
 转载地址：[http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/](http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/ "http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/")\
 Proverbs are used to express universal truths or life lessons in a short and memorable fashion.  I find that they are a great way to keep things in perspective, both in life and in work.  Because of this, I have assembled 10 programming proverbs that every developer needs in their arsenal.
+
+<!-- more -->
 
 #### 1. There is no smoke without fire
 

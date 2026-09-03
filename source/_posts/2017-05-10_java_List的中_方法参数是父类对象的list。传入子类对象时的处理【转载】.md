@@ -1,8 +1,10 @@
 ---
 title: "java List的中 方法参数是父类对象的list。传入子类对象时的处理【转载】"
 date: "2017-05-10"
-categories: [java]
+categories: ["Java"]
+tags: ["Java", "集合"]
 source: "http://prayerlaputa.com/?p=648"
+description: "ArrayList和ArrayList是两个不同的泛型。"
 ---
 
 # java List的中 方法参数是父类对象的list。传入子类对象时的处理
@@ -70,3 +72,6 @@ public class Test {
     }
 }
 ```
+
+<!-- more -->
+

@@ -1,8 +1,10 @@
 ---
 title: "Java Socket网络编程初级入门（转载）"
 date: "2010-03-06"
-categories: [java, 网络]
+categories: ["Java", "网络"]
+tags: ["Java", "网络编程"]
 source: "http://prayerlaputa.com/?p=421"
+description: "围绕Java Socket网络编程初级入门整理基础概念、使用方法与实践要点。"
 ---
 
 转自：http://www.wang48.com/jishubaodianview/?jsd\_id=4902\
@@ -121,3 +123,6 @@ mu.start();\
 }\
 }\
 我的类直接从 Thread类继承了下来.并且通过构造函数传递引用和客户Socket建立了联系，这样每个线程就有了。一个通讯管道.同样我们可以填写run方法，把之前的操作交给线程来完成，这样多客户并行的Socket就建立起来了。
+
+<!-- more -->
+

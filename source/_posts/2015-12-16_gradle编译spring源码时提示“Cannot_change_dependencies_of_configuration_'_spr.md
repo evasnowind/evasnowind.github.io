@@ -1,11 +1,15 @@
 ---
 title: "gradle编译spring源码时提示“Cannot change dependencies of configuration ':spring-orm-hibernate4…..”"
 date: "2015-12-16"
-categories: [java, web, 学习, 工具, 源码剖析]
+categories: ["Java", "Spring"]
+tags: ["Spring", "Gradle"]
 source: "http://prayerlaputa.com/?p=151"
+description: ":buildSrc:test UP-TO-DATE :buildSrc:check UP-TO-DATE :buildSrc:build UP-TO-DATE FAILURE: Build f。"
 ---
 
 闲来无事，想学习一下spring源代码，结果按照网上说的教程从git下载spring framework(版本：3.2.4)源码、用gradle（版本：2.9） 转换成eclipse项目时遇到一个诡异问题，提示信息如下：
+
+<!-- more -->
 
 > :buildSrc:test UP-TO-DATE\
 > :buildSrc:check UP-TO-DATE\

@@ -1,8 +1,10 @@
 ---
 title: "Java中日期格式化yyyyMMdd和YYYYMMdd的区别"
 date: "2020-01-16"
-categories: [java]
+categories: ["Java"]
+tags: ["Java"]
 source: "http://prayerlaputa.com/?p=746"
+description: "原因： YYYY是week-based-year，表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。所以2019年12月31日那天在这种表述方式下就已经 2020 年了。"
 ---
 
 示例代码：
@@ -59,6 +61,8 @@ YYYYMMdd
 
 原因：\
 YYYY是week-based-year，表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。所以2019年12月31日那天在这种表述方式下就已经 2020 年了。而当使用yyyy的时候，就还是 2019 年。
+
+<!-- more -->
 
 相关说明：\
 <https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns>\

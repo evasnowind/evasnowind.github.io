@@ -1,8 +1,10 @@
 ---
 title: "ubuntu下配置tmux"
 date: "2015-12-03"
-categories: [linux, 工具]
+categories: ["工具"]
+tags: ["Linux", "工具"]
 source: "http://prayerlaputa.com/?p=60"
+description: "打开utf8 支持 set -g status-utf8 on setw -g utf8 on statusbar 自定义，具体可以查看man 文档，非常详细 set -g display-t。"
 ---
 
 参考如下技术帖：\
@@ -15,6 +17,8 @@ source-file ~/.tmux.conf\
 即可使配置生效。\
 我的配置其实挺简单，就是要将窗口分为3个部分，方便编程（一个文本编辑、一个编译运行查看运行结果、一个浏览文件系统）.\
 我的配置信息如下：
+
+<!-- more -->
 
 > ```
 > #打开utf8 支持

@@ -1,14 +1,18 @@
 ---
 title: "spring boot启动失败不输出日志"
 date: "2020-03-14"
-categories: [java, spring boot]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=782"
+description: "spring boot启动失败，没有任何错误日志输出，只输出了如下信息：。"
 ---
 
 spring boot启动失败，没有任何错误日志输出，只输出了如下信息：\
 ![](/images/spring_boot_start_fail-300x170_d4c13e5e.png)
 
 可能的原因：
+
+<!-- more -->
 
 ### 1、日志配置文件没有配好
 

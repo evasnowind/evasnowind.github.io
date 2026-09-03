@@ -1,8 +1,10 @@
 ---
 title: "Spring Boot 上传文件报错 The temporary upload location [xxx] is not valid"
 date: "2019-11-24"
-categories: [excel, spring boot]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=712"
+description: "Spring boot项目在导入文件时，没有找到指定文件夹。 子所以是偶发的问题，是因为spring boot项目本身在启动后会自动在Temp文件夹中创建若干临时文件夹，而操作系统可能会定期删除这些临时文件夹。"
 ---
 
 # 问题
@@ -27,6 +29,8 @@ org.springframework.web.multipart.MultipartException: Could not parse multipart 
 
 Spring boot项目在导入文件时，没有找到指定文件夹。\
 子所以是偶发的问题，是因为spring boot项目本身在启动后会自动在Temp文件夹中创建若干临时文件夹，而操作系统可能会定期删除这些临时文件夹。linux也有类似操作系统自动清空临时文件夹的操作，参见这篇文章[CentOS7的/tmp目录自动清理规则](https://blog.51cto.com/kusorz/2051877)。
+
+<!-- more -->
 
 \
 

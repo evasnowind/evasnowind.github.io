@@ -1,8 +1,10 @@
 ---
 title: "mysql source命令导入大文件时失败的解决方法"
 date: "2020-03-18"
-categories: [mysql]
+categories: ["数据库"]
+tags: ["MySQL"]
 source: "http://prayerlaputa.com/?p=788"
+description: "记录mysql source命令导入大文件时失败的解决方法的现象、原因分析与解决办法。"
 ---
 
 方法：\
@@ -20,6 +22,8 @@ mysql --max_allowed_packet=32M
 ```
 
 更多修改方法参见官方文档：[B.4.2.9 Packet Too Large](https://dev.mysql.com/doc/refman/8.0/en/packet-too-large.html)，以及这篇 [How to change max\_allowed\_packet size](https://stackoverflow.com/questions/8062496/how-to-change-max-allowed-packet-size)
+
+<!-- more -->
 
 # 参考资料
 

@@ -1,11 +1,15 @@
 ---
 title: "【转发】[VirtualBox]如何复制一个虚拟机"
 date: "2017-01-04"
-categories: [linux, 学习, 工具, 虚拟化]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=253"
+description: "建立好一个虚拟机后，想要复制成两个虚拟机，需要如下操作：。"
 ---
 
 ## 原文地址：[[VirtualBox]如何复制一个虚拟机](http://workingxiaolong.lofter.com/post/6b719_373bd0)
+
+<!-- more -->
 
 建立好一个虚拟机后，想要复制成两个虚拟机，需要如下操作：
 

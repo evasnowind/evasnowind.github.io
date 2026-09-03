@@ -1,8 +1,10 @@
 ---
 title: "【转发】Android中SQLite应用详解"
 date: "2016-12-22"
-categories: [android, java]
+categories: ["Android"]
+tags: ["Android", "SQLite"]
 source: "http://prayerlaputa.com/?p=237"
+description: "打算整理一下最近两年做android所学到的东西，代码、文章配套整理一下，但是发现自己其实研究的还很肤浅，写出东西还是没人家写的明白，so，索性直接转发吧，主要是为了日后查起来方便，代码打出一份方便日后搬砖。"
 ---
 
 打算整理一下最近两年做android所学到的东西，代码、文章配套整理一下，但是发现自己其实研究的还很肤浅，写出东西还是没人家写的明白，so，索性直接转发吧，主要是为了日后查起来方便，代码打出一份方便日后搬砖。\
@@ -11,6 +13,8 @@ source: "http://prayerlaputa.com/?p=237"
 上次我向大家介绍了SQLite的基本信息和使用过程，相信朋友们对SQLite已经有所了解了，那今天呢，我就和大家分享一下在Android中如何使用SQLite。\
 现在的主流移动设备像Android、iPhone等都使用SQLite作为复杂数据的存储引擎，在我们为移动设备开发应用程序时，也许就要使用到SQLite来存储我们大量的数据，所以我们就需要掌握移动设备上的SQLite开发技巧。对于Android平台来说，系统内置了丰富的API来供开发人员操作SQLite，我们可以轻松的完成对数据的存取。\
 下面就向大家介绍一下SQLite常用的操作方法，为了方便，我将代码写在了Activity的onCreate中：
+
+<!-- more -->
 
 ```
     @Override

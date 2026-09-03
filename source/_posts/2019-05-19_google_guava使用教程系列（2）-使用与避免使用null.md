@@ -1,8 +1,10 @@
 ---
 title: "google guava使用教程系列（2）-使用与避免使用null"
 date: "2019-05-19"
-categories: [guava, java, 工具]
+categories: ["Java", "源码分析"]
+tags: ["Java", "源码分析"]
 source: "http://prayerlaputa.com/?p=670"
+description: "不要在Set中使用null，或者把null作为map的键值。使用特殊值代表null会让查找操作的语义更清晰。"
 ---
 
 # 有关null的使用
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=670"
 不要在Set中使用null，或者把null作为map的键值。使用特殊值代表null会让查找操作的语义更清晰。
 
 如果你想把null作为map中某条目的值，更好的办法是 不把这一条目放到map中，而是单独维护一个”值为null的键集合” (null keys)。Map 中对应某个键的值是null，和map中没有对应某个键的值，是非常容易混淆的两种情况。因此，最好把值为null的键分离开，并且仔细想想，null值的键在你的项目中到底表达了什么语义。
+
+<!-- more -->
 
 如果你需要在列表中使用null，并且这个列表的数据是稀疏的，使用Map<Integer, E>可能会更高效，并且更准确地符合你的潜在需求。
 

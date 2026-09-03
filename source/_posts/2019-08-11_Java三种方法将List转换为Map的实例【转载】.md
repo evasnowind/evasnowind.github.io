@@ -1,11 +1,15 @@
 ---
 title: "Java三种方法将List转换为Map的实例【转载】"
 date: "2019-08-11"
-categories: [java]
+categories: ["Java"]
+tags: ["Java", "集合"]
 source: "http://prayerlaputa.com/?p=598"
+description: "记录Java三种方法将List转换为Map的实例的操作步骤与关键注意事项。"
 ---
 
 原文链接：https://www.jb51.net/article/149605.htm
+
+<!-- more -->
 
 # Java三种方法将List转换为Map的实例
 

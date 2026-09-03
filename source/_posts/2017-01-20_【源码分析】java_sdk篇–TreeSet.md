@@ -1,11 +1,15 @@
 ---
 title: "【源码分析】java sdk篇–TreeSet"
 date: "2017-01-20"
-categories: [java, 学习, 源码剖析]
+categories: ["Java", "源码分析"]
+tags: ["Java", "集合", "源码分析"]
 source: "http://prayerlaputa.com/?p=276"
+description: "今天刷leetcode时需要用到TreeSet，简单看了下源代码，在此做下学习笔记：。"
 ---
 
 今天刷leetcode时需要用到TreeSet，简单看了下源代码，在此做下学习笔记：
+
+<!-- more -->
 
 ## 概念
 

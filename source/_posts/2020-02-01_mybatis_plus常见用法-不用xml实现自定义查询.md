@@ -1,8 +1,10 @@
 ---
 title: "mybatis_plus常见用法-不用xml实现自定义查询"
 date: "2020-02-01"
-categories: [mybatis]
+categories: ["Java", "MyBatis"]
+tags: ["MyBatis"]
 source: "http://prayerlaputa.com/?p=754"
+description: "围绕mybatis_plus常见用法-不用xml实现自定义查询整理相关实践、经验与思考。"
 ---
 
 找到两种方法：\
@@ -43,6 +45,8 @@ public List<MesOrderBom> getBomAndOrderCodeNumber(List<String> orderNoList) {
 [结合mybatis-plus 实现无XML多表联查询](https://cloud.tencent.com/developer/article/1492870)\
 项目地址：[multipleselect](https://github.com/yangaijun/multipleselect)\
 java 结合mybatis-plus 实现非手写sql多表查询
+
+<!-- more -->
 
 ## 参考资料
 

@@ -1,14 +1,18 @@
 ---
 title: "mybatis plus配置多数据源时批量接口调用失败以及解决方案"
 date: "2020-03-09"
-categories: [mybatis, spring boot]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot", "MyBatis"]
 source: "http://prayerlaputa.com/?p=778"
+description: "仅配置单个数据源时，mybatis plus的save/saveBatch接口调用正常 配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下。"
 ---
 
 # 表现
 
 仅配置单个数据源时，mybatis plus的save/saveBatch接口调用正常\
 配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下
+
+<!-- more -->
 
 ```
 org.apache.ibatis.exceptions.PersistenceException: 

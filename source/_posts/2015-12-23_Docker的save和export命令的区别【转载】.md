@@ -1,14 +1,18 @@
 ---
 title: "Docker的save和export命令的区别【转载】"
 date: "2015-12-23"
-categories: [linux, 工具, 虚拟化, 软件]
+categories: ["工具"]
+tags: ["Docker"]
 source: "http://prayerlaputa.com/?p=174"
+description: "中文帖子地址： stackoverflow地址： 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。"
 ---
 
 中文帖子地址：<http://my.oschina.net/zjzhai/blog/225112>\
 stackoverflow地址：<http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker>\
 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。\
 在结束我一天的工作之前，我希望能保存下我的工作。但我在Docker的save和export命令之间，我凌乱了。我不知道它们之间有什么区别。所以，我上StackOverflow问了一个[问题](http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker)，接着得到[mbarthelemy](http://stackoverflow.com/users/1014586/mbarthelemy)很棒的回复。以下是我发掘到的内容：
+
+<!-- more -->
 
 ### Docker是如何工作的（简单说明）
 

@@ -1,8 +1,10 @@
 ---
 title: "VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上【转载】"
 date: "2011-06-29"
-categories: [虚拟化]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=394"
+description: "围绕VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-上整理相关实践、经验与要点。"
 ---
 
 转载地址：
@@ -41,3 +43,6 @@ SUSE Linux Enterprise Server 11 GA\
 SUSE Linux Enterprise Desktop 11 GA\
 openSUSE 11.3 GA\
 限于篇幅请继续阅读下篇!
+
+<!-- more -->
+

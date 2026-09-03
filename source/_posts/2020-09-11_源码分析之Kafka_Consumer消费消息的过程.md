@@ -1,8 +1,10 @@
 ---
 title: "源码分析之Kafka Consumer消费消息的过程"
 date: "2020-09-11"
-categories: [kafka, 分布式, 源码剖析]
+categories: ["中间件"]
+tags: ["源码分析", "Kafka"]
 source: "http://prayerlaputa.com/?p=861"
+description: "围绕Kafka Consumer消费消息的过程的实现原理、核心流程与关键细节做源码分析。"
 ---
 
 ## 说明
@@ -12,6 +14,8 @@ source: "http://prayerlaputa.com/?p=861"
 ## Consumer如何使用？
 
 阅读源码前的首先要做到熟悉相关组件的概念、基本使用。而最靠谱的资料就是官方文档。
+
+<!-- more -->
 
 建议阅读官方文档（<https://kafka.apache.org/documentation/>）后，自己练习、使用kafka之后再开始阅读源码。
 

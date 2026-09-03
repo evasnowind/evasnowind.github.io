@@ -1,8 +1,10 @@
 ---
 title: "【源码分析】java sdk篇–ConcurrentSkipListMap"
 date: "2016-12-26"
-categories: [java, 源码剖析, 算法]
+categories: ["Java", "并发"]
+tags: ["Java", "并发", "集合", "源码分析"]
 source: "http://prayerlaputa.com/?p=247"
+description: "最近开始看jdk源代码，先分享一个挺好的博客： chenssy 有关JDK源码的博文写的很细，我就参考他的博文写写其他的内容，已经被chenssy写过的内容我就不再重复啦，估计也没他写的细。"
 ---
 
 最近开始看jdk源代码，先分享一个挺好的博客：<http://blog.csdn.net/chenssy>  chenssy 有关JDK源码的博文写的很细，我就参考他的博文写写其他的内容，已经被chenssy写过的内容我就不再重复啦，估计也没他写的细。另外，如果网上已有相关分析，我可能直接给出链接、做做补充，毕竟本系列属于读书笔记性质，留下个记录免得自己忘记，并不打算写的特别全或是全部原创。下面就开始【源码分析】系列的第一篇：ConcurrentSkipListMap\
@@ -13,6 +15,8 @@ source: "http://prayerlaputa.com/?p=247"
 如果要求快速存取键值对，并要求键值对按照某种顺序排序，可以用TreeMap；\
 如果，我们需要快速存取键值对，支持多线程并发存取，还要求数据有序，是否有现成的数据结构？\
 答案是肯定，那就是ConcurrentSkipListMap。
+
+<!-- more -->
 
 ## 一、概述
 

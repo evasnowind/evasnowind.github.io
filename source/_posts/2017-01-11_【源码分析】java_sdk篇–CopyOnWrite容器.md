@@ -1,11 +1,15 @@
 ---
 title: "【源码分析】java sdk篇–CopyOnWrite容器"
 date: "2017-01-11"
-categories: [java, 源码剖析, 读书笔记]
+categories: ["阅读"]
+tags: ["Java", "并发", "源码分析"]
 source: "http://prayerlaputa.com/?p=262"
+description: "工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。"
 ---
 
 工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。
+
+<!-- more -->
 
 ## 一、概念
 

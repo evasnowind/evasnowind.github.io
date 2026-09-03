@@ -1,8 +1,10 @@
 ---
 title: "使用fdisk和resize2fs重置ubuntu系统分区表【转载】"
 date: "2015-12-03"
-categories: [linux, 学习, 工具]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=53"
+description: "我只是个搬运工，刚好碰到虚拟机中ubuntu空间不够、需要扩大虚拟机磁盘，vmware怎么扩展网上帖子很多，不说了，但vmware扩展虚拟机磁盘后，文件系统中并没有反应处理，就需要我们来更新分区表啥的。"
 ---
 
 我只是个搬运工，刚好碰到虚拟机中ubuntu空间不够、需要扩大虚拟机磁盘，vmware怎么扩展网上帖子很多，不说了，但vmware扩展虚拟机磁盘后，文件系统中并没有反应处理，就需要我们来更新分区表啥的。然后这个我查了好多帖子，终于找到比较靠谱的帖子，遂转载一下，做个记录（话说度娘真搜不出东西啊，还是google还是……）\
@@ -16,6 +18,8 @@ I have a partition that is not allocated after the root partition (which is also
 There are two steps to this: First, the partition must be resized. If you’re using LVM, it’s easy; if you’re using classic partitions, it’s a bit more complicated, and might require a reboot (though you never have to boot another system or live CD).\
 One fragile but feasible approach (worked for me) is to use `fdisk` by first deleting the partition, then carefully recreating it with a larger size at the same position. You can do this while the partition is mounted, but you will need to reboot for the kernel to notice the changed partition table.\
 Example:
+
+<!-- more -->
 
 ```
 $ sudo fdisk /dev/sda

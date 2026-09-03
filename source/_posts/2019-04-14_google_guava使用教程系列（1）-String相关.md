@@ -1,8 +1,10 @@
 ---
 title: "google guava使用教程系列（1）-String相关"
 date: "2019-04-14"
-categories: [guava, java]
+categories: ["Java", "源码分析"]
+tags: ["Java", "源码分析"]
 source: "http://prayerlaputa.com/?p=662"
+description: "注意：本文档基于google guava 28 wiki。"
 ---
 
 **注意：本文档基于google guava 28 wiki**
@@ -20,6 +22,8 @@ return joiner.join("Harry", null, "Ron", "Hermione");
 
 返回`Harry; Ron; Hermione`\
 skipNulls()方法是直接忽略null，使用useForNull(String)方法可以给定某个字符串来替换null，即
+
+<!-- more -->
 
 ```
 Joiner joiner = Joiner.on("; ").useForNull("替换字符串");

@@ -1,8 +1,10 @@
 ---
 title: "安装JDK + Tomcat设置环境变量的方法"
 date: "2015-12-09"
-categories: [java]
+categories: ["Java"]
+tags: ["Java", "Tomcat"]
 source: "http://prayerlaputa.com/?p=117"
+description: "记录安装JDK + Tomcat设置环境变量的方法的安装、配置与实践过程。"
 ---
 
 初学java，对于环境变量的配置想来却总觉得不是很清楚，总结一下自己的理解，让头脑清楚一些。\
@@ -43,3 +45,6 @@ CATALINA\_BASE=c:\tomcat\
 修改后的classpath如下：\
 classpath=.;%JAVA\_HOME%\lib\dt.jar;%JAVA\_HOME%\lib\tools.jar;%CATALINA\_HOME%\common\lib\servlet.jar;\
 接着可以启动tomcat，在IE中访问http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。
+
+<!-- more -->
+

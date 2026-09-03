@@ -1,8 +1,10 @@
 ---
 title: "_RecordsetPtr的 open函数(转载)"
 date: "2010-05-10"
-categories: [c/c++]
+categories: ["C/C++"]
+tags: ["C/C++"]
 source: "http://prayerlaputa.com/?p=419"
+description: "内容一： ‘定义数据库连接的一些常量 Const adOpenForwardOnly = 0 ‘(默认值)游标只向前浏览记录，不支持分页、Recordset、BookMark Const ad。"
 ---
 
 转自：http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html\
@@ -23,6 +25,8 @@ catch(\_com\_error e)\
 AfxMessageBox(“Create Instance failed!”);\
 return;\
 }
+
+<!-- more -->
 
 **内容一：**\
 ‘定义数据库连接的一些常量\

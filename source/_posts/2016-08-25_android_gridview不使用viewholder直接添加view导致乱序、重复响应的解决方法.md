@@ -1,13 +1,17 @@
 ---
 title: "android gridview不使用viewholder直接添加view导致乱序、重复响应的解决方法"
 date: "2016-08-25"
-categories: [android, java, 源码剖析]
+categories: ["Android"]
+tags: ["Android"]
 source: "http://prayerlaputa.com/?p=221"
+description: "要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是这个版本，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式。"
 ---
 
 要实现可拖动的九宫格，网上搜了下，搜到比较靠谱的是[这个版本](http://blog.csdn.net/xiaanming/article/details/17718579)，原理、实现都写的很清楚，但有个问题，用到GridView时，写adapter时一般都会使用ViewHolder的方式，即adapter使用BaseAdapter，adapter中保存数据，而调用getView方法时，若是第一次调用则将可复用的数据保存到一个ViewHolder类中，后续就不用再重新创建View；或者，adapter中每次根据数据创建view。\
 由于公司所用的客户端框架限制，我在实现可拖动的九宫格时，在getView方法中，拿到的数据就是一个个已经创建好的View对象，但按照上面提到的[xiaanming](http://blog.csdn.net/xiaanming/article/details/17718579)的拖动实现方式，我将这些已有的View对象在getView中返回、加入到GridView后，发现显示没问题，但是拖动之后，View的显示顺序会乱掉，而且会出现第一次点击某个View时对应回调方法没有响应，但第二次点击时则会响应第一次点击、第二次点击两个回调方法。\
 为解决这问题，在github上发现如下[可拖动九宫格的另一种实现](https://github.com/askerov/DynamicGrid)，尝试重写adapter类后解决了该问题，发现这个跟stableid有关。我一开始写的adapter大概样子如下；
+
+<!-- more -->
 
 ```
 public class GridAdapter extends BaseAdapter{

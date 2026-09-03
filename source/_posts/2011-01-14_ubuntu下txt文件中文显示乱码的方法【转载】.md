@@ -1,8 +1,10 @@
 ---
 title: "ubuntu下txt文件中文显示乱码的方法【转载】"
 date: "2011-01-14"
-categories: [linux]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=399"
+description: "记录ubuntu下txt文件中文显示乱码的方法的操作步骤与关键注意事项。"
 ---
 
 转载地址：http://apps.hi.baidu.com/share/detail/10311333\
@@ -24,5 +26,7 @@ GB18030，GBK，GB2312\
 解决前![](/images/139c1e26813404098644f9f5_d28c1b15.jpg)\
 解决后\
 ![](/images/c4ceb4620afc56e58cb10df4_d99cdec0.jpg)
+
+<!-- more -->
 
 来自: <http://hi.baidu.com/little%D5%C1/blog/item/41fec93dc789d2e055e723f2.html>

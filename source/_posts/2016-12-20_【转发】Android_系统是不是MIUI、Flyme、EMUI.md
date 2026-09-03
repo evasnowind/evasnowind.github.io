@@ -1,12 +1,16 @@
 ---
 title: "【转发】Android 系统是不是MIUI、Flyme、EMUI"
 date: "2016-12-20"
-categories: [android, java]
+categories: ["Android"]
+tags: ["Android"]
 source: "http://prayerlaputa.com/?p=227"
+description: "围绕Android 系统是不是MIUI、Flyme、EMUI整理相关实践、经验与要点。"
 ---
 
 工作中遇到“判断android手机的rom是哪一个版本”这样的问题，搜到如下解决方案，具体出自哪里不确定（网上转载太多，也没标注出处……），我是在这里看到的：<http://mojijs.com/2015/10/211671/index.html> 代码复制下来即可用，我已经验证过，O(∩\_∩)O~\
 \
+
+<!-- more -->
 
 ```
 //读取系统配置信息build.prop类

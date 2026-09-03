@@ -1,8 +1,10 @@
 ---
 title: "spring cloud版本由1.5.x升级到2.x所遇到的坑"
 date: "2020-04-30"
-categories: [spring boot, spring cloud]
+categories: ["Java", "Spring Cloud"]
+tags: ["Spring Cloud"]
 source: "http://prayerlaputa.com/?p=813"
+description: "记录 Spring Cloud 从 1.5.x 升级到 2.x 过程中遇到的问题、原因分析与排查经验。"
 ---
 
 众所知周，spring cloud 1.5版本与2.x版本差异很大，官方没有做向下兼容，导致大家对于升级spring cloud版本都非常慎重。
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=813"
 此处，首先推荐阅读官方给出的迁移手册 [Spring Boot 2.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide)
 
 虽然是英文的，但建议还是好好读读。
+
+<!-- more -->
 
 ## 预备知识
 

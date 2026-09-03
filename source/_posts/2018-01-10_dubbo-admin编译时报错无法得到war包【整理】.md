@@ -1,8 +1,10 @@
 ---
 title: "dubbo-admin编译时报错无法得到war包【整理】"
 date: "2018-01-10"
-categories: [j2ee, java, linux, web, 工具, 软件]
+categories: ["Linux"]
+tags: ["Linux", "Dubbo"]
 source: "http://prayerlaputa.com/?p=538"
+description: "整理笔记本时发现一些以前做过的笔记，整理一下，在博客里留个记录，省的以后忘记。 问题是这样的："
 ---
 
 整理笔记本时发现一些以前做过的笔记，整理一下，在博客里留个记录，省的以后忘记。\
@@ -154,6 +156,8 @@ source: "http://prayerlaputa.com/?p=538"
 3、调用mvn clean install -DskipTests 命令，跳过单元测试\
 但这些对我都不管用。最后还是在stackoverflow上偶然看到一个回答（https://stackoverflow.com/questions/29700576/failed-to-execute-goal-org-apache-maven-pluginsmaven-compiler-plugin-default-c/29700727），说**清空一下$HOME/.m2里的所有内容**，这才编译成功。所以原因就在于，可能在maven下载包时一些包冲突了（it looks some of apache plugin artifacts corrupted in your local repository）。\
 所以啊，童鞋们：
+
+<!-- more -->
 
 ### **用maven编译包时，如果什么时候实在找不到原因，可以试试清空maven本地repository试试。**
 

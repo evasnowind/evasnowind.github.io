@@ -1,8 +1,10 @@
 ---
 title: "源码分析之Java线程池ThreadPoolExecutor"
 date: "2020-09-21"
-categories: [java, 多线程, 源码剖析]
+categories: ["Java", "并发"]
+tags: ["Java", "并发", "源码分析"]
 source: "http://prayerlaputa.com/?p=877"
+description: "我个人觉得，学习源码的姿势，首先是需要知道想学习的框架/工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。"
 ---
 
 我个人觉得，学习源码的姿势，首先是需要知道想学习的框架/工具如何使用，然后接下来再去看源码注释，看看当时代码作者是如何阐述代码的，再去看代码怎么编写，效果才最佳。
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=877"
 同样的，接下来要分析的线程池，首先用途自不必说，不管有没有用过，ThreadPoolExecutor的运行机制、传说中的7个参数(核心线程数corePoolSize、最大线程数maxPoolSize、等待时间keepAliveTime、时间单位timeUnit、阻塞队列blockingQueue、线程工厂threadFactory、拒绝策略rejectHandler)，相信大家都已经熟练掌握，此处不再赘述。
 
 接下来简单过一下ThreadPoolExecutor的注释。\
+
+<!-- more -->
 
 ## 0. 源码注释中的关键点
 

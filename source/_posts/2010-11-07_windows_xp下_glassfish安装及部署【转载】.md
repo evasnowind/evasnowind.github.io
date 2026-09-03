@@ -1,8 +1,10 @@
 ---
 title: "windows xp下 glassfish安装及部署【转载】"
 date: "2010-11-07"
-categories: [java]
+categories: ["Java"]
+tags: ["Java"]
 source: "http://prayerlaputa.com/?p=413"
+description: "记录windows xp下 glassfish安装及部署的安装、配置与实践过程。"
 ---
 
 转自：http://www.blogjava.net/ann/articles/260260.html\
@@ -13,6 +15,9 @@ source: "http://prayerlaputa.com/?p=413"
 2. 解压glassfish :\
 java -Xmx256m -jar glassfish-installer-v2.1-b57-windows.jar（只要配置好java环境都可以执行）\
 注意: 必须将协议滚动条从上拖到下，接受按钮就可以点击了。\
+
+<!-- more -->
+
 你的目录下面将会有个glassfish目录。\
 3. 安装glassfish。\
 1）. 修改配置:  ………./glassfish/setup.xml(在解压后的glassfish目录下面有setup.xml)，不修改也可以。\

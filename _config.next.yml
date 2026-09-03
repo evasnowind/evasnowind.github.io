@@ -60,3 +60,17 @@ codeblock:
   fold:
     enable: false
   language: true
+
+avatar:
+  url: /images/avatar-150.png
+  rounded: false
+  rotated: false
+
+social:
+  GitHub: https://github.com/evasnowind || fab fa-github
+  E-Mail: mailto:evasnowind@sina.com || fa fa-envelope
+
+social_icons:
+  enable: true
+  icons_only: false
+  transition: false

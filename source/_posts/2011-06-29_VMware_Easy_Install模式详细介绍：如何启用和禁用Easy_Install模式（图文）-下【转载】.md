@@ -1,8 +1,10 @@
 ---
 title: "VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-下【转载】"
 date: "2011-06-29"
-categories: [虚拟化]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=393"
+description: "围绕VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-下整理相关实践、经验与要点。"
 ---
 
 转载地址：
@@ -18,3 +20,6 @@ You must install an operating system manually if you did not specify the easy in
 Easy install feature also installs VMware Tools in the guest operating system. After installation is finished, VMware Tools isautomatically installed.意思是 Easy Install 安装过程包括安装VMware Tools，但通常Vmware没有自动安装VMware Tools，并且手动进行安装VMware Tools时出错，提示：VMware Tools installation cannot be started manually while Easy Install is in progress。意思Easy Install模式安装正在进行中，不可以手动安装VMware Tools。这可能是由于镜像以及版本的原因，Easy Install没有成功安装VMware Tools，并且Easy Install还未完成。\
 所以手动安装VMware Tools，必须结束Easy Install模式。Easy Install由autoinst.flp控制，因此只要不加载autoinst.flp镜像，系统就可以结束Easy Install模式。这就是网上常用的VMware Tools安装失败的解决方案，即更改Floppy设置成Use physical drive:Auto detect。\
 希望这篇文章对大家的学习能够有所帮助。
+
+<!-- more -->
+

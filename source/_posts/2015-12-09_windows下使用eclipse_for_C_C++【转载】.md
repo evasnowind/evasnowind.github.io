@@ -1,8 +1,10 @@
 ---
 title: "windows下使用eclipse for C/C++【转载】"
 date: "2015-12-09"
-categories: [c/c++, java, 工具]
+categories: ["C/C++"]
+tags: ["C/C++", "Eclipse"]
 source: "http://prayerlaputa.com/?p=101"
+description: "经过网上搜索资料加上本人测试，以下方法可行： 1，先装好JDK 2，装好Eclipse3.32+MinGW1 3，打开CDT包把plugins和features拷到Eclips。"
 ---
 
 经过网上搜索资料加上本人测试，以下方法可行：\
@@ -25,3 +27,6 @@ gcc -o 你的程序名 你的源代码名.c\
 11，现在Run你的工程吧！\
 8～10为重点所在，请大家注意！\
 PS：个人觉得，在你安装好MinGW后，写一个C程序，记得按住Ctrl+b先build一下，或者是直接ctrl+F11直接build并运行。
+
+<!-- more -->
+

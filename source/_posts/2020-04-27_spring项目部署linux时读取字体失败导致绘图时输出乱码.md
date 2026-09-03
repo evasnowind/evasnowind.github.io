@@ -1,8 +1,10 @@
 ---
 title: "spring项目部署linux时读取字体失败导致绘图时输出乱码"
 date: "2020-04-27"
-categories: [java, spring boot]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=810"
+description: "spring项目部署linux时读取字体失败导致绘图时输出乱码，比如说调用Graphics2D graphic绘图时用到字体，却输出乱码。"
 ---
 
 # 现象
@@ -12,6 +14,8 @@ spring项目部署linux时读取字体失败导致绘图时输出乱码，比如
 # 原因
 
 字体文件找不到，比如说开发环境是windows，可能是使用“微软雅黑”字体，是正常的，但部署到线上（往往是linux），就会是乱码。
+
+<!-- more -->
 
 # 解决
 

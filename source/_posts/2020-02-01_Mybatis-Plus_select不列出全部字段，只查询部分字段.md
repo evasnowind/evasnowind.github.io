@@ -1,8 +1,10 @@
 ---
 title: "Mybatis-Plus select不列出全部字段，只查询部分字段"
 date: "2020-02-01"
-categories: [mybatis]
+categories: ["Java", "MyBatis"]
+tags: ["MyBatis"]
 source: "http://prayerlaputa.com/?p=751"
+description: "mybatis-plus select查询语句默认是查全部字段，有两种方法可以指定要查询的字段。"
 ---
 
 mybatis-plus select查询语句默认是查全部字段，有两种方法可以指定要查询的字段
@@ -21,6 +23,8 @@ CREATE TABLE `user` (
 ```
 
 假设目前仅需要查询name,age两个字段。
+
+<!-- more -->
 
 ### 方法1：只需要查询出name和age两个字段:使用queryWrapper的select()方法指定要查询的字段
 

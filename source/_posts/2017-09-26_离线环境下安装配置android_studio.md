@@ -1,8 +1,10 @@
 ---
 title: "离线环境下安装配置android studio"
 date: "2017-09-26"
-categories: [android, java, 工作, 工具, 软件]
+categories: ["Android"]
+tags: ["Android"]
 source: "http://prayerlaputa.com/?p=372"
+description: "公司项目迁移到android studio上已经有一段时间，之前光是配置android studio就花了一些时间——因为公司内网环境不能访问外网（内心吐槽过无数次了……工作本。"
 ---
 
 公司项目迁移到android studio上已经有一段时间，之前光是配置android studio就花了一些时间——因为公司内网环境不能访问外网（内心吐槽过无数次了……工作本不能上外网给我们做开发的带来很多问题，唉……）……\
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=372"
 jdk/android sdk的下载、配置再次不再赘述。\
 其实，android studio（以下简称as）在离线环境下的安装，关键在于配置gradle。as采用了gradle进行编译，安装jdk/android sdk后，如果下载as后直接启动as，则as检测是否已经安装了gradle，如果没有则as自行去官网下载对应的gradle。离线环境下，并不是我们自己去随便下个gradle、装上就可以了，首先gradle的版本要与as版本对应。这里就要先说明，as中包含有一个android gradle plugin，用于调用gradle进行编译，上面说的“**gradle的版本要与as版本对应**”其实就是指android gradle plugin的版本要和gradle的版本对应。android官网上给出了对应关系如下：\
 注：表格来自<https://developer.android.com/studio/releases/gradle-plugin.html#updating-gradle>
+
+<!-- more -->
 
 | Plugin version | Required Gradle version |
 | --- | --- |

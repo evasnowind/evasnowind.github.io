@@ -1,8 +1,10 @@
 ---
 title: "centos下如何启动mysql多实例"
 date: "2020-12-02"
-categories: [mysql]
+categories: ["Linux"]
+tags: ["Linux", "MySQL"]
 source: "http://prayerlaputa.com/?p=917"
+description: "具体详细参考官网 （） - mysql的安装方法有多种，如二进制安装、源码编译安装、yum安装; - yum安装都是默认路径，不利于后期维护，安装相对简单；"
 ---
 
 mysql安装有多种方式：
@@ -16,6 +18,8 @@ mysql安装有多种方式：
 建议使用二进制安装，比较方便后期维护。本文就是采用这种方式启动多个实例。
 
 本文在centos 7.5下进行操作。
+
+<!-- more -->
 
 ## 准备工作
 

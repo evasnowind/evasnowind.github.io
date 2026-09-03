@@ -1,8 +1,10 @@
 ---
 title: "spring boot上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载+整理】"
 date: "2019-09-05"
-categories: [java, spring, spring boot]
+categories: ["中间件"]
+tags: ["Spring Boot", "Tomcat"]
 source: "http://prayerlaputa.com/?p=645"
+description: "spring boot + spring cloud，上传附件时遇到如下错误：。"
 ---
 
 # 问题
@@ -18,6 +20,8 @@ org.springframework.web.multipart.MultipartException: Could not parse multipart 
 # 解决
 
 1. 在配置文件（application.properties或是application.yml）加入如下代码
+
+<!-- more -->
 
 ```
 spring.http.multipart.maxFileSize = 10Mb

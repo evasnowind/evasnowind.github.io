@@ -1,8 +1,10 @@
 ---
 title: "win7下配置PHP+apache+mysql【转载 + 补充】"
 date: "2015-12-09"
-categories: [工具, 软件]
+categories: ["Web"]
+tags: ["MySQL", "建站"]
 source: "http://prayerlaputa.com/?p=123"
+description: "记录win7下配置PHP+apache+mysql + 补充】的安装、配置与实践过程。"
 ---
 
 本帖参考了如下帖子：\
@@ -13,6 +15,9 @@ http://www.cnblogs.com/good\_hans/archive/2010/04/01/1702059.html\
 安装时默认安装，Network Domain, Server Name 如果没有的话可以使用localhost，Administrator’s Email Address区域填你的邮件地址。以后可以在httpd.conf文件中修改这些信息。\
 Apache启动后，用http://localhost/或http://127.0.0.1测试是否成功。成功的话屏幕会有个It works!\
 有关Apache的配置见下面内容。\
+
+<!-- more -->
+
 （2）配置PHP（解压PHP压缩包到D:\MyPrograms\php\）\
 首先，对于PHP版本的说明： PHP版本：php-5.3.2-Win32-VC6-x86，VC9是专门为IIS定制的，VC6 是为了其他WEB服务软件提供的，如 Apache。\
 将PHP解压到一个非中文且不带空格的路径下（我用的是D:\MyPrograms\php\），详细的安装步骤在安装文档install.txt文件中，由于是全E文的而且非常详细，估计很多人不太有耐心将其看完，但是它真的很有用，本文后面会拿其做参考。\

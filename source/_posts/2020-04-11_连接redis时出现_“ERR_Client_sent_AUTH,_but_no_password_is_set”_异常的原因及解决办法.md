@@ -1,8 +1,10 @@
 ---
 title: "连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法"
 date: "2020-04-11"
-categories: [redis]
+categories: ["数据库"]
+tags: ["Redis"]
 source: "http://prayerlaputa.com/?p=798"
+description: "使用redis-cli连接redis时，报错： ERR Client sent AUTH, but no password is set。"
 ---
 
 ## 现象
@@ -32,6 +34,8 @@ at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java
 ## 原因
 
 Redis服务器没有设置密码，但客户端向其发送了AUTH（authentication，身份验证）请求。
+
+<!-- more -->
 
 ## 解决
 

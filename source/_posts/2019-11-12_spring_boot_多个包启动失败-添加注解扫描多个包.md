@@ -1,8 +1,10 @@
 ---
 title: "spring boot 多个包启动失败-添加注解扫描多个包"
 date: "2019-11-12"
-categories: [java, spring, spring boot]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=703"
+description: "这种组织结构，注意，此处时同一个项目（没有拆分成多个maven模块），有多个包保存不同功能模块的代码。此时启动项目，报错如下：。"
 ---
 
 # spring boot 多个包启动失败-解决：扫描多个包
@@ -14,6 +16,8 @@ source: "http://prayerlaputa.com/?p=703"
   - xx
   - yy
   - XxxxApplication
+
+<!-- more -->
 
 \
 这种组织结构，注意，此处时同一个项目（没有拆分成多个maven模块），有多个包保存不同功能模块的代码。此时启动项目，报错如下：

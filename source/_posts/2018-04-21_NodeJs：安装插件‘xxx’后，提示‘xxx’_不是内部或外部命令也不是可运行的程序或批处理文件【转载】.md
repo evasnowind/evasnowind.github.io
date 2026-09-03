@@ -1,13 +1,17 @@
 ---
 title: "NodeJs：安装插件‘xxx’后，提示‘xxx’ 不是内部或外部命令也不是可运行的程序或批处理文件【转载】"
 date: "2018-04-21"
-categories: [web]
+categories: ["Web"]
+tags: ["Web"]
 source: "http://prayerlaputa.com/?p=619"
+description: "npm install -g nodemon。"
 ---
 
 版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。\
 本文链接：https://blog.csdn.net/weixin\_42941619/article/details/94627644\
 1：首先使用npm、cnpm或者yarn下载所需插件，以nodemon这个插件举例
+
+<!-- more -->
 
 npm install -g nodemon
 

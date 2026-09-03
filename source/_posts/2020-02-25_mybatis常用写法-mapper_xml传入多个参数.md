@@ -1,8 +1,10 @@
 ---
 title: "mybatis常用写法-mapper xml传入多个参数"
 date: "2020-02-25"
-categories: [mybatis]
+categories: ["Java", "MyBatis"]
+tags: ["MyBatis", "集合"]
 source: "http://prayerlaputa.com/?p=769"
+description: "围绕mybatis常用写法-mapper xml传入多个参数整理相关实践、经验与思考。"
 ---
 
 mapper xml文件中：
@@ -29,3 +31,6 @@ xxx selectXXXX(@Param(value = "id") String id,@Param(value = "type") String type
 # 参考资料
 
 - [mybatis传递参数到mapping.xml](https://www.cnblogs.com/zhuawang/p/5927851.html)
+
+<!-- more -->
+

@@ -1,8 +1,10 @@
 ---
 title: "xx is not in the sudoers file 问题解决【转载】"
 date: "2015-12-09"
-categories: [linux]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=113"
+description: "记录xx is not in the sudoers file 问题解决的现象、原因分析与解决办法。"
 ---
 
 原帖地址：http://blog.sina.com.cn/s/blog\_4ef045ab0100j59t.html\
@@ -24,6 +26,9 @@ sudoers: /etc/sudoers /etc/sudoers.bak /usr/share/man/man5/sudoers.5.gz\
 然后找到root ALL=(ALL) ALL所在的位置，把所要添加的用户添加到文件之中，\
 顺便提一下vi编辑器的用法。刚进入vi编辑器的时候牌命令行模式，这时可以通过方向键来移动光标，找到要编辑的位置之后按下“i”，然后就进入了插入模 式，这时候你可以输入或删除字符。编辑完成之后按“esc”键退出插入模式，进入命令行模式，这时候按“：”可以进入末行模式，输入“wq”保存并退出。\
 下面是添加完的结果。\
+
+<!-- more -->
+
 ## Allow root to run any commands anywhere\
 root ALL=(ALL) ALL\
 xiaofei ALL=(ALL) ALL （这一行是添加的内容，xiaofei是我的用户名）\

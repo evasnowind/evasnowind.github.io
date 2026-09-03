@@ -1,8 +1,10 @@
 ---
 title: "gconf-editor简介【转载】"
 date: "2011-02-04"
-categories: [linux]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=397"
+description: "gconf-editor是一款类似于注册表的软件，但是远远比改注册表简单，更改里面的配置实际上是修改了硬盘上的文本文档。"
 ---
 
 来自：
@@ -15,6 +17,9 @@ gconf-editor是一款类似于注册表的软件，但是远远比改注册表�
 \
 \
 下面简单介绍几则gconf-editor的使用技巧（比如去掉桌面上的挂载盘符）：\
+
+<!-- more -->
+
 \
 在终端下打gconf-editor打开“配置编辑器”（中文名），然后开始吧！\
 \

@@ -1,8 +1,10 @@
 ---
 title: "gconf-editor简介【转载】"
 date: "2015-12-09"
-categories: [linux]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=115"
+description: "介绍gconf-editor简介的基本用途与使用要点。"
 ---
 
 来自：\
@@ -17,3 +19,6 @@ gconf-editor是一款类似于注册表的软件，但是远远比改注册表�
 3、让截图有阴影效果\
 这 招能让您用Alt+PrintScreen键截图后，让图片有各种效果。定位到 “/apps/gnome-screenshot”，在右侧，boder\_effect的值改一下，默认是none，改成“shadow”就是有阴影效果 了，black-line的话，截图周围就有黑线了。\
 以上只是抛砖引玉讲三点，gconf-editor这个东西很不错，谁都会改，因为每个键值下都有注释呢。
+
+<!-- more -->
+

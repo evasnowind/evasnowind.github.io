@@ -1,8 +1,10 @@
 ---
 title: "Java中的Overload Overwrite Override【转载】"
 date: "2015-12-09"
-categories: [java, 读书]
+categories: ["Java"]
+tags: ["Java"]
 source: "http://prayerlaputa.com/?p=144"
+description: "一直比较模糊下面几个概念,今天在网上看到,摘录如下:。"
 ---
 
 一直比较模糊下面几个概念,今天在网上看到,摘录如下:
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=144"
 overload （重载）关键 字： 无
 
 1.使用的地方：同一类里。（其实是同一类里同一名称的方法不同版本的一种叫法）
+
+<!-- more -->
 
 2. 要重载的方法和被重载的方法要求：参数列表不同或返回类型不同或二者都不同
 

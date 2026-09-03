@@ -1,8 +1,10 @@
 ---
 title: "使用sysbench对mysql进行基准测试"
 date: "2020-11-27"
-categories: [mysql]
+categories: ["数据库"]
+tags: ["MySQL"]
 source: "http://prayerlaputa.com/?p=915"
+description: "记录使用 sysbench 对 MySQL 进行基准测试的环境、常用命令和测试过程，适合做数据库性能摸底与对比。"
 ---
 
 ### 测试环境说明
@@ -19,6 +21,8 @@ source: "http://prayerlaputa.com/?p=915"
 - centos 7.5 64位
 - mysql 5.7.31
 - sysbench 1.0.20
+
+<!-- more -->
 
 ### 测试过程
 

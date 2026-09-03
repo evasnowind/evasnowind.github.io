@@ -1,8 +1,10 @@
 ---
 title: "spring boot整合swagger"
 date: "2019-08-24"
-categories: [j2ee, 工具, 开源]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot", "Swagger"]
 source: "http://prayerlaputa.com/?p=623"
+description: "本文仅展示总体配置，具体注解用法请另行搜索、查询。"
 ---
 
 本文仅展示总体配置，具体注解用法请另行搜索、查询。
@@ -111,6 +113,8 @@ return apiInfo;
 ```
 
 ## 3.用各种注解加入接口说明
+
+<!-- more -->
 
 例如controller
 

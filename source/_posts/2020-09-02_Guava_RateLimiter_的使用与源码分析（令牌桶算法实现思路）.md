@@ -1,8 +1,10 @@
 ---
 title: "Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）"
 date: "2020-09-02"
-categories: [guava, 源码剖析]
+categories: ["Java", "源码分析"]
+tags: ["Java", "源码分析"]
 source: "http://prayerlaputa.com/?p=849"
+description: "学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。"
 ---
 
 ## Guava RateLimiter基本使用
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=849"
 学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。
 
 比如Guava RateLimiter，从RateLimiter类的源码注释中可以看到，官方给出的典型应用场景与使用：
+
+<!-- more -->
 
 ```
 As an example, imagine that we have a list of tasks to execute, but we don't want to submit more than 2 per second:

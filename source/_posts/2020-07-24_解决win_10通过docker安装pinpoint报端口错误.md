@@ -1,8 +1,10 @@
 ---
 title: "解决win 10通过docker安装pinpoint报端口错误"
 date: "2020-07-24"
-categories: [分布式, 架构]
+categories: ["工具"]
+tags: ["Docker"]
 source: "http://prayerlaputa.com/?p=841"
+description: "--- docker-compose up -d Creating network \"pinpoint-dockerpinpoint\" with driver \"bridge\" Creatin。"
 ---
 
 按官方提示https://github.com/naver/pinpoint-docker ，通过docker安装pinpoint时，遇到端口冲突问题
@@ -18,6 +20,9 @@ source: "http://prayerlaputa.com/?p=841"
  Creating pinpoint-mysql             ... done                                                                                                                                                                       
  Creating pinpoint-hbase             ... error                                                                                                                                                                      
  Creating pinpoint-flink-taskmanager ... done                                                                                                                                                                       
+
+<!-- more -->
+
                                                                                                                                                                                                                     
  ERROR: for pinpoint-hbase  Cannot start service pinpoint-hbase: Ports are not available: listen tcp 0.0.0.0:2180: bind: An attempt was made to access a socket in a way forbidden by its access permissions.       
                                                                                                                                                                                                                     

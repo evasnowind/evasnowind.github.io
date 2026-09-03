@@ -1,8 +1,10 @@
 ---
 title: "tomcat和dubbo对于JDK线程池的修改"
 date: "2020-08-18"
-categories: [java, 多线程, 源码剖析]
+categories: ["中间件"]
+tags: ["Java", "并发", "Tomcat", "Dubbo"]
 source: "http://prayerlaputa.com/?p=845"
+description: "结合ThreadPoolExecutor的运行过程，可以知道ThreadPoolExecutor主要倾向于CPU密集型任务，但对于对于 io 密集型任务，如数据库查询，rpc 请求调用等，就不是很友好。"
 ---
 
 ## 预备知识
@@ -11,6 +13,9 @@ source: "http://prayerlaputa.com/?p=845"
 
   - CPU密集型：需要线程长时间进行的复杂的运算，这种类型的任务需要少创建线程，过多的线程将会频繁引起上文切换，降低任务处理处理速度。
   - IO密集型：由于线程并不是一直在运行，可能大部分时间在等待 IO 读取/写入数据，增加线程数量可以提高并发度，尽可能多处理任务。
+
+<!-- more -->
+
 - JDK线程池，`java.util.concurrent.ThreadPoolExecutor` 传说中的7个参数，作用，线程池运行机制，参见下图复习
 
   ![](/images/Java线程池运行机制-300x78_f1ca502b.jpg)

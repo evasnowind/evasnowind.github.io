@@ -1,12 +1,16 @@
 ---
 title: "idea中maven项目自动重置Java compiler的JDK版本为1.5的问题"
 date: "2017-03-10"
-categories: [j2ee, java, web, 工具]
+categories: ["工具", "构建工具"]
+tags: ["Java", "Maven", "IDEA"]
 source: "http://prayerlaputa.com/?p=529"
+description: "记录idea中maven项目自动重置Java compiler的JDK版本为1.5的问题的现象、原因分析与解决办法。"
 ---
 
 这几天给开发机重装系统后遇到的一个问题，maven什么的都是最新的版本（maven 3.5.2, jdk 1.8），然而用idea打开项目后，总是注解报错，然后追根溯源发现是目前版本的maven在构建时默认面向jdk 1.5……参见这里：\
 http://maven.apache.org/plugins/maven-compiler-plugin/index.html
+
+<!-- more -->
 
 > Also note that at present the default source setting is 1.5 and the default target setting is 1.5, independently of the JDK you run Maven with. If you want to change these defaults, you should set source and target as described in [Setting the -source and -target of the Java Compiler](http://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html).
 

@@ -1,8 +1,10 @@
 ---
 title: "ubuntu下vsftpd的安装与配置"
 date: "2015-12-09"
-categories: [工具, 软件]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=92"
+description: "记录ubuntu下vsftpd的安装与配置的安装、配置与实践过程。"
 ---
 
 ubuntu下安装软件一般都很简单，FTP也是如此，貌似vsftpd用的比较多，因此前两天也在一台机器上试验了一下，过程如下：\
@@ -26,3 +28,6 @@ rsa_cert_file = /etc/ssl/private/vsftpd.pem\`\
 每一行具体的代表什么含义我就不详细说了，可以参考[Ubuntu下Vsftpd服务器配置指南](http://www.prayer-laputa.com/blog/wp-content/uploads/2012/02/Ubuntu%E4%B8%8BVsftpd%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.pdf)这篇来自ubunut wiki的文章。\
 需要说明的是，网上说vsftpd服务开始、停止、重启的命令都是 sudo /etc/init.d/vsftpd start(或者是stop、restart)，我在ubuntu 11.04上试验都不行（桌面版，并非服务器版），会提示“Rather than invoking init scripts through /etc/init.d, use the service(8) utility, e.g. service vsftpd start. ….”，其实就是提示用终端中使用service vsftpd start命令来启动vsftpd服务（当然，前面要加sudo），这个网上查没什么有用结果，只能先这样几下了，在刚刚给出的那本[Ubuntu下Vsftpd服务器配置指南](http://www.prayer-laputa.com/blog/wp-content/uploads/2012/02/Ubuntu%E4%B8%8BVsftpd%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.pdf)中，也是使用这种命令，而不是sudo /etc/init.d/vsftpd start，这个不是很理解，先这样记下吧。\
 另外，需要说明的是，貌似chroot\_local\_user = YES是必须开的，否则会出现可以连接到FTP，但是无法将文件传到FTP服务器上的情况，这个也不知道是为啥，可能是vsftpd本身要求限制用户对其他文件夹的使用吧。
+
+<!-- more -->
+

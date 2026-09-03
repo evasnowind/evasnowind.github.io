@@ -1,11 +1,15 @@
 ---
 title: "android开启辅助功能后GridView控件导致app闪退"
 date: "2016-08-24"
-categories: [android, java]
+categories: ["Android"]
+tags: ["Android"]
 source: "http://prayerlaputa.com/?p=218"
+description: "app上线前遇到一个很诡异的问题，同一款型号的手机，一台手机没问题，另一台手机则在显示首页后假死、然后直接闪退。经过排查，确定是自定义GridView惹的祸，异常信息如下：。"
 ---
 
 app上线前遇到一个很诡异的问题，同一款型号的手机，一台手机没问题，另一台手机则在显示首页后假死、然后直接闪退。经过排查，确定是自定义GridView惹的祸，异常信息如下：
+
+<!-- more -->
 
 ```
  java.lang.IllegalArgumentException: parameter must be a descendant of this view

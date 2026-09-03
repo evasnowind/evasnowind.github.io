@@ -1,8 +1,10 @@
 ---
 title: "could not find the main class(eclipse不能运行类) -解决方法【转载】"
 date: "2011-06-29"
-categories: [java, linux]
+categories: ["工具", "IDE"]
+tags: ["Eclipse"]
 source: "http://prayerlaputa.com/?p=392"
+description: "最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。 首先，在eclipse中启动Tomcat服务器，始终不能启动。"
 ---
 
 转载地址：
@@ -11,6 +13,8 @@ http://wenku.baidu.com/view/fa749e737fd5360cba1adbdd.html
 
 最近做项目把JDK的版本升到了1.6，但是问题也就随之而来。\
 首先，在eclipse中启动Tomcat服务器，始终不能启动
+
+<!-- more -->
 
 ![](file:///C:/Users/Prayer/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
 

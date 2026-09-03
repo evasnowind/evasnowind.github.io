@@ -1,8 +1,10 @@
 ---
 title: "elasticsearch启动时报错：error=’Cannot allocate memory’ (errno=12)"
 date: "2019-03-22"
-categories: [分布式, 搜索]
+categories: ["中间件"]
+tags: ["Elasticsearch"]
 source: "http://prayerlaputa.com/?p=683"
+description: "elasticsearch启动时报错：。"
 ---
 
 elasticsearch启动时报错：
@@ -33,3 +35,6 @@ vim config/jvm.options
 -Xms512m  
 -Xmx512m 
 ```
+
+<!-- more -->
+

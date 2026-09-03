@@ -1,8 +1,10 @@
 ---
 title: "spring boot连接mysql 8时报errorCode 0, state 08001错误"
 date: "2019-11-24"
-categories: [mysql, spring boot]
+categories: ["数据库"]
+tags: ["Spring Boot", "MySQL"]
 source: "http://prayerlaputa.com/?p=715"
+description: "spring boot 启动时，连接mysql 8数据库报错errorCode 0, state 08001。"
 ---
 
 # 现象
@@ -12,6 +14,8 @@ spring boot 启动时，连接mysql 8数据库报错`errorCode 0, state 08001`�
 ## 原因
 
 ### 1. spring boot项目中，pom文件中配置的mysql驱动版本与mysql数据库版本不一致
+
+<!-- more -->
 
 此时修改pom文件中的版本即可，可以使用下面的配置：
 

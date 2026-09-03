@@ -1,8 +1,10 @@
 ---
 title: "【源码分析】java sdk篇–Integer"
 date: "2017-01-11"
-categories: [java, 源码剖析]
+categories: ["Java", "源码分析"]
+tags: ["Java", "源码分析"]
 source: "http://prayerlaputa.com/?p=258"
+description: "今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查："
 ---
 
 今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：\
@@ -15,6 +17,8 @@ a. highestOneBit(i)\
 b. lowestOneBit(i)\
 API说明看着有点绕，但其实很简单，就是和上面的highestOneBit相反，返回一个数，这个数最多只包含i二进制表示中最低位的1\
 内部实现如下：
+
+<!-- more -->
 
 ```
 public static int lowestOneBit(int i) {

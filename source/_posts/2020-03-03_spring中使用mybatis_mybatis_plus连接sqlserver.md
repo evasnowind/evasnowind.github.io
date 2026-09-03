@@ -1,11 +1,15 @@
 ---
 title: "spring中使用mybatis/mybatis plus连接sqlserver"
 date: "2020-03-03"
-categories: [java, mybatis, spring, spring boot]
+categories: ["数据库"]
+tags: ["MyBatis", "SQL Server"]
 source: "http://prayerlaputa.com/?p=775"
+description: "本文主要关注如何使用mybatis/mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。"
 ---
 
 本文主要关注如何使用mybatis/mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。
+
+<!-- more -->
 
 # 框架选择
 

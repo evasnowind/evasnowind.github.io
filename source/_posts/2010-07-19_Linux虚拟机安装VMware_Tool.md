@@ -1,8 +1,10 @@
 ---
 title: "Linux虚拟机安装VMware Tool"
 date: "2010-07-19"
-categories: [虚拟化]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=414"
+description: "这时，虚拟机系统中会弹文件选择对话框，就是我们导入的VMware Tools。 接下来在系统中操作。"
 ---
 
 转自：http://robert-liu.javaeye.com/blog/534051\
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=414"
  \
 在虚拟机上安装完系统，可能会遇到一些使用不方便的问题，比如 鼠标切入切出，刚安装的系统分辨率低等等。\
      这个时候，我们可以安装VMware Tool来解决这些问题。
+
+<!-- more -->
 
 - 启动系统后，鼠标切出，点击“VM—>Settings”，
 - 在弹出的对话框里选择“CD-Rom”，在右边的框中选择“Use ISO image”，并设置其值，在VMware的安装路径下，如D:Program FilesVMwareVMware Workstationlinux.iso。（根据你安装的虚拟系统，选择不同的image，这些是VMWare自带的。）

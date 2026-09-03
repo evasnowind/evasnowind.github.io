@@ -1,8 +1,10 @@
 ---
 title: "ElasticSearch集群配置方法与注意事项"
 date: "2019-08-04"
-categories: [java, 工具, 开源]
+categories: ["中间件"]
+tags: ["Elasticsearch"]
 source: "http://prayerlaputa.com/?p=579"
+description: "注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。"
 ---
 
 # 目标
@@ -13,6 +15,8 @@ source: "http://prayerlaputa.com/?p=579"
 
 注意，集群配置完成前建议不要启动单个ES实例。\
 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。
+
+<!-- more -->
 
 # 配置集群
 

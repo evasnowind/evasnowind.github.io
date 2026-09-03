@@ -1,8 +1,10 @@
 ---
 title: "mysql中使用replace regexp实现正则替换"
 date: "2020-02-18"
-categories: [mysql]
+categories: ["数据库"]
+tags: ["MySQL"]
 source: "http://prayerlaputa.com/?p=765"
+description: "mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from str,to str)。"
 ---
 
 mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from\_str,to\_str)
@@ -33,6 +35,8 @@ SELECT id,name FROM master\_data.md\_employee WHERE name REGEXP ‘^…..$’;
 SELECT id,name FROM master\_data.md\_employee WHERE name REGEXP ‘^.{5}$’;
 
 参考资料：
+
+<!-- more -->
 
 #### [MySQL中使用replace、regexp进行正则表达式替换的用法分析](https://www.jb51.net/article/108007.htm)
 

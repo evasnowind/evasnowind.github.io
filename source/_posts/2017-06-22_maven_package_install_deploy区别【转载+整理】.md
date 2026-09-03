@@ -1,8 +1,10 @@
 ---
 title: "maven package install deploy区别【转载+整理】"
 date: "2017-06-22"
-categories: [工具, 软件]
+categories: ["工具", "构建工具"]
+tags: ["Maven"]
 source: "http://prayerlaputa.com/?p=537"
+description: "稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章："
 ---
 
 稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：\
@@ -25,6 +27,8 @@ C:\mavenRepository\com\*\*\b\2.7.4.RELEASE\b-2.7.4.RELEASE.pom\
 **B、maven install：把target下打的包（jar等）安装到本地仓库，可以供其他项目使用。**\
 **3、maven deploy：**将打包的文件发布到远程参考,提供其他人员进行下载依赖。\
 然后呢，对于**mvn install**命令，格式如下：
+
+<!-- more -->
 
 > 安装指定文件到本地仓库命令：\
 > mvn install:install-file\

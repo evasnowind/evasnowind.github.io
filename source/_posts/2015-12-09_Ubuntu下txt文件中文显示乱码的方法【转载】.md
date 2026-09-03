@@ -1,8 +1,10 @@
 ---
 title: "Ubuntu下txt文件中文显示乱码的方法【转载】"
 date: "2015-12-09"
-categories: [linux, 软件]
+categories: ["Linux"]
+tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=125"
+description: "记录Ubuntu下txt文件中文显示乱码的方法的操作步骤与关键注意事项。"
 ---
 
 转载地址：http://apps.hi.baidu.com/share/detail/10311333\
@@ -13,6 +15,9 @@ gconf-editor //调出gconf-edit\
 然后依次点开：\
 apps->gedit-2->preferences－＞encodings\
 双击encodings中的auto-detected\
+
+<!-- more -->
+
 在弹开的对话框中加入\
 GB18030，GBK，GB2312\
 再将GB18030,GB2312移到最上\

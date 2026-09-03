@@ -1,11 +1,15 @@
 ---
 title: "Java并发之深入解析volatile关键字"
 date: "2020-05-27"
-categories: [java, 并发, 源码剖析]
+categories: ["Java", "并发"]
+tags: ["Java", "并发"]
 source: "http://prayerlaputa.com/?p=823"
+description: "从一道面试题讲起：采用DCL实现单例模式时，是否需要加volatile关键字？为什么？"
 ---
 
 从一道面试题讲起：**采用DCL实现单例模式时，是否需要加volatile关键字？为什么？**
+
+<!-- more -->
 
 ## 有关单例模式
 

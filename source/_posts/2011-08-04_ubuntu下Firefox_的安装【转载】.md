@@ -1,8 +1,10 @@
 ---
 title: "ubuntu下Firefox 的安装【转载】"
 date: "2011-08-04"
-categories: [linux, web, 软件]
+categories: ["Web"]
+tags: ["Linux", "Web"]
 source: "http://prayerlaputa.com/?p=383"
+description: "记录ubuntu下Firefox 的安装的安装、配置与实践过程。"
 ---
 
 转载地址：[http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=337166](http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=337166 "http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=337166")\
@@ -26,3 +28,6 @@ sudo ln -s /opt/firefox5/firefox /usr/bin/firefox\
 中文官方网站：http://firefox.com.cn/\
 英文官方网站：http://www.mozilla.com/en-US/firefox/all.html\
 两者区别在于：中文网站下载的 firefox 会打上 “北京谋智技术网络有限公司”的标签，还会预先安装一堆扩展（当然你可以拒绝安装），英文网站下载的应该不会有这个问题。
+
+<!-- more -->
+

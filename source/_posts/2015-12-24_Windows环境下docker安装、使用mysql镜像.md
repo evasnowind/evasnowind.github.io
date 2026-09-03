@@ -1,8 +1,10 @@
 ---
 title: "Windows环境下docker安装、使用mysql镜像"
 date: "2015-12-24"
-categories: [linux, 虚拟化, 软件]
+categories: ["工具"]
+tags: ["MySQL", "Docker"]
 source: "http://prayerlaputa.com/?p=177"
+description: "这些天在研究docker的使用，平时开发用惯了windows，遂也尝试用windows下的Docker Toolbox，结果发现到底还是没Linux环境下便捷啊。"
 ---
 
 这些天在研究docker的使用，平时开发用惯了windows，遂也尝试用windows下的Docker Toolbox，结果发现到底还是没Linux环境下便捷啊。\
@@ -11,3 +13,6 @@ mysql容器启动成功后，用navicat连接mysql容器，却遇到一个10038�
 [![win_docker_host](http://www.prayerlaputa.com/wp-content/uploads/2015/12/win_docker_host-236x300.png)](http://www.prayerlaputa.com/wp-content/uploads/2015/12/win_docker_host.png)\
 在window环境下，这就导致：如果在启动容器时，用docker run -p hostPort:port 的方式指定端口映射，那这个映射实际上只是指定了 **linux虚拟机hostPort端口 -> 该容器port端口** 的映射，而我的连接是在windows中发出的，**windows某端口 –> linux虚拟机hostPort端口** 也需要设置啊，否则必然连不通啊亲，o(╯□╰)o\
 这个设置也比较简单，直接启动virtual box虚拟机，设置default虚拟机的网络端口转发规则，这个就不截图了，很好找的，自己动手加上一个新的规则，将本地某端口（windows下的某端口）映射到linux的hostPort端口即可。\
+
+<!-- more -->
+

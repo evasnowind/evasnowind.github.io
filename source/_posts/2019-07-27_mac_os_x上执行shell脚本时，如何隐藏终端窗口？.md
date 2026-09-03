@@ -1,8 +1,10 @@
 ---
 title: "mac os x上执行shell脚本时，如何隐藏终端窗口？"
 date: "2019-07-27"
-categories: [linux, 工具]
+categories: ["Linux"]
+tags: ["Linux", "工具"]
 source: "http://prayerlaputa.com/?p=573"
+description: "默认情况下，如果在mac终端中执行shell脚本，会弹出窗口展示脚本执行输出。"
 ---
 
 默认情况下，如果在mac终端中执行shell脚本，会弹出窗口展示脚本执行输出。
@@ -12,6 +14,8 @@ source: "http://prayerlaputa.com/?p=573"
 解决：
 
 问了下谷歌，搜索出如下答案，亲测可用。
+
+<!-- more -->
 
 - 打开mac上的**Automator**程序，选择应用程序（application），选择shell脚本选项，将脚本放到界面中（用引号括起来），或是直接将文件拖拽到界面中
 - 执行，测试没问题即可保存。

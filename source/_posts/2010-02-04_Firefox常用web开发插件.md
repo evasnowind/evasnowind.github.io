@@ -1,8 +1,10 @@
 ---
 title: "Firefox常用web开发插件"
 date: "2010-02-04"
-categories: [web]
+categories: ["Web"]
+tags: ["Web"]
 source: "http://prayerlaputa.com/?p=426"
+description: "整理Firefox常用web开发插件及其用途，便于按场景选择和查阅。"
 ---
 
 Debugging工具\
@@ -14,6 +16,8 @@ Firebug官网：http://getfirebug.com/\
 总体的印象是简约而不简单，十分适合编程人员使用！\
 2、[FirePHP](https://addons.mozilla.org/en-US/firefox/addon/6149)\
 FireBug是针对CSS、HTML和JavaScript的一款很好的开发工具，但是FirePHP只有在用户安装了FireBug之后才可用，可以 为PHP开发者所用，便于他们管理PHP函数。\
+
+<!-- more -->
 
 ![](http://image.onlinedown.net//2009/huajunpc/03/20090414ljq104.jpg)
 

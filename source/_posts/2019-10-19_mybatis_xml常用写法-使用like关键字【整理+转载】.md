@@ -1,8 +1,10 @@
 ---
 title: "mybatis xml常用写法-使用like关键字【整理+转载】"
 date: "2019-10-19"
-categories: [java, mybatis]
+categories: ["Java", "MyBatis"]
+tags: ["MyBatis"]
 source: "http://prayerlaputa.com/?p=679"
+description: "对mybatis xml常用写法-使用like关键字【整理+相关资料、经验或工具进行整理与汇总。"
 ---
 
 # 需求：xml中需要在where中拼接like语句
@@ -41,3 +43,6 @@ source: "http://prayerlaputa.com/?p=679"
 # 参考文章
 
 - [mybatis中xml开发like的几种写法](https://blog.csdn.net/xzj80927/article/details/90038411)
+
+<!-- more -->
+

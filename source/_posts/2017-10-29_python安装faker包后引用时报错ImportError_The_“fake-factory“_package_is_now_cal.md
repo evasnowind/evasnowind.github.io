@@ -1,12 +1,16 @@
 ---
 title: "python安装faker包后引用时报错ImportError The “fake-factory“ package is now called “Faker“"
 date: "2017-10-29"
-categories: [python, 大数据, 工作, 数据分析]
+categories: ["Python"]
+tags: ["Python"]
 source: "http://prayerlaputa.com/?p=491"
+description: "Faker是一个可以让你生成伪造数据的Python包。当你需要初始化数据库，创建美观的XML文档，不断产生数据来进行压力测试或者想从生产服务器上拉取匿名数据的时候，Faker将是你最棒的选择。"
 ---
 
 Faker是一个可以让你生成伪造数据的Python包。当你需要初始化数据库，创建美观的XML文档，不断产生数据来进行压力测试或者想从生产服务器上拉取匿名数据的时候，Faker将是你最棒的选择。\
 Faker的安装过程可以参考[Faker：Python的伪造数据生成器](http://hao.jobbole.com/python-faker/) 这篇文章，其实就是用pip一条命令：
+
+<!-- more -->
 
 ```
 pip install fake-factory

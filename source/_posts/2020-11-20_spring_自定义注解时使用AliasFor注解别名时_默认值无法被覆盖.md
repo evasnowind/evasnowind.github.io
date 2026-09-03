@@ -1,8 +1,10 @@
 ---
 title: "spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖"
 date: "2020-11-20"
-categories: [java, spring]
+categories: ["Java", "Spring"]
+tags: ["Spring"]
 source: "http://prayerlaputa.com/?p=910"
+description: "分析 @AliasFor 互为别名时默认值为何看似未生效，并说明如何使用 Spring 提供的注解工具正确读取属性值。"
 ---
 
 事情是这样子的：
@@ -73,6 +75,8 @@ Integer annotationVal2 = (Integer) getAnnotationConfig(annotation2, "expireTime"
 log.info("annotationVal2={}.", annotationVal2);
 ......
 ```
+
+<!-- more -->
 
 ### 进一步延伸：如果注解里的两个属性相互加别名后，使用注解时两个都设置了值，会怎样？
 

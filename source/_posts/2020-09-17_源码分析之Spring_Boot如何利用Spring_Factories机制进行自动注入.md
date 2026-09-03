@@ -1,8 +1,10 @@
 ---
 title: "源码分析之Spring Boot如何利用Spring Factories机制进行自动注入"
 date: "2020-09-17"
-categories: [spring, spring boot, 源码剖析]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot", "源码分析"]
 source: "http://prayerlaputa.com/?p=869"
+description: "围绕Spring Boot如何利用Spring Factories机制进行自动注入的实现原理、核心流程与关键细节做源码分析。"
 ---
 
 ## 前言
@@ -10,6 +12,8 @@ source: "http://prayerlaputa.com/?p=869"
 本文所涉及spring/spring boot代码，请参考spring boot 2.2.6对应版本。
 
 我们在刚学习spring boot时，有没有一个困惑：spring boot能够自动实例化很多第三方的依赖库？比如eureka、druid等。这个就涉及到spring boot的扩展机制spring factories。
+
+<!-- more -->
 
 简单来将，spring factories类似与Java SPI机制，利用该机制，我们能够自定义实现一些SDK或是spring boot starter，其实例化过程由我们来实现，使用方只需要在项目中引入包、不需要或是只需做很少的配置。
 

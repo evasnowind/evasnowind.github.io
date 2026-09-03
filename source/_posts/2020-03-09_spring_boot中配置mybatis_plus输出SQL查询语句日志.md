@@ -1,8 +1,10 @@
 ---
 title: "spring boot中配置mybatis plus输出SQL查询语句日志"
 date: "2020-03-09"
-categories: [mybatis, spring boot]
+categories: ["Java", "Spring Boot"]
+tags: ["Spring Boot", "MyBatis"]
 source: "http://prayerlaputa.com/?p=780"
+description: "在spring boot的application.yml文件中配置：。"
 ---
 
 在spring boot的application.yml文件中配置：
@@ -45,6 +47,8 @@ JDBC Connection [com.mysql.jdbc.JDBC4Connection@bad933d] will not be managed by 
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f27d5a9]
 ……
 ```
+
+<!-- more -->
 
 # 参考资料
 
