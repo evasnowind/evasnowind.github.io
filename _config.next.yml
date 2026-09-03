@@ -1,0 +1,62 @@
+# NexT theme overrides for this site.
+# Keep this file small and only store site-specific customizations.
+
+scheme: Gemini
+darkmode: false
+
+menu:
+  Home: / || fa fa-home
+  Categories: /categories/ || fa fa-th
+  Tags: /tags/ || fa fa-tags
+  Archives: /archives/ || fa fa-archive
+  Timelines: /timelines/ || fa fa-calendar
+
+menu_settings:
+  icons: true
+  badges: false
+
+sidebar:
+  position: left
+  display: post
+  offset: 12
+
+site_state: true
+
+toc:
+  enable: true
+  number: true
+  wrap: false
+  expand_all: false
+  max_depth: 4
+
+back2top:
+  enable: true
+  sidebar: false
+  scrollpercent: true
+
+local_search:
+  enable: true
+  top_n_per_article: 2
+  unescape: false
+  preload: false
+
+motion:
+  enable: true
+  async: false
+  transition:
+    menu_item: fadeInDown
+    post_block: fadeIn
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
+    sidebar: fadeInUp
+
+post_navigation: left
+
+codeblock:
+  copy_button:
+    enable: true
+    style: flat
+  fold:
+    enable: false
+  language: true
