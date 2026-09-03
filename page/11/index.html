@@ -71,14 +71,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2017-01-11_【源码分析】java_sdk篇–CopyOnWrite容器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-2017-01-11_【源码分析】java_sdk篇–Integer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/" class="article-date">
+    <a href="/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Integer/" class="article-date">
   <time class="dt-published" datetime="2017-01-11T00:00:00.000Z" itemprop="datePublished">2017-01-11</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a>►<a class="article-category-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/">源码剖析</a>
   </div>
 
   </div>
@@ -89,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/">【源码分析】java sdk篇–CopyOnWrite容器</a>
+      <a class="p-name article-title" href="/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Integer/">【源码分析】java sdk篇–Integer</a>
     </h1>
   
 
@@ -97,32 +97,15 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>工作中遇到CopyOnWriteArrayList这个类，略好奇，简单学习了一下，这里做个笔记。</p>
-<h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><p>CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只有两个类</p>
-<ul>
-<li>CopyOnWriteArrayList</li>
-<li>CopyOnWriteSet</li>
-</ul>
-<p><br>这些容器类与平时用到的ArrayList&#x2F;Set的区别之处在于：</p>
-<blockquote>
-<p>CopyOnWrite容器即写时复制的容器。通俗的理解是当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。</p>
-</blockquote>
-<h2 id="二、源码分析"><a href="#二、源码分析" class="headerlink" title="二、源码分析"></a>二、源码分析</h2><p>与ArrayList类似，CopyOnWriteArrayList内部同样是基于数组实现，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/** The array, accessed only via getArray/setArray. */</span><br><span class="line">private transient volatile Object[] array;</span><br></pre></td></tr></table></figure>
+        <p>今天用到了Java中Integer.highestOneBit方法，之前还真没注意Integer中还有位运算相关的方法，这里简单列举一下，方便后续查：<br>a. highestOneBit(i)<br>如果一个数是0, 则返回0<br>如果是负数, 则返回 -2147483648 1000,0000,0000,0000,0000,0000,0000,0000(二进制表示的数)<br>如果是正数, 返回的则是跟它最靠近的比它小的2的N次方<br>正数、0好解释，至于负数，由于计算机中的数字都是采用补码表示，即反码+1，并且最高位是一个1、表示负数，因此这个符号位作为最终结果返回。<br>该方法内部实现很简单，具体分析可以参考这篇文章：<a target="_blank" rel="noopener" href="http://blog.csdn.net/jessenpan/article/details/9617749">Java Integer.highestOneBit(i)代码品读</a> （这文章里顺便复习了一下有关位运算的知识，需要的童鞋可以看看）<br>b. lowestOneBit(i)<br>API说明看着有点绕，但其实很简单，就是和上面的highestOneBit相反，返回一个数，这个数最多只包含i二进制表示中最低位的1<br>内部实现如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static int lowestOneBit(int i) &#123;</span><br><span class="line">  return i &amp;amp;amp;amp;amp; -i;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
-<p>array数组被transient关键字修饰，保证该数组不能使用Serializable接口自动序列化；被volatile修饰，保证了多线程访问时的可见性，即保证每次读取的是最新的值，但是没保证对变量的操作的原子性（有关volatile关键的分析，参见：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/dolphin0520/p/3920373.html">Java并发编程：volatile关键字解析</a>）。与ArrayList相比，CopyOnWriteArrayList多出了volatile关键字。<br>而CopyOnWriteArrayList区别于ArrayList的主要地方在于add&#x2F;set&#x2F;remove等涉及到写数据的方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">public E set(int index, E element) &#123;</span><br><span class="line">        final ReentrantLock lock = this.lock;</span><br><span class="line">        lock.lock();</span><br><span class="line">        try &#123;</span><br><span class="line">            Object[] elements = getArray();</span><br><span class="line">            E oldValue = get(elements, index);</span><br><span class="line">            if (oldValue != element) &#123;</span><br><span class="line">                int len = elements.length;</span><br><span class="line">                Object[] newElements = Arrays.copyOf(elements, len);</span><br><span class="line">                newElements[index] = element;</span><br><span class="line">                setArray(newElements);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // Not quite a no-op; ensures volatile write semantics</span><br><span class="line">                setArray(elements);</span><br><span class="line">            &#125;</span><br><span class="line">            return oldValue;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">        final ReentrantLock lock = this.lock;</span><br><span class="line">        lock.lock();</span><br><span class="line">        try &#123;</span><br><span class="line">            Object[] elements = getArray();</span><br><span class="line">            int len = elements.length;</span><br><span class="line">            Object[] newElements = Arrays.copyOf(elements, len + 1);</span><br><span class="line">            newElements[len] = e;</span><br><span class="line">            setArray(newElements);</span><br><span class="line">            return true;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">public E remove(int index) &#123;</span><br><span class="line">        final ReentrantLock lock = this.lock;</span><br><span class="line">        lock.lock();</span><br><span class="line">        try &#123;</span><br><span class="line">            Object[] elements = getArray();</span><br><span class="line">            int len = elements.length;</span><br><span class="line">            E oldValue = get(elements, index);</span><br><span class="line">            int numMoved = len - index - 1;</span><br><span class="line">            if (numMoved == 0)</span><br><span class="line">                setArray(Arrays.copyOf(elements, len - 1));</span><br><span class="line">            else &#123;</span><br><span class="line">                Object[] newElements = new Object[len - 1];</span><br><span class="line">                System.arraycopy(elements, 0, newElements, 0, index);</span><br><span class="line">                System.arraycopy(elements, index + 1, newElements, index,</span><br><span class="line">                                 numMoved);</span><br><span class="line">                setArray(newElements);</span><br><span class="line">            &#125;</span><br><span class="line">            return oldValue;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>ArrayList在add&#x2F;set&#x2F;remove时，只需要考虑内部的数组就可以，不用考虑并发。而CopyOnWriteArrayList则采用可重入锁，避免多线程写操作，并且写的时候是重新拷贝一个新的数组，等拷贝结束、将修改引用后再释放锁。因此，CopyOnWriteArrayList若保存对象较大、占用内存较多时可能造成JVM频繁进行gc。另外，CopyOnWriteArrayList只保证了数据的最终一致性，并没有保证数据的实时一致性。</p>
-<h2 id="三、场景应用常见"><a href="#三、场景应用常见" class="headerlink" title="三、场景应用常见"></a>三、场景应用常见</h2><blockquote>
-<p>CopyOnWrite并发容器用于读多写少的并发场景。比如白名单，黑名单，商品类目的访问和更新场景</p>
-</blockquote>
-<h2 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h2><p><a target="_blank" rel="noopener" href="http://coolshell.cn/articles/11175.html">JAVA中的COPYONWRITE容器</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-zhao/p/5121944.html">CopyOnWriteArrayList源码解析</a></p>
+<p>仍然是利用了原码、补码、反码的知识：<br>i&#x3D;0则返回0；<br>i不等于0，那么i和-i中一个是原码、一个是反码+1，假定-i是那个反码+1的数，i的二进制表示中最低位是从右往左的第m位，那么i和-i从第m+1位开始，由于分别是正码以及对应的反码，进行安慰与操作后直接变为0，第m位则由于反码加了1的缘故，保留下来，即得结果。<br>c.int numberOfLeadingZeros(int i)<br>在指定 int 值的二进制补码表示形式中最高位（最左边）的 1 位之前，零位的数量。（注：从JDK 1.5才有该接口）<br>d. int numberOfTrailingZeros(int i)<br>返回指定的 int 值的二进制补码表示形式中最低（“最右边”）的为 1 的位后面的零位个数。（注：从JDK 1.5才有该接口）<br>e.int bitCount(int i)<br>返回指定 int 值的二进制表示形式的 1 位的数量。（注：从JDK 1.5才有该接口）<br>该方法实现看上去有点莫名其妙，分析可以参考这篇文章：<a target="_blank" rel="noopener" href="http://15838341661-139-com.iteye.com/blog/1642525">求二进制数中1的个数</a><br>f.String toBinaryString(int i)<br>返回二进制表示的字符串<br>g. String toHexString(int i)<br>返回十六进制表示的字符串<br>h.String toOctalString(int i)<br>返回八进制表示的字符串<br>i. String toUnsignedString(int i)<br>返回i对应的unsigned int数字的字符串表示（注：从JDK 1.8才有该接口）<br>j. String toUnsignedString(int i, int radix)<br>返回i对应的unsigned int数字的字符串表示，并且根据radix进制进行输出（注：从JDK 1.8才有该接口）。<br>注意，看源代码可以发现，目前JDK 1.8中的该方法参数radix实现仅支持2~36，radix大于36则按照radix&#x3D;10进行计算，这一点需要注意。<br> <br>列一下感觉平时没怎么用过、但可能比较有用的方法，其他方法常用就没必要再列举了，就酱紫。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93CopyOnWrite%E5%AE%B9%E5%99%A8/" data-id="cuidJdJQn2-6Jl7M3pNBjYL-H" data-title="【源码分析】java sdk篇–CopyOnWrite容器" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/01/11/2017-01-11_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93Integer/" data-id="cuidC9CeBSJUUd358hvcyOzHD" data-title="【源码分析】java sdk篇–Integer" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -168,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/01/05/2017-01-05_%E7%A7%BB%E9%99%A4UTF8%E6%96%87%E4%BB%B6%E7%9A%84BOM%E5%A4%B4/" data-id="cuidvX4WSZyAzaXzfCTxfnBQB" data-title="移除UTF8文件的BOM头" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/01/05/2017-01-05_%E7%A7%BB%E9%99%A4UTF8%E6%96%87%E4%BB%B6%E7%9A%84BOM%E5%A4%B4/" data-id="cuidvZAEYaL-yePsd2RITTTV7" data-title="移除UTF8文件的BOM头" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -219,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2017/01/04/2017-01-04_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91%5BVirtualBox%5D%E5%A6%82%E4%BD%95%E5%A4%8D%E5%88%B6%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="cuidtVII7AWiKGfGN1R7ZhPrk" data-title="【转发】[VirtualBox]如何复制一个虚拟机" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2017/01/04/2017-01-04_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91%5BVirtualBox%5D%E5%A6%82%E4%BD%95%E5%A4%8D%E5%88%B6%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="cuida3MHDMytFmsBzfI59KP4r" data-title="【转发】[VirtualBox]如何复制一个虚拟机" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -257,7 +240,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>最近开始看jdk源代码，先分享一个挺好的博客：<a target="_blank" rel="noopener" href="http://blog.csdn.net/chenssy">http://blog.csdn.net/chenssy</a>  chenssy 有关JDK源码的博文写的很细，我就参考他的博文写写其他的内容，已经被chenssy写过的内容我就不再重复啦，估计也没他写的细。另外，如果网上已有相关分析，我可能直接给出链接、做做补充，毕竟本系列属于读书笔记性质，留下个记录免得自己忘记，并不打算写的特别全或是全部原创。下面就开始【源码分析】系列的第一篇：ConcurrentSkipListMap<br>声明：本博客内容一般采集自互联网，若引用了其他文章或是博客的内容，我会尽量注明出处。如果有转载、未注明出处，或是有侵权的情况，请及时与我沟通（<a href="mailto:&#x65;&#x76;&#x61;&#115;&#110;&#x6f;&#119;&#x69;&#110;&#x64;&#64;&#115;&#x69;&#110;&#97;&#x2e;&#99;&#111;&#109;">evasnowind@sina.com</a>），我会及时删除。转载请注明本文出处，谢谢。<br>在java中，<br>如果我们需要快速存取键值对，可以用HashMap；<br>如果要求多线程并发存取键值对，可以用ConcurrentHashMap；<br>如果要求快速存取键值对，并要求键值对按照某种顺序排序，可以用TreeMap；<br>如果，我们需要快速存取键值对，支持多线程并发存取，还要求数据有序，是否有现成的数据结构？<br>答案是肯定，那就是ConcurrentSkipListMap。</p>
+        <p>最近开始看jdk源代码，先分享一个挺好的博客：<a target="_blank" rel="noopener" href="http://blog.csdn.net/chenssy">http://blog.csdn.net/chenssy</a>  chenssy 有关JDK源码的博文写的很细，我就参考他的博文写写其他的内容，已经被chenssy写过的内容我就不再重复啦，估计也没他写的细。另外，如果网上已有相关分析，我可能直接给出链接、做做补充，毕竟本系列属于读书笔记性质，留下个记录免得自己忘记，并不打算写的特别全或是全部原创。下面就开始【源码分析】系列的第一篇：ConcurrentSkipListMap<br>声明：本博客内容一般采集自互联网，若引用了其他文章或是博客的内容，我会尽量注明出处。如果有转载、未注明出处，或是有侵权的情况，请及时与我沟通（<a href="mailto:&#101;&#118;&#97;&#115;&#x6e;&#x6f;&#119;&#x69;&#110;&#100;&#64;&#x73;&#105;&#110;&#x61;&#x2e;&#99;&#111;&#x6d;">evasnowind@sina.com</a>），我会及时删除。转载请注明本文出处，谢谢。<br>在java中，<br>如果我们需要快速存取键值对，可以用HashMap；<br>如果要求多线程并发存取键值对，可以用ConcurrentHashMap；<br>如果要求快速存取键值对，并要求键值对按照某种顺序排序，可以用TreeMap；<br>如果，我们需要快速存取键值对，支持多线程并发存取，还要求数据有序，是否有现成的数据结构？<br>答案是肯定，那就是ConcurrentSkipListMap。</p>
 <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p><strong>JDK 1.6</strong>中引入了ConcurrentSkipListMap这一数据结构，JDK文档描述如下：</p>
 <blockquote>
 <p>A scalable concurrent <code>ConcurrentNavigableMap</code> implementation. The map is sorted according to the <a href="eclipse-javadoc:%E2%98%82=HMSExample/D:%5C/DevTools%5C/android-sdk-windows%5C/platforms%5C/android-23%5C/android.jar%3Cjava.util.concurrent(ConcurrentSkipListMap.class%E2%98%83ConcurrentSkipListMap%E2%98%82Comparable">natural ordering</a> of its keys, or by a <code>Comparator</code> provided at map creation time, depending on which constructor is used.<br>This class implements a concurrent variant of <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Skip_list">SkipLists</a> providing expected average <em>log(n)</em> time cost for the <code>containsKey</code>, <code>get</code>, <code>put</code> and <code>remove</code> operations and their variants. Insertion, removal, update, and access operations safely execute concurrently by multiple threads. Iterators are <em>weakly consistent</em>, returning elements reflecting the state of the map at some point at or since the creation of the iterator. They do <em>not</em> throw <code>ConcurrentModificationException</code>, and may proceed concurrently with other operations. Ascending key ordered views and their iterators are faster than descending ones.<br>All <code>Map.Entry</code> pairs returned by methods in this class and its views represent snapshots of mappings at the time they were produced. They do <em>not</em> support the <code>Entry.setValue</code> method. (Note however that it is possible to change mappings in the associated map using <code>put</code>, <code>putIfAbsent</code>, or <code>replace</code>, depending on exactly which effect you need.)<br>Beware that, unlike in most collections, the <code>size</code> method is <em>not</em> a constant-time operation. Because of the asynchronous nature of these maps, determining the current number of elements requires a traversal of the elements, and so may report inaccurate results if this collection is modified during traversal. Additionally, the bulk operations <code>putAll</code>, <code>equals</code>, <code>toArray</code>, <code>containsValue</code>, and <code>clear</code> are <em>not</em> guaranteed to be performed atomically. For example, an iterator operating concurrently with a <code>putAll</code> operation might view only some of the added elements.<br>This class and its views and iterators implement all of the <em>optional</em> methods of the <code>Map</code> and <code>Iterator</code> interfaces. Like most other concurrent collections, this class does <em>not</em> permit the use of <code>null</code> keys or values because some null return values cannot be reliably distinguished from the absence of elements.</p>
@@ -280,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/12/26/2016-12-26_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93ConcurrentSkipListMap/" data-id="cuidwonO9pBttdpIVixC2IqUF" data-title="【源码分析】java sdk篇–ConcurrentSkipListMap" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/12/26/2016-12-26_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93ConcurrentSkipListMap/" data-id="cuidd-81zCcZ6eumMsSzRMfTd" data-title="【源码分析】java sdk篇–ConcurrentSkipListMap" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -364,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/12/22/2016-12-22_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android%E4%B8%ADSQLite%E5%BA%94%E7%94%A8%E8%AF%A6%E8%A7%A3/" data-id="cuidVSdZ3dkiRoB1-faxBIvK-" data-title="【转发】Android中SQLite应用详解" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/12/22/2016-12-22_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android%E4%B8%ADSQLite%E5%BA%94%E7%94%A8%E8%AF%A6%E8%A7%A3/" data-id="cuidkM-OkSYRfUCdB8qcpfAXk" data-title="【转发】Android中SQLite应用详解" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -410,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/12/20/2016-12-20_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android_%E7%B3%BB%E7%BB%9F%E6%98%AF%E4%B8%8D%E6%98%AFMIUI%E3%80%81Flyme%E3%80%81EMUI/" data-id="cuidm7t9sSXptTC1psgHOXGd7" data-title="【转发】Android 系统是不是MIUI、Flyme、EMUI" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/12/20/2016-12-20_%E3%80%90%E8%BD%AC%E5%8F%91%E3%80%91Android_%E7%B3%BB%E7%BB%9F%E6%98%AF%E4%B8%8D%E6%98%AFMIUI%E3%80%81Flyme%E3%80%81EMUI/" data-id="cuid4VmRccy8_nG0ZC0KhwQGA" data-title="【转发】Android 系统是不是MIUI、Flyme、EMUI" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -463,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/08/25/2016-08-25_android_gridview%E4%B8%8D%E4%BD%BF%E7%94%A8viewholder%E7%9B%B4%E6%8E%A5%E6%B7%BB%E5%8A%A0view%E5%AF%BC%E8%87%B4%E4%B9%B1%E5%BA%8F%E3%80%81%E9%87%8D%E5%A4%8D%E5%93%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" data-id="cuidiCJqtgnYr7G4T3BkkSler" data-title="android gridview不使用viewholder直接添加view导致乱序、重复响应的解决方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/08/25/2016-08-25_android_gridview%E4%B8%8D%E4%BD%BF%E7%94%A8viewholder%E7%9B%B4%E6%8E%A5%E6%B7%BB%E5%8A%A0view%E5%AF%BC%E8%87%B4%E4%B9%B1%E5%BA%8F%E3%80%81%E9%87%8D%E5%A4%8D%E5%93%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" data-id="cuid4GWAp9ge8M9Ogg4mxFEZR" data-title="android gridview不使用viewholder直接添加view导致乱序、重复响应的解决方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -509,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/08/24/2016-08-24_android%E5%BC%80%E5%90%AF%E8%BE%85%E5%8A%A9%E5%8A%9F%E8%83%BD%E5%90%8EGridView%E6%8E%A7%E4%BB%B6%E5%AF%BC%E8%87%B4app%E9%97%AA%E9%80%80/" data-id="cuidyBv8jZ2qByfhHEdYWEUdg" data-title="android开启辅助功能后GridView控件导致app闪退" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/08/24/2016-08-24_android%E5%BC%80%E5%90%AF%E8%BE%85%E5%8A%A9%E5%8A%9F%E8%83%BD%E5%90%8EGridView%E6%8E%A7%E4%BB%B6%E5%AF%BC%E8%87%B4app%E9%97%AA%E9%80%80/" data-id="cuidcViA2jt3d-cnrnIYF4ika" data-title="android开启辅助功能后GridView控件导致app闪退" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -552,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/05/25/2016-05-25_android_webview%E6%8E%A7%E4%BB%B6%E4%B8%ADjavascript%E4%B8%8Ejava%E7%9A%84%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" data-id="cuid6Yhwr5q7_eEL0bJxF0laf" data-title="android webview控件中javascript与java的相互调用" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/05/25/2016-05-25_android_webview%E6%8E%A7%E4%BB%B6%E4%B8%ADjavascript%E4%B8%8Ejava%E7%9A%84%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" data-id="cuidd4_38gjhSKet159euO_Xn" data-title="android webview控件中javascript与java的相互调用" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -564,14 +547,14 @@
 
 
   
-    <article id="post-2016-05-19_Android_4.4_WebView控件提示ERR_CACHE_MISS错误" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-2016-05-19_android常见问题收藏" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2016/05/19/2016-05-19_Android_4.4_WebView%E6%8E%A7%E4%BB%B6%E6%8F%90%E7%A4%BAERR_CACHE_MISS%E9%94%99%E8%AF%AF/" class="article-date">
+    <a href="/2016/05/19/2016-05-19_android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%94%B6%E8%97%8F/" class="article-date">
   <time class="dt-published" datetime="2016-05-19T00:00:00.000Z" itemprop="datePublished">2016-05-19</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/android/">android</a>►<a class="article-category-link" href="/categories/android/web/">web</a>►<a class="article-category-link" href="/categories/android/web/%E5%AD%A6%E4%B9%A0/">学习</a>
+    <a class="article-category-link" href="/categories/android/">android</a>►<a class="article-category-link" href="/categories/android/%E5%AD%A6%E4%B9%A0/">学习</a>
   </div>
 
   </div>
@@ -582,7 +565,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2016/05/19/2016-05-19_Android_4.4_WebView%E6%8E%A7%E4%BB%B6%E6%8F%90%E7%A4%BAERR_CACHE_MISS%E9%94%99%E8%AF%AF/">Android 4.4 WebView控件提示ERR_CACHE_MISS错误</a>
+      <a class="p-name article-title" href="/2016/05/19/2016-05-19_android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%94%B6%E8%97%8F/">android常见问题收藏</a>
     </h1>
   
 
@@ -590,21 +573,36 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>我们在页面（该页面仅仅用于重定向操作）发起某个请求、请求正常，但按下物理返回键返回上个页面时遇到这个问题，搜了很多帖子，有的情况说这是因为web站点的页面设置的缓存策略是无缓存，即http header中有如下字段：Cache-Control: no-store，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Expires: Thu, 19 Nov 1981 08:52:00 GMT</span><br><span class="line">Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Content-Encoding: gzip</span><br></pre></td></tr></table></figure>
+        <p>最近解决的问题比较多，整理一下，方便后续自己查。<br>先送上我看过的几篇不错的文章：<br>传送门1：<a target="_blank" rel="noopener" href="http://blog.csdn.net/t12x3456/article/details/13769731">Android WebView常见问题及解决方案汇总</a><br>传送门2：<a target="_blank" rel="noopener" href="http://blog.csdn.net/liuhe688/article/details/6549263">浅谈WebView的使用</a><br>传送门3：<a target="_blank" rel="noopener" href="http://blog.csdn.net/moubenmao_jun/article/details/17078269">WebView Cache 缓存清除</a><br>传送门4：<a target="_blank" rel="noopener" href="http://blog.csdn.net/t12x3456/article/details/39134961">Android WebView 因重定向无法正常goBack()解决方案</a><br>传送门5：<a target="_blank" rel="noopener" href="http://blog.csdn.net/android_tutor/article/details/6165470">Android高手进阶教程(二十三)之—Android中的日历读写操作!!!</a>     <a target="_blank" rel="noopener" href="http://www.cnblogs.com/wblyuyang/p/4050377.html">Android 向系统日历中添加事件</a><br>自己遇到的一些问题：</p>
+<ol>
+<li>如何判断webview 已经完成load操作？<ol>
+<li>目前未找到合理的方式，webview的WebViewClient中有一个onPageFinished方法，但这个方法的行为很诡异，若访问的是一个正常、有效的站点，webview在load完页面后onPageFinished仅被调用一次；但如果站点无效、不可用（HTTP response的状态码不是200），onPageFinished可能调用两次或是多次（stackoverflow上有很多帖子讨论这问题，如下：<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/7670364/onpagestart-called-many-times-and-onpagefinished-not-called-for-single-page">http://stackoverflow.com/questions/7670364/onpagestart-called-many-times-and-onpagefinished-not-called-for-single-page</a>  <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/18282892/android-webview-onpagefinished-called-twice">http://stackoverflow.com/questions/18282892/android-webview-onpagefinished-called-twice</a>    <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/5049616/android-webviewclient-callbacks-called-too-often">http://stackoverflow.com/questions/5049616/android-webviewclient-callbacks-called-too-often</a> ，唉……接口设计不合理啊），因此不建议在此处加上load完毕时需要调用的回调。</li>
+<li>WebChromeClient中有一个onProgressChanged方法，传入参数中有一个int值表示当前页面载入百分比，但亲测也不好用，传入的int值并不稳定，有时的从0,15一下就到了90，有时只传0，20等，并且我记得当时测试的时候请求无效站点时int值也比较奇怪，记不清了。</li>
+<li>网上有种写法，覆盖loadUrl，使用HttpClient自己进行网络请求的收发操作，拿到返回报文后使用webview的loadData方法载入页面，但若一个页面中有很多资源需要在载入时下载，那就需要在拿到返回报文后进一步处理，否则页面显示肯定不正常（比如css文件没下载、js文件没下等）</li>
+</ol>
+</li>
+<li>PopupWindow显示后，立即调用软键盘，软键盘不显示<ol>
+<li>是否在UI线程？</li>
+<li>可能需要延时？若PopupWindow内部的内容是新创建的，可能需要延时几百毫秒、等内容（所有的View）全部创建后再调用ImputManager的showSoftInput方法，可以尝试用timer或是handler加上延时、等待</li>
+<li>PopupWindow弹出后其他地方变暗的效果<ol>
+<li>&#x2F;&#x2F;设置背景颜色变暗<br>WindowManager.LayoutParams lp&#x3D;getWindow().getAttributes();<br>lp.alpha&#x3D;0.3f;<br>getWindow().setAttributes(lp);  &#x2F;&#x2F;在弹出时设置透明度,0.7比较合适,然后在dismiss时重新设置回来,设置成1</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>webview控件访问https站点，直接显示错误或是空白页<ol>
+<li>https站点是否部署了有效的证书？如果没有就会报错，若需要尽快测试可以在webview中配置信任所有站点，需要设置新的WebViewClient，覆盖其中的onReceivedSslError方法，如下：</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void onReceivedSslError(WebView dview, SslErrorHandler handler, SslError error)&#123;</span><br><span class="line">handler.procced();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><br>此时由于页面没缓存、webview去找缓存却没找到，此种情况下，需要看web站点中“no-store”字段是否有必要，没啥作用的话可以尝试去掉“no-cache”试试看，参见<a target="_blank" rel="noopener" href="http://zhidao.baidu.com/link?url=t9q1ErSL_ugqXlFWgvcgS4OJaPwRuugfHdKXME8IKD6jENsR6HGGylWPZUhzksoK1AOJk4FyxM5y-MISpkXLUFDWK3uTdIipWeX6YGiFdT3">这个帖子</a>。另外还有一种改法，是直接修改webview控件，如下。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (Build.VERSION.SDK_INT &amp;amp;gt;= 19) &#123;</span><br><span class="line"> mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但修改webview控件的方式其实有很大的风险，因为webview本身有多种缓存策略，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LOAD_CACHE_ONLY: 不使用网络，只读取本地缓存数据</span><br><span class="line">LOAD_DEFAULT: 根据cache-control决定是否从网络上取数据。</span><br><span class="line">LOAD_CACHE_NORMAL: API level 17中已经废弃, 从API level 11开始作用同LOAD_DEFAULT模式</span><br><span class="line">LOAD_NO_CACHE: 不使用缓存，只从网络获取数据.</span><br><span class="line">LOAD_CACHE_ELSE_NETWORK，只要本地有，无论是否过期，或者no-cache，都使用缓存中的数据。</span><br></pre></td></tr></table></figure>
-
-<p>默认的策略是根据页面中的cache-control字段来判断是读取缓存还是去网上取最新页面。如果改成LOAD_CACHE_ELSE_NETWORK，而业务上需要每次都从web站点取最新数据，那将发生错误（因为webview将优先从本地缓存中取）。<br>我遇到这个问题时，一开始以为是页面缓存设置问题，但跟服务端同事调试后发现，并不是由Cache-Control: no-store 引起的，又继续查，才发现这样一个问题：我们所采用的框架中，webview在load一个页面时，会先判断是否为post请求，若是则调用postUrl方法，否则就调用loadUrl方法（loadUrl是用GET方式发请求哦！！）。出问题的页面发起的请求是post请求，而按下android物理返回键时webview会调用loadUrl重新发请求，这就导致本来应该发POST请求去load上个页面、结果却发了GET请求，这才导致报错。stackoverflow上也有提到类似的情况，<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/25664146/android-4-4-giving-err-cache-miss-error-in-onreceivederror-for-webview-back">见此链接</a>。<br>为解决这个问题，我们采用了在web站点上用js控制页面重定向，具体方式跟我们的实现有关，贴出来意义不大，在此略去。顺带说句，webview中注册js函数很费劲，我们调了好几天，最终选定了<a target="_blank" rel="noopener" href="https://github.com/lzyzsd/JsBridge">jsbridge</a>，有兴趣的童鞋自己查吧。</p>
+<p><br> <br>TO BE CONTINUED…</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2016/05/19/2016-05-19_Android_4.4_WebView%E6%8E%A7%E4%BB%B6%E6%8F%90%E7%A4%BAERR_CACHE_MISS%E9%94%99%E8%AF%AF/" data-id="cuidk6WZ4WH0P-zMeCrC4xcDg" data-title="Android 4.4 WebView控件提示ERR_CACHE_MISS错误" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2016/05/19/2016-05-19_android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%94%B6%E8%97%8F/" data-id="cuidPjpF63uvL2ZD3Y5urWmy8" data-title="android常见问题收藏" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
