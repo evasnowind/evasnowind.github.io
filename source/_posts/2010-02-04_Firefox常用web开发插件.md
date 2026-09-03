@@ -40,13 +40,13 @@ View Dependencies 火狐扩展是一款在“查看页面信息”的窗口增�
  \
 10、[CSS Usage](https://addons.mozilla.org/zh-CN/firefox/addon/10704?src=api)\
 一个基于firebug的firefox扩展，可以用来查看页面中的CSS的使用情况，可以清楚的查看css文件中所有的规则在你的网站中的 真实的使用情况。可以查看一个网站中多个页面中的css使用情况，借此可以看到CSS的在网站中的全局使用情况。\
-![](file:///C:/DOCUME%7E1/ADMINI%7E1/LOCALS%7E1/Temp/moz-screenshot.png)![](file:///C:/DOCUME%7E1/ADMINI%7E1/LOCALS%7E1/Temp/moz-screenshot-1.png)![](file:///C:/DOCUME%7E1/ADMINI%7E1/LOCALS%7E1/Temp/moz-screenshot-2.png)\
+\
 预览：\
 ![cssusage](http://www.webjx.com/files/allimg/091026/1110010.jpg "cssusage")\
  \
 11、[YSlow](https://addons.mozilla.org/zh-CN/firefox/addon/5369)\
 YSlow是一个非常有用的工具，用于Firefox的优化。 YSlow能为任何网页做报告，并审查信息的数量，HTTP请求， CDNs使用， CSS和JS compression会给您一个评分，并告诉你如何改善此网页，以便加载更快。判别网页性能的依据是Yahoo!’s Exceptional Performance team has identified 34 rules that affect web page performance.\
-![](file:///C:/Users/Prayer/AppData/Local/Temp/moz-screenshot-1.png)![](/images/a25943c28b7a6805e5dd3b36_6d1a4b71.jpg)![](file:///C:/Users/Prayer/AppData/Local/Temp/moz-screenshot.png)\
+![](/images/a25943c28b7a6805e5dd3b36_6d1a4b71.jpg)\
  \
 SEO:\
 1、[Niche Watch Tool](https://addons.mozilla.org/en-US/firefox/addon/2279)：\
