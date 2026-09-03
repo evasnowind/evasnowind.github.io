@@ -74,3 +74,6 @@ social_icons:
   enable: true
   icons_only: false
   transition: false
+github_banner:
+  enable: true
+  permalink: https://github.com/evasnowind
