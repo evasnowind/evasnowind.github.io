@@ -71,6 +71,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2015-12-09_在Ubuntu_10.10下安装JDK配置Eclipse及Tomcat【转载_+_订正】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/">在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本文将详细介绍在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat。JDK版本为jdk-6u23-linux-i586.bin、Tomcat的版本为apache-tomcat-7.0.5.tar.gz。<br>51CTO编者按：我们曾经介绍过在《Ubuntu JDK安装配置详解》，本文将介绍如何配置最新的Ubuntu、JDK以及Tomcat。<br>作者注：根据本人在实际操作中所遇到的问题，我在原文章基础之上做了补充说明，请注意。<br>1、安装JDK<br>1.1、到官网下载相关的JDK<br>这里下载的是 jdk-6u23-linux-i586.bin。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html/">http://www.oracle.com/technetwork/java/javase/downloads/index.html\</a><br>1.2、在“administrator个人文件夹”建立一个“Java文件夹”<br>即位置-&gt;主文件夹-&gt;administrator；<br>将下载的 jdk-6u23-linux-i586.bin放置这个Java的文件夹。<br>路径可以根据自己的实际情况进行修改，这里以administrator下的Java文件夹为例子<br>1.3、打开“终端”<br>即应用程序-&gt;附件-&gt;终端<br>输入：<br>sudo sh jdk-6u23-linux-i586.bin<br>（可能会遇到要输入的用户密码）<br>2、设置JAVA_HOME环境系统变量<br>2.1、这里Ctrl+H可以看到隐藏的文件，比较有用的快捷键。<br>输入：<br>sudo gedit &#x2F;etc&#x2F;environment<br>在文件中添加：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_Home&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>即如图：<br>设置JAVA_HOME环境系统变量<br>设置JAVA_HOME环境系统变量<br>2.2、同样，修改第二个文件<br>输入：<br>sudo gedit &#x2F;etc&#x2F;profile<br>在umask 022之前添加以下语句：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>export PATH&#x3D;$JAVA_HOME&#x2F;bin:$JAVA_HOME&#x2F;jre&#x2F;bin:$PATH:$HOME&#x2F;bin<br>即如图：<br>添加以上语句<br>2.3、注销用户，检测JDK版本。<br>输入：<br>java -version<br>即如图：<br>安装JRE、JDK成功<br>安装JRE、JDK成功<br>注：按照上面所说的配置环境变量的方法，编写一个helloworld程序，使用普通用户运行，会出问题，应该是CLASSPATH配置有些问题，我的配置方法如下：<br>export JAVA_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13<br>export JRE_HOME&#x3D;&#x2F;home&#x2F;prayer&#x2F;ProgramsFiles&#x2F;JDK&#x2F;jdk1.6.0_13&#x2F;jre<br>export CLASSPATH&#x3D;$CLASSPATH:.:$JAVA_HOME&#x2F;lib:$JAVA_HOME&#x2F;jre&#x2F;lib<br>按照这种方法配置即可成功运行helloworld程序。参见：<br><a target="_blank" rel="noopener" href="http://javaangle.blog.163.com/blog/static/1079330652010111374551387//">http://javaangle.blog.163.com/blog/static/1079330652010111374551387/\</a><br>此外该文章还给出了另一种安装JDK的方法。<br>3、安装Eclipse。<br>3.1、到官网下载相关的Eclipse<br>这里下载的是 eclipse-jee-helios-SR1-linux-gtk.tar.gz（即Java EE）。<br>下载地址：<a target="_blank" rel="noopener" href="http://www.eclipse.org/downloads//">http://www.eclipse.org/downloads/\</a><br>3.2、将下载的 eclipse-jee-helios-SR1-linux-gtk.tar.gz放在Java文件夹内，解压。<br>运行解压后的Eclipse，即如图：<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>运行解压后的Eclipse<br>4、安装Tomcat7.05<br>4.1、到官网下载相关的Tomcat<br>这里下载的是 apache-tomcat-7.0.5.tar.gz。<br>下载地址：<a target="_blank" rel="noopener" href="http://tomcat.apache.org//">http://tomcat.apache.org/\</a><br>4.2、将下载的 apache-tomcat-7.0.5.tar.gz放在Java文件夹，解压并命名为tomcat7<br>如果喜欢执行命令行的话，可以执行的命令<br>（解压）sudo tar zxvf apache-tomcat-7.0.5<br>（命名为tomcat7）sudo mv apache-tomcat-7.05 tomcat7<br>4.3、在终端进行tomcat7下的bin文件<br>（即cd Java&#x2F;tomcat7&#x2F;bin）<br>这里用的是vim编辑器打开，也可以用gedit打开，即输入：<br>sudo gedit catalina.sh<br>当你输入：<br>sudo vim catalina.sh<br>得到<br>cygwin&#x3D;false<br>os400&#x3D;false<br>darwin&#x3D;false<br>case “<code>uname</code>” in<br>CYGWIN*) cygwin&#x3D;true;;<br>OS400*) os400&#x3D;true;;<br>Darwin*) darwin&#x3D;true;;<br>上面添加：<br>JAVA_HOME&#x3D;&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>JAVA_OPTS&#x3D;”-server -Xms512m -Xmx1024m -XX:PermSize&#x3D;600M -XX:MaxPermSize&#x3D;600m -Dcom.sun.management.jmxremote”<br>4.4、tomcat7.0.5的端口（一般tomcat7.0.5的端口默认为8080），如果发生冲突，则可以在以下文件修改。<br>tomcat7&#x2F;conf&#x2F;server.xml 文件里的：<br>改成9090，或者其它均可（这里用9090吧）。<br>4.5、这里已经进入了Java&#x2F;tomcat7&#x2F;bin文件夹内了。<br>输入：<br>sudo .&#x2F;starup.sh<br>启动Tomcat 7。<br>若出现<br>Using CATALINA_BASE: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7<br>Using CATALINA_TMPDIR: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;temp<br>Using JRE_HOME: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;jdk1.6.0_23<br>Using CLASSPATH: &#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;bootstrap.jar:&#x2F;home&#x2F;administrator&#x2F;Java&#x2F;tomcat7&#x2F;bin&#x2F;tomcat-juli.jar<br>则成功。<br>即如图：<br>安装成功<br>运行<a target="_blank" rel="noopener" href="http://localhost:9090/%E5%BE%97%EF%BC%9A/">http://localhost:9090/得：\</a><br>4.6、若要关闭tomcat7，<br>则输入：<br>sudo .&#x2F;shutdown.sh<br>5、总结<br>配置还是需要一些耐心的。多练习，总会理解的。好了这边是我们给大家带来的Ubuntu JDK安装和配置，而Ubuntu JDK安装和配置是初学者的必由之路，希望各位喜欢。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%9C%A8Ubuntu_10.10%E4%B8%8B%E5%AE%89%E8%A3%85JDK%E9%85%8D%E7%BD%AEEclipse%E5%8F%8ATomcat%E3%80%90%E8%BD%AC%E8%BD%BD_+_%E8%AE%A2%E6%AD%A3%E3%80%91/" data-id="cuidkjrTpBSMs6Gd1Dy0DmN05" data-title="在Ubuntu 10.10下安装JDK配置Eclipse及Tomcat【转载 + 订正】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2015-12-09_学习_Linux_几点忠告【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
@@ -102,50 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidD7Czf6srDNVL8JXR5B6R3" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-09_windows下使用eclipse_for_C_C++【转载】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="article-date">
-  <time class="dt-published" datetime="2015-12-09T00:00:00.000Z" itemprop="datePublished">2015-12-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c-c/">c/c++</a>►<a class="article-category-link" href="/categories/c-c/java/">java</a>►<a class="article-category-link" href="/categories/c-c/java/%E5%B7%A5%E5%85%B7/">工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">windows下使用eclipse for C/C++【转载】</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>经过网上搜索资料加上本人测试，以下方法可行：<br>1，先装好JDK<br>2，装好Eclipse3.32+MinGW1<br>3，打开CDT包把plugins和features拷到Eclipse相应的目录里<br>4，把Eclipse的configuration目录下的org.eclipse.update删了<br>5，启动Eclipse，现在可以建立C&#x2F;C++工程了<br>6，现在建立你的C&#x2F;C++工程<br>7，编写好你的源代码<br>8，在Project的Properties新建一个Builder(Project→Properties选择Builder标签→New，双击Program)<br>9，在MAIN标签（不用点击，默认第一个就是）的LOCATION输入你MINGW的MAKE路径，如C:\MinGW\bin\mingw32-make.exe<br>在WORKING DIRECTORY输入你PROJECT的MAKEFILE文件所在的目录，如D:\workspace\test<br>点APPLY更新进去，一直点OK退回编辑界面<br>10，建立文件makefile，不用加后缀名，输入<br>all(你设置的标签名):<br>gcc -o 你的程序名 你的源代码名.c<br>注意：g++前面是用tab而不能用空格。上面编译的是C，编译C++要用g++ -o Hello Hello.cpp<br>设定Make Targets，Windows-&gt;Show View-&gt;Make Targets。在Make Targets视窗中按下右鍵，选择Add Build Target，Target Name输入：编译，Make Target输入:all(你设置的标签名)。双击编译即可完成编译。<br>11，现在Run你的工程吧！<br>8～10为重点所在，请大家注意！<br>PS：个人觉得，在你安装好MinGW后，写一个C程序，记得按住Ctrl+b先build一下，或者是直接ctrl+F11直接build并运行。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_windows%E4%B8%8B%E4%BD%BF%E7%94%A8eclipse_for_C_C++%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuid1Hrb1aIMZ5IWplBk6luTr" data-title="windows下使用eclipse for C/C++【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AD%A6%E4%B9%A0_Linux_%E5%87%A0%E7%82%B9%E5%BF%A0%E5%91%8A%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidfZ8VjLQxjI-LYi6RpK5lx" data-title="学习 Linux 几点忠告【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -188,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidZr5GOFXodHHfVvE1qNq1G" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E5%AE%89%E8%A3%85JDK_+_Tomcat%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cuidi82kn3fpoYR6k3qsncYvf" data-title="安装JDK + Tomcat设置环境变量的方法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -231,7 +231,184 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidEQkTof13mkzt1kTlDf8Lh" data-title="用Visio画ER图的解决方案【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/09/2015-12-09_%E7%94%A8Visio%E7%94%BBER%E5%9B%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" data-id="cuidGJMmGTR0_g7zNLWF15Lfr" data-title="用Visio画ER图的解决方案【转载】" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（1）——第3章基本程序设计结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/">Java核心技术读书笔记（1）——第3章基本程序设计结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>3.3 数据类型</strong><br>Java有一个能表示任意精度的算术包，通称“big number”，该包中的<strong>类</strong>用于表示大的数值。<br><strong>3.3.1 整型</strong><br>Java中整型的范围与运行Java代码的机器无关，已经规定了各种数据类型所使用的字节数和取值范围（int、short、long、byte依次占用4、2、8、1个字节）。Java中没有任何unsigned type。<br>PS：C&#x2F;C++中int表示的整型与目标机器有关。读《C和指针》的时候我记得读到过这么一句：C语言规范只规定了int的最小取值范围。<br><strong>3.3.2 浮点类型</strong><br>绝大部分应用程序都应采用double类型而不是float类型，只有很少情况适合使用float类型，例如快速地处理单精度数据，或是需要存储大量数据。<br>float类型的数值必须有一个后缀F（比如3.402F），没有后缀F的浮点数值（如3.402）默认为double类型（也可以加后缀D）。<br>JDK 1.5中可以使用十六进制表示浮点数值（具体表示方式请参见原书）。<br>常量Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NaN（float对应的常量一样）分别表示正无穷大、负无穷大、NaN，用于溢出和出错情况（如一个正数除以0得到正无穷大，0&#x2F;0或是负数平方根结果为NaN），实际应用中很少用到，注意不能检测一个特定值是否等于Double.NaN，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(x == Double.NaN)</span><br></pre></td></tr></table></figure>
+
+<p>因为所有“NaN”的值都认为是不相同的，此时可以用Double.isNaN方法来判别。<br>注意，浮点数值不适用于禁止出现舍入误差的金融计算中。<br>PS：这个语法点有时会被面试官考到，比如问你两个double值或是float值是否相同——浮点数一般是没法比较的，因为采用的是IEEE 754的表示方式，所保存的数值并不是精确的。<br><strong>3.3.3 char类型</strong><br>code point<br>建议不要在程序中使用char类型，除非确实需要对UTF-16代码但愿进行操作，最好将需要处理的字符串用抽象数据类型表示。<br><strong>3.3.4 boolean类型</strong><br>整型值和布尔值之间不能进行相互转换。这个和C&#x2F;C++明显不同（0可以表示false，非0值表示true）。<br><strong>3.4 变量</strong><br>声明一个变量之后必须用赋值语句对变量进行显式赋值。<br>变量名必须是一个以字母开头的由字母、数字构成的序列，但Java的“字母”“数字”范围比其他语言大，字母可以是任何在某语言中代表字母的Unicode字符（如德语或是希腊语π）,数字可以是在某种语言中代表数字的任何Unicode字符，但’+’、’圈C’、空格不能出现在变量名中。<br>Java中变量的声明尽可能地靠近变量第一次使用的地方。（PS：想知道缘由的话可以去看Effective Java）<br>C&#x2F;C++中区分变量的声明（如extern int i）和定义（如int i  &#x3D; 10），而Java中不区分这一点。<br><strong>3.5 运算符</strong><br><strong>3.5.3 位运算符</strong><br>“&gt;&gt;&gt;”将用0填充高位，”&gt;&gt;”用符号位填充高位。没有”&lt;&lt;&lt;“。注意：对移位运算符右侧的参数需要进行模32操作（除非左边的操作数是long类型，此时进行模64操作），如1&lt;&lt;35与1&lt;&lt;3的结果是相同的。而C&#x2F;C++中无法确定是算术移位（扩展符号位）还是逻辑移位（高位填0）。执行中将会选取效率较高的一种，这就意味着，在C&#x2F;C++中，&gt;&gt;实际上只是为非负数定义的，而Java则消除了这种模糊。<br><strong>3.5.4 数据函数与常量</strong><br>从JDK 1.5开始可以不必使用“Math.XXX()”的调用方式，在源文件头部引入Math包，然后就可以直接调用数学方法或是常量。<br><strong>3.5.5 数组类型之间的转换</strong><br>二元运算中，两个操作数中：</p>
+<ul>
+<li>若有一个是double类型，则另一个转换为double类型</li>
+<li>否则，若有一个是float类型，则另一个转换为float类型</li>
+<li>否则，若有一个是long类型，则另一个转换为long类型</li>
+<li>否则，两个操作数都将被转换为int类型。</li>
+</ul>
+<p><strong>3.5.6 强制类型转换</strong><br>Java中允许各种数值类型之间的强制类型转换，但可能会丢失一些信息。比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)x;</span><br></pre></td></tr></table></figure>
+
+<p>此时，nx的值为9。这是因为，**强制类型转换通过截断小数部分将浮点值转换为整型。**如果要对浮点数进行舍入运算，以便得到最接近的整数时，需要使用Math.round()方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)Math.round(x);</span><br></pre></td></tr></table></figure>
+
+<p>此时nx的值为10。而使用round()方法仍需要使用强制类型转换（int）则是因为该方法返回的结果是long类型。<br><strong>3.6 字符串</strong><br><strong>3.6.1 子串</strong><br>substring()方法实际创建了一个新的字符串。<br><strong>3.6.3 不可变字符串</strong><br>不能修改Java字符串中的字符，因此String类对象被称为<strong>不可变字符串</strong>。不可变字符串有一个优点：编译器可以让字符串共享。<br>PS：C++字符串是可修改的（可以修改单个字符）。<br><strong>3.6.4 检测字符串是否相等</strong><br>一定不能用&#x3D;&#x3D;来检测两个字符串是否相当，该操作符只能判断两个字符串是否放置在同一个位置上。<br><strong>3.6.8 构建字符串</strong><br>如果需要对字符串进行修改，应该使用StringBuilder类（JDK 1.5引入）。该类前身是StringBuffer，效率有些低，但允许多线程执行添加&#x2F;删除字符的操作。若在单线程环境下应该用StringBuilder。<br><strong>3.7 输入输出</strong><br><strong>3.7.1 读取输入</strong><br>Scanner in &#x3D; new Scanner(System.in);<br>Scanner的输入是可见的，不适合从控制台读取密码，Java SE 6引入了Console类实现该目的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Console cons  = System.console();</span><br><span class="line">String username = cons.readLine(&quot;user name:&quot;);</span><br><span class="line">char[] passwd = cons.readPasswd(&quot;Password:&quot;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.7.2 格式化输出</strong><br>Java SE 5沿用了C语言函数中的printf方法，可以用于格式化输出。<br>可以使用静态的String.format方法创建一个格式化的字符串，而不打印输出。<br><strong>3.7.3 文件的输入与输出</strong><br>读文件：<br>Scanner in &#x3D; new Scanner(new File(“myfile.txt”));<br>写文件：<br>PrintWriter out &#x3D; new PrintWriter(“myfile.txt”);<br>注意，如果用一个不存在的文件构造一个Scanner，或是用一个不能被创建的文件名构造一个PrintWriter，则会发生异常。<br><strong>3.8 控制流程</strong><br>循环中检测2个浮点数是否相当需要格外小心。如：<br>for(double x &#x3D; 0; x!&#x3D;10; x+&#x3D;0.1)<br>可能永远不会结束。由于舍入误差，最终可能得不到精确值。x会从9.99999…直接跳到10.09999…<br>for循环语句可以看做是while循环的一种简化形式。<br>当在switch语句中使用枚举常量时，不必在每个标签中指明枚举名，可以由switch表达式值确定，例如：<br>Size sz &#x3D; …;<br>switch(sz){<br>case SMALL:<br>…<br>}<br>可以利用break <em>label</em>;的方式实现goto的功能。<br><strong>3.10 数组</strong><br>for each循环——操作对象必须是一个数组或是一个实现了Iterator解耦的类对象。<br>数组初始化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = &#123;2,3,5,7,11,13&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>匿名的数组：new int[]{17,19,23}; ——这种语法可以在不创建新变量的情况下重新初始化一个数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = new int[]&#123;17,19,23&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Java中允许数组长度为0，数组长度为0与null不同。<br>数组变量直接赋值将会使得两个变量引用同一个数组，要想将数据拷贝到一个新数组，可以用Arrays类的copyOf方法。<br>数组排序可以使用Arrays类中 sort方法（内部实现采用了优化的快排）。<br><strong>3.10.6 多维数组</strong><br>多维数组声明：<br>double[][] balances;<br>初始化：<br>balances &#x3D; new double[NYEARS][NRATES];<br>简化形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int[][] magicSquare = &#123;</span><br><span class="line">&#123;16,3,2&#125;,</span><br><span class="line">&#123;12,1,5&#125;,</span><br><span class="line">&#123;9,8,6&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>for each循环语句不能自动处理二维数组的每一个元素，它是按照行，即一维数组处理的。想要访问二维数组所有元素，需要嵌套的循环：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(double[] row:a)</span><br><span class="line">for(double value:row)</span><br><span class="line">do sth</span><br></pre></td></tr></table></figure>
+
+<p>由于可以单独的存取一行，所以可以让二维数组中2行交换。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double[] tmp = balances[i];</span><br><span class="line">balances[i]= balances[i+1];</span><br><span class="line">balances[i+1] = tmp;</span><br></pre></td></tr></table></figure>
+
+<p>Java中可以创建不规则的数组。<br><br/><br><strong>3.10.4 命令行参数</strong><br>Java程序的main方法中，程序名并没有存储在args数组中，例如：java Message -h world 中，args[0]是“-h”，而不是”Message”或是“java”。<br><strong>有用的API：</strong><br>String类：</p>
+<ul>
+<li>String trim() 删除原始字符串头部和尾部的空格。</li>
+</ul>
+<p>Arrays类：</p>
+<ul>
+<li>copyOf 拷贝数组</li>
+<li>sort 对数组排序</li>
+<li>binarySearch 在数组中二分查找</li>
+<li>fill 填充所有数组元素为XXX</li>
+<li>equal 判断两个数组下标是否相等</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" data-id="cuidUI4M9B_tttyIUKi-WEPV1" data-title="Java核心技术读书笔记（1）——第3章基本程序设计结构" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2015-12-04_Java核心技术读书笔记（2）——第4章对象与类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" class="article-date">
+  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">Java核心技术读书笔记（2）——第4章对象与类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>4.1 面向对象程序设计概述</strong><br><strong>4.1.3 识别类</strong><br>设计面向对象的系统时首先从设计类开始，然后每个类中添加方法。<br>识别类的简单规则是在分析问题的过程中寻找名词，而方法对应着动词。——“名词与动词”原则只是一种粗略的方法，还依赖于个人的开发经验。<br><strong>4.1.4 类之间的关系</strong><br>类之间常见的关系有：</p>
+<ul>
+<li>依赖（dependency）:”uses-a”关系。</li>
+<li>聚合（aggregation）:”has-a”关系。</li>
+<li>继承（inheritance）:”is-a”关系</li>
+</ul>
+<p><strong>4.2 使用现有类</strong><br><strong>4.2.1 对象与对象变量</strong><br>一个对象变量并没有实际包含一个对象，而仅仅引用一个对象。<br>在Java中，任何对象变量的值都是对存储在另外一个地方的一个对象的引用。new操作符的返回值也是一个引用。<br>Java中可以将对象变量设置为null，而C++中没有空引用，而且引用不能被赋值。可以将Java的对象看做C++的对象指针。例如：<br>Date birthday;&#x2F;&#x2F;Java<br>实际上等同于：<br>Date* birthday;&#x2F;&#x2F;C++<br>Java中必须使用clone()方法获得对象的完整拷贝。<br><strong>4.2.2 Java类库中的GregorianCalendar类</strong><br>Date类的时间是用距离一个固定时间点的毫秒数（可正可负）表示的，这个点即所谓的“纪元”（epoch），它是UTC时间1970年1月1日00:00:00（为何选择这个时间作为“原点”可以参考这里<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Unix_time">UNIX_Time</a>）。<br>类库设计者觉得将保存时间与给时间点命名分开，所以标准Java类库分别包含了2个类：一个用来表示时间点的Date类，另一个用来表示大家熟悉的日历表示法的GregorianCalendar类。<br><strong>4.2.3 更改器方法与访问器方法</strong><br>对实例域做出修改的方法称为更改器方法（mutator method），仅访问实例域而不进行修改的方法称为访问器方法（accessor method）。<br>PS: C++ 中带有const后缀的方法是访问器方法，默认为更改器方法。但Java中访问器方法与更改器方法在语法上没有明显的区别。<br>有关日历需要注意每个星期的第一天存在着不同的约定，美国第一天是周日，欧洲则是周一。<br>如果想看到不同地区程序的输出，应该在main方法的第一行添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Locale.setDefault(Locale.ITALY);</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.3 用户自定义类</strong><br><strong>4.3.2 多个源文件的使用</strong><br>有多个源文件时，有2种编译源程序的方式：</p>
+<ul>
+<li>使用通配符调用Java编译器：比如有2个类，分别是Employee.java, EmployeeTest.java，则javac Employee*.java</li>
+<li>利用javac自动搜索源文件：例子同上，直接javac EmployeeTest.java，当编译器发现该类调用了Employee.java，会自动搜索Employee.java并编译，而且已有Employee.class但Employee.java版本更新，Java编译器会自动重新编译Employee.java（相当于内置了“make”的功能）。</li>
+</ul>
+<p><strong>4.3.6 封装的优点</strong><br>注意不要编写返回引用可变对象的访问器方法。详细内容参见书P108。<br><strong>4.3.7 基于类的访问权限</strong><br>一个方法可以访问<strong>所属类的所有对象</strong>的私有数据。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Employee</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">boolean equals(Employee other)</span><br><span class="line">&#123;</span><br><span class="line">return name.equals(&lt;strong&gt;other.name&lt;/strong&gt;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.3.9 final实例域</strong><br>构建对象时必须初始化final域。即必须确保每个构造器执行后，这个域的值被设置，并且在之后的操作中，不能再对它进行修改。<br>final大都应用于基本数据类型域或是不可变类（类中的每个方法都不会改变其对象）的域。对于可变的类，final就可能会带来混淆，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private final Date hireDate;</span><br></pre></td></tr></table></figure>
+
+<p>，仅仅意味着hireDate变量的对象引用在对象构造后不能被改变，并不意味着hireDate对象是一个常量。<br><strong>4.4 静态域与静态方法</strong><br><strong>4.2 静态常量</strong><br>常见的常量：Math.PI, System.out<br><strong>4.3 静态方法</strong><br>可以认为静态方法是没有this参数的方法。由于静态方法不能操作对象，所以不能再静态方法中访问实例域。但静态方法可以访问自身类中的静态域。<br>使用静态方法的情况：</p>
+<ul>
+<li>一个方法不需要访问对象状态，其所需参数都是通过显式参数提供（如Math.pow）</li>
+<li>一个方法只需要访问类的静态域</li>
+</ul>
+<p>静态方法还有一种常见的用途：factory方法。<br><strong>4.5 方法参数</strong><br>Java总是采用值调用，方法得到的是所有参数值的一个拷贝，方法不能修改传递给它的任何参数变量的内容。Java中方法参数的使用情况：</p>
+<ul>
+<li>一个方法不能修改一个基本数据类型的参数</li>
+<li>一个方法可以改变一个对象参数的状态</li>
+<li>一个方法不能实现让对象参数引用一个新的对象</li>
+</ul>
+<p>PS：C++有值调用和引用调用，引用参数标有&amp;符号。<br><strong>4.6 对象构造</strong><br><strong>4.6.1 重载</strong><br>Java允许重载任何方法，但方法的签名（方法名以及参数类型，不包括返回类型）必须不同。即，不能有两个名字相同、参数类型相同、返回类型不同的方法。<br><strong>4.6.2 默认域初始化</strong><br>如果在构造器中没有显式地给域赋予初值，那么就会被自动地赋予默认值：数值为0、布尔值为false、对象引用为null。但一般都会明确地对域进行初始化，否则影响程序的可读性。<br>PS：这是域与局部变量的主要不同点。必须明确地初始化方法中的局部变量。但如果没有初始化类中的域，将会被初始化为默认值。<br><strong>4.6.3 默认构造器</strong><br>默认构造器指没有参数的构造器。<br>如果编写一个类时，没有编写构造器，则系统会提供一个默认构造器。这个默认构造器将所有的实例域设置为默认值。如果类中提供了至少一个构造器，但没有提供默认的构造器，则在构造对象时如果没有提供构造参数就会被视为不合法。即：**仅当类没有提供任何构造器时，系统才会提供一个默认构造器，如果编写类时给出了一个构造器，系统就不会提供默认构造器，必须手写。**如果想要给域赋默认值，则可以</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public ClassName()&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.6.6 调用另一个构造器</strong><br>如果构造器的第一条语句是this(…)，这个构造器将调用同一个类的另一个构造器。<br><strong>4.6.7 初始化块</strong><br>初始化数据域的方法：</p>
+<ul>
+<li>构造器中设置值</li>
+<li>声明中赋值</li>
+<li>初始化块</li>
+</ul>
+<p>一个类的声明中可以包含多个代码块，只要构造类的对象，这些块就会被执行。建议将初始化块放在域定义之后。<br>可以用静态的初始化块来对静态域进行初始化。<br><strong>4.6.8 对象析构与finalize方法</strong><br>一般不推荐使用finalize方法，但如果某些对象使用了内存之外的其他资源，例如，文件或使用了系统资源的另一个对象的句柄。在这种情况下，当资源不再需要时，将其回收和再利用就显得十分重要。<br>可以为任何一个类添加finalize方法，该方法将在垃圾回收器清楚对象之前调用。实际应用中不要依赖于使用finalize方法回收任何短缺的资源，因为很难知道这个方法什么时候用到。<br><strong>4.7 包</strong><br>为了保证包名的唯一，建议将公司的域名逆序作为包名，并且对于不同的项目使用不同的子包。<br><strong>4.7.2 静态导入</strong><br>Java SE 5开始，import语句不仅可以导入类，还增加导入静态方法和静态域的功能。如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import static java.lang.System.*;</span><br></pre></td></tr></table></figure>
+
+<p>就可以使用System类中的静态方法和静态域，而不用加类名前缀：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out.println(&quot;helllo&quot;);</span><br><span class="line">exit(0);</span><br></pre></td></tr></table></figure>
+
+<p>静态导入有两个实际应用：算术函数（静态导入Math的域和方法），笨重的常量<br><strong>4.7.3 将类放入包中</strong><br>注意如果类是某个包中，就必须将包的名字放在源文件开头，javac编译时也需要将注意加上包名（也要注意当前目录是什么）。<br><strong>4.7.4 包作用域</strong><br>如果没有指定public或是private，这个部分（类、方法或变量）可以被同一个包中的所有方法访问。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" data-id="cuidJpo1IkYYBGahCaZRqB6jy" data-title="Java核心技术读书笔记（2）——第4章对象与类" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -331,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" data-id="cuidIkQMJrEc7X2OdmrxvnYAf" data-title="BCEL简明教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_BCEL%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" data-id="cuidVNLV-fJXyYwbGjVcZ3uyY" data-title="BCEL简明教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -374,184 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" data-id="cuidzCz6Z6pyK1kt-iFYP3tgL" data-title="Java核心技术读书笔记（0）——汇总篇" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-04_Java核心技术读书笔记（1）——第3章基本程序设计结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" class="article-date">
-  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/">Java核心技术读书笔记（1）——第3章基本程序设计结构</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>3.3 数据类型</strong><br>Java有一个能表示任意精度的算术包，通称“big number”，该包中的<strong>类</strong>用于表示大的数值。<br><strong>3.3.1 整型</strong><br>Java中整型的范围与运行Java代码的机器无关，已经规定了各种数据类型所使用的字节数和取值范围（int、short、long、byte依次占用4、2、8、1个字节）。Java中没有任何unsigned type。<br>PS：C&#x2F;C++中int表示的整型与目标机器有关。读《C和指针》的时候我记得读到过这么一句：C语言规范只规定了int的最小取值范围。<br><strong>3.3.2 浮点类型</strong><br>绝大部分应用程序都应采用double类型而不是float类型，只有很少情况适合使用float类型，例如快速地处理单精度数据，或是需要存储大量数据。<br>float类型的数值必须有一个后缀F（比如3.402F），没有后缀F的浮点数值（如3.402）默认为double类型（也可以加后缀D）。<br>JDK 1.5中可以使用十六进制表示浮点数值（具体表示方式请参见原书）。<br>常量Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NaN（float对应的常量一样）分别表示正无穷大、负无穷大、NaN，用于溢出和出错情况（如一个正数除以0得到正无穷大，0&#x2F;0或是负数平方根结果为NaN），实际应用中很少用到，注意不能检测一个特定值是否等于Double.NaN，比如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(x == Double.NaN)</span><br></pre></td></tr></table></figure>
-
-<p>因为所有“NaN”的值都认为是不相同的，此时可以用Double.isNaN方法来判别。<br>注意，浮点数值不适用于禁止出现舍入误差的金融计算中。<br>PS：这个语法点有时会被面试官考到，比如问你两个double值或是float值是否相同——浮点数一般是没法比较的，因为采用的是IEEE 754的表示方式，所保存的数值并不是精确的。<br><strong>3.3.3 char类型</strong><br>code point<br>建议不要在程序中使用char类型，除非确实需要对UTF-16代码但愿进行操作，最好将需要处理的字符串用抽象数据类型表示。<br><strong>3.3.4 boolean类型</strong><br>整型值和布尔值之间不能进行相互转换。这个和C&#x2F;C++明显不同（0可以表示false，非0值表示true）。<br><strong>3.4 变量</strong><br>声明一个变量之后必须用赋值语句对变量进行显式赋值。<br>变量名必须是一个以字母开头的由字母、数字构成的序列，但Java的“字母”“数字”范围比其他语言大，字母可以是任何在某语言中代表字母的Unicode字符（如德语或是希腊语π）,数字可以是在某种语言中代表数字的任何Unicode字符，但’+’、’圈C’、空格不能出现在变量名中。<br>Java中变量的声明尽可能地靠近变量第一次使用的地方。（PS：想知道缘由的话可以去看Effective Java）<br>C&#x2F;C++中区分变量的声明（如extern int i）和定义（如int i  &#x3D; 10），而Java中不区分这一点。<br><strong>3.5 运算符</strong><br><strong>3.5.3 位运算符</strong><br>“&gt;&gt;&gt;”将用0填充高位，”&gt;&gt;”用符号位填充高位。没有”&lt;&lt;&lt;“。注意：对移位运算符右侧的参数需要进行模32操作（除非左边的操作数是long类型，此时进行模64操作），如1&lt;&lt;35与1&lt;&lt;3的结果是相同的。而C&#x2F;C++中无法确定是算术移位（扩展符号位）还是逻辑移位（高位填0）。执行中将会选取效率较高的一种，这就意味着，在C&#x2F;C++中，&gt;&gt;实际上只是为非负数定义的，而Java则消除了这种模糊。<br><strong>3.5.4 数据函数与常量</strong><br>从JDK 1.5开始可以不必使用“Math.XXX()”的调用方式，在源文件头部引入Math包，然后就可以直接调用数学方法或是常量。<br><strong>3.5.5 数组类型之间的转换</strong><br>二元运算中，两个操作数中：</p>
-<ul>
-<li>若有一个是double类型，则另一个转换为double类型</li>
-<li>否则，若有一个是float类型，则另一个转换为float类型</li>
-<li>否则，若有一个是long类型，则另一个转换为long类型</li>
-<li>否则，两个操作数都将被转换为int类型。</li>
-</ul>
-<p><strong>3.5.6 强制类型转换</strong><br>Java中允许各种数值类型之间的强制类型转换，但可能会丢失一些信息。比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)x;</span><br></pre></td></tr></table></figure>
-
-<p>此时，nx的值为9。这是因为，**强制类型转换通过截断小数部分将浮点值转换为整型。**如果要对浮点数进行舍入运算，以便得到最接近的整数时，需要使用Math.round()方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double x = 9,997;</span><br><span class="line">int nx = (int)Math.round(x);</span><br></pre></td></tr></table></figure>
-
-<p>此时nx的值为10。而使用round()方法仍需要使用强制类型转换（int）则是因为该方法返回的结果是long类型。<br><strong>3.6 字符串</strong><br><strong>3.6.1 子串</strong><br>substring()方法实际创建了一个新的字符串。<br><strong>3.6.3 不可变字符串</strong><br>不能修改Java字符串中的字符，因此String类对象被称为<strong>不可变字符串</strong>。不可变字符串有一个优点：编译器可以让字符串共享。<br>PS：C++字符串是可修改的（可以修改单个字符）。<br><strong>3.6.4 检测字符串是否相等</strong><br>一定不能用&#x3D;&#x3D;来检测两个字符串是否相当，该操作符只能判断两个字符串是否放置在同一个位置上。<br><strong>3.6.8 构建字符串</strong><br>如果需要对字符串进行修改，应该使用StringBuilder类（JDK 1.5引入）。该类前身是StringBuffer，效率有些低，但允许多线程执行添加&#x2F;删除字符的操作。若在单线程环境下应该用StringBuilder。<br><strong>3.7 输入输出</strong><br><strong>3.7.1 读取输入</strong><br>Scanner in &#x3D; new Scanner(System.in);<br>Scanner的输入是可见的，不适合从控制台读取密码，Java SE 6引入了Console类实现该目的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Console cons  = System.console();</span><br><span class="line">String username = cons.readLine(&quot;user name:&quot;);</span><br><span class="line">char[] passwd = cons.readPasswd(&quot;Password:&quot;);</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.7.2 格式化输出</strong><br>Java SE 5沿用了C语言函数中的printf方法，可以用于格式化输出。<br>可以使用静态的String.format方法创建一个格式化的字符串，而不打印输出。<br><strong>3.7.3 文件的输入与输出</strong><br>读文件：<br>Scanner in &#x3D; new Scanner(new File(“myfile.txt”));<br>写文件：<br>PrintWriter out &#x3D; new PrintWriter(“myfile.txt”);<br>注意，如果用一个不存在的文件构造一个Scanner，或是用一个不能被创建的文件名构造一个PrintWriter，则会发生异常。<br><strong>3.8 控制流程</strong><br>循环中检测2个浮点数是否相当需要格外小心。如：<br>for(double x &#x3D; 0; x!&#x3D;10; x+&#x3D;0.1)<br>可能永远不会结束。由于舍入误差，最终可能得不到精确值。x会从9.99999…直接跳到10.09999…<br>for循环语句可以看做是while循环的一种简化形式。<br>当在switch语句中使用枚举常量时，不必在每个标签中指明枚举名，可以由switch表达式值确定，例如：<br>Size sz &#x3D; …;<br>switch(sz){<br>case SMALL:<br>…<br>}<br>可以利用break <em>label</em>;的方式实现goto的功能。<br><strong>3.10 数组</strong><br>for each循环——操作对象必须是一个数组或是一个实现了Iterator解耦的类对象。<br>数组初始化：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = &#123;2,3,5,7,11,13&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>匿名的数组：new int[]{17,19,23}; ——这种语法可以在不创建新变量的情况下重新初始化一个数组。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] smallPrimes = new int[]&#123;17,19,23&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>Java中允许数组长度为0，数组长度为0与null不同。<br>数组变量直接赋值将会使得两个变量引用同一个数组，要想将数据拷贝到一个新数组，可以用Arrays类的copyOf方法。<br>数组排序可以使用Arrays类中 sort方法（内部实现采用了优化的快排）。<br><strong>3.10.6 多维数组</strong><br>多维数组声明：<br>double[][] balances;<br>初始化：<br>balances &#x3D; new double[NYEARS][NRATES];<br>简化形式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int[][] magicSquare = &#123;</span><br><span class="line">&#123;16,3,2&#125;,</span><br><span class="line">&#123;12,1,5&#125;,</span><br><span class="line">&#123;9,8,6&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>for each循环语句不能自动处理二维数组的每一个元素，它是按照行，即一维数组处理的。想要访问二维数组所有元素，需要嵌套的循环：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(double[] row:a)</span><br><span class="line">for(double value:row)</span><br><span class="line">do sth</span><br></pre></td></tr></table></figure>
-
-<p>由于可以单独的存取一行，所以可以让二维数组中2行交换。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double[] tmp = balances[i];</span><br><span class="line">balances[i]= balances[i+1];</span><br><span class="line">balances[i+1] = tmp;</span><br></pre></td></tr></table></figure>
-
-<p>Java中可以创建不规则的数组。<br><br/><br><strong>3.10.4 命令行参数</strong><br>Java程序的main方法中，程序名并没有存储在args数组中，例如：java Message -h world 中，args[0]是“-h”，而不是”Message”或是“java”。<br><strong>有用的API：</strong><br>String类：</p>
-<ul>
-<li>String trim() 删除原始字符串头部和尾部的空格。</li>
-</ul>
-<p>Arrays类：</p>
-<ul>
-<li>copyOf 拷贝数组</li>
-<li>sort 对数组排序</li>
-<li>binarySearch 在数组中二分查找</li>
-<li>fill 填充所有数组元素为XXX</li>
-<li>equal 判断两个数组下标是否相等</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC3%E7%AB%A0%E5%9F%BA%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84/" data-id="cuidYaiLsQ-FrppABb6yPbi3L" data-title="Java核心技术读书笔记（1）——第3章基本程序设计结构" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2015-12-04_Java核心技术读书笔记（2）——第4章对象与类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" class="article-date">
-  <time class="dt-published" datetime="2015-12-04T00:00:00.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/">学习</a>►<a class="article-category-link" href="/categories/java/%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">Java核心技术读书笔记（2）——第4章对象与类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>4.1 面向对象程序设计概述</strong><br><strong>4.1.3 识别类</strong><br>设计面向对象的系统时首先从设计类开始，然后每个类中添加方法。<br>识别类的简单规则是在分析问题的过程中寻找名词，而方法对应着动词。——“名词与动词”原则只是一种粗略的方法，还依赖于个人的开发经验。<br><strong>4.1.4 类之间的关系</strong><br>类之间常见的关系有：</p>
-<ul>
-<li>依赖（dependency）:”uses-a”关系。</li>
-<li>聚合（aggregation）:”has-a”关系。</li>
-<li>继承（inheritance）:”is-a”关系</li>
-</ul>
-<p><strong>4.2 使用现有类</strong><br><strong>4.2.1 对象与对象变量</strong><br>一个对象变量并没有实际包含一个对象，而仅仅引用一个对象。<br>在Java中，任何对象变量的值都是对存储在另外一个地方的一个对象的引用。new操作符的返回值也是一个引用。<br>Java中可以将对象变量设置为null，而C++中没有空引用，而且引用不能被赋值。可以将Java的对象看做C++的对象指针。例如：<br>Date birthday;&#x2F;&#x2F;Java<br>实际上等同于：<br>Date* birthday;&#x2F;&#x2F;C++<br>Java中必须使用clone()方法获得对象的完整拷贝。<br><strong>4.2.2 Java类库中的GregorianCalendar类</strong><br>Date类的时间是用距离一个固定时间点的毫秒数（可正可负）表示的，这个点即所谓的“纪元”（epoch），它是UTC时间1970年1月1日00:00:00（为何选择这个时间作为“原点”可以参考这里<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Unix_time">UNIX_Time</a>）。<br>类库设计者觉得将保存时间与给时间点命名分开，所以标准Java类库分别包含了2个类：一个用来表示时间点的Date类，另一个用来表示大家熟悉的日历表示法的GregorianCalendar类。<br><strong>4.2.3 更改器方法与访问器方法</strong><br>对实例域做出修改的方法称为更改器方法（mutator method），仅访问实例域而不进行修改的方法称为访问器方法（accessor method）。<br>PS: C++ 中带有const后缀的方法是访问器方法，默认为更改器方法。但Java中访问器方法与更改器方法在语法上没有明显的区别。<br>有关日历需要注意每个星期的第一天存在着不同的约定，美国第一天是周日，欧洲则是周一。<br>如果想看到不同地区程序的输出，应该在main方法的第一行添加如下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Locale.setDefault(Locale.ITALY);</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.3 用户自定义类</strong><br><strong>4.3.2 多个源文件的使用</strong><br>有多个源文件时，有2种编译源程序的方式：</p>
-<ul>
-<li>使用通配符调用Java编译器：比如有2个类，分别是Employee.java, EmployeeTest.java，则javac Employee*.java</li>
-<li>利用javac自动搜索源文件：例子同上，直接javac EmployeeTest.java，当编译器发现该类调用了Employee.java，会自动搜索Employee.java并编译，而且已有Employee.class但Employee.java版本更新，Java编译器会自动重新编译Employee.java（相当于内置了“make”的功能）。</li>
-</ul>
-<p><strong>4.3.6 封装的优点</strong><br>注意不要编写返回引用可变对象的访问器方法。详细内容参见书P108。<br><strong>4.3.7 基于类的访问权限</strong><br>一个方法可以访问<strong>所属类的所有对象</strong>的私有数据。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Employee</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">boolean equals(Employee other)</span><br><span class="line">&#123;</span><br><span class="line">return name.equals(&lt;strong&gt;other.name&lt;/strong&gt;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.3.9 final实例域</strong><br>构建对象时必须初始化final域。即必须确保每个构造器执行后，这个域的值被设置，并且在之后的操作中，不能再对它进行修改。<br>final大都应用于基本数据类型域或是不可变类（类中的每个方法都不会改变其对象）的域。对于可变的类，final就可能会带来混淆，比如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private final Date hireDate;</span><br></pre></td></tr></table></figure>
-
-<p>，仅仅意味着hireDate变量的对象引用在对象构造后不能被改变，并不意味着hireDate对象是一个常量。<br><strong>4.4 静态域与静态方法</strong><br><strong>4.2 静态常量</strong><br>常见的常量：Math.PI, System.out<br><strong>4.3 静态方法</strong><br>可以认为静态方法是没有this参数的方法。由于静态方法不能操作对象，所以不能再静态方法中访问实例域。但静态方法可以访问自身类中的静态域。<br>使用静态方法的情况：</p>
-<ul>
-<li>一个方法不需要访问对象状态，其所需参数都是通过显式参数提供（如Math.pow）</li>
-<li>一个方法只需要访问类的静态域</li>
-</ul>
-<p>静态方法还有一种常见的用途：factory方法。<br><strong>4.5 方法参数</strong><br>Java总是采用值调用，方法得到的是所有参数值的一个拷贝，方法不能修改传递给它的任何参数变量的内容。Java中方法参数的使用情况：</p>
-<ul>
-<li>一个方法不能修改一个基本数据类型的参数</li>
-<li>一个方法可以改变一个对象参数的状态</li>
-<li>一个方法不能实现让对象参数引用一个新的对象</li>
-</ul>
-<p>PS：C++有值调用和引用调用，引用参数标有&amp;符号。<br><strong>4.6 对象构造</strong><br><strong>4.6.1 重载</strong><br>Java允许重载任何方法，但方法的签名（方法名以及参数类型，不包括返回类型）必须不同。即，不能有两个名字相同、参数类型相同、返回类型不同的方法。<br><strong>4.6.2 默认域初始化</strong><br>如果在构造器中没有显式地给域赋予初值，那么就会被自动地赋予默认值：数值为0、布尔值为false、对象引用为null。但一般都会明确地对域进行初始化，否则影响程序的可读性。<br>PS：这是域与局部变量的主要不同点。必须明确地初始化方法中的局部变量。但如果没有初始化类中的域，将会被初始化为默认值。<br><strong>4.6.3 默认构造器</strong><br>默认构造器指没有参数的构造器。<br>如果编写一个类时，没有编写构造器，则系统会提供一个默认构造器。这个默认构造器将所有的实例域设置为默认值。如果类中提供了至少一个构造器，但没有提供默认的构造器，则在构造对象时如果没有提供构造参数就会被视为不合法。即：**仅当类没有提供任何构造器时，系统才会提供一个默认构造器，如果编写类时给出了一个构造器，系统就不会提供默认构造器，必须手写。**如果想要给域赋默认值，则可以</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public ClassName()&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.6.6 调用另一个构造器</strong><br>如果构造器的第一条语句是this(…)，这个构造器将调用同一个类的另一个构造器。<br><strong>4.6.7 初始化块</strong><br>初始化数据域的方法：</p>
-<ul>
-<li>构造器中设置值</li>
-<li>声明中赋值</li>
-<li>初始化块</li>
-</ul>
-<p>一个类的声明中可以包含多个代码块，只要构造类的对象，这些块就会被执行。建议将初始化块放在域定义之后。<br>可以用静态的初始化块来对静态域进行初始化。<br><strong>4.6.8 对象析构与finalize方法</strong><br>一般不推荐使用finalize方法，但如果某些对象使用了内存之外的其他资源，例如，文件或使用了系统资源的另一个对象的句柄。在这种情况下，当资源不再需要时，将其回收和再利用就显得十分重要。<br>可以为任何一个类添加finalize方法，该方法将在垃圾回收器清楚对象之前调用。实际应用中不要依赖于使用finalize方法回收任何短缺的资源，因为很难知道这个方法什么时候用到。<br><strong>4.7 包</strong><br>为了保证包名的唯一，建议将公司的域名逆序作为包名，并且对于不同的项目使用不同的子包。<br><strong>4.7.2 静态导入</strong><br>Java SE 5开始，import语句不仅可以导入类，还增加导入静态方法和静态域的功能。如:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import static java.lang.System.*;</span><br></pre></td></tr></table></figure>
-
-<p>就可以使用System类中的静态方法和静态域，而不用加类名前缀：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out.println(&quot;helllo&quot;);</span><br><span class="line">exit(0);</span><br></pre></td></tr></table></figure>
-
-<p>静态导入有两个实际应用：算术函数（静态导入Math的域和方法），笨重的常量<br><strong>4.7.3 将类放入包中</strong><br>注意如果类是某个包中，就必须将包的名字放在源文件开头，javac编译时也需要将注意加上包名（也要注意当前目录是什么）。<br><strong>4.7.4 包作用域</strong><br>如果没有指定public或是private，这个部分（类、方法或变量）可以被同一个包中的所有方法访问。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC4%E7%AB%A0%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" data-id="cuidv3Cgk2DjtdOc4CKQfk99S" data-title="Java核心技术读书笔记（2）——第4章对象与类" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%880%EF%BC%89%E2%80%94%E2%80%94%E6%B1%87%E6%80%BB%E7%AF%87/" data-id="cuidrXonUZMNKev9rwhXcqZ7U" data-title="Java核心技术读书笔记（0）——汇总篇" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -598,7 +598,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" data-id="cuidwdx0ZKMkZcgQrbHmQC450" data-title="Java核心技术读书笔记（3）——第5章继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%AC%AC5%E7%AB%A0%E7%BB%A7%E6%89%BF/" data-id="cuid_yu3yocjVThbQeaI9DmUZ" data-title="Java核心技术读书笔记（3）——第5章继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -641,7 +641,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" data-id="cuidJzz4nrg1AZDssAu4HSubE" data-title="ubuntu如何更新hostname" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://evasnowind.github.io/2015/12/04/2015-12-04_ubuntu%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0hostname/" data-id="cuidJadScyZK8ITWCUQH5mXq-" data-title="ubuntu如何更新hostname" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
