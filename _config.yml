@@ -4,12 +4,12 @@
 
 # Site
 title: Prayer的数字城堡
-subtitle: ''
-description: "如果这世上真的有奇迹，那只是努力的另一种名字"
-keywords:
+subtitle: '后端 / Java / 架构 / 技术笔记'
+description: 'Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。'
+keywords: 'Java, Spring, MySQL, Redis, Linux, Hexo, 架构, 技术博客'
 author: Prayer
 language: zh-CN
-timezone: ''
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -42,7 +42,7 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
-future: true
+future: false
 syntax_highlighter: highlight.js
 highlight:
   line_number: true
@@ -103,6 +103,19 @@ search:
   path: search.xml
   field: post
   content: true
+
+related_posts:
+  enable: true
+  related_count: 5
+  filter_threshold: 0.2
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+sitemap:
+  path: sitemap.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

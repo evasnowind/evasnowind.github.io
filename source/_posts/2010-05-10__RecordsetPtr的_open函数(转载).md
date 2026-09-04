@@ -4,12 +4,12 @@ date: "2010-05-10"
 categories: ["C/C++"]
 tags: ["C/C++"]
 source: "http://prayerlaputa.com/?p=419"
-description: "内容一： ‘定义数据库连接的一些常量 Const adOpenForwardOnly = 0 ‘(默认值)游标只向前浏览记录，不支持分页、Recordset、BookMark Const ad。"
+description: "记录使用 _RecordsetPtr::Open 打开 ADO Recordset 时的参数含义与示例代码。"
 ---
 
 转自：http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html\
-\_RecordsetPtr m\_pRecordset;//创建一个\_RecordsetPtr m\_pRecordset.CreateInstance(“ADODB.Recordset”); //创建一个实例 try {      m\_pRecordset->Open(\
-“SELECT \* FROM duty”,                                               //sql查询语句\
+\_RecordsetPtr m\_pRecordset;//创建一个\_RecordsetPtr m\_pRecordset.CreateInstance("ADODB.Recordset"); //创建一个实例 try {      m\_pRecordset->Open(\
+"SELECT * FROM duty",                                               //sql查询语句\
 m\_pConnection.GetInterfacePtr(),                               //得到sql连接的指针\
 //Const **adOpenDynamic** = 2 ‘动态游标功能最强，但耗资源也最多。用户对记录说做的修改，增加或删除记录都将反映到记录集中。支持全功能浏览(ACCESS不支持)。\
 adOpenDynamic,\
@@ -22,7 +22,7 @@ adCmdText);\
 catch(\_com\_error e)\
 {\
 //cout<<e->ErrorMessage()<<endl;\
-AfxMessageBox(“Create Instance failed!”);\
+AfxMessageBox("Create Instance failed!");\
 return;\
 }
 
@@ -40,7 +40,6 @@ Const adLockOptimistic = 3 ‘只有在调用Update方法时才锁定记录集�
 Const adLockBatchOptimistic = 4 ‘当编辑时记录不会被锁定，而更改、插入和删除是在批处理方式下完成的\
 Const adCmdText = &H0001\
 Const adCmdTable = &H0002\
-%>\
 Open 方法 (ADO Recordset)\
 打开游标。\
 语法\

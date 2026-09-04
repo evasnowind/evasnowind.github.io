@@ -69,7 +69,7 @@ System.err.println("groupBy:"+groupBy);
 
 ```
 
-{1=[Apple{id=1, name=’苹果1′, money=3.25, num=10}, Apple{id=1, name=’苹果2′, money=1.35, num=20}], 2=[Apple{id=2, name=’香蕉’, money=2.89, num=30}], 3=[Apple{id=3, name=’荔枝’, money=9.99, num=40}]}
+{1=[Apple{id=1, name='苹果1', money=3.25, num=10}, Apple{id=1, name='苹果2', money=1.35, num=20}], 2=[Apple{id=2, name='香蕉', money=2.89, num=30}], 3=[Apple{id=3, name='荔枝', money=9.99, num=40}]}
 
 2、List转Map\
 id为key，apple对象为value，可以这么做：
@@ -89,7 +89,7 @@ Map<Integer, Apple> appleMap = appleList.stream().collect(Collectors.toMap(Apple
 ```
 
 打印appleMap\
-{1=Apple{id=1, name=’苹果1′, money=3.25, num=10}, 2=Apple{id=2, name=’香蕉’, money=2.89, num=30}, 3=Apple{id=3, name=’荔枝’, money=9.99, num=40}}
+{1=Apple{id=1, name='苹果1', money=3.25, num=10}, 2=Apple{id=2, name='香蕉', money=2.89, num=30}, 3=Apple{id=3, name='荔枝', money=9.99, num=40}}
 
 3、过滤Filter\
 从集合中过滤出来符合条件的元素：
@@ -104,7 +104,7 @@ System.err.println("filterList:"+filterList);
 
 ```
 
-[Apple{id=2, name=’香蕉’, money=2.89, num=30}]
+[Apple{id=2, name='香蕉', money=2.89, num=30}]
 
 4.求和\
 将集合中的数据按照某个属性求和:
@@ -160,7 +160,7 @@ counting Long 计算流中元素的个数\
 sumInt Integer 对流中项目的一个整数属性求和\
 averagingInt Double 计算流中项目 Integer 属性的平均值\
 summarizingInt IntSummaryStatistics 收集关于流中项目 Integer 属性的统计值，例如最大、最小、 总和与平均值\
-joining String 连接对流中每个项目调用 toString 方法所生成的字符串collect(joining(“, “))\
+joining String 连接对流中每个项目调用 toString 方法所生成的字符串collect(joining(", "))\
 maxBy Optional<T> 一个包裹了流中按照给定比较器选出的最大元素的 Optional， 或如果流为空则为 Optional.empty()\
 minBy Optional<T> 一个包裹了流中按照给定比较器选出的最小元素的 Optional， 或如果流为空则为 Optional.empty()\
 reducing 归约操作产生的类型 从一个作为累加器的初始值开始，利用 BinaryOperator 与流 中的元素逐个结合，从而将流归约为单个值累加int totalCalories = menuStream.collect(reducing(0, Dish::getCalories, Integer::sum));\

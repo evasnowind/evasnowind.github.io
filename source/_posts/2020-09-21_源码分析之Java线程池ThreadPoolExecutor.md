@@ -32,35 +32,18 @@ ThreadPoolExecutor的类注释中，主要阐述如下内容：
   - ThreadPoolExecutor有一个AtomicInteger变量ctl表示，该变量包含了两个含义：
   - 高3位表示当前线程池状态
 
-    - “`\
-      </li>\
-      <li>RUNNING: Accept new tasks and process queued tasks</li>\
-      <li>SHUTDOWN: Don't accept new tasks, but process queued tasks</li>\
-      <li>STOP: Don't accept new tasks, don't process queued tasks,</li>\
-      <li>and interrupt in-progress tasks</li>\
-      <li>TIDYING: All tasks have terminated, workerCount is zero,</li>\
-      <li>the thread transitioning to state TIDYING</li>\
-      <li>will run the terminated() hook method</li>\
-      <li>TERMINATED: terminated() has completed</li>\
-      </ul>
-
-      <pre><code class="line-numbers">- 状态转移。这些状态支持比较，因为JDK实现时，The runState monotonically increases over time, but need not hit each state.
-
-      </code></pre>
-
-      <ul>\
-      <li>RUNNING -> SHUTDOWN</li>\
-      <li>On invocation of shutdown(), perhaps implicitly in finalize()</li>\
-      <li>(RUNNING or SHUTDOWN) -> STOP</li>\
-      <li>On invocation of shutdownNow()</li>\
-      <li>SHUTDOWN -> TIDYING</li>\
-      <li>When both queue and pool are empty</li>\
-      <li>STOP -> TIDYING</li>\
-      <li>When pool is empty</li>\
-      <li>TIDYING -> TERMINATED</li>\
-      <li>When the terminated() hook method has completed
-
-      “`
+    - 高 3 位表示当前线程池状态：
+      - RUNNING: Accept new tasks and process queued tasks
+      - SHUTDOWN: Don't accept new tasks, but process queued tasks
+      - STOP: Don't accept new tasks, don't process queued tasks, and interrupt in-progress tasks
+      - TIDYING: All tasks have terminated, workerCount is zero, and the thread transitioning to state TIDYING will run the terminated() hook method
+      - TERMINATED: terminated() has completed
+    - 状态转移：这些状态支持比较，因为在 JDK 实现中，runState 会随时间单调递增，但不一定会经历每一个状态。
+      - RUNNING -> SHUTDOWN：调用 shutdown() 时发生，finalize() 中也可能隐式触发
+      - (RUNNING or SHUTDOWN) -> STOP：调用 shutdownNow() 时发生
+      - SHUTDOWN -> TIDYING：当队列和线程池都为空时
+      - STOP -> TIDYING：当线程池为空时
+      - TIDYING -> TERMINATED：当 terminated() hook 方法执行完成时
   - 剩余的低29位表示线程池的数量（所以目前的版本只有支持2^29-1个线程）
 
 下面将结合代码，解说线程池的关键流程。

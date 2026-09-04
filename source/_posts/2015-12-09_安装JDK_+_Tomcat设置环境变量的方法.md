@@ -44,7 +44,7 @@ CATALINA\_BASE=c:\tomcat\
 然后修改环境变量中的classpath，把tomat安装目录下的common\lib下的(可以根据实际追加)servlet.jar追加到classpath中去，\
 修改后的classpath如下：\
 classpath=.;%JAVA\_HOME%\lib\dt.jar;%JAVA\_HOME%\lib\tools.jar;%CATALINA\_HOME%\common\lib\servlet.jar;\
-接着可以启动tomcat，在IE中访问http://localhost:8080，如果看到tomcat的欢迎页面的话说明安装成功了。
+接着可以启动 tomcat，在 IE 中访问 <http://localhost:8080> ，如果看到 tomcat 的欢迎页面，说明安装成功了。
 
 <!-- more -->
 

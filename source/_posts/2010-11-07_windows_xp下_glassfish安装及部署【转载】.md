@@ -24,7 +24,7 @@ java -Xmx256m -jar glassfish-installer-v2.1-b57-windows.jar（只要配置好jav
 2）. 执行命令:  ant -f setup.xml\
 4.启动glassfish server\
 asadmin start-domain domain1 这个是默认的domain\
-5. 测试是否正常启动： 在浏览器里输入：[http://localhost:8080](http://localhost:8080/)\
+5. 测试是否正常启动：在浏览器里输入 <http://localhost:8080/> \
 看看是否能正常显示\
 6. 创建domain\
 执行命令asadmin create-domain –adminport 4849 customerCenter\
@@ -33,6 +33,6 @@ asadmin start-domain domain1 这个是默认的domain\
 2. 是通过命令asadmin deploy部署应用, 另外 asadmin updeploy 卸载应用\
 通过asadmin deploy –help 和 asadmin undeploy –help 获得更多帮助\
 3. 通过glassfish管理控制台\
-http://localhost：4848\
+http://localhost:4848\
 4. 目录部属方式：直接把WEB应用目录直接copy到glassfish/domains/domain1/applications/下\
 然后通过命令：glassfish/bin/asadmin deploydir full\_path/applications/your\_app

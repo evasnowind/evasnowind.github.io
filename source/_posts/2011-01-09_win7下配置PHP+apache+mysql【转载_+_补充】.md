@@ -26,7 +26,7 @@ http://www.cnblogs.com/good\_hans/archive/2010/04/01/1702059.html
 
 安装时默认安装，Network Domain, Server Name 如果没有的话可以使用localhost，Administrator’s Email Address区域填你的邮件地址。以后可以在httpd.conf文件中修改这些信息。
 
-Apache启动后，用[http://localhost/](http://localhost.sixxs.org/)或[http://127.0.0.1](http://127.0.0.1.sixxs.org/)测试是否成功。成功的话屏幕会有个It works!
+Apache 启动后，用 <http://localhost/> 或 <http://127.0.0.1/> 测试是否成功。成功的话屏幕会有个 It works!
 
 有关Apache的配置见下面内容。
 
@@ -69,4 +69,4 @@ DirectoryIndex index.php index.html default.php default.html\
 保存并关闭httpd.conf，双击Apache的托盘图标打开界面，点击Restart重启Apache。\
 之后我们就可以测试PHP是否正常工作了，在Web根路径（默认为Apache安装目录的htdocs）下新建一个test.php文件，添加以下一行内容\
 <?php phpinfo(); ?>\
-保存退出。在浏览器输入http://localhost/test.php，如果有详细php的配置信息显示，说明配置成功
+保存退出。在浏览器输入 <http://localhost/test.php> ，如果有详细 PHP 的配置信息显示，说明配置成功

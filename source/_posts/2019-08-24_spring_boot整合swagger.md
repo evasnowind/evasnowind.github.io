@@ -208,8 +208,8 @@ filterChainDefinitionMap.put("/webjars/springfox-swagger-ui/**", "anon");
 
 ## 6. swagger接口显示地址
 
-- http://ip:端口/swagger-ui.html   Swagger官方UI
-- http://ip:端口//doc.html   第三方Bootstarp皮肤的UI
+- `http://<ip>:<port>/swagger-ui.html` Swagger 官方 UI
+- `http://<ip>:<port>/doc.html` 第三方 Bootstrap 皮肤的 UI
 
 ## 7.参考文档
 

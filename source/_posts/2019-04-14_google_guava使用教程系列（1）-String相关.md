@@ -72,10 +72,10 @@ Splitter.on(',')
 
 | 方法 | 描述 | 示例 |
 | --- | --- | --- |
-| Splitter.on(char) | 按单个字符拆分 | Splitter.on(‘;’) |
+| Splitter.on(char) | 按单个字符拆分 | Splitter.on(';') |
 | Splitter.on(CharMatcher) | 按字符匹配器拆分 | Splitter.on(CharMatcher.BREAKING\_WHITESPACE) |
-| Splitter.on(String) | 按字符串拆分 | Splitter.on(“, “) |
-| Splitter.on(Pattern)  Splitter.onPattern(String) | 按正则表达式拆分 | Splitter.onPattern(“\r?\n”) |
+| Splitter.on(String) | 按字符串拆分 | Splitter.on(", ") |
+| Splitter.on(Pattern)  Splitter.onPattern(String) | 按正则表达式拆分 | Splitter.onPattern("\r?\n") |
 | Splitter.fixedLength(int) | 按固定长度拆分；最后一段可能比给定长度短，但不会为空 | Splitter.fixedLength(3) |
 
 ### Splitter修饰符
@@ -147,9 +147,9 @@ singleWidth()
 
 | 方法 | 描述 |
 | --- | --- |
-| anyOf(CharSequence) | 枚举匹配字符。如CharMatcher.anyOf(“aeiou”)匹配小写英语元音 |
+| anyOf(CharSequence) | 枚举匹配字符。如CharMatcher.anyOf("aeiou")匹配小写英语元音 |
 | is(char) | 给定单一字符匹配。 |
-| inRange(char, char) | 给定字符范围匹配，如CharMatcher.inRange(‘a’, ‘z’) |
+| inRange(char, char) | 给定字符范围匹配，如CharMatcher.inRange('a', 'z') |
 
 此外，CharMatcher还有negate()、and(CharMatcher)和or(CharMatcher)方法。
 
@@ -157,7 +157,7 @@ singleWidth()
 
 | 方法 | 描述 |
 | --- | --- |
-| collapseFrom(CharSequence, char) | 把每组连续的匹配字符替换为特定字符。如WHITESPACE.collapseFrom(string, ‘ ‘) |
+| collapseFrom(CharSequence, char) | 把每组连续的匹配字符替换为特定字符。如WHITESPACE.collapseFrom(string, ' ') |
 | matchesAllOf(CharSequence) | 测试是否字符序列中的所有字符都匹配。 |
 | removeFrom(CharSequence) | 从字符序列中移除所有匹配字符。 |
 | retainFrom(CharSequence) | 在字符序列中保留匹配字符，移除其他字符。 |

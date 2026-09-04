@@ -4,7 +4,7 @@ date: "2011-07-21"
 categories: ["阅读"]
 tags: ["阅读"]
 source: "http://prayerlaputa.com/?p=384"
-description: "Relax. It’s probably just another fire drill Poorly designed code tends to manifest itself throu。"
+description: "整理 10 条值得开发者了解的编程谚语与经验总结。"
 ---
 
 转载地址：[http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/](http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/ "http://www.kevinwilliampang.com/2008/10/07/10-programming-proverbs-every-developer-should-know/")\

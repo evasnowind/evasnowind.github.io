@@ -30,15 +30,15 @@ PrintWriter out=new PrintWriter(client.getOutputStream());\
 while(true){\
 String str=in.readLine();\
 System.out.println(str);\
-out.println(“has receive….”);\
+out.println("has receive....");\
 out.flush();\
-if(str.equals(“end”))\
+if(str.equals("end"))\
 break;\
 }\
 client.close();\
 }\
 }\
-这个程序的主要目的在于服务器不断接收客户机所写入的信息只到，客户机发送”End”字符串就退出程序，并且服务器也会做出”Receive”为回应，告知客户机已接收到消息。\
+这个程序的主要目的在于服务器不断接收客户机所写入的信息只到，客户机发送 "End" 字符串就退出程序，并且服务器也会返回 "Receive" 作为回应，告知客户机已接收到消息。\
 客户机代码:\
 import java.net.\*;\
 import java.io.\*;\
@@ -53,7 +53,7 @@ while(true){\
 String str=wt.readLine();\
 out.println(str);\
 out.flush();\
-if(str.equals(“end”)){\
+if(str.equals("end")){\
 break;\
 }\
 System.out.println(in.readLine());\
@@ -61,7 +61,7 @@ System.out.println(in.readLine());\
 server.close();\
 }\
 }\
-客户机代码则是接受客户键盘输入,并把该信息输出，然后输出”End”用来做退出标识。\
+客户机代码则是接收客户端键盘输入，并把该信息输出，然后输出 "End" 作为退出标识。\
 这个程序只是简单的两台计算机之间的通讯，如果是多个客户同时访问一个服务器呢？你可以试着再运行一个客户端，结果是会抛出异常的。那么多个客户端如何实现呢?\
 其实,简单的分析一下，就可以看出客户和服务通讯的主要通道就是Socket本身，而服务器通过accept方法就是同意和客户建立通讯.这样当客户建立Socket的同时。服务器也会使用这一根连线来先后通讯，那么既然如此只要我们存在多条连线就可以了。那么我们的程序可以变为如下:\
 服务器:\
@@ -77,16 +77,16 @@ PrintWriter out=new PrintWriter(client.getOutputStream());\
 while(true){\
 String str=in.readLine();\
 System.out.println(str);\
-out.println(“has receive….”);\
+out.println("has receive....");\
 out.flush();\
-if(str.equals(“end”))\
+if(str.equals("end"))\
 break;\
 }\
 client.close();\
 }\
 }\
 }\
-这里仅仅只是加了一个外层的While循环，这个循环的目的就是当一个客户进来就为它分配一个Socket直到这个客户完成一次和服务器的交互，这里也就是接受到客户的”End”消息.那么现在就实现了多客户之间的交互了。但是.问题又来了，这样做虽然解决了多客户,可是是排队执行的。也就是说当一个客户和服务器完成一次通讯之后下一个客户才可以进来和服务器交互，无法做到同时服务，那么要如何才能同时达到既能相互之间交流又能同时交流呢？很显然这是一个并行执行的问题了。所以线程是最好的解决方案。\
+这里仅仅只是加了一个外层的While循环，这个循环的目的就是当一个客户进来就为它分配一个Socket直到这个客户完成一次和服务器的交互，这里也就是接收到客户的 "End" 消息。那么现在就实现了多客户之间的交互了。但是问题又来了，这样做虽然解决了多客户,可是是排队执行的。也就是说当一个客户和服务器完成一次通讯之后下一个客户才可以进来和服务器交互，无法做到同时服务，那么要如何才能同时达到既能相互之间交流又能同时交流呢？很显然这是一个并行执行的问题了。所以线程是最好的解决方案。\
 那么下面的问题是如何使用线程.首先要做的事情是创建线程并使得其可以和网络连线取得联系。然后由线程来执行刚才的操作，要创建线程要么直接继承Thread要么实现Runnable接口，要建立和 Socket的联系只要传递引用就可以了.而要执行线程就必须重写run方法，而run方法所做的事情就是刚才单线程版本main所做的事情，因此我们的程序变成了这样:\
 import java.net.\*;\
 import java.io.\*;\
@@ -103,9 +103,9 @@ PrintWriter out=new PrintWriter(client.getOutputStream());\
 while(true){\
 String str=in.readLine();\
 System.out.println(str);\
-out.println(“has receive….”);\
+out.println("has receive....");\
 out.flush();\
-if(str.equals(“end”))\
+if(str.equals("end"))\
 break;\
 }\
 client.close();\

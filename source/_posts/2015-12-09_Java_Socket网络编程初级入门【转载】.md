@@ -29,15 +29,15 @@ PrintWriter out=new PrintWriter(client.getOutputStream());\
 while(true){\
 String str=in.readLine();\
 System.out.println(str);\
-out.println(“has receive….”);\
+out.println("has receive....");\
 out.flush();\
-if(str.equals(“end”))\
+if(str.equals("end"))\
 break;\
 }\
 client.close();\
 }\
 }\
-这个程序的主要目的在于服务器不断接收客户机所写入的信息只到，客户机发送”End”字符串就退出程序，并且服务器也会做出”Receive”为回应，告知客户机已接收到消息。\
+这个程序的主要目的在于服务器不断接收客户机所写入的信息只到，客户机发送 "End" 字符串就退出程序，并且服务器也会返回 "Receive" 作为回应，告知客户机已接收到消息。\
 客户机代码:\
 import java.net.\*;\
 import java.io.\*;\
@@ -52,7 +52,7 @@ while(true){\
 String str=wt.readLine();\
 out.println(str);\
 out.flush();\
-if(str.equals(“end”)){\
+if(str.equals("end")){\
 break;\
 }\
 System.out.println(in.readLine());\
@@ -60,7 +60,7 @@ System.out.println(in.readLine());\
 server.close();\
 }\
 }\
-客户机代码则是接受客户键盘输入,并把该信息输出，然后输出”End”用来做退出标识。\
+客户机代码则是接收客户端键盘输入，并把该信息输出，然后输出 "End" 作为退出标识。\
 这个程序只是简单的两台计算机之间的通讯，如果是多个客户同时访问一个服务器呢？你可以试着再运行一个客户端，结果是会抛出异常的。那么多个客户端如何实现呢?\
 其实,简单的分析一下，就可以看出客户和服务通讯的主要通道就是Socket本身，而服务器通过accept方法就是同意和客户建立通讯.这样当客户建 立Socket的同时。服务器也会使用这一根连线来先后通讯，那么既然如此只要我们存在多条连线就可以了。那么我们的程序可以变为如下:\
 服务器:\
@@ -76,9 +76,9 @@ PrintWriter out=new PrintWriter(client.getOutputStream());\
 while(true){\
 String str=in.readLine();\
 System.out.println(str);\
-out.println(“has receive….”);\
+out.println("has receive....");\
 out.flush();\
-if(str.equals(“end”))\
+if(str.equals("end"))\
 break;\
 }\
 client.close();\
@@ -102,9 +102,9 @@ PrintWriter out=new PrintWriter(client.getOutputStream());\
 while(true){\
 String str=in.readLine();\
 System.out.println(str);\
-out.println(“has receive….”);\
+out.println("has receive....");\
 out.flush();\
-if(str.equals(“end”))\
+if(str.equals("end"))\
 break;\
 }\
 client.close();\

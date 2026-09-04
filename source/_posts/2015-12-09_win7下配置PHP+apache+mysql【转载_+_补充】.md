@@ -4,7 +4,7 @@ date: "2015-12-09"
 categories: ["Web"]
 tags: ["MySQL", "建站"]
 source: "http://prayerlaputa.com/?p=123"
-description: "记录win7下配置PHP+apache+mysql + 补充】的安装、配置与实践过程。"
+description: "记录在 Win7 下配置 PHP、Apache 和 MySQL 的安装与配置过程。"
 ---
 
 本帖参考了如下帖子：\
@@ -13,7 +13,7 @@ http://www.umgr.com/Blog/PostView.aspx?bpId=67938\
 http://www.cnblogs.com/good\_hans/archive/2010/04/01/1702059.html\
 （1）安装并配置Apache（安装到D:\MyPrograms\Apache）\
 安装时默认安装，Network Domain, Server Name 如果没有的话可以使用localhost，Administrator’s Email Address区域填你的邮件地址。以后可以在httpd.conf文件中修改这些信息。\
-Apache启动后，用http://localhost/或http://127.0.0.1测试是否成功。成功的话屏幕会有个It works!\
+Apache 启动后，用 <http://localhost/> 或 <http://127.0.0.1/> 测试是否成功。成功的话屏幕会有个 It works!\
 有关Apache的配置见下面内容。\
 
 <!-- more -->
@@ -53,4 +53,4 @@ DirectoryIndex index.php index.html default.php default.html\
 如果需要修改端口，查找listen 修改后边的数值\
 保存并关闭httpd.conf，双击Apache的托盘图标打开界面，点击Restart重启Apache。\
 之后我们就可以测试PHP是否正常工作了，在Web根路径（默认为Apache安装目录的htdocs）下新建一个test.php文件，添加以下一行内容\
-保存退出。在浏览器输入http://localhost/test.php，如果有详细php的配置信息显示，说明配置成功
+保存退出。在浏览器输入 <http://localhost/test.php> ，如果有详细 PHP 的配置信息显示，说明配置成功

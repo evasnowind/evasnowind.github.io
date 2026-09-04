@@ -40,6 +40,12 @@ local_search:
   unescape: false
   preload: false
 
+pangu: true
+
+related_posts:
+  enable: true
+  icon: fa fa-signs-post
+
 motion:
   enable: true
   async: false
@@ -70,10 +76,29 @@ social:
   GitHub: https://github.com/evasnowind || fab fa-github
   E-Mail: mailto:evasnowind@sina.com || fa fa-envelope
 
+follow_me:
+  RSS: /atom.xml || fa fa-rss
+
 social_icons:
   enable: true
   icons_only: false
   transition: false
+
+favicon:
+  small:
+  medium:
+  apple_touch_icon:
+  safari_pinned_tab:
+
 github_banner:
   enable: true
   permalink: https://github.com/evasnowind
+
+custom_file_path:
+  head: source/_data/head.njk
+
+symbols_count_time:
+  separated_meta: true
+  item_text_total: false
+  item_text_post: false
+  item_text_min2read: false
