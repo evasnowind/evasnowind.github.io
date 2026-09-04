@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="记录使用 sysbench 对 MySQL 进行基准测试的环境、常用命令和测试过程，适合做数据库性能摸底与对比。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用sysbench对mysql进行基准测试">
+<meta property="og:url" content="https://evasnowind.github.io/2020/11/26/2020-11-27_%E4%BD%BF%E7%94%A8sysbench%E5%AF%B9mysql%E8%BF%9B%E8%A1%8C%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Prayer的数字城堡">
+<meta property="og:description" content="记录使用 sysbench 对 MySQL 进行基准测试的环境、常用命令和测试过程，适合做数据库性能摸底与对比。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-04T04:44:28.356Z">
+<meta property="article:author" content="Prayer">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://evasnowind.github.io/2020/11/26/2020-11-27_%E4%BD%BF%E7%94%A8sysbench%E5%AF%B9mysql%E8%BF%9B%E8%A1%8C%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/11/26/2020-11-27_%E4%BD%BF%E7%94%A8sysbench%E5%AF%B9mysql%E8%BF%9B%E8%A1%8C%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/","path":"2020/11/26/2020-11-27_使用sysbench对mysql进行基准测试/","title":"使用sysbench对mysql进行基准测试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用sysbench对mysql进行基准测试 | Prayer的数字城堡</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Prayer的数字城堡" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Prayer的数字城堡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">后端 / Java / 架构 / 技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-timelines"><a href="/timelines/" rel="section"><i class="fa fa-calendar fa-fw"></i>Timelines</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">测试环境说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">软件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">测试过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%B5%8B%E8%AF%95innodb-100w%E6%9D%A1%E8%AE%B0%E5%BD%95%E7%9A%84%E8%AF%BB%E5%86%99%E6%80%A7%E8%83%BD"><span class="nav-number">2.1.</span> <span class="nav-text">1. 测试innodb 100w条记录的读写性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%B5%8B%E8%AF%95myisam-100w%E6%9D%A1%E8%AE%B0%E5%BD%95%E7%9A%84%E8%AF%BB%E5%86%99%E6%80%A7%E8%83%BD"><span class="nav-number">2.2.</span> <span class="nav-text">2. 测试myisam 100w条记录的读写性能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">测试总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">3.1.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%B5%E5%90%91%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.1.</span> <span class="nav-text">纵向对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%AA%E5%90%91%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.2.</span> <span class="nav-text">横向对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96"><span class="nav-number">4.1.</span> <span class="nav-text">图形化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
+  <p class="site-author-name" itemprop="name">Prayer</p>
+  <div class="site-description" itemprop="description">Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2020/11/26/2020-11-27_%E4%BD%BF%E7%94%A8sysbench%E5%AF%B9mysql%E8%BF%9B%E8%A1%8C%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-150.png">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用sysbench对mysql进行基准测试 | Prayer的数字城堡">
+      <meta itemprop="description" content="记录使用 sysbench 对 MySQL 进行基准测试的环境、常用命令和测试过程，适合做数据库性能摸底与对比。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用sysbench对mysql进行基准测试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-27 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-27T00:00:00+08:00">2020-11-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 12:44:28" itemprop="dateModified" datetime="2026-09-04T12:44:28+08:00">2026-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>17 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">记录使用 sysbench 对 MySQL 进行基准测试的环境、常用命令和测试过程，适合做数据库性能摸底与对比。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="测试环境说明"><a href="#测试环境说明" class="headerlink" title="测试环境说明"></a>测试环境说明</h3><h4 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h4><ul>
+<li><p>腾讯云标准型SA2</p>
+<ul>
+<li>1核 2GB 1Mbps</li>
+<li>系统盘：高性能云硬盘(50G)</li>
+</ul>
+</li>
+</ul>
+<h4 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h4><ul>
+<li>centos 7.5 64位</li>
+<li>mysql 5.7.31</li>
+<li>sysbench 1.0.20</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="测试过程"><a href="#测试过程" class="headerlink" title="测试过程"></a>测试过程</h3><p>使用sysbench。</p>
+<h4 id="1-测试innodb-100w条记录的读写性能"><a href="#1-测试innodb-100w条记录的读写性能" class="headerlink" title="1. 测试innodb 100w条记录的读写性能"></a>1. 测试innodb 100w条记录的读写性能</h4><h5 id="1-1-生成100w数据"><a href="#1-1-生成100w数据" class="headerlink" title="1.1 生成100w数据"></a>1.1 生成100w数据</h5><p>此处偷懒了，直接使用了sysbench默认的脚本创建数据库表，如果需要测试特定的表，需要修改<code>/usr/share/sysbench</code>下的脚本，基本只需要修改<code>oltp_common.lua</code>脚本即可，这个需要花时间细致的修改，这次就不在这方面多花时间了。本次主要目的是做基准测试、看看Mysql性能。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write prepare</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-进行读写测试"><a href="#1-2-进行读写测试" class="headerlink" title="1.2 进行读写测试"></a>1.2 进行读写测试</h5><h6 id="1-2-1-第一次直接执行100w次读写"><a href="#1-2-1-第一次直接执行100w次读写" class="headerlink" title="1.2.1 第一次直接执行100w次读写"></a>1.2.1 第一次直接执行100w次读写</h6><p>执行命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li>指定测试mysql，默认存储引擎是innodb，指定mysql地址、端口、用户等信息</li>
+<li>选取测试的数据库为sbtest，每个表的大小为100w条数据，创建10张表</li>
+<li>测试时间300s, 20个线程同时测试</li>
+<li>输出测试结果95分位</li>
+<li>每隔10s输出一次当前测试情况</li>
+<li>选取sysbench中的oltp_read_write.lua，测试读写情况</li>
+</ul>
+<p>注意此处没有预热，先观察下没有预热情况下的读写性能，得到如下执行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run</span><br><span class="line">sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)</span><br><span class="line"></span><br><span class="line">Running the test with following options:</span><br><span class="line">Number of threads: 20</span><br><span class="line">Report intermediate results every 10 second(s)</span><br><span class="line">Initializing random number generator from current time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Initializing worker threads...</span><br><span class="line"></span><br><span class="line">Threads started!</span><br><span class="line"></span><br><span class="line">[ 10s ] thds: 20 tps: 115.28 qps: 2327.70 (r/w/o: 1633.92/461.22/232.56) lat (ms,95%): 337.94 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 20s ] thds: 20 tps: 107.65 qps: 2154.96 (r/w/o: 1508.64/431.01/215.31) lat (ms,95%): 350.33 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 30s ] thds: 20 tps: 107.57 qps: 2155.23 (r/w/o: 1509.13/430.97/215.13) lat (ms,95%): 337.94 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 40s ] thds: 20 tps: 102.08 qps: 2027.14 (r/w/o: 1414.88/408.11/204.16) lat (ms,95%): 369.77 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 50s ] thds: 20 tps: 111.17 qps: 2239.64 (r/w/o: 1571.11/446.19/222.34) lat (ms,95%): 337.94 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 60s ] thds: 20 tps: 118.82 qps: 2376.16 (r/w/o: 1663.62/474.89/237.65) lat (ms,95%): 297.92 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 70s ] thds: 20 tps: 118.57 qps: 2369.40 (r/w/o: 1657.88/474.48/237.04) lat (ms,95%): 325.98 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 80s ] thds: 20 tps: 125.53 qps: 2512.64 (r/w/o: 1758.58/502.91/251.15) lat (ms,95%): 287.38 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 90s ] thds: 20 tps: 115.44 qps: 2298.71 (r/w/o: 1609.27/458.76/230.68) lat (ms,95%): 314.45 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 100s ] thds: 20 tps: 120.28 qps: 2412.81 (r/w/o: 1689.53/482.52/240.76) lat (ms,95%): 314.45 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 110s ] thds: 20 tps: 123.70 qps: 2460.59 (r/w/o: 1719.30/494.00/247.30) lat (ms,95%): 287.38 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 120s ] thds: 20 tps: 121.74 qps: 2455.40 (r/w/o: 1720.96/490.86/243.58) lat (ms,95%): 287.38 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 130s ] thds: 20 tps: 129.32 qps: 2580.95 (r/w/o: 1808.11/514.19/258.64) lat (ms,95%): 292.60 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 140s ] thds: 20 tps: 125.38 qps: 2508.77 (r/w/o: 1756.50/501.51/250.76) lat (ms,95%): 282.25 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 150s ] thds: 20 tps: 128.26 qps: 2564.90 (r/w/o: 1794.64/513.74/256.52) lat (ms,95%): 287.38 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 160s ] thds: 20 tps: 129.90 qps: 2596.47 (r/w/o: 1817.98/518.79/259.70) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 170s ] thds: 20 tps: 130.30 qps: 2597.18 (r/w/o: 1816.16/520.32/260.71) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 180s ] thds: 20 tps: 134.10 qps: 2685.40 (r/w/o: 1881.30/535.90/268.20) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 190s ] thds: 20 tps: 131.38 qps: 2636.25 (r/w/o: 1842.79/530.91/262.56) lat (ms,95%): 282.25 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 200s ] thds: 20 tps: 134.40 qps: 2687.60 (r/w/o: 1883.30/535.30/269.00) lat (ms,95%): 282.25 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 210s ] thds: 20 tps: 130.51 qps: 2610.40 (r/w/o: 1827.61/521.76/261.03) lat (ms,95%): 292.60 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 220s ] thds: 20 tps: 134.91 qps: 2687.87 (r/w/o: 1880.32/537.73/269.82) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 230s ] thds: 20 tps: 131.30 qps: 2633.77 (r/w/o: 1845.48/525.69/262.60) lat (ms,95%): 277.21 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 240s ] thds: 20 tps: 133.78 qps: 2676.67 (r/w/o: 1872.87/536.23/267.57) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 250s ] thds: 20 tps: 134.10 qps: 2681.82 (r/w/o: 1876.34/537.28/268.19) lat (ms,95%): 292.60 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 260s ] thds: 20 tps: 136.32 qps: 2711.48 (r/w/o: 1896.94/541.90/272.65) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 270s ] thds: 20 tps: 134.20 qps: 2692.50 (r/w/o: 1884.80/539.30/268.40) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 280s ] thds: 20 tps: 133.03 qps: 2664.24 (r/w/o: 1866.85/531.33/266.06) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 290s ] thds: 20 tps: 134.52 qps: 2687.68 (r/w/o: 1880.73/537.90/269.05) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 300s ] thds: 20 tps: 130.74 qps: 2615.97 (r/w/o: 1830.71/523.77/261.49) lat (ms,95%): 277.21 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">SQL statistics:</span><br><span class="line">    queries performed:</span><br><span class="line">        read:                            527282</span><br><span class="line">        write:                           150652</span><br><span class="line">        other:                           75326</span><br><span class="line">        total:                           753260</span><br><span class="line">    transactions:                        37663  (125.47 per sec.)</span><br><span class="line">    queries:                             753260 (2509.43 per sec.)</span><br><span class="line">    ignored errors:                      0      (0.00 per sec.)</span><br><span class="line">    reconnects:                          0      (0.00 per sec.)</span><br><span class="line"></span><br><span class="line">General statistics:</span><br><span class="line">    total time:                          300.1706s</span><br><span class="line">    total number of events:              37663</span><br><span class="line"></span><br><span class="line">Latency (ms):</span><br><span class="line">         min:                                    7.13</span><br><span class="line">         avg:                                  159.35</span><br><span class="line">         max:                                  873.88</span><br><span class="line">         95th percentile:                      292.60</span><br><span class="line">         sum:                              6001658.82</span><br><span class="line"></span><br><span class="line">Threads fairness:</span><br><span class="line">    events (avg/stddev):           1883.1500/14.40</span><br><span class="line">    execution time (avg/stddev):   300.0829/0.05</span><br></pre></td></tr></table></figure>
+
+<h6 id="1-2-2-第二次执行100w次读写"><a href="#1-2-2-第二次执行100w次读写" class="headerlink" title="1.2.2 第二次执行100w次读写"></a>1.2.2 第二次执行100w次读写</h6><p>在第一次执行完成后，再一次执行相同的压测命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，将第一次执行当做预热，然后得到了如下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run</span><br><span class="line">sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)</span><br><span class="line"></span><br><span class="line">Running the test with following options:</span><br><span class="line">Number of threads: 20</span><br><span class="line">Report intermediate results every 10 second(s)</span><br><span class="line">Initializing random number generator from current time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Initializing worker threads...</span><br><span class="line"></span><br><span class="line">Threads started!</span><br><span class="line"></span><br><span class="line">[ 10s ] thds: 20 tps: 134.18 qps: 2711.59 (r/w/o: 1901.91/539.32/270.36) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 20s ] thds: 20 tps: 137.73 qps: 2743.17 (r/w/o: 1918.90/549.01/275.26) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 30s ] thds: 20 tps: 135.00 qps: 2700.12 (r/w/o: 1889.21/540.70/270.20) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 40s ] thds: 20 tps: 133.61 qps: 2680.90 (r/w/o: 1880.57/533.12/267.21) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 50s ] thds: 20 tps: 133.36 qps: 2673.78 (r/w/o: 1869.10/537.96/266.73) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 60s ] thds: 20 tps: 139.24 qps: 2776.62 (r/w/o: 1945.18/553.07/278.38) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 70s ] thds: 20 tps: 132.31 qps: 2646.75 (r/w/o: 1852.27/529.75/264.72) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 80s ] thds: 20 tps: 138.52 qps: 2764.91 (r/w/o: 1934.31/553.56/277.03) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 90s ] thds: 20 tps: 133.20 qps: 2673.72 (r/w/o: 1874.85/532.48/266.39) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 100s ] thds: 20 tps: 139.13 qps: 2783.76 (r/w/o: 1946.06/559.43/278.27) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 110s ] thds: 20 tps: 133.60 qps: 2673.61 (r/w/o: 1872.01/534.40/267.20) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 120s ] thds: 20 tps: 137.21 qps: 2739.02 (r/w/o: 1916.55/548.04/274.42) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 130s ] thds: 20 tps: 136.59 qps: 2736.29 (r/w/o: 1916.22/546.88/273.19) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 140s ] thds: 20 tps: 133.31 qps: 2667.76 (r/w/o: 1865.01/536.33/266.42) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 150s ] thds: 20 tps: 136.29 qps: 2728.42 (r/w/o: 1910.27/545.36/272.78) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 160s ] thds: 20 tps: 137.75 qps: 2747.96 (r/w/o: 1925.34/547.21/275.41) lat (ms,95%): 248.83 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 170s ] thds: 20 tps: 136.25 qps: 2727.97 (r/w/o: 1910.08/545.29/272.60) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 180s ] thds: 20 tps: 139.96 qps: 2799.77 (r/w/o: 1958.39/561.45/279.93) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 190s ] thds: 20 tps: 136.37 qps: 2724.15 (r/w/o: 1907.31/544.09/272.74) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 200s ] thds: 20 tps: 137.35 qps: 2748.81 (r/w/o: 1925.74/548.38/274.69) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 210s ] thds: 20 tps: 138.32 qps: 2760.41 (r/w/o: 1930.89/552.88/276.64) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 220s ] thds: 20 tps: 136.57 qps: 2730.27 (r/w/o: 1912.63/544.89/272.75) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 230s ] thds: 20 tps: 135.90 qps: 2725.03 (r/w/o: 1905.42/547.41/272.20) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 240s ] thds: 20 tps: 139.06 qps: 2780.47 (r/w/o: 1948.78/553.56/278.13) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 250s ] thds: 20 tps: 136.23 qps: 2719.64 (r/w/o: 1902.58/544.61/272.45) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 260s ] thds: 20 tps: 136.39 qps: 2736.95 (r/w/o: 1913.82/550.35/272.77) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 270s ] thds: 20 tps: 141.91 qps: 2829.29 (r/w/o: 1980.91/564.56/283.83) lat (ms,95%): 248.83 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 280s ] thds: 20 tps: 138.60 qps: 2776.59 (r/w/o: 1944.46/554.92/277.21) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 290s ] thds: 20 tps: 137.72 qps: 2747.78 (r/w/o: 1923.26/549.08/275.44) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 300s ] thds: 20 tps: 139.27 qps: 2798.45 (r/w/o: 1958.44/561.47/278.54) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">SQL statistics:</span><br><span class="line">    queries performed:</span><br><span class="line">        read:                            574434</span><br><span class="line">        write:                           164124</span><br><span class="line">        other:                           82062</span><br><span class="line">        total:                           820620</span><br><span class="line">    transactions:                        41031  (136.74 per sec.)</span><br><span class="line">    queries:                             820620 (2734.82 per sec.)</span><br><span class="line">    ignored errors:                      0      (0.00 per sec.)</span><br><span class="line">    reconnects:                          0      (0.00 per sec.)</span><br><span class="line"></span><br><span class="line">General statistics:</span><br><span class="line">    total time:                          300.0629s</span><br><span class="line">    total number of events:              41031</span><br><span class="line"></span><br><span class="line">Latency (ms):</span><br><span class="line">         min:                                    6.62</span><br><span class="line">         avg:                                  146.24</span><br><span class="line">         max:                                  709.59</span><br><span class="line">         95th percentile:                      262.64</span><br><span class="line">         sum:                              6000331.95</span><br><span class="line"></span><br><span class="line">Threads fairness:</span><br><span class="line">    events (avg/stddev):           2051.5500/16.35</span><br><span class="line">    execution time (avg/stddev):   300.0166/0.02</span><br></pre></td></tr></table></figure>
+
+<h6 id="1-2-3-第三次执行100w次读写"><a href="#1-2-3-第三次执行100w次读写" class="headerlink" title="1.2.3 第三次执行100w次读写"></a>1.2.3 第三次执行100w次读写</h6><p>还是这条命令，再次执行看下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run</span><br></pre></td></tr></table></figure>
+
+<p>最后执行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write run</span><br><span class="line">sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)</span><br><span class="line"></span><br><span class="line">Running the test with following options:</span><br><span class="line">Number of threads: 20</span><br><span class="line">Report intermediate results every 10 second(s)</span><br><span class="line">Initializing random number generator from current time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Initializing worker threads...</span><br><span class="line"></span><br><span class="line">Threads started!</span><br><span class="line"></span><br><span class="line">[ 10s ] thds: 20 tps: 137.99 qps: 2785.30 (r/w/o: 1953.79/553.54/277.97) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 20s ] thds: 20 tps: 139.98 qps: 2796.53 (r/w/o: 1955.64/561.23/279.66) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 30s ] thds: 20 tps: 135.89 qps: 2721.84 (r/w/o: 1905.59/544.37/271.88) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 40s ] thds: 20 tps: 143.80 qps: 2874.52 (r/w/o: 2013.41/573.40/287.70) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 50s ] thds: 20 tps: 141.73 qps: 2838.10 (r/w/o: 1986.65/567.90/283.55) lat (ms,95%): 277.21 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 60s ] thds: 20 tps: 142.10 qps: 2835.57 (r/w/o: 1984.28/567.09/284.20) lat (ms,95%): 248.83 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 70s ] thds: 20 tps: 141.93 qps: 2838.68 (r/w/o: 1987.87/566.94/283.87) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 80s ] thds: 20 tps: 142.27 qps: 2841.13 (r/w/o: 1987.20/569.39/284.54) lat (ms,95%): 244.38 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 90s ] thds: 20 tps: 144.78 qps: 2904.14 (r/w/o: 2034.24/580.63/289.27) lat (ms,95%): 231.53 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 100s ] thds: 20 tps: 141.03 qps: 2822.14 (r/w/o: 1977.08/562.71/282.35) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 110s ] thds: 20 tps: 138.68 qps: 2775.16 (r/w/o: 1941.56/556.23/277.37) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 120s ] thds: 20 tps: 140.70 qps: 2799.50 (r/w/o: 1957.90/560.50/281.10) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 130s ] thds: 20 tps: 142.10 qps: 2847.50 (r/w/o: 1994.40/569.00/284.10) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 140s ] thds: 20 tps: 142.10 qps: 2847.17 (r/w/o: 1994.18/568.39/284.60) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 150s ] thds: 20 tps: 141.69 qps: 2834.74 (r/w/o: 1983.99/567.37/283.38) lat (ms,95%): 240.02 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 160s ] thds: 20 tps: 142.69 qps: 2857.88 (r/w/o: 1999.55/572.96/285.38) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 170s ] thds: 20 tps: 148.01 qps: 2953.24 (r/w/o: 2067.20/590.03/296.01) lat (ms,95%): 244.38 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 180s ] thds: 20 tps: 142.16 qps: 2845.84 (r/w/o: 1993.50/568.03/284.31) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 190s ] thds: 20 tps: 141.93 qps: 2838.87 (r/w/o: 1987.80/567.21/283.86) lat (ms,95%): 262.64 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 200s ] thds: 20 tps: 137.03 qps: 2742.24 (r/w/o: 1919.74/548.43/274.06) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 210s ] thds: 20 tps: 141.14 qps: 2822.53 (r/w/o: 1975.28/564.97/282.28) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 220s ] thds: 20 tps: 143.06 qps: 2859.26 (r/w/o: 2001.71/571.43/286.12) lat (ms,95%): 257.95 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 230s ] thds: 20 tps: 145.89 qps: 2911.60 (r/w/o: 2036.39/583.54/291.67) lat (ms,95%): 248.83 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 240s ] thds: 20 tps: 142.86 qps: 2862.32 (r/w/o: 2003.09/573.42/285.81) lat (ms,95%): 244.38 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 250s ] thds: 20 tps: 142.36 qps: 2845.35 (r/w/o: 1992.70/567.93/284.71) lat (ms,95%): 248.83 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 260s ] thds: 20 tps: 140.64 qps: 2816.09 (r/w/o: 1971.96/562.86/281.28) lat (ms,95%): 267.41 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 270s ] thds: 20 tps: 143.49 qps: 2865.80 (r/w/o: 2004.86/573.96/286.98) lat (ms,95%): 282.25 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 280s ] thds: 20 tps: 145.81 qps: 2922.99 (r/w/o: 2047.60/583.76/291.63) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 290s ] thds: 20 tps: 142.26 qps: 2838.44 (r/w/o: 1985.40/568.53/284.51) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">[ 300s ] thds: 20 tps: 137.89 qps: 2755.07 (r/w/o: 1928.14/551.15/275.78) lat (ms,95%): 253.35 err/s: 0.00 reconn/s: 0.00</span><br><span class="line">SQL statistics:</span><br><span class="line">    queries performed:</span><br><span class="line">        read:                            595840</span><br><span class="line">        write:                           170240</span><br><span class="line">        other:                           85120</span><br><span class="line">        total:                           851200</span><br><span class="line">    transactions:                        42560  (141.79 per sec.)</span><br><span class="line">    queries:                             851200 (2835.86 per sec.)</span><br><span class="line">    ignored errors:                      0      (0.00 per sec.)</span><br><span class="line">    reconnects:                          0      (0.00 per sec.)</span><br><span class="line"></span><br><span class="line">General statistics:</span><br><span class="line">    total time:                          300.1547s</span><br><span class="line">    total number of events:              42560</span><br><span class="line"></span><br><span class="line">Latency (ms):</span><br><span class="line">         min:                                    6.18</span><br><span class="line">         avg:                                  141.02</span><br><span class="line">         max:                                  687.11</span><br><span class="line">         95th percentile:                      257.95</span><br><span class="line">         sum:                              6001887.46</span><br><span class="line"></span><br><span class="line">Threads fairness:</span><br><span class="line">    events (avg/stddev):           2128.0000/14.78</span><br><span class="line">    execution time (avg/stddev):   300.0944/0.03</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-3-清理数据"><a href="#1-3-清理数据" class="headerlink" title="1.3 清理数据"></a>1.3 清理数据</h5><p>使用如下命令清理数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300   --threads=20 --percentile=95 oltp_read_write cleanup</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-测试myisam-100w条记录的读写性能"><a href="#2-测试myisam-100w条记录的读写性能" class="headerlink" title="2. 测试myisam 100w条记录的读写性能"></a>2. 测试myisam 100w条记录的读写性能</h4><h5 id="2-1-生成100w数据"><a href="#2-1-生成100w数据" class="headerlink" title="2.1 生成100w数据"></a>2.1 生成100w数据</h5><p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write help</span><br></pre></td></tr></table></figure>
+
+<p>可以看到oltp_read_write脚本所支持的参数，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write help</span><br><span class="line">sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)</span><br><span class="line"></span><br><span class="line">oltp_read_write options:</span><br><span class="line">  --auto_inc[=on|off]           Use AUTO_INCREMENT column as Primary Key (for MySQL), or its alternatives in other DBMS. When disabled, use client-generated IDs [on]</span><br><span class="line">  --create_secondary[=on|off]   Create a secondary index in addition to the PRIMARY KEY [on]</span><br><span class="line">  --delete_inserts=N            Number of DELETE/INSERT combinations per transaction [1]</span><br><span class="line">  --distinct_ranges=N           Number of SELECT DISTINCT queries per transaction [1]</span><br><span class="line">  --index_updates=N             Number of UPDATE index queries per transaction [1]</span><br><span class="line">  --mysql_storage_engine=STRING Storage engine, if MySQL is used [innodb]</span><br><span class="line">  --non_index_updates=N         Number of UPDATE non-index queries per transaction [1]</span><br><span class="line">  --order_ranges=N              Number of SELECT ORDER BY queries per transaction [1]</span><br><span class="line">  --pgsql_variant=STRING        Use this PostgreSQL variant when running with the PostgreSQL driver. The only currently supported variant is &#x27;redshift&#x27;. When enabled, create_secondary is automatically disabled, and delete_inserts is set to 0</span><br><span class="line">  --point_selects=N             Number of point SELECT queries per transaction [10]</span><br><span class="line">  --range_selects[=on|off]      Enable/disable all range SELECT queries [on]</span><br><span class="line">  --range_size=N                Range size for range SELECT queries [100]</span><br><span class="line">  --secondary[=on|off]          Use a secondary index in place of the PRIMARY KEY [off]</span><br><span class="line">  --simple_ranges=N             Number of simple range SELECT queries per transaction [1]</span><br><span class="line">  --skip_trx[=on|off]           Don&#x27;t start explicit transactions and execute all queries in the AUTOCOMMIT mode [off]</span><br><span class="line">  --sum_ranges=N                Number of SELECT SUM() queries per transaction [1]</span><br><span class="line">  --table_size=N                Number of rows per table [10000]</span><br><span class="line">  --tables=N                    Number of tables [1]</span><br></pre></td></tr></table></figure>
+
+<p>此处我们指定下数据库存储引擎为myisam，执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write --mysql_storage_engine=myisam prepare</span><br></pre></td></tr></table></figure>
+
+<p>即可创建MyIsam的表。</p>
+<h5 id="2-2-进行读写测试"><a href="#2-2-进行读写测试" class="headerlink" title="2.2 进行读写测试"></a>2.2 进行读写测试</h5><h6 id="2-2-1-第一次执行100w次读写"><a href="#2-2-1-第一次执行100w次读写" class="headerlink" title="2.2.1 第一次执行100w次读写"></a>2.2.1 第一次执行100w次读写</h6><p>执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write   --mysql_storage_engine=myisam run</span><br></pre></td></tr></table></figure>
+
+<p>测试结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">SQL statistics:</span><br><span class="line">    queries performed:</span><br><span class="line">        read:                            722036</span><br><span class="line">        write:                           206294</span><br><span class="line">        other:                           103150</span><br><span class="line">        total:                           1031480</span><br><span class="line">    transactions:                        51574  (171.84 per sec.)</span><br><span class="line">    queries:                             1031480 (3436.86 per sec.)</span><br><span class="line">    ignored errors:                      0      (0.00 per sec.)</span><br><span class="line">    reconnects:                          0      (0.00 per sec.)</span><br><span class="line"></span><br><span class="line">General statistics:</span><br><span class="line">    total time:                          300.1224s</span><br><span class="line">    total number of events:              51574</span><br><span class="line"></span><br><span class="line">Latency (ms):</span><br><span class="line">         min:                                    2.91</span><br><span class="line">         avg:                                  116.36</span><br><span class="line">         max:                                 2703.01</span><br><span class="line">         95th percentile:                      153.02</span><br><span class="line">         sum:                              6001171.45</span><br><span class="line"></span><br><span class="line">Threads fairness:</span><br><span class="line">    events (avg/stddev):           2578.7000/7.62</span><br><span class="line">    execution time (avg/stddev):   300.0586/0.04</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-2-2-第二次执行100w次读写"><a href="#2-2-2-第二次执行100w次读写" class="headerlink" title="2.2.2 第二次执行100w次读写"></a>2.2.2 第二次执行100w次读写</h6><p>相同命令，再来一次：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">SQL statistics:</span><br><span class="line">    queries performed:</span><br><span class="line">        read:                            697480</span><br><span class="line">        write:                           199279</span><br><span class="line">        other:                           99641</span><br><span class="line">        total:                           996400</span><br><span class="line">    transactions:                        49820  (165.95 per sec.)</span><br><span class="line">    queries:                             996400 (3319.08 per sec.)</span><br><span class="line">    ignored errors:                      0      (0.00 per sec.)</span><br><span class="line">    reconnects:                          0      (0.00 per sec.)</span><br><span class="line"></span><br><span class="line">General statistics:</span><br><span class="line">    total time:                          300.2032s</span><br><span class="line">    total number of events:              49820</span><br><span class="line"></span><br><span class="line">Latency (ms):</span><br><span class="line">         min:                                    2.86</span><br><span class="line">         avg:                                  120.45</span><br><span class="line">         max:                                 3435.92</span><br><span class="line">         95th percentile:                      176.73</span><br><span class="line">         sum:                              6000916.19</span><br><span class="line"></span><br><span class="line">Threads fairness:</span><br><span class="line">    events (avg/stddev):           2491.0000/9.31</span><br><span class="line">    execution time (avg/stddev):   300.0458/0.06</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-2-3-第三次执行100w次读写"><a href="#2-2-3-第三次执行100w次读写" class="headerlink" title="2.2.3 第三次执行100w次读写"></a>2.2.3 第三次执行100w次读写</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">······</span><br><span class="line">SQL statistics:</span><br><span class="line">    queries performed:</span><br><span class="line">        read:                            680372</span><br><span class="line">        write:                           194389</span><br><span class="line">        other:                           97199</span><br><span class="line">        total:                           971960</span><br><span class="line">    transactions:                        48598  (161.84 per sec.)</span><br><span class="line">    queries:                             971960 (3236.88 per sec.)</span><br><span class="line">    ignored errors:                      0      (0.00 per sec.)</span><br><span class="line">    reconnects:                          0      (0.00 per sec.)</span><br><span class="line"></span><br><span class="line">General statistics:</span><br><span class="line">    total time:                          300.2761s</span><br><span class="line">    total number of events:              48598</span><br><span class="line"></span><br><span class="line">Latency (ms):</span><br><span class="line">         min:                                    2.88</span><br><span class="line">         avg:                                  123.52</span><br><span class="line">         max:                                 2916.81</span><br><span class="line">         95th percentile:                      189.93</span><br><span class="line">         sum:                              6002904.07</span><br><span class="line"></span><br><span class="line">Threads fairness:</span><br><span class="line">    events (avg/stddev):           2429.9000/10.74</span><br><span class="line">    execution time (avg/stddev):   300.1452/0.07</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-清理数据"><a href="#2-3-清理数据" class="headerlink" title="2.3 清理数据"></a>2.3 清理数据</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20  oltp_read_write cleanup</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试总结"><a href="#测试总结" class="headerlink" title="测试总结"></a>测试总结</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>压测指标</th>
+<th>InnoDB</th>
+<th>MyISAM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一次</td>
+<td>读、写次数</td>
+<td>读：527282 写：150652 其他：75326 事务：37663 总计：753260</td>
+<td>读：722036 写：206294 其他：103150 总计：1031480</td>
+</tr>
+<tr>
+<td></td>
+<td>耗时</td>
+<td>最小：7.13ms 平均：159.35ms 最大：873.88ms 95分位数：292.60ms</td>
+<td>最小：2.91ms 平均：116.36ms 最大：2703.01ms 95分位数：153.02ms</td>
+</tr>
+<tr>
+<td></td>
+<td>吞吐量</td>
+<td>1883.1500</td>
+<td>2578.7000</td>
+</tr>
+<tr>
+<td>第二次</td>
+<td>读、写次数</td>
+<td>读：574434 写：164124 其他：82062 事务：41031 总计：820620</td>
+<td>读：697480 写：199279 其他：99641 总计：996400</td>
+</tr>
+<tr>
+<td></td>
+<td>耗时</td>
+<td>最小：6.62ms 平均：146.24ms 最大：709.59ms 95分位数：262.64ms</td>
+<td>最小：2.86ms 平均：120.45ms 最大：3435.92ms 95分位数：176.73ms</td>
+</tr>
+<tr>
+<td></td>
+<td>吞吐量</td>
+<td>2051.5500</td>
+<td>2491.0000</td>
+</tr>
+<tr>
+<td>第三次</td>
+<td>读、写次数</td>
+<td>读：595840 写：170240 其他：85120 事务：42560 总计：851200</td>
+<td>读：680372 写：194389 其他：97199 总计：971960</td>
+</tr>
+<tr>
+<td></td>
+<td>耗时</td>
+<td>最小：6.18ms 平均：141.02ms 最大：687.11ms 95分位数：257.95ms</td>
+<td>最小：2.88ms 平均：123.52ms 最大：2916.81ms 95分位数：189.93ms</td>
+</tr>
+<tr>
+<td></td>
+<td>吞吐量</td>
+<td>2128.0000</td>
+<td>2429.9000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h4 id="纵向对比"><a href="#纵向对比" class="headerlink" title="纵向对比"></a>纵向对比</h4><p>经过预热之后，可以看到InnoDB的性能越来越好，每秒能处理2000多请求。不排除预热充分后能反超MyISAM的可能性，不过这个我就没继续多测试了。</p>
+<p>MyISAM每秒能处理2500左右。</p>
+<h4 id="横向对比"><a href="#横向对比" class="headerlink" title="横向对比"></a>横向对比</h4><p>从目前做的测试来看，InnoDB在读写性能上还是不及MyISAM，不排除预热充分后能反超MyISAM的可能性，不过这个我就没继续多测试了。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="图形化"><a href="#图形化" class="headerlink" title="图形化"></a>图形化</h3><p>可以将sysbench压测结果输出日志、然后绘制成图片，这样看着更高大上、更加直观。可以参考这篇文章：<a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/498680">https://yq.aliyun.com/articles/498680</a></p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li>本来想使用sysbench的预热功能，使用如下命令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write prewarm</span><br></pre></td></tr></table></figure>
+
+<p>但有报如下错误，时间有限，没仔细排查：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_5_centos ~]# sysbench --db-driver=mysql --mysql-host=localhost --mysql-port=3306 --mysql-user=root --mysql-password=1qaz@WSX --mysql-db=sbtest --table_size=1000000 --tables=10 --events=0 --time=300  --threads=20 --percentile=95 --report-interval=10 oltp_read_write prewarm</span><br><span class="line">sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)</span><br><span class="line"></span><br><span class="line">Initializing worker threads...</span><br><span class="line"></span><br><span class="line">Prewarming table sbtest6</span><br><span class="line">Prewarming table sbtest7</span><br><span class="line">Prewarming table sbtest9</span><br><span class="line">Prewarming table sbtest8</span><br><span class="line">Prewarming table sbtest1</span><br><span class="line">Prewarming table sbtest5</span><br><span class="line">Prewarming table sbtest3</span><br><span class="line">Prewarming table sbtest10</span><br><span class="line">Prewarming table sbtest2</span><br><span class="line">Prewarming table sbtest4</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest2 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest3 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest4 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest5 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest6 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest7 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest8 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest9 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest10 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query &#x27;SELECT AVG(id) FROM (SELECT * FROM sbtest1 FORCE KEY (PRIMARY) LIMIT 1000000) t&#x27;</span><br><span class="line">FATAL: `sysbench.cmdline.call_command&#x27; function failed: /usr/share/sysbench/oltp_common.lua:111: SQL error, errno = 2013, state = &#x27;HY000&#x27;: Lost connection to MySQL server during query</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/24/2020-11-25_spring%E4%B8%AD%E5%8A%A0%E6%B3%A8%E8%A7%A3%E6%96%B9%E6%B3%95%E8%A2%AB%E5%90%8C%E4%B8%80%E4%B8%AA%E7%B1%BB%E5%86%85%E9%83%A8%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E5%AF%BC%E8%87%B4AOP%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88(%E5%A6%82@Transactional%E6%B3%A8%E8%A7%A3%E5%A4%B1%E6%95%88)/" rel="prev" title="spring中加注解方法被同一个类内部方法调用导致AOP失效的解决方案(如@Transactional注解失效)">
+                  <i class="fa fa-angle-left"></i> spring中加注解方法被同一个类内部方法调用导致AOP失效的解决方案(如@Transactional注解失效)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/01/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/" rel="next" title="centos下如何启动mysql多实例">
+                  centos下如何启动mysql多实例 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Prayer</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">228k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">13:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/evasnowind" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

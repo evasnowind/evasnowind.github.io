@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）">
+<meta property="og:url" content="https://evasnowind.github.io/2020/09/01/2020-09-02_Guava_RateLimiter_%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%EF%BC%89/index.html">
+<meta property="og:site_name" content="Prayer的数字城堡">
+<meta property="og:description" content="学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-04T04:44:28.355Z">
+<meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="源码分析">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://evasnowind.github.io/2020/09/01/2020-09-02_Guava_RateLimiter_%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/09/01/2020-09-02_Guava_RateLimiter_%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%EF%BC%89/","path":"2020/09/01/2020-09-02_Guava_RateLimiter_的使用与源码分析（令牌桶算法实现思路）/","title":"Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路） | Prayer的数字城堡</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Prayer的数字城堡" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Prayer的数字城堡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">后端 / Java / 架构 / 技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-timelines"><a href="/timelines/" rel="section"><i class="fa fa-calendar fa-fw"></i>Timelines</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Guava-RateLimiter%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">Guava RateLimiter基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8Java%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">如何用Java实现？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guava%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="nav-number">2.2.</span> <span class="nav-text">Guava如何实现令牌桶算法？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
+  <p class="site-author-name" itemprop="name">Prayer</p>
+  <div class="site-description" itemprop="description">Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2020/09/01/2020-09-02_Guava_RateLimiter_%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-150.png">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路） | Prayer的数字城堡">
+      <meta itemprop="description" content="学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-02T00:00:00+08:00">2020-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 12:44:28" itemprop="dateModified" datetime="2026-09-04T12:44:28+08:00">2026-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">源码分析</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Guava-RateLimiter基本使用"><a href="#Guava-RateLimiter基本使用" class="headerlink" title="Guava RateLimiter基本使用"></a>Guava RateLimiter基本使用</h2><p>学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。</p>
+<p>比如Guava RateLimiter，从RateLimiter类的源码注释中可以看到，官方给出的典型应用场景与使用：</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">As an example, imagine that we have a list of tasks to execute, but we don&#x27;t want to submit more than 2 per second:</span><br><span class="line"> </span><br><span class="line"> final RateLimiter rateLimiter = RateLimiter.create(2.0); // rate is &quot;2 permits per second&quot;</span><br><span class="line"> void submitTasks(List&lt;Runnable&gt; tasks, Executor executor) &#123;</span><br><span class="line">   for (Runnable task : tasks) &#123;</span><br><span class="line">     rateLimiter.acquire(); // may wait</span><br><span class="line">     executor.execute(task);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">As another example, imagine that we produce a stream of data, and we want to cap it at 5kb per second. This could be accomplished by requiring a permit per byte, and specifying a rate of 5000 permits per second:</span><br><span class="line"> </span><br><span class="line"> final RateLimiter rateLimiter = RateLimiter.create(5000.0); // rate = 5000 permits per second</span><br><span class="line"> void submitPacket(byte[] packet) &#123;</span><br><span class="line">   rateLimiter.acquire(packet.length);</span><br><span class="line">   networkService.send(packet);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个是限制执行任务的数量，一个是限制每次发送的字节数量。注意，如果超过<code>RateLimiter.create</code>所容许的permits数量，acquire方法将阻塞，直到产生新的permit。当然，如果不想一直阻塞，可以使用tryAcquire(Duration timeout)，该方法，指定一个超时时间，一旦判断出在timeout时间内还无法取得令牌，就返回false。</p>
+<p>此外RateLimiter还支持预热功能，预热后缓存能支持 5 万 TPS 的并发，但是在预热前 5 万 TPS 的并发直接就把缓存击垮。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>Guava RateLimiter采用的是令牌桶算法。</p>
+<p>经典的令牌桶算法描述如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 令牌以固定的速率添加到令牌桶中，假设限流的速率是 r/ 秒，则令牌每 1/r 秒会添加一个；</span><br><span class="line">2. 假设令牌桶的容量是 b （burst，限流器容许的最大突发流量），如果令牌桶已满，则新的令牌会被丢弃；</span><br><span class="line">3. 请求能够通过限流器的前提是令牌桶中有令牌。</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何用Java实现？"><a href="#如何用Java实现？" class="headerlink" title="如何用Java实现？"></a>如何用Java实现？</h3><p>直观思路：生产者-消费者模式，生产者线程定时向阻塞队列添加令牌，被限流的线程作为消费者从阻塞队列获取令牌。</p>
+<p>但这种实现的问题：定时器。高并发场景下，当系统压力已经临近极限的时候，定时器的精度误差会非常大，同时定时器本身会创建调度线程，也会对系统的性能产生影响。</p>
+<h3 id="Guava如何实现令牌桶算法？"><a href="#Guava如何实现令牌桶算法？" class="headerlink" title="Guava如何实现令牌桶算法？"></a>Guava如何实现令牌桶算法？</h3><p>核心思想：记录并动态计算下一令牌发放的时间。</p>
+<p>基本思路：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class SimpleLimiter &#123;</span><br><span class="line">  /*</span><br><span class="line">  当前令牌桶中的令牌数量。</span><br><span class="line">  notes:注意此处的令牌数量是从当前时刻往后开始计算。但是这个变量只有在消费者线程调用acquire()方法时才会更新。这将导致在调用acquire()方法时，storedPermits是滞后的，需要先更新该值。所以有了resync方法</span><br><span class="line">  */</span><br><span class="line">  long storedPermits = 0;</span><br><span class="line">  //令牌桶的容量</span><br><span class="line">  long maxPermits = 3;</span><br><span class="line">  //下一令牌产生时间</span><br><span class="line">  long next = System.nanoTime();</span><br><span class="line">  //发放令牌间隔：纳秒</span><br><span class="line">  long interval = 1000_000_000;</span><br><span class="line">  </span><br><span class="line">  //请求时间在下一令牌产生时间之后,则</span><br><span class="line">  // 1.重新计算令牌桶中的令牌数</span><br><span class="line">  // 2.将下一个令牌发放时间重置为当前时间。</span><br><span class="line">  //notes:因为此时已经更新了令牌桶中已有令牌数量，必须将next更新</span><br><span class="line">  void resync(long now) &#123;</span><br><span class="line">    if (now &gt; next) &#123;</span><br><span class="line">      //新产生的令牌数</span><br><span class="line">      long newPermits=(now-next)/interval;</span><br><span class="line">      //新令牌增加到令牌桶，由于桶的容量有限，通过取两者最小值来丢弃掉多出来的令牌</span><br><span class="line">      storedPermits=min(maxPermits, </span><br><span class="line">        storedPermits + newPermits);</span><br><span class="line">      //将下一个令牌发放时间重置为当前时间。</span><br><span class="line">      next = now;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  //预占令牌，返回能够获取令牌的时间</span><br><span class="line">  synchronized long reserve(long now)&#123;</span><br><span class="line">    //notes:先更新当前桶中的令牌数量、下一个令牌的发放时间。如果令牌桶中已有令牌够用，此时resync方法中将执行next=now，也就是立即发放令牌。</span><br><span class="line">    //如果令牌不够用、需要等待，那么需要等到next时间。</span><br><span class="line">    resync(now);</span><br><span class="line">    //能够获取令牌的时间</span><br><span class="line">    long at = next;</span><br><span class="line">    //令牌桶中能提供的令牌。本身只需要1个令牌，但需要先看令牌桶中的数量storedPermits是否够用。</span><br><span class="line">    long fb=min(1, storedPermits);</span><br><span class="line">    //令牌净需求：首先减掉令牌桶中的令牌</span><br><span class="line">    /*</span><br><span class="line">    两种情况：</span><br><span class="line">    1. 令牌桶已经有足够的令牌：storedPermits &gt;= 1, fb=1, 此时nr=0, 下一个令牌产生时间 next = next，而通过上面可知此时的next就是当前时间now，接着剩余令牌数量减一、更新库存(this.storedPermits -= fb;)</span><br><span class="line">    2. 令牌桶内令牌不够： &lt;= storedPermits &lt; 1, fb=storedPermits, 此时 0 &lt; nr &lt;= 1, nr是接下来还需要产生的令牌数量（需要平滑产生），next = next + nr*interval,  就是说等待nr*interval时间之后，令牌桶中将产生1个完整的令牌可供调用。</span><br><span class="line">    </span><br><span class="line">    */</span><br><span class="line">    long nr = 1 - fb;</span><br><span class="line">    //重新计算下一令牌产生时间</span><br><span class="line">    next = next + nr*interval;</span><br><span class="line">    //重新计算令牌桶中的令牌</span><br><span class="line">    this.storedPermits -= fb;</span><br><span class="line">    //返回本次调用获取令牌的时间</span><br><span class="line">    return at;</span><br><span class="line">  &#125;</span><br><span class="line">  //申请令牌</span><br><span class="line">  void acquire() &#123;</span><br><span class="line">    //申请令牌时的时间</span><br><span class="line">    long now = System.nanoTime();</span><br><span class="line">    //预占令牌</span><br><span class="line">    long at=reserve(now);</span><br><span class="line">    /*</span><br><span class="line">    还是要分两种情况：</span><br><span class="line">    1. 令牌桶已经有足够的令牌: 此时at=now，waitTime=0，获得令牌，直接返回</span><br><span class="line">    2. 令牌桶内令牌不够： 此时at=下次产生令牌时间，需要等待</span><br><span class="line">    */</span><br><span class="line">    long waitTime=max(at-now, 0);</span><br><span class="line">    //按照条件等待</span><br><span class="line">    if(waitTime &gt; 0) &#123;</span><br><span class="line">      try &#123;</span><br><span class="line">        TimeUnit.NANOSECONDS</span><br><span class="line">          .sleep(waitTime);</span><br><span class="line">      &#125;catch(InterruptedException e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有关算法的简要解释：</p>
+<p>next 变量的意思是下一个令牌的生成时间，可以理解为当前线程请求的令牌的生成时刻，如第一张图所示：线程 T1 的令牌的生成时刻是第三秒。</p>
+<p>线程 T 请求时，存在三种场景：</p>
+<ol>
+<li>桶里有剩余令牌。</li>
+<li>刚创建令牌，线程同时请求。</li>
+<li>桶里无剩余令牌。</li>
+</ol>
+<p>场景 2 可以想象成线程请求的同时令牌刚好生成，没来得及放入桶内就被线程 T 拿走了。因此将场景 2 和场景 3 合并成一种情况，那就是桶里没令牌。即线程请求时，桶里可分为有令牌和没令牌。</p>
+<p>“桶里没令牌”，线程 T 需要等待；需要等待则意味着 now(线程 T 请求时刻) 小于等于 next(线程 T 所需的令牌的生成时刻)。这里可以想象一下线程 T 在苦苦等待令牌生成的场景，只要线程 T 等待那么久之后，就会被放行。放行这一刻令牌同时生成，立马被线程拿走，令牌没放入桶里。对应到代码就是 resync 方法没有进入 if 语句内。</p>
+<p>“桶里有令牌”，线程 T 不需要等待。说明线程 T 对应的令牌已经早早生成，已在桶内。代码就是：now &gt; next（请求时刻大于对应令牌的生成时刻）。因此在分配令牌给线程之前，需要计算线程 T 迟到了多久，迟到的这段时间，有多少个令牌生成¹；然后放入桶内，满了则丢弃²；未来的线程的令牌在这个时刻已经生成放入桶内³（即 resync 方法的逻辑）。线程无需等待，所以不需要增加一个 interval 了。</p>
+<p>角标分别对应 resync 方法内的代码： ¹: long newPermits&#x3D;(now-next)&#x2F;interval; ²: storedPermits&#x3D;min(maxPermits,  storedPermits + newPermits); ³: next &#x3D; now;</p>
+<p>对于reverse方法，首先肯定是计算令牌桶里面的令牌数量，然后取令牌桶中的令牌数量storedPermits 与当前的需要的令牌数量 1 做比较，大于等于 1，说明令牌桶至少有一个令牌，此时下一令牌的获取是不需要等待的，表现为 next 不需要变化；而当令牌桶中的令牌没有了即storedPermits等于 0 时，next 就会变化为下一个令牌的获取时间，注意 nr 的值变化</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>java并发编程实战 专栏课</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag"># 源码分析</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/08/17/2020-08-18_tomcat%E5%92%8Cdubbo%E5%AF%B9%E4%BA%8EJDK%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BF%AE%E6%94%B9/" rel="prev" title="tomcat和dubbo对于JDK线程池的修改">
+                  <i class="fa fa-angle-left"></i> tomcat和dubbo对于JDK线程池的修改
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/08/2020-09-09_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BNetty%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" rel="next" title="源码分析之Netty线程模型">
+                  源码分析之Netty线程模型 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Prayer</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">228k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">13:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/evasnowind" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maven package install deploy区别【转载+整理】">
+<meta property="og:url" content="https://evasnowind.github.io/2017/06/21/2017-06-22_maven_package_install_deploy%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD+%E6%95%B4%E7%90%86%E3%80%91/index.html">
+<meta property="og:site_name" content="Prayer的数字城堡">
+<meta property="og:description" content="稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-06-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-04T04:44:28.352Z">
+<meta property="article:author" content="Prayer">
+<meta property="article:tag" content="Maven">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://evasnowind.github.io/2017/06/21/2017-06-22_maven_package_install_deploy%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD+%E6%95%B4%E7%90%86%E3%80%91/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2017/06/21/2017-06-22_maven_package_install_deploy%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD+%E6%95%B4%E7%90%86%E3%80%91/","path":"2017/06/21/2017-06-22_maven_package_install_deploy区别【转载+整理】/","title":"maven package install deploy区别【转载+整理】"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>maven package install deploy区别【转载+整理】 | Prayer的数字城堡</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Prayer的数字城堡" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Prayer的数字城堡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">后端 / Java / 架构 / 技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-timelines"><a href="/timelines/" rel="section"><i class="fa fa-calendar fa-fw"></i>Timelines</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
+  <p class="site-author-name" itemprop="name">Prayer</p>
+  <div class="site-description" itemprop="description">Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2017/03/09/2017-03-10_idea%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E9%87%8D%E7%BD%AEJava_compiler%E7%9A%84JDK%E7%89%88%E6%9C%AC%E4%B8%BA1.5%E7%9A%84%E9%97%AE%E9%A2%98/" rel="bookmark">
+        <time class="popular-posts-time">2017-03-10</time>
+        <br>
+      idea中maven项目自动重置Java compiler的JDK版本为1.5的问题
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2018/01/09/2018-01-10_dubbo-admin%E7%BC%96%E8%AF%91%E6%97%B6%E6%8A%A5%E9%94%99%E6%97%A0%E6%B3%95%E5%BE%97%E5%88%B0war%E5%8C%85%E3%80%90%E6%95%B4%E7%90%86%E3%80%91/" rel="bookmark">
+        <time class="popular-posts-time">2018-01-10</time>
+        <br>
+      dubbo-admin编译时报错无法得到war包【整理】
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2018/05/20/2018-05-21_%E3%80%90NPM%E3%80%91npm_ERR!_Unexpected_end_of_JSON_input_while_parsing_near_%E2%80%98%E2%80%A6%E2%80%9D,%E2%80%99%E8%A7%A3%E5%86%B3/" rel="bookmark">
+        <time class="popular-posts-time">2018-05-21</time>
+        <br>
+      【NPM】npm ERR! Unexpected end of JSON input while parsing near ‘…”,’解决方案【转载】
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2011/06/28/2011-06-29_VMware_Easy_Install%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8Easy_Install%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E6%96%87%EF%BC%89-%E4%B8%8B%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="bookmark">
+        <time class="popular-posts-time">2011-06-29</time>
+        <br>
+      VMware Easy Install模式详细介绍：如何启用和禁用Easy Install模式（图文）-下【转载】
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2010/07/18/2010-07-19_Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85VMware_Tool/" rel="bookmark">
+        <time class="popular-posts-time">2010-07-19</time>
+        <br>
+      Linux虚拟机安装VMware Tool
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://evasnowind.github.io/2017/06/21/2017-06-22_maven_package_install_deploy%E5%8C%BA%E5%88%AB%E3%80%90%E8%BD%AC%E8%BD%BD+%E6%95%B4%E7%90%86%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-150.png">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="maven package install deploy区别【转载+整理】 | Prayer的数字城堡">
+      <meta itemprop="description" content="稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          maven package install deploy区别【转载+整理】
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-06-22T00:00:00+08:00">2017-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 12:44:28" itemprop="dateModified" datetime="2026-09-04T12:44:28+08:00">2026-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">构建工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>538</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>稍微留下个笔记，省的以后再搜了。本文内容来自以下两篇文章：<br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yhj19920417/article/details/72627227">maven package install deploy区别</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zeng1994/p/7486330.html">添加jar包到本地Maven仓库</a><br>首先，说下package install deploy区别<br>**1、maven package：**打包到本项目，一般是在项目target目录下。<br>如果a项目依赖于b项目，打包b项目时，只会打包到b项目下target下，编译a项目时就会报错，因为找不到所依赖的b项目，说明a项目在本地仓库是没有找到它所依赖的b项目。<br>**2、maven install：**打包会安装到本地的maven仓库中，如果没有设置过maven本地仓库，一般在用户&#x2F;.m2目录下。<br>如果a项目依赖于b项目，那么install b项目时，会在本地仓库同时生成pom文件和jar文件，<br>可以看install b的日志:<br>[INFO] — maven-install-plugin:2.5.2:install (default-install) @ b —<br>[INFO]Installing D:\Java\workspace\b\target\b-2.7.4.RELEASE.jar to<br>C:\mavenRepository\com**\b\2.7.4.RELEASE\b-2.7.4.RELEASE.jar [INFO]<br>Installing D:\java\workspace\b\pom.xml to<br>C:\mavenRepository\com**\b\2.7.4.RELEASE\b-2.7.4.RELEASE.pom<br>说明b项目已安装到本地仓库了,并且是jar和pom同时安装的. 这时候去compile a项目，编译通过.<br><strong>总结：</strong><br><strong>A、maven package：打包（jar等）到本项目的target下。</strong><br><strong>B、maven install：把target下打的包（jar等）安装到本地仓库，可以供其他项目使用。</strong><br><strong>3、maven deploy：<strong>将打包的文件发布到远程参考,提供其他人员进行下载依赖。<br>然后呢，对于</strong>mvn install</strong>命令，格式如下：</p>
+<span id="more"></span>
+
+<blockquote>
+<p>安装指定文件到本地仓库命令：<br>mvn install:install-file<br>-DgroupId&#x3D;<groupId> : 设置项目代码的包名(一般用组织名)<br>-DartifactId&#x3D;<artifactId> : 设置项目名或模块名<br>-Dversion&#x3D;1.0.0 : 版本号<br>-Dpackaging&#x3D;jar : 什么类型的文件(jar包)<br>-Dfile&#x3D;&lt;myfile.jar&gt; : 指定jar文件路径与文件名(同目录只需文件名)</p>
+</blockquote>
+<p>举个栗子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -Dfile=apollo-core-0.10.0-SNAPSHOT.jar -DgroupId=com.ctrip.framework.apollo -DartifactId=apollo-core -Dversion=0.10.0-SNAPSHOT -Dpackaging=jar</span><br></pre></td></tr></table></figure>
+
+<p>注意version中并不一定只能是0.10.0这种数字，也可以是0.10.0-SNAPSHOT这种。我在编译携程apollo-client时，apollo-client依赖的就是<strong>apollo-core 0.10.0-SNAPSHOT。</strong>\</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Maven/" rel="tag"># Maven</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/05/09/2017-05-10_java_List%E7%9A%84%E4%B8%AD_%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E6%98%AF%E7%88%B6%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84list%E3%80%82%E4%BC%A0%E5%85%A5%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1%E6%97%B6%E7%9A%84%E5%A4%84%E7%90%86%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="prev" title="java List的中 方法参数是父类对象的list。传入子类对象时的处理【转载】">
+                  <i class="fa fa-angle-left"></i> java List的中 方法参数是父类对象的list。传入子类对象时的处理【转载】
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/07/29/2017-07-30_%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E5%BC%80%E6%BA%90%E7%9C%8B%E6%9D%BF%E5%B7%A5%E5%85%B7wekan(libreboard)%E4%BB%A5%E5%8F%8A%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/" rel="next" title="安装部署开源看板工具wekan(libreboard)以及踩过的坑">
+                  安装部署开源看板工具wekan(libreboard)以及踩过的坑 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Prayer</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">228k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">13:48</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/evasnowind" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
