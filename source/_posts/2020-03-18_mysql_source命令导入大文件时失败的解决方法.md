@@ -1,5 +1,5 @@
 ---
-title: "mysql source命令导入大文件时失败的解决方法"
+title: "MySQL source命令导入大文件时失败的解决方法"
 date: "2020-03-18"
 categories: ["数据库"]
 tags: ["MySQL"]

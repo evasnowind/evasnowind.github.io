@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=404"
 description: "ubuntu的root默认是禁止使用的，在安装的时候也没要求你设置root的密码，和红帽系统系列这里是不同的。"
 ---
 
-转自：http://www.linuxdiyf.com/viewarticle.php?id=179291
+原文链接：http://www.linuxdiyf.com/viewarticle.php?id=179291
 
 ubuntu的root默认是禁止使用的，在安装的时候也没要求你设置root的密码，和红帽系统系列这里是不同的。要使用，给root设置密码就行了，sudo passwd root
 如果只是普通用户密码忘了，用root就可以修改。如果root都忘记了，就进入单用户模式，这里跟红帽系统系列也不同。

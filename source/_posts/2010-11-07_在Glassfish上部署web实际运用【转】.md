@@ -1,5 +1,5 @@
 ---
-title: "在Glassfish上部署web实际运用【转】"
+title: "在Glassfish上部署web实际运用【转载】"
 date: "2010-11-07"
 categories: ["Java"]
 tags: ["Java"]
@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=412"
 description: "记录在Glassfish上部署web实际运用的安装、配置与实践过程。"
 ---
 
-转自：http://www.verybc.com/a/hulianwang/2009/1124/9298.html
+原文链接：http://www.verybc.com/a/hulianwang/2009/1124/9298.html
  
 
 本文介绍了在Glassfish上部署Web应用的操作流程。这个教程中使用的配置是Netbeans5.5.1以及Glassfish V2。

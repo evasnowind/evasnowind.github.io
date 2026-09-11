@@ -1,5 +1,5 @@
 ---
-title: "mybatis xml常用写法-使用like关键字【整理+转载】"
+title: "MyBatis xml常用写法-使用like关键字【整理 + 转载】"
 date: "2019-10-19"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis"]

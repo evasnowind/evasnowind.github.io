@@ -1,5 +1,5 @@
 ---
-title: "spring cloud gateway基础"
+title: "Spring Cloud gateway基础"
 date: "2020-12-29"
 categories: ["Java", "Spring Cloud"]
 tags: ["Spring Cloud"]

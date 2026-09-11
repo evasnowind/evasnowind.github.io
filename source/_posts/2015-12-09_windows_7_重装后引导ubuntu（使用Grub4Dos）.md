@@ -1,5 +1,5 @@
 ---
-title: "windows 7 重装后引导ubuntu（使用Grub4Dos）"
+title: "Windows 7 重装后引导ubuntu（使用Grub4Dos）"
 date: "2015-12-09"
 categories: ["Linux"]
 tags: ["Linux"]

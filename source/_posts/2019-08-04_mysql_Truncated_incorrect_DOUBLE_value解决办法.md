@@ -1,5 +1,5 @@
 ---
-title: "mysql Truncated incorrect DOUBLE value解决办法"
+title: "MySQL Truncated incorrect DOUBLE value解决办法"
 date: "2019-08-04"
 categories: ["数据库"]
 tags: ["MySQL"]

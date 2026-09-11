@@ -1,14 +1,13 @@
 ---
-title: "java List的中 方法参数是父类对象的list。传入子类对象时的处理【转载】"
+title: "Java 中方法参数为父类 List 时传入子类 List 的处理【转载】"
 date: "2017-05-10"
 categories: ["Java"]
 tags: ["Java", "集合"]
 source: "http://prayerlaputa.com/?p=648"
-description: "ArrayList和ArrayList是两个不同的泛型。"
+description: "记录 Java 泛型场景下，方法参数为父类 List 时如何处理子类 List。"
 ---
 
-本文转载自：
-<https://blog.csdn.net/u014463137/article/details/75570656>
+原文链接：<https://blog.csdn.net/u014463137/article/details/75570656>
 
 # 父类
 
@@ -49,7 +48,7 @@ public class Children extends FatherA {
 
 # 实现
 
-ArrayList和ArrayList是两个不同的泛型
+`List<FatherA>` 和 `List<Children>` 是两种不同的泛型类型。
 
 ```
 public class Test {

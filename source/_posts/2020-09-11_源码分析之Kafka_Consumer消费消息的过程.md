@@ -1,25 +1,25 @@
 ---
-title: "源码分析之Kafka Consumer消费消息的过程"
+title: "源码分析之 Kafka Consumer 消费消息的过程"
 date: "2020-09-11"
 categories: ["中间件"]
 tags: ["源码分析", "Kafka"]
 source: "http://prayerlaputa.com/?p=861"
-description: "围绕Kafka Consumer消费消息的过程的实现原理、核心流程与关键细节做源码分析。"
+description: "围绕 Kafka Consumer 消费消息的实现原理、核心流程与关键细节做源码分析。"
 ---
 
-## 说明
+## 前言
 
-本文基于Apache Kafka 2.5.1（2020.09.10拉取最新代码）
+本文基于 Apache Kafka 2.5.1（2020.09.10 拉取的代码）进行分析。
 
-## Consumer如何使用？
+## Consumer 如何使用
 
-阅读源码前的首先要做到熟悉相关组件的概念、基本使用。而最靠谱的资料就是官方文档。
+在阅读源码之前，最好先熟悉相关组件的基本概念和使用方式，而最可靠的资料通常还是官方文档。
 
 <!-- more -->
 
-建议阅读官方文档（<https://kafka.apache.org/documentation/>）后，自己练习、使用kafka之后再开始阅读源码。
+建议先阅读官方文档（<https://kafka.apache.org/documentation/>），并结合实际使用 Kafka 的过程建立基本认识，再开始阅读源码。
 
-KafkaConsumer的JavaDoc（参见<https://kafka.apache.org/10/javadoc/?org/apache/kafka/clients/consumer/KafkaConsumer.html>）本身就给出了不少有用信息，下面仅列出一些关键点：
+`KafkaConsumer` 的 JavaDoc（参见 <https://kafka.apache.org/10/javadoc/?org/apache/kafka/clients/consumer/KafkaConsumer.html>）本身就给出了不少有用信息，下面只列出几个关键点：
 
 - Cross-Version Compatibility 客户端支持0.10.0以及以上版本，如果调用不支持的特性，会抛出UnsupportedVersionException
 - Offsets and Consumer Position position: 有待读取的下一条记录的偏移量 commited position: 已被保存、归档的最后一条记录的偏移量，可以用于恢复数据。

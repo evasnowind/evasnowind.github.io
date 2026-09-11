@@ -1,5 +1,5 @@
 ---
-title: "win7下配置PHP+apache+mysql【转载 + 补充】"
+title: "win7下配置PHP+apache+MySQL【转载 + 补充】"
 date: "2015-12-09"
 categories: ["Web"]
 tags: ["MySQL", "建站"]

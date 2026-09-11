@@ -1,5 +1,5 @@
 ---
-title: "spring中使用mybatis/mybatis plus连接sqlserver"
+title: "spring中使用mybatis/MyBatis plus连接sqlserver"
 date: "2020-03-03"
 categories: ["数据库"]
 tags: ["MyBatis", "SQL Server"]

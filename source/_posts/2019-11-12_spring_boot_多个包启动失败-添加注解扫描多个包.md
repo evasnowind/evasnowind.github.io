@@ -1,5 +1,5 @@
 ---
-title: "spring boot 多个包启动失败-添加注解扫描多个包"
+title: "Spring Boot 多个包启动失败-添加注解扫描多个包"
 date: "2019-11-12"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot"]

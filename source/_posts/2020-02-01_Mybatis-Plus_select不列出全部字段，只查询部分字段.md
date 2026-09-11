@@ -1,5 +1,5 @@
 ---
-title: "Mybatis-Plus select不列出全部字段，只查询部分字段"
+title: "MyBatis-Plus select不列出全部字段，只查询部分字段"
 date: "2020-02-01"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis"]

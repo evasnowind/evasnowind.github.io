@@ -1,23 +1,23 @@
 ---
-title: "spring boot连接mysql 8时报errorCode 0, state 08001错误"
+title: "Spring Boot 连接 MySQL 8 报 errorCode 0, state 08001 错误"
 date: "2019-11-24"
 categories: ["数据库"]
 tags: ["Spring Boot", "MySQL"]
 source: "http://prayerlaputa.com/?p=715"
-description: "spring boot 启动时，连接mysql 8数据库报错errorCode 0, state 08001。"
+description: "记录 Spring Boot 连接 MySQL 8 时出现 errorCode 0、state 08001 报错的常见原因与解决办法。"
 ---
 
-# 现象
+## 问题现象
 
-spring boot 启动时，连接mysql 8数据库报错`errorCode 0, state 08001`。
+Spring Boot 启动时，连接 MySQL 8 数据库报错 `errorCode 0, state 08001`。
 
-## 原因
+## 原因分析
 
-### 1. spring boot项目中，pom文件中配置的mysql驱动版本与mysql数据库版本不一致
+### 1. `pom.xml` 中配置的 MySQL 驱动版本与 MySQL 数据库版本不一致
 
 <!-- more -->
 
-此时修改pom文件中的版本即可，可以使用下面的配置：
+这种情况下，修改 `pom.xml` 中的驱动版本即可，例如：
 
 ```
 ……
@@ -27,7 +27,7 @@ spring boot 启动时，连接mysql 8数据库报错`errorCode 0, state 08001`�
 ……
 ```
 
-同时，yml文件中的mysql驱动类文件最好修改成
+同时，`yml` 文件中的 MySQL 驱动类也建议改为：
 
 ```
 ……
@@ -35,11 +35,9 @@ driver-class-name: com.mysql.cj.jdbc.Driver
 ……
 ```
 
-### 
+### 2. 连接参数配置需要调整
 
-### 2. 连接配置参数需要修改
-
-如果修改驱动文件后还是抛出异常，此时可以尝试修改连接参数，改成如下这种：
+如果修改驱动后问题仍然存在，可以进一步调整连接参数，例如：
 
 ```
 ……
@@ -47,7 +45,7 @@ url: jdbc:mysql://ip地址:3306/数据库名称?useUnicode=true&characterEncodin
 ……
 ```
 
-没细查，主要应该是由于加密方式、编码等原因导致的。
+这里没有继续深挖底层细节，但大概率与认证方式、编码设置或时区参数有关。
 
 ## 参考资料
 

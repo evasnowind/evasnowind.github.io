@@ -1,5 +1,5 @@
 ---
-title: "【源码分析】java sdk篇–Integer"
+title: "【源码分析】Java sdk篇–Integer"
 date: "2017-01-11"
 categories: ["Java", "源码分析"]
 tags: ["Java", "源码分析"]

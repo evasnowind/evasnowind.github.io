@@ -1,5 +1,5 @@
 ---
-title: "dubbo-admin编译时报错无法得到war包【整理】"
+title: "Dubbo-admin编译时报错无法得到war包【整理】"
 date: "2018-01-10"
 categories: ["Linux"]
 tags: ["Linux", "Dubbo"]

@@ -1,5 +1,5 @@
 ---
-title: "Linux虚拟机安装VMware Tool【转载】"
+title: "Linux虚拟机安装VMware Tools【转载】"
 date: "2015-12-09"
 categories: ["Linux"]
 tags: ["Linux"]
@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=136"
 description: "这时，虚拟机系统中会弹文件选择对话框，就是我们导入的VMware Tools。 接下来在系统中操作。"
 ---
 
-转自：http://robert-liu.javaeye.com/blog/534051
+原文链接：http://robert-liu.javaeye.com/blog/534051
 在虚拟机上安装完系统，可能会遇到一些使用不方便的问题，比如 鼠标切入切出，刚安装的系统分辨率低等等。
 这个时候，我们可以安装VMware Tool来解决这些问题。
 

@@ -1,5 +1,5 @@
 ---
-title: "windows xp下 glassfish安装及部署【转载】"
+title: "Windows xp下 glassfish安装及部署【转载】"
 date: "2010-11-07"
 categories: ["Java"]
 tags: ["Java"]
@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=413"
 description: "记录windows xp下 glassfish安装及部署的安装、配置与实践过程。"
 ---
 
-转自：http://www.blogjava.net/ann/articles/260260.html
+原文链接：http://www.blogjava.net/ann/articles/260260.html
  
 一. 下载解压glassfish
 1. 下载地址:

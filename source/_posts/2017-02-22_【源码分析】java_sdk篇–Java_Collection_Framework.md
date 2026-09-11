@@ -1,5 +1,5 @@
 ---
-title: "【源码分析】java sdk篇–Java Collection Framework"
+title: "【源码分析】Java sdk篇–Java Collection Framework"
 date: "2017-02-22"
 categories: ["Java", "源码分析"]
 tags: ["Java", "集合", "源码分析"]

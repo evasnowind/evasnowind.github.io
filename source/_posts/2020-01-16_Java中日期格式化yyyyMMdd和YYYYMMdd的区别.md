@@ -4,10 +4,10 @@ date: "2020-01-16"
 categories: ["Java"]
 tags: ["Java"]
 source: "http://prayerlaputa.com/?p=746"
-description: "原因： YYYY是week-based-year，表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。所以2019年12月31日那天在这种表述方式下就已经 2020 年了。"
+description: "记录 Java 日期格式化中 `yyyyMMdd` 与 `YYYYMMdd` 的区别，以及跨年场景下的实际表现。"
 ---
 
-示例代码：
+先看一段示例代码：
 
 ```
  public static void main(String[] args) {
@@ -59,7 +59,7 @@ YYYYMMdd
 2020-01-01: 20200101
 ```
 
-原因：
+原因如下：
 YYYY是week-based-year，表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。所以2019年12月31日那天在这种表述方式下就已经 2020 年了。而当使用yyyy的时候，就还是 2019 年。
 
 <!-- more -->

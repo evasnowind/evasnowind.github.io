@@ -1,5 +1,5 @@
 ---
-title: "【源码分析】java sdk篇–CopyOnWrite容器"
+title: "【源码分析】Java sdk篇–CopyOnWrite容器"
 date: "2017-01-11"
 categories: ["阅读"]
 tags: ["Java", "并发", "源码分析"]

@@ -1,5 +1,5 @@
 ---
-title: "_RecordsetPtr的 open函数(转载)"
+title: "_RecordsetPtr的 open函数【转载】"
 date: "2010-05-10"
 categories: ["C/C++"]
 tags: ["C/C++"]
@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=419"
 description: "记录使用 _RecordsetPtr::Open 打开 ADO Recordset 时的参数含义与示例代码。"
 ---
 
-转自：http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html
+原文链接：http://hi.baidu.com/ruiqing\_2008/blog/item/50381334c10183bbd1a2d369.html
 \_RecordsetPtr m\_pRecordset;//创建一个\_RecordsetPtr m\_pRecordset.CreateInstance("ADODB.Recordset"); //创建一个实例 try {      m\_pRecordset->Open(
 "SELECT * FROM duty",                                               //sql查询语句
 m\_pConnection.GetInterfacePtr(),                               //得到sql连接的指针

@@ -1,26 +1,25 @@
 ---
-title: "ElasticSearch集群配置方法与注意事项"
+title: "Elasticsearch 集群配置方法与注意事项"
 date: "2019-08-04"
 categories: ["中间件"]
 tags: ["Elasticsearch"]
 source: "http://prayerlaputa.com/?p=579"
-description: "注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。"
+description: "记录 Elasticsearch 集群的基础配置方法，以及搭建过程中需要注意的关键细节。"
 ---
 
-# 目标
+## 集群目标
 
-一台主节点，一台从节点
+本文示例环境为一台主节点、一台从节点。
 
-# ES安装与配置
+## Elasticsearch 安装与配置
 
-注意，集群配置完成前建议不要启动单个ES实例。
-原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。
+注意：在集群配置完成前，建议不要先单独启动某个 ES 实例。原因是 ES 按默认参数启动时会以单机模式初始化，并创建一系列文件和目录，这些内容可能会干扰后续的集群配置。
 
 <!-- more -->
 
-# 配置集群
+## 配置集群
 
-## 修改配置文件
+### 修改配置文件
 
 ```
 cluster.name: tipdm-es #es集群名称
@@ -45,7 +44,7 @@ bootstrap.memory_lock: false
 bootstrap.system_call_filter: false
 ```
 
-建议新建一个linux用户，用于管理elasticsearch
+建议新建一个 Linux 用户专门管理 Elasticsearch。
 
 ```
 useradd elasticsearch
@@ -53,7 +52,7 @@ passwd elasticsearch
 chown -R elasticsearch:elasticsearch elasticsearch文件夹
 ```
 
-此时即可启动ES
+此时即可启动 ES。
 
 ```
 sudo su - elasticsearch

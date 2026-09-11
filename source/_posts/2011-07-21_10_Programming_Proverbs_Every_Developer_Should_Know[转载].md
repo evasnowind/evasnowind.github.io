@@ -1,5 +1,5 @@
 ---
-title: "10 Programming Proverbs Every Developer Should Know[转载]"
+title: "10 Programming Proverbs Every Developer Should Know【转载】"
 date: "2011-07-21"
 categories: ["阅读"]
 tags: ["阅读"]

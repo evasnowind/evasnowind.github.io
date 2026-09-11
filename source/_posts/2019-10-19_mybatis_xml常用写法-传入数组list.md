@@ -1,5 +1,5 @@
 ---
-title: "mybatis xml常用写法-传入数组list"
+title: "MyBatis xml常用写法-传入数组list"
 date: "2019-10-19"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis", "集合"]

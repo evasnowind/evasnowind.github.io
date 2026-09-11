@@ -1,5 +1,5 @@
 ---
-title: "Java中的Overload Overwrite Override（转载）"
+title: "Java中的Overload Overwrite Override【转载】"
 date: "2010-02-12"
 categories: ["Java"]
 tags: ["Java"]

@@ -1,5 +1,5 @@
 ---
-title: "maven package install deploy区别【转载+整理】"
+title: "Maven package install deploy区别【转载 + 整理】"
 date: "2017-06-22"
 categories: ["工具", "构建工具"]
 tags: ["Maven"]

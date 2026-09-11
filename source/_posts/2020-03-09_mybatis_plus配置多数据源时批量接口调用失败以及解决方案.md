@@ -1,5 +1,5 @@
 ---
-title: "mybatis plus配置多数据源时批量接口调用失败以及解决方案"
+title: "MyBatis plus配置多数据源时批量接口调用失败以及解决方案"
 date: "2020-03-09"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot", "MyBatis"]
