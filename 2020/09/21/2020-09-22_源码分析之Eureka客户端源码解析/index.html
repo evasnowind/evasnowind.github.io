@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://evasnowind.github.io/images/eureka-client-startup-work-flow-1024x728_79011726.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/spring-cloud-netflix-eureka-client-metai_8e79bf68.png">
 <meta property="article:published_time" content="2020-09-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-04T04:44:28.356Z">
+<meta property="article:modified_time" content="2026-09-11T13:04:39.481Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Spring Cloud">
 <meta property="article:tag" content="源码分析">
@@ -226,7 +226,7 @@
       <a class="popular-posts-link" href="/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/" rel="bookmark">
         <time class="popular-posts-time">2020-12-29</time>
         <br>
-      spring cloud gateway基础
+      Spring Cloud gateway基础
       </a>
     </li>
     <li class="popular-posts-item">
@@ -306,7 +306,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-04 12:44:28" itemprop="dateModified" datetime="2026-09-04T12:44:28+08:00">2026-09-04</time>
+      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -329,7 +329,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -351,7 +351,7 @@
 <h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><h4 id="一些注解的说明"><a href="#一些注解的说明" class="headerlink" title="一些注解的说明"></a>一些注解的说明</h4><p>eureka中用到几个比较有意思的注解，简化程序实现。</p>
 <h5 id="ConfigurationProperties-“eureka-instance”"><a href="#ConfigurationProperties-“eureka-instance”" class="headerlink" title="@ConfigurationProperties(“eureka.instance”)"></a>@ConfigurationProperties(“eureka.instance”)</h5><span id="more"></span>
 
-<p>表示从外部配置文件中（properties或是yml文件）读取”eureka.instance”对应的配置。</p>
+<p>表示从外部配置文件中（properties 或 yml 文件）读取 <code>eureka.instance</code> 对应的配置。</p>
 <h5 id="ConditionalOnBean-ConditionalOnClass"><a href="#ConditionalOnBean-ConditionalOnClass" class="headerlink" title="@ConditionalOnBean&#x2F;@ConditionalOnClass"></a>@ConditionalOnBean&#x2F;@ConditionalOnClass</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@ConditionalOnBean         //   当给定的在bean存在时,则实例化当前Bean</span><br><span class="line">@ConditionalOnMissingBean  //   当给定的在bean不存在时,则实例化当前Bean</span><br><span class="line">@ConditionalOnClass        //   当给定的类名在类路径上存在，则实例化当前Bean</span><br><span class="line">@ConditionalOnMissingClass //   当给定的类名在类路径上不存在，则实例化当前Bean</span><br></pre></td></tr></table></figure>
 
 <p>可以参考这篇文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/qdhxhz/p/11027546.html">SpringBoot(16)—@ConditionalOnBean与@ConditionalOnClass</a></p>
@@ -359,7 +359,7 @@
 <h5 id="ImplementedBy"><a href="#ImplementedBy" class="headerlink" title="@ImplementedBy"></a>@ImplementedBy</h5><p>google guice注解，指定接口默认的实现类。</p>
 <h5 id="Singleton"><a href="#Singleton" class="headerlink" title="@Singleton"></a>@Singleton</h5><p>jdk 提供的注解，将当前类实现为单例模式。</p>
 <h4 id="eureka架构"><a href="#eureka架构" class="headerlink" title="eureka架构"></a>eureka架构</h4><p><img src="/images/eureka-architecture-1024x548_c59397f0.png"></p>
-<h2 id="eureka客户端源码"><a href="#eureka客户端源码" class="headerlink" title="eureka客户端源码"></a>eureka客户端源码</h2><h3 id="eureka客户端工作流程"><a href="#eureka客户端工作流程" class="headerlink" title="eureka客户端工作流程"></a>eureka客户端工作流程</h3><p><img src="/images/eureka-client-work-flow-1024x598_c91e0794.png">\</p>
+<h2 id="eureka客户端源码"><a href="#eureka客户端源码" class="headerlink" title="eureka客户端源码"></a>eureka客户端源码</h2><h3 id="eureka客户端工作流程"><a href="#eureka客户端工作流程" class="headerlink" title="eureka客户端工作流程"></a>eureka客户端工作流程</h3><p><img src="/images/eureka-client-work-flow-1024x598_c91e0794.png"></p>
 <p>下面将简要说明上图的过程。</p>
 <p>eureka客户端比较关键的类如下：</p>
 <p><img src="/images/eureka-client-main-class-300x150_5e20efa1.png"></p>

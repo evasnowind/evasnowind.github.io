@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。">
+    <meta name="description" content="记录 Elasticsearch 集群的基础配置方法，以及搭建过程中需要注意的关键细节。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ElasticSearch集群配置方法与注意事项">
+<meta property="og:title" content="Elasticsearch 集群配置方法与注意事项">
 <meta property="og:url" content="https://evasnowind.github.io/2019/08/03/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。">
+<meta property="og:description" content="记录 Elasticsearch 集群的基础配置方法，以及搭建过程中需要注意的关键细节。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-08-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-04T04:44:28.353Z">
+<meta property="article:modified_time" content="2026-09-11T13:04:39.479Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Elasticsearch">
 <meta name="twitter:card" content="summary">
@@ -32,10 +32,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2019/08/03/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/08/03/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/","path":"2019/08/03/2019-08-04_ElasticSearch集群配置方法与注意事项/","title":"ElasticSearch集群配置方法与注意事项"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/08/03/2019-08-04_ElasticSearch%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/","path":"2019/08/03/2019-08-04_ElasticSearch集群配置方法与注意事项/","title":"Elasticsearch 集群配置方法与注意事项"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>ElasticSearch集群配置方法与注意事项 | Prayer的数字城堡</title>
+<title>Elasticsearch 集群配置方法与注意事项 | Prayer的数字城堡</title>
   
 
 
@@ -157,7 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">ES安装与配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4"><span class="nav-number">3.</span> <span class="nav-text">配置集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.2.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEhead%E6%8F%92%E4%BB%B6%EF%BC%8C%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%AE%A1%E7%90%86ES%E9%9B%86%E7%BE%A4"><span class="nav-number">3.3.</span> <span class="nav-text">配置head插件，图形化管理ES集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85head%E5%89%8D%E9%9C%80%E8%A6%81%E5%85%88%E5%AE%89%E8%A3%85nodejs%E5%92%8Cnpm"><span class="nav-number">3.3.1.</span> <span class="nav-text">安装head前需要先安装nodejs和npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85head%E6%8F%92%E4%BB%B6"><span class="nav-number">3.3.2.</span> <span class="nav-text">安装head插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#elasticsearch-head-%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES%E9%9B%86%E7%BE%A4"><span class="nav-number">4.1.</span> <span class="nav-text">elasticsearch-head 无法连接ES集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E4%BB%8E%E8%8A%82%E7%82%B9%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.2.</span> <span class="nav-text">主从节点配置的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#failure-when-sending-a-validation-request-to-node"><span class="nav-number">4.3.</span> <span class="nav-text">failure when sending a validation request to node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81"><span class="nav-number">4.4.</span> <span class="nav-text">设置账号密码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">集群目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elasticsearch-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">Elasticsearch 安装与配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4"><span class="nav-number">3.</span> <span class="nav-text">配置集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEhead%E6%8F%92%E4%BB%B6%EF%BC%8C%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%AE%A1%E7%90%86ES%E9%9B%86%E7%BE%A4"><span class="nav-number">5.</span> <span class="nav-text">配置head插件，图形化管理ES集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85head%E5%89%8D%E9%9C%80%E8%A6%81%E5%85%88%E5%AE%89%E8%A3%85nodejs%E5%92%8Cnpm"><span class="nav-number">5.1.</span> <span class="nav-text">安装head前需要先安装nodejs和npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85head%E6%8F%92%E4%BB%B6"><span class="nav-number">5.2.</span> <span class="nav-text">安装head插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#elasticsearch-head-%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5ES%E9%9B%86%E7%BE%A4"><span class="nav-number">6.1.</span> <span class="nav-text">elasticsearch-head 无法连接ES集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E4%BB%8E%E8%8A%82%E7%82%B9%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">6.2.</span> <span class="nav-text">主从节点配置的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#failure-when-sending-a-validation-request-to-node"><span class="nav-number">6.3.</span> <span class="nav-text">failure when sending a validation request to node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81"><span class="nav-number">6.4.</span> <span class="nav-text">设置账号密码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -248,12 +248,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="ElasticSearch集群配置方法与注意事项 | Prayer的数字城堡">
-      <meta itemprop="description" content="注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。">
+      <meta itemprop="name" content="Elasticsearch 集群配置方法与注意事项 | Prayer的数字城堡">
+      <meta itemprop="description" content="记录 Elasticsearch 集群的基础配置方法，以及搭建过程中需要注意的关键细节。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ElasticSearch集群配置方法与注意事项
+          Elasticsearch 集群配置方法与注意事项
         </h1>
 
         <div class="post-meta-container">
@@ -271,7 +271,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-04 12:44:28" itemprop="dateModified" datetime="2026-09-04T12:44:28+08:00">2026-09-04</time>
+      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,7 +290,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>1.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -301,23 +301,23 @@
     </span>
 </div>
 
-            <div class="post-description">注意，集群配置完成前建议不要启动单个ES实例。 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。</div>
+            <div class="post-description">记录 Elasticsearch 集群的基础配置方法，以及搭建过程中需要注意的关键细节。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>一台主节点，一台从节点</p>
-<h1 id="ES安装与配置"><a href="#ES安装与配置" class="headerlink" title="ES安装与配置"></a>ES安装与配置</h1><p>注意，集群配置完成前建议不要启动单个ES实例。<br>原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="集群目标"><a href="#集群目标" class="headerlink" title="集群目标"></a>集群目标</h2><p>本文示例环境为一台主节点、一台从节点。</p>
+<h2 id="Elasticsearch-安装与配置"><a href="#Elasticsearch-安装与配置" class="headerlink" title="Elasticsearch 安装与配置"></a>Elasticsearch 安装与配置</h2><p>注意：在集群配置完成前，建议不要先单独启动某个 ES 实例。原因是 ES 按默认参数启动时会以单机模式初始化，并创建一系列文件和目录，这些内容可能会干扰后续的集群配置。</p>
 <span id="more"></span>
 
-<h1 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h1><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: tipdm-es #es集群名称</span><br><span class="line">node.name: es-node1    #es节点名称，每个节点的名称不能相同</span><br><span class="line">node.master: true      #指定该节点是否有资格被选举成为master，默认是true</span><br><span class="line">node.data: true        #指定该节点是否存储索引数据，默认为true。</span><br><span class="line"></span><br><span class="line">network.host: 192.168.111.76  #节点的ip地址</span><br><span class="line"></span><br><span class="line">## 下面这两个参数应该是旧版本配置参数，我安装的是7.2版本，对应参数是discovery.seed_hosts 和 cluster.initial_master_nodes </span><br><span class="line">#设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.111.75&quot;, &quot;192.168.111.76&quot;, &quot;192.168.111.77&quot;]</span><br><span class="line">#设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）</span><br><span class="line">discovery.zen.minimum_master_nodes: 2 </span><br><span class="line"></span><br><span class="line">#如果要使用head,那么需要设置下面2个参数,使head插件可以访问es</span><br><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br><span class="line"></span><br><span class="line">#这是Centos6不支持SecComp，而ES默认bootstrap.system_call_filter为true进行检测，所以导致检测失败，失败后直接导致ES不能启动。</span><br><span class="line">bootstrap.memory_lock: false</span><br><span class="line">bootstrap.system_call_filter: false</span><br></pre></td></tr></table></figure>
+<h2 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h2><h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: tipdm-es #es集群名称</span><br><span class="line">node.name: es-node1    #es节点名称，每个节点的名称不能相同</span><br><span class="line">node.master: true      #指定该节点是否有资格被选举成为master，默认是true</span><br><span class="line">node.data: true        #指定该节点是否存储索引数据，默认为true。</span><br><span class="line"></span><br><span class="line">network.host: 192.168.111.76  #节点的ip地址</span><br><span class="line"></span><br><span class="line">## 下面这两个参数应该是旧版本配置参数，我安装的是7.2版本，对应参数是discovery.seed_hosts 和 cluster.initial_master_nodes </span><br><span class="line">#设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.111.75&quot;, &quot;192.168.111.76&quot;, &quot;192.168.111.77&quot;]</span><br><span class="line">#设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）</span><br><span class="line">discovery.zen.minimum_master_nodes: 2 </span><br><span class="line"></span><br><span class="line">#如果要使用head,那么需要设置下面2个参数,使head插件可以访问es</span><br><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br><span class="line"></span><br><span class="line">#这是Centos6不支持SecComp，而ES默认bootstrap.system_call_filter为true进行检测，所以导致检测失败，失败后直接导致ES不能启动。</span><br><span class="line">bootstrap.memory_lock: false</span><br><span class="line">bootstrap.system_call_filter: false</span><br></pre></td></tr></table></figure>
 
-<p>建议新建一个linux用户，用于管理elasticsearch</p>
+<p>建议新建一个 Linux 用户专门管理 Elasticsearch。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd elasticsearch</span><br><span class="line">passwd elasticsearch</span><br><span class="line">chown -R elasticsearch:elasticsearch elasticsearch文件夹</span><br></pre></td></tr></table></figure>
 
-<p>此时即可启动ES</p>
+<p>此时即可启动 ES。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su - elasticsearch</span><br><span class="line">cd elasticsearch文件夹</span><br><span class="line">./bin/elasticsearch</span><br></pre></td></tr></table></figure>
 
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>浏览器中输入<code>服务器:9200</code> ,显示ES参数，类似</p>
@@ -333,7 +333,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@c6-23 ~]# curl --silent --location https://rpm.nodesource.com/setup_9.x | bash -</span><br><span class="line">[root@c6-23 ~]# yum install nodejs -y</span><br><span class="line">[root@c6-23 ~]# node -v</span><br><span class="line">v9.11.2</span><br><span class="line">[root@c6-23 ~]# npm -v</span><br><span class="line">5.6.0</span><br><span class="line">### npm 升级</span><br><span class="line">[root@c6-23 ~]# npm i -g npm</span><br><span class="line">/usr/bin/npm -&gt; /usr/lib/node_modules/npm/bin/npm-cli.js</span><br><span class="line">/usr/bin/npx -&gt; /usr/lib/node_modules/npm/bin/npx-cli.js</span><br><span class="line">+ npm@6.8.0</span><br><span class="line">added 314 packages, removed 364 packages and updated 52 packages in 22.254s</span><br></pre></td></tr></table></figure>
 
 <p>其他可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/73515a3a15e6">centos6.6 安装nodejs和npm</a></p>
-<p>分别执行<code>node -v</code>和“<code>npm -v</code>，显示nodejs版本和npm版本，则说明安装成功。</p>
+<p>分别执行 <code>node -v</code> 和 <code>npm -v</code>，如果能正常显示 nodejs 版本和 npm 版本，则说明安装成功。</p>
 <h3 id="安装head插件"><a href="#安装head插件" class="headerlink" title="安装head插件"></a>安装head插件</h3><p>下载head插件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/mobz/elasticsearch-head/archive/master.zip</span><br></pre></td></tr></table></figure>
 
@@ -347,10 +347,10 @@
 <p>修改Gruntfile.js文件：增加hostname属性，设置为*。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">connect: &#123;</span><br><span class="line">    server: &#123;</span><br><span class="line">        options: &#123;</span><br><span class="line">            port: 9100,</span><br><span class="line">            hostname: &#x27;*&#x27;,</span><br><span class="line">            base: &#x27;.&#x27;,</span><br><span class="line">            keepalive: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>打开_site&#x2F;app.js 文件：修改head的连接地址，将<code>this.base_uri = this.config.base_uri || this.prefs.get(“app-base_uri”) || “http://localhost:9200”;</code>这条语句，修改为如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(“app-base_uri”) || “http://ES节点IP:9200”;</span><br></pre></td></tr></table></figure>
+<p>打开 <code>_site/app.js</code> 文件，修改 head 的连接地址，将 <code>this.base_uri = this.config.base_uri || this.prefs.get(&quot;app-base_uri&quot;) || &quot;http://localhost:9200&quot;;</code> 这条语句改为如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(&quot;app-base_uri&quot;) || &quot;http://ES节点IP:9200&quot;;</span><br></pre></td></tr></table></figure>
 
-<p>启动head插件，在elasticsearch-head-master下启动服务。在启动前要确认es集群是正常启动了的，然后才能启动head<br>执行命令<code>grunt server &amp;</code>即可在后台启动head插件。<br>在浏览器访问“head部署服务器:9100”,即可看到管理界面,类似这样：</p>
+<p>启动head插件，在elasticsearch-head-master下启动服务。在启动前要确认es集群是正常启动了的，然后才能启动head<br>执行命令<code>grunt server &amp;</code>即可在后台启动head插件。<br>在浏览器访问 <code>head 部署服务器:9100</code>，即可看到管理界面，类似这样：</p>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="elasticsearch-head-无法连接ES集群"><a href="#elasticsearch-head-无法连接ES集群" class="headerlink" title="elasticsearch-head 无法连接ES集群"></a>elasticsearch-head 无法连接ES集群</h2><p>配置问题，修改elasticsearch.yml文件，添加</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure>
 
@@ -407,8 +407,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2019/08/03/2019-08-04_mysql_Truncated_incorrect_DOUBLE_value%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev" title="mysql Truncated incorrect DOUBLE value解决办法">
-                  <i class="fa fa-angle-left"></i> mysql Truncated incorrect DOUBLE value解决办法
+                <a href="/2019/08/03/2019-08-04_mysql_Truncated_incorrect_DOUBLE_value%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev" title="MySQL Truncated incorrect DOUBLE value解决办法">
+                  <i class="fa fa-angle-left"></i> MySQL Truncated incorrect DOUBLE value解决办法
                 </a>
             </div>
             <div class="post-nav-item">

@@ -17,13 +17,13 @@
 
     <meta name="description" content="仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常 配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis plus配置多数据源时批量接口调用失败以及解决方案">
+<meta property="og:title" content="MyBatis plus配置多数据源时批量接口调用失败以及解决方案">
 <meta property="og:url" content="https://evasnowind.github.io/2020/03/08/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
 <meta property="og:description" content="仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常 配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-04T04:44:28.354Z">
+<meta property="article:modified_time" content="2026-09-11T13:04:39.480Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="MyBatis">
 <meta property="article:tag" content="Spring Boot">
@@ -33,10 +33,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2020/03/08/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/03/08/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/","path":"2020/03/08/2020-03-09_mybatis_plus配置多数据源时批量接口调用失败以及解决方案/","title":"mybatis plus配置多数据源时批量接口调用失败以及解决方案"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/03/08/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/","path":"2020/03/08/2020-03-09_mybatis_plus配置多数据源时批量接口调用失败以及解决方案/","title":"MyBatis plus配置多数据源时批量接口调用失败以及解决方案"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>mybatis plus配置多数据源时批量接口调用失败以及解决方案 | Prayer的数字城堡</title>
+<title>MyBatis plus配置多数据源时批量接口调用失败以及解决方案 | Prayer的数字城堡</title>
   
 
 
@@ -220,7 +220,7 @@
       <a class="popular-posts-link" href="/2020/01/31/2020-02-01_Mybatis-Plus_select%E4%B8%8D%E5%88%97%E5%87%BA%E5%85%A8%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%8C%E5%8F%AA%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5/" rel="bookmark">
         <time class="popular-posts-time">2020-02-01</time>
         <br>
-      Mybatis-Plus select不列出全部字段，只查询部分字段
+      MyBatis-Plus select不列出全部字段，只查询部分字段
       </a>
     </li>
     <li class="popular-posts-item">
@@ -234,7 +234,7 @@
       <a class="popular-posts-link" href="/2020/03/02/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" rel="bookmark">
         <time class="popular-posts-time">2020-03-03</time>
         <br>
-      spring中使用mybatis/mybatis plus连接sqlserver
+      spring中使用mybatis/MyBatis plus连接sqlserver
       </a>
     </li>
     <li class="popular-posts-item">
@@ -277,12 +277,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="mybatis plus配置多数据源时批量接口调用失败以及解决方案 | Prayer的数字城堡">
+      <meta itemprop="name" content="MyBatis plus配置多数据源时批量接口调用失败以及解决方案 | Prayer的数字城堡">
       <meta itemprop="description" content="仅配置单个数据源时，mybatis plus的save&#x2F;saveBatch接口调用正常 配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mybatis plus配置多数据源时批量接口调用失败以及解决方案
+          MyBatis plus配置多数据源时批量接口调用失败以及解决方案
         </h1>
 
         <div class="post-meta-container">
@@ -300,7 +300,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-04 12:44:28" itemprop="dateModified" datetime="2026-09-04T12:44:28+08:00">2026-09-04</time>
+      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -391,13 +391,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/03/02/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" rel="prev" title="spring中使用mybatis&#x2F;mybatis plus连接sqlserver">
-                  <i class="fa fa-angle-left"></i> spring中使用mybatis/mybatis plus连接sqlserver
+                <a href="/2020/03/08/2020-03-09_spring_boot%E4%B8%AD%E9%85%8D%E7%BD%AEmybatis_plus%E8%BE%93%E5%87%BASQL%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%97%A5%E5%BF%97/" rel="prev" title="spring boot中配置mybatis plus输出SQL查询语句日志">
+                  <i class="fa fa-angle-left"></i> spring boot中配置mybatis plus输出SQL查询语句日志
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/03/08/2020-03-09_spring_boot%E4%B8%AD%E9%85%8D%E7%BD%AEmybatis_plus%E8%BE%93%E5%87%BASQL%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%97%A5%E5%BF%97/" rel="next" title="spring boot中配置mybatis plus输出SQL查询语句日志">
-                  spring boot中配置mybatis plus输出SQL查询语句日志 <i class="fa fa-angle-right"></i>
+                <a href="/2020/03/13/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/" rel="next" title="spring boot启动失败不输出日志">
+                  spring boot启动失败不输出日志 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
