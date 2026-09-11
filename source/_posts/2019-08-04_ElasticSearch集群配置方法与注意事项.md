@@ -13,7 +13,7 @@ description: "注意，集群配置完成前建议不要启动单个ES实例。 
 
 # ES安装与配置
 
-注意，集群配置完成前建议不要启动单个ES实例。\
+注意，集群配置完成前建议不要启动单个ES实例。
 原因：默认参数启动会以单实例方式启动，创建各种文件夹、文件，可能干扰后续集群配置。
 
 <!-- more -->
@@ -89,9 +89,9 @@ cd elasticsearch文件夹
 
 将配置好的ES文件夹拷贝到其他节点，修改：
 
-- [node.name](http://node.name)\
+- [node.name](http://node.name)
   必须与其他节点不一样
-- network.host\
+- network.host
   与节点ip
 
 ## 配置head插件，图形化管理ES集群
@@ -117,7 +117,7 @@ added 314 packages, removed 364 packages and updated 52 packages in 22.254s
 
 其他可以参考 [centos6.6 安装nodejs和npm](https://www.jianshu.com/p/73515a3a15e6)
 
-分别执行`node -v`和“`npm -v`，显示nodejs版本和npm版本，则说明安装成功。
+分别执行 `node -v` 和 `npm -v`，如果能正常显示 nodejs 版本和 npm 版本，则说明安装成功。
 
 ### 安装head插件
 
@@ -159,15 +159,15 @@ connect: {
 }
 ```
 
-打开\_site/app.js 文件：修改head的连接地址，将`this.base_uri = this.config.base_uri || this.prefs.get(“app-base_uri”) || “http://localhost:9200”;`这条语句，修改为如下
+打开 `_site/app.js` 文件，修改 head 的连接地址，将 `this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http://localhost:9200";` 这条语句改为如下：
 
 ```
-this.base_uri = this.config.base_uri || this.prefs.get(“app-base_uri”) || “http://ES节点IP:9200”;
+this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http://ES节点IP:9200";
 ```
 
-启动head插件，在elasticsearch-head-master下启动服务。在启动前要确认es集群是正常启动了的，然后才能启动head\
-执行命令`grunt server &`即可在后台启动head插件。\
-在浏览器访问“head部署服务器:9100”,即可看到管理界面,类似这样：
+启动head插件，在elasticsearch-head-master下启动服务。在启动前要确认es集群是正常启动了的，然后才能启动head
+执行命令`grunt server &`即可在后台启动head插件。
+在浏览器访问 `head 部署服务器:9100`，即可看到管理界面，类似这样：
 
 # 问题
 
@@ -180,7 +180,7 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
 
-分析原因：\
+分析原因：
 可能是因为elasticsearch-head发送请求的时候，跨域了，所以变成options，让options去发现有什么可以请求的方法，而options请求没有返回结果。
 
 ## 主从节点配置的区别
@@ -199,7 +199,7 @@ http.cors.allow-origin: "*"
  node.ingest: false
 ```
 
-区别二：\
+区别二：
 Master 设置了HTTP 相关参数，如果不设置，将无法通过HEAD能插件来访问集群
 
 ```
@@ -254,11 +254,11 @@ Caused by: org.elasticsearch.cluster.coordination.CoordinationStateRejectedExcep
 
 ```
 
-原因：推测是因为该节点之前启动过ES，已经创建了data文件夹，与要加入的集群冲突。\
+原因：推测是因为该节点之前启动过ES，已经创建了data文件夹，与要加入的集群冲突。
 解决：删除data文件夹
 
-参见该文章\
-[ElasticSearch 开发总结—— failed to send join request to master[…] reason RemoteTransportException](https://blog.csdn.net/HuoqilinHeiqiji/article/details/88402637)\
+参见该文章
+[ElasticSearch 开发总结—— failed to send join request to master[…] reason RemoteTransportException](https://blog.csdn.net/HuoqilinHeiqiji/article/details/88402637)
 [ElasticSearch集群节点扩容提示Failed to send join request to master](https://www.jianshu.com/p/dbf896746add)
 
 ## 设置账号密码

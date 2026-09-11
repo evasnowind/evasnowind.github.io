@@ -15,7 +15,7 @@ spring boot + spring cloud，上传附件时遇到如下错误：
 org.springframework.web.multipart.MultipartException: Could not parse multipart servlet request; nested exception is java.lang.IllegalStateException: org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException: the request was rejected because its size (11963927) exceeds the configured maximum (10485760)
 ```
 
-错误信息表示上传附件报超出自带tomacat限制大小（默认1M）\
+错误信息表示上传附件报超出自带tomacat限制大小（默认1M）
 
 # 解决
 

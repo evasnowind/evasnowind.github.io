@@ -9,7 +9,7 @@ description: "仅配置单个数据源时，mybatis plus的save/saveBatch接口�
 
 # 表现
 
-仅配置单个数据源时，mybatis plus的save/saveBatch接口调用正常\
+仅配置单个数据源时，mybatis plus的save/saveBatch接口调用正常
 配置多个数据源、动态切换时，mybatis plus的save接口调用正常，saveBatch调用失败，报错如下
 
 <!-- more -->
@@ -52,7 +52,7 @@ org.apache.ibatis.exceptions.PersistenceException:
 
 # 解决
 
-不同数据库的xml放到不同文件夹下即可：\
+不同数据库的xml放到不同文件夹下即可：
 数据源1
 
 ```

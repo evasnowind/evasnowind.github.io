@@ -19,7 +19,7 @@ mHandler.postDelayed(mRunnable, 500);
 }
 ```
 
-\
+
 但是，当我修改一下，将mHandler修改为局部变量，如下，却发现mRunnable正常执行了。
 
 <!-- more -->

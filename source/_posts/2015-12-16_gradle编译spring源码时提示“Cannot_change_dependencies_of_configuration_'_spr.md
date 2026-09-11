@@ -11,21 +11,21 @@ description: ":buildSrc:test UP-TO-DATE :buildSrc:check UP-TO-DATE :buildSrc:bui
 
 <!-- more -->
 
-> :buildSrc:test UP-TO-DATE\
-> :buildSrc:check UP-TO-DATE\
-> :buildSrc:build UP-TO-DATE\
-> FAILURE: Build failed with an exception.\
-> \* What went wrong:\
-> A problem occurred configuring project ‘:spring-orm-hibernate4’.\
-> > Cannot change dependencies of configuration ‘:spring-orm-hibernate4:runtimeMer\
-> ge’ after it has been resolved.\
-> \* Try:\
-> Run with –stacktrace option to get the stack trace. Run with –info or –debug\
-> option to get more log output.\
+> :buildSrc:test UP-TO-DATE
+> :buildSrc:check UP-TO-DATE
+> :buildSrc:build UP-TO-DATE
+> FAILURE: Build failed with an exception.
+> \* What went wrong:
+> A problem occurred configuring project ‘:spring-orm-hibernate4’.
+> > Cannot change dependencies of configuration ‘:spring-orm-hibernate4:runtimeMer
+> ge’ after it has been resolved.
+> \* Try:
+> Run with –stacktrace option to get the stack trace. Run with –info or –debug
+> option to get more log output.
 > BUILD FAILED
 
-\
-搜了一下，终于在<http://segmentfault.com/q/1010000002721774> 看到了答案：是因为JDK版本与spring framework源码的版本不太匹配，一开始我用JDK 8去build，就出现上述异常，然后改用JDK 7,还是不行，索性换了***最新版的spring framework***（版本：4.x）,此时编译即可顺利通过。\
+
+搜了一下，终于在<http://segmentfault.com/q/1010000002721774> 看到了答案：是因为JDK版本与spring framework源码的版本不太匹配，一开始我用JDK 8去build，就出现上述异常，然后改用JDK 7,还是不行，索性换了***最新版的spring framework***（版本：4.x）,此时编译即可顺利通过。
 PS：spring framework相关简介、依赖等内容可参考如下链接：
 
 - <http://projects.spring.io/spring-framework/>

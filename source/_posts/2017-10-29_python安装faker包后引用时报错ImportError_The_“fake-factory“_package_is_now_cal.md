@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=491"
 description: "Faker是一个可以让你生成伪造数据的Python包。当你需要初始化数据库，创建美观的XML文档，不断产生数据来进行压力测试或者想从生产服务器上拉取匿名数据的时候，Faker将是你最棒的选择。"
 ---
 
-Faker是一个可以让你生成伪造数据的Python包。当你需要初始化数据库，创建美观的XML文档，不断产生数据来进行压力测试或者想从生产服务器上拉取匿名数据的时候，Faker将是你最棒的选择。\
+Faker是一个可以让你生成伪造数据的Python包。当你需要初始化数据库，创建美观的XML文档，不断产生数据来进行压力测试或者想从生产服务器上拉取匿名数据的时候，Faker将是你最棒的选择。
 Faker的安装过程可以参考[Faker：Python的伪造数据生成器](http://hao.jobbole.com/python-faker/) 这篇文章，其实就是用pip一条命令：
 
 <!-- more -->
@@ -35,8 +35,8 @@ from faker import Factory
 ImportError: The ``fake-factory`` package is now called ``Faker``.
 ```
 
-搜索后发现这个问题很多人都遇到过，参见 <https://github.com/FactoryBoy/factory_boy/issues/334> 。问题原因与解决方案在这帖子里都有。简单来说，就是fake-factory所依赖的一个包factory\_boy在安装特定版本时会下载的内容有问题。我使用帖子里说的一个办法解决了这个ImportError问题，即使用requirements.txt来指定所要装的python包版本。\
-有关python中requirements.txt的使用可参考此文章：[python笔记—需求文件requirements.txt的创建及使用](http://blog.csdn.net/loyachen/article/details/52028825)\
+搜索后发现这个问题很多人都遇到过，参见 <https://github.com/FactoryBoy/factory_boy/issues/334> 。问题原因与解决方案在这帖子里都有。简单来说，就是fake-factory所依赖的一个包factory\_boy在安装特定版本时会下载的内容有问题。我使用帖子里说的一个办法解决了这个ImportError问题，即使用requirements.txt来指定所要装的python包版本。
+有关python中requirements.txt的使用可参考此文章：[python笔记—需求文件requirements.txt的创建及使用](http://blog.csdn.net/loyachen/article/details/52028825)
 在python 虚拟环境中，先使用
 
 ```

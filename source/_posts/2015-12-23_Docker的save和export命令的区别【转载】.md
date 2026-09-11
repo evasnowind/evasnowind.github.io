@@ -7,16 +7,16 @@ source: "http://prayerlaputa.com/?p=174"
 description: "中文帖子地址： stackoverflow地址： 我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。"
 ---
 
-中文帖子地址：<http://my.oschina.net/zjzhai/blog/225112>\
-stackoverflow地址：<http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker>\
-我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。\
+中文帖子地址：<http://my.oschina.net/zjzhai/blog/225112>
+stackoverflow地址：<http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker>
+我最近在玩Docker，一种应用程序容器和Linux的虚拟技术。它太酷了，创建Docker镜像和容器只需要几分钟。所有的工作都是开箱即用的。
 在结束我一天的工作之前，我希望能保存下我的工作。但我在Docker的save和export命令之间，我凌乱了。我不知道它们之间有什么区别。所以，我上StackOverflow问了一个[问题](http://stackoverflow.com/questions/22655867/what-is-the-difference-between-save-and-export-in-docker)，接着得到[mbarthelemy](http://stackoverflow.com/users/1014586/mbarthelemy)很棒的回复。以下是我发掘到的内容：
 
 <!-- more -->
 
 ### Docker是如何工作的（简单说明）
 
-Docker是基于镜像的。镜像类似于已经包含了文件、配置和安装好的程序的虚拟机镜像。同样的，你可以像启动虚拟机一样启动多个镜像实例。运行中的镜像称为容器。你可以修改容器（比如删除一个文件），但这些修改不会影响到镜像。不过，你使用`docker commit <container-id> <image-name>`命令可以把一个正在运行的容器变成一个新的镜像。\
+Docker是基于镜像的。镜像类似于已经包含了文件、配置和安装好的程序的虚拟机镜像。同样的，你可以像启动虚拟机一样启动多个镜像实例。运行中的镜像称为容器。你可以修改容器（比如删除一个文件），但这些修改不会影响到镜像。不过，你使用`docker commit <container-id> <image-name>`命令可以把一个正在运行的容器变成一个新的镜像。
 **举个例子：**
 
 ```
@@ -137,5 +137,5 @@ Save命令用于持久化镜像（不是容器）。所以，我们就需要通�
             └─227516d93162 Virtual Size: 2.489 MB Tags: busybox-1:latest
 ```
 
-祝好，\
+祝好，
 Thomas

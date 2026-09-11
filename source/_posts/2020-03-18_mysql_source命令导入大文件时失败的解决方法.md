@@ -7,8 +7,8 @@ source: "http://prayerlaputa.com/?p=788"
 description: "记录mysql source命令导入大文件时失败的解决方法的现象、原因分析与解决办法。"
 ---
 
-方法：\
-1、将大文件分成多个小文件\
+方法：
+1、将大文件分成多个小文件
 2、检查mysql的`max_allowed_packet`参数配置，命令如下：
 
 ```

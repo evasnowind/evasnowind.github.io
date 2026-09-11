@@ -7,8 +7,6 @@ source: "http://prayerlaputa.com/?p=674"
 description: "google guava使用教程系列（3）- 前置条件检查。"
 ---
 
-google guava使用教程系列（3）- 前置条件检查
-
 原文地址:[<https://github.com/google/guava/wiki/PreconditionsExplained>])(<https://github.com/google/guava/wiki/PreconditionsExplained>)
 
 简而言之，guava提供了一系列检查参数的方案，个人感觉一般，实际业务场景中对于参数判断自己写可能比这种封装更方便。

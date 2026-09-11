@@ -4,21 +4,21 @@ date: "2019-02-24"
 categories: ["工具", "Git"]
 tags: ["Git"]
 source: "http://prayerlaputa.com/?p=688"
-description: "查看tag git show git tag -l “v1.5” //加上筛选条件。"
+description: "整理 Git 中查看、创建与推送 tag 到远端的常用命令。"
 ---
 
-查看tag\
-git show\
-git tag -l “v1.5” //加上筛选条件
+查看tag
+git show
+git tag -l "v1.5" //加上筛选条件
 
-创建tag\
-git tag 版本号\
-git tag -a v1.5 -m “my version 1.5” //加上备注信息\
-git tag -a v1.5 //会打开默认文本编辑器\
-git tag -s v1.5 -m ‘my signed 1.5 tag’ //用 GPG 来签署标签
+创建tag
+git tag 版本号
+git tag -a v1.5 -m "my version 1.5" //加上备注信息
+git tag -a v1.5 //会打开默认文本编辑器
+git tag -s v1.5 -m 'my signed 1.5 tag' //用 GPG 来签署标签
 
 <!-- more -->
 
-推送到远端\
-git push origin [tagname] //push单个tag\
-git push [origin] –tags //push所有tag
+推送到远端
+git push origin [tagname] //push单个tag
+git push [origin] --tags //push所有tag

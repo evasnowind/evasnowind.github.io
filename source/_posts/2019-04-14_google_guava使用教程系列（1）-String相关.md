@@ -20,7 +20,7 @@ Joiner joiner = Joiner.on("; ").skipNulls();
 return joiner.join("Harry", null, "Ron", "Hermione");
 ```
 
-返回`Harry; Ron; Hermione`\
+返回`Harry; Ron; Hermione`
 skipNulls()方法是直接忽略null，使用useForNull(String)方法可以给定某个字符串来替换null，即
 
 <!-- more -->
@@ -43,8 +43,8 @@ joiner实例总是不可变的。用来定义joiner目标语义的配置方法�
 
 # Splitter
 
-字符串拆分工具\
-JDK提供的String.split方法 一些奇怪的地方，例如：会丢弃掉尾部分隔符。\
+字符串拆分工具
+JDK提供的String.split方法 一些奇怪的地方，例如：会丢弃掉尾部分隔符。
 例子：
 
 ```
@@ -95,7 +95,7 @@ splitter实例总是不可变的。用来定义splitter目标语义的配置方�
 
 ## Map Splitter
 
-可以通过`withKeyValueSeparator()`指定第二个分隔符，用于从字符串中反序列出一个map，将会返回一个Map<String, String>\
+可以通过`withKeyValueSeparator()`指定第二个分隔符，用于从字符串中反序列出一个map，将会返回一个Map<String, String>
 例如：`对url中的查询字符串"id=123&name=green"进行分割`
 
 ```

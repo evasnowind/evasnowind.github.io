@@ -11,34 +11,34 @@ description: "在VPS上装了wordpress有一段时间了，今天才发现有个
 
 <!-- more -->
 
-> server\
-> {\
-> listen 80;\
-> #listen [::]:80;\
-> server\_name www.prayerlaputa.com;\
-> index index.html index.htm index.php default.html default.htm default.php;\
-> root /home/wwwroot/www.prayerlaputa.com;\
-> include wordpress.conf;\
-> include other.conf;\
-> #error\_page 404 /404.html;\
-> location ~ [^/]\.php(/|$)\
-> {\
-> # comment try\_files $uri =404; to enable pathinfo\
-> try\_files $uri =404;\
-> fastcgi\_pass unix:/tmp/php-cgi.sock;\
-> fastcgi\_index index.php;\
-> include fastcgi.conf;\
-> #include pathinfo.conf;\
-> }\
-> location ~ .\*\.(gif|jpg|jpeg|png|bmp|swf)$\
-> {\
-> expires 30d;\
-> }\
-> location ~ .\*\.(js|css)?$\
-> {\
-> expires 12h;\
-> }\
-> access\_log /home/wwwlogs/www.prayerlaputa.com.log access;\
+> server
+> {
+> listen 80;
+> #listen [::]:80;
+> server\_name www.prayerlaputa.com;
+> index index.html index.htm index.php default.html default.htm default.php;
+> root /home/wwwroot/www.prayerlaputa.com;
+> include wordpress.conf;
+> include other.conf;
+> #error\_page 404 /404.html;
+> location ~ [^/]\.php(/|$)
+> {
+> # comment try\_files $uri =404; to enable pathinfo
+> try\_files $uri =404;
+> fastcgi\_pass unix:/tmp/php-cgi.sock;
+> fastcgi\_index index.php;
+> include fastcgi.conf;
+> #include pathinfo.conf;
+> }
+> location ~ .\*\.(gif|jpg|jpeg|png|bmp|swf)$
+> {
+> expires 30d;
+> }
+> location ~ .\*\.(js|css)?$
+> {
+> expires 12h;
+> }
+> access\_log /home/wwwlogs/www.prayerlaputa.com.log access;
 > }
 
 我的问题主要出在server\_name那一行，只写了一个www.prayerlaputa.com，导致不带www的域名解析不正常，为此我修改为

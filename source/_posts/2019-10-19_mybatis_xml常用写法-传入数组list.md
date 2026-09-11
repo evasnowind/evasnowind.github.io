@@ -31,7 +31,7 @@ description: "假设查询person表，参数类型为XXXVo，XXXVo中包含一�
 
 ## 通过Map对象传递参数给xml
 
-参数同样可以通过Map对象传递到xml这个层面，此时这样写即可：\
+参数同样可以通过Map对象传递到xml这个层面，此时这样写即可：
 java代码：
 
 ```

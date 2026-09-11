@@ -10,7 +10,7 @@ description: "利用java8新特性，可以用简洁高效的代码来实现一�
 {% raw %}
 # java8 快速实现List转map 、分组、过滤等操作【转载】
 
-版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。\
+版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
 本文链接：https://blog.csdn.net/lu930124/article/details/77595585
 
 <!-- more -->
@@ -37,7 +37,7 @@ this.num = num;
 
 ```
 
-\
+
 添加一些测试数据：
 
 ```
@@ -56,7 +56,7 @@ appleList.add(apple3);
 
 ```
 
-1、分组\
+1、分组
 List里面的对象元素，以某个属性来分组，例如，以id分组，将id相同的放在一起：
 
 ```
@@ -71,7 +71,7 @@ System.err.println("groupBy:"+groupBy);
 
 {1=[Apple{id=1, name='苹果1', money=3.25, num=10}, Apple{id=1, name='苹果2', money=1.35, num=20}], 2=[Apple{id=2, name='香蕉', money=2.89, num=30}], 3=[Apple{id=3, name='荔枝', money=9.99, num=40}]}
 
-2、List转Map\
+2、List转Map
 id为key，apple对象为value，可以这么做：
 
 ```
@@ -88,10 +88,10 @@ Map<Integer, Apple> appleMap = appleList.stream().collect(Collectors.toMap(Apple
 
 ```
 
-打印appleMap\
+打印appleMap
 {1=Apple{id=1, name='苹果1', money=3.25, num=10}, 2=Apple{id=2, name='香蕉', money=2.89, num=30}, 3=Apple{id=3, name='荔枝', money=9.99, num=40}}
 
-3、过滤Filter\
+3、过滤Filter
 从集合中过滤出来符合条件的元素：
 
 ```
@@ -106,7 +106,7 @@ System.err.println("filterList:"+filterList);
 
 [Apple{id=2, name='香蕉', money=2.89, num=30}]
 
-4.求和\
+4.求和
 将集合中的数据按照某个属性求和:
 
 ```
@@ -152,20 +152,20 @@ toCollection(() -> new TreeSet<>(comparingLong(Apple::getId))), ArrayList::new)
 
 下表展示 Collectors 类的静态工厂方法。
 
-工厂方法 返回类型 作用\
-toList List<T> 把流中所有项目收集到一个 List\
-toSet Set<T> 把流中所有项目收集到一个 Set，删除重复项\
-toCollection Collection<T> 把流中所有项目收集到给定的供应源创建的集合menuStream.collect(toCollection(), ArrayList::new)\
-counting Long 计算流中元素的个数\
-sumInt Integer 对流中项目的一个整数属性求和\
-averagingInt Double 计算流中项目 Integer 属性的平均值\
-summarizingInt IntSummaryStatistics 收集关于流中项目 Integer 属性的统计值，例如最大、最小、 总和与平均值\
-joining String 连接对流中每个项目调用 toString 方法所生成的字符串collect(joining(", "))\
-maxBy Optional<T> 一个包裹了流中按照给定比较器选出的最大元素的 Optional， 或如果流为空则为 Optional.empty()\
-minBy Optional<T> 一个包裹了流中按照给定比较器选出的最小元素的 Optional， 或如果流为空则为 Optional.empty()\
-reducing 归约操作产生的类型 从一个作为累加器的初始值开始，利用 BinaryOperator 与流 中的元素逐个结合，从而将流归约为单个值累加int totalCalories = menuStream.collect(reducing(0, Dish::getCalories, Integer::sum));\
-collectingAndThen 转换函数返回的类型 包裹另一个收集器，对其结果应用转换函数int howManyDishes = menuStream.collect(collectingAndThen(toList(), List::size))\
-groupingBy Map<K, List<T>> 根据项目的一个属性的值对流中的项目作问组，并将属性值作 为结果 Map 的键\
+工厂方法 返回类型 作用
+toList List<T> 把流中所有项目收集到一个 List
+toSet Set<T> 把流中所有项目收集到一个 Set，删除重复项
+toCollection Collection<T> 把流中所有项目收集到给定的供应源创建的集合menuStream.collect(toCollection(), ArrayList::new)
+counting Long 计算流中元素的个数
+sumInt Integer 对流中项目的一个整数属性求和
+averagingInt Double 计算流中项目 Integer 属性的平均值
+summarizingInt IntSummaryStatistics 收集关于流中项目 Integer 属性的统计值，例如最大、最小、 总和与平均值
+joining String 连接对流中每个项目调用 toString 方法所生成的字符串collect(joining(", "))
+maxBy Optional<T> 一个包裹了流中按照给定比较器选出的最大元素的 Optional， 或如果流为空则为 Optional.empty()
+minBy Optional<T> 一个包裹了流中按照给定比较器选出的最小元素的 Optional， 或如果流为空则为 Optional.empty()
+reducing 归约操作产生的类型 从一个作为累加器的初始值开始，利用 BinaryOperator 与流 中的元素逐个结合，从而将流归约为单个值累加int totalCalories = menuStream.collect(reducing(0, Dish::getCalories, Integer::sum));
+collectingAndThen 转换函数返回的类型 包裹另一个收集器，对其结果应用转换函数int howManyDishes = menuStream.collect(collectingAndThen(toList(), List::size))
+groupingBy Map<K, List<T>> 根据项目的一个属性的值对流中的项目作问组，并将属性值作 为结果 Map 的键
 partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的结果来对项目进行分区
 
 最后一个是表格，可以参见原帖：<https://blog.csdn.net/lu930124/article/details/77595585>

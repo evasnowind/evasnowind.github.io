@@ -213,11 +213,11 @@ filterChainDefinitionMap.put("/webjars/springfox-swagger-ui/**", "anon");
 
 ## 7.参考文档
 
-swagger2 注解说明 ( @ApiImplicitParams )\
+swagger2 注解说明 ( @ApiImplicitParams )
 https://blog.csdn.net/jiangyu1013/article/details/83107255
 
-spring boot项目中使用swagger2\
+spring boot项目中使用swagger2
 https://www.jianshu.com/p/05be40b9a7a3
 
-spring boot 整合 swagger2,并设置post,get请求方式\
+spring boot 整合 swagger2,并设置post,get请求方式
 https://blog.csdn.net/qq\_36249132/article/details/90109815

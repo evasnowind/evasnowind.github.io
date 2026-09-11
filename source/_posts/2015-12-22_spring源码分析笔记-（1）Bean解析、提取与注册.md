@@ -7,9 +7,9 @@ source: "http://prayerlaputa.com/?p=161"
 description: "大家都说，阅读spring的源代码是个不错的学习方式，现在开始学习一下，头一次阅读开源代码，不知道怎么看，先随便记些笔记，记录一下，希望也能帮助别人吧。"
 ---
 
-大家都说，阅读spring的源代码是个不错的学习方式，现在开始学习一下，头一次阅读开源代码，不知道怎么看，先随便记些笔记，记录一下，希望也能帮助别人吧。\
-目前我看代码的方式是阅读《spring源码深度解析》，按照上面的例子一步步阅读源代码，感觉这样难度降低不少，有书、有实际例子带着终归要容易一些。我所阅读的是spring framework 4.2的代码，从github上拉取的，拉取时间2015年11月份。\
-闲话少说，开始！\
+大家都说，阅读spring的源代码是个不错的学习方式，现在开始学习一下，头一次阅读开源代码，不知道怎么看，先随便记些笔记，记录一下，希望也能帮助别人吧。
+目前我看代码的方式是阅读《spring源码深度解析》，按照上面的例子一步步阅读源代码，感觉这样难度降低不少，有书、有实际例子带着终归要容易一些。我所阅读的是spring framework 4.2的代码，从github上拉取的，拉取时间2015年11月份。
+闲话少说，开始！
 首先看的部分是spring读取配置文件、实例化各种bean的流程，例如，要执行如下语句：
 
 <!-- more -->
@@ -43,6 +43,6 @@ InputStream inputStream = resource.getInputStream();
       - registerBeanDefinitions(doc, resource);//解析、注册Bean
         - BeanDefinitionDocumentReader.registerBeanDefinitions
           - DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions
-            - preProcessXml(root);\
-              parseBeanDefinitions(root, this.delegate);//解析XML\
+            - preProcessXml(root);
+              parseBeanDefinitions(root, this.delegate);//解析XML
               postProcessXml(root);//模板方法模式，若想修改在XML解析前、后做些操作，继承DefaultBeanDefinitionDocumentReader、重写preProcessXml和postProcessXml即可

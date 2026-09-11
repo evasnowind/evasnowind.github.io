@@ -41,8 +41,8 @@ SortedSet s = Collections.synchronizedSortedSet(new TreeSet(...));
 
 此外，TreeSet所返回的iterator是fail-fast的，源码中解释如下：
 
-> The iterators returned by this class’s iterator method are fail-fast: if the set is modified at any time after the iterator is created, in any way except through the iterator’s own remove method, the iterator will throw a ConcurrentModificationException. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.\
+> The iterators returned by this class’s iterator method are fail-fast: if the set is modified at any time after the iterator is created, in any way except through the iterator’s own remove method, the iterator will throw a ConcurrentModificationException. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
 > Note that the fail-fast behavior of an iterator cannot be guaranteed as it is, generally speaking, impossible to make any hard guarantees in the presence of unsynchronized concurrent modification. Fail-fast iterators throw ConcurrentModificationException on a best-effort basis. Therefore, it would be wrong to write a program that depended on this exception for its correctness: the fail-fast behavior of iterators should be used only to detect bugs.
 
-有关fail-fast，可以参考这篇文章：[Java提高篇（三四）—–fail-fast机制](http://blog.csdn.net/chenssy/article/details/38151189)\
+有关fail-fast，可以参考这篇文章：[Java提高篇（三四）—–fail-fast机制](http://blog.csdn.net/chenssy/article/details/38151189)
 有关TreeSet更详细的介绍，可以参考这篇文章：[Java 集合系列17之 TreeSet详细介绍(源码解析)和使用示例](http://www.cnblogs.com/skywang12345/p/3311268.html)

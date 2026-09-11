@@ -4,10 +4,10 @@ date: "2020-12-29"
 categories: ["Java", "Spring Cloud"]
 tags: ["Spring Cloud"]
 source: "http://prayerlaputa.com/?p=923"
-description: "spring cloud gateway（后续简称SCG）本身就是spring cloud体系的一员，在对于java技术栈的系统使用起来比较方便，此外，SCG扩展性比较好，适合。"
+description: "介绍 Spring Cloud Gateway 的核心组成、请求处理流程，以及作为业务网关时的基本使用思路。"
 ---
 
-spring cloud gateway（后续简称SCG）本身就是spring cloud体系的一员，在对于java技术栈的系统使用起来比较方便，此外，SCG扩展性比较好，适合作为**业务网关**的基础、根据自身需求进行二次开发。
+Spring Cloud Gateway（后续简称 SCG）本身就是 Spring Cloud 体系的一员，对于 Java 技术栈的系统来说使用起来比较方便。此外，SCG 扩展性较好，适合作为 **业务网关** 的基础，并可根据自身需求进行二次开发。
 
 <!-- more -->
 
@@ -24,8 +24,8 @@ spring cloud gateway（后续简称SCG）本身就是spring cloud体系的一员
 - 1. SCG接收客户端请求。
 - 2. 请求与谓词匹配，获得对应的路由，匹配成功后，继续往下执行。
 - 3. 请求交给前置filter处理
-- 4. 请求经过代理服务（类似与RPC），发送给目标URI
-- 5. 响应交给后置filter处理
+- 4. 请求经过代理服务（类似于 RPC），发送给目标 URI
+- 5. 响应交给后置 Filter 处理
 - 6. SCG将响应返回给客户端
 
 ![](/images/tCZIYxXepbNLnjPp_62cf7bf7.png)

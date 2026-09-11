@@ -13,13 +13,13 @@ description: "本文主要关注如何使用mybatis/mybatis plus连接SQL Server
 
 # 框架选择
 
-应用框架：spring boot\
-ORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）\
+应用框架：spring boot
+ORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）
 数据库连接池：druid
 
 # pom依赖
 
-此处仅给出我的配置，mybatis/druid请依据自己项目的需要进行选择。\
+此处仅给出我的配置，mybatis/druid请依据自己项目的需要进行选择。
 方便起见我用的是mybatis plus
 
 ```
@@ -73,9 +73,9 @@ spring.datasource.xx.driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDr
 
 ## 添加数据源
 
-此处和平时我们在spring boot中集成mybatis/mybatis plus一样，添加bean即可。\
-由于平时经常用到多个数据库，此处展示一个多数据源的例子：一个是mysql，一个是SQL Server\
-有关mybatis plus配置数据源的注意事项，比如配置mapper文件夹等，请自行问度娘，此处不再一一指出。\
+此处和平时我们在spring boot中集成mybatis/mybatis plus一样，添加bean即可。
+由于平时经常用到多个数据库，此处展示一个多数据源的例子：一个是mysql，一个是SQL Server
+有关mybatis plus配置数据源的注意事项，比如配置mapper文件夹等，请自行问度娘，此处不再一一指出。
 注意：下面代码来自实际代码，但批量删除了敏感信息、重新命名，因而可能存在与前面配置信息不一致的地方，仅仅是一个示例
 
 ### Mysql数据源
@@ -220,8 +220,8 @@ public class SqlServerMybatisConfig {
 
 # 生成ORM代码
 
-到这里，程序启动应该没什么问题，接着就应该生成DAO层、Service层代码了\
-mybatis和mybatis plus在此处按照和连接mysql时一样的方法，根据需要写代码即可。\
+到这里，程序启动应该没什么问题，接着就应该生成DAO层、Service层代码了
+mybatis和mybatis plus在此处按照和连接mysql时一样的方法，根据需要写代码即可。
 比如对于mybatis plus，需要写3处代码：
 
 1. 实体bean，可以利用[Spring Boot Code Generator!](http://java.bejson.com/generator/)来根据SQL表结构自动生成
@@ -234,8 +234,8 @@ public interface XXXMapper extends BaseMapper<XXX> {
 }
 ```
 
-3. Service代码\
-   好像也有现成的工具可以自动生成mapper service代码来着。\
+3. Service代码
+   好像也有现成的工具可以自动生成mapper service代码来着。
    Service接口
 
 ```

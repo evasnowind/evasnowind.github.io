@@ -7,8 +7,8 @@ source: "http://prayerlaputa.com/?p=619"
 description: "npm install -g nodemon。"
 ---
 
-版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。\
-本文链接：https://blog.csdn.net/weixin\_42941619/article/details/94627644\
+版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
+本文链接：https://blog.csdn.net/weixin\_42941619/article/details/94627644
 1：首先使用npm、cnpm或者yarn下载所需插件，以nodemon这个插件举例
 
 <!-- more -->
@@ -41,7 +41,7 @@ nodemon –version
 
 巴拉巴拉：
 
-==主页传送门==\
-————————————————\
-版权声明：本文为CSDN博主「雨雪风晴是你」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。\
+==主页传送门==
+————————————————
+版权声明：本文为CSDN博主「雨雪风晴是你」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/weixin\_42941619/article/details/94627644

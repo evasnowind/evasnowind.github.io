@@ -59,11 +59,11 @@ YYYYMMdd
 2020-01-01: 20200101
 ```
 
-原因：\
+原因：
 YYYY是week-based-year，表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。所以2019年12月31日那天在这种表述方式下就已经 2020 年了。而当使用yyyy的时候，就还是 2019 年。
 
 <!-- more -->
 
-相关说明：\
-<https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns>\
+相关说明：
+<https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns>
 <https://nakedsecurity.sophos.com/2019/12/23/serious-security-the-decade-ending-y2k-bug-that-wasnt/>

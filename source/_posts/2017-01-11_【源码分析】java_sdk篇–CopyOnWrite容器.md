@@ -18,7 +18,7 @@ CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只
 - CopyOnWriteArrayList
 - CopyOnWriteSet
 
-\
+
 这些容器类与平时用到的ArrayList/Set的区别之处在于：
 
 > CopyOnWrite容器即写时复制的容器。通俗的理解是当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。
@@ -32,7 +32,7 @@ CopyOnWrite容器是在JDK 1.5 的java.uti.concurrent包中出现的，目前只
 private transient volatile Object[] array;
 ```
 
-array数组被transient关键字修饰，保证该数组不能使用Serializable接口自动序列化；被volatile修饰，保证了多线程访问时的可见性，即保证每次读取的是最新的值，但是没保证对变量的操作的原子性（有关volatile关键的分析，参见：[Java并发编程：volatile关键字解析](http://www.cnblogs.com/dolphin0520/p/3920373.html)）。与ArrayList相比，CopyOnWriteArrayList多出了volatile关键字。\
+array数组被transient关键字修饰，保证该数组不能使用Serializable接口自动序列化；被volatile修饰，保证了多线程访问时的可见性，即保证每次读取的是最新的值，但是没保证对变量的操作的原子性（有关volatile关键的分析，参见：[Java并发编程：volatile关键字解析](http://www.cnblogs.com/dolphin0520/p/3920373.html)）。与ArrayList相比，CopyOnWriteArrayList多出了volatile关键字。
 而CopyOnWriteArrayList区别于ArrayList的主要地方在于add/set/remove等涉及到写数据的方法：
 
 ```
@@ -102,5 +102,5 @@ ArrayList在add/set/remove时，只需要考虑内部的数组就可以，不用
 
 ## 四、参考
 
-[JAVA中的COPYONWRITE容器](http://coolshell.cn/articles/11175.html)\
+[JAVA中的COPYONWRITE容器](http://coolshell.cn/articles/11175.html)
 [CopyOnWriteArrayList源码解析](http://www.cnblogs.com/java-zhao/p/5121944.html)

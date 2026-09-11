@@ -11,7 +11,7 @@ description: "我个人觉得，学习源码的姿势，首先是需要知道想
 
 同样的，接下来要分析的线程池，首先用途自不必说，不管有没有用过，ThreadPoolExecutor的运行机制、传说中的7个参数(核心线程数corePoolSize、最大线程数maxPoolSize、等待时间keepAliveTime、时间单位timeUnit、阻塞队列blockingQueue、线程工厂threadFactory、拒绝策略rejectHandler)，相信大家都已经熟练掌握，此处不再赘述。
 
-接下来简单过一下ThreadPoolExecutor的注释。\
+接下来简单过一下ThreadPoolExecutor的注释。
 
 <!-- more -->
 

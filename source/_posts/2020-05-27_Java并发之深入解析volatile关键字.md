@@ -31,19 +31,19 @@ description: "从一道面试题讲起：采用DCL实现单例模式时，是否
 
 JSR-133在对JLS原始规范的改变中，有两处最有可能要求JVM实现也做出相应的变动：
 
-> 加强了volatile变量的语义，需要有acquire和release语义。在原始的规范中，volatile变量的访问和非volatile变量的访问之间可以自由地重排序。\
+> 加强了volatile变量的语义，需要有acquire和release语义。在原始的规范中，volatile变量的访问和非volatile变量的访问之间可以自由地重排序。
 > 加强了final字段的语义，无需显式地同步，不可变对象也是线程安全的。这可能需要在给final字段赋值的那些构造器的末尾加上store-store屏障。
 
 ### volatile的内存语义
 
 CPU缓存级别
 
-> happens-before对volatile规则的定义 : volatile变量的写，先发生于后续对这个变量的读.\
-> 这句话的含义有两层:\
-> volatile 的写操作, 需要将线程本地内存值,立马刷新到 主内存的共享变量中.\
-> volatile 的读操作, 需要从主内存的共享变量中读取,更新本地内存变量的值.\
-> 由此引出 volatile 的内存语义.\
-> 当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量值刷新到主内存.\
+> happens-before对volatile规则的定义 : volatile变量的写，先发生于后续对这个变量的读.
+> 这句话的含义有两层:
+> volatile 的写操作, 需要将线程本地内存值,立马刷新到 主内存的共享变量中.
+> volatile 的读操作, 需要从主内存的共享变量中读取,更新本地内存变量的值.
+> 由此引出 volatile 的内存语义.
+> 当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量值刷新到主内存.
 > 当读一个volatile变量时，JMM会把该线程对应的本地内存置为无效。线程接下来将从主内存中读取共享变量,并更新本地内存的值.
 
 注：引自https://www.jianshu.com/p/9e467de97216
@@ -127,10 +127,10 @@ JVM执行字节码时，可能发生指令重排序，乱序执行。上面不�
 
 - as-if-serial : 不管怎么重排序（编译器和处理器为了提高并行度），（单线程）程序的执行结果不会改变。
 - happen-before :
-  - 与程序员密切相关的happens-before规则如下：\
-    1、程序顺序规则：一个线程中的每个操作，happens-before于线程中的任意后续操作。\
-    2、监视器锁规则：一个锁的解锁，happens-before于随后对这个锁的加锁。\
-    3、volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。\
+  - 与程序员密切相关的happens-before规则如下：
+    1、程序顺序规则：一个线程中的每个操作，happens-before于线程中的任意后续操作。
+    2、监视器锁规则：一个锁的解锁，happens-before于随后对这个锁的加锁。
+    3、volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。
     4、传递性：如果A happens-before B，且B happens-before C，那么A happens-before C。
 
 可以参考 [happens-before规则和as-if-serial语义](https://blog.csdn.net/u010571316/article/details/64906481) 。不用记各种规则，理解即可。
@@ -143,13 +143,13 @@ JVM执行字节码时，可能发生指令重排序，乱序执行。上面不�
 
 JVM中内存屏障有以下4种：
 
-1. LoadLoad屏障：对于这样的语句Load1; LoadLoad; Load2，\
+1. LoadLoad屏障：对于这样的语句Load1; LoadLoad; Load2，
    在Load2及后续读取操作要读取的数据被访问前，保证Load1要读取的数据被读取完毕。
-2. StoreStore屏障：对于这样的语句Store1; StoreStore; Store2，\
+2. StoreStore屏障：对于这样的语句Store1; StoreStore; Store2，
    在Store2及后续写入操作执行前，保证Store1的写入操作对其它处理器可见。
-3. LoadStore屏障：对于这样的语句Load1; LoadStore; Store2，\
+3. LoadStore屏障：对于这样的语句Load1; LoadStore; Store2，
    在Store2及后续写入操作被刷出前，保证Load1要读取的数据被读取完毕。
-4. StoreLoad屏障：对于这样的语句Store1; StoreLoad; Load2，\
+4. StoreLoad屏障：对于这样的语句Store1; StoreLoad; Load2，
    在Load2及后续所有读取操作执行前，保证Store1的写入对所有处理器可见。
 
 参考[JVM系列(三)[计算机硬件的内存模型,数据一致性问题,CPU指令乱序执行,合并写]](https://blog.csdn.net/weixin_42008012/article/details/105910949)

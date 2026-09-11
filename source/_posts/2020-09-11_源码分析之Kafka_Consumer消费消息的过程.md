@@ -421,11 +421,11 @@ public void poll(Timer timer, PollCondition pollCondition, boolean disableWakeup
 
 Kafka Consumer 在消费过程中是需要维护消费位置的，Consumer 每次从当前消费位置拉取一批消息，这些消息都被正常消费后，Consumer 会给 Coordinator 发一个提交位置的请求，然后消费位置会向后移动，完成一批消费过程。
 
-而consumer发起提交位置的请求，还是在`updateAssignmentMetadataIfNeeded()`方法中，毕竟位置信息也是服务端broker的一个元数据。在`` `updateAssignmentMetadataIfNeeded ``方法实现中，最后一句调用`KafkaConsumer#updateFetchPositions(timer);`，而这个方法又会调用coordinator.refreshCommittedOffsetsIfNeeded()方法。调用链路如下：
+而 consumer 发起提交位置的请求，还是在 `updateAssignmentMetadataIfNeeded()` 方法中，毕竟位置信息也是服务端 broker 的一个元数据。在 `updateAssignmentMetadataIfNeeded()` 方法实现中，最后一句调用 `KafkaConsumer#updateFetchPositions(timer);`，而这个方法又会调用 `coordinator.refreshCommittedOffsetsIfNeeded()` 方法。调用链路如下：
 
 ![](/images/kafka-consumer-refresh-position-sequence_2db1d1e5.png)
 
-注：同一个类内部的方法调用，用类名头部加了’’’区分了下，主要是为了在Typora里画图方便。不支持可参考images/kafka-consumer-refresh-position-sequence-diagram.png 图片。
+注：同一个类内部的方法调用，我额外在类名头部加了标记区分，主要是为了方便在 Typora 里画图；如果当前环境不支持这种标记方式，直接参考上面的时序图即可。
 
 ### pollForFetchs() 拉取消息
 

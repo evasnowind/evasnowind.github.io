@@ -4,14 +4,14 @@ date: "2019-03-22"
 categories: ["中间件"]
 tags: ["Elasticsearch"]
 source: "http://prayerlaputa.com/?p=683"
-description: "elasticsearch启动时报错：。"
+description: "记录 Elasticsearch 启动时报 ‘Cannot allocate memory’ 错误时的原因与处理方法。"
 ---
 
 elasticsearch启动时报错：
 
 ```
 
-Java HotSpot™ 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000e5330000, 449642496, 0) failed; error=‘Cannot allocate memory’ (errno=12)
+Java HotSpot™ 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000e5330000, 449642496, 0) failed; error='Cannot allocate memory' (errno=12)
 
 There is insufficient memory for the Java Runtime Environment to continue.
 Native memory allocation (mmap) failed to map 449642496 bytes for committing reserved memory.
@@ -19,7 +19,7 @@ An error report file with more information is saved as:
 /opt/elasticsearch/hs_err_pidxxx.log
 ```
 
-原因：没有足够的内存供JRE运行\
+原因：没有足够的内存供JRE运行
 解决：修改es配置参数
 
 ```
@@ -37,4 +37,3 @@ vim config/jvm.options
 ```
 
 <!-- more -->
-

@@ -9,7 +9,7 @@ description: "这种组织结构，注意，此处时同一个项目（没有拆
 
 # spring boot 多个包启动失败-解决：扫描多个包
 
-表现：启动时提示如下信息：\
+表现：启动时提示如下信息：
 因为项目需要，将代码结构调整为：
 
 - [com.xxx](http://com.xxx)
@@ -19,7 +19,7 @@ description: "这种组织结构，注意，此处时同一个项目（没有拆
 
 <!-- more -->
 
-\
+
 这种组织结构，注意，此处时同一个项目（没有拆分成多个maven模块），有多个包保存不同功能模块的代码。此时启动项目，报错如下：
 
 ```
@@ -144,7 +144,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 
 ## 解决
 
-添加扫描多个包注解：\
+添加扫描多个包注解：
 在启动类中添加`@MapperScan`，并写上不同包的mapper：
 
 ```

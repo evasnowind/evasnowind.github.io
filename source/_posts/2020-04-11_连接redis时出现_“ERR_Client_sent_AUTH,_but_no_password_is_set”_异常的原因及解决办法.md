@@ -9,7 +9,7 @@ description: "使用redis-cli连接redis时，报错： ERR Client sent AUTH, bu
 
 ## 现象
 
-使用`redis-cli`连接redis时，报错：\
+使用`redis-cli`连接redis时，报错：
 `ERR Client sent AUTH, but no password is set`
 
 异常信息类似：

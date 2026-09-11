@@ -23,8 +23,8 @@ description: "不要在Set中使用null，或者把null作为map的键值。使�
 
 # Optional的使用
 
-大多数情况下，开发人员使用null表明的是某种缺失情形：可能是已经有一个默认值，或没有值，或找不到值。例如，Map.get返回null就表示找不到给定键对应的值。\
-\
+大多数情况下，开发人员使用null表明的是某种缺失情形：可能是已经有一个默认值，或没有值，或找不到值。例如，Map.get返回null就表示找不到给定键对应的值。
+
 Guava用Optional表示可能为null的T类型引用。一个Optional实例可能包含非null的引用（`isPresent`），也可能什么也不包括（`absent`）。它从不说包含null值，而是用存在或缺失来表示。
 
 ```

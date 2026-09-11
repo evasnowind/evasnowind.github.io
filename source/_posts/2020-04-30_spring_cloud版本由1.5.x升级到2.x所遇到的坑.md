@@ -17,8 +17,8 @@ description: "记录 Spring Cloud 从 1.5.x 升级到 2.x 过程中遇到的问�
 
 ## 预备知识
 
-废话一下：\
-升级操作前务必要对spring, spring boot, spring cloud版本、各自关联有清晰的认识。\
+废话一下：
+升级操作前务必要对spring, spring boot, spring cloud版本、各自关联有清晰的认识。
 建议看官网，然后也可以参考此文章[SpringBoot与SpringCloud的版本对应详细版](https://blog.csdn.net/qq32933432/article/details/89375630)
 
 ## 事前准备
@@ -47,7 +47,7 @@ description: "记录 Spring Cloud 从 1.5.x 升级到 2.x 过程中遇到的问�
 
 ### 1. 更新spring cloud, spring boot
 
-以本人负责项目为例。\
+以本人负责项目为例。
 spring cloud更新前：
 
 ```
@@ -112,8 +112,8 @@ E版本重命名列表参见[Spring Cloud Edgware Release Notes](https://github.
 
 #### 2.1 eureka
 
-mvnrepository\
-更新前：\
+mvnrepository
+更新前：
 下面的这两个包在mvnrepository.com上已经被标记为`deprecated`
 
 ```
@@ -179,16 +179,16 @@ org.springframework.cloud.netflix.feign.**.java -> org.springframework.cloud.ope
 
 ### 3. 属性变化
 
-此处就要感谢`spring-boot-properties-migrator` 这个包了，会自动给出新版本里应该用哪个属性。\
-比如：\
-应用的上下文路径：server.context-path: authority –> server.servlet.context-path: authority\
-上传文件参数配置：spring.http.multipart.\* -> spring.servlet.multipart.\*\
-如原 spring.http.multipart.maxFileSize:5Mb -> spring.servlet.multipart.maxFileSize:5MB\
+此处就要感谢`spring-boot-properties-migrator` 这个包了，会自动给出新版本里应该用哪个属性。
+比如：
+应用的上下文路径：server.context-path: authority –> server.servlet.context-path: authority
+上传文件参数配置：spring.http.multipart.\* -> spring.servlet.multipart.\*
+如原 spring.http.multipart.maxFileSize:5Mb -> spring.servlet.multipart.maxFileSize:5MB
 同时这里5Mb中的Mb的**必须是大写字母**，必须是5MB，否则会抛出异常：`failed to convert java.lang.String to @org.springframework.boot.convert.DataSizeUnit org.springframework.util.unit.DataSize`
 
 ### 4. 其他包的升级
 
-spring cloud, spring boot, spring升级后，相关联的包及建议同步升级，否则可能会无效，比如说pagehelper，druid，jedis等。既然要动依赖包，建议这次就一次性到位，本身整个项目的所有功能肯定需要回归验证一遍，建议就一起升级。\
+spring cloud, spring boot, spring升级后，相关联的包及建议同步升级，否则可能会无效，比如说pagehelper，druid，jedis等。既然要动依赖包，建议这次就一次性到位，本身整个项目的所有功能肯定需要回归验证一遍，建议就一起升级。
 可以参考这两篇文章：
 
 - [Spring cloud系列十八 Spring Cloud 从Dalston.SR5到Greenwich.SR1 的升级记录](https://blog.csdn.net/hry2015/article/details/89340069)

@@ -9,7 +9,7 @@ description: "mysql的正则匹配用regexp，而替换字符串用REPLACE(str,f
 
 mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from\_str,to\_str)
 
-例如\
+例如
 `UPDATE myTable SET HTML=REPLACE(HTML,'<br>','') WHERE HTML REGEXP '(<br */*>\s*){2,}'`
 
 更多例子如下：

@@ -7,11 +7,11 @@ source: "http://prayerlaputa.com/?p=237"
 description: "打算整理一下最近两年做android所学到的东西，代码、文章配套整理一下，但是发现自己其实研究的还很肤浅，写出东西还是没人家写的明白，so，索性直接转发吧，主要是为了日后查起来方便，代码打出一份方便日后搬砖。"
 ---
 
-打算整理一下最近两年做android所学到的东西，代码、文章配套整理一下，但是发现自己其实研究的还很肤浅，写出东西还是没人家写的明白，so，索性直接转发吧，主要是为了日后查起来方便，代码打出一份方便日后搬砖。\
-下面文章转自：[Android中SQLite应用详解](http://blog.csdn.net/liuhe688/article/details/6715983) 相关代码参见：<https://github.com/evasnowind/PrayerUtility/>\
-————华丽的分割线————\
-上次我向大家介绍了SQLite的基本信息和使用过程，相信朋友们对SQLite已经有所了解了，那今天呢，我就和大家分享一下在Android中如何使用SQLite。\
-现在的主流移动设备像Android、iPhone等都使用SQLite作为复杂数据的存储引擎，在我们为移动设备开发应用程序时，也许就要使用到SQLite来存储我们大量的数据，所以我们就需要掌握移动设备上的SQLite开发技巧。对于Android平台来说，系统内置了丰富的API来供开发人员操作SQLite，我们可以轻松的完成对数据的存取。\
+打算整理一下最近两年做android所学到的东西，代码、文章配套整理一下，但是发现自己其实研究的还很肤浅，写出东西还是没人家写的明白，so，索性直接转发吧，主要是为了日后查起来方便，代码打出一份方便日后搬砖。
+下面文章转自：[Android中SQLite应用详解](http://blog.csdn.net/liuhe688/article/details/6715983) 相关代码参见：<https://github.com/evasnowind/PrayerUtility/>
+————华丽的分割线————
+上次我向大家介绍了SQLite的基本信息和使用过程，相信朋友们对SQLite已经有所了解了，那今天呢，我就和大家分享一下在Android中如何使用SQLite。
+现在的主流移动设备像Android、iPhone等都使用SQLite作为复杂数据的存储引擎，在我们为移动设备开发应用程序时，也许就要使用到SQLite来存储我们大量的数据，所以我们就需要掌握移动设备上的SQLite开发技巧。对于Android平台来说，系统内置了丰富的API来供开发人员操作SQLite，我们可以轻松的完成对数据的存取。
 下面就向大家介绍一下SQLite常用的操作方法，为了方便，我将代码写在了Activity的onCreate中：
 
 <!-- more -->
@@ -59,7 +59,7 @@ description: "打算整理一下最近两年做android所学到的东西，代�
     }
 ```
 
-在执行完上面的代码后，系统就会在/data/data/[PACKAGE\_NAME]/databases目录下生成一个“test.db”的数据库文件，如图：\
+在执行完上面的代码后，系统就会在/data/data/[PACKAGE\_NAME]/databases目录下生成一个“test.db”的数据库文件，如图：
 上面的代码中基本上囊括了大部分的数据库操作；对于添加、更新和删除来说，我们都可以使用
 
 ```
@@ -75,7 +75,7 @@ db.update(String table, Contentvalues values, String whereClause, String whereAr
 db.delete(String table, String whereClause, String whereArgs);
 ```
 
-以上三个方法的第一个参数都是表示要操作的表名；insert中的第二个参数表示如果插入的数据每一列都为空的话，需要指定此行中某一列的名称，系统将此列设置为NULL，不至于出现错误；insert中的第三个参数是ContentValues类型的变量，是键值对组成的Map，key代表列名，value代表该列要插入的值；update的第二个参数也很类似，只不过它是更新该字段key为最新的value值，第三个参数whereClause表示WHERE表达式，比如“age > ? and age < ?”等，最后的whereArgs参数是占位符的实际参数值；delete方法的参数也是一样。\
+以上三个方法的第一个参数都是表示要操作的表名；insert中的第二个参数表示如果插入的数据每一列都为空的话，需要指定此行中某一列的名称，系统将此列设置为NULL，不至于出现错误；insert中的第三个参数是ContentValues类型的变量，是键值对组成的Map，key代表列名，value代表该列要插入的值；update的第二个参数也很类似，只不过它是更新该字段key为最新的value值，第三个参数whereClause表示WHERE表达式，比如“age > ? and age < ?”等，最后的whereArgs参数是占位符的实际参数值；delete方法的参数也是一样。
 下面来说说查询操作。查询操作相对于上面的几种操作要复杂些，因为我们经常要面对着各种各样的查询条件，所以系统也考虑到这种复杂性，为我们提供了较为丰富的查询形式：
 
 ```
@@ -85,8 +85,8 @@ db.query(String table, String[] columns, String selection, String[] selectionArg
 db.query(String distinct, String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit);
 ```
 
-上面几种都是常用的查询方法，第一种最为简单，将所有的SQL语句都组织到一个字符串中，使用占位符代替实际参数，selectionArgs就是占位符实际参数集；下面的几种参数都很类似，columns表示要查询的列所有名称集，selection表示WHERE之后的条件语句，可以使用占位符，groupBy指定分组的列名，having指定分组条件，配合groupBy使用，orderBy指定排序的列名，limit指定分页参数，distinct可以指定“true”或“false”表示要不要过滤重复值。需要注意的是，selection、groupBy、having、orderBy、limit这几个参数中不包括“WHERE”、“GROUP BY”、“HAVING”、“ORDER BY”、“LIMIT”等SQL关键字。\
-最后，他们同时返回一个Cursor对象，代表数据集的游标，有点类似于JavaSE中的ResultSet。\
+上面几种都是常用的查询方法，第一种最为简单，将所有的SQL语句都组织到一个字符串中，使用占位符代替实际参数，selectionArgs就是占位符实际参数集；下面的几种参数都很类似，columns表示要查询的列所有名称集，selection表示WHERE之后的条件语句，可以使用占位符，groupBy指定分组的列名，having指定分组条件，配合groupBy使用，orderBy指定排序的列名，limit指定分页参数，distinct可以指定“true”或“false”表示要不要过滤重复值。需要注意的是，selection、groupBy、having、orderBy、limit这几个参数中不包括“WHERE”、“GROUP BY”、“HAVING”、“ORDER BY”、“LIMIT”等SQL关键字。
+最后，他们同时返回一个Cursor对象，代表数据集的游标，有点类似于JavaSE中的ResultSet。
 下面是Cursor对象的常用方法：
 
 ```
@@ -108,11 +108,11 @@ c.getColumnIndex(String columnName);//返回某列名对应的列索引值
 c.getString(int columnIndex);   //返回当前行指定列的值
 ```
 
-在上面的代码示例中，已经用到了这几个常用方法中的一些，关于更多的信息，大家可以参考官方文档中的说明。\
-最后当我们完成了对数据库的操作后，记得调用SQLiteDatabase的close()方法释放数据库连接，否则容易出现SQLiteException。\
-上面就是SQLite的基本应用，但在实际开发中，为了能够更好的管理和维护数据库，我们会封装一个继承自SQLiteOpenHelper类的数据库操作类，然后以这个类为基础，再封装我们的业务逻辑方法。\
-下面，我们就以一个实例来讲解具体的用法，我们新建一个名为db的项目，结构如下：\
-其中DBHelper继承了SQLiteOpenHelper，作为维护和管理数据库的基类，DBManager是建立在DBHelper之上，封装了常用的业务方法，Person是我们的person表对应的JavaBean，MainActivity就是我们显示的界面。\
+在上面的代码示例中，已经用到了这几个常用方法中的一些，关于更多的信息，大家可以参考官方文档中的说明。
+最后当我们完成了对数据库的操作后，记得调用SQLiteDatabase的close()方法释放数据库连接，否则容易出现SQLiteException。
+上面就是SQLite的基本应用，但在实际开发中，为了能够更好的管理和维护数据库，我们会封装一个继承自SQLiteOpenHelper类的数据库操作类，然后以这个类为基础，再封装我们的业务逻辑方法。
+下面，我们就以一个实例来讲解具体的用法，我们新建一个名为db的项目，结构如下：
+其中DBHelper继承了SQLiteOpenHelper，作为维护和管理数据库的基类，DBManager是建立在DBHelper之上，封装了常用的业务方法，Person是我们的person表对应的JavaBean，MainActivity就是我们显示的界面。
 下面我们先来看一下DBHelper：
 
 ```
@@ -141,7 +141,7 @@ public class DBHelper extends SQLiteOpenHelper {
 }
 ```
 
-正如上面所述，数据库第一次创建时onCreate方法会被调用，我们可以执行创建表的语句，当系统发现版本变化之后，会调用onUpgrade方法，我们可以执行修改表结构等语句。\
+正如上面所述，数据库第一次创建时onCreate方法会被调用，我们可以执行创建表的语句，当系统发现版本变化之后，会调用onUpgrade方法，我们可以执行修改表结构等语句。
 为了方便我们面向对象的使用数据，我们建一个Person类，对应person表中的字段，如下：
 
 ```
@@ -246,8 +246,8 @@ public class DBManager {
 }
 ```
 
-我们在DBManager构造方法中实例化DBHelper并获取一个SQLiteDatabase对象，作为整个应用的数据库实例；在添加多个Person信息时，我们采用了事务处理，确保数据完整性；最后我们提供了一个closeDB方法，释放数据库资源，这一个步骤在我们整个应用关闭时执行，这个环节容易被忘记，所以朋友们要注意。\
-我们获取数据库实例时使用了getWritableDatabase()方法，也许朋友们会有疑问，在getWritableDatabase()和getReadableDatabase()中，你为什么选择前者作为整个应用的数据库实例呢？在这里我想和大家着重分析一下这一点。\
+我们在DBManager构造方法中实例化DBHelper并获取一个SQLiteDatabase对象，作为整个应用的数据库实例；在添加多个Person信息时，我们采用了事务处理，确保数据完整性；最后我们提供了一个closeDB方法，释放数据库资源，这一个步骤在我们整个应用关闭时执行，这个环节容易被忘记，所以朋友们要注意。
+我们获取数据库实例时使用了getWritableDatabase()方法，也许朋友们会有疑问，在getWritableDatabase()和getReadableDatabase()中，你为什么选择前者作为整个应用的数据库实例呢？在这里我想和大家着重分析一下这一点。
 我们来看一下SQLiteOpenHelper中的getReadableDatabase()方法：
 
 ```
@@ -367,8 +367,8 @@ public synchronized SQLiteDatabase getWritableDatabase() {
 }
 ```
 
-大家可以看到，几个关键步骤是，首先判断mDatabase如果不为空已打开并不是只读模式则直接返回，否则如果mDatabase不为空则加锁，然后开始打开或创建数据库，比较版本，根据版本号来调用相应的方法，为数据库设置新版本号，最后释放旧的不为空的mDatabase并解锁，把新打开的数据库实例赋予mDatabase，并返回最新实例。\
-看完上面的过程之后，大家或许就清楚了许多，如果不是在遇到磁盘空间已满等情况，getReadableDatabase()一般都会返回和getWritableDatabase()一样的数据库实例，所以我们在DBManager构造方法中使用getWritableDatabase()获取整个应用所使用的数据库实例是可行的。当然如果你真的担心这种情况会发生，那么你可以先用getWritableDatabase()获取数据实例，如果遇到异常，再试图用getReadableDatabase()获取实例，当然这个时候你获取的实例只能读不能写了。\
+大家可以看到，几个关键步骤是，首先判断mDatabase如果不为空已打开并不是只读模式则直接返回，否则如果mDatabase不为空则加锁，然后开始打开或创建数据库，比较版本，根据版本号来调用相应的方法，为数据库设置新版本号，最后释放旧的不为空的mDatabase并解锁，把新打开的数据库实例赋予mDatabase，并返回最新实例。
+看完上面的过程之后，大家或许就清楚了许多，如果不是在遇到磁盘空间已满等情况，getReadableDatabase()一般都会返回和getWritableDatabase()一样的数据库实例，所以我们在DBManager构造方法中使用getWritableDatabase()获取整个应用所使用的数据库实例是可行的。当然如果你真的担心这种情况会发生，那么你可以先用getWritableDatabase()获取数据实例，如果遇到异常，再试图用getReadableDatabase()获取实例，当然这个时候你获取的实例只能读不能写了。
 最后，让我们看一下如何使用这些数据操作方法来显示数据，下面是MainActivity.Java的布局文件和代码：
 
 ```
@@ -475,7 +475,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-这里需要注意的是SimpleCursorAdapter的应用，当我们使用这个适配器时，我们必须先得到一个Cursor对象，这里面有几个问题：如何管理Cursor的生命周期，如果包装Cursor，Cursor结果集都需要注意什么。\
+这里需要注意的是SimpleCursorAdapter的应用，当我们使用这个适配器时，我们必须先得到一个Cursor对象，这里面有几个问题：如何管理Cursor的生命周期，如果包装Cursor，Cursor结果集都需要注意什么。
 如果手动去管理Cursor的话会非常的麻烦，还有一定的风险，处理不当的话运行期间就会出现异常，幸好Activity为我们提供了startManagingCursor(Cursor cursor)方法，它会根据Activity的生命周期去管理当前的Cursor对象，下面是该方法的说明：
 
 ```
@@ -494,8 +494,8 @@ public class MainActivity extends Activity {
      */
 ```
 
-文中提到，startManagingCursor方法会根据Activity的生命周期去管理当前的Cursor对象的生命周期，就是说当Activity停止时他会自动调用Cursor的deactivate方法，禁用游标，当Activity重新回到屏幕时它会调用Cursor的requery方法再次查询，当Activity摧毁时，被管理的Cursor都会自动关闭释放。\
-如何包装Cursor：我们会使用到CursorWrapper对象去包装我们的Cursor对象，实现我们需要的数据转换工作，这个CursorWrapper实际上是实现了Cursor接口。我们查询获取到的Cursor其实是Cursor的引用，而系统实际返回给我们的必然是Cursor接口的一个实现类的对象实例，我们用CursorWrapper包装这个实例，然后再使用SimpleCursorAdapter将结果显示到列表上。\
+文中提到，startManagingCursor方法会根据Activity的生命周期去管理当前的Cursor对象的生命周期，就是说当Activity停止时他会自动调用Cursor的deactivate方法，禁用游标，当Activity重新回到屏幕时它会调用Cursor的requery方法再次查询，当Activity摧毁时，被管理的Cursor都会自动关闭释放。
+如何包装Cursor：我们会使用到CursorWrapper对象去包装我们的Cursor对象，实现我们需要的数据转换工作，这个CursorWrapper实际上是实现了Cursor接口。我们查询获取到的Cursor其实是Cursor的引用，而系统实际返回给我们的必然是Cursor接口的一个实现类的对象实例，我们用CursorWrapper包装这个实例，然后再使用SimpleCursorAdapter将结果显示到列表上。
 Cursor结果集需要注意些什么：一个最需要注意的是，在我们的结果集中必须要包含一个“\_id”的列，否则SimpleCursorAdapter就会翻脸不认人，为什么一定要这样呢？因为这源于SQLite的规范，主键以“\_id”为标准。解决办法有三：第一，建表时根据规范去做；第二，查询时用别名，例如：SELECT id AS \_id FROM person；第三，在CursorWrapper里做文章：
 
 ```
@@ -510,6 +510,6 @@ CursorWrapper cursorWrapper = new CursorWrapper(c) {
 };
 ```
 
-如果试图从CursorWrapper里获取“\_id”对应的列索引，我们就返回查询结果里“id”对应的列索引即可。\
-最后我们来看一下结果如何：\
+如果试图从CursorWrapper里获取“\_id”对应的列索引，我们就返回查询结果里“id”对应的列索引即可。
+最后我们来看一下结果如何：
 [![](http://www.prayerlaputa.com/wp-content/uploads/2016/12/1-200x300.png)](http://www.prayerlaputa.com/wp-content/uploads/2016/12/1.png) [![](http://www.prayerlaputa.com/wp-content/uploads/2016/12/2-300x119.png)](http://www.prayerlaputa.com/wp-content/uploads/2016/12/2.png)

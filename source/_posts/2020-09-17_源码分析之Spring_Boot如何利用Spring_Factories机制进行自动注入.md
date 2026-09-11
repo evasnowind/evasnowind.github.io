@@ -19,7 +19,7 @@ description: "围绕Spring Boot如何利用Spring Factories机制进行自动注
 
 ## Spring Factories的核心
 
-spring factories机制核心在spring-core包中定义的SpringFactoriesLoader类，该类的公有方法只有2个：\
+spring factories机制核心在spring-core包中定义的SpringFactoriesLoader类，该类的公有方法只有2个：
 
 ```
 /*
@@ -80,7 +80,7 @@ private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoad
 
 ## 示例
 
-举个例子，spring boot start的实现中，如下所示：\
+举个例子，spring boot start的实现中，如下所示：
 ![](/images/spring-boot-starter-factories-snapshot-3_d3582dd7.jpg)
 
 spring-boot的spring.factories具体内容如下：

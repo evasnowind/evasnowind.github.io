@@ -7,9 +7,7 @@ source: "http://prayerlaputa.com/?p=648"
 description: "ArrayList和ArrayList是两个不同的泛型。"
 ---
 
-# java List的中 方法参数是父类对象的list。传入子类对象时的处理
-
-本文转载自：\
+本文转载自：
 <https://blog.csdn.net/u014463137/article/details/75570656>
 
 # 父类
