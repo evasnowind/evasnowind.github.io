@@ -1,15 +1,15 @@
 ---
-title: "spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file"
+title: "Spring Boot 启动失败，JVM 报错：warning Insufficient space for shared memory file"
 date: "2019-12-13"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=730"
-description: "启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：。"
+description: "记录一次 Spring Boot 启动失败时的排查过程，定位到 JVM 共享内存相关告警后最终解决问题。"
 ---
 
-## 问题与原因
+## 问题现象
 
-启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：
+启动 Spring Boot 程序时，应用直接启动失败，并出现了类似下面的错误：
 
 ```
 A child container failed during start
@@ -22,7 +22,7 @@ at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
 ……
 ```
 
-然而，这个只是结果，实际上并不能定位问题，笔者继续找异常，看到类似下面的错误：
+不过，这里的异常更像是表层结果，还不足以直接定位根因。继续往前翻日志后，又看到了类似下面的报错：
 
 <!-- more -->
 
@@ -35,7 +35,7 @@ org.springframework.context.ApplicationContextException: Unable to start embedde
 ……
 ```
 
-还是搜不出什么结果，实在崩溃之际，发现spring boot程序启动时，第一句log有这么一句：
+继续查了很久还是没有头绪，直到回头看启动日志的最开始几行，才发现真正有价值的信息其实在这里：
 
 ```
 warning Insufficient space for shared memory file

@@ -1,13 +1,13 @@
 ---
-title: "MyBatis xml常用写法-使用like关键字【整理 + 转载】"
+title: "MyBatis XML 常用写法：使用 like 关键字【整理 + 转载】"
 date: "2019-10-19"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis"]
 source: "http://prayerlaputa.com/?p=679"
-description: "对mybatis xml常用写法-使用like关键字【整理+相关资料、经验或工具进行整理与汇总。"
+description: "记录在 MyBatis XML 中拼接 like 查询条件的常见写法。"
 ---
 
-# 需求：xml中需要在where中拼接like语句
+## 场景
 
 ## 方法1：concat
 

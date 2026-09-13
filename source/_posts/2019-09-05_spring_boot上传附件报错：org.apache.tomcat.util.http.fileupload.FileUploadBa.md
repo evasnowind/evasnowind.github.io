@@ -1,11 +1,13 @@
 ---
-title: "Spring Boot 上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载 + 整理】"
+title: "Spring Boot 上传附件报错：FileUploadBase$SizeLimitExceededException（转载 + 整理）"
 date: "2019-09-05"
 categories: ["中间件"]
 tags: ["Spring Boot", "Tomcat"]
 source: "http://prayerlaputa.com/?p=645"
-description: "记录 Spring Boot / Spring Cloud 场景下上传附件超限时的报错现象与解决办法。"
+description: "记录 Spring Boot / Spring Cloud 场景下上传附件超限时报 `SizeLimitExceededException` 的现象、原因与解决办法。"
 ---
+
+这是一个在文件上传场景里比较常见的问题：业务代码没问题，但请求还没进核心逻辑就先被上传大小限制拦住了。
 
 ## 问题现象
 

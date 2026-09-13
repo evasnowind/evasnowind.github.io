@@ -1,13 +1,13 @@
 ---
-title: "spring boot中配置mybatis plus输出SQL查询语句日志"
+title: "Spring Boot 中配置 MyBatis-Plus 输出 SQL 查询日志"
 date: "2020-03-09"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot", "MyBatis"]
 source: "http://prayerlaputa.com/?p=780"
-description: "在spring boot的application.yml文件中配置：。"
+description: "记录在 Spring Boot + MyBatis-Plus 项目中开启 SQL 日志输出的常见配置方式，方便排查执行语句与参数。"
 ---
 
-在spring boot的application.yml文件中配置：
+如果想在开发或排查问题时直接看到 MyBatis-Plus 输出的 SQL 语句，可以在 Spring Boot 配置文件中打开日志打印。`application.yml` 的写法如下：
 
 ```
 # 配置sql打印日志

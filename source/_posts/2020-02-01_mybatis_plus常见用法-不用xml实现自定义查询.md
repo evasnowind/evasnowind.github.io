@@ -1,13 +1,13 @@
 ---
-title: "mybatis_plus常见用法-不用xml实现自定义查询"
+title: "MyBatis-Plus 常见用法：不用 XML 实现自定义查询"
 date: "2020-02-01"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis"]
 source: "http://prayerlaputa.com/?p=754"
-description: "围绕mybatis_plus常见用法-不用xml实现自定义查询整理相关实践、经验与思考。"
+description: "整理 MyBatis-Plus 在不编写 XML 的情况下实现自定义查询的常见方式，适合简单查询场景快速落地。"
 ---
 
-找到两种方法：
+如果只是少量自定义查询，不一定非要再写一份 XML。这里整理两种相对常见、落地也比较快的做法：
 1、采用mybatis注解的方式
 参见：[MyBatis Plus 自定义查询语句](https://blog.csdn.net/weixin_31058701/article/details/102834031)
 DAO层：

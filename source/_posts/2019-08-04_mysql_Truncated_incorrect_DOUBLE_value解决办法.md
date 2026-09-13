@@ -1,13 +1,13 @@
 ---
-title: "MySQL Truncated incorrect DOUBLE value解决办法"
+title: "MySQL 报错 Truncated incorrect DOUBLE value 的解决办法"
 date: "2019-08-04"
 categories: ["数据库"]
 tags: ["MySQL"]
 source: "http://prayerlaputa.com/?p=576"
-description: "出现该错误“Truncated incorrect DOUBLE value”时，极有可能是你写的mysql查询语句中所提供的字段，与表中字段类型不匹配。比如字段为字符型的，与数字进行比较，数字两侧没加引号；"
+description: "记录 MySQL 报错 `Truncated incorrect DOUBLE value` 时最常见的原因，以及排查字段类型与条件写法的思路。"
 ---
 
-出现该错误“Truncated incorrect DOUBLE value”时，极有可能是你写的mysql查询语句中所提供的字段，与表中字段类型不匹配。比如字段为字符型的，与数字进行比较，数字两侧没加引号；比如表中字段明明是字符串，但在where语句中偏偏直接写成了a=23而不是a=’23’。
+出现 `Truncated incorrect DOUBLE value` 这个报错时，最常见的原因是查询条件里的字段类型和实际比较值不匹配。比如字段明明是字符串，却按数字去比较；或者本该写成 `a='23'`，却直接写成了 `a=23`。
 
 <!-- more -->
 

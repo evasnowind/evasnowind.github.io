@@ -1,10 +1,10 @@
 ---
-title: "Spring Boot 连接 MySQL 8 报 errorCode 0, state 08001 错误"
+title: "Spring Boot 连接 MySQL 8 报 errorCode 0、state 08001 错误"
 date: "2019-11-24"
 categories: ["数据库"]
 tags: ["Spring Boot", "MySQL"]
 source: "http://prayerlaputa.com/?p=715"
-description: "记录 Spring Boot 连接 MySQL 8 时出现 errorCode 0、state 08001 报错的常见原因与解决办法。"
+description: "记录 Spring Boot 连接 MySQL 8 时出现 errorCode 0、state 08001 的常见原因，包括驱动版本与连接参数配置问题。"
 ---
 
 ## 问题现象

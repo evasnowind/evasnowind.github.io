@@ -1,13 +1,13 @@
 ---
-title: "MyBatis-Plus select不列出全部字段，只查询部分字段"
+title: "MyBatis-Plus select 不列出全部字段，只查询部分字段"
 date: "2020-02-01"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis"]
 source: "http://prayerlaputa.com/?p=751"
-description: "mybatis-plus select查询语句默认是查全部字段，有两种方法可以指定要查询的字段。"
+description: "记录 MyBatis-Plus 中按需指定查询字段的两种常见写法，避免默认 select 全字段。"
 ---
 
-mybatis-plus select查询语句默认是查全部字段，有两种方法可以指定要查询的字段
+MyBatis-Plus 的 `select` 查询默认会把所有字段都查出来；如果只需要部分字段，可以按下面两种方式处理。
 
 假定表结构如下：
 

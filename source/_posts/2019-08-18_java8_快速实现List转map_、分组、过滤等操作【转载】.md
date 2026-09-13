@@ -1,21 +1,21 @@
 ---
-title: "java8 快速实现List转map 、分组、过滤等操作【转载】"
+title: "Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】"
 date: "2019-08-18"
 categories: ["Java"]
 tags: ["Java", "集合"]
 source: "http://prayerlaputa.com/?p=610"
-description: "利用java8新特性，可以用简洁高效的代码来实现一些数据处理。"
+description: "整理 Java 8 中使用 Stream 对集合做转 Map、分组、过滤等常见处理的示例。"
 ---
 
 {% raw %}
-# java8 快速实现List转map 、分组、过滤等操作【转载】
+本文整理 Java 8 中 List 转 Map、分组、过滤等常见集合处理写法。
 
 版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
 本文链接：https://blog.csdn.net/lu930124/article/details/77595585
 
 <!-- more -->
 
-利用java8新特性，可以用简洁高效的代码来实现一些数据处理。
+利用 Java 8 的 Stream 等特性，可以用更简洁的方式完成不少常见的数据处理操作。
 
 定义1个Apple对象：
 

@@ -1,26 +1,25 @@
 ---
-title: "spring中使用mybatis/MyBatis plus连接sqlserver"
+title: "Spring 中使用 MyBatis / MyBatis Plus 连接 SQL Server"
 date: "2020-03-03"
 categories: ["数据库"]
 tags: ["MyBatis", "SQL Server"]
 source: "http://prayerlaputa.com/?p=775"
-description: "本文主要关注如何使用mybatis/mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。"
+description: "记录在 Spring 项目中使用 MyBatis / MyBatis Plus 连接 SQL Server 的基础配置方法。"
 ---
 
-本文主要关注如何使用mybatis/mybatis plus连接SQL Server数据库，因此将省略其他项目配置、代码。
+本文主要关注如何在 Spring 项目中使用 MyBatis / MyBatis Plus 连接 SQL Server，因此会省略与主题无关的项目配置与业务代码。
 
 <!-- more -->
 
-# 框架选择
+## 框架选择
 
 应用框架：spring boot
 ORM框架：mybatis plus（对于连接数据库而言，mybatis和mybatis plus其实都一样）
 数据库连接池：druid
 
-# pom依赖
+## pom 依赖
 
-此处仅给出我的配置，mybatis/druid请依据自己项目的需要进行选择。
-方便起见我用的是mybatis plus
+这里只给出我实际使用的配置，MyBatis / Druid 可根据项目情况自行替换。为了方便演示，这里使用的是 MyBatis Plus。
 
 ```
         <!--mybatis plus -->

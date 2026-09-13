@@ -1,5 +1,5 @@
 ---
-title: "Spring Cloud gateway基础"
+title: "Spring Cloud Gateway 基础"
 date: "2020-12-29"
 categories: ["Java", "Spring Cloud"]
 tags: ["Spring Cloud"]
@@ -11,7 +11,7 @@ Spring Cloud Gateway（后续简称 SCG）本身就是 Spring Cloud 体系的一
 
 <!-- more -->
 
-### 关键组成部分
+## 关键组成部分
 
 - 谓词 predicate: 将请求匹配到对应的route上
 - 路由 route: 网关的基本构建块。它由ID，目标URI，谓词集合和过滤器集合定义
@@ -19,7 +19,7 @@ Spring Cloud Gateway（后续简称 SCG）本身就是 Spring Cloud 体系的一
 
 ![](/images/spring-cloud-gateway-structure_ff83e600.png)
 
-### 工作过程
+## 工作过程
 
 - 1. SCG接收客户端请求。
 - 2. 请求与谓词匹配，获得对应的路由，匹配成功后，继续往下执行。
@@ -30,7 +30,7 @@ Spring Cloud Gateway（后续简称 SCG）本身就是 Spring Cloud 体系的一
 
 ![](/images/tCZIYxXepbNLnjPp_62cf7bf7.png)
 
-### 应用场景
+## 应用场景
 
 - 灰度发布
 

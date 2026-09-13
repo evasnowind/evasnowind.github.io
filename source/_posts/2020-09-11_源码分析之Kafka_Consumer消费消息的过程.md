@@ -4,8 +4,10 @@ date: "2020-09-11"
 categories: ["中间件"]
 tags: ["源码分析", "Kafka"]
 source: "http://prayerlaputa.com/?p=861"
-description: "围绕 Kafka Consumer 消费消息的实现原理、核心流程与关键细节做源码分析。"
+description: "围绕 Kafka Consumer 的核心组件与消息拉取流程做源码分析，梳理从订阅、拉取到位移管理的关键细节。"
 ---
+
+这篇文章从使用方式和关键组件入手，梳理 Kafka Consumer 从拉取消息到处理位移的大致过程。
 
 ## 前言
 

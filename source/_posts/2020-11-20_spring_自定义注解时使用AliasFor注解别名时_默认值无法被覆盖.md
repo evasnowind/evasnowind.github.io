@@ -1,13 +1,13 @@
 ---
-title: "spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖"
+title: "Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖"
 date: "2020-11-20"
 categories: ["Java", "Spring"]
 tags: ["Spring"]
 source: "http://prayerlaputa.com/?p=910"
-description: "分析 @AliasFor 互为别名时默认值为何看似未生效，并说明如何使用 Spring 提供的注解工具正确读取属性值。"
+description: "记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。"
 ---
 
-事情是这样子的：
+这篇文章记录一个在自定义 Spring 注解时很容易踩到的细节：`@AliasFor` 明明已经配置好了，但读取属性值时结果却和预期不一致。
 
 我想自定义一个缓存注解，用来缓存方法返回值，并且支持自定义缓存超时时间，注解定义是这样：
 

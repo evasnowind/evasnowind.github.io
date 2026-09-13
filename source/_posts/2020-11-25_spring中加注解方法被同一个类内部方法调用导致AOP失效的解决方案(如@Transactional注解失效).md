@@ -1,11 +1,13 @@
 ---
-title: "spring中加注解方法被同一个类内部方法调用导致AOP失效的解决方案(如@Transactional注解失效)"
+title: "Spring 中同类内部调用导致 AOP 失效的解决方案（如 @Transactional 失效）"
 date: "2020-11-25"
 categories: ["Java", "Spring"]
 tags: ["Spring"]
 source: "http://prayerlaputa.com/?p=913"
-description: "解释同类内部调用为何会导致 @Transactional 等 AOP 注解失效，并基于 Spring 代理机制给出对应解决方案。"
+description: "解释为什么同一个类内部方法互调会绕过 Spring 代理，从而导致 @Transactional 等 AOP 注解失效，并给出常见解决方案。"
 ---
+
+这是 Spring 项目里非常常见、也很容易误判的一个坑：注解明明加了，但放到同类内部调用时却不生效。
 
 ## 现象
 
@@ -28,7 +30,7 @@ public class A {
 }
 ```
 
-大概多数人都会遇到这么一个坑，如果使用spring的@Transactional给A类中的某个业务方法serviceA()加事务，在controller层直接调用serviceA()时，该方法的事务注解能正常生效；但如果在A类中的serviceB()调用serviceA()，并且servcieB没有加事务@Transactional，那么此时实际上serviceA()上的@Transactional并未生效。
+这个问题在事务、缓存、权限校验等场景里都很常见。以上面代码为例，如果在 Controller 层直接调用 `serviceA()`，事务通常可以正常生效；但如果在同一个类的 `serviceB()` 内部直接调用 `serviceA()`，且 `serviceB()` 本身没有开启事务，那么此时 `serviceA()` 上的 `@Transactional` 实际上往往不会生效。
 
 <!-- more -->
 

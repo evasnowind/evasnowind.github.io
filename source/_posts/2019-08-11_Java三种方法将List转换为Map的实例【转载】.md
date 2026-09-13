@@ -1,17 +1,17 @@
 ---
-title: "Java三种方法将List转换为Map的实例【转载】"
+title: "Java 中将 List 转换为 Map 的三种方法【转载】"
 date: "2019-08-11"
 categories: ["Java"]
 tags: ["Java", "集合"]
 source: "http://prayerlaputa.com/?p=598"
-description: "记录Java三种方法将List转换为Map的实例的操作步骤与关键注意事项。"
+description: "整理 Java 中将 List 转换为 Map 的三种常见写法，适合作为集合处理的快速参考。"
 ---
 
 原文链接：https://www.jb51.net/article/149605.htm
 
 <!-- more -->
 
-# Java三种方法将List转换为Map的实例
+## 三种常见写法
 
 1.for循环
 

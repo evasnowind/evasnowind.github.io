@@ -1,15 +1,15 @@
 ---
-title: "spring boot整合swagger"
+title: "Spring Boot 整合 Swagger"
 date: "2019-08-24"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot", "Swagger"]
 source: "http://prayerlaputa.com/?p=623"
-description: "本文仅展示总体配置，具体注解用法请另行搜索、查询。"
+description: "本文只展示整体配置方式，具体注解的使用细节这里不展开。"
 ---
 
-本文仅展示总体配置，具体注解用法请另行搜索、查询。
+本文只展示整体配置方式，具体注解的使用细节这里不展开。
 
-## 1.加上maven依赖，引入相关包
+## 1. 添加 Maven 依赖，引入相关包
 
 ```
 </pre>

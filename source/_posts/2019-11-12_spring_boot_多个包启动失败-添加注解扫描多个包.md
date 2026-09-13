@@ -1,16 +1,15 @@
 ---
-title: "Spring Boot 多个包启动失败-添加注解扫描多个包"
+title: "Spring Boot 多个包启动失败：添加注解扫描多个包"
 date: "2019-11-12"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=703"
-description: "这种组织结构，注意，此处时同一个项目（没有拆分成多个maven模块），有多个包保存不同功能模块的代码。此时启动项目，报错如下：。"
+description: "记录单体 Spring Boot 项目在代码分散到多个包后出现启动失败时，如何通过注解扫描多个包解决问题。"
 ---
 
-# spring boot 多个包启动失败-解决：扫描多个包
+## 问题现象
 
-表现：启动时提示如下信息：
-因为项目需要，将代码结构调整为：
+项目启动时提示如下错误。问题出现前，因为业务调整，我把代码结构改成了下面这种形式：
 
 - [com.xxx](http://com.xxx)
   - xx
@@ -20,7 +19,7 @@ description: "这种组织结构，注意，此处时同一个项目（没有拆
 <!-- more -->
 
 
-这种组织结构，注意，此处时同一个项目（没有拆分成多个maven模块），有多个包保存不同功能模块的代码。此时启动项目，报错如下：
+需要注意，这里仍然是同一个项目，并没有拆分成多个 Maven 模块，只是把不同功能模块的代码放到了不同包下。此时启动项目，就会报下面的错误：
 
 ```
 Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.

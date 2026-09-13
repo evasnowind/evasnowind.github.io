@@ -4,8 +4,10 @@ date: "2019-08-04"
 categories: ["中间件"]
 tags: ["Elasticsearch"]
 source: "http://prayerlaputa.com/?p=579"
-description: "记录 Elasticsearch 集群的基础配置方法，以及搭建过程中需要注意的关键细节。"
+description: "记录 Elasticsearch 集群的基础配置、旧版与新版参数差异，以及搭建过程中容易忽略的注意事项。"
 ---
+
+这是一篇偏实操的 Elasticsearch 集群搭建记录，重点放在配置项和容易踩坑的细节上。
 
 ## 集群目标
 

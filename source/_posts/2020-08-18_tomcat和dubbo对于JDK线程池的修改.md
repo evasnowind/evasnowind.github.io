@@ -1,11 +1,13 @@
 ---
-title: "tomcat和dubbo对于JDK线程池的修改"
+title: "Tomcat 和 Dubbo 对 JDK 线程池的改造思路"
 date: "2020-08-18"
 categories: ["中间件"]
 tags: ["Java", "并发", "Tomcat", "Dubbo"]
 source: "http://prayerlaputa.com/?p=845"
-description: "结合ThreadPoolExecutor的运行过程，可以知道ThreadPoolExecutor主要倾向于CPU密集型任务，但对于对于 io 密集型任务，如数据库查询，rpc 请求调用等，就不是很友好。"
+description: "从 ThreadPoolExecutor 的设计出发，分析 Tomcat 与 Dubbo 为什么要对 JDK 线程池做定制，以及它们各自的优化方向。"
 ---
+
+这篇文章从 JDK 原生 `ThreadPoolExecutor` 的设计取舍出发，分析 Tomcat 与 Dubbo 为什么要在其基础上做定制，以及它们分别优化了哪些问题。
 
 ## 预备知识
 

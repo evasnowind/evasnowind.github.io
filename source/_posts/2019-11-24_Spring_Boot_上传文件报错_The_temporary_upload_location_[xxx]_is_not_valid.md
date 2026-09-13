@@ -4,7 +4,7 @@ date: "2019-11-24"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=712"
-description: "记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的原因与解决办法。"
+description: "记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的根因，以及更稳妥的处理方式。"
 ---
 
 ## 问题现象

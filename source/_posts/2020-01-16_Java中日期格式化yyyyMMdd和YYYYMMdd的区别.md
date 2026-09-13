@@ -1,13 +1,13 @@
 ---
-title: "Java中日期格式化yyyyMMdd和YYYYMMdd的区别"
+title: "Java 中日期格式化 yyyyMMdd 和 YYYYMMdd 的区别"
 date: "2020-01-16"
 categories: ["Java"]
 tags: ["Java"]
 source: "http://prayerlaputa.com/?p=746"
-description: "记录 Java 日期格式化中 `yyyyMMdd` 与 `YYYYMMdd` 的区别，以及跨年场景下的实际表现。"
+description: "记录 `yyyyMMdd` 与 `YYYYMMdd` 的核心差异，并用跨年场景说明为什么这个问题容易踩坑。"
 ---
 
-先看一段示例代码：
+这个问题看起来很小，但在跨年周生成日期字符串时特别容易踩坑。先看一段示例代码：
 
 ```
  public static void main(String[] args) {

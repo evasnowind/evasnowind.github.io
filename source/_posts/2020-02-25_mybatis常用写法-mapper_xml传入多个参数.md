@@ -1,13 +1,13 @@
 ---
-title: "mybatis常用写法-mapper xml传入多个参数"
+title: "MyBatis 常用写法：Mapper XML 传入多个参数"
 date: "2020-02-25"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis", "集合"]
 source: "http://prayerlaputa.com/?p=769"
-description: "围绕mybatis常用写法-mapper xml传入多个参数整理相关实践、经验与思考。"
+description: "记录 MyBatis 中通过 Mapper XML 传入多个参数的常见写法。"
 ---
 
-mapper xml文件中：
+先看 `Mapper XML` 中的写法：
 
 ```
 <resultMap id="XxxResultMap" type="com.xxx.xxxx">
@@ -28,7 +28,7 @@ mapper接口中：
 xxx selectXXXX(@Param(value = "id") String id,@Param(value = "type") String type);
 ```
 
-# 参考资料
+## 参考资料
 
 - [mybatis传递参数到mapping.xml](https://www.cnblogs.com/zhuawang/p/5927851.html)
 

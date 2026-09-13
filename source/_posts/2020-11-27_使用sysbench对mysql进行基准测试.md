@@ -1,11 +1,13 @@
 ---
-title: "使用sysbench对mysql进行基准测试"
+title: "使用 Sysbench 对 MySQL 进行基准测试"
 date: "2020-11-27"
 categories: ["数据库"]
 tags: ["MySQL"]
 source: "http://prayerlaputa.com/?p=915"
-description: "记录使用 sysbench 对 MySQL 进行基准测试的环境、常用命令和测试过程，适合做数据库性能摸底与对比。"
+description: "记录使用 Sysbench 对 MySQL 进行基准测试的环境、常用命令与执行过程，适合做数据库性能摸底与简单对比。"
 ---
+
+这篇文章记录一次使用 Sysbench 对 MySQL 做基准测试的过程，重点包括环境说明、数据准备以及常用压测命令。
 
 ### 测试环境说明
 

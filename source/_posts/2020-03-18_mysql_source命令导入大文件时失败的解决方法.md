@@ -1,15 +1,16 @@
 ---
-title: "MySQL source命令导入大文件时失败的解决方法"
+title: "MySQL source 命令导入大文件时失败的解决方法"
 date: "2020-03-18"
 categories: ["数据库"]
 tags: ["MySQL"]
 source: "http://prayerlaputa.com/?p=788"
-description: "记录mysql source命令导入大文件时失败的解决方法的现象、原因分析与解决办法。"
+description: "记录使用 MySQL source 命令导入大文件失败时的几个常见处理思路。"
 ---
 
-方法：
-1、将大文件分成多个小文件
-2、检查mysql的`max_allowed_packet`参数配置，命令如下：
+遇到这类问题时，可以优先从下面两个方向排查：
+
+1. 将大文件拆分成多个小文件
+2. 检查 MySQL 的 `max_allowed_packet` 参数配置，命令如下：
 
 ```
 show variables like '%max_allowed_packet%';
@@ -25,7 +26,7 @@ mysql --max_allowed_packet=32M
 
 <!-- more -->
 
-# 参考资料
+## 参考资料
 
 - [How to import LARGE sql files into mysql table](https://stackoverflow.com/questions/9337855/how-to-import-large-sql-files-into-mysql-table)
 - [How to change max\_allowed\_packet size](https://stackoverflow.com/questions/8062496/how-to-change-max-allowed-packet-size)

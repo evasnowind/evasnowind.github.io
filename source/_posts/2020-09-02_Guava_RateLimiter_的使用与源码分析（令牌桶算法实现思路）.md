@@ -4,14 +4,14 @@ date: "2020-09-02"
 categories: ["Java", "源码分析"]
 tags: ["Java", "源码分析"]
 source: "http://prayerlaputa.com/?p=849"
-description: "学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。"
+description: "围绕 Guava RateLimiter 的基本用法、预热机制与令牌桶实现思路，梳理其核心设计。"
 ---
 
-## Guava RateLimiter基本使用
+## Guava RateLimiter 基本使用
 
-学东西时我们应该尽量去看官网、看源码、看官方给出的单元测试。
+学习这类工具类时，我更倾向于优先看官网、源码以及官方单元测试，因为这些内容往往最直接、也最可靠。
 
-比如Guava RateLimiter，从RateLimiter类的源码注释中可以看到，官方给出的典型应用场景与使用：
+以 Guava RateLimiter 为例，从 `RateLimiter` 类的源码注释中就能看到官方给出的典型使用场景：
 
 <!-- more -->
 
@@ -35,7 +35,7 @@ As another example, imagine that we produce a stream of data, and we want to cap
  }
 ```
 
-一个是限制执行任务的数量，一个是限制每次发送的字节数量。注意，如果超过`RateLimiter.create`所容许的permits数量，acquire方法将阻塞，直到产生新的permit。当然，如果不想一直阻塞，可以使用tryAcquire(Duration timeout)，该方法，指定一个超时时间，一旦判断出在timeout时间内还无法取得令牌，就返回false。
+一个示例是限制单位时间内可执行的任务数量，另一个示例是限制单位时间内可发送的字节数。需要注意的是，如果超过 `RateLimiter.create` 设定的 permits 数量，`acquire` 方法会阻塞，直到新的 permit 生成。如果不希望一直阻塞，也可以使用 `tryAcquire(Duration timeout)`，在超时时间内拿不到令牌时直接返回 `false`。
 
 此外RateLimiter还支持预热功能，预热后缓存能支持 5 万 TPS 的并发，但是在预热前 5 万 TPS 的并发直接就把缓存击垮。
 

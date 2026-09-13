@@ -1,13 +1,13 @@
 ---
-title: "elasticsearch启动时报错：error=’Cannot allocate memory’ (errno=12)"
+title: "Elasticsearch 启动报错：Cannot allocate memory (errno=12)"
 date: "2019-03-22"
 categories: ["中间件"]
 tags: ["Elasticsearch"]
 source: "http://prayerlaputa.com/?p=683"
-description: "记录 Elasticsearch 启动时报 ‘Cannot allocate memory’ 错误时的原因与处理方法。"
+description: "记录 Elasticsearch 启动时报 `Cannot allocate memory (errno=12)` 的原因，以及通过调整 JVM 内存参数进行处理的方法。"
 ---
 
-elasticsearch启动时报错：
+Elasticsearch 启动时报错如下：
 
 ```
 
@@ -19,8 +19,8 @@ An error report file with more information is saved as:
 /opt/elasticsearch/hs_err_pidxxx.log
 ```
 
-原因：没有足够的内存供JRE运行
-解决：修改es配置参数
+原因很直接：当前机器可供 JRE 使用的内存不足。
+解决思路也比较直接：调整 Elasticsearch 的 JVM 内存参数。
 
 ```
 

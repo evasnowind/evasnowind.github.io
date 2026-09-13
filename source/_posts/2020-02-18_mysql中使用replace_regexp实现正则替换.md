@@ -1,15 +1,15 @@
 ---
-title: "mysql中使用replace regexp实现正则替换"
+title: "MySQL 中使用 REPLACE 与 REGEXP 实现匹配和替换"
 date: "2020-02-18"
 categories: ["数据库"]
 tags: ["MySQL"]
 source: "http://prayerlaputa.com/?p=765"
-description: "mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from str,to str)。"
+description: "整理 MySQL 中用 REGEXP 做正则匹配、用 REPLACE 做字符串替换的几种常见写法。"
 ---
 
-mysql的正则匹配用regexp，而替换字符串用REPLACE(str,from\_str,to\_str)
+MySQL 里这类需求通常分成两类：一类是用 `REGEXP` 做匹配筛选，另一类是用 `REPLACE` 做普通字符串替换。下面把几种常见写法整理在一起，方便查阅。
 
-例如
+例如：
 `UPDATE myTable SET HTML=REPLACE(HTML,'<br>','') WHERE HTML REGEXP '(<br */*>\s*){2,}'`
 
 更多例子如下：

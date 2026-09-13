@@ -1,13 +1,15 @@
 ---
-title: "centos下如何启动mysql多实例"
+title: "CentOS 下如何启动 MySQL 多实例"
 date: "2020-12-02"
 categories: ["Linux"]
 tags: ["Linux", "MySQL"]
 source: "http://prayerlaputa.com/?p=917"
-description: "具体详细参考官网 （） - mysql的安装方法有多种，如二进制安装、源码编译安装、yum安装; - yum安装都是默认路径，不利于后期维护，安装相对简单；"
+description: "记录在 CentOS 7.5 下通过二进制包部署 MySQL 并启动多个实例的基本过程，适合需要隔离端口与数据目录的场景。"
 ---
 
-mysql安装有多种方式：
+这篇文章记录在 CentOS 7.5 下通过二进制包安装 MySQL，并启动多个实例的基本过程。
+
+MySQL 安装有多种方式：
 
 > 具体详细参考官网 （<https://dev.mysql.com/doc/refman/5.7/en/installing.html>）
 >
@@ -15,9 +17,9 @@ mysql安装有多种方式：
 > - yum安装都是默认路径，不利于后期维护，安装相对简单；
 > - 源码安装编译的过程比较长，若没有对源码进行修改且要求使用mysql较高版本；
 
-建议使用二进制安装，比较方便后期维护。本文就是采用这种方式启动多个实例。
+建议使用二进制安装，后续维护和目录管理会更方便。本文就是基于这种方式来启动多个实例。
 
-本文在centos 7.5下进行操作。
+本文在 CentOS 7.5 下进行操作。
 
 <!-- more -->
 

@@ -1,13 +1,13 @@
 ---
-title: "Java并发之深入解析volatile关键字"
+title: "Java 并发之深入解析 volatile 关键字"
 date: "2020-05-27"
 categories: ["Java", "并发"]
 tags: ["Java", "并发"]
 source: "http://prayerlaputa.com/?p=823"
-description: "从一道面试题讲起：采用DCL实现单例模式时，是否需要加volatile关键字？为什么？"
+description: "以 DCL 单例为切入点，梳理 volatile 的可见性、有序性以及它在 Java 内存模型中的作用。"
 ---
 
-从一道面试题讲起：**采用DCL实现单例模式时，是否需要加volatile关键字？为什么？**
+这篇文章从一个经典并发面试题切入：**采用 DCL 实现单例模式时，是否需要加 `volatile` 关键字？为什么？**
 
 <!-- more -->
 

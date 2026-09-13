@@ -1,17 +1,17 @@
 ---
-title: "spring-boot以jar包方式时读取resource或是template文件"
+title: "Spring Boot 以 Jar 包方式部署时读取 resource 或 template 文件"
 date: "2020-04-27"
 categories: ["Java", "Spring Boot"]
 tags: ["Spring Boot"]
 source: "http://prayerlaputa.com/?p=806"
-description: "以jar包方式部署系统，想读取resource或是template下面的文件时，报 File Not Found。"
+description: "记录 Spring Boot 项目打成 Jar 后读取 classpath 资源文件失败的原因，以及几种可用的读取方式。"
 ---
 
-# 现象
+## 问题现象
 
-以jar包方式部署系统，想读取resource或是template下面的文件时，报 `File Not Found`
+项目以 Jar 包方式部署后，读取 `resource` 或 `template` 目录下的文件时，报 `File Not Found`。
 
-我遇到的情况是，整个项目达成了一个包，在开发环境（windows + idea）读取文件没问题，但在预发布环境（centos, 打成一个jar部署），则报错。
+我遇到的实际情况是：开发环境（Windows + IDEA）读取文件没有问题，但打成一个 Jar 部署到预发布环境（CentOS）后就报错。
 使用
 
 <!-- more -->

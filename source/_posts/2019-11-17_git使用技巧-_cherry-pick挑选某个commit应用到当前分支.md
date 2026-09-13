@@ -1,19 +1,19 @@
 ---
-title: "git使用技巧- cherry-pick挑选某个commit应用到当前分支"
+title: "Git 使用技巧：cherry-pick 挑选某个 commit 应用到当前分支"
 date: "2019-11-17"
 categories: ["工具", "Git"]
 tags: ["Git"]
 source: "http://prayerlaputa.com/?p=705"
-description: "git cherry-pick可以挑选某个分支的一个或多个commit，将其应用到当前分支上。"
+description: "记录如何使用 git cherry-pick 将某个分支上的一个或多个 commit 应用到当前分支。"
 ---
 
-git cherry-pick可以挑选某个分支的一个或多个commit，将其应用到当前分支上。
+`git cherry-pick` 可以把某个分支上的一个或多个 commit 应用到当前分支。
 
 ```
 git cherry-pick <commit id>
 ```
 
-查询commit id 的查询可以使用`git log`查询（查询版本的历史），最简单的语法如下：
+如果需要先查找 commit id，可以使用 `git log` 查看版本历史，最简单的命令如下：
 
 <!-- more -->
 
@@ -21,7 +21,7 @@ git cherry-pick <commit id>
 git log
 ```
 
-如果想查找已经被删除的某次commit，则可以用
+如果想查找已经被删除的某次 commit，可以使用：
 
 ```
 git reflog

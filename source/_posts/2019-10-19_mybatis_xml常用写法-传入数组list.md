@@ -1,15 +1,15 @@
 ---
-title: "MyBatis xml常用写法-传入数组list"
+title: "MyBatis XML 常用写法：传入数组 / List"
 date: "2019-10-19"
 categories: ["Java", "MyBatis"]
 tags: ["MyBatis", "集合"]
 source: "http://prayerlaputa.com/?p=677"
-description: "假设查询person表，参数类型为XXXVo，XXXVo中包含一个List对象，保存了状态列表，此时可以参考如下查询。"
+description: "记录在 MyBatis XML 中传入数组或 List 参数并拼接 in 查询的常见写法。"
 ---
 
-# 需求：xml中传入参数中包含一个list，需要在where中拼接in语句
+## 场景
 
-假设查询person表，参数类型为XXXVo，XXXVo中包含一个List对象，保存了状态列表，此时可以参考如下查询
+假设查询 `person` 表，参数类型为 `XXXVo`，其中包含一个 `List` 对象保存状态列表，此时可以参考下面的写法：
 
 <!-- more -->
 

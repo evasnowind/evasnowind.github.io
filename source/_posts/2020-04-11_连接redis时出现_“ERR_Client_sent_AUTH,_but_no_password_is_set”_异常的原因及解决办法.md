@@ -1,15 +1,15 @@
 ---
-title: "连接redis时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法"
+title: "连接 Redis 时出现 “ERR Client sent AUTH, but no password is set” 异常的原因及解决办法"
 date: "2020-04-11"
 categories: ["数据库"]
 tags: ["Redis"]
 source: "http://prayerlaputa.com/?p=798"
-description: "使用redis-cli连接redis时，报错： ERR Client sent AUTH, but no password is set。"
+description: "记录连接 Redis 时出现 “ERR Client sent AUTH, but no password is set” 报错的原因与解决办法。"
 ---
 
-## 现象
+## 问题现象
 
-使用`redis-cli`连接redis时，报错：
+使用 `redis-cli` 连接 Redis 时，报错：
 `ERR Client sent AUTH, but no password is set`
 
 异常信息类似：

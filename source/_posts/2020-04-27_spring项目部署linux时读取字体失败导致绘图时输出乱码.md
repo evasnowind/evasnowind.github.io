@@ -1,10 +1,10 @@
 ---
-title: "Spring 项目部署 Linux 时读取字体失败导致绘图输出乱码"
+title: "Spring 项目部署 Linux 时读取字体失败，导致绘图输出乱码"
 date: "2020-04-27"
 categories: ["Linux"]
 tags: ["Linux"]
 source: "http://prayerlaputa.com/?p=810"
-description: "记录 Spring 项目部署到 Linux 后因字体读取失败而导致绘图输出乱码的问题与处理思路。"
+description: "记录 Spring 项目部署到 Linux 后因系统缺少字体或读取方式不当，导致绘图输出乱码的问题与处理思路。"
 ---
 
 ## 问题现象
