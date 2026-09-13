@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：。">
+    <meta name="description" content="记录一次 Spring Boot 启动失败时的排查过程，定位到 JVM 共享内存相关告警后最终解决问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file">
+<meta property="og:title" content="Spring Boot 启动失败，JVM 报错：warning Insufficient space for shared memory file">
 <meta property="og:url" content="https://evasnowind.github.io/2019/12/12/2019-12-13_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%EF%BC%8CJVM_%E6%8A%A5%E9%94%99%EF%BC%9Awarning_Insufficient_space_for_shared_memory_f/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：。">
+<meta property="og:description" content="记录一次 Spring Boot 启动失败时的排查过程，定位到 JVM 共享内存相关告警后最终解决问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.479Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.772Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Spring Boot">
 <meta name="twitter:card" content="summary">
@@ -32,10 +32,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2019/12/12/2019-12-13_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%EF%BC%8CJVM_%E6%8A%A5%E9%94%99%EF%BC%9Awarning_Insufficient_space_for_shared_memory_f/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/12/12/2019-12-13_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%EF%BC%8CJVM_%E6%8A%A5%E9%94%99%EF%BC%9Awarning_Insufficient_space_for_shared_memory_f/","path":"2019/12/12/2019-12-13_spring_boot启动失败，JVM_报错：warning_Insufficient_space_for_shared_memory_f/","title":"spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/12/12/2019-12-13_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%EF%BC%8CJVM_%E6%8A%A5%E9%94%99%EF%BC%9Awarning_Insufficient_space_for_shared_memory_f/","path":"2019/12/12/2019-12-13_spring_boot启动失败，JVM_报错：warning_Insufficient_space_for_shared_memory_f/","title":"Spring Boot 启动失败，JVM 报错：warning Insufficient space for shared memory file"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file | Prayer的数字城堡</title>
+<title>Spring Boot 启动失败，JVM 报错：warning Insufficient space for shared memory file | Prayer的数字城堡</title>
   
 
 
@@ -157,7 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%B8%8E%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">问题与原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%8E%B0%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">问题现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,28 +212,35 @@
       <a class="popular-posts-link" href="/2020/03/08/2020-03-09_spring_boot%E4%B8%AD%E9%85%8D%E7%BD%AEmybatis_plus%E8%BE%93%E5%87%BASQL%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%97%A5%E5%BF%97/" rel="bookmark">
         <time class="popular-posts-time">2020-03-09</time>
         <br>
-      spring boot中配置mybatis plus输出SQL查询语句日志
+      Spring Boot 中配置 MyBatis-Plus 输出 SQL 查询日志
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2019/10/18/2019-10-19_mybatis_xml%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-%E4%BC%A0%E5%85%A5%E6%95%B0%E7%BB%84list/" rel="bookmark">
-        <time class="popular-posts-time">2019-10-19</time>
+      <a class="popular-posts-link" href="/2020/09/16/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" rel="bookmark">
+        <time class="popular-posts-time">2020-09-17</time>
         <br>
-      MyBatis xml常用写法-传入数组list
+      源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2018/02/28/2018-03-01_java%E4%B8%ADList%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E4%B8%8E%E5%8E%BB%E9%87%8D/" rel="bookmark">
-        <time class="popular-posts-time">2018-03-01</time>
+      <a class="popular-posts-link" href="/2020/03/13/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/" rel="bookmark">
+        <time class="popular-posts-time">2020-03-14</time>
         <br>
-      java中List数据合并与去重
+      Spring Boot 启动失败且不输出日志
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2018/11/17/2018-11-18_RabbitMQ%E6%B7%BB%E5%8A%A0%E7%9B%91%E6%8E%A7/" rel="bookmark">
-        <time class="popular-posts-time">2018-11-18</time>
+      <a class="popular-posts-link" href="/2019/09/04/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" rel="bookmark">
+        <time class="popular-posts-time">2019-09-05</time>
         <br>
-      RabbitMQ添加监控
+      Spring Boot 上传附件报错：FileUploadBase$SizeLimitExceededException（转载 + 整理）
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2019/11/23/2019-11-24_Spring_Boot_%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99_The_temporary_upload_location_%5Bxxx%5D_is_not_valid/" rel="bookmark">
+        <time class="popular-posts-time">2019-11-24</time>
+        <br>
+      Spring Boot 上传文件报错：The temporary upload location [xxx] is not valid
       </a>
     </li>
   </ul>
@@ -269,12 +276,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file | Prayer的数字城堡">
-      <meta itemprop="description" content="启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：。">
+      <meta itemprop="name" content="Spring Boot 启动失败，JVM 报错：warning Insufficient space for shared memory file | Prayer的数字城堡">
+      <meta itemprop="description" content="记录一次 Spring Boot 启动失败时的排查过程，定位到 JVM 共享内存相关告警后最终解决问题。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          spring boot启动失败，JVM 报错：warning Insufficient space for shared memory file
+          Spring Boot 启动失败，JVM 报错：warning Insufficient space for shared memory file
         </h1>
 
         <div class="post-meta-container">
@@ -292,7 +299,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -315,7 +322,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>428</span>
+      <span>445</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -326,22 +333,22 @@
     </span>
 </div>
 
-            <div class="post-description">启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：。</div>
+            <div class="post-description">记录一次 Spring Boot 启动失败时的排查过程，定位到 JVM 共享内存相关告警后最终解决问题。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="问题与原因"><a href="#问题与原因" class="headerlink" title="问题与原因"></a>问题与原因</h2><p>启动spring boot程序时，报异常，导致程序启动失败，遇到形如下面的错误：</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>启动 Spring Boot 程序时，应用直接启动失败，并出现了类似下面的错误：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A child container failed during start</span><br><span class="line">java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Tomcat].StandardHost[localhost].StandardContext[/Integration]]</span><br><span class="line">at java.util.concurrent.FutureTask.report(FutureTask.java:122)</span><br><span class="line">at java.util.concurrent.FutureTask.get(FutureTask.java:192)</span><br><span class="line">at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:1123)</span><br><span class="line">at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:800)</span><br><span class="line">at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
 
-<p>然而，这个只是结果，实际上并不能定位问题，笔者继续找异常，看到类似下面的错误：</p>
+<p>不过，这里的异常更像是表层结果，还不足以直接定位根因。继续往前翻日志后，又看到了类似下面的报错：</p>
 <span id="more"></span>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is org.springframework.boot.context.embedded.EmbeddedServletContainerException: Unable to start embedded Tomcat</span><br><span class="line"> at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.onRefresh(EmbeddedWebApplicationContext.java:137) ~[spring-boot-1.5.13.RELEASE.jar:1.5.13.RELEASE]</span><br><span class="line"> at org.springframework.context.support.AbstractApplicationContext.__refresh(AbstractApplicationContext.java:537) ~[spring-context-4.3.17.RELEASE.jar:4.3.17.RELEASE]</span><br><span class="line"> at org.springframework.context.support.AbstractApplicationContext.jrLockAndRefresh(AbstractApplicationContext.java:40002) ~[spring-context-4.3.17.RELEASE.jar:4.3.17.RELEASE]</span><br><span class="line"> at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:41008) ~[spring-context-4.3.17.RELEASE.jar:4.3.17.RELEASE]</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
 
-<p>还是搜不出什么结果，实在崩溃之际，发现spring boot程序启动时，第一句log有这么一句：</p>
+<p>继续查了很久还是没有头绪，直到回头看启动日志的最开始几行，才发现真正有价值的信息其实在这里：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">warning Insufficient space for shared memory file</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
 
 <p>并且发现，使用jps等命令时，也会报这个警告，才发现原来是<strong>硬盘满了</strong>，可以使用</p>
@@ -387,8 +394,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2019/12/08/2019-12-09_Java%E4%B8%AD%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/" rel="prev" title="Java中如何判断文件类型">
-                  <i class="fa fa-angle-left"></i> Java中如何判断文件类型
+                <a href="/2019/12/08/2019-12-09_Java%E4%B8%AD%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B/" rel="prev" title="Java 中如何判断文件类型">
+                  <i class="fa fa-angle-left"></i> Java 中如何判断文件类型
                 </a>
             </div>
             <div class="post-nav-item">
@@ -425,13 +432,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

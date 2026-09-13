@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的原因与解决办法。">
+    <meta name="description" content="记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的根因，以及更稳妥的处理方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot 上传文件报错：The temporary upload location [xxx] is not valid">
 <meta property="og:url" content="https://evasnowind.github.io/2019/11/23/2019-11-24_Spring_Boot_%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99_The_temporary_upload_location_%5Bxxx%5D_is_not_valid/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的原因与解决办法。">
+<meta property="og:description" content="记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的根因，以及更稳妥的处理方式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-11-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.479Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.772Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Spring Boot">
 <meta name="twitter:card" content="summary">
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -209,38 +209,38 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/04/29/2020-04-30_spring_cloud%E7%89%88%E6%9C%AC%E7%94%B11.5.x%E5%8D%87%E7%BA%A7%E5%88%B02.x%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" rel="bookmark">
-        <time class="popular-posts-time">2020-04-30</time>
-        <br>
-      spring cloud版本由1.5.x升级到2.x所遇到的坑
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/09/16/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" rel="bookmark">
         <time class="popular-posts-time">2020-09-17</time>
         <br>
-      源码分析之Spring Boot如何利用Spring Factories机制进行自动注入
+      源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/04/29/2020-04-30_spring_cloud%E7%89%88%E6%9C%AC%E7%94%B11.5.x%E5%8D%87%E7%BA%A7%E5%88%B02.x%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" rel="bookmark">
+        <time class="popular-posts-time">2020-04-30</time>
+        <br>
+      Spring Cloud 版本由 1.5.x 升级到 2.x 所遇到的坑
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/03/08/2020-03-09_spring_boot%E4%B8%AD%E9%85%8D%E7%BD%AEmybatis_plus%E8%BE%93%E5%87%BASQL%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%97%A5%E5%BF%97/" rel="bookmark">
+        <time class="popular-posts-time">2020-03-09</time>
+        <br>
+      Spring Boot 中配置 MyBatis-Plus 输出 SQL 查询日志
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2019/09/04/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" rel="bookmark">
         <time class="popular-posts-time">2019-09-05</time>
         <br>
-      Spring Boot 上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载 + 整理】
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/" rel="bookmark">
-        <time class="popular-posts-time">2020-12-29</time>
-        <br>
-      Spring Cloud gateway基础
+      Spring Boot 上传附件报错：FileUploadBase$SizeLimitExceededException（转载 + 整理）
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/03/13/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/" rel="bookmark">
         <time class="popular-posts-time">2020-03-14</time>
         <br>
-      spring boot启动失败不输出日志
+      Spring Boot 启动失败且不输出日志
       </a>
     </li>
   </ul>
@@ -277,7 +277,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Spring Boot 上传文件报错：The temporary upload location [xxx] is not valid | Prayer的数字城堡">
-      <meta itemprop="description" content="记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的原因与解决办法。">
+      <meta itemprop="description" content="记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的根因，以及更稳妥的处理方式。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -299,7 +299,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -333,7 +333,7 @@
     </span>
 </div>
 
-            <div class="post-description">记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的原因与解决办法。</div>
+            <div class="post-description">记录 Spring Boot 上传文件时报 The temporary upload location [xxx] is not valid 的根因，以及更稳妥的处理方式。</div>
         </div>
       </header>
 
@@ -391,13 +391,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2019/11/23/2019-11-24_spring_boot%E8%BF%9E%E6%8E%A5mysql_8%E6%97%B6%E6%8A%A5errorCode_0,_state_08001%E9%94%99%E8%AF%AF/" rel="prev" title="Spring Boot 连接 MySQL 8 报 errorCode 0, state 08001 错误">
-                  <i class="fa fa-angle-left"></i> Spring Boot 连接 MySQL 8 报 errorCode 0, state 08001 错误
+                <a href="/2019/11/16/2019-11-17_git%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-_cherry-pick%E6%8C%91%E9%80%89%E6%9F%90%E4%B8%AAcommit%E5%BA%94%E7%94%A8%E5%88%B0%E5%BD%93%E5%89%8D%E5%88%86%E6%94%AF/" rel="prev" title="Git 使用技巧：cherry-pick 挑选某个 commit 应用到当前分支">
+                  <i class="fa fa-angle-left"></i> Git 使用技巧：cherry-pick 挑选某个 commit 应用到当前分支
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2019/12/04/2019-12-05_java%E6%A0%B9%E6%8D%AEURL%E8%8E%B7%E5%8F%96%E8%BE%93%E5%85%A5%E6%B5%81%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/" rel="next" title="java根据URL获取输入流以及下载文件">
-                  java根据URL获取输入流以及下载文件 <i class="fa fa-angle-right"></i>
+                <a href="/2019/11/23/2019-11-24_spring_boot%E8%BF%9E%E6%8E%A5mysql_8%E6%97%B6%E6%8A%A5errorCode_0,_state_08001%E9%94%99%E8%AF%AF/" rel="next" title="Spring Boot 连接 MySQL 8 报 errorCode 0、state 08001 错误">
+                  Spring Boot 连接 MySQL 8 报 errorCode 0、state 08001 错误 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -429,13 +429,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

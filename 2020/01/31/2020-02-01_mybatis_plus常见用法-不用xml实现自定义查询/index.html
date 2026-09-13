@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="围绕mybatis_plus常见用法-不用xml实现自定义查询整理相关实践、经验与思考。">
+    <meta name="description" content="整理 MyBatis-Plus 在不编写 XML 的情况下实现自定义查询的常见方式，适合简单查询场景快速落地。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis_plus常见用法-不用xml实现自定义查询">
+<meta property="og:title" content="MyBatis-Plus 常见用法：不用 XML 实现自定义查询">
 <meta property="og:url" content="https://evasnowind.github.io/2020/01/31/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="围绕mybatis_plus常见用法-不用xml实现自定义查询整理相关实践、经验与思考。">
+<meta property="og:description" content="整理 MyBatis-Plus 在不编写 XML 的情况下实现自定义查询的常见方式，适合简单查询场景快速落地。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.480Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.772Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="MyBatis">
 <meta name="twitter:card" content="summary">
@@ -32,10 +32,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2020/01/31/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/01/31/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/","path":"2020/01/31/2020-02-01_mybatis_plus常见用法-不用xml实现自定义查询/","title":"mybatis_plus常见用法-不用xml实现自定义查询"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/01/31/2020-02-01_mybatis_plus%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95-%E4%B8%8D%E7%94%A8xml%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2/","path":"2020/01/31/2020-02-01_mybatis_plus常见用法-不用xml实现自定义查询/","title":"MyBatis-Plus 常见用法：不用 XML 实现自定义查询"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>mybatis_plus常见用法-不用xml实现自定义查询 | Prayer的数字城堡</title>
+<title>MyBatis-Plus 常见用法：不用 XML 实现自定义查询 | Prayer的数字城堡</title>
   
 
 
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -209,24 +209,24 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/01/31/2020-02-01_Mybatis-Plus_select%E4%B8%8D%E5%88%97%E5%87%BA%E5%85%A8%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%8C%E5%8F%AA%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5/" rel="bookmark">
-        <time class="popular-posts-time">2020-02-01</time>
-        <br>
-      MyBatis-Plus select不列出全部字段，只查询部分字段
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/03/08/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="bookmark">
-        <time class="popular-posts-time">2020-03-09</time>
-        <br>
-      MyBatis plus配置多数据源时批量接口调用失败以及解决方案
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/03/08/2020-03-09_spring_boot%E4%B8%AD%E9%85%8D%E7%BD%AEmybatis_plus%E8%BE%93%E5%87%BASQL%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%97%A5%E5%BF%97/" rel="bookmark">
         <time class="popular-posts-time">2020-03-09</time>
         <br>
-      spring boot中配置mybatis plus输出SQL查询语句日志
+      Spring Boot 中配置 MyBatis-Plus 输出 SQL 查询日志
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/01/31/2020-02-01_Mybatis-Plus_select%E4%B8%8D%E5%88%97%E5%87%BA%E5%85%A8%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%8C%E5%8F%AA%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5/" rel="bookmark">
+        <time class="popular-posts-time">2020-02-01</time>
+        <br>
+      MyBatis-Plus select 不列出全部字段，只查询部分字段
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/03/02/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" rel="bookmark">
+        <time class="popular-posts-time">2020-03-03</time>
+        <br>
+      Spring 中使用 MyBatis / MyBatis Plus 连接 SQL Server
       </a>
     </li>
     <li class="popular-posts-item">
@@ -237,10 +237,10 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/03/02/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" rel="bookmark">
-        <time class="popular-posts-time">2020-03-03</time>
+      <a class="popular-posts-link" href="/2020/03/08/2020-03-09_mybatis_plus%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%97%B6%E6%89%B9%E9%87%8F%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="bookmark">
+        <time class="popular-posts-time">2020-03-09</time>
         <br>
-      spring中使用mybatis/MyBatis plus连接sqlserver
+      MyBatis Plus 配置多数据源时批量接口调用失败及解决方案
       </a>
     </li>
   </ul>
@@ -276,12 +276,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="mybatis_plus常见用法-不用xml实现自定义查询 | Prayer的数字城堡">
-      <meta itemprop="description" content="围绕mybatis_plus常见用法-不用xml实现自定义查询整理相关实践、经验与思考。">
+      <meta itemprop="name" content="MyBatis-Plus 常见用法：不用 XML 实现自定义查询 | Prayer的数字城堡">
+      <meta itemprop="description" content="整理 MyBatis-Plus 在不编写 XML 的情况下实现自定义查询的常见方式，适合简单查询场景快速落地。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mybatis_plus常见用法-不用xml实现自定义查询
+          MyBatis-Plus 常见用法：不用 XML 实现自定义查询
         </h1>
 
         <div class="post-meta-container">
@@ -299,7 +299,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -322,7 +322,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>163</span>
+      <span>197</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -333,14 +333,14 @@
     </span>
 </div>
 
-            <div class="post-description">围绕mybatis_plus常见用法-不用xml实现自定义查询整理相关实践、经验与思考。</div>
+            <div class="post-description">整理 MyBatis-Plus 在不编写 XML 的情况下实现自定义查询的常见方式，适合简单查询场景快速落地。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>找到两种方法：<br>1、采用mybatis注解的方式<br>参见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31058701/article/details/102834031">MyBatis Plus 自定义查询语句</a><br>DAO层：</p>
+    <div class="post-body" itemprop="articleBody"><p>如果只是少量自定义查询，不一定非要再写一份 XML。这里整理两种相对常见、落地也比较快的做法：<br>1、采用mybatis注解的方式<br>参见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31058701/article/details/102834031">MyBatis Plus 自定义查询语句</a><br>DAO层：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Select(&quot;select b.bomName, &quot; +</span><br><span class="line">		&quot;b.bomProductType, b.bomMaterial, &quot; +</span><br><span class="line">		&quot;o.customerID AS bomID, &quot; +</span><br><span class="line">		&quot;o.ordersDataNo AS qrCode, &quot; +</span><br><span class="line">		&quot;s.deliveryDate AS barCode, &quot; +</span><br><span class="line">		&quot;s.mainType AS workshop &quot; +</span><br><span class="line">		&quot;FROM mes_order_bom b &quot; +</span><br><span class="line">		&quot;LEFT JOIN mes_order_ordersdata o ON b.ordersID = o.id &quot; +</span><br><span class="line">		&quot;LEFT JOIN mes_order_soncontract s ON o.sonContractID = s.id &quot; +</span><br><span class="line">		&quot;WHERE o.ordersDataNo IN (#&#123;orderNoList&#125;)&quot;)</span><br><span class="line">List&lt;MesOrderBom&gt; getBomAndOrderCodeNumber(@Param(&quot;orderNoList&quot;)List&lt;String&gt; orderNoList);</span><br></pre></td></tr></table></figure>
 
 <p>Service层：</p>
@@ -389,13 +389,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/01/15/2020-01-16_Java%E4%B8%AD%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96yyyyMMdd%E5%92%8CYYYYMMdd%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="Java中日期格式化yyyyMMdd和YYYYMMdd的区别">
-                  <i class="fa fa-angle-left"></i> Java中日期格式化yyyyMMdd和YYYYMMdd的区别
+                <a href="/2020/01/15/2020-01-16_Java%E4%B8%AD%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96yyyyMMdd%E5%92%8CYYYYMMdd%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="Java 中日期格式化 yyyyMMdd 和 YYYYMMdd 的区别">
+                  <i class="fa fa-angle-left"></i> Java 中日期格式化 yyyyMMdd 和 YYYYMMdd 的区别
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/01/31/2020-02-01_Mybatis-Plus_select%E4%B8%8D%E5%88%97%E5%87%BA%E5%85%A8%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%8C%E5%8F%AA%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5/" rel="next" title="MyBatis-Plus select不列出全部字段，只查询部分字段">
-                  MyBatis-Plus select不列出全部字段，只查询部分字段 <i class="fa fa-angle-right"></i>
+                <a href="/2020/01/31/2020-02-01_Mybatis-Plus_select%E4%B8%8D%E5%88%97%E5%87%BA%E5%85%A8%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%8C%E5%8F%AA%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5/" rel="next" title="MyBatis-Plus select 不列出全部字段，只查询部分字段">
+                  MyBatis-Plus select 不列出全部字段，只查询部分字段 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -427,13 +427,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

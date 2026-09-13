@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="利用java8新特性，可以用简洁高效的代码来实现一些数据处理。">
+    <meta name="description" content="整理 Java 8 中使用 Stream 对集合做转 Map、分组、过滤等常见处理的示例。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java8 快速实现List转map 、分组、过滤等操作【转载】">
+<meta property="og:title" content="Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】">
 <meta property="og:url" content="https://evasnowind.github.io/2019/08/17/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="利用java8新特性，可以用简洁高效的代码来实现一些数据处理。">
+<meta property="og:description" content="整理 Java 8 中使用 Stream 对集合做转 Map、分组、过滤等常见处理的示例。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-08-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.479Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.771Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="集合">
@@ -33,10 +33,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2019/08/17/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/08/17/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/","path":"2019/08/17/2019-08-18_java8_快速实现List转map_、分组、过滤等操作【转载】/","title":"java8 快速实现List转map 、分组、过滤等操作【转载】"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/08/17/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/","path":"2019/08/17/2019-08-18_java8_快速实现List转map_、分组、过滤等操作【转载】/","title":"Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>java8 快速实现List转map 、分组、过滤等操作【转载】 | Prayer的数字城堡</title>
+<title>Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】 | Prayer的数字城堡</title>
   
 
 
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -209,10 +209,10 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2018/02/28/2018-03-01_java%E4%B8%ADList%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E4%B8%8E%E5%8E%BB%E9%87%8D/" rel="bookmark">
-        <time class="popular-posts-time">2018-03-01</time>
+      <a class="popular-posts-link" href="/2020/05/17/2020-05-18_JDK%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E9%80%9F%E8%A7%88/" rel="bookmark">
+        <time class="popular-posts-time">2020-05-18</time>
         <br>
-      java中List数据合并与去重
+      JDK 各个版本特性速览
       </a>
     </li>
     <li class="popular-posts-item">
@@ -220,13 +220,6 @@
         <time class="popular-posts-time">2018-04-21</time>
         <br>
       NodeJs：安装插件‘xxx’后，提示‘xxx’ 不是内部或外部命令也不是可运行的程序或批处理文件【转载】
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/05/17/2020-05-18_JDK%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%89%B9%E6%80%A7%E9%80%9F%E8%A7%88/" rel="bookmark">
-        <time class="popular-posts-time">2020-05-18</time>
-        <br>
-      JDK各个版本特性速览
       </a>
     </li>
     <li class="popular-posts-item">
@@ -269,12 +262,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="java8 快速实现List转map 、分组、过滤等操作【转载】 | Prayer的数字城堡">
-      <meta itemprop="description" content="利用java8新特性，可以用简洁高效的代码来实现一些数据处理。">
+      <meta itemprop="name" content="Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】 | Prayer的数字城堡">
+      <meta itemprop="description" content="整理 Java 8 中使用 Stream 对集合做转 Map、分组、过滤等常见处理的示例。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          java8 快速实现List转map 、分组、过滤等操作【转载】
+          Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】
         </h1>
 
         <div class="post-meta-container">
@@ -292,7 +285,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -322,7 +315,7 @@
     </span>
 </div>
 
-            <div class="post-description">利用java8新特性，可以用简洁高效的代码来实现一些数据处理。</div>
+            <div class="post-description">整理 Java 8 中使用 Stream 对集合做转 Map、分组、过滤等常见处理的示例。</div>
         </div>
       </header>
 
@@ -330,14 +323,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-# java8 快速实现List转map 、分组、过滤等操作【转载】
+本文整理 Java 8 中 List 转 Map、分组、过滤等常见集合处理写法。
 
 版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
 本文链接：https://blog.csdn.net/lu930124/article/details/77595585
 
 <span id="more"></span>
 
-利用java8新特性，可以用简洁高效的代码来实现一些数据处理。
+利用 Java 8 的 Stream 等特性，可以用更简洁的方式完成不少常见的数据处理操作。
 
 定义1个Apple对象：
 
@@ -444,8 +437,8 @@ partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的�
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2019/08/23/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/" rel="next" title="spring boot整合swagger">
-                  spring boot整合swagger <i class="fa fa-angle-right"></i>
+                <a href="/2019/08/23/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/" rel="next" title="Spring Boot 整合 Swagger">
+                  Spring Boot 整合 Swagger <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -477,13 +470,13 @@ partitioningBy Map<Boolean,List<T>> 根据对流中每个项目应用谓词的�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

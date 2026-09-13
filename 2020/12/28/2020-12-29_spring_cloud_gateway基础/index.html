@@ -17,7 +17,7 @@
 
     <meta name="description" content="介绍 Spring Cloud Gateway 的核心组成、请求处理流程，以及作为业务网关时的基本使用思路。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Cloud gateway基础">
+<meta property="og:title" content="Spring Cloud Gateway 基础">
 <meta property="og:url" content="https://evasnowind.github.io/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
 <meta property="og:description" content="介绍 Spring Cloud Gateway 的核心组成、请求处理流程，以及作为业务网关时的基本使用思路。">
@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://evasnowind.github.io/images/spring-cloud-gateway-structure_ff83e600.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/tCZIYxXepbNLnjPp_62cf7bf7.png">
 <meta property="article:published_time" content="2020-12-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.481Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.775Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Spring Cloud">
 <meta name="twitter:card" content="summary">
@@ -35,10 +35,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/","path":"2020/12/28/2020-12-29_spring_cloud_gateway基础/","title":"Spring Cloud gateway基础"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/","path":"2020/12/28/2020-12-29_spring_cloud_gateway基础/","title":"Spring Cloud Gateway 基础"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Spring Cloud gateway基础 | Prayer的数字城堡</title>
+<title>Spring Cloud Gateway 基础 | Prayer的数字城堡</title>
   
 
 
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">关键组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">工作过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">3.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">关键组成部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">工作过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">3.</span> <span class="nav-text">应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">3.1.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,7 +186,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -215,14 +215,21 @@
       <a class="popular-posts-link" href="/2020/04/29/2020-04-30_spring_cloud%E7%89%88%E6%9C%AC%E7%94%B11.5.x%E5%8D%87%E7%BA%A7%E5%88%B02.x%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" rel="bookmark">
         <time class="popular-posts-time">2020-04-30</time>
         <br>
-      spring cloud版本由1.5.x升级到2.x所遇到的坑
+      Spring Cloud 版本由 1.5.x 升级到 2.x 所遇到的坑
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/09/16/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" rel="bookmark">
+        <time class="popular-posts-time">2020-09-17</time>
+        <br>
+      源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2019/09/04/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" rel="bookmark">
         <time class="popular-posts-time">2019-09-05</time>
         <br>
-      Spring Boot 上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载 + 整理】
+      Spring Boot 上传附件报错：FileUploadBase$SizeLimitExceededException（转载 + 整理）
       </a>
     </li>
     <li class="popular-posts-item">
@@ -233,17 +240,10 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/09/16/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" rel="bookmark">
-        <time class="popular-posts-time">2020-09-17</time>
-        <br>
-      源码分析之Spring Boot如何利用Spring Factories机制进行自动注入
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/03/13/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/" rel="bookmark">
         <time class="popular-posts-time">2020-03-14</time>
         <br>
-      spring boot启动失败不输出日志
+      Spring Boot 启动失败且不输出日志
       </a>
     </li>
   </ul>
@@ -279,12 +279,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Spring Cloud gateway基础 | Prayer的数字城堡">
+      <meta itemprop="name" content="Spring Cloud Gateway 基础 | Prayer的数字城堡">
       <meta itemprop="description" content="介绍 Spring Cloud Gateway 的核心组成、请求处理流程，以及作为业务网关时的基本使用思路。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Spring Cloud gateway基础
+          Spring Cloud Gateway 基础
         </h1>
 
         <div class="post-meta-container">
@@ -302,7 +302,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -346,13 +346,13 @@
     <div class="post-body" itemprop="articleBody"><p>Spring Cloud Gateway（后续简称 SCG）本身就是 Spring Cloud 体系的一员，对于 Java 技术栈的系统来说使用起来比较方便。此外，SCG 扩展性较好，适合作为 <strong>业务网关</strong> 的基础，并可根据自身需求进行二次开发。</p>
 <span id="more"></span>
 
-<h3 id="关键组成部分"><a href="#关键组成部分" class="headerlink" title="关键组成部分"></a>关键组成部分</h3><ul>
+<h2 id="关键组成部分"><a href="#关键组成部分" class="headerlink" title="关键组成部分"></a>关键组成部分</h2><ul>
 <li>谓词 predicate: 将请求匹配到对应的route上</li>
 <li>路由 route: 网关的基本构建块。它由ID，目标URI，谓词集合和过滤器集合定义</li>
 <li>过滤器 filter: 由特定工厂构造生成</li>
 </ul>
 <p><img src="/images/spring-cloud-gateway-structure_ff83e600.png"></p>
-<h3 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h3><ul>
+<h2 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h2><ul>
 <li><ol>
 <li>SCG接收客户端请求。</li>
 </ol>
@@ -379,7 +379,7 @@
 </li>
 </ul>
 <p><img src="/images/tCZIYxXepbNLnjPp_62cf7bf7.png"></p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
 <li><p>灰度发布</p>
 <ul>
 <li>可以使用Weight Route Predicate实现</li>
@@ -479,13 +479,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

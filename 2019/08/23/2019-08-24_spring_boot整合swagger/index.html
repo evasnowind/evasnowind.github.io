@@ -15,18 +15,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="本文仅展示总体配置，具体注解用法请另行搜索、查询。">
+    <meta name="description" content="本文只展示整体配置方式，具体注解的使用细节这里不展开。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring boot整合swagger">
+<meta property="og:title" content="Spring Boot 整合 Swagger">
 <meta property="og:url" content="https://evasnowind.github.io/2019/08/23/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="本文仅展示总体配置，具体注解用法请另行搜索、查询。">
+<meta property="og:description" content="本文只展示整体配置方式，具体注解的使用细节这里不展开。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://evasnowind.github.io/images/swagger%E6%88%AA%E5%9B%BE1-300x222_ece54ddd.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/swagger%E6%88%AA%E5%9B%BE2-300x258_0d5c6f13.png">
 <meta property="og:image" content="https://evasnowind.github.io/images/swagger%E6%88%AA%E5%9B%BE3-300x177_6c518d0d.png">
 <meta property="article:published_time" content="2019-08-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.479Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.771Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Spring Boot">
 <meta property="article:tag" content="Swagger">
@@ -37,10 +37,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2019/08/23/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/08/23/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/","path":"2019/08/23/2019-08-24_spring_boot整合swagger/","title":"spring boot整合swagger"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2019/08/23/2019-08-24_spring_boot%E6%95%B4%E5%90%88swagger/","path":"2019/08/23/2019-08-24_spring_boot整合swagger/","title":"Spring Boot 整合 Swagger"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>spring boot整合swagger | Prayer的数字城堡</title>
+<title>Spring Boot 整合 Swagger | Prayer的数字城堡</title>
   
 
 
@@ -162,7 +162,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8A%A0%E4%B8%8Amaven%E4%BE%9D%E8%B5%96%EF%BC%8C%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">1.加上maven依赖，引入相关包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-spring-boot%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%8A%A0%E5%85%A5%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">2.spring boot项目中加入配置类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%94%A8%E5%90%84%E7%A7%8D%E6%B3%A8%E8%A7%A3%E5%8A%A0%E5%85%A5%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">3.用各种注解加入接口说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%95%88%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">4. 效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A6%82%E6%9E%9C%E9%85%8D%E7%BD%AE%E4%BA%86shiro%E6%88%96%E6%98%AF%E6%8B%A6%E6%88%AA%E5%99%A8%EF%BC%8C%E6%B3%A8%E6%84%8F%E9%9C%80%E8%A6%81%E6%89%93%E5%BC%80%E7%9B%B8%E5%85%B3%E6%9D%83%E9%99%90"><span class="nav-number">5.</span> <span class="nav-text">5. 如果配置了shiro或是拦截器，注意需要打开相关权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-swagger%E6%8E%A5%E5%8F%A3%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9D%80"><span class="nav-number">6.</span> <span class="nav-text">6. swagger接口显示地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">7.</span> <span class="nav-text">7.参考文档</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0-Maven-%E4%BE%9D%E8%B5%96%EF%BC%8C%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">1. 添加 Maven 依赖，引入相关包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-spring-boot%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%8A%A0%E5%85%A5%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">2.spring boot项目中加入配置类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%94%A8%E5%90%84%E7%A7%8D%E6%B3%A8%E8%A7%A3%E5%8A%A0%E5%85%A5%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">3.用各种注解加入接口说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%95%88%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">4. 效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A6%82%E6%9E%9C%E9%85%8D%E7%BD%AE%E4%BA%86shiro%E6%88%96%E6%98%AF%E6%8B%A6%E6%88%AA%E5%99%A8%EF%BC%8C%E6%B3%A8%E6%84%8F%E9%9C%80%E8%A6%81%E6%89%93%E5%BC%80%E7%9B%B8%E5%85%B3%E6%9D%83%E9%99%90"><span class="nav-number">5.</span> <span class="nav-text">5. 如果配置了shiro或是拦截器，注意需要打开相关权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-swagger%E6%8E%A5%E5%8F%A3%E6%98%BE%E7%A4%BA%E5%9C%B0%E5%9D%80"><span class="nav-number">6.</span> <span class="nav-text">6. swagger接口显示地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">7.</span> <span class="nav-text">7.参考文档</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +177,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -188,7 +188,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -214,24 +214,10 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/04/29/2020-04-30_spring_cloud%E7%89%88%E6%9C%AC%E7%94%B11.5.x%E5%8D%87%E7%BA%A7%E5%88%B02.x%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" rel="bookmark">
-        <time class="popular-posts-time">2020-04-30</time>
-        <br>
-      spring cloud版本由1.5.x升级到2.x所遇到的坑
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/09/16/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" rel="bookmark">
         <time class="popular-posts-time">2020-09-17</time>
         <br>
-      源码分析之Spring Boot如何利用Spring Factories机制进行自动注入
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/" rel="bookmark">
-        <time class="popular-posts-time">2020-12-29</time>
-        <br>
-      Spring Cloud gateway基础
+      源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入
       </a>
     </li>
     <li class="popular-posts-item">
@@ -246,6 +232,20 @@
         <time class="popular-posts-time">2011-08-14</time>
         <br>
       could_not_find_the_main_class(eclipse不能运行类)【转载】
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2018/07/13/2018-07-14_markdown%E8%A1%A8%E6%A0%BC%E5%86%85%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C/" rel="bookmark">
+        <time class="popular-posts-time">2018-07-14</time>
+        <br>
+      markdown表格内多行文字换行
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/04/29/2020-04-30_spring_cloud%E7%89%88%E6%9C%AC%E7%94%B11.5.x%E5%8D%87%E7%BA%A7%E5%88%B02.x%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" rel="bookmark">
+        <time class="popular-posts-time">2020-04-30</time>
+        <br>
+      Spring Cloud 版本由 1.5.x 升级到 2.x 所遇到的坑
       </a>
     </li>
   </ul>
@@ -281,12 +281,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="spring boot整合swagger | Prayer的数字城堡">
-      <meta itemprop="description" content="本文仅展示总体配置，具体注解用法请另行搜索、查询。">
+      <meta itemprop="name" content="Spring Boot 整合 Swagger | Prayer的数字城堡">
+      <meta itemprop="description" content="本文只展示整体配置方式，具体注解的使用细节这里不展开。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          spring boot整合swagger
+          Spring Boot 整合 Swagger
         </h1>
 
         <div class="post-meta-container">
@@ -304,7 +304,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -327,7 +327,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>596</span>
+      <span>599</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -338,15 +338,15 @@
     </span>
 </div>
 
-            <div class="post-description">本文仅展示总体配置，具体注解用法请另行搜索、查询。</div>
+            <div class="post-description">本文只展示整体配置方式，具体注解的使用细节这里不展开。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>本文仅展示总体配置，具体注解用法请另行搜索、查询。</p>
-<h2 id="1-加上maven依赖，引入相关包"><a href="#1-加上maven依赖，引入相关包" class="headerlink" title="1.加上maven依赖，引入相关包"></a>1.加上maven依赖，引入相关包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.swagger.core.v3&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;swagger-annotations&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.8&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- http://localhost:18004/doc.html --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;swagger-bootstrap-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.8.8&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- Swagger用了高版本的 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><p>本文只展示整体配置方式，具体注解的使用细节这里不展开。</p>
+<h2 id="1-添加-Maven-依赖，引入相关包"><a href="#1-添加-Maven-依赖，引入相关包" class="headerlink" title="1. 添加 Maven 依赖，引入相关包"></a>1. 添加 Maven 依赖，引入相关包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.9.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.swagger.core.v3&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;swagger-annotations&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.8&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- http://localhost:18004/doc.html --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;swagger-bootstrap-ui&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.8.8&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- Swagger用了高版本的 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-spring-boot项目中加入配置类"><a href="#2-spring-boot项目中加入配置类" class="headerlink" title="2.spring boot项目中加入配置类"></a>2.spring boot项目中加入配置类</h2><p>添加一个配置对象，大体代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">package com.demo.config;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.annotation.Profile;</span><br><span class="line"></span><br><span class="line">import io.swagger.annotations.Api;</span><br><span class="line">import springfox.documentation.builders.ApiInfoBuilder;</span><br><span class="line">import springfox.documentation.builders.PathSelectors;</span><br><span class="line">import springfox.documentation.builders.RequestHandlerSelectors;</span><br><span class="line">import springfox.documentation.service.ApiInfo;</span><br><span class="line">import springfox.documentation.service.Contact;</span><br><span class="line">import springfox.documentation.spi.DocumentationType;</span><br><span class="line">import springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line">import springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* Swagger2配置</span><br><span class="line">* http://localhost:18005/swagger-ui.html</span><br><span class="line">* http://localhost:18005/doc.html</span><br><span class="line">*/</span><br><span class="line">@Configuration</span><br><span class="line">@EnableSwagger2</span><br><span class="line">@Profile(&#123;&quot;dev&quot;, &quot;pre&quot;&#125;)</span><br><span class="line">class SwaggerConfig &#123;</span><br><span class="line">/**</span><br><span class="line">* swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等</span><br><span class="line">*/</span><br><span class="line">@Bean</span><br><span class="line">public Docket createRestApi() &#123;</span><br><span class="line">return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">.apiInfo(apiInfo())</span><br><span class="line">.select()</span><br><span class="line">.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))</span><br><span class="line">//为当前包路径</span><br><span class="line">//.apis(RequestHandlerSelectors.basePackage(&quot;com.br.demo.controller&quot;))</span><br><span class="line">.paths(PathSelectors.any())</span><br><span class="line">.build();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 构建 api文档的详细信息函数</span><br><span class="line">*/</span><br><span class="line">private ApiInfo apiInfo() &#123;</span><br><span class="line">ApiInfo apiInfo = new ApiInfoBuilder()</span><br><span class="line">//页面标题</span><br><span class="line">.title(&quot;账务系统接口API文档&quot;)</span><br><span class="line">//创建人</span><br><span class="line">.contact(new Contact(&quot;xx&quot;, &quot;http://xx.100credit.cn&quot;, &quot;xx@100credit.com&quot;))</span><br><span class="line">//版本号</span><br><span class="line">.version(&quot;1.0&quot;)</span><br><span class="line">//描述</span><br><span class="line">.description(&quot;账务系统接口大全&quot;)</span><br><span class="line">.build();</span><br><span class="line">return apiInfo;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -406,13 +406,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2019/08/17/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="prev" title="java8 快速实现List转map 、分组、过滤等操作【转载】">
-                  <i class="fa fa-angle-left"></i> java8 快速实现List转map 、分组、过滤等操作【转载】
+                <a href="/2019/08/17/2019-08-18_java8_%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0List%E8%BD%ACmap_%E3%80%81%E5%88%86%E7%BB%84%E3%80%81%E8%BF%87%E6%BB%A4%E7%AD%89%E6%93%8D%E4%BD%9C%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" rel="prev" title="Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】">
+                  <i class="fa fa-angle-left"></i> Java 8 快速实现 List 转 Map、分组、过滤等操作【转载】
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2019/09/04/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" rel="next" title="Spring Boot 上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载 + 整理】">
-                  Spring Boot 上传附件报错：org.apache.tomcat.util.http.fileupload.FileUploadBase$SizeLimitExceededException【转载 + 整理】 <i class="fa fa-angle-right"></i>
+                <a href="/2019/09/04/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" rel="next" title="Spring Boot 上传附件报错：FileUploadBase$SizeLimitExceededException（转载 + 整理）">
+                  Spring Boot 上传附件报错：FileUploadBase$SizeLimitExceededException（转载 + 整理） <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -444,13 +444,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

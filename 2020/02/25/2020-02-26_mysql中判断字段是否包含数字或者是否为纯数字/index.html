@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="可能会筛出各种不适我们想要的，比如包含“10”的字段也会筛选出。">
+    <meta name="description" content="整理 MySQL 中几个常见判断场景，包括是否包含数字、是否为纯数字，以及基于 like &#x2F; FIND_IN_SET &#x2F; REGEXP 的写法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql中判断字段是否包含数字或者是否为纯数字">
+<meta property="og:title" content="MySQL 中判断字段是否包含数字，或者是否为纯数字">
 <meta property="og:url" content="https://evasnowind.github.io/2020/02/25/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="可能会筛出各种不适我们想要的，比如包含“10”的字段也会筛选出。">
+<meta property="og:description" content="整理 MySQL 中几个常见判断场景，包括是否包含数字、是否为纯数字，以及基于 like &#x2F; FIND_IN_SET &#x2F; REGEXP 的写法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.480Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.772Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -32,10 +32,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2020/02/25/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/02/25/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/","path":"2020/02/25/2020-02-26_mysql中判断字段是否包含数字或者是否为纯数字/","title":"mysql中判断字段是否包含数字或者是否为纯数字"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/02/25/2020-02-26_mysql%E4%B8%AD%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%95%B0%E5%AD%97%E6%88%96%E8%80%85%E6%98%AF%E5%90%A6%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97/","path":"2020/02/25/2020-02-26_mysql中判断字段是否包含数字或者是否为纯数字/","title":"MySQL 中判断字段是否包含数字，或者是否为纯数字"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>mysql中判断字段是否包含数字或者是否为纯数字 | Prayer的数字城堡</title>
+<title>MySQL 中判断字段是否包含数字，或者是否为纯数字 | Prayer的数字城堡</title>
   
 
 
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,7 +212,7 @@
       <a class="popular-posts-link" href="/2020/02/17/2020-02-18_mysql%E4%B8%AD%E4%BD%BF%E7%94%A8replace_regexp%E5%AE%9E%E7%8E%B0%E6%AD%A3%E5%88%99%E6%9B%BF%E6%8D%A2/" rel="bookmark">
         <time class="popular-posts-time">2020-02-18</time>
         <br>
-      mysql中使用replace regexp实现正则替换
+      MySQL 中使用 REPLACE 与 REGEXP 实现匹配和替换
       </a>
     </li>
     <li class="popular-posts-item">
@@ -226,21 +226,21 @@
       <a class="popular-posts-link" href="/2019/11/23/2019-11-24_spring_boot%E8%BF%9E%E6%8E%A5mysql_8%E6%97%B6%E6%8A%A5errorCode_0,_state_08001%E9%94%99%E8%AF%AF/" rel="bookmark">
         <time class="popular-posts-time">2019-11-24</time>
         <br>
-      Spring Boot 连接 MySQL 8 报 errorCode 0, state 08001 错误
+      Spring Boot 连接 MySQL 8 报 errorCode 0、state 08001 错误
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/03/17/2020-03-18_mysql_source%E5%91%BD%E4%BB%A4%E5%AF%BC%E5%85%A5%E5%A4%A7%E6%96%87%E4%BB%B6%E6%97%B6%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="bookmark">
         <time class="popular-posts-time">2020-03-18</time>
         <br>
-      MySQL source命令导入大文件时失败的解决方法
+      MySQL source 命令导入大文件时失败的解决方法
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/12/01/2020-12-02_centos%E4%B8%8B%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8mysql%E5%A4%9A%E5%AE%9E%E4%BE%8B/" rel="bookmark">
         <time class="popular-posts-time">2020-12-02</time>
         <br>
-      centos下如何启动mysql多实例
+      CentOS 下如何启动 MySQL 多实例
       </a>
     </li>
   </ul>
@@ -276,12 +276,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="mysql中判断字段是否包含数字或者是否为纯数字 | Prayer的数字城堡">
-      <meta itemprop="description" content="可能会筛出各种不适我们想要的，比如包含“10”的字段也会筛选出。">
+      <meta itemprop="name" content="MySQL 中判断字段是否包含数字，或者是否为纯数字 | Prayer的数字城堡">
+      <meta itemprop="description" content="整理 MySQL 中几个常见判断场景，包括是否包含数字、是否为纯数字，以及基于 like &#x2F; FIND_IN_SET &#x2F; REGEXP 的写法。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mysql中判断字段是否包含数字或者是否为纯数字
+          MySQL 中判断字段是否包含数字，或者是否为纯数字
         </h1>
 
         <div class="post-meta-container">
@@ -299,7 +299,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -318,7 +318,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>310</span>
+      <span>347</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -329,14 +329,15 @@
     </span>
 </div>
 
-            <div class="post-description">可能会筛出各种不适我们想要的，比如包含“10”的字段也会筛选出。</div>
+            <div class="post-description">整理 MySQL 中几个常见判断场景，包括是否包含数字、是否为纯数字，以及基于 like / FIND_IN_SET / REGEXP 的写法。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><ul>
+    <div class="post-body" itemprop="articleBody"><p>这篇文章整理几个在数据清洗或条件筛选里比较常见的判断场景，顺手汇总成一页备查。</p>
+<ul>
 <li>各种场景<ul>
 <li>判断字段是否包含数字</li>
 <li>使用 like 模糊查询包含某个数字</li>
@@ -401,13 +402,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/02/24/2020-02-25_mybatis%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-mapper_xml%E4%BC%A0%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0/" rel="prev" title="mybatis常用写法-mapper xml传入多个参数">
-                  <i class="fa fa-angle-left"></i> mybatis常用写法-mapper xml传入多个参数
+                <a href="/2020/02/24/2020-02-25_mybatis%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95-mapper_xml%E4%BC%A0%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0/" rel="prev" title="MyBatis 常用写法：Mapper XML 传入多个参数">
+                  <i class="fa fa-angle-left"></i> MyBatis 常用写法：Mapper XML 传入多个参数
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/03/02/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" rel="next" title="spring中使用mybatis&#x2F;MyBatis plus连接sqlserver">
-                  spring中使用mybatis/MyBatis plus连接sqlserver <i class="fa fa-angle-right"></i>
+                <a href="/2020/03/02/2020-03-03_spring%E4%B8%AD%E4%BD%BF%E7%94%A8mybatis_mybatis_plus%E8%BF%9E%E6%8E%A5sqlserver/" rel="next" title="Spring 中使用 MyBatis &#x2F; MyBatis Plus 连接 SQL Server">
+                  Spring 中使用 MyBatis / MyBatis Plus 连接 SQL Server <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -439,13 +440,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

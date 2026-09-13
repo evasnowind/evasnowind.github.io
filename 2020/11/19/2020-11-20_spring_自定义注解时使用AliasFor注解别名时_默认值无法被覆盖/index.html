@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"evasnowind.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="分析 @AliasFor 互为别名时默认值为何看似未生效，并说明如何使用 Spring 提供的注解工具正确读取属性值。">
+    <meta name="description" content="记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖">
+<meta property="og:title" content="Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖">
 <meta property="og:url" content="https://evasnowind.github.io/2020/11/19/2020-11-20_spring_%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%97%B6%E4%BD%BF%E7%94%A8AliasFor%E6%B3%A8%E8%A7%A3%E5%88%AB%E5%90%8D%E6%97%B6_%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%B3%95%E8%A2%AB%E8%A6%86%E7%9B%96/index.html">
 <meta property="og:site_name" content="Prayer的数字城堡">
-<meta property="og:description" content="分析 @AliasFor 互为别名时默认值为何看似未生效，并说明如何使用 Spring 提供的注解工具正确读取属性值。">
+<meta property="og:description" content="记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-11T13:04:39.481Z">
+<meta property="article:modified_time" content="2026-09-13T01:58:48.774Z">
 <meta property="article:author" content="Prayer">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
@@ -32,10 +32,10 @@
 <link rel="canonical" href="https://evasnowind.github.io/2020/11/19/2020-11-20_spring_%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%97%B6%E4%BD%BF%E7%94%A8AliasFor%E6%B3%A8%E8%A7%A3%E5%88%AB%E5%90%8D%E6%97%B6_%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%B3%95%E8%A2%AB%E8%A6%86%E7%9B%96/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/11/19/2020-11-20_spring_%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%97%B6%E4%BD%BF%E7%94%A8AliasFor%E6%B3%A8%E8%A7%A3%E5%88%AB%E5%90%8D%E6%97%B6_%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%B3%95%E8%A2%AB%E8%A6%86%E7%9B%96/","path":"2020/11/19/2020-11-20_spring_自定义注解时使用AliasFor注解别名时_默认值无法被覆盖/","title":"spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://evasnowind.github.io/2020/11/19/2020-11-20_spring_%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%97%B6%E4%BD%BF%E7%94%A8AliasFor%E6%B3%A8%E8%A7%A3%E5%88%AB%E5%90%8D%E6%97%B6_%E9%BB%98%E8%AE%A4%E5%80%BC%E6%97%A0%E6%B3%95%E8%A2%AB%E8%A6%86%E7%9B%96/","path":"2020/11/19/2020-11-20_spring_自定义注解时使用AliasFor注解别名时_默认值无法被覆盖/","title":"Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖 | Prayer的数字城堡</title>
+<title>Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖 | Prayer的数字城堡</title>
   
 
 
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -209,24 +209,38 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2020/04/29/2020-04-30_spring_cloud%E7%89%88%E6%9C%AC%E7%94%B11.5.x%E5%8D%87%E7%BA%A7%E5%88%B02.x%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" rel="bookmark">
-        <time class="popular-posts-time">2020-04-30</time>
-        <br>
-      spring cloud版本由1.5.x升级到2.x所遇到的坑
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/09/16/2020-09-17_%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%B9%8BSpring_Boot%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Spring_Factories%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" rel="bookmark">
         <time class="popular-posts-time">2020-09-17</time>
         <br>
-      源码分析之Spring Boot如何利用Spring Factories机制进行自动注入
+      源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/04/29/2020-04-30_spring_cloud%E7%89%88%E6%9C%AC%E7%94%B11.5.x%E5%8D%87%E7%BA%A7%E5%88%B02.x%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" rel="bookmark">
+        <time class="popular-posts-time">2020-04-30</time>
+        <br>
+      Spring Cloud 版本由 1.5.x 升级到 2.x 所遇到的坑
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/2020/12/28/2020-12-29_spring_cloud_gateway%E5%9F%BA%E7%A1%80/" rel="bookmark">
         <time class="popular-posts-time">2020-12-29</time>
         <br>
-      Spring Cloud gateway基础
+      Spring Cloud Gateway 基础
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2020/03/13/2020-03-14_spring_boot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/" rel="bookmark">
+        <time class="popular-posts-time">2020-03-14</time>
+        <br>
+      Spring Boot 启动失败且不输出日志
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2019/09/04/2019-09-05_spring_boot%E4%B8%8A%E4%BC%A0%E9%99%84%E4%BB%B6%E6%8A%A5%E9%94%99%EF%BC%9Aorg.apache.tomcat.util.http.fileupload.FileUploadBa/" rel="bookmark">
+        <time class="popular-posts-time">2019-09-05</time>
+        <br>
+      Spring Boot 上传附件报错：FileUploadBase$SizeLimitExceededException（转载 + 整理）
       </a>
     </li>
   </ul>
@@ -262,12 +276,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖 | Prayer的数字城堡">
-      <meta itemprop="description" content="分析 @AliasFor 互为别名时默认值为何看似未生效，并说明如何使用 Spring 提供的注解工具正确读取属性值。">
+      <meta itemprop="name" content="Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖 | Prayer的数字城堡">
+      <meta itemprop="description" content="记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          spring 自定义注解时使用AliasFor注解别名时 默认值无法被覆盖
+          Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖
         </h1>
 
         <div class="post-meta-container">
@@ -285,7 +299,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 21:04:39" itemprop="dateModified" datetime="2026-09-11T21:04:39+08:00">2026-09-11</time>
+      <time title="修改时间：2026-09-13 09:58:48" itemprop="dateModified" datetime="2026-09-13T09:58:48+08:00">2026-09-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -319,14 +333,14 @@
     </span>
 </div>
 
-            <div class="post-description">分析 @AliasFor 互为别名时默认值为何看似未生效，并说明如何使用 Spring 提供的注解工具正确读取属性值。</div>
+            <div class="post-description">记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>事情是这样子的：</p>
+    <div class="post-body" itemprop="articleBody"><p>这篇文章记录一个在自定义 Spring 注解时很容易踩到的细节：<code>@AliasFor</code> 明明已经配置好了，但读取属性值时结果却和预期不一致。</p>
 <p>我想自定义一个缓存注解，用来缓存方法返回值，并且支持自定义缓存超时时间，注解定义是这样：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Target(ElementType.METHOD)</span><br><span class="line">@Inherited</span><br><span class="line">public @interface MyCache &#123;</span><br><span class="line"></span><br><span class="line">    @AliasFor(&quot;value&quot;)</span><br><span class="line">    int expireTime() default 60;</span><br><span class="line"></span><br><span class="line">    @AliasFor(&quot;expireTime&quot;)</span><br><span class="line">    int value() default 60;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -387,8 +401,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/11/24/2020-11-25_spring%E4%B8%AD%E5%8A%A0%E6%B3%A8%E8%A7%A3%E6%96%B9%E6%B3%95%E8%A2%AB%E5%90%8C%E4%B8%80%E4%B8%AA%E7%B1%BB%E5%86%85%E9%83%A8%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E5%AF%BC%E8%87%B4AOP%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88(%E5%A6%82@Transactional%E6%B3%A8%E8%A7%A3%E5%A4%B1%E6%95%88)/" rel="next" title="spring中加注解方法被同一个类内部方法调用导致AOP失效的解决方案(如@Transactional注解失效)">
-                  spring中加注解方法被同一个类内部方法调用导致AOP失效的解决方案(如@Transactional注解失效) <i class="fa fa-angle-right"></i>
+                <a href="/2020/11/24/2020-11-25_spring%E4%B8%AD%E5%8A%A0%E6%B3%A8%E8%A7%A3%E6%96%B9%E6%B3%95%E8%A2%AB%E5%90%8C%E4%B8%80%E4%B8%AA%E7%B1%BB%E5%86%85%E9%83%A8%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E5%AF%BC%E8%87%B4AOP%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88(%E5%A6%82@Transactional%E6%B3%A8%E8%A7%A3%E5%A4%B1%E6%95%88)/" rel="next" title="Spring 中同类内部调用导致 AOP 失效的解决方案（如 @Transactional 失效）">
+                  Spring 中同类内部调用导致 AOP 失效的解决方案（如 @Transactional 失效） <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -420,13 +434,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:48</span>
+    <span title="站点阅读时长">13:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
