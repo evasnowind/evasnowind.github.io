@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, Prayer</rights>
   <subtitle>后端 / Java / 架构 / 技术笔记</subtitle>
   <title>Prayer的数字城堡</title>
-  <updated>2026-09-13T02:55:34.337Z</updated>
+  <updated>2026-09-13T03:10:53.868Z</updated>
   <entry>
     <author>
       <name>Prayer</name>
@@ -30,7 +30,7 @@
     <published>2026-09-12T16:00:00.000Z</published>
     <summary>面向普通投资者整理一份覆盖股票、债券、外汇的分阶段理财学习书单，从财商启蒙、基础实操到价值投资与风险认知，帮助建立更完整的投资知识框架。</summary>
     <title>股债汇全领域的投资理财知识学习</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.868Z</updated>
   </entry>
   <entry>
     <author>
@@ -46,7 +46,7 @@
     <published>2021-01-10T16:00:00.000Z</published>
     <summary>以centos为例，下载jar包，tar -zxvf xxx解压后，进入activemq解压文件夹，执行./bin/activemq console即可在shell前端启动，想。</summary>
     <title>如何部署activemq以及部署时遇到的相关问题</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.868Z</updated>
   </entry>
   <entry>
     <author>
@@ -63,7 +63,7 @@
     <published>2020-12-28T16:00:00.000Z</published>
     <summary>介绍 Spring Cloud Gateway 的核心组成、请求处理流程，以及作为业务网关时的基本使用思路。</summary>
     <title>Spring Cloud Gateway 基础</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.868Z</updated>
   </entry>
   <entry>
     <author>
@@ -80,7 +80,7 @@
     <published>2020-12-09T16:00:00.000Z</published>
     <summary>记录 Maven 编译大型项目时常用的简化命令，适合在打包阶段跳过测试、javadoc、RAT 和 checkstyle 等非关键环节。</summary>
     <title>maven编译大型项目时简化编译过程的命令</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -97,7 +97,7 @@
     <published>2020-12-01T16:00:00.000Z</published>
     <summary>记录在 CentOS 7.5 下通过二进制包部署 MySQL 并启动多个实例的基本过程，适合需要隔离端口与数据目录的场景。</summary>
     <title>CentOS 下如何启动 MySQL 多实例</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -113,7 +113,7 @@
     <published>2020-11-26T16:00:00.000Z</published>
     <summary>记录使用 Sysbench 对 MySQL 进行基准测试的环境、常用命令与执行过程，适合做数据库性能摸底与简单对比。</summary>
     <title>使用 Sysbench 对 MySQL 进行基准测试</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -130,7 +130,7 @@
     <published>2020-11-24T16:00:00.000Z</published>
     <summary>解释为什么同一个类内部方法互调会绕过 Spring 代理，从而导致 @Transactional 等 AOP 注解失效，并给出常见解决方案。</summary>
     <title>Spring 中同类内部调用导致 AOP 失效的解决方案（如 @Transactional 失效）</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -147,7 +147,7 @@
     <published>2020-11-19T16:00:00.000Z</published>
     <summary>记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。</summary>
     <title>Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖</title>
-    <updated>2026-09-13T02:55:34.337Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -163,7 +163,7 @@
     <published>2020-10-21T16:00:00.000Z</published>
     <summary>在raft中，服务器节点共有3种状态（或者说角色）：。</summary>
     <title>分布式一致性与共识之（一）Raft</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -181,7 +181,7 @@
     <published>2020-09-28T16:00:00.000Z</published>
     <summary>从服务注册、心跳处理、自我保护到集群同步，梳理 Eureka Server 的核心实现逻辑。</summary>
     <title>源码分析之 Eureka 服务端源码解析</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -199,7 +199,7 @@
     <published>2020-09-21T16:00:00.000Z</published>
     <summary>围绕 Eureka Client 的自动配置、服务注册、拉取注册表与心跳机制，梳理其核心源码实现。</summary>
     <title>源码分析之 Eureka 客户端源码解析</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -218,7 +218,7 @@
     <published>2020-09-20T16:00:00.000Z</published>
     <summary>围绕 ThreadPoolExecutor 的核心参数、运行机制与状态设计，梳理 Java 线程池的关键源码实现。</summary>
     <title>源码分析之 Java 线程池 ThreadPoolExecutor</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -236,7 +236,7 @@
     <published>2020-09-16T16:00:00.000Z</published>
     <summary>围绕 Spring Boot 如何借助 Spring Factories 机制完成自动注入与扩展加载，梳理其核心原理与执行流程。</summary>
     <title>源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -253,7 +253,7 @@
     <published>2020-09-10T16:00:00.000Z</published>
     <summary>围绕 Kafka Consumer 的核心组件与消息拉取流程做源码分析，梳理从订阅、拉取到位移管理的关键细节。</summary>
     <title>源码分析之 Kafka Consumer 消费消息的过程</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -270,7 +270,7 @@
     <published>2020-09-08T16:00:00.000Z</published>
     <summary>从 Reactor 模式切入，梳理 Netty 线程模型的演进思路、核心结构与设计要点。</summary>
     <title>源码分析之 Netty 线程模型</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -288,7 +288,7 @@
     <published>2020-09-01T16:00:00.000Z</published>
     <summary>围绕 Guava RateLimiter 的基本用法、预热机制与令牌桶实现思路，梳理其核心设计。</summary>
     <title>Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.867Z</updated>
   </entry>
   <entry>
     <author>
@@ -307,7 +307,7 @@
     <published>2020-08-17T16:00:00.000Z</published>
     <summary>从 ThreadPoolExecutor 的设计出发，分析 Tomcat 与 Dubbo 为什么要对 JDK 线程池做定制，以及它们各自的优化方向。</summary>
     <title>Tomcat 和 Dubbo 对 JDK 线程池的改造思路</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.866Z</updated>
   </entry>
   <entry>
     <author>
@@ -323,7 +323,7 @@
     <published>2020-07-23T16:00:00.000Z</published>
     <summary>--- docker-compose up -d Creating network &quot;pinpoint-dockerpinpoint&quot; with driver &quot;bridge&quot; Creatin。</summary>
     <title>解决 Win 10 通过 Docker 安装 Pinpoint 报端口错误</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.866Z</updated>
   </entry>
   <entry>
     <author>
@@ -339,7 +339,7 @@
     <published>2020-07-14T16:00:00.000Z</published>
     <summary>进入互联网行业，不管是实习，还是正式工作，要记住，从入行这一刻起，就要不停的学习、不停的思考，最好是根据自己的优缺点、喜好，订个明确的目标，自己到底想走哪条路线，是纯技术路线、不想太关心业务？产品经理？</summary>
     <title>写给即将或是想进入互联网大厂工作的后浪们</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.866Z</updated>
   </entry>
   <entry>
     <author>
@@ -357,6 +357,6 @@
     <published>2020-05-26T16:00:00.000Z</published>
     <summary>以 DCL 单例为切入点，梳理 volatile 的可见性、有序性以及它在 Java 内存模型中的作用。</summary>
     <title>Java 并发之深入解析 volatile 关键字</title>
-    <updated>2026-09-13T02:55:34.336Z</updated>
+    <updated>2026-09-13T03:10:53.866Z</updated>
   </entry>
 </feed>
