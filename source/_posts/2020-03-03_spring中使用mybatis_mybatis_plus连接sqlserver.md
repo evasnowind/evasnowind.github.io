@@ -186,7 +186,6 @@ public class SqlServerMybatisConfig {
         return DruidDataSourceFactory.createDataSource(props);
     }
 
-
     @Bean(name = "xxSqlSessionFactory")
     public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean(@Qualifier("xxDataSource") DataSource xxDataSource) throws IOException {
         MybatisSqlSessionFactoryBean mybatisPlus = new MybatisSqlSessionFactoryBean();
@@ -258,4 +257,3 @@ public class XXXServiceImpl extends ServiceImpl<XXXMapper, XXX>
 - [Spring Boot 集成 MyBatis和 SQL Server实践](https://blog.csdn.net/wangshuaiwsws95/article/details/85059207)
 - [Spring Boot 集成 MyBatis和 SQL Server实践](https://yq.aliyun.com/articles/680156)
 - [springboo-mybatis SQL Server](https://github.com/xlbs/sample)
-- [springboot集成mybatis-plus连接sqlserver](vscode-resource:///D:\GitRepository\JavaKnowledgeTree\frameworks\mybatis_and_mybatis_plus\springboot%E9%9B%86%E6%88%90mybatis-plus%E8%BF%9E%E6%8E%A5sqlserver)

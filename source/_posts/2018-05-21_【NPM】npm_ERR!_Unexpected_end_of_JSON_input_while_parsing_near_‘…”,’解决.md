@@ -4,7 +4,7 @@ date: "2018-05-21"
 categories: ["Web"]
 tags: ["Web"]
 source: "http://prayerlaputa.com/?p=621"
-description: "今天安装项目依赖npm install 的时候出现错误：。"
+description: "记录 npm install 时出现 Unexpected end of JSON input 报错的常见处理办法。"
 ---
 
 ## 问题描述
@@ -48,6 +48,6 @@ npm set registry https://registry.npmjs.org/
 
 <!-- more -->
 
-本文链接：https://www.cnblogs.com/GeniusLyzh/p/9773440.html
+原文链接：<https://www.cnblogs.com/GeniusLyzh/p/9773440.html>
 本文版权归作者和博客园共有，欢迎转载，须保留此段声明，并给出原文链接，谢谢！
 如果阅读了本文章，觉得有帮助，欢迎点击右下角推荐

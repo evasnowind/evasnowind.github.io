@@ -4,11 +4,11 @@ date: "2015-11-27"
 categories: ["Web", "WordPress"]
 tags: ["WordPress", "建站"]
 source: "http://prayerlaputa.com/?p=526"
-description: "购买VPS用于科学上网后，打算将个人博客移到VPS上，遂折腾了一下，遇到一些坑，整理一下给大家看看。 版权声明："
+description: "记录使用 VPS + LNMP + WordPress 搭建个人博客的过程，以及安装过程中踩过的一些坑。"
 ---
 
 购买VPS用于科学上网后，打算将个人博客移到VPS上，遂折腾了一下，遇到一些坑，整理一下给大家看看。
-版权声明：我这篇文章主要是根据“[vps+lnmp+wordpress搭建个人博客](http://www.railgun.top/blog/?p=19)” 这篇文章，以及自己搜索到的一些帖子整理所得，算是一个all in one的版本，大家勤动手肯定都能查到。
+参考文章： [vps+lnmp+wordpress搭建个人博客](http://www.railgun.top/blog/?p=19)。本文在其基础上结合自己的实践做了一次整理。
 搭建博客主要分为以下几个大的步骤：
 
 <!-- more -->

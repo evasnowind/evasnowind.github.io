@@ -4,10 +4,10 @@ date: "2015-12-09"
 categories: ["Web", "WordPress"]
 tags: ["WordPress"]
 source: "http://prayerlaputa.com/?p=142"
-description: "完成了以上步骤，今后在Venus blog或其他支持Gravatar的网站留言都会显示你帅帅的头像了。"
+description: "整理在 WordPress / Gravatar 场景下设置个人头像的基本步骤。"
 ---
 
-原文链接：http://newfaction.net/2010/11/20/modify-wordpress-avatar.html
+原文链接：<http://newfaction.net/2010/11/20/modify-wordpress-avatar.html>
 [Gravatar](http://newfaction.net/tag/gravatar "查看 Gravatar 的全部文章")的概念首先是在国外的独立**WordPress**博客中兴起的，当你到任何一个支持Gravatar的网站留言时，这个网站都就会根据你所提供的Email地址为你显示出匹配的[头像](http://newfaction.net/tag/%e5%a4%b4%e5%83%8f "查看 头像 的全部文章")。 当然，这个头像，是需要你事先到Gravatar的网站注册并上传的，否则，在这个网站上，就只会显示成一个默认的头像。像Venus blog 现在均已支持Gravatar服务了，你可以通过你的个性头像打造起你的个人品牌了！并且这个Gravatar没有什么约束，想换头像换马甲？很简单，改 改留言的名字和email地址就可以了。另外注册与使用Gravatar均是完全免费的。
 下面几个步骤可以告诉大家如何在Venus blog或者别人的Blog上定制自己的个性头像：
 

@@ -7,7 +7,7 @@ source: "http://prayerlaputa.com/?p=598"
 description: "整理 Java 中将 List 转换为 Map 的三种常见写法，适合作为集合处理的快速参考。"
 ---
 
-原文链接：https://www.jb51.net/article/149605.htm
+原文链接：<https://www.jb51.net/article/149605.htm>
 
 <!-- more -->
 

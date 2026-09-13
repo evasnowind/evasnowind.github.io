@@ -6,6 +6,7 @@ darkmode: false
 
 menu:
   Home: / || fa fa-home
+  Start Here: /start-here/ || fa fa-compass
   Categories: /categories/ || fa fa-th
   Tags: /tags/ || fa fa-tags
   Archives: /archives/ || fa fa-archive

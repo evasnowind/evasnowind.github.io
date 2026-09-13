@@ -109,11 +109,11 @@ JVM执行字节码时，可能发生指令重排序，乱序执行。上面不�
 
 字节码文件结构
 
-![](/images/class文件结构-300x297_bb4aebf5.png)![](vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.jpg)
+![](/images/class文件结构-300x297_bb4aebf5.png)
 
 在字段表中保存着类中各种字段的信息
 
-![](vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/class%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E8%A1%A8%E4%B8%8E%E5%AD%97%E6%AE%B5%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97.png)![](/images/class文件中的访问标记-300x159_7c65ba27.png)
+![](/images/class文件中的访问标记-300x159_7c65ba27.png)
 
 ![](/images/class文件中的字段表与字段访问标志-300x221_60021e35.png)
 
@@ -160,7 +160,7 @@ JVM执行字节码的过程，最终会翻译成机器语言，在CPU上执行�
 
 对于JVM内存屏障的实现，不同CPU有不同的实现。以X86为例，下面是个栗子：
 
-![](vscode-resource://file///d:/GitRepository/JavaKnowledgeTree/java/images/volatile%E5%AF%B9%E5%BA%94%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4.png)![](/images/volatile对应汇编指令-300x90_9540b546.png)
+![](/images/volatile对应汇编指令-300x90_9540b546.png)
 
 有volatile变量修饰的共享变量进行写操作的时候会多第二行汇编代码，通过查IA-32架构软件开发者手册可知，lock前缀的指令在多核处理器下会引发了两件事情：
 

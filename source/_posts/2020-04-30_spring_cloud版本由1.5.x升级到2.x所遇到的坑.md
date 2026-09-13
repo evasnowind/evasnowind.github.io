@@ -108,7 +108,7 @@ spring boot更新后：
 
 E版本重命名列表参见[Spring Cloud Edgware Release Notes](https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Edgware-Release-Notes)
 
-![spring_cloud_edgware_rename_starters.png](vscode-resource:///D:\GitRepository\JavaKnowledgeTree\frameworks\spring_spring-boot_spring_cloud\images\spring_cloud_edgware_rename_starters.png)
+Starter 重命名明细可直接参考上面的官方 Release Notes 页面。
 
 #### 2.1 eureka
 

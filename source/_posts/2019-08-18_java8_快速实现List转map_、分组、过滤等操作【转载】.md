@@ -10,8 +10,7 @@ description: "整理 Java 8 中使用 Stream 对集合做转 Map、分组、过�
 {% raw %}
 本文整理 Java 8 中 List 转 Map、分组、过滤等常见集合处理写法。
 
-版权声明：本文为博主原创文章，遵循 CC 4.0 by-sa 版权协议，转载请附上原文出处链接和本声明。
-本文链接：https://blog.csdn.net/lu930124/article/details/77595585
+原文链接：<https://blog.csdn.net/lu930124/article/details/77595585>
 
 <!-- more -->
 
@@ -20,7 +19,6 @@ description: "整理 Java 8 中使用 Stream 对集合做转 Map、分组、过�
 定义1个Apple对象：
 
 ```
-
 
 public class Apple {
 private Integer id;
@@ -36,7 +34,6 @@ this.num = num;
 }
 
 ```
-
 
 添加一些测试数据：
 
@@ -61,7 +58,6 @@ List里面的对象元素，以某个属性来分组，例如，以id分组，�
 
 ```
 
-
 //List 以ID分组 Map<Integer,List<Apple>>
 Map<Integer, List<Apple>> groupBy = appleList.stream().collect(Collectors.groupingBy(Apple::getId));
 
@@ -75,7 +71,6 @@ System.err.println("groupBy:"+groupBy);
 id为key，apple对象为value，可以这么做：
 
 ```
-
 
 /**
 * List -> Map
@@ -96,7 +91,6 @@ Map<Integer, Apple> appleMap = appleList.stream().collect(Collectors.toMap(Apple
 
 ```
 
-
 //过滤出符合条件的数据
 List<Apple> filterList = appleList.stream().filter(a -> a.getName().equals("香蕉")).collect(Collectors.toList());
 
@@ -110,7 +104,6 @@ System.err.println("filterList:"+filterList);
 将集合中的数据按照某个属性求和:
 
 ```
-
 
 //计算 总金额
 BigDecimal totalMoney = appleList.stream().map(Apple::getMoney).reduce(BigDecimal.ZERO, BigDecimal::add);
