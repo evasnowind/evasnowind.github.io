@@ -1,0 +1,30 @@
+.site-ad {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.site-ad-label {
+  color: var(--text-color);
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  opacity: .6;
+}
+
+.site-ad-sidebar {
+  background: var(--content-bg-color);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  margin-top: $sidebar-offset;
+  padding: 12px 10px;
+
+  +tablet-mobile() {
+    display: none;
+  }
+}
+
+.site-ad-post {
+  border-top: 1px solid var(--body-bg-color);
+  margin-top: 32px;
+  padding-top: 16px;
+}

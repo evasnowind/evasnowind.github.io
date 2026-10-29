@@ -1,0 +1,13 @@
+{% if theme.adsense.enable and theme.adsense.sidebar_slot %}
+<div class="site-ad site-ad-sidebar" aria-label="广告">
+  <div class="site-ad-label">广告</div>
+  <template>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="{{ theme.adsense.client }}"
+         data-ad-slot="{{ theme.adsense.sidebar_slot }}"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </template>
+</div>
+{% endif %}

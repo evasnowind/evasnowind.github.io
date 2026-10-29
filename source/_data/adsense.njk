@@ -1,0 +1,30 @@
+{% if theme.adsense.enable %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // NexT's sidebar hook is inside the profile card. Put the ad below that card.
+  const sidebarAd = document.querySelector('.site-ad-sidebar');
+  if (sidebarAd) {
+    const profileCard = sidebarAd.closest('.sidebar-inner');
+    if (profileCard) profileCard.after(sidebarAd);
+  }
+
+  // Keep hidden sidebar ads inert, and request each visible ad only once.
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || !entry.target.offsetWidth) continue;
+      const template = entry.target.querySelector('template');
+      if (!template) continue;
+      observer.unobserve(entry.target);
+      entry.target.append(template.content.cloneNode(true));
+      template.remove();
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.warn('AdSense could not initialize an ad unit.', error);
+      }
+    }
+  });
+  document.querySelectorAll('.site-ad').forEach(ad => observer.observe(ad));
+});
+</script>
+{% endif %}

@@ -97,6 +97,16 @@ github_banner:
 
 custom_file_path:
   head: source/_data/head.njk
+  sidebar: source/_data/sidebar-ads.njk
+  postBodyEnd: source/_data/post-ads.njk
+  bodyEnd: source/_data/adsense.njk
+  style: source/_data/adsense.styl
+
+adsense:
+  enable: true
+  client: ca-pub-8399438515622764
+  sidebar_slot: '2923003110'
+  post_slot: '6026844458'
 
 symbols_count_time:
   separated_meta: true

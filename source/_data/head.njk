@@ -1,2 +1,6 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="shortcut icon" href="/favicon.ico">
+{% if theme.adsense.enable %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ theme.adsense.client }}"
+        crossorigin="anonymous"></script>
+{% endif %}
