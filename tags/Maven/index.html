@@ -64,6 +64,10 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="shortcut icon" href="/favicon.ico">
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8399438515622764"
+        crossorigin="anonymous"></script>
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -193,6 +197,19 @@
         <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
+
+<div class="site-ad site-ad-sidebar" aria-label="广告">
+  <div class="site-ad-label">广告</div>
+  <template>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8399438515622764"
+         data-ad-slot="2923003110"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </template>
+</div>
+
 
         </div>
       </div>
@@ -343,6 +360,36 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // NexT's sidebar hook is inside the profile card. Put the ad below that card.
+  const sidebarAd = document.querySelector('.site-ad-sidebar');
+  if (sidebarAd) {
+    const profileCard = sidebarAd.closest('.sidebar-inner');
+    if (profileCard) profileCard.after(sidebarAd);
+  }
+
+  // Keep hidden sidebar ads inert, and request each visible ad only once.
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || !entry.target.offsetWidth) continue;
+      const template = entry.target.querySelector('template');
+      if (!template) continue;
+      observer.unobserve(entry.target);
+      entry.target.append(template.content.cloneNode(true));
+      template.remove();
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.warn('AdSense could not initialize an ad unit.', error);
+      }
+    }
+  });
+  document.querySelectorAll('.site-ad').forEach(ad => observer.observe(ad));
+});
+</script>
+
 
 </body>
 </html>

@@ -64,6 +64,10 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="shortcut icon" href="/favicon.ico">
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8399438515622764"
+        crossorigin="anonymous"></script>
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -194,6 +198,19 @@
       </span>
   </div>
 
+<div class="site-ad site-ad-sidebar" aria-label="广告">
+  <div class="site-ad-label">广告</div>
+  <template>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8399438515622764"
+         data-ad-slot="2923003110"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </template>
+</div>
+
+
         </div>
       </div>
     </div>
@@ -293,8 +310,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2015/12/02/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/" itemprop="url">
-            <span itemprop="name">ubuntu下配置tmux</span>
+          <a class="post-title-link" href="/2015/12/02/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" itemprop="url">
+            <span itemprop="name">使用fdisk和resize2fs重置ubuntu系统分区表【转载】</span>
           </a>
       </div>
 
@@ -313,8 +330,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2015/12/02/2015-12-03_%E4%BD%BF%E7%94%A8fdisk%E5%92%8Cresize2fs%E9%87%8D%E7%BD%AEubuntu%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E8%A1%A8%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" itemprop="url">
-            <span itemprop="name">使用fdisk和resize2fs重置ubuntu系统分区表【转载】</span>
+          <a class="post-title-link" href="/2015/12/02/2015-12-03_ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEtmux/" itemprop="url">
+            <span itemprop="name">ubuntu下配置tmux</span>
           </a>
       </div>
 
@@ -486,6 +503,36 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // NexT's sidebar hook is inside the profile card. Put the ad below that card.
+  const sidebarAd = document.querySelector('.site-ad-sidebar');
+  if (sidebarAd) {
+    const profileCard = sidebarAd.closest('.sidebar-inner');
+    if (profileCard) profileCard.after(sidebarAd);
+  }
+
+  // Keep hidden sidebar ads inert, and request each visible ad only once.
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || !entry.target.offsetWidth) continue;
+      const template = entry.target.querySelector('template');
+      if (!template) continue;
+      observer.unobserve(entry.target);
+      entry.target.append(template.content.cloneNode(true));
+      template.remove();
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.warn('AdSense could not initialize an ad unit.', error);
+      }
+    }
+  });
+  document.querySelectorAll('.site-ad').forEach(ad => observer.observe(ad));
+});
+</script>
+
 
 </body>
 </html>
