@@ -10,7 +10,26 @@
   <rights>All rights reserved 2026, Prayer</rights>
   <subtitle>后端 / Java / 架构 / 技术笔记</subtitle>
   <title>Prayer的数字城堡</title>
-  <updated>2026-10-29T10:33:19.846Z</updated>
+  <updated>2026-11-03T09:28:20.474Z</updated>
+  <entry>
+    <author>
+      <name>Prayer</name>
+    </author>
+    <category term="AI" scheme="https://prayerlaputa.com/categories/AI/"/>
+    <category term="AI Agent" scheme="https://prayerlaputa.com/tags/AI-Agent/"/>
+    <category term="批判性思维" scheme="https://prayerlaputa.com/tags/%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4/"/>
+    <category term="Claude Code" scheme="https://prayerlaputa.com/tags/Claude-Code/"/>
+    <category term="软件工程" scheme="https://prayerlaputa.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    <content>
+      <![CDATA[<blockquote><p>原文：Addy Osmani，<a href="https://x.com/i/article/2116367635365695488">Critical thinking when agents do the work</a>（X 长文）。本文为中文译文，保留关键专有名词与术语。</p></blockquote><p>过去，我们被教导，批判性思维（critical thinking）意味着以谦逊的好奇心和适度的怀疑态度面对新信息——接触不同观点，形成自己的判断。这一点依然成立。但如今，我的大量工作都通过 Agent 完成，日常工作中已经没有什么会迫使我进行批判性思考。对于那些已经全面拥抱 Agent 工作流（agentic workflows）的工程师和产品人——同时运行多个会话，并期待模型继续进步的人——我想先说明：我非常喜欢这些工具。我写这篇文章，并不是为了倡导少用 Agent 工作流。</p><p>我的目标是帮助你在一个可以轻易把任何事情交给 Agent 的世界里，依然保持批判性思维。</p><span id="more"></span><p>过去，我们的大部分认知加工和审美判断，都发生在提出问题与得到答案之间。现在，这段间隔已经缩短到以秒计。你越多地使用 Agent 工作流，保持批判性思维就越困难，不过原因可能与人们原先预想的不同：随着模型进步，明显错误的比例越来越低。许多——甚至大多数？——输出都文笔流畅、基本正确，让你觉得没有必要再看一遍。</p><p>即使你同时运行许多个 Agent，查看这些输出的，也仍然只有你这一双眼睛。</p><p>你必须主动把批判性思维安排进日常工作，因为在默认情况下，没有什么会替你做到这一点。</p><p>我们之所以很难自行纠偏，部分原因在于，Agent 工作流用起来很舒服。在忙碌的一天里，迅速得到令人满意、而且往往正确的答案，确实让人轻松。但也正因如此，我们很容易放松警惕。</p><h2 id="卸载、让渡与投降"><a href="#卸载、让渡与投降" class="headerlink" title="卸载、让渡与投降"></a>卸载、让渡与投降</h2><p>和别人讨论这个问题时，我会把它描述成一条光谱：</p><p>光谱的顶端是认知卸载（cognitive offloading）：把任务委托给 AI，同时仍然对结果负责。我整天都在这样做，你也应该这样做。中间是判断让渡（deferral）：工具的输出成了你的新输入，那个结果不再被当作一个有待验证的假设。底端则是认知投降（cognitive surrender）：AI 的输出悄然成了你自己的判断，而你觉得没有必要检查它。</p><p>“认知投降”这个术语由 Wharton 的 Steven Shaw 和 Gideon Nave 提出。它非常贴切地描述了我观察到的现象：随着信任——或者惰性——增加，人们会沿着这条光谱逐渐下滑。这个转变很少被察觉，因为每一步都很小，而且看起来都合情合理。上一个答案你认真读过，于是下一个就略读一下。再下一个，你只扫一眼框架。直到有人问起其中某一行，你却解释不出来，甚至连借助 Agent 都解释不清。</p><p>这就是认知投降，也是认知债务（cognitive debt）积累的方式。通常，直到你试图调用自己对系统的心智模型（mental model），才会发现它根本不存在。Margaret-Anne Storey 写过，这种现象在团队中表现为：大家对系统所共有的理论性理解逐渐被侵蚀。我也写过它在代码领域的对应概念——理解债务（comprehension debt，这个术语由 Jeremy Twei 提出）。在当下，它完全不可见。代码库看起来整洁漂亮，测试也全部通过。直到你必须修改系统，却发现已经没人理解它了，问题才会显现。同样的情况也会发生在你只看了战略文档或规格说明的目录，就签字批准的时候。</p><p>说清楚一点，我并不是在提倡不可能做到的事。要在脑中维持一个庞大现代代码库的完整心智模型，本来就不现实。Claude Code 团队曾公开表示，他们会按需重建理解：需要理解某个部分时，就让 Claude 解释那一块，而不是把整个系统模型一直装在脑子里。正如我之前写过的，这类债务比大多数工程师想象的更容易补回来。只要能在需要时重建对局部的理解，就不必一直维持完整模型。你只需要知道，自己缺少哪些理解。</p><p>对于风险较低的事情，你完全可以放心地全部委托出去。但如果一个问题的答案，你连借助 Agent 都无法解释，那就意味着你已经放弃了对它的主导权。</p><p>这也不一定总是问题。就在最近，我录制一门课程，需要从三家评分相近的酒店中选一家作为录制地点。我没时间逐条查看所有评价，于是把这个决定交给了 AI。结果不错，下次我还会这样做。但在决定如何投资我们的钱、如何给孩子提供职业建议时，我不会这样做；在工作中决定应该做什么产品、哪些变更会影响哪些用户、是否可以安全发布时，我也不会。犯错代价低的事情，可以交出去；后果需要别人承担的事情，要把推理和判断留在自己手里。</p><h2 id="我会问自己的问题"><a href="#我会问自己的问题" class="headerlink" title="我会问自己的问题"></a>我会问自己的问题</h2><p>当我不清楚自己究竟怎么想时，通常会回到一些基本问题：我怎么知道自己在解决正确的问题？我怎么知道自己采用了正确的解决方式？有什么证据支持我的结论？我怎么知道工作已经完成？大多数时候，这些无非就是谁、什么、哪里、为什么、何时，以及如何。写出来显得幼稚得可笑，但它们会迫使你从一些原本可能忽略的维度思考。如今，我们太容易跳过这一切，直接问 Agent：它觉得我们应该怎么做。下面这些，就是我现在会问自己的新版问题。</p><p>提问之前，我是否先提出了一个假设？在让 Agent 处理任何不那么简单的任务之前，我都会先写下——哪怕只是在脑子里想一下——自己认为答案可能是什么。猜得不好也没关系。有了新信息，你随时可以改变想法。但一旦读过一个表达完善的回答，就很难再想象其他可能性。如果你完全没有方向，可以让模型做一次 Thariq Shihipar 所说的“盲点扫描”（blind spot pass）：把你已经知道的内容交给模型，让它找出你的“未知的未知”（unknown unknowns）。</p><p>我是在请它帮助我思考，还是在把思考交给它？两者都可以，前提是你清楚自己正在做哪一种。</p><p>什么情况一旦属实，就意味着这个结论是错的？然后去查明。模型对自身置信度的评估，远不如一个你能实际执行的测试有价值，所以，给它一个这样的测试。</p><p>我是否听过从不同角度提出的反对意见？当我对某个没有唯一答案的问题采取了鲜明立场时，我会请不止一个模型为相反立场辩护，然后审阅输出，形成自己的看法。这会花更长时间，但最终我会对这个主题了解得更多。</p><p>当着未来负责维护它的人的面，我敢押注这个结果是对的吗？这适用于代码，也适用于你交付的任何其他东西。我认为，这就是能否为自己的交付作出交代的标准。</p><p>我已经不再练习哪些技能了？也许是某些日常调试工作。我可以接受放下其中一部分，但我希望这是有意识的选择。</p><h2 id="把验证变成习惯"><a href="#把验证变成习惯" class="headerlink" title="把验证变成习惯"></a>把验证变成习惯</h2><p>最近，我写了很多关于验证（verification）的文章，因为我认为，瓶颈已经从编写代码，转移到了确认自己做得对。当你给 Agent 提供验证自身工作的手段，无论是端到端测试（end-to-end tests）、属性测试（property tests），还是实际操作应用，它都可以在你还没查看任何东西之前，完成修改、运行验证测试、读取输出，再尝试一次。这就是 Boris Cherny 所说的“给 Claude 一种验证自身工作的方法”，我认为，这是取得出色成果最关键的组成部分之一。你会把精力放在构建这些反馈循环、审查证据上，而不必逐行阅读所有代码。</p><p>但你也可能把验证本身交出去。“有什么证据支持我的结论？”变成了“检查变绿了吗？”Agent 让创建测试变得如此便宜，你会看到大量绿色通过标记，但一个通过的测试，完全可能发现不了已经损坏的功能。如果测试和功能实现犯了同样的错误，测试就会通过。而且，一个绿色标记只说明某一项性质得到了验证，我们却很容易以为它涵盖了一切。</p><p>检查变绿时，问问它证明了什么。再问问，它没有证明什么。</p><p>事先定义清楚什么叫“已验证”，因为事后你会为任何结果找出合理化解释。</p><p>Agent 工作的终点应该是某种具体、可观察的东西：一个通过的测试、一张截图、一条日志，或一段调用链路（trace）。这样，完成标准就建立在事实上，而不会因为“看起来做完了”之类的感觉，变成可以随意解释、甚至放弃判断的东西。收到 Agent 的完成通知后，先别看总结，先查看它实际执行的命令片段及其输出。</p><p>Claude Code 也可以通过一个使用全新上下文的子 Agent，对自己的工作进行自我审查，作为合理性检查（sanity check）。值得把这一步固化到反馈循环里，让它每次都执行，而不是只有你记得时才做。我最后仍然会问一句：“我有没有漏掉什么？”这听起来很傻，但经常发生这样的情况：我使用前沿模型（frontier model）完成一个复杂功能，查看了结果，也审查过了，再问一句“我有没有漏掉什么？”，它就会补充两三件事。这就是为什么我总会问。</p><p>当然，不必每次都做到这种程度；知道什么时候需要深入，本身就是一种技能。在我们介绍 Claude Code 团队如何做代码审查的文章里，我最喜欢的一条经验法则是：“如果你说不清这些检查会漏掉什么，就要求一次真正的审查，而不只是快速批准。”</p><p>这也适用于代码之外的工作。如果 Agent 替你汇总了五十次客户访谈，或者完成了一份竞品分析，就抽查几份原始材料，确认总结准确。找一个支撑你建议的关键数字，核实它的计算是否正确。</p><p>Agent 已经让搭建验证机制变得很便宜。对你而言，难的是知道什么才算好的验证。</p><h2 id="真正关注生成的内容"><a href="#真正关注生成的内容" class="headerlink" title="真正关注生成的内容"></a>真正关注生成的内容</h2><p>假设 Agent 给你提交了一个 600 行的 PR（Pull Request）。你大致看了看结构，没有逐行阅读。变量名看起来合理，测试也通过了，于是你批准了。但在中间某个地方，事务边界处的执行顺序发生了一次细微变化，或者一个你从未考虑过的边界情况，其默认设置被反转了。我想，你确实算是审查过了，只不过，你只检查了那些自己原本就知道要找的东西。</p><p>编写代码和审查代码是两种不同的技能，而审查到某个程度，就可能变成机械盖章。所以，阅读 diff（代码差异）时，要像它不是 AI 写的一样认真，然后再越过 diff，看看 Agent 作出了哪些决策。在一个漫长的会话里，它会替你作出许多小决定：默认值是什么、哪些内容不在范围内、当两条需求冲突时，它重新解释了哪一条。</p><p>你不会在一份“一切顺利”的总结里看到这些，所以，要让它列出自己作出的决策和假设。然后考考自己。随机挑几行，问问：这一行是怎么回事？那一行呢？如果是一份文档，就把它关掉，试着凭记忆写出主要论点。有些人有个我很喜欢的长会话习惯：让 Claude 为这次变更写一份报告，并在末尾出一套测验，规则是：“只有测验全部答对，我才合并。”</p><p>充分理解你要交付的东西，理解到足以为它作出解释和辩护。因为总有一天，可能会有人问起。</p><p>Agent 也可以帮助你守住注意力。例如，我有一个开源项目，经常收到大量 PR。我会让 Agent 帮忙判断提交进来的是什么、哪些内容违背了我们的准则，以及哪些地方可能需要我关注。我很少让 Agent 自行决定这些事情，但它们可以缩小我需要关注的范围，让我真正去思考：这些变更是否在用正确的方式解决正确的问题。</p><p>接下来是数量问题，对此你必须诚实面对自己。我把它称为“编排税”（orchestration tax）：Agent 生成的东西，与那些你愿意署上自己名字、为之负责的东西之间，存在一道差距。如果已完成的工作堆积得比你审阅得还快，那么在解决这个问题之前，再开一个会话也无济于事。你需要收紧检查，让更少的工作需要你亲自介入，或者放慢速度。</p><p>当产出量超过了你能为之负责的限度，你就已经不再是在审查。你只是在寄希望于它没有问题。</p><h2 id="高质量输入，高质量输出"><a href="#高质量输入，高质量输出" class="headerlink" title="高质量输入，高质量输出"></a>高质量输入，高质量输出</h2><p>人的心智模型仍然参与其中，只是它的位置从中间转移到了两端。你的精力投入到了前端的任务描述和上下文，以及后端的输出审查。这就是为什么好的输入对输出质量如此重要，也是为什么我把写好 Prompt（提示词）视为一种批判性思维技能。</p><p>过去，如果你提出一个含糊的请求，别人会追问，你可能因此意识到：“等等，我其实还没想清楚。”Agent 往往不会在这里拦住你。它会补齐你遗漏的内容，交回一个看起来已经完成的结果，尽管背后的想法仍然模糊不清。我曾把这称为意图债务（intent debt）：那些你没有亲手写下的产物中，可能隐含着未明说的目标、约束和理由。与其他债务不同，这一种没人能替你解决。意图必须来自你自己。</p><p>你的 Prompt 反映了你对问题的理解。如果你无法清楚地表达它，也许它在你自己脑子里就还不清楚。</p><p>寻求帮助之前，先用自己的话写一份需求简述。说明受众、范围之外的事项，以及完成标准（definition of done）。如果第二轮纠正后仍然没达到目标，就停止微调，重新写 Prompt。</p><p>这件事也可以让 Agent 帮忙。我很喜欢 Andy Clark 对“委托 AI 系统”和“与 AI 系统协作”所作的区分。在后者中，你会进入一个相互增强的良性循环：你的 Prompt 让输出更精准，输出又让下一轮 Prompt 更精准，并让你对问题的心智模型更加清晰。如果还有不明确的地方，就让 Agent 围绕它不理解的内容来访谈你。如果结束会话时，你对问题的心智模型也得到了完善，那就是成功的信号。</p><p>同时，也要留意输入。每个 Agent 都很容易直接把上一个 Agent 的总结放进自己的上下文，没过多久，第三个 Agent 就已经没有读过原始文档了。</p><p>你还需要有自己的输出标准。我尝试过用 AI 进行很多不同媒介的创作，其中大部分从未展示出来，因为它们达不到我的标准。如今，所有东西都排版漂亮、语气自信，因此，表面的精致已经不再是一个有用的质量信号。</p><p>AI 也许让产出变快了，但如果我不愿意把某个结果归于自己名下，我就不会把它交出去。</p><p>当某个结果不符合你的标准时，把原因记录到共享配置、Hook 或测试中，避免同样的问题再次发生。品味就是这样产生复利的；而记录某个结果为什么没有过关，本身也是很好的练习。</p><h2 id="“但模型会比我更擅长这些”"><a href="#“但模型会比我更擅长这些”" class="headerlink" title="“但模型会比我更擅长这些”"></a>“但模型会比我更擅长这些”</h2><p>如果你像我身边许多人一样看好这个领域的未来，那么在前面几个章节里，你大概已经想过：再过一两年，模型就能发现那些我能发现的问题了，那为什么还要费心维持这项技能？</p><p>对于其中很多问题的发现，你也许是对的。我自己也一直主张，把越来越多的问题检测工作交给 Agent。但我认为，这件事依然重要，原因在于：归根结底，必须有人对交付结果负责。不管 AI 提供了多少帮助，都需要一个人承担责任。</p><p>对于某项具体任务，应该在多大程度上信任 Agent，本身就是一个需要判断的问题。审查工作成果，是让自己的判断保持准确的一部分，因为模型会犯什么错，一直在变化。Anthropic 对其工程师和研究人员开展的研究，把这个陷阱称为监督悖论（paradox of supervision）：“监督 Claude 所需要的，恰恰就是那些可能因过度使用 AI 而退化的编程技能。”</p><p>有些问题对我来说最重要，而更强的模型也无法替我解决：你在构建什么？它为什么值得做？它会影响谁？你愿意为此牺牲什么？这些问题都需要你来回答。Agent 可以帮助你想清楚，我也希望它能帮忙，但最终，这些问题仍然属于你。</p><p>你可以把工作以及很大一部分审查交出去，但不能把最终责任也交出去。</p><h2 id="日常实践"><a href="#日常实践" class="headerlink" title="日常实践"></a>日常实践</h2><p>你不必一丝不苟地执行所有这些做法。把适合自己工作流的部分融入进去就好。</p><p>每周，不借助 Agent 写一点代码，或者亲手做一件实事——如果以后忘了怎么做，你会觉得很糟糕的那种。（我曾把这称为校准练习，calibration exercise，但它并没有道德评判的意味。）每月，写下自己已经不再做哪些事情，再决定其中哪些是你可以接受不再做的。我以前一篇博客里的一个问题，今天依然有效：如果 AI 不存在，你会有多无所适从？</p><p>如果某件事超出了你的理解范围，就去学会它。写作时，如果遇到一个从未见过的表达，我可以用 Google 搜一个只有一句话的解释，然后把它写进去。但我更愿意做一点研究，真正理解它，这样才能知道它应该放在什么位置。</p><p>认真检查机器的工作，本身就是实实在在的工作。假装它不算工作，团队最后就会干脆不做。它不是没有成本的，所以，把它作为一个独立事项列入计划、安排时间，你才会真正去完成它。</p><p>停止练习的技能终究会消失，而且速度可能比你以为的更快。那些你不愿失去的技能，就要继续亲手运用。</p><h2 id="请带走这些要点"><a href="#请带走这些要点" class="headerlink" title="请带走这些要点"></a>请带走这些要点</h2><ul><li><p>有意识地使用工具。Agent 可以考你、访谈你、向你展示证据，但前提是你安排它这样做。所以，去安排。</p></li><li><p>诚实面对自己在光谱上的位置。如果连借助 Agent 都解释不清答案，你就已经放弃了自己的判断。</p></li><li><p>先有一个假设。提问之前先形成假设，哪怕猜得不好。</p></li><li><p>一个绿色通过标记只说明一件事。它检查了什么？又没有检查什么？</p></li><li><p>寻找证据。读总结之前，先看它运行了什么，以及返回了什么。</p></li><li><p>通过阅读弄清楚它作出了哪些决策。它替你决定了什么？</p></li><li><p>打磨你的 Prompt。你如何表达请求，体现了你对问题理解得有多深。</p></li><li><p>设定标准，并坚持它。如果你不愿为它署名，就别把它交出去。</p></li></ul><p>亲手运用那些重要的技能，让自己始终参与其中。你可以做这样一件事：提问之前，写下自己认为会发生什么；Agent 完成之后，写下它没有检查的一件事。告诉我，这是否改变了你阅读输出的方式。独立思考。提出更好的问题。为结果承担责任。</p>]]>
+    </content>
+    <id>https://prayerlaputa.com/2026/11/03/critical-thinking-when-agents-do-the-work/</id>
+    <link href="https://prayerlaputa.com/2026/11/03/critical-thinking-when-agents-do-the-work/"/>
+    <published>2026-11-02T16:00:00.000Z</published>
+    <summary>Addy Osmani 谈 Agent 工作流中的批判性思维：识别认知卸载与认知投降，建立验证习惯、审查决策与假设，并为最终交付承担责任。</summary>
+    <title>【译】当 Agent 承担工作时，如何保持批判性思维</title>
+    <updated>2026-11-03T09:28:20.474Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Prayer</name>
@@ -32,7 +51,7 @@
     <published>2026-10-14T16:00:00.000Z</published>
     <summary>从 AI Agent 的核心概念出发，整理开源教程、主流开发框架与低代码平台，并给出从概念理解、动手实践到工程化的入门学习路线。</summary>
     <title>AI Agent 入门指南：从零到一掌握智能体开发与实践</title>
-    <updated>2026-10-29T10:33:19.846Z</updated>
+    <updated>2026-11-03T09:28:20.474Z</updated>
   </entry>
   <entry>
     <author>
@@ -53,7 +72,7 @@
     <published>2026-09-12T16:00:00.000Z</published>
     <summary>面向普通投资者整理一份覆盖股票、债券、外汇的分阶段理财学习书单，从财商启蒙、基础实操到价值投资与风险认知，帮助建立更完整的投资知识框架。</summary>
     <title>股债汇全领域的投资理财知识学习</title>
-    <updated>2026-10-29T10:33:19.846Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -69,7 +88,7 @@
     <published>2021-01-10T16:00:00.000Z</published>
     <summary>以centos为例，下载jar包，tar -zxvf xxx解压后，进入activemq解压文件夹，执行./bin/activemq console即可在shell前端启动，想。</summary>
     <title>如何部署activemq以及部署时遇到的相关问题</title>
-    <updated>2026-10-29T10:33:19.846Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -86,7 +105,7 @@
     <published>2020-12-28T16:00:00.000Z</published>
     <summary>介绍 Spring Cloud Gateway 的核心组成、请求处理流程，以及作为业务网关时的基本使用思路。</summary>
     <title>Spring Cloud Gateway 基础</title>
-    <updated>2026-10-29T10:33:19.846Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -103,7 +122,7 @@
     <published>2020-12-09T16:00:00.000Z</published>
     <summary>记录 Maven 编译大型项目时常用的简化命令，适合在打包阶段跳过测试、javadoc、RAT 和 checkstyle 等非关键环节。</summary>
     <title>maven编译大型项目时简化编译过程的命令</title>
-    <updated>2026-10-29T10:33:19.845Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -120,7 +139,7 @@
     <published>2020-12-01T16:00:00.000Z</published>
     <summary>记录在 CentOS 7.5 下通过二进制包部署 MySQL 并启动多个实例的基本过程，适合需要隔离端口与数据目录的场景。</summary>
     <title>CentOS 下如何启动 MySQL 多实例</title>
-    <updated>2026-10-29T10:33:19.845Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -136,7 +155,7 @@
     <published>2020-11-26T16:00:00.000Z</published>
     <summary>记录使用 Sysbench 对 MySQL 进行基准测试的环境、常用命令与执行过程，适合做数据库性能摸底与简单对比。</summary>
     <title>使用 Sysbench 对 MySQL 进行基准测试</title>
-    <updated>2026-10-29T10:33:19.845Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -153,7 +172,7 @@
     <published>2020-11-24T16:00:00.000Z</published>
     <summary>解释为什么同一个类内部方法互调会绕过 Spring 代理，从而导致 @Transactional 等 AOP 注解失效，并给出常见解决方案。</summary>
     <title>Spring 中同类内部调用导致 AOP 失效的解决方案（如 @Transactional 失效）</title>
-    <updated>2026-10-29T10:33:19.845Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -170,7 +189,7 @@
     <published>2020-11-19T16:00:00.000Z</published>
     <summary>记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。</summary>
     <title>Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖</title>
-    <updated>2026-10-29T10:33:19.845Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -186,7 +205,7 @@
     <published>2020-10-21T16:00:00.000Z</published>
     <summary>在raft中，服务器节点共有3种状态（或者说角色）：。</summary>
     <title>分布式一致性与共识之（一）Raft</title>
-    <updated>2026-10-29T10:33:19.845Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -204,7 +223,7 @@
     <published>2020-09-28T16:00:00.000Z</published>
     <summary>从服务注册、心跳处理、自我保护到集群同步，梳理 Eureka Server 的核心实现逻辑。</summary>
     <title>源码分析之 Eureka 服务端源码解析</title>
-    <updated>2026-10-29T10:33:19.844Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -222,7 +241,7 @@
     <published>2020-09-21T16:00:00.000Z</published>
     <summary>围绕 Eureka Client 的自动配置、服务注册、拉取注册表与心跳机制，梳理其核心源码实现。</summary>
     <title>源码分析之 Eureka 客户端源码解析</title>
-    <updated>2026-10-29T10:33:19.844Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -241,7 +260,7 @@
     <published>2020-09-20T16:00:00.000Z</published>
     <summary>围绕 ThreadPoolExecutor 的核心参数、运行机制与状态设计，梳理 Java 线程池的关键源码实现。</summary>
     <title>源码分析之 Java 线程池 ThreadPoolExecutor</title>
-    <updated>2026-10-29T10:33:19.844Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -259,7 +278,7 @@
     <published>2020-09-16T16:00:00.000Z</published>
     <summary>围绕 Spring Boot 如何借助 Spring Factories 机制完成自动注入与扩展加载，梳理其核心原理与执行流程。</summary>
     <title>源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入</title>
-    <updated>2026-10-29T10:33:19.844Z</updated>
+    <updated>2026-11-03T09:28:20.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -276,7 +295,7 @@
     <published>2020-09-10T16:00:00.000Z</published>
     <summary>围绕 Kafka Consumer 的核心组件与消息拉取流程做源码分析，梳理从订阅、拉取到位移管理的关键细节。</summary>
     <title>源码分析之 Kafka Consumer 消费消息的过程</title>
-    <updated>2026-10-29T10:33:19.844Z</updated>
+    <updated>2026-11-03T09:28:20.472Z</updated>
   </entry>
   <entry>
     <author>
@@ -293,7 +312,7 @@
     <published>2020-09-08T16:00:00.000Z</published>
     <summary>从 Reactor 模式切入，梳理 Netty 线程模型的演进思路、核心结构与设计要点。</summary>
     <title>源码分析之 Netty 线程模型</title>
-    <updated>2026-10-29T10:33:19.843Z</updated>
+    <updated>2026-11-03T09:28:20.472Z</updated>
   </entry>
   <entry>
     <author>
@@ -311,7 +330,7 @@
     <published>2020-09-01T16:00:00.000Z</published>
     <summary>围绕 Guava RateLimiter 的基本用法、预热机制与令牌桶实现思路，梳理其核心设计。</summary>
     <title>Guava RateLimiter 的使用与源码分析（令牌桶算法实现思路）</title>
-    <updated>2026-10-29T10:33:19.843Z</updated>
+    <updated>2026-11-03T09:28:20.472Z</updated>
   </entry>
   <entry>
     <author>
@@ -330,7 +349,7 @@
     <published>2020-08-17T16:00:00.000Z</published>
     <summary>从 ThreadPoolExecutor 的设计出发，分析 Tomcat 与 Dubbo 为什么要对 JDK 线程池做定制，以及它们各自的优化方向。</summary>
     <title>Tomcat 和 Dubbo 对 JDK 线程池的改造思路</title>
-    <updated>2026-10-29T10:33:19.843Z</updated>
+    <updated>2026-11-03T09:28:20.472Z</updated>
   </entry>
   <entry>
     <author>
@@ -346,22 +365,6 @@
     <published>2020-07-23T16:00:00.000Z</published>
     <summary>--- docker-compose up -d Creating network &quot;pinpoint-dockerpinpoint&quot; with driver &quot;bridge&quot; Creatin。</summary>
     <title>解决 Win 10 通过 Docker 安装 Pinpoint 报端口错误</title>
-    <updated>2026-10-29T10:33:19.843Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Prayer</name>
-    </author>
-    <category term="随笔" scheme="https://prayerlaputa.com/categories/%E9%9A%8F%E7%AC%94/"/>
-    <category term="成长思考" scheme="https://prayerlaputa.com/tags/%E6%88%90%E9%95%BF%E6%80%9D%E8%80%83/"/>
-    <content>
-      <![CDATA[<h3 id="明确目标"><a href="#明确目标" class="headerlink" title="明确目标"></a>明确目标</h3><p>进入互联网行业，不管是实习，还是正式工作，要记住，从入行这一刻起，就要不停的学习、不停的思考，最好是根据自己的优缺点、喜好，订个明确的目标，自己到底想走哪条路线，是纯技术路线、不想太关心业务？产品经理？程序员只是过渡、想走管理？还是在互联网公司捞几年钱然后就转行？</p><span id="more"></span><ul><li>对技术特别感兴趣：那毫无疑问，技术这条路，其实也没有上限，你可以去极客时间app上看看那些大牛们</li></ul><h3 id="制定计划、逐步实行"><a href="#制定计划、逐步实行" class="headerlink" title="制定计划、逐步实行"></a>制定计划、逐步实行</h3><p>听起来有点土、老生常谈了对吗？但我觉得这个当真是最朴实、最简单、也最实用的道理。</p><p>我目前在某央企、某互联网公司都做过程序员这个岗位。互联网行业，给我最大感触就是变化快、对于程序员的要求也越来越高，各种红利基本已经耗尽，前些年很多人看程序员赚钱、纷纷转行做程序员，这个恐怕后续会越来越难，从面试所考察内容就有直观感受，虽然每年大家都会说“互联网寒冬”、公司难，但从2019年年末开始，明显考察的内容越来越深、难。比如有如下一些题目（下面主要以java程序员举例，毕竟需求量大）：</p><ul><li>java实现单例模式有哪些？知道DCL（双重锁检查）吗？为何要这么写？是否需要加volatile？</li><li>java里synchronized关键字，锁膨胀的过程？</li><li>java 线程池的7个参数？为何阿里开发规范建议自己创建线程池、不要用JDK工具方法创建？</li><li>java AQS是什么？用AQS手写一个锁？</li><li>java里类加载的双亲委托模型？JDBC是如何打破双亲委托模型的？</li><li>JVM垃圾回收器有哪些？各自算法？怎么搭配？</li><li>JVM调优？</li><li>kafka为何速度那么快？</li><li>常见MQ有哪些？特点是什么？</li><li>spring cloud有哪些组件？spring cloud 和spring boot的关系？怎么实现高可用？</li><li>……</li></ul><p>上述还只是一部分，做一个合格的Java程序员实在太难了……目前就<strong>社招</strong>而言，想成为一个比较好的java程序员，能够脱颖而出、受大厂青睐的话，一般下面这几方面，至少得会，并且最好有一方面非常精通：</p><ul><li>java多线程、高并发相关</li><li>JVM，会调优</li><li>mysql</li><li>MQ</li><li>redis</li><li>zookeeper</li></ul><p>越是薪资高的岗位，要求越高。互联网公司，java程序员需求量很大，但已经不是找个培训班、上1个月学学spring mvc、会CRUD操作就可以胜任工作的时代了。可能实际工作里，确实用不到那么多，哪怕是阿里这种技术公司，同样如此。但“面试造火箭，进去拧螺丝”，那些受青睐的大厂们，就是因为能做那些岗位的人太多、他们需要筛选、优中选优，尽可能找到进来就能立刻干活儿的人，所以面试越来越难。</p><h3 id="对于校招生"><a href="#对于校招生" class="headerlink" title="对于校招生"></a>对于校招生</h3><p>我的建议就是：</p><ul><li><p>基础一定要扎实</p><ul><li><p>尤其数据结构、算法、操作系统、计算机网络等。校招生刚入职时一般不会安排太重要的工作（大牛学弟学妹们除外，我只是说多数情况），所以大家可能参加工作后的前两年以为这些课不重要。但越往后，越是想往程序员这条（不归）路上深入走，就会发现这些课实在太重要了。那些大部头的书（类似操作系统第6版、CSAPP、重构这种书），早晚还是得仔细看。我目前在翻的书大家可以体会一下：</p><ul><li>深入理解JVM 周志明，第三版（一块砖头……）</li><li>高性能Mysql 第三版（又一块砖头……）</li><li>redis设计与实现 （计划中、暂时还没时间看的一块砖头……）</li><li>java并发编程的艺术 方腾飞</li><li>zookeeper 分布式过程协同技术详解</li></ul></li></ul></li><li><p>一定要看源码</p><ul><li>作为校招生，应该试着去看JDK 源码（比如HashMap ConcurrentHashMap AQS等），spring 源码可以尝试一下，这两个都是设计比较好的，源码中往往有很多注释，可以让你了解作者为何这样&#x2F;那样实现，对于你自己的编程能力提高很有帮助。同时，这个对于校招有加分。</li><li>等到社招时，基本看源码是必问的，到时候会更深，比如，大家应该听说过netty，这玩意如果你看过源码、特别清楚原理，恐怕过面试so easy。只是举例子，netty这个估计对于在校生有些难，建议从JDK spring开始，养成读源码的习惯。</li></ul></li><li><p>想进大厂，务必刷刷算法题</p><ul><li><p>推荐极客时间的付费专栏《数据结构和算法之美》并尽量按作者提到的这个目录 <a href="https://github.com/wangzheng0822/algo">https://github.com/wangzheng0822/algo</a> 自己实现一下。</p></li><li><p>算法题，还是得刷刷leetcode，可以参与leetcode-cn每天刷题打卡的活动，持之以恒。</p></li><li><p>B站 花花酱 刷题视频（我没看，但B站上貌似看的人很多），或是覃超大魔王 五毒神掌刷题法（他的这个刷题法在B站有公开视频，我觉得不错，有按照他的思路在练习，有条件的可以参加下极客时间 算法训练营，不过网上有流出视频，可以找找）</p></li><li><p>labuladong 算法小抄，这个强烈推荐，有算法模板、习题分析 <a href="https://labuladong.gitbook.io/algo/di-ling-zhang-bi-du-xi-lie">https://labuladong.gitbook.io/algo/di-ling-zhang-bi-du-xi-lie</a> 有公众号<strong>labuladong</strong></p></li><li><p><strong>最重要的是务必自己去练手</strong>、不要以为看题解就理解了，要不断、反复练习，一道题刷几遍，简单到不能再简单（比如二叉树按层遍历），可以不用再练，但只要还有不理解、再次遇到时没法在5min内有思路的leetcode题目，都要隔段时间练习的。</p><ul><li><p>工具：anki, leetcode 探索中的学习任务</p></li><li><p>算法资料:</p><ul><li><a href="https://labuladong.gitbook.io/algo">https://labuladong.gitbook.io/algo</a></li><li>B站</li></ul></li></ul></li></ul></li><li><p>加入一些技术群&#x2F;刷题群，看大家是怎么学的</p><ul><li>学习是一件反人类的事，很容易懈怠。加群，多看看网上有多少人在一起学习，可以方便相互交流，同时相互激励、避免自己偷懒。</li></ul></li><li><p>持续学习，有输出</p><ul><li>如果是学编程语言、各种框架，必须自己手写demo、跑程序、看看效果。最好养成学东西时尽量写笔记&#x2F;博客的习惯，这样逐步积累，经年累月下来会非常可观。</li></ul></li><li><p>找项目练手</p><ul><li>网上，github上可以练手的项目很多，这个可以根据自身情况，自己找一下，一般培训机构都会选择网上商城，因为涉及的业务场景复杂、各种框架、中间件用的比较多，这里就不好推荐哪个了。</li></ul></li><li><p>极客时间</p><ul><li><p>极客时间的内容做的不错，每天听听卖桃者说，听听大牛们的观点，有条件的根据自己兴趣买些课学习，上面的课有不少质量相当高，以下仅推荐（我不是带货的，是真的不错的专栏哦），这些大佬们讲课往往是实际项目经验+理论知识，有些甚至能拿来直接用、解决工作中的问题：</p><ul><li>陈皓 《左耳听风》</li><li>王争 《数据结构和算法之美》</li><li>丁奇 《mysql 45讲》</li><li>李玥 《消息队列高手课》</li></ul></li></ul></li><li><p>谷歌评分卡</p><ul><li><p>技术的道路很长，可以参考谷歌评分卡，给自己打打分</p></li><li><p>以下翻译取自：<a href="https://www.jianshu.com/p/b1f57417320d">https://www.jianshu.com/p/b1f57417320d</a></p><blockquote><p>0 – you are unfamiliar with the subject area.(0 -你不熟悉主题领域。)</p><p>1 – you can read &#x2F; understand the most fundamental aspects of the subject area.(1 -你可以阅读&#x2F;了解主题领域最基本的方面。)</p><p>2 – ability to implement small changes, understand basic principles and able to figure out additional details with minimal help.(2 -能够实现小的变化，理解基本原理，并能在最小的帮助下找出更多的细节。)</p><p>3 – basic proficiency in a subject area without relying on help.(3 -在不依赖帮助的情况下，熟练掌握某一科目。)</p><p>4 – you are comfortable with the subject area and all routine work on it: (4 -你对主题领域和所有日常工作都很熟悉:) For software areas – ability to develop medium programs using all basic language features w&#x2F;o book, awareness of more esoteric features (with book).(对于软件领域来说，能够使用所有基本的语言来开发中等的程序，使用w&#x2F;o book，了解更深奥的特性(带书)。) For systems areas – understanding of many fundamentals of networking and systems administration, ability to run a small network of systems including recovery, debugging and nontrivial troubleshooting that relies on the knowledge of internals.(对于系统领域——了解网络和系统管理的许多基础知识，能够运行一个小型的系统网络，包括恢复、调试和依赖于内部知识的重要故障排除。)</p><p>5 – an even lower degree of reliance on reference materials. Deeper skills in a field or specific technology in the subject area.(5 -对参考资料的依赖程度更低。在某一领域或某一特定技术领域有较深的技能。)</p><p>6 – ability to develop large programs and systems from scratch. Understanding of low level details and internals. Ability to design &#x2F; deploy most large, distributed systems from scratch.(6 -能够从头开始开发大型程序和系统。了解低层次的细节和内部信息。能够设计&#x2F;部署大多数大型的分布式系统。)</p><p>7 – you understand and make use of most lesser known language features, technologies, and associated internals. Ability to automate significant amounts of systems administration.(7 -你理解并利用最不知名的语言特征、技术和相关的内部信息。能够自动化大量的系统管理。)</p><p>8 – deep understanding of corner cases, esoteric features, protocols and systems including “theory of operation”. Demonstrated ability to design, deploy and own very critical or large infrastructure, build accompanying automation.(8 -深刻理解角落案例，深奥的特点，协议和系统，包括“操作理论”。演示了设计、部署和拥有非常关键或大型基础设施的能力，并建立了相应的自动化。)</p><p>9 – could have written the book about the subject area but didn’t; works with standards committees on defining new standards and methodologies.(9 -本可以写关于主题领域的书，但没有;与标准委员会一起制定新的标准和方法。)</p><p>10 – wrote the book on the subject area (there actually has to be a book). Recognized industry expert in the field, might have invented it.(10 -写在主题领域的书(实际上必须有一本书)。业内公认的业内专家，可能已经发明了它。)</p></blockquote><blockquote><p><strong>Subject Areas:</strong></p><p>TCP&#x2F;IP Networking (OSI stack, DNS etc)</p><p>Unix&#x2F;Linux internals</p><p>Unix&#x2F;Linux Systems administration</p><p>Algorithms and Data Structures</p><p>C</p><p>C++</p><p>Python</p><p>Java</p><p>Perl</p><p>Go</p><p>Shell Scripting (sh, Bash, ksh, csh)</p><p>SQL and&#x2F;or Database Admin</p><p>Scripting language of your choice (not already mentioned) _</p><p>People Management</p><p>Project Management</p></blockquote></li></ul></li></ul>]]>
-    </content>
-    <id>https://prayerlaputa.com/2020/07/14/2020-07-15_%E5%86%99%E7%BB%99%E5%8D%B3%E5%B0%86%E6%88%96%E6%98%AF%E6%83%B3%E8%BF%9B%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%A4%A7%E5%8E%82%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%90%8E%E6%B5%AA%E4%BB%AC/</id>
-    <link href="https://prayerlaputa.com/2020/07/14/2020-07-15_%E5%86%99%E7%BB%99%E5%8D%B3%E5%B0%86%E6%88%96%E6%98%AF%E6%83%B3%E8%BF%9B%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%A4%A7%E5%8E%82%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%90%8E%E6%B5%AA%E4%BB%AC/"/>
-    <published>2020-07-14T16:00:00.000Z</published>
-    <summary>进入互联网行业，不管是实习，还是正式工作，要记住，从入行这一刻起，就要不停的学习、不停的思考，最好是根据自己的优缺点、喜好，订个明确的目标，自己到底想走哪条路线，是纯技术路线、不想太关心业务？产品经理？</summary>
-    <title>写给即将或是想进入互联网大厂工作的后浪们</title>
-    <updated>2026-10-29T10:33:19.843Z</updated>
+    <updated>2026-11-03T09:28:20.472Z</updated>
   </entry>
 </feed>
