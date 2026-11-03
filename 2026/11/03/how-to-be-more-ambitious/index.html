@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"prayerlaputa.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":2,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Felix Rieseberg 从 Speed、Altitude、Depth 和 Range 四个维度，分享如何更有雄心地使用 AI：提升目标的抽象层次，采用专家的方法深入问题，并引入跨领域视角。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】如何更有雄心：写给使用模型的人类的教程">
+<meta property="og:url" content="https://prayerlaputa.com/2026/11/03/how-to-be-more-ambitious/index.html">
+<meta property="og:site_name" content="Prayer的数字城堡">
+<meta property="og:description" content="Felix Rieseberg 从 Speed、Altitude、Depth 和 Range 四个维度，分享如何更有雄心地使用 AI：提升目标的抽象层次，采用专家的方法深入问题，并引入跨领域视角。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://storage.ghost.io/c/89/e0/89e08557-681a-40be-8264-278bf46d6b25/content/images/size/w1200/2026/10/modo_de_volar_a_way_of_flying_1951.10.55-1.jpg">
+<meta property="article:published_time" content="2026-11-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-03T12:14:55.762Z">
+<meta property="article:author" content="Prayer">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="Claude">
+<meta property="article:tag" content="工作流">
+<meta property="article:tag" content="提示词">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://storage.ghost.io/c/89/e0/89e08557-681a-40be-8264-278bf46d6b25/content/images/size/w1200/2026/10/modo_de_volar_a_way_of_flying_1951.10.55-1.jpg">
+
+
+<link rel="canonical" href="https://prayerlaputa.com/2026/11/03/how-to-be-more-ambitious/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://prayerlaputa.com/2026/11/03/how-to-be-more-ambitious/","path":"/2026/11/03/how-to-be-more-ambitious/","title":"【译】如何更有雄心：写给使用模型的人类的教程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【译】如何更有雄心：写给使用模型的人类的教程 | Prayer的数字城堡</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8399438515622764"
+        crossorigin="anonymous"></script>
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Prayer的数字城堡" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Prayer的数字城堡</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">后端 / Java / 架构 / 技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-start-here"><a href="/start-here/" rel="section"><i class="fa fa-compass fa-fw"></i>Start Here</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-timelines"><a href="/timelines/" rel="section"><i class="fa fa-calendar fa-fw"></i>Timelines</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Altitude%EF%BC%88%E9%AB%98%E5%BA%A6%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">Altitude（高度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Depth%EF%BC%88%E6%B7%B1%E5%BA%A6%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">Depth（深度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Range%EF%BC%88%E5%B9%BF%E5%BA%A6%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">Range（广度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E4%BB%AC%E6%9B%BE%E7%BB%8F%E7%BB%8F%E5%8E%86%E8%BF%87%E8%BF%99%E4%B8%80%E5%88%87"><span class="nav-number">4.</span> <span class="nav-text">我们曾经经历过这一切</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Prayer"
+      src="/images/avatar-150.png">
+  <p class="site-author-name" itemprop="name">Prayer</p>
+  <div class="site-description" itemprop="description">Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/evasnowind" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;evasnowind" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:evasnowind@sina.com" title="E-Mail → mailto:evasnowind@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+<div class="site-ad site-ad-sidebar" aria-label="广告">
+  <div class="site-ad-label">广告</div>
+  <template>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8399438515622764"
+         data-ad-slot="2923003110"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </template>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2026/11/03/critical-thinking-when-agents-do-the-work/" rel="bookmark">
+        <time class="popular-posts-time">2026-11-03</time>
+        <br>
+      【译】当 Agent 承担工作时，如何保持批判性思维
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://prayerlaputa.com/2026/11/03/how-to-be-more-ambitious/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-150.png">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【译】如何更有雄心：写给使用模型的人类的教程 | Prayer的数字城堡">
+      <meta itemprop="description" content="Felix Rieseberg 从 Speed、Altitude、Depth 和 Range 四个维度，分享如何更有雄心地使用 AI：提升目标的抽象层次，采用专家的方法深入问题，并引入跨领域视角。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【译】如何更有雄心：写给使用模型的人类的教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-11-03 00:00:00 / 修改时间：20:14:55" itemprop="dateCreated datePublished" datetime="2026-11-03T00:00:00+08:00">2026-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">Felix Rieseberg 从 Speed、Altitude、Depth 和 Range 四个维度，分享如何更有雄心地使用 AI：提升目标的抽象层次，采用专家的方法深入问题，并引入跨领域视角。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>原文：Felix Rieseberg，<a target="_blank" rel="noopener" href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">How to be more ambitious: A tutorial for humans with models</a>，发表于 2026 年 10 月 13 日。本文为中文译文，保留关键专有名词、术语及原文超链接。</p>
+</blockquote>
+<p><img src="https://storage.ghost.io/c/89/e0/89e08557-681a-40be-8264-278bf46d6b25/content/images/size/w1200/2026/10/modo_de_volar_a_way_of_flying_1951.10.55-1.jpg" alt="Francisco Goya 的作品《Modo de volar》（A Way of Flying）"></p>
+<p>我参与 Claude 的研发。这是一种有趣的体验：每天，我都会听说又有人借助 Claude、或由 Claude 本身完成了一项壮举——有些我从未想到，有些我以为不可能，还有些只是我缺乏好奇心和时间去尝试。这个月，它可能帮助人们<a target="_blank" rel="noopener" href="https://gizmodo.com/did-claude-help-an-amateur-astronomer-discover-a-new-planet-2000824393?ref=felixrieseberg.com">发现了一颗新行星</a>；我看到了第一支<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AoNnbz237E0&ref=felixrieseberg.com">真正让我喜欢的</a> AI 音乐视频；我们也在讨论<a target="_blank" rel="noopener" href="https://terrytao.wordpress.com/2026/10/10/math-2-0/?ref=felixrieseberg.com">数学的新时代</a>。</p>
+<p>模型的能力并不是均匀增长的。正如 Terence Tao 所说，模型“在某些方向上令人惊叹，在另一些方向上却仍显不足”。有些人已经能够驾驭那些惊人的能力，仿佛飞了起来——看着人们借助我参与打造的产品抵达令人难以置信的高度，实在让人着迷。还有许多人仍在努力弄明白，怎样才能让自己新长出的翅膀发挥作用；除了问“法国的首都是哪里”或者“你能把这封邮件改得不那么生气吗”，他们还不知道这些翅膀能用来做什么。</p>
+<p>我和其他从事 AI 工作的人经常宣称，我们在使用 AI 时应该更有雄心。这已经成了一句号召。每当看到令人印象深刻的成果，我们就会转发，并写下：“我们的雄心还不够大。”我理解，要把这条建议付诸实践并不容易，所以，这里有一份关于如何更有雄心的教程。</p>
+<span id="more"></span>
+
+<p>我把雄心分为四种：Speed、Altitude、Depth 和 Range。</p>
+<ul>
+<li>Speed（速度）：用更少的时间完成同样的工作，这是 AI 创造经济价值的基本途径。如果你需要写一些代码，我用 Claude 就能更快地完成。这种用法已经相当成熟，也不太需要你创造性地思考该如何使用 AI，所以这一项我就略过了。</li>
+<li>Altitude（高度）：提升抽象层次，关注最终结果，而不是单项任务。</li>
+<li>Depth（深度）：像领域内的顶尖专家那样思考一项任务。我们不只停留在任务所在的层面，而是再深入一层，触及底层的数据、工具和问题。</li>
+<li>Range（广度）：借鉴多个领域，而不只是任务表面上看起来需要的那个领域，运用你平时不会使用的知识、工具和技术。</li>
+</ul>
+<p>我主要使用 Claude（这还用说），但这些建议并不局限于某个模型。</p>
+<h2 id="Altitude（高度）"><a href="#Altitude（高度）" class="headerlink" title="Altitude（高度）"></a>Altitude（高度）</h2><p>我们常常轻描淡写地把这称为“让模型在更高的抽象层次上工作”。当你给模型分配一项任务时，它执行的，其实是你对“怎样才能得到想要的结果”的最佳猜测。要在高度上更有雄心，可以问问自己：你希望接下来发生什么？目标背后的目标是什么？去年年初，我还在让 Claude 帮我修复一个个具体的崩溃问题。后来，我直接要求 Claude 让我们的应用保持不崩溃。</p>
+<p>让我们考虑一项日常的办公室任务——我能说它有点乏味吗？你在一家虚构的公司 Acme Inc 工作，需要为季度业务回顾（quarterly business review，QBR）制作一份演示文稿。给 Claude 一些数据，它就会很乐意帮你做出几页幻灯片。也许你甚至已经有了模板，只需要它往里面填内容。但这实在很难和发现一颗新行星相提并论，所以，我们来看看一些具体步骤，让自己的做法更有雄心。我们会从基础开始，每一步都再往前走一点：</p>
+<ul>
+<li>大多数业务回顾想弄清楚的，是这个季度发生了什么变化、为什么会发生，以及应该采取什么行动。克制住只更新模板中那些数字的冲动——尽可能把你能拿到的数据都交给模型，让它理解你的业务：“告诉我，这个季度发生了什么变化，为什么，以及我们应该怎么做。”</li>
+<li>理想情况下，会议——至少是那些有价值的会议——应该以一些决策告终。问 Claude：“根据你了解到的所有情况，找出最迫切需要做出的三个决策，并开始研究可能的行动方向，分别列出支持和反对的理由。”</li>
+<li>QBR 诞生于这样一个时代：要做好业务回顾，需要人类仔细筛选数据，弄清楚数据意味着什么，以及业务是否应该调整。问 Claude：“业务回顾的存在，是为了让管理层及早发现问题，并把资金和人员投入正确的地方。请设计一种比季度演示文稿更好的办法，用我们自己的历史数据证明它本可以更早发现问题，并让它与现行方式并行运行一个季度。”</li>
+</ul>
+<p>如果你确实在追求某个最终结果，提高高度的方法会最有效；对于创造性活动，它的效果则没那么好。有一个很好的判断信号：如果你接下来还要开会讨论手头正在做的东西，那么，在高度上更有雄心很可能是个好主意。目前当然仍有局限——在 2026 年，对大多数企业来说，单独一句“Claude，去赚钱吧”似乎还不管用。但总体而言，我看到的是，随着模型能力增强，它们似乎也能在更高的抽象层次上工作。</p>
+<p>提高高度，也能帮助人们找到可以长期运转、让人类无需持续介入的工作流，从而减少你不断向模型追加一个又一个任务的必要。</p>
+<p>要做好这一点，往往需要改变工作流。为了让 Claude 确保我们的应用不崩溃，我首先必须保证它能方便地获取崩溃报告，理解各个应用版本对应哪个 git commit，并让它能够使用 Windows、macOS 和 Linux 计算机，这样它才能真正独立地复现问题并验证修复。</p>
+<h2 id="Depth（深度）"><a href="#Depth（深度）" class="headerlink" title="Depth（深度）"></a>Depth（深度）</h2><p>有时候，你只是想把一项任务做得特别好。在深度上更有雄心，意味着推动模型使用这个领域最优秀的专业人士所采用的工具、技术、媒介和知识——并且继续推动，直到就连这些专业人士也可能从你的成果中学到新东西。</p>
+<p>我们继续用 Acme Inc 的季度业务回顾演示文稿作为例子。假设 Acme Inc 正面临用户流失（user churn，即客户随着时间推移而流失）的问题。我发现，将下面几种方法结合起来很有帮助：</p>
+<ul>
+<li>坚持使用业内顶尖人士所用的工具：当你要求模型像专业人士一样行事时，它们往往只是换了一套词汇，并没有真正换一套方法。要深入处理我们的问题，就需要使用顶尖数据科学家和统计学家所用的工具。当 Claude 准备使用 Markdown 表格时，坚持让它使用数据库和统计模型。你不一定非得知道专家们用什么，Claude 通常知道。</li>
+<li>设定不合理的目标，并告诉模型这些目标非常合理：你需要把网站加载时间从 10 秒缩短到 5 秒？那就要求它做到 200 毫秒。模型觉得某件事不可能完成？再次强调，这个问题完全可以解决，它只需要继续努力。</li>
+<li>挑战你以为自己知道的事：尤其是在商业领域，我们认定为真的许多事情，都只是对现实的粗略近似。让模型访问原始信息和数据，并要求它以对抗性的方式检验假设。“我们认为，用户流失源于新用户引导（onboarding）的问题。试着从原始数据中验证这一结论。”</li>
+<li>创造新知识：这很容易接在“挑战你以为自己知道的事”之后——既然 Claude 已经深入数据，就让它寻找盲点。“建立一个客户仿真模型，用我们的日志复现过去一年的情况。然后找出我们尚不知道的、最早出现的流失信号，并证明它能在未见过的数据上做出预测。”</li>
+<li>引入外部评判者：不要让模型评价自己。我想，随着模型智能不断提升，这个问题最终会得到解决；但在 2026 年 10 月这个时间点，我恳请你坚持采用外部验证。理想情况下，验证者应该是一个模型可以自行运行、并立即获得反馈的工具。</li>
+</ul>
+<p>下面这个简单的提示词经常能帮到我：</p>
+<blockquote>
+<p>我想把这项任务做得更深入，而不是把它做得更大。在改写任务之前：(1) 说明这个领域的顶尖专业人士会在这里做哪些我没有提出要求的事情；(2) 指出他们会从哪些最原始的材料着手，而不是从已经替我消化整理过的内容着手；(3) 列出他们会使用的具体方法和工具；(4) 说明除了你或我之外，还有什么能够证明结果是正确的。然后，改写我的提示词，准确地提出这些要求。</p>
+</blockquote>
+<h2 id="Range（广度）"><a href="#Range（广度）" class="headerlink" title="Range（广度）"></a>Range（广度）</h2><p>简单来说，在广度上更有雄心，就是从不同领域的视角审视我们的工作——涉及的领域数量，要超过过去从经济上考虑值得投入的范围。这并不是什么特别独到的见解：每一部劫案电影，都会花开头的 30 分钟，集结一支人物各异、各有所长的队伍。</p>
+<p>随着 AI 产品让运行多智能体系统（multi-agent systems）变得越来越容易——无论是通过多个线程（threads）、编排器（orchestrators），还是直接使用子代理（subagents）——我发现，要求 Claude 引入更多领域的知识，能够带来相当有趣的结果。</p>
+<p>把这件事付诸实践并不容易，它需要你发挥创造力。在看到同事 Alex Albert 用 Blender 渲染室内设计之前，我从未想过用 Claude 为自己的<a target="_blank" rel="noopener" href="https://www.felixrieseberg.com/?ref=felixrieseberg.com">个人主页</a>制作 3D 环境——尽管我以前甚至做过电子游戏！不过，这也无疑是我看到最多神奇成果的地方。</p>
+<p>那么，具体该怎么做？我会使用以下方法：</p>
+<ul>
+<li>试着用动词替换名词：这是 Tom Kelley 和 Jonathan Littman 在《The Art of Innovation》中介绍的一个老技巧。季度业务回顾不是“一份演示文稿”，而是“在 30 分钟内，让忙碌的人相信一个关于因果关系的叙述，并在不确定性下做出决策”。用动词来描述，可以让我和 Claude 更容易理解，哪些领域可能带来独特而有用的视角。</li>
+<li>集结队伍：这份演示文稿必须精彩绝伦，否则外星人就会炸掉地球。人类会组建一支什么样的团队？为了保证制作质量，我会请来一位分析师、一位记者和一位编辑。如果还需要现场展示，可能也得请来动效设计师和音频设计师。安排一支进行对抗性检验的“红队”（red team）也许也很有用，所以再请来一位卖空者（short seller）和一位法务会计师（forensic accountant）吧。</li>
+</ul>
+<p>一不小心，你就可能陷入角色扮演，这会让对话记录变得更奇怪，却无法改善实际结果。要用这种方法寻找相关领域和技术。不要让模型模仿卖空者的口吻写作，而要让它去做卖空者研究做空标的时真正会做的事情。</p>
+<p>我所描述的这些提高雄心的方法，都要求模型拥有一台可以安装软件的计算机，并能够访问各种相关数据——无论是通过 MCP 连接器（MCP connectors），还是其他方式。很多工具都能做到这一点，我建议你选一个来用。</p>
+<h2 id="我们曾经经历过这一切"><a href="#我们曾经经历过这一切" class="headerlink" title="我们曾经经历过这一切"></a>我们曾经经历过这一切</h2><p>以上就是我关于如何更有雄心的具体建议。如果你愿意再停留片刻，我想解释一下，为什么我认为我们首先就需要这些建议。</p>
+<p>我们人类始终受限于自己对“什么是可能的”的判断。更糟的是，我们通常只在非常狭窄的学科范围内相信自己的能力。众所周知，Michelangelo 曾经不愿为 Sistine Chapel 作画——你看，他是雕塑家，不是画家。</p>
+<p>在研究雄心这个问题时，我发现心理学为此提供了一个概念：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Self-efficacy?ref=felixrieseberg.com">自我效能感（self-efficacy）</a>。简单来说，自我效能感高的人更相信自己的能力，也因此确实能取得更多成就。</p>
+<p>有证据表明，我们可以用一些技巧来提升自我效能感：Locke 和 Latham 仔细研究了横跨 35 年的目标设定研究成果，并据此有把握地宣称，被赋予具体且有难度目标的人，<a target="_blank" rel="noopener" href="https://med.stanford.edu/content/dam/sm/s-spire/documents/PD.locke-and-latham-retrospective_Paper.pdf?ref=felixrieseberg.com">表现优于那些只是被告知要尽力而为的人</a>。Stripe 创始人 Patrick Collison 维护着一份<a target="_blank" rel="noopener" href="https://patrickcollison.com/fast?ref=felixrieseberg.com">“Fast”清单</a>，记录了人类在同时面对大胆目标和紧迫期限时完成的许多事情。以下几种技巧都有充分记载：</p>
+<ul>
+<li>因为相信事情做得到，而完成难事：1939 年，George Dantzig 在 Berkeley 的一堂统计学课上迟到了。他抄下黑板上的两道题，以为那是作业，随后提交了自己的解答。实际上，那是统计学中两道尚未解决的问题。</li>
+<li>在看到别人做到之后，完成难事：几十年来，人类一直试图在四分钟内跑完一英里。Roger Bannister 于 1954 年 5 月突破了这个门槛，但仅仅 46 天后，他就不再是唯一做到这一点的人。如果你关注跑步，我们正在两小时马拉松上看到类似的事情：今年 4 月，Sabastian Sawe 在 London 跑出了首个正式比赛中低于两小时的马拉松成绩。在同一场比赛中，亚军也突破了两小时大关。</li>
+<li>允许自己失败，从而完成难事：看来，大家最喜欢的商业书都是《The Inner Game of Tennis》，而我直到上周才发现这本书。它的核心观点是：当你非常、非常努力地打网球时，你反而无法发挥出自己的最佳水平。我们这些工程师也许还记得，Linux 最初发布时被描述为“只是一个爱好，不会像 gnu 那样庞大而专业”。</li>
+</ul>
+<p>自我效能感并不是一个新问题，但如今它的影响变得更大了。在一个我们的能力每隔几周就会跃升一次的世界里，我们需要一些方法，帮助自己去做那些此前从未真正考虑过、或从未相信能够做到的事情。如果你发现了更多能让自己更有雄心的方法，请告诉我！</p>
+<p>本文配图为 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Francisco_Goya?ref=felixrieseberg.com">Francisco Goya</a> 的作品《Modo de volar》（A Way of Flying，飞翔之道）。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+<div class="site-ad site-ad-post" aria-label="广告">
+  <div class="site-ad-label">广告</div>
+  <template>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8399438515622764"
+         data-ad-slot="6026844458"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </template>
+</div>
+
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AI-Agent/" rel="tag"># AI Agent</a>
+              <a href="/tags/Claude/" rel="tag"># Claude</a>
+              <a href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D/" rel="tag"># 提示词</a>
+              <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag"># 工作流</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/11/03/critical-thinking-when-agents-do-the-work/" rel="prev" title="【译】当 Agent 承担工作时，如何保持批判性思维">
+                  <i class="fa fa-angle-left"></i> 【译】当 Agent 承担工作时，如何保持批判性思维
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Prayer</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">241k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14:38</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/evasnowind" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // NexT's sidebar hook is inside the profile card. Put the ad below that card.
+  const sidebarAd = document.querySelector('.site-ad-sidebar');
+  if (sidebarAd) {
+    const profileCard = sidebarAd.closest('.sidebar-inner');
+    if (profileCard) profileCard.after(sidebarAd);
+  }
+
+  // Keep hidden sidebar ads inert, and request each visible ad only once.
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || !entry.target.offsetWidth) continue;
+      const template = entry.target.querySelector('template');
+      if (!template) continue;
+      observer.unobserve(entry.target);
+      entry.target.append(template.content.cloneNode(true));
+      template.remove();
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.warn('AdSense could not initialize an ad unit.', error);
+      }
+    }
+  });
+  document.querySelectorAll('.site-ad').forEach(ad => observer.observe(ad));
+});
+</script>
+
+
+</body>
+</html>

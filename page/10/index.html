@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -184,7 +184,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -231,6 +231,113 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://prayerlaputa.com/2017/05/09/2017-05-10_java_List%E7%9A%84%E4%B8%AD_%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E6%98%AF%E7%88%B6%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84list%E3%80%82%E4%BC%A0%E5%85%A5%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1%E6%97%B6%E7%9A%84%E5%A4%84%E7%90%86%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-150.png">
+      <meta itemprop="name" content="Prayer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prayer的数字城堡">
+      <meta itemprop="description" content="Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Prayer的数字城堡">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/05/09/2017-05-10_java_List%E7%9A%84%E4%B8%AD_%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E6%98%AF%E7%88%B6%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84list%E3%80%82%E4%BC%A0%E5%85%A5%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1%E6%97%B6%E7%9A%84%E5%A4%84%E7%90%86%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" class="post-title-link" itemprop="url">Java 中方法参数为父类 List 时传入子类 List 的处理【转载】</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-05-10 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-10T00:00:00+08:00">2017-05-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>120</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>记录 Java 泛型场景下，方法参数为父类 List 时如何处理子类 List。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/05/09/2017-05-10_java_List%E7%9A%84%E4%B8%AD_%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E6%98%AF%E7%88%B6%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84list%E3%80%82%E4%BC%A0%E5%85%A5%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1%E6%97%B6%E7%9A%84%E5%A4%84%E7%90%86%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://prayerlaputa.com/2017/04/17/2017-04-18_%E8%A7%A3%E5%86%B3android%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E8%B0%83%E7%94%A8%E7%B3%BB%E7%BB%9F%E6%8B%8D%E7%85%A7%E5%8A%9F%E8%83%BD%E5%90%8E%E8%BF%94%E5%9B%9E%E7%85%A7%E7%89%87%E6%9C%89%E6%97%8B%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -267,7 +374,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,7 +481,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -481,7 +588,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -588,7 +695,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -695,7 +802,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -806,7 +913,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -917,7 +1024,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1024,7 +1131,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1131,7 +1238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
+      <time title="修改时间：2026-11-03 20:14:55" itemprop="dateModified" datetime="2026-11-03T20:14:55+08:00">2026-11-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1194,117 +1301,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://prayerlaputa.com/2017/01/19/2017-01-20_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93TreeSet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar-150.png">
-      <meta itemprop="name" content="Prayer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prayer的数字城堡">
-      <meta itemprop="description" content="Prayer 的个人技术博客，记录 Java、Spring、MySQL、Redis、Linux、架构与成长思考。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Prayer的数字城堡">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/01/19/2017-01-20_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93TreeSet/" class="post-title-link" itemprop="url">【源码分析】Java sdk篇–TreeSet</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-01-20 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-20T00:00:00+08:00">2017-01-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-11-03 17:28:20" itemprop="dateModified" datetime="2026-11-03T17:28:20+08:00">2026-11-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">源码分析</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>473</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天刷leetcode时需要用到TreeSet，简单看了下源代码，在此做下学习笔记：。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/19/2017-01-20_%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91java_sdk%E7%AF%87%E2%80%93TreeSet/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1328,13 +1324,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">237k</span>
+    <span title="站点总字数">241k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:23</span>
+    <span title="站点阅读时长">14:38</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
