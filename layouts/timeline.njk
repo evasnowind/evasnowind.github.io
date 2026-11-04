@@ -1,0 +1,19 @@
+{% extends 'archive.njk' %}
+{% import '_macro/post-collapse.njk' as post_template with context %}
+
+{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+
+{% block content %}
+  <div class="post-block">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+    <div class="post-content">
+      <div class="collection-title">
+        <span class="collection-header">共 {{ site.posts.length }} 篇文章，按发布时间倒序排列。</span>
+      </div>
+
+      {{ post_template.render(site.posts.sort('-date')) }}
+    </div>
+  </div>
+{% endblock %}
