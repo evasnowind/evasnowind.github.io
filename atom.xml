@@ -10,26 +10,7 @@
   <rights>All rights reserved 2026, Prayer</rights>
   <subtitle>后端 / Java / 架构 / 技术笔记</subtitle>
   <title>Prayer的数字城堡</title>
-  <updated>2026-11-05T12:37:10.346Z</updated>
-  <entry>
-    <author>
-      <name>Prayer</name>
-    </author>
-    <category term="AI" scheme="https://prayerlaputa.com/categories/AI/"/>
-    <category term="Coding Agent" scheme="https://prayerlaputa.com/tags/Coding-Agent/"/>
-    <category term="LLM" scheme="https://prayerlaputa.com/tags/LLM/"/>
-    <category term="Harness Engineering" scheme="https://prayerlaputa.com/tags/Harness-Engineering/"/>
-    <category term="上下文工程" scheme="https://prayerlaputa.com/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/"/>
-    <content>
-      <![CDATA[<blockquote><p>原文：<a href="https://substack.com/@rasbt">Sebastian Raschka, PhD</a>，<a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent">Components of A Coding Agent</a>，发表于 2026 年 4 月 4 日。本文为中文译文，保留关键专有名词、术语、代码、原文链接及插图。</p></blockquote><p><em>编码 Agent 如何利用工具、记忆和仓库上下文，让 LLM 在实际应用中表现得更好</em></p><p>在这篇文章中，我想介绍编码 Agent（Coding Agent）和 Agent Harness 的整体设计：它们是什么、如何工作，以及各个部分在实践中如何协同。我的《Build a Large Language Model (From Scratch)》和《Build a Large Reasoning Model (From Scratch)》两本书的读者经常问起 Agent，因此，我觉得写一篇可以供大家参考的文章会很有帮助。</p><p>更广泛地说，Agent 之所以成为一个重要话题，是因为近期实用 LLM 系统取得的许多进展，并不只是来自更好的模型，也来自我们使用模型的方式。在许多现实应用中，工具使用、上下文管理和记忆等外围系统，发挥的作用与模型本身同样重要。这也有助于解释，为什么 Claude Code 或 Codex 这样的系统，会让人感觉比在普通聊天界面中使用相同模型强大得多。</p><p>在这篇文章中，我会介绍编码 Agent 的六个主要构建模块。</p><span id="more"></span><h2 id="Claude-Code、Codex-CLI-与其他编码-Agent"><a href="#Claude-Code、Codex-CLI-与其他编码-Agent" class="headerlink" title="Claude Code、Codex CLI 与其他编码 Agent"></a>Claude Code、Codex CLI 与其他编码 Agent</h2><p>你可能已经熟悉 Claude Code 或 Codex CLI。不过，为了建立共同的背景，还是先说明一下：它们本质上都是具备 Agent 能力的编程工具，在 LLM 外面包裹了一层应用，也就是所谓的 Agent Harness，从而让模型在编程任务中用起来更方便、表现也更好。</p><p><img src="https://substackcdn.com/image/fetch/$s_!zcE_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc90147bc-4574-4b52-914f-8bda96620063_3467x2270.png" alt="图 1"></p><p><em>图 1：Claude Code CLI、Codex CLI，以及我的 Mini Coding Agent。</em></p><p>编码 Agent 是专门为软件工作设计的。值得关注的不只是模型选择，还有它周围的系统，包括仓库上下文（repo context）、工具设计、提示词缓存稳定性（prompt-cache stability）、记忆，以及长会话的连续性（long-session continuity）。</p><p>这种区分很重要，因为当我们讨论 LLM 的编程能力时，人们经常把模型、推理行为和 Agent 产品混为一谈。不过，在深入编码 Agent 的具体细节之前，我想先简要补充一些背景，说明 LLM、推理模型和 Agent 这些更广泛概念之间的区别。</p><h2 id="LLM、推理模型与-Agent-之间的关系"><a href="#LLM、推理模型与-Agent-之间的关系" class="headerlink" title="LLM、推理模型与 Agent 之间的关系"></a>LLM、推理模型与 Agent 之间的关系</h2><p>LLM 是核心的下一个 token 预测模型。推理模型（reasoning model）仍然是 LLM，但通常经过了专门训练，或者通过提示词引导，在中间推理、验证或候选答案搜索上投入更多推理时计算量（inference-time compute）。</p><p>Agent 则是位于模型之上的一层，可以理解为围绕模型建立的控制循环（control loop）。通常，在给定目标后，Agent 层或 Harness 会决定接下来检查什么、调用哪些工具、如何更新状态、何时停止等。</p><p>粗略地说，我们可以这样理解它们的关系：LLM 是引擎，推理模型是强化版引擎——更强大，但使用成本也更高——而 Agent Harness 则帮助我们使用这个模型。这个类比并不完美，因为我们也可以把常规 LLM 和推理 LLM 作为独立模型使用，例如在聊天界面或 Python 会话中使用，但我希望它能传达出主要意思。</p><p><img src="https://substackcdn.com/image/fetch/$s_!if1o!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F09a4d839-d572-4eab-a2ee-47f644a746e5_3501x885.png" alt="图 2"></p><p><em>图 2：常规 LLM、推理 LLM（或推理模型），以及包裹在 Agent Harness 中的 LLM 之间的关系。</em></p><p>换句话说，Agent 就是在某个环境中反复调用模型的系统。</p><p>因此，我们可以简要总结如下：</p><ul><li>LLM：原始模型。</li><li>推理模型（Reasoning model）：一种经过优化的 LLM，能够输出中间推理轨迹（intermediate reasoning traces），并进行更多自我验证。</li><li>Agent：一个结合模型、工具、记忆与环境反馈的循环。</li><li>Agent Harness：围绕 Agent 的软件支撑框架，负责管理上下文、工具使用、提示词、状态与控制流。</li><li>Coding Harness：Agent Harness 的一种特殊形式，也就是面向软件工程的专用 Harness，负责管理代码上下文、工具、执行与迭代反馈。</li></ul><p>如上所列，在 Agent 和编程工具的语境中，我们还会遇到两个常见术语：Agent Harness 和（agentic）Coding Harness。Coding Harness 是围绕模型搭建的软件支撑框架，帮助模型有效地编写和编辑代码。Agent Harness 的范围则更广，并不局限于编程，例如可以想想 OpenClaw。Codex 和 Claude Code 都可以看作 Coding Harness。</p><p>总之，更好的 LLM 为推理模型提供了更好的基础——构建推理模型还需要额外训练——而 Harness 则能进一步发挥这个推理模型的能力。</p><p>当然，LLM 和推理模型本身也能解决编程任务，而不一定需要 Harness。不过，编程工作只有一部分与下一个 token 的生成有关。还有很大一部分工作涉及仓库导航、搜索、函数查找、应用 diff、执行测试、检查错误，以及把所有相关信息保留在上下文中。程序员可能知道，这些都是很费脑力的工作，所以我们才不喜欢在编程时被打断。:)</p><p><img src="https://substackcdn.com/image/fetch/$s_!l4hd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F76f2c37e-1996-4f30-96cd-e2e555169873_2227x992.png" alt="图 3"></p><p><em>图 3：Coding Harness 结合了三个层次：模型家族（model family）、Agent 循环（agent loop），以及运行时支持（runtime supports）。模型提供“引擎”，Agent 循环推动迭代式问题求解，运行时支持提供基础支撑。在循环内部，“observe”从环境中收集信息，“inspect”分析这些信息，“choose”选择下一步，“act”执行所选操作。</em></p><p>这里想传达的是，一个好的 Coding Harness 能通过上下文管理等机制，让推理模型和非推理模型都显得比在普通聊天框里强大得多。</p><h2 id="Coding-Harness"><a href="#Coding-Harness" class="headerlink" title="Coding Harness"></a>Coding Harness</h2><p>正如上一节提到的，我们所说的 Harness，通常是指围绕模型的一层软件，负责组装提示词、提供工具、跟踪文件状态、应用编辑、运行命令、管理权限、缓存稳定前缀、存储记忆，以及更多其他事情。</p><p>如今，在使用 LLM 时，相比直接向模型发送提示词，或者使用更接近“带上传文件功能的聊天”的网页聊天界面，这一层软件决定了用户体验的大部分内容。</p><p>在我看来，现在各家 LLM 的基础版本已经具备非常接近的能力，例如 GPT-5.4、Opus 4.6、GLM-5 等的基础版本。因此，Harness 往往可能成为让某个 LLM 比另一个表现更好的关键差异。</p><p>这只是推测，但我怀疑，如果把 GLM-5 这样最新、能力最强的开放权重 LLM 之一放进类似的 Harness 中，它很可能达到与 Codex 中的 GPT-5.4，或 Claude Code 中的 Claude Opus 4.6 相当的表现。话虽如此，针对特定 Harness 做一些后训练（post-training），通常还是有帮助的。例如，OpenAI 过去就分别维护过 GPT-5.3 和 GPT-5.3-Codex 两个版本。</p><p>下一节中，我想结合自己的 Mini Coding Agent，更具体地讨论 Coding Harness 的核心组件：<a href="https://github.com/rasbt/mini-coding-agent">https://github.com/rasbt/mini-coding-agent</a>。</p><p><img src="https://substackcdn.com/image/fetch/$s_!iPcp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F82c0f343-afec-4a9f-b8fe-b60f7ad5db5f_3396x971.png" alt="图 4"></p><p><em>图 4：接下来几节将讨论的编码 Agent &#x2F; Coding Harness 的主要 Harness 功能。</em></p><p>顺便说明一下，为了简化表述，我在这篇文章中会在一定程度上交替使用“Coding Agent”和“Coding Harness”这两个术语。严格来说，Agent 是由模型驱动的决策循环，而 Harness 是它周围的软件支撑框架，负责提供上下文、工具和执行支持。</p><p><img src="https://substackcdn.com/image/fetch/$s_!0mGQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89ec8895-15ba-4f84-b600-190a40b58d62_2069x1285.png" alt="图 5"></p><p><em>图 5：从零实现、极简但功能完整的 Mini Coding Agent，使用纯 Python 编写。</em></p><p>下面就是编码 Agent 的六个主要组件。如果你想看更具体的代码示例，可以查看我从零实现、极简但功能完整的 <a href="https://github.com/rasbt/mini-coding-agent/blob/main/mini_coding_agent.py">Mini Coding Agent 源码</a>，它使用纯 Python 编写。代码通过注释标出了下文讨论的六个组件：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##############################</span></span><br><span class="line"><span class="comment">#### Six Agent Components ####</span></span><br><span class="line"><span class="comment">##############################</span></span><br><span class="line"><span class="comment"># 1) Live Repo Context -&gt; WorkspaceContext</span></span><br><span class="line"><span class="comment"># 2) Prompt Shape And Cache Reuse -&gt; build_prefix, memory_text, prompt</span></span><br><span class="line"><span class="comment"># 3) Structured Tools, Validation, And Permissions -&gt; build_tools, run_tool, validate_tool, approve, parse, path, tool_*</span></span><br><span class="line"><span class="comment"># 4) Context Reduction And Output Management -&gt; clip, history_text</span></span><br><span class="line"><span class="comment"># 5) Transcripts, Memory, And Resumption -&gt; SessionStore, record, note_tool, ask, reset</span></span><br><span class="line"><span class="comment"># 6) Delegation And Bounded Subagents -&gt; tool_delegate</span></span><br></pre></td></tr></table></figure><h2 id="1-实时仓库上下文（Live-Repo-Context）"><a href="#1-实时仓库上下文（Live-Repo-Context）" class="headerlink" title="1. 实时仓库上下文（Live Repo Context）"></a>1. 实时仓库上下文（Live Repo Context）</h2><p>这可能是最显而易见的组件，但也是最重要的组件之一。</p><p>当用户说“修复测试”或“实现 xyz”时，模型应该知道自己是否位于一个 Git 仓库中、当前处于哪个分支、哪些项目文档中可能包含操作指引等。</p><p>这是因为，这些细节往往会改变或影响什么才是正确的行动。例如，“修复测试”并不是一条自包含的指令。如果 Agent 看到了 <code>AGENTS.md</code> 或项目的 <code>README</code>，就可能从中了解到应该运行哪条测试命令等信息。如果知道仓库根目录及其布局，它就能去正确的位置查找，而不是靠猜。</p><p>此外，Git 分支、状态和提交记录，还能提供更多上下文，帮助模型理解目前正在进行哪些修改，以及应该把注意力放在哪里。</p><p><img src="https://substackcdn.com/image/fetch/$s_!mPz4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e3a1e6a-4eb5-4b60-b52f-0a4ee880dbca_2085x1428.png" alt="图 6"></p><p><em>图 6：Agent Harness 首先构建一份简短的工作区摘要，再将其与用户请求结合起来，补充项目上下文。</em></p><p>这里的要点是，编码 Agent 会在开始工作之前，先把信息收集好，将“稳定事实”（stable facts）整理成工作区摘要。这样，它就不会在每次收到提示词时，都从毫无上下文的零点开始。</p><h2 id="2-提示词结构与缓存复用（Prompt-Shape-And-Cache-Reuse）"><a href="#2-提示词结构与缓存复用（Prompt-Shape-And-Cache-Reuse）" class="headerlink" title="2. 提示词结构与缓存复用（Prompt Shape And Cache Reuse）"></a>2. 提示词结构与缓存复用（Prompt Shape And Cache Reuse）</h2><p>一旦 Agent 了解了仓库，接下来的问题就是如何把这些信息交给模型。上一张图对此做了简化展示：“组合提示词：前缀 + 请求”（Combined prompt: prefix + request）。但在实践中，如果每次用户提问时都重新组合、重新处理工作区摘要，就会相当浪费。</p><p>也就是说，编程会话具有重复性，而 Agent 的规则通常保持不变，工具描述通常也保持不变。即使是工作区摘要，通常也基本不会变化。主要变化的内容，往往是最新的用户请求、近期会话记录，以及可能存在的短期记忆。</p><p>“聪明”的运行时，不会在每一轮都把所有内容重新构建成一个不加区分的巨大提示词，如下图所示。</p><p><img src="https://substackcdn.com/image/fetch/$s_!keF3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F92d9467c-1333-40f3-8d5d-c8bc0ffebb11_2698x1001.png" alt="图 7"></p><p><em>图 7：Agent Harness 构建稳定的提示词前缀，加入不断变化的会话状态，再将组合后的提示词送入模型。</em></p><p>这一节与第 1 节的主要区别在于：第 1 节讨论的是收集仓库事实，而这里关注的是如何高效地封装和缓存这些事实，以便反复调用模型。</p><p>“稳定提示词前缀”（Stable prompt prefix）中的“稳定”，是指其中包含的信息不会发生太大变化。它通常包含通用指令、工具描述和工作区摘要。如果没有重要变化，我们就不希望在每次交互时都从头重建它，白白消耗计算资源。</p><p>其他部分的更新则更加频繁，通常每一轮都会变化，包括短期记忆、近期会话记录和最新的用户请求。</p><p>简而言之，“稳定提示词前缀”的缓存机制，就是让一个聪明的运行时尽可能复用这部分内容。</p><h2 id="3-工具访问与使用（Tool-Access-and-Use）"><a href="#3-工具访问与使用（Tool-Access-and-Use）" class="headerlink" title="3. 工具访问与使用（Tool Access and Use）"></a>3. 工具访问与使用（Tool Access and Use）</h2><p>工具访问和工具使用，是系统开始不再那么像聊天、而更像 Agent 的地方。</p><p>普通模型可以用文字建议你运行某些命令，但 Coding Harness 中的 LLM 应该做一些范围更明确、也更有用的事情：它应该真正能够执行命令，并获取结果，而不是由我们手动运行命令，再把结果粘贴回聊天窗口。</p><p>不过，Harness 通常不会让模型随意发明语法，而是提供一组预先定义、明确命名的允许工具，每种工具都有清晰的输入和边界。当然，Python 的 <code>subprocess.call</code> 之类的能力也可以包含在内，让 Agent 能够执行范围非常广泛的 Shell 命令。</p><p>工具使用的流程如下图所示。</p><p><img src="https://substackcdn.com/image/fetch/$s_!yL-u!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7aff251f-0ce2-44f1-9792-5449c24d5600_2172x927.png" alt="图 8"></p><p><em>图 8：模型发出结构化操作，Harness 对其进行验证，在需要时请求批准，然后执行操作，并将有界的结果反馈到循环中。</em></p><p>为了说明这一点，下面展示了使用我的 Mini Coding Agent 时，用户通常会看到的界面。它没有 Claude Code 或 Codex 那么漂亮，因为它非常精简，使用纯 Python 编写，不依赖任何外部库。</p><p><img src="https://substackcdn.com/image/fetch/$s_!nD22!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ff4770e-c3a5-442f-a657-ef9bec6b9862_2493x2031.png" alt="图 9"></p><p><em>图 9：Mini Coding Agent 中工具调用审批请求的示例。</em></p><p>在这里，模型必须选择一种 Harness 能识别的操作，例如列出文件、读取文件、搜索、运行 Shell 命令、写入文件等。它还必须按 Harness 能够检查的格式提供参数。</p><p>因此，当模型请求执行某项操作时，运行时可以先停下来，进行程序化检查，例如：</p><ul><li>“这是一个已知工具吗？”</li><li>“参数有效吗？”</li><li>“这需要用户批准吗？”</li><li>“请求访问的路径，真的位于工作区内吗？”</li></ul><p>只有这些检查全部通过后，操作才会真正执行。</p><p>当然，运行编码 Agent 仍然存在一定风险，但 Harness 的这些检查也提高了可靠性，因为模型不会完全任意地执行命令。</p><p>此外，除了拒绝格式错误的操作，以及通过审批控制执行之外，还可以通过检查文件路径，将文件访问限制在仓库内部。</p><p>从某种意义上说，Harness 给了模型更少的自由，但也同时改善了可用性。</p><h2 id="4-尽量减少上下文膨胀（Minimizing-Context-Bloat）"><a href="#4-尽量减少上下文膨胀（Minimizing-Context-Bloat）" class="headerlink" title="4. 尽量减少上下文膨胀（Minimizing Context Bloat）"></a>4. 尽量减少上下文膨胀（Minimizing Context Bloat）</h2><p>上下文膨胀（context bloat）并不是编码 Agent 独有的问题，而是 LLM 普遍面临的问题。如今，LLM 确实支持越来越长的上下文；我最近也写过一篇关于<a href="https://magazine.sebastianraschka.com/p/visual-attention-variants">注意力机制变体（attention variants）</a>的文章，介绍它们如何让长上下文在计算上更可行。但长上下文仍然昂贵，而且如果其中包含大量无关信息，也会引入更多噪声。</p><blockquote><p><a href="https://magazine.sebastianraschka.com/p/visual-attention-variants">现代 LLM 中注意力机制变体的可视化指南（A Visual Guide to Attention Variants in Modern LLMs）</a><br><br><a href="https://substack.com/profile/27393275-sebastian-raschka-phd">Sebastian Raschka, PhD</a> · 3 月 22 日<br><br><a href="https://magazine.sebastianraschka.com/p/visual-attention-variants">阅读全文</a></p></blockquote><p>在多轮交互中，编码 Agent 比普通 LLM 更容易出现上下文膨胀，因为它们会反复读取文件，并产生冗长的工具输出、日志等内容。</p><p>如果运行时把所有这些内容都原封不动地保留下来，就会很快耗尽可用的上下文 token。因此，一个好的 Coding Harness 在处理上下文膨胀方面，通常会有相当精细的设计，而不只是像普通聊天界面那样截断或总结信息。</p><p>从概念上看，编码 Agent 的上下文压缩（context compaction）可能如下图所示。具体来说，我们是在进一步放大上一节图 8 中 <code>clip</code> 部分，也就是第 6 步，看看里面发生了什么。</p><p><img src="https://substackcdn.com/image/fetch/$s_!ksfT!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d61d701-1f2b-4010-9a1f-2cefc7265bde_2495x1213.png" alt="图 10"></p><p><em>图 10：较大的输出会被截断，较早读取的内容会被去重，会话记录也会在重新进入提示词之前被压缩。</em></p><p>即使是一个极简的 Harness，也至少会使用两种压缩策略来管理这个问题。</p><p>第一种是截断（clipping），用来缩短较长的文档片段、大型工具输出、记忆笔记和会话记录条目。换句话说，它可以防止某一段文字仅仅因为内容冗长，就占据整个提示词预算。</p><p>第二种策略是会话记录缩减或摘要（transcript reduction or summarization），把完整的会话历史——下一节会进一步介绍——转化成一份更短、可以放入提示词的摘要。</p><p>这里有一个关键技巧：保留近期事件的更多细节，因为它们更可能与当前步骤有关；对更早的事件则进行更激进的压缩，因为它们可能没那么相关。</p><p>此外，我们还会对较早读取的文件内容进行去重，避免仅仅因为同一个文件之前在会话中被多次读取，模型就不断看到相同内容。</p><p>总体而言，我认为，这是优秀编码 Agent 设计中一个被低估、也有些乏味的部分。许多看起来像是“模型质量”的差异，其实是上下文质量的差异。</p><h2 id="5-结构化会话记忆（Structured-Session-Memory）"><a href="#5-结构化会话记忆（Structured-Session-Memory）" class="headerlink" title="5. 结构化会话记忆（Structured Session Memory）"></a>5. 结构化会话记忆（Structured Session Memory）</h2><p>在实践中，本文讨论的这六个核心概念都高度交织在一起。不同章节和插图，只是在不同的重点或缩放层次上讨论它们。上一节介绍了如何在构建提示词时使用历史，以及如何构建压缩后的会话记录。那里的问题是：在下一轮中，应该把多少过去的信息重新送回模型？因此，重点是压缩、截断、去重和时效性。</p><p>而这一节的结构化会话记忆，关注的是历史信息在存储时的结构。这里的问题是：随着时间推移，Agent 会保留哪些内容作为永久记录？因此，重点是运行时会保留更完整的会话记录，作为持久状态；与此同时，还会维护一层更轻量的记忆。后者更小，会被修改和压缩，而不只是不断追加内容。</p><p>概括来说，编码 Agent 至少会把状态分成两层：</p><ul><li>工作记忆（working memory）：Agent 显式维护的一小份提炼后的状态。</li><li>完整会话记录（full transcript）：涵盖全部用户请求、工具输出和 LLM 回复。</li></ul><p><img src="https://substackcdn.com/image/fetch/$s_!xWhc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe58efdfb-9c19-42e8-a016-90b41b51ef15_2438x1346.png" alt="图 11"></p><p><em>图 11：新事件会追加到完整会话记录中，并被概括进工作记忆。磁盘上的会话文件通常以 JSON 文件的形式存储。</em></p><p>上图展示了两个主要的会话文件：完整会话记录与工作记忆。它们通常以 JSON 文件的形式保存在磁盘上。如前所述，完整会话记录保存整个历史，因此，即使关闭 Agent，也可以恢复会话。工作记忆则更像一个提炼后的版本，包含当前最重要的信息，与压缩后的会话记录有一定关联。</p><p>不过，压缩后的会话记录（compact transcript）和工作记忆，承担的职责略有不同。压缩后的会话记录用于重建提示词（prompt reconstruction）：它的任务是让模型获得近期历史的压缩视图，从而不必在每一轮都查看完整记录，也能继续对话。工作记忆则更侧重任务连续性（task continuity）：它的任务是维护一份简短、显式更新的摘要，保存跨轮次的重要内容，例如当前任务、重要文件和近期笔记。</p><p>在上图第 4 步之后，最新的用户请求、LLM 回复和工具输出，会在下一轮作为一个“新事件”，同时记录进完整会话记录和工作记忆中。为了避免上图过于杂乱，这一步没有画出来。</p><h2 id="6-使用有边界的子-Agent-进行委派（Delegation-With-Bounded-Subagents）"><a href="#6-使用有边界的子-Agent-进行委派（Delegation-With-Bounded-Subagents）" class="headerlink" title="6. 使用有边界的子 Agent 进行委派（Delegation With (Bounded) Subagents）"></a>6. 使用有边界的子 Agent 进行委派（Delegation With (Bounded) Subagents）</h2><p>当 Agent 具备工具和状态之后，接下来一个有用的能力就是委派（delegation）。</p><p>原因在于，我们可以借助子 Agent（subagents），把某些工作拆成子任务并行处理，从而加快主任务。例如，主 Agent 正在处理某项任务，但同时还需要知道一个旁支问题的答案：某个符号定义在哪个文件里、某个配置写了什么，或者某个测试为什么失败。把它拆成一个有明确边界的子任务很有帮助，而不必强迫同一个循环同时承载所有工作线索。</p><p>在我的 Mini Coding Agent 中，实现更简单，子 Agent 仍然是同步运行的，但基本思路相同。</p><p>子 Agent 只有继承足够的上下文，才能真正开展工作，因而才有价值。但如果不对其加以限制，就可能出现多个 Agent 重复劳动、修改相同文件，或继续生成更多子 Agent 等情况。</p><p>所以，棘手的设计问题不只是如何创建子 Agent，还包括如何给它设定边界。:)</p><p><img src="https://substackcdn.com/image/fetch/$s_!Ygjt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81b2ae42-ea42-40bf-b2ba-fdfcf9b87912_2438x990.png" alt="图 12"></p><p><em>图 12：子 Agent 继承足够多的上下文，以便发挥作用，但它运行时受到的边界约束，比主 Agent 更严格。</em></p><p>这里的技巧是，让子 Agent 继承足够的上下文，能够派上用场；同时，也对其施加限制，例如只读访问，以及限制递归深度。</p><p>Claude Code 支持子 Agent 已经很久了，Codex 则是在更近的时候加入了这项能力。Codex 通常不会强制子 Agent 进入只读模式；相反，它们往往会继承主 Agent 的大部分沙箱和审批设置。因此，这里的边界更多体现在任务范围、上下文和深度上。</p><h2 id="组件总结"><a href="#组件总结" class="headerlink" title="组件总结"></a>组件总结</h2><p>前面几节尝试介绍了编码 Agent 的主要组件。如前所述，在实现中，它们或多或少都会深度交织在一起。不过，我希望逐个介绍这些组件，有助于大家建立整体的心智模型，理解 Coding Harness 如何工作，以及为什么相比简单的多轮聊天，它能让 LLM 更有用。</p><p><img src="https://substackcdn.com/image/fetch/$s_!ml47!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4fe9e9f0-b04f-4c3e-be1f-fbd74b41c4aa_3396x971.png" alt="图 13"></p><p><em>图 13：前面几节讨论的 Coding Harness 的六项主要功能。</em></p><p>如果你有兴趣看看，如何用干净、极简的 Python 代码实现这些组件，也许会喜欢我的 <a href="https://github.com/rasbt/mini-coding-agent">Mini Coding Agent</a>。</p><h2 id="与-OpenClaw-相比如何？"><a href="#与-OpenClaw-相比如何？" class="headerlink" title="与 OpenClaw 相比如何？"></a>与 OpenClaw 相比如何？</h2><p>OpenClaw 可能是一个有意思的对比对象，但它并不完全属于同一类系统。</p><p>OpenClaw 更像是一个本地运行、同时也能编程的通用 Agent 平台，而不是一个专门的终端编程助手。</p><p>它与 Coding Harness 仍然有一些重叠：</p><ul><li>它会使用工作区中的提示词和指令文件，例如 <code>AGENTS.md</code>、<code>SOUL.md</code> 和 <code>TOOLS.md</code>。</li><li>它会保存 JSONL 会话文件，并提供会话记录压缩和会话管理功能。</li><li>它可以创建辅助会话和子 Agent。</li><li>等等。</li></ul><p>不过，如前所述，两者的侧重点不同。编码 Agent 针对的是这样一种场景：一个人在仓库中工作，要求编程助手高效地检查文件、编辑代码和运行本地工具。而 OpenClaw 更侧重于跨聊天、渠道和工作区，运行许多长期存续的本地 Agent；编程只是其中一项重要工作负载。</p><p>我很高兴地告诉大家，《Build A Reasoning Model (From Scratch)》已经写完，目前所有章节都已进入<a href="https://mng.bz/Nwr7">抢先阅读（early access）</a>阶段。出版社正在处理排版，预计今年夏天就能正式出版。</p><p>这可能是迄今为止我最有雄心的一本书。我花了大约一年半来写作，并进行了大量实验。就时间、精力和打磨程度而言，这也可能是我投入最多的一本书，希望你会喜欢。</p><p><img src="https://substackcdn.com/image/fetch/$s_!2GF3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F68d954ed-83f7-40f8-9399-3323ecffd6e2_2128x1308.jpeg" alt="Build a Reasoning Model (From Scratch) 书封"></p><p><em>《Build a Reasoning Model (From Scratch)》：<a href="https://mng.bz/Nwr7">Manning</a> 与 <a href="https://amzn.to/4aAKiFY">Amazon</a>。</em></p><p>主要内容包括：</p><ul><li>推理模型评估（evaluating reasoning models）。</li><li>推理时扩展（inference-time scaling）。</li><li>自我改进（self-refinement）。</li><li>强化学习（reinforcement learning）。</li><li>蒸馏（distillation）。</li></ul><p>围绕 LLM 的“推理”，已经有很多讨论。我认为，理解它在 LLM 语境中究竟意味着什么，最好的办法就是从零实现一个推理模型！</p><ul><li><a href="https://amzn.to/4aAKiFY">Amazon（预售）</a></li><li><a href="https://mng.bz/Nwr7">Manning（全书已开放抢先阅读，尚未完成最终排版，共 528 页）</a></li></ul>]]>
-    </content>
-    <id>https://prayerlaputa.com/2026/11/05/components-of-a-coding-agent/</id>
-    <link href="https://prayerlaputa.com/2026/11/05/components-of-a-coding-agent/"/>
-    <published>2026-11-04T16:00:00.000Z</published>
-    <summary>Sebastian Raschka 解析编码 Agent 的六大组件：实时仓库上下文、提示词与缓存复用、工具访问与使用、上下文膨胀控制、结构化会话记忆，以及有边界的子 Agent 委派，并与 OpenClaw 对比。</summary>
-    <title>【译】编码 Agent 的组成部分</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
-  </entry>
+  <updated>2026-11-05T13:05:07.803Z</updated>
   <entry>
     <author>
       <name>Prayer</name>
@@ -47,15 +28,34 @@
     <published>2026-11-04T16:00:00.000Z</published>
     <summary>Mitchell Hashimoto 分享自己从怀疑到有效使用 AI 工具的六个步骤：使用 Agent、复现手工作业、在下班前启动任务、委托有把握的工作、构建 Harness，以及持续探索后台 Agent 工作流。</summary>
     <title>【译】我的 AI 使用之旅</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
       <name>Prayer</name>
     </author>
     <category term="AI" scheme="https://prayerlaputa.com/categories/AI/"/>
-    <category term="AI Agent" scheme="https://prayerlaputa.com/tags/AI-Agent/"/>
+    <category term="Harness Engineering" scheme="https://prayerlaputa.com/tags/Harness-Engineering/"/>
+    <category term="Coding Agent" scheme="https://prayerlaputa.com/tags/Coding-Agent/"/>
+    <category term="LLM" scheme="https://prayerlaputa.com/tags/LLM/"/>
+    <category term="上下文工程" scheme="https://prayerlaputa.com/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/"/>
+    <content>
+      <![CDATA[<blockquote><p>原文：<a href="https://substack.com/@rasbt">Sebastian Raschka, PhD</a>，<a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent">Components of A Coding Agent</a>，发表于 2026 年 4 月 4 日。本文为中文译文，保留关键专有名词、术语、代码、原文链接及插图。</p></blockquote><p><em>编码 Agent 如何利用工具、记忆和仓库上下文，让 LLM 在实际应用中表现得更好</em></p><p>在这篇文章中，我想介绍编码 Agent（Coding Agent）和 Agent Harness 的整体设计：它们是什么、如何工作，以及各个部分在实践中如何协同。我的《Build a Large Language Model (From Scratch)》和《Build a Large Reasoning Model (From Scratch)》两本书的读者经常问起 Agent，因此，我觉得写一篇可以供大家参考的文章会很有帮助。</p><p>更广泛地说，Agent 之所以成为一个重要话题，是因为近期实用 LLM 系统取得的许多进展，并不只是来自更好的模型，也来自我们使用模型的方式。在许多现实应用中，工具使用、上下文管理和记忆等外围系统，发挥的作用与模型本身同样重要。这也有助于解释，为什么 Claude Code 或 Codex 这样的系统，会让人感觉比在普通聊天界面中使用相同模型强大得多。</p><p>在这篇文章中，我会介绍编码 Agent 的六个主要构建模块。</p><span id="more"></span><h2 id="Claude-Code、Codex-CLI-与其他编码-Agent"><a href="#Claude-Code、Codex-CLI-与其他编码-Agent" class="headerlink" title="Claude Code、Codex CLI 与其他编码 Agent"></a>Claude Code、Codex CLI 与其他编码 Agent</h2><p>你可能已经熟悉 Claude Code 或 Codex CLI。不过，为了建立共同的背景，还是先说明一下：它们本质上都是具备 Agent 能力的编程工具，在 LLM 外面包裹了一层应用，也就是所谓的 Agent Harness，从而让模型在编程任务中用起来更方便、表现也更好。</p><p><img src="https://substackcdn.com/image/fetch/$s_!zcE_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc90147bc-4574-4b52-914f-8bda96620063_3467x2270.png" alt="图 1"></p><p><em>图 1：Claude Code CLI、Codex CLI，以及我的 Mini Coding Agent。</em></p><p>编码 Agent 是专门为软件工作设计的。值得关注的不只是模型选择，还有它周围的系统，包括仓库上下文（repo context）、工具设计、提示词缓存稳定性（prompt-cache stability）、记忆，以及长会话的连续性（long-session continuity）。</p><p>这种区分很重要，因为当我们讨论 LLM 的编程能力时，人们经常把模型、推理行为和 Agent 产品混为一谈。不过，在深入编码 Agent 的具体细节之前，我想先简要补充一些背景，说明 LLM、推理模型和 Agent 这些更广泛概念之间的区别。</p><h2 id="LLM、推理模型与-Agent-之间的关系"><a href="#LLM、推理模型与-Agent-之间的关系" class="headerlink" title="LLM、推理模型与 Agent 之间的关系"></a>LLM、推理模型与 Agent 之间的关系</h2><p>LLM 是核心的下一个 token 预测模型。推理模型（reasoning model）仍然是 LLM，但通常经过了专门训练，或者通过提示词引导，在中间推理、验证或候选答案搜索上投入更多推理时计算量（inference-time compute）。</p><p>Agent 则是位于模型之上的一层，可以理解为围绕模型建立的控制循环（control loop）。通常，在给定目标后，Agent 层或 Harness 会决定接下来检查什么、调用哪些工具、如何更新状态、何时停止等。</p><p>粗略地说，我们可以这样理解它们的关系：LLM 是引擎，推理模型是强化版引擎——更强大，但使用成本也更高——而 Agent Harness 则帮助我们使用这个模型。这个类比并不完美，因为我们也可以把常规 LLM 和推理 LLM 作为独立模型使用，例如在聊天界面或 Python 会话中使用，但我希望它能传达出主要意思。</p><p><img src="https://substackcdn.com/image/fetch/$s_!if1o!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F09a4d839-d572-4eab-a2ee-47f644a746e5_3501x885.png" alt="图 2"></p><p><em>图 2：常规 LLM、推理 LLM（或推理模型），以及包裹在 Agent Harness 中的 LLM 之间的关系。</em></p><p>换句话说，Agent 就是在某个环境中反复调用模型的系统。</p><p>因此，我们可以简要总结如下：</p><ul><li>LLM：原始模型。</li><li>推理模型（Reasoning model）：一种经过优化的 LLM，能够输出中间推理轨迹（intermediate reasoning traces），并进行更多自我验证。</li><li>Agent：一个结合模型、工具、记忆与环境反馈的循环。</li><li>Agent Harness：围绕 Agent 的软件支撑框架，负责管理上下文、工具使用、提示词、状态与控制流。</li><li>Coding Harness：Agent Harness 的一种特殊形式，也就是面向软件工程的专用 Harness，负责管理代码上下文、工具、执行与迭代反馈。</li></ul><p>如上所列，在 Agent 和编程工具的语境中，我们还会遇到两个常见术语：Agent Harness 和（agentic）Coding Harness。Coding Harness 是围绕模型搭建的软件支撑框架，帮助模型有效地编写和编辑代码。Agent Harness 的范围则更广，并不局限于编程，例如可以想想 OpenClaw。Codex 和 Claude Code 都可以看作 Coding Harness。</p><p>总之，更好的 LLM 为推理模型提供了更好的基础——构建推理模型还需要额外训练——而 Harness 则能进一步发挥这个推理模型的能力。</p><p>当然，LLM 和推理模型本身也能解决编程任务，而不一定需要 Harness。不过，编程工作只有一部分与下一个 token 的生成有关。还有很大一部分工作涉及仓库导航、搜索、函数查找、应用 diff、执行测试、检查错误，以及把所有相关信息保留在上下文中。程序员可能知道，这些都是很费脑力的工作，所以我们才不喜欢在编程时被打断。:)</p><p><img src="https://substackcdn.com/image/fetch/$s_!l4hd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F76f2c37e-1996-4f30-96cd-e2e555169873_2227x992.png" alt="图 3"></p><p><em>图 3：Coding Harness 结合了三个层次：模型家族（model family）、Agent 循环（agent loop），以及运行时支持（runtime supports）。模型提供“引擎”，Agent 循环推动迭代式问题求解，运行时支持提供基础支撑。在循环内部，“observe”从环境中收集信息，“inspect”分析这些信息，“choose”选择下一步，“act”执行所选操作。</em></p><p>这里想传达的是，一个好的 Coding Harness 能通过上下文管理等机制，让推理模型和非推理模型都显得比在普通聊天框里强大得多。</p><h2 id="Coding-Harness"><a href="#Coding-Harness" class="headerlink" title="Coding Harness"></a>Coding Harness</h2><p>正如上一节提到的，我们所说的 Harness，通常是指围绕模型的一层软件，负责组装提示词、提供工具、跟踪文件状态、应用编辑、运行命令、管理权限、缓存稳定前缀、存储记忆，以及更多其他事情。</p><p>如今，在使用 LLM 时，相比直接向模型发送提示词，或者使用更接近“带上传文件功能的聊天”的网页聊天界面，这一层软件决定了用户体验的大部分内容。</p><p>在我看来，现在各家 LLM 的基础版本已经具备非常接近的能力，例如 GPT-5.4、Opus 4.6、GLM-5 等的基础版本。因此，Harness 往往可能成为让某个 LLM 比另一个表现更好的关键差异。</p><p>这只是推测，但我怀疑，如果把 GLM-5 这样最新、能力最强的开放权重 LLM 之一放进类似的 Harness 中，它很可能达到与 Codex 中的 GPT-5.4，或 Claude Code 中的 Claude Opus 4.6 相当的表现。话虽如此，针对特定 Harness 做一些后训练（post-training），通常还是有帮助的。例如，OpenAI 过去就分别维护过 GPT-5.3 和 GPT-5.3-Codex 两个版本。</p><p>下一节中，我想结合自己的 Mini Coding Agent，更具体地讨论 Coding Harness 的核心组件：<a href="https://github.com/rasbt/mini-coding-agent">https://github.com/rasbt/mini-coding-agent</a>。</p><p><img src="https://substackcdn.com/image/fetch/$s_!iPcp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F82c0f343-afec-4a9f-b8fe-b60f7ad5db5f_3396x971.png" alt="图 4"></p><p><em>图 4：接下来几节将讨论的编码 Agent &#x2F; Coding Harness 的主要 Harness 功能。</em></p><p>顺便说明一下，为了简化表述，我在这篇文章中会在一定程度上交替使用“Coding Agent”和“Coding Harness”这两个术语。严格来说，Agent 是由模型驱动的决策循环，而 Harness 是它周围的软件支撑框架，负责提供上下文、工具和执行支持。</p><p><img src="https://substackcdn.com/image/fetch/$s_!0mGQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89ec8895-15ba-4f84-b600-190a40b58d62_2069x1285.png" alt="图 5"></p><p><em>图 5：从零实现、极简但功能完整的 Mini Coding Agent，使用纯 Python 编写。</em></p><p>下面就是编码 Agent 的六个主要组件。如果你想看更具体的代码示例，可以查看我从零实现、极简但功能完整的 <a href="https://github.com/rasbt/mini-coding-agent/blob/main/mini_coding_agent.py">Mini Coding Agent 源码</a>，它使用纯 Python 编写。代码通过注释标出了下文讨论的六个组件：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##############################</span></span><br><span class="line"><span class="comment">#### Six Agent Components ####</span></span><br><span class="line"><span class="comment">##############################</span></span><br><span class="line"><span class="comment"># 1) Live Repo Context -&gt; WorkspaceContext</span></span><br><span class="line"><span class="comment"># 2) Prompt Shape And Cache Reuse -&gt; build_prefix, memory_text, prompt</span></span><br><span class="line"><span class="comment"># 3) Structured Tools, Validation, And Permissions -&gt; build_tools, run_tool, validate_tool, approve, parse, path, tool_*</span></span><br><span class="line"><span class="comment"># 4) Context Reduction And Output Management -&gt; clip, history_text</span></span><br><span class="line"><span class="comment"># 5) Transcripts, Memory, And Resumption -&gt; SessionStore, record, note_tool, ask, reset</span></span><br><span class="line"><span class="comment"># 6) Delegation And Bounded Subagents -&gt; tool_delegate</span></span><br></pre></td></tr></table></figure><h2 id="1-实时仓库上下文（Live-Repo-Context）"><a href="#1-实时仓库上下文（Live-Repo-Context）" class="headerlink" title="1. 实时仓库上下文（Live Repo Context）"></a>1. 实时仓库上下文（Live Repo Context）</h2><p>这可能是最显而易见的组件，但也是最重要的组件之一。</p><p>当用户说“修复测试”或“实现 xyz”时，模型应该知道自己是否位于一个 Git 仓库中、当前处于哪个分支、哪些项目文档中可能包含操作指引等。</p><p>这是因为，这些细节往往会改变或影响什么才是正确的行动。例如，“修复测试”并不是一条自包含的指令。如果 Agent 看到了 <code>AGENTS.md</code> 或项目的 <code>README</code>，就可能从中了解到应该运行哪条测试命令等信息。如果知道仓库根目录及其布局，它就能去正确的位置查找，而不是靠猜。</p><p>此外，Git 分支、状态和提交记录，还能提供更多上下文，帮助模型理解目前正在进行哪些修改，以及应该把注意力放在哪里。</p><p><img src="https://substackcdn.com/image/fetch/$s_!mPz4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e3a1e6a-4eb5-4b60-b52f-0a4ee880dbca_2085x1428.png" alt="图 6"></p><p><em>图 6：Agent Harness 首先构建一份简短的工作区摘要，再将其与用户请求结合起来，补充项目上下文。</em></p><p>这里的要点是，编码 Agent 会在开始工作之前，先把信息收集好，将“稳定事实”（stable facts）整理成工作区摘要。这样，它就不会在每次收到提示词时，都从毫无上下文的零点开始。</p><h2 id="2-提示词结构与缓存复用（Prompt-Shape-And-Cache-Reuse）"><a href="#2-提示词结构与缓存复用（Prompt-Shape-And-Cache-Reuse）" class="headerlink" title="2. 提示词结构与缓存复用（Prompt Shape And Cache Reuse）"></a>2. 提示词结构与缓存复用（Prompt Shape And Cache Reuse）</h2><p>一旦 Agent 了解了仓库，接下来的问题就是如何把这些信息交给模型。上一张图对此做了简化展示：“组合提示词：前缀 + 请求”（Combined prompt: prefix + request）。但在实践中，如果每次用户提问时都重新组合、重新处理工作区摘要，就会相当浪费。</p><p>也就是说，编程会话具有重复性，而 Agent 的规则通常保持不变，工具描述通常也保持不变。即使是工作区摘要，通常也基本不会变化。主要变化的内容，往往是最新的用户请求、近期会话记录，以及可能存在的短期记忆。</p><p>“聪明”的运行时，不会在每一轮都把所有内容重新构建成一个不加区分的巨大提示词，如下图所示。</p><p><img src="https://substackcdn.com/image/fetch/$s_!keF3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F92d9467c-1333-40f3-8d5d-c8bc0ffebb11_2698x1001.png" alt="图 7"></p><p><em>图 7：Agent Harness 构建稳定的提示词前缀，加入不断变化的会话状态，再将组合后的提示词送入模型。</em></p><p>这一节与第 1 节的主要区别在于：第 1 节讨论的是收集仓库事实，而这里关注的是如何高效地封装和缓存这些事实，以便反复调用模型。</p><p>“稳定提示词前缀”（Stable prompt prefix）中的“稳定”，是指其中包含的信息不会发生太大变化。它通常包含通用指令、工具描述和工作区摘要。如果没有重要变化，我们就不希望在每次交互时都从头重建它，白白消耗计算资源。</p><p>其他部分的更新则更加频繁，通常每一轮都会变化，包括短期记忆、近期会话记录和最新的用户请求。</p><p>简而言之，“稳定提示词前缀”的缓存机制，就是让一个聪明的运行时尽可能复用这部分内容。</p><h2 id="3-工具访问与使用（Tool-Access-and-Use）"><a href="#3-工具访问与使用（Tool-Access-and-Use）" class="headerlink" title="3. 工具访问与使用（Tool Access and Use）"></a>3. 工具访问与使用（Tool Access and Use）</h2><p>工具访问和工具使用，是系统开始不再那么像聊天、而更像 Agent 的地方。</p><p>普通模型可以用文字建议你运行某些命令，但 Coding Harness 中的 LLM 应该做一些范围更明确、也更有用的事情：它应该真正能够执行命令，并获取结果，而不是由我们手动运行命令，再把结果粘贴回聊天窗口。</p><p>不过，Harness 通常不会让模型随意发明语法，而是提供一组预先定义、明确命名的允许工具，每种工具都有清晰的输入和边界。当然，Python 的 <code>subprocess.call</code> 之类的能力也可以包含在内，让 Agent 能够执行范围非常广泛的 Shell 命令。</p><p>工具使用的流程如下图所示。</p><p><img src="https://substackcdn.com/image/fetch/$s_!yL-u!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7aff251f-0ce2-44f1-9792-5449c24d5600_2172x927.png" alt="图 8"></p><p><em>图 8：模型发出结构化操作，Harness 对其进行验证，在需要时请求批准，然后执行操作，并将有界的结果反馈到循环中。</em></p><p>为了说明这一点，下面展示了使用我的 Mini Coding Agent 时，用户通常会看到的界面。它没有 Claude Code 或 Codex 那么漂亮，因为它非常精简，使用纯 Python 编写，不依赖任何外部库。</p><p><img src="https://substackcdn.com/image/fetch/$s_!nD22!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ff4770e-c3a5-442f-a657-ef9bec6b9862_2493x2031.png" alt="图 9"></p><p><em>图 9：Mini Coding Agent 中工具调用审批请求的示例。</em></p><p>在这里，模型必须选择一种 Harness 能识别的操作，例如列出文件、读取文件、搜索、运行 Shell 命令、写入文件等。它还必须按 Harness 能够检查的格式提供参数。</p><p>因此，当模型请求执行某项操作时，运行时可以先停下来，进行程序化检查，例如：</p><ul><li>“这是一个已知工具吗？”</li><li>“参数有效吗？”</li><li>“这需要用户批准吗？”</li><li>“请求访问的路径，真的位于工作区内吗？”</li></ul><p>只有这些检查全部通过后，操作才会真正执行。</p><p>当然，运行编码 Agent 仍然存在一定风险，但 Harness 的这些检查也提高了可靠性，因为模型不会完全任意地执行命令。</p><p>此外，除了拒绝格式错误的操作，以及通过审批控制执行之外，还可以通过检查文件路径，将文件访问限制在仓库内部。</p><p>从某种意义上说，Harness 给了模型更少的自由，但也同时改善了可用性。</p><h2 id="4-尽量减少上下文膨胀（Minimizing-Context-Bloat）"><a href="#4-尽量减少上下文膨胀（Minimizing-Context-Bloat）" class="headerlink" title="4. 尽量减少上下文膨胀（Minimizing Context Bloat）"></a>4. 尽量减少上下文膨胀（Minimizing Context Bloat）</h2><p>上下文膨胀（context bloat）并不是编码 Agent 独有的问题，而是 LLM 普遍面临的问题。如今，LLM 确实支持越来越长的上下文；我最近也写过一篇关于<a href="https://magazine.sebastianraschka.com/p/visual-attention-variants">注意力机制变体（attention variants）</a>的文章，介绍它们如何让长上下文在计算上更可行。但长上下文仍然昂贵，而且如果其中包含大量无关信息，也会引入更多噪声。</p><blockquote><p><a href="https://magazine.sebastianraschka.com/p/visual-attention-variants">现代 LLM 中注意力机制变体的可视化指南（A Visual Guide to Attention Variants in Modern LLMs）</a><br><br><a href="https://substack.com/profile/27393275-sebastian-raschka-phd">Sebastian Raschka, PhD</a> · 3 月 22 日<br><br><a href="https://magazine.sebastianraschka.com/p/visual-attention-variants">阅读全文</a></p></blockquote><p>在多轮交互中，编码 Agent 比普通 LLM 更容易出现上下文膨胀，因为它们会反复读取文件，并产生冗长的工具输出、日志等内容。</p><p>如果运行时把所有这些内容都原封不动地保留下来，就会很快耗尽可用的上下文 token。因此，一个好的 Coding Harness 在处理上下文膨胀方面，通常会有相当精细的设计，而不只是像普通聊天界面那样截断或总结信息。</p><p>从概念上看，编码 Agent 的上下文压缩（context compaction）可能如下图所示。具体来说，我们是在进一步放大上一节图 8 中 <code>clip</code> 部分，也就是第 6 步，看看里面发生了什么。</p><p><img src="https://substackcdn.com/image/fetch/$s_!ksfT!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d61d701-1f2b-4010-9a1f-2cefc7265bde_2495x1213.png" alt="图 10"></p><p><em>图 10：较大的输出会被截断，较早读取的内容会被去重，会话记录也会在重新进入提示词之前被压缩。</em></p><p>即使是一个极简的 Harness，也至少会使用两种压缩策略来管理这个问题。</p><p>第一种是截断（clipping），用来缩短较长的文档片段、大型工具输出、记忆笔记和会话记录条目。换句话说，它可以防止某一段文字仅仅因为内容冗长，就占据整个提示词预算。</p><p>第二种策略是会话记录缩减或摘要（transcript reduction or summarization），把完整的会话历史——下一节会进一步介绍——转化成一份更短、可以放入提示词的摘要。</p><p>这里有一个关键技巧：保留近期事件的更多细节，因为它们更可能与当前步骤有关；对更早的事件则进行更激进的压缩，因为它们可能没那么相关。</p><p>此外，我们还会对较早读取的文件内容进行去重，避免仅仅因为同一个文件之前在会话中被多次读取，模型就不断看到相同内容。</p><p>总体而言，我认为，这是优秀编码 Agent 设计中一个被低估、也有些乏味的部分。许多看起来像是“模型质量”的差异，其实是上下文质量的差异。</p><h2 id="5-结构化会话记忆（Structured-Session-Memory）"><a href="#5-结构化会话记忆（Structured-Session-Memory）" class="headerlink" title="5. 结构化会话记忆（Structured Session Memory）"></a>5. 结构化会话记忆（Structured Session Memory）</h2><p>在实践中，本文讨论的这六个核心概念都高度交织在一起。不同章节和插图，只是在不同的重点或缩放层次上讨论它们。上一节介绍了如何在构建提示词时使用历史，以及如何构建压缩后的会话记录。那里的问题是：在下一轮中，应该把多少过去的信息重新送回模型？因此，重点是压缩、截断、去重和时效性。</p><p>而这一节的结构化会话记忆，关注的是历史信息在存储时的结构。这里的问题是：随着时间推移，Agent 会保留哪些内容作为永久记录？因此，重点是运行时会保留更完整的会话记录，作为持久状态；与此同时，还会维护一层更轻量的记忆。后者更小，会被修改和压缩，而不只是不断追加内容。</p><p>概括来说，编码 Agent 至少会把状态分成两层：</p><ul><li>工作记忆（working memory）：Agent 显式维护的一小份提炼后的状态。</li><li>完整会话记录（full transcript）：涵盖全部用户请求、工具输出和 LLM 回复。</li></ul><p><img src="https://substackcdn.com/image/fetch/$s_!xWhc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe58efdfb-9c19-42e8-a016-90b41b51ef15_2438x1346.png" alt="图 11"></p><p><em>图 11：新事件会追加到完整会话记录中，并被概括进工作记忆。磁盘上的会话文件通常以 JSON 文件的形式存储。</em></p><p>上图展示了两个主要的会话文件：完整会话记录与工作记忆。它们通常以 JSON 文件的形式保存在磁盘上。如前所述，完整会话记录保存整个历史，因此，即使关闭 Agent，也可以恢复会话。工作记忆则更像一个提炼后的版本，包含当前最重要的信息，与压缩后的会话记录有一定关联。</p><p>不过，压缩后的会话记录（compact transcript）和工作记忆，承担的职责略有不同。压缩后的会话记录用于重建提示词（prompt reconstruction）：它的任务是让模型获得近期历史的压缩视图，从而不必在每一轮都查看完整记录，也能继续对话。工作记忆则更侧重任务连续性（task continuity）：它的任务是维护一份简短、显式更新的摘要，保存跨轮次的重要内容，例如当前任务、重要文件和近期笔记。</p><p>在上图第 4 步之后，最新的用户请求、LLM 回复和工具输出，会在下一轮作为一个“新事件”，同时记录进完整会话记录和工作记忆中。为了避免上图过于杂乱，这一步没有画出来。</p><h2 id="6-使用有边界的子-Agent-进行委派（Delegation-With-Bounded-Subagents）"><a href="#6-使用有边界的子-Agent-进行委派（Delegation-With-Bounded-Subagents）" class="headerlink" title="6. 使用有边界的子 Agent 进行委派（Delegation With (Bounded) Subagents）"></a>6. 使用有边界的子 Agent 进行委派（Delegation With (Bounded) Subagents）</h2><p>当 Agent 具备工具和状态之后，接下来一个有用的能力就是委派（delegation）。</p><p>原因在于，我们可以借助子 Agent（subagents），把某些工作拆成子任务并行处理，从而加快主任务。例如，主 Agent 正在处理某项任务，但同时还需要知道一个旁支问题的答案：某个符号定义在哪个文件里、某个配置写了什么，或者某个测试为什么失败。把它拆成一个有明确边界的子任务很有帮助，而不必强迫同一个循环同时承载所有工作线索。</p><p>在我的 Mini Coding Agent 中，实现更简单，子 Agent 仍然是同步运行的，但基本思路相同。</p><p>子 Agent 只有继承足够的上下文，才能真正开展工作，因而才有价值。但如果不对其加以限制，就可能出现多个 Agent 重复劳动、修改相同文件，或继续生成更多子 Agent 等情况。</p><p>所以，棘手的设计问题不只是如何创建子 Agent，还包括如何给它设定边界。:)</p><p><img src="https://substackcdn.com/image/fetch/$s_!Ygjt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81b2ae42-ea42-40bf-b2ba-fdfcf9b87912_2438x990.png" alt="图 12"></p><p><em>图 12：子 Agent 继承足够多的上下文，以便发挥作用，但它运行时受到的边界约束，比主 Agent 更严格。</em></p><p>这里的技巧是，让子 Agent 继承足够的上下文，能够派上用场；同时，也对其施加限制，例如只读访问，以及限制递归深度。</p><p>Claude Code 支持子 Agent 已经很久了，Codex 则是在更近的时候加入了这项能力。Codex 通常不会强制子 Agent 进入只读模式；相反，它们往往会继承主 Agent 的大部分沙箱和审批设置。因此，这里的边界更多体现在任务范围、上下文和深度上。</p><h2 id="组件总结"><a href="#组件总结" class="headerlink" title="组件总结"></a>组件总结</h2><p>前面几节尝试介绍了编码 Agent 的主要组件。如前所述，在实现中，它们或多或少都会深度交织在一起。不过，我希望逐个介绍这些组件，有助于大家建立整体的心智模型，理解 Coding Harness 如何工作，以及为什么相比简单的多轮聊天，它能让 LLM 更有用。</p><p><img src="https://substackcdn.com/image/fetch/$s_!ml47!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4fe9e9f0-b04f-4c3e-be1f-fbd74b41c4aa_3396x971.png" alt="图 13"></p><p><em>图 13：前面几节讨论的 Coding Harness 的六项主要功能。</em></p><p>如果你有兴趣看看，如何用干净、极简的 Python 代码实现这些组件，也许会喜欢我的 <a href="https://github.com/rasbt/mini-coding-agent">Mini Coding Agent</a>。</p><h2 id="与-OpenClaw-相比如何？"><a href="#与-OpenClaw-相比如何？" class="headerlink" title="与 OpenClaw 相比如何？"></a>与 OpenClaw 相比如何？</h2><p>OpenClaw 可能是一个有意思的对比对象，但它并不完全属于同一类系统。</p><p>OpenClaw 更像是一个本地运行、同时也能编程的通用 Agent 平台，而不是一个专门的终端编程助手。</p><p>它与 Coding Harness 仍然有一些重叠：</p><ul><li>它会使用工作区中的提示词和指令文件，例如 <code>AGENTS.md</code>、<code>SOUL.md</code> 和 <code>TOOLS.md</code>。</li><li>它会保存 JSONL 会话文件，并提供会话记录压缩和会话管理功能。</li><li>它可以创建辅助会话和子 Agent。</li><li>等等。</li></ul><p>不过，如前所述，两者的侧重点不同。编码 Agent 针对的是这样一种场景：一个人在仓库中工作，要求编程助手高效地检查文件、编辑代码和运行本地工具。而 OpenClaw 更侧重于跨聊天、渠道和工作区，运行许多长期存续的本地 Agent；编程只是其中一项重要工作负载。</p>]]>
+    </content>
+    <id>https://prayerlaputa.com/2026/11/05/components-of-a-coding-agent/</id>
+    <link href="https://prayerlaputa.com/2026/11/05/components-of-a-coding-agent/"/>
+    <published>2026-11-04T16:00:00.000Z</published>
+    <summary>Sebastian Raschka 解析编码 Agent 的六大组件：实时仓库上下文、提示词与缓存复用、工具访问与使用、上下文膨胀控制、结构化会话记忆，以及有边界的子 Agent 委派，并与 OpenClaw 对比。</summary>
+    <title>【译】编码 Agent 的组成部分</title>
+    <updated>2026-11-05T13:05:07.803Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Prayer</name>
+    </author>
+    <category term="AI" scheme="https://prayerlaputa.com/categories/AI/"/>
     <category term="Claude" scheme="https://prayerlaputa.com/tags/Claude/"/>
+    <category term="AI Agent" scheme="https://prayerlaputa.com/tags/AI-Agent/"/>
     <category term="提示词" scheme="https://prayerlaputa.com/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D/"/>
     <category term="工作流" scheme="https://prayerlaputa.com/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
     <content>
@@ -66,7 +66,7 @@
     <published>2026-11-02T16:00:00.000Z</published>
     <summary>Felix Rieseberg 从 Speed、Altitude、Depth 和 Range 四个维度，分享如何更有雄心地使用 AI：提升目标的抽象层次，采用专家的方法深入问题，并引入跨领域视角。</summary>
     <title>【译】如何更有雄心：写给使用模型的人类的教程</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -85,7 +85,7 @@
     <published>2026-11-02T16:00:00.000Z</published>
     <summary>Addy Osmani 谈 Agent 工作流中的批判性思维：识别认知卸载与认知投降，建立验证习惯、审查决策与假设，并为最终交付承担责任。</summary>
     <title>【译】当 Agent 承担工作时，如何保持批判性思维</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -108,7 +108,7 @@
     <published>2026-10-14T16:00:00.000Z</published>
     <summary>从 AI Agent 的核心概念出发，整理开源教程、主流开发框架与低代码平台，并给出从概念理解、动手实践到工程化的入门学习路线。</summary>
     <title>AI Agent 入门指南：从零到一掌握智能体开发与实践</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -129,7 +129,7 @@
     <published>2026-09-12T16:00:00.000Z</published>
     <summary>面向普通投资者整理一份覆盖股票、债券、外汇的分阶段理财学习书单，从财商启蒙、基础实操到价值投资与风险认知，帮助建立更完整的投资知识框架。</summary>
     <title>股债汇全领域的投资理财知识学习</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -145,7 +145,7 @@
     <published>2021-01-10T16:00:00.000Z</published>
     <summary>以centos为例，下载jar包，tar -zxvf xxx解压后，进入activemq解压文件夹，执行./bin/activemq console即可在shell前端启动，想。</summary>
     <title>如何部署activemq以及部署时遇到的相关问题</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,7 +162,7 @@
     <published>2020-12-28T16:00:00.000Z</published>
     <summary>介绍 Spring Cloud Gateway 的核心组成、请求处理流程，以及作为业务网关时的基本使用思路。</summary>
     <title>Spring Cloud Gateway 基础</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -179,7 +179,7 @@
     <published>2020-12-09T16:00:00.000Z</published>
     <summary>记录 Maven 编译大型项目时常用的简化命令，适合在打包阶段跳过测试、javadoc、RAT 和 checkstyle 等非关键环节。</summary>
     <title>maven编译大型项目时简化编译过程的命令</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -196,7 +196,7 @@
     <published>2020-12-01T16:00:00.000Z</published>
     <summary>记录在 CentOS 7.5 下通过二进制包部署 MySQL 并启动多个实例的基本过程，适合需要隔离端口与数据目录的场景。</summary>
     <title>CentOS 下如何启动 MySQL 多实例</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -212,7 +212,7 @@
     <published>2020-11-26T16:00:00.000Z</published>
     <summary>记录使用 Sysbench 对 MySQL 进行基准测试的环境、常用命令与执行过程，适合做数据库性能摸底与简单对比。</summary>
     <title>使用 Sysbench 对 MySQL 进行基准测试</title>
-    <updated>2026-11-05T12:37:10.346Z</updated>
+    <updated>2026-11-05T13:05:07.803Z</updated>
   </entry>
   <entry>
     <author>
@@ -229,7 +229,7 @@
     <published>2020-11-24T16:00:00.000Z</published>
     <summary>解释为什么同一个类内部方法互调会绕过 Spring 代理，从而导致 @Transactional 等 AOP 注解失效，并给出常见解决方案。</summary>
     <title>Spring 中同类内部调用导致 AOP 失效的解决方案（如 @Transactional 失效）</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -246,7 +246,7 @@
     <published>2020-11-19T16:00:00.000Z</published>
     <summary>记录自定义注解中使用 @AliasFor 时容易踩到的取值问题，并说明如何通过 Spring 注解工具正确读取别名属性。</summary>
     <title>Spring 自定义注解使用 @AliasFor 时默认值无法被覆盖</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -262,7 +262,7 @@
     <published>2020-10-21T16:00:00.000Z</published>
     <summary>在raft中，服务器节点共有3种状态（或者说角色）：。</summary>
     <title>分布式一致性与共识之（一）Raft</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -280,7 +280,7 @@
     <published>2020-09-28T16:00:00.000Z</published>
     <summary>从服务注册、心跳处理、自我保护到集群同步，梳理 Eureka Server 的核心实现逻辑。</summary>
     <title>源码分析之 Eureka 服务端源码解析</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -298,7 +298,7 @@
     <published>2020-09-21T16:00:00.000Z</published>
     <summary>围绕 Eureka Client 的自动配置、服务注册、拉取注册表与心跳机制，梳理其核心源码实现。</summary>
     <title>源码分析之 Eureka 客户端源码解析</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -317,7 +317,7 @@
     <published>2020-09-20T16:00:00.000Z</published>
     <summary>围绕 ThreadPoolExecutor 的核心参数、运行机制与状态设计，梳理 Java 线程池的关键源码实现。</summary>
     <title>源码分析之 Java 线程池 ThreadPoolExecutor</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -335,7 +335,7 @@
     <published>2020-09-16T16:00:00.000Z</published>
     <summary>围绕 Spring Boot 如何借助 Spring Factories 机制完成自动注入与扩展加载，梳理其核心原理与执行流程。</summary>
     <title>源码分析之 Spring Boot 如何利用 Spring Factories 机制进行自动注入</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -352,7 +352,7 @@
     <published>2020-09-10T16:00:00.000Z</published>
     <summary>围绕 Kafka Consumer 的核心组件与消息拉取流程做源码分析，梳理从订阅、拉取到位移管理的关键细节。</summary>
     <title>源码分析之 Kafka Consumer 消费消息的过程</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
   <entry>
     <author>
@@ -369,6 +369,6 @@
     <published>2020-09-08T16:00:00.000Z</published>
     <summary>从 Reactor 模式切入，梳理 Netty 线程模型的演进思路、核心结构与设计要点。</summary>
     <title>源码分析之 Netty 线程模型</title>
-    <updated>2026-11-05T12:37:10.345Z</updated>
+    <updated>2026-11-05T13:05:07.802Z</updated>
   </entry>
 </feed>
